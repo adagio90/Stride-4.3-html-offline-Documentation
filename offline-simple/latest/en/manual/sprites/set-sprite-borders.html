@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Set sprite borders | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Set sprite borders | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/sprites/set-sprite-borders.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="set-sprite-borders">Set sprite borders</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p><strong>Sprite borders</strong> are areas that don't deform when you scale the sprite. These are often useful for sprites used for <a href="../ui/ui-libraries.html">UI elements</a> such as menu buttons. You can only set sprite borders for sprites set to the <strong>UI</strong> sheet type.</p>
+<table>
+<thead>
+<tr>
+<th>Original sprite</th>
+<th>Scaled without borders</th>
+<th>Scaled with borders</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/original-sprite.png" alt="Original sprite"></td>
+<td><img src="media/sprite-stretched-no-border.png" alt="With border"></td>
+<td><img src="media/sprite-stretched-with-border.png" alt="With border"></td>
+</tr>
+<tr>
+<td></td>
+<td>Edges are deformed</td>
+<td>Edges not deformed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-sprite-borders-1">Set sprite borders</h3>
+<ol>
+<li><p>In the Sprite Editor, make sure the <strong>sheet type</strong> is set to <strong>UI</strong>.</p>
+<p><img src="media/select-type-UI.png" alt="Choose UI"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This has no effect on how the sprite is rendered at runtime, but lets you set slightly different properties, including sprite borders.</p>
+</div>
+</li>
+<li><p>From the <strong>Sprites</strong> list, select the sprite you want to add sprite borders to.</p>
+</li>
+<li><p>Make sure the texture region for the sprite is correct. For information about how to do this, see <a href="edit-sprites.html">Edit sprites</a>.</p>
+<p><img src="media/select-starbox.png" alt="Select texture region"></p>
+</li>
+<li><p>In the Sprite Editor toolbar, select <strong>Sprite border resize</strong> tool.</p>
+<p><img src="media/border-resize-tool-icon.png" alt="Border resize tool"></p>
+</li>
+<li><p>Drag the sprite borders into position.</p>
+</li>
+</ol>
+<p>
+    <video autoplay loop class="responsive-video" poster="media\adjust-sprite-border.png">
+       <source src="media/adjust-sprite-border.mp4" type="video/mp4">
+    </video>
+</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, the sprite borders match the sprite texture region.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can zoom in and out using <strong>Ctrl + mousewheel</strong> to make precise selections.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>For fine-tune control over the sprite borders, adjusting one-by-one in the <strong>Property Grid</strong></p>
+<p><img src="media/adjust-sprite-border-from-property-grid.png" alt="Adjust sprite borders from Property grid"></p>
+</div>
+<h2 id="lock-the-sprite-borders">Lock the sprite borders</h2>
+<p>By default, sprite borders move as you resize the texture region. To stop this from happening, click <strong>Lock the sprite borders</strong> in the toolbar.</p>
+<p><img src="media/lock-icon.png" alt="Lock icon"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Sprite borders always stay inside the texture region.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="import-sprite-sheets.html">Import sprite sheets</a></li>
+<li><a href="edit-sprites.html">Edit sprites</a></li>
+<li><a href="use-sprites.html">Use sprites</a></li>
+<li><a href="../ui/index.html">UI</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/sprites/set-sprite-borders.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

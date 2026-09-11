@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Light probes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Light probes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/light-probes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="light-probes">Light probes</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Artist</span></p>
+<p><strong>Light probes</strong> capture the lighting at the position you place them. They simulate <strong>indirect light</strong>, the effect of light bouncing off surfaces and illuminating other surfaces. They can make a dramatic difference to the mood and appearance of your scene.</p>
+<p>
+<video autoplay loop class="responsive-video" poster="media/light_probes_640.jpg">
+   <source src="media/light_probes_640.mp4" type="video/mp4">
+</video>
+</p>
+<p>The screenshot below shows a <a href="point-lights.html">point light</a> surrounded by light probes in the Scene Editor. The probes form 3D areas (shown in the Scene Editor by the yellow wireframe connecting the probes).</p>
+<p><img src="media/light-probes-cornell.png" alt="Cornell box"></p>
+<p>Stride colors pixels within a light probe area to simulate the effect of light bouncing from nearby surfaces. To find a color for a given pixel, Stride interpolates from the lighting captured by the four surrounding light probes.</p>
+<p>For example, in the screenshot below, notice how the red of the wall is reflected on the other objects. In the Scene Editor, this is also visible on the surface of the light probes themselves.</p>
+<p><img src="media/light-probes-illumination.png" alt="Light probes — more reflection"></p>
+<p>Light probes affect all objects in the area they cover, including static and dynamic objects. You don't need to enable any extra options on the entities that light probes affect.</p>
+<h2 id="1-enable-light-probes-in-the-graphics-compositor">1. Enable light probes in the graphics compositor</h2>
+<p>Stride enables light probes by default in new projects. To make sure light probes are enabled:</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-asset.png" alt="Graphics Compositor asset"></p>
+<p>The graphics compositor editor opens.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-editor.png" alt="Graphics Compositor editor"></p>
+</li>
+<li><p>Select the <strong>forward renderer</strong> node.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), make sure the <strong>Light probes</strong> checkbox is selected.</p>
+<p><img src="media/enable-light-probes.png" alt="Enable light probes"></p>
+</li>
+</ol>
+<p>For more information about the graphics compositor, see the <a href="../graphics-compositor/index.html">Graphics compositor</a> page.</p>
+<h2 id="2-create-a-light-probe">2. Create a light probe</h2>
+<p>Right-click the scene or Entity Tree and select <strong>Light &gt; Light probe</strong>.</p>
+<p><img src="media/add-light-probe.png" alt="Add light probe"></p>
+<p>Alternatively, create an empty entity and add a <strong>Light probe component</strong> in the Property Grid.</p>
+<p><img src="media/add-light-probe-component.png" alt="Add light probe component"></p>
+<p>Light probes appear as spheres in the Scene Editor. Before you capture a light bounce for the first time, they have a completely black surface.</p>
+<p><img src="media/light-probes-black.jpg" alt="Light"></p>
+<h2 id="3-place-light-probes">3. Place light probes</h2>
+<p>Light probes must be placed in a way that creates a <strong>3D volume</strong>. This means:</p>
+<ul>
+<li><p>You need <strong>at least four light probes</strong> in the scene — enough to create the four points of a tetrahedron, as below:</p>
+<p><img src="media/light-probes-tetrahedron.png" alt="Tetrahedron"></p>
+</li>
+<li><p>At least one light probe must be on a different plane from the rest. For example, the probes in the screenshot below won't work, as they are on a flat plane and create no volume:</p>
+<p><img src="media/bad-light-probe-arrangement.png" alt="Flat probes"></p>
+</li>
+</ul>
+<p>A typical method is to place light probes in a grid across your scene covering a general area, as in the screenshots below:</p>
+<p><img src="media/light-probes-grid-layout.jpg" alt="Grid layout"></p>
+<p><img src="media/light-probes-in-editor.jpg" alt="Light probes in the editor"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can quickly duplicate light probes just like other entities. To do this, select a light probe, hold <strong>Ctrl</strong>, and move it with the mouse.</p>
+</div>
+<h2 id="4-capture-lighting">4. Capture lighting</h2>
+<ol>
+<li><p>In the Scene Editor toolbar, click the <strong>lighting options</strong> button to open the lighting options menu.</p>
+<p><img src="media/lighting-options-menu.png" alt="Lighting options"></p>
+</li>
+<li><p>Next to <strong>Bounces</strong>, set the number of light bounces you want to capture.</p>
+<p>Multiple bounces simulate the effect of light bouncing between surfaces multiple times. This generally has the effect of brightening the lighting. Three or four bounces should be enough; beyond this, changes are almost unnoticeable. The number of bounces has no impact on runtime performance.</p>
+</li>
+<li><p>To capture the lighting, click <strong>Compute</strong>.</p>
+<p>You can see the lighting on the surface of the light probes in the Scene Editor.</p>
+<p><img src="media/light-probes-illumination-on-surface.png" alt="Light probe surface"></p>
+</li>
+</ol>
+<h2 id="reset-light-probes">Reset light probes</h2>
+<p>To reset the light probes, in the <strong>lighting options</strong> menu, click <strong>Reset</strong>. This is useful after you change the lights in your scene and need to capture the lighting from scratch.</p>
+<p><img src="media/reset-light-probes.png" alt="Reset light probes"></p>
+<h2 id="show-and-hide-light-probes-in-the-scene-editor">Show and hide light probes in the Scene Editor</h2>
+<p>Under the <strong>gizmo options</strong> in the Scene Editor toolbar, use the <strong>Light probes</strong> checkbox.</p>
+<p><img src="media/light-probes-checkbox.png" alt="Hide light probes"></p>
+<h2 id="show-and-hide-light-probe-volumes-in-the-scene-editor">Show and hide light probe volumes in the Scene Editor</h2>
+<p>Under the <strong>gizmo options</strong> in the Scene Editor toolbar, use the <strong>Light probe volumes</strong> checkbox.</p>
+<p><img src="media/light-probe-volumes-checkbox.png" alt="Hide light probe volumes"></p>
+<p><img src="media/light-probe-wireframe-on.jpg" alt="Light probe volumes on and off"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="add-a-light.html">Add a light</a></li>
+<li><a href="point-lights.html">Point lights</a></li>
+<li><a href="ambient-lights.html">Ambient lights</a></li>
+<li><a href="directional-lights.html">Directional lights</a></li>
+<li><a href="skybox-lights.html">Skybox lights</a></li>
+<li><a href="spot-lights.html">Spot lights</a></li>
+<li><a href="shadows.html">Shadows</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/light-probes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

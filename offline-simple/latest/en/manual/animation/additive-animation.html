@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Additive animation | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Additive animation | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/additive-animation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="additive-animation">Additive animation</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p><strong>Additive animation</strong> is the process of combining animations using <strong>difference clips</strong> (also known as <strong>additive animation clips</strong>).</p>
+<p><img src="media/animations-additive-sample.gif" alt="Additive animations"></p>
+<p>In the example above, the leftmost animation is the <em>Walk</em> animation. The rightmost animation is the <em>Idle</em> animation. The two animations in the center are the <em>Walk</em> and <em>Idle</em> animations respectively, but have the <em>Reload</em> animation added to them.</p>
+<p>This means we only had to create three animations: <em>Walk</em>, <em>Idle</em>, and <em>Reload</em>. Additionally, we can add the <em>Reload</em> animation to other suitable animations (eg <em>Crouch</em>, <em>Strafe</em> or <em>Run</em>). This helps keep the memory budget and number of animations low.</p>
+<h2 id="difference-clips">Difference clips</h2>
+<p>A <strong>difference clip</strong> describes the difference between two animation clips: a <strong>source</strong> and a <strong>reference</strong>.</p>
+<p>Take the <em>Reload</em> animation above, which we want to add to other animation clips. This is our <strong>source</strong> clip (S). Because the <em>Reload</em> animation mainly involves the arms, it will blend well with animations that don't involve the arms (such as idling and crouching). We can use one of these animations — let's say the <em>Idle</em> animation — as our <strong>reference</strong> clip (R).</p>
+<p>Stride calculates the difference between the source and reference clips to create the <strong>difference clip</strong> (D). The difference clip encodes the difference between the source and reference clips. We can express it as D = S - R.</p>
+<p>We can use use the difference clip to blend the source and reference animations. We can also use the same difference clip to blend the source animation with <strong>other</strong> animations. If the animation you add it to is sufficiently similar to the original reference clip, then the animations blend effectively. For example, you could use it to add the reload animation to any animation that doesn't use the arms, such as crouching.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Additive animations should use the same skinned mesh and skeleton.</p>
+</div>
+<h3 id="create-a-difference-clip">Create a difference clip</h3>
+<ol>
+<li><p>In the <strong>Asset View</strong> (at the bottom by default), click <strong>Add asset</strong> and select <strong>Animations &gt; Animation</strong>. A browser dialog opens.</p>
+</li>
+<li><p>As we don't need a source for this animation, click <strong>Cancel</strong>.</p>
+<p>Game Studio asks if you want to create an animation without a source file.</p>
+<p><img src="media/create-animation-without-source-file.png" alt="Create animation without source file"></p>
+</li>
+<li><p>Click <strong>Yes</strong>. Game Studio adds a new empty animation asset to the Asset View.</p>
+</li>
+<li><p>Give the asset a name that makes it easy to identify. For example, if you want to make a reload animation that can be used with other animations, you could name the asset <em>ReloadAdditive</em>.</p>
+</li>
+<li><p>In the <strong>Asset View</strong> (bottom pane by default), select the animation asset you created.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), add the <strong>Source</strong> animation clip. This is the animation you want to apply to other animations.</p>
+<p><img src="media/animations-additive-animations-1.png" alt="Choose source file"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure you add the file that contains the animation itself (eg a model file such as .fbx), <strong>not</strong> the animation asset that references it. Animation files are usually saved in the <strong>Resources</strong> folder.</p>
+</div>
+</li>
+<li><p>Under <strong>Type</strong>, choose <strong>Difference Clip</strong>.</p>
+</li>
+<li><p>Under <strong>Reference</strong>, specify the animation you want to use as your <strong>reference clip</strong>. This is the animation Stride references to create a difference clip.</p>
+<p><img src="media/animations-additive-animations-2.png" alt="Choose reference file"></p>
+</li>
+<li><p>Choose the <strong>Mode</strong> from the drop-down menu.</p>
+<ul>
+<li><strong>Animation</strong> creates a difference clip from the entire source animation, referencing it frame by frame.</li>
+<li><strong>FirstFrame</strong> creates a difference clip from only the first frame of the source animation, as a still pose.</li>
+</ul>
+</li>
+<li><p>Next to <strong>Skeleton</strong>, specify a skeleton for the difference clip.</p>
+<p><img src="media/animations-additive-animations-3.png" alt="Choose skeleton"></p>
+<p>This should be a skeleton that works for all the animations you want to blend with the difference clip. In most cases, you should use the same skeleton you used for the source and reference animations.</p>
+</li>
+<li><p>If you want to <a href="preview-animations.html">Preview the animation</a> in the Asset Preview,
+specify a <strong>Preview model</strong> suitable for the animation.</p>
+<p><img src="media/animations-additive-animations-4.png" alt="Choose play mode"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The Asset Preview shows only the source animation you specify in the difference clip.</p>
+</div>
+</li>
+</ol>
+<h2 id="use-an-additive-animation">Use an additive animation</h2>
+<p>You can use additive animations with animations that use the same skeleton and skinned mesh.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), click <strong>Add asset</strong>.</p>
+</li>
+<li><p>Select <strong>Scripts &gt; Animation Start</strong>.</p>
+<p><img src="media/animations-additive-animations-animation-start.png" alt="Animation start"></p>
+<p><em>AnimationStart</em> is a startup script you can use to load animations into your model, including additive animations. For more information, see <a href="animation-scripts.html">Animation scripts</a>.</p>
+</li>
+<li><p>Recompile your project to apply the changes.</p>
+</li>
+<li><p>In the <strong>scene view</strong>, select the entity you want to animate.</p>
+<p><img src="media/animations-use-3d-animations-select-entity.png" alt="Select an entity"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To animate an entity, the entity must have a model component.</p>
+</div>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and choose <strong>Animations</strong>.</p>
+<p><img src="media/animations-use-3d-animations-add-animation-component.png" alt="Add animation component"></p>
+<p>Game Studio adds an animation component to the entity.</p>
+</li>
+<li><p>Click <strong>Add component</strong> and choose the <strong>Animation Start</strong> script.</p>
+<p><img src="media/add-animation-start-script.png" alt="Add animation start script"></p>
+<p>The script lets you customize a list of animations to be loaded into your entity.</p>
+</li>
+<li><p>In the <strong>Animation Start</strong> properties, next to <strong>Animations</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="media/add-animation-to-list.png" alt="Add animation to the list"></p>
+</li>
+<li><p>Next to <strong>Clip</strong>, specify the <strong>source</strong> animation you set in the difference clip.</p>
+<p><img src="media/specify-clip-1.png" alt="Specify source"></p>
+</li>
+<li><p>Next to <strong>Add to Animations</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+</li>
+<li><p>Expand the animation properties. Next to <strong>Clip</strong>, specify the <strong>reference</strong> animation you set in the difference clip.</p>
+<p><img src="media/specify-clip-2.png" alt="Specify source"></p>
+</li>
+<li><p>Under <strong>Blend Operation</strong>, select <strong>Additive</strong>.</p>
+<p><img src="media/type-additive.png" alt="Specify source"></p>
+</li>
+<li><p>Repeat the steps to add as many animations as you need.</p>
+<p><img src="media/animations-additive-animations-start2.png" alt="Animation start"></p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Animation index</a></li>
+<li><a href="import-animations.html">Import animations</a></li>
+<li><a href="animation-properties.html">Animation properties</a></li>
+<li><a href="set-up-animations.html">Set up animations</a></li>
+<li><a href="preview-animations.html">Preview animations</a></li>
+<li><a href="animation-scripts.html">Animation scripts</a></li>
+<li><a href="procedural-animation.html">Procedural animation</a></li>
+<li><a href="custom-blend-trees.html">Custom blend trees</a></li>
+<li><a href="custom-attributes.html">Custom attributes</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/additive-animation.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Logging | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Logging | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/troubleshooting/logging.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="logging">Logging</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>You can <strong>log</strong> information about your game while it runs using <a class="xref" href="../../api/Stride.Engine.ScriptComponent.html#Stride_Engine_ScriptComponent_Log">Log</a>.</p>
+<p>Unlike <a href="profiling.html">profiling</a>, which retrieves information automatically, it's up to you to create your own log messages and define when they're triggered. For example, you can create a log message that triggers when a character performs a certain action. This is useful to investigate how your game is performing.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Logging is disabled when you build the game in release mode.</p>
+</div>
+<p>When you use logging and run your game in debug mode, Stride opens a console in a second window to display logging information. The messages are color-coded by level.
+The name of the module (such as the script containing the log message) is displayed in brackets. This is followed by the log level (eg <strong>Warning</strong>, <strong>Error</strong>, etc), then the log message.</p>
+<p><img src="media/logging-in-console.png" alt="Logging in console"></p>
+<p>The console displays log messages from all modules, not just your own scripts. For example, it also displays messages from the <a class="xref" href="../../api/Stride.Core.Serialization.Contents.ContentManager.html">ContentManager</a>.</p>
+<p>If you run your game from Visual Studio, log messages are shown in the Visual Studio <strong>Output</strong> window instead.</p>
+<p><img src="media/log-output-in-visual-studio.png" alt="Log output window"></p>
+<h2 id="log-levels">Log levels</h2>
+<p>There are six levels of log message, used for different levels of severity.</p>
+<table>
+<thead>
+<tr>
+<th>Log level</th>
+<th>Color</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Debug</td>
+<td>Gray</td>
+<td>Step-by-step information for advanced debugging purposes</td>
+</tr>
+<tr>
+<td>Verbose</td>
+<td>White</td>
+<td>Detailed information</td>
+</tr>
+<tr>
+<td>Info</td>
+<td>Green</td>
+<td>General information</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>Yellow</td>
+<td>Minor errors that might cause problems</td>
+</tr>
+<tr>
+<td>Error</td>
+<td>Red</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td>Fatal</td>
+<td>Red</td>
+<td>Serious errors that crash the game</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the log displays messages for the level <strong>Info</strong> and higher. This means it doesn't display <strong>Debug</strong> or <strong>Verbose</strong> messages. To change this, see <strong>Set the minimum level</strong> below.</p>
+<h2 id="write-a-log-message">Write a log message</h2>
+<p>In the script containing code you want to log, write:</p>
+<pre><code class="lang-cs">Log.Debug(&quot;My log message&quot;);
+</code></pre>
+<p>You can replace <code>Debug</code> with the level you want to use for the log message (see <strong>Log levels</strong> above).</p>
+<p>You can combine this with <code>if</code> statements to log this message under certain conditions (see <strong>Example script</strong> below).</p>
+<h2 id="set-the-log-level">Set the log level</h2>
+<p>You can set a minimum log level to display. For example, if you only want to see messages as severe as <strong>Warning</strong> or higher, use:</p>
+<pre><code class="lang-cs">Log.ActivateLog(LogMessageType.Warning);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This isn't a global setting. The log level you set only applies to the script you set it in.</p>
+</div>
+<h3 id="change-the-log-level-at-runtime">Change the log level at runtime</h3>
+<pre><code class="lang-cs">((Game)Game).ConsoleLogLevel = LogMessageType.myLogLevel;
+</code></pre>
+<h3 id="disable-a-specific-log">Disable a specific log</h3>
+<pre><code class="lang-cs">GlobalLogger.GetLogger(&quot;RouterClient&quot;).ActivateLog(LogMessageType.Debug, LogMessageType.Fatal, false); 
+// Disables logging of the RouterClient module
+</code></pre>
+<h3 id="disable-logging-in-the-console">Disable logging in the console</h3>
+<pre><code class="lang-cs">((Game)Game).ConsoleLogMode = ConsoleLogMode.None;
+</code></pre>
+<h3 id="create-a-log-file">Create a log file</h3>
+<p>To save the log output to a text file, add this code to the <code>Start</code> method:</p>
+<pre><code class="lang-cs">var fileWriter = new TextWriterLogListener(new FileStream(&quot;myLogFile.txt&quot;, FileMode.Create));
+GlobalLogger.GlobalMessageLogged += fileWriter;
+</code></pre>
+<p>This creates a file in the Debug folder of your project (eg <em>MyGame\MyGame\Bin\Windows\Debug\myLogFile.txt</em>).</p>
+<h2 id="example-script">Example script</h2>
+<p>The following script checks that the texture <code>MyTexture</code> is loaded. When the texture loads, the log displays a debug message (<code>Log.Debug</code>). If it doesn't load, the log records an error message (<code>Log.Error</code>).</p>
+<pre><code class="lang-cs">using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Stride.Core.Diagnostics;
+using Stride.Core.Mathematics;
+using Stride.Input;
+using Stride.Engine;
+using Stride.Graphics;
+
+namespace MyGame
+{
+    public class Script : SyncScript
+    {
+		public Texture myTexture;
+
+        public override void Start()
+        {
+            // Initialization of the script.
+            Log.ActivateLog(LogMessageType.Debug);
+            Log.Debug(&quot;Start loading MyTexture&quot;);
+
+            myTexture = Content.Load&lt;Texture&gt;(&quot;MyTexture&quot;);
+            if (myTexture == null)
+            {
+                Log.Error(&quot;MyTexture not loaded&quot;);
+            }
+            else
+            {
+                Log.Debug(&quot;MyTexture loaded successfully&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="debug-text.html">Debug text</a></li>
+<li><a href="profiling.html">Profiling</a></li>
+<li><a href="../scripts/index.html">Scripts</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/troubleshooting/logging.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

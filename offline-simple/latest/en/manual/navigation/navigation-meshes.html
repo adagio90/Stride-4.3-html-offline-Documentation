@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Navigation meshes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Navigation meshes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/navigation/navigation-meshes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="navigation-meshes">Navigation meshes</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Level designer</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Navigation meshes</strong> form the area that entities with navigation components can navigate. Stride creates a layer in the navigation mesh for each <a href="navigation-groups.html">navigation group</a> you create.</p>
+<p>Game Studio displays navigation meshes as colored overlays in your scene. The overlay shows where entities in the navigation group for that layer can move. The mesh updates in real time as you edit your scene.</p>
+<p>
+<video autoplay loop class="responsive-video" poster="media/withOutlineAE.jpg">
+   <source src="media/withOutlineAE.mp4" type="video/mp4">
+</video>
+</p>
+<h2 id="create-a-navigation-mesh">Create a navigation mesh</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong> (bottom by default), click <strong>Add asset &gt; Scenes &gt; Navigation mesh</strong>.</p>
+<p><img src="media/add-navigation-mesh.png" alt="Select Game Settings asset"></p>
+<p>Game Studio adds a <strong>navigation mesh asset</strong> to your project.</p>
+<p><img src="media/navigation-mesh-in-asset-view.png" alt="Navigation mesh asset"></p>
+</li>
+<li><p>With the navigation mesh selected in the <strong>Asset View</strong>, in the <strong>Property Grid</strong>, set the <strong>scene</strong> the navigation meshes in this asset apply to.</p>
+<p><img src="media/navigation-mesh-properties.png" alt="Set navigation mesh properties"></p>
+<p>For more information about scenes, see <a href="../game-studio/scenes.html">Scenes</a>.</p>
+</li>
+<li><p>Under <strong>Selected groups</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p>Game Studio adds a new item to the list of groups.</p>
+<p><img src="media/add-navigation-group-to-navigation-mesh.png" alt="Add navigation group to navigation mesh"></p>
+</li>
+<li><p>Click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and choose a group from the drop-down menu.</p>
+<p><img src="media/choose-navigation-group-in-navigation-mesh.png" alt="Choose navigation group"></p>
+<p>Stride builds a layer in the navigation mesh for this group. For more information about groups, including how to create them, see <a href="navigation-groups.html">Navigation groups</a>.</p>
+</li>
+<li><p>Repeat steps 3 and 4 for as many groups as you want to use the navigation mesh.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you want to create a navigation mesh for a different scene, create another navigation mesh asset and select the scene in the asset properties.</p>
+</div>
+</li>
+</ol>
+<h2 id="navigation-mesh-properties">Navigation mesh properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene</td>
+<td>The scene this navigation mesh applies to</td>
+</tr>
+<tr>
+<td>Included collision groups</td>
+<td>Set which collision groups the navigation mesh uses. By default, meshes use all collision groups</td>
+</tr>
+<tr>
+<td>Build settings</td>
+<td>Advanced settings for the navigation mesh</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>The groups that use this navigation mesh</td>
+</tr>
+</tbody>
+</table>
+<h2 id="show-or-hide-a-navigation-mesh-in-the-scene-editor">Show or hide a navigation mesh in the Scene Editor</h2>
+<p>Use the <strong>navigation visibility</strong> menu in the Scene Editor toolbar.</p>
+<p><img src="media/navigation-group-visibility.png" alt="Navigation group visibility"></p>
+<p>To show or hide layers belonging to different groups, use the checkboxes. The colored boxes indicate the color of the groups displayed in the Scene Editor.</p>
+<table>
+<thead>
+<tr>
+<th>Navigation mesh hidden</th>
+<th>Navigation mesh shown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/navigation-mesh-invisible.jpg" alt="Bounding box shown"></td>
+<td><img src="media/navigation-mesh-visible.jpg" alt="Bounding box hidden"></td>
+</tr>
+</tbody>
+</table>
+<p>These options have no effect on runtime behavior.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="navigation-groups.html">Navigation groups</a></li>
+<li><a href="navigation-bounding-boxes.html">Navigation bounding boxes</a></li>
+<li><a href="navigation-components.html">Navigation components</a></li>
+<li><a href="dynamic-navigation.html">Dynamic navigation</a></li>
+<li><a href="../game-studio/scenes.html">Scenes</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/navigation/navigation-meshes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Skyboxes and backgrounds | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Skyboxes and backgrounds | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/skyboxes-and-backgrounds.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="skyboxes-and-backgrounds">Skyboxes and backgrounds</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Skyboxes</strong> are backgrounds that create the illusion of space and distance. Typical skybox backgrounds include skies, clouds, mountains, and other scenery. As skyboxes are prerendered, they require little GPU and CPU.</p>
+<p>You can use <strong>cubemaps</strong> or <strong>360° panoramic textures</strong> as skyboxes. You can also <a href="../lights-and-shadows/skybox-lights.html">use them to light the scene</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, Stride doesn't support skydomes or local skyboxes.</p>
+</div>
+<p>Alternatively, you can display a <strong>2D background</strong>, which is often useful for 2D games.</p>
+<h2 id="cubemaps">Cubemaps</h2>
+<p>A <strong>cubemap</strong> is a six-sided texture. When these textures are assembled in a cube around the scene, the cubemap simulates spacious 3D surroundings.</p>
+<p><img src="media/cubemap-cross.jpg" alt="Distant planet skybox"></p>
+<p><img src="media/skybox-assembled.jpg" alt="Merged skybox"></p>
+<p>Currently, Game Studio can't convert image files to cubemaps (<code>.dds</code> files). Use another application to create a cubemap from separate image files, such as:</p>
+<ul>
+<li><a href="https://developer.nvidia.com/nvidia-texture-tools-adobe-photoshop">Nvidia conversion tool</a></li>
+<li><a href="http://developer.amd.com/tools-and-sdks/archive/games-cgi/cubemapgen">ATI conversion tool</a></li>
+</ul>
+<h3 id="create-a-cubemap-in-game-studio">Create a cubemap in Game Studio</h3>
+<p>You can capture a cubemap from a position in your scene.</p>
+<ol>
+<li><p>In the <strong>scene editor</strong>, position the camera at the point where you want to capture the cubemap. The direction the camera faces doesn't matter, only the position.</p>
+<p>Typically, you should capture cubemaps at the center of your scene to create the best all-round view.</p>
+</li>
+<li><p>In the scene editor toolbar, open the <strong>Lighting options</strong> menu.</p>
+<p><img src="../lights-and-shadows/media/lighting-options-menu.png" alt="Lighting options"></p>
+</li>
+<li><p>Under <strong>Cubemap</strong>, click <strong>Generate</strong>.</p>
+</li>
+<li><p>Browse to the location on disk you want to save the cubemap, specify a name, and click <strong>Save</strong>.</p>
+</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>We recommend you save the cubemap in your project <strong>Resources</strong> folder. For more information, see <a href="../../files-and-folders/version-control.html">Organize your files in version control</a>.</p>
+</div>
+<p>Game Studio creates a cubemap <code>.dds</code> file in the location you specified.</p>
+<h2 id="360-panoramic-textures">360° panoramic textures</h2>
+<p>Instead of using a cubemap, you can use a <strong>360° panoramic texture</strong> as a 3D background.</p>
+<table>
+<thead>
+<tr>
+<th>360° panorama</th>
+<th>Appearance in game</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/MyPanorama.jpg" alt="Panorama texture"></td>
+<td><img src="media/panorama-in-game.jpg" alt="Panorama in game"></td>
+</tr>
+</tbody>
+</table>
+<p><em>Image courtesy of <a href="http://texturify.com">Texturify</a></em></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Remember that <a href="../post-effects/index.html">post effects</a> affect the appearance of your skybox. If it doesn't look how you expect, try changing your post effect settings.</p>
+</div>
+<h2 id="add-a-cubemap-or-360-panoramic-texture-to-the-project">Add a cubemap or 360° panoramic texture to the project</h2>
+<p>You add these like other color textures.</p>
+<ul>
+<li><p>In the <strong>Asset View</strong>, click <img src="../lights-and-shadows/media/engine-skybox-add-new-asset-button.png" alt="Add asset">, select <strong>Textures</strong> &gt; <strong>Color texture</strong>, and browse to the file.</p>
+<p><img src="media/engine-skybox-select-asset-type.png" alt="Select texture as asset type"></p>
+</li>
+<li><p>Alternatively, drag and drop the file from <strong>Windows Explorer</strong> to the <strong>Asset View</strong>, then select <strong>Color texture</strong>.</p>
+<p><img src="media/drag-texture.gif" alt="Drag and drop background texture"></p>
+</li>
+</ul>
+<h3 id="create-a-skybox">Create a skybox</h3>
+<p>To create a skybox, add a cubemap or 360° panoramic texture to a <strong>background component</strong>.</p>
+<p>Stride includes an entity with a background component in the project by default. Only one background can be active in a scene at a time. If there are multiple backgrounds, Stride only loads the first.</p>
+<p>You can add background components to as many entities as you need. You might want to include more than one background, for example, if you want to switch skyboxes at runtime.</p>
+<h4 id="add-a-background-entity">Add a background entity</h4>
+<ol>
+<li><p>In the <strong>Scene view</strong>, select the entity you want to add the component to.</p>
+<p>This can be an empty entity. Its position in the scene doesn't matter.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select <strong>Background</strong>.</p>
+<p><img src="media/engine-skybox-add-background-component.png" alt="Add background component"></p>
+</li>
+<li><p>Under <strong>Texture</strong>, select the cubemap or 360° panoramic texture you want to use in the skybox.</p>
+<p><img src="media/engine-skybox-background-component-properties.png" alt="Background component properties"></p>
+</li>
+</ol>
+<h2 id="use-a-skybox-as-a-light-source">Use a skybox as a light source</h2>
+<p>You can use a skybox to light the scene. Stride analyzes the skybox texture and generates lighting using <a href="https://en.wikipedia.org/wiki/Image-based_lighting">image-based lighting (Wikipedia)</a>. For more information, see <a href="../lights-and-shadows/skybox-lights.html">Skybox lights</a>.</p>
+<h2 id="change-the-skybox-at-runtime">Change the skybox at runtime</h2>
+<p>The following code changes the cubemap in a background:</p>
+<pre><code class="lang-cs">public Texture cubemapTexture;
+public void ChangeBackgroundParameters()
+{
+    // Get the background component from an entity
+	var background = directionalLight.Get&lt;BackgroundComponent&gt;();
+
+	// Replace the existing background
+	background.Texture = cubemapTexture;
+
+	// Change the background intensity
+	background.Intensity = 1.5f;
+}
+</code></pre>
+<h3 id="convert-cubemaps-to-panoramas-and-vice-versa">Convert cubemaps to panoramas and vice versa</h3>
+<p>Various tools exist to convert a panoramas to cubemaps and vice versa, including:</p>
+<ul>
+<li><a href="http://gonchar.me/blog/goncharposts/2150">Panorama Converter</a></li>
+<li><a href="https://jaxry.github.io/panorama-to-cubemap/">Panorama to Cubemap</a></li>
+<li><a href="https://www.360toolkit.co/convert-cubemap-to-spherical-equirectangular.html">Convert Cubemap to Equirectangular</a></li>
+</ul>
+<h2 id="set-a-2d-background">Set a 2D background</h2>
+<p>Instead of using a 3D skybox, you can display the texture as a static background. This displays the texture as a flat image that stays static no matter how you move the camera. This is often useful for 2D games.</p>
+<p>To do this, in the <strong>Background</strong> component properties, select <strong>2D background</strong>.</p>
+<p><img src="media/is-2d.png" alt="Background component properties"></p>
+<p>If you enable this with a cubemap, Stride uses the first face of the cubemap as the background.</p>
+<h2 id="use-a-video-as-a-skybox">Use a video as a skybox</h2>
+<p>For details, see <a href="../../video/use-a-video-as-a-skybox.html">Videos - Use a video as a skybox</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../lights-and-shadows/skybox-lights.html">Skybox lights</a></li>
+<li><a href="../lights-and-shadows/index.html">Lights and shadows</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/skyboxes-and-backgrounds.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

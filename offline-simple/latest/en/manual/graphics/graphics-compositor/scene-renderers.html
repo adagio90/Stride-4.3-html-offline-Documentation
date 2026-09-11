@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Scene renderers | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Scene renderers | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/scene-renderers.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="scene-renderers">Scene renderers</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p><strong>Scene renderers</strong> let you customize the <strong>collect</strong> and <strong>draw</strong> phases of the rendering. For more information about these stages, see <a href="../rendering-pipeline/render-features.html">Render features</a>.</p>
+<p>You select scene renderers in the <strong>entry points</strong> node properties.</p>
+<p><img src="media/connect-entry-point.png" alt="Select renderer"></p>
+<p>For more information about selecting renderers, see the <a href="index.html">Graphics compositor</a> page.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, <strong>all</strong> renderers must have a camera, or be a child of a renderer that has a camera. This applies even to renderers that don't necessarily use cameras, such as the single stage renderer (eg to render a UI).</p>
+</div>
+<h2 id="clear">Clear</h2>
+<p>Clears a frame, with a solid color.</p>
+<p><img src="media/clear-renderframe-1.png" alt="Clear properties"></p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear flags</td>
+<td><br><p>What to clear in the render frame (<strong>Color only</strong>, <strong>Depth only</strong>, or <strong>Color and depth</strong>)</p></td>
+</tr>
+<tr>
+<td>Color</td>
+<td>The color used to clear the color texture of the render frame. Only valid when <strong>Clear Flags</strong> is set to <strong>Color</strong> or <strong>Color and depth</strong></td>
+</tr>
+<tr>
+<td>Depth value</td>
+<td>The depth value used to clear the depth texture of the render frame</td>
+</tr>
+<tr>
+<td>Stencil value</td>
+<td>The stencil value used to clear the stencil texture of the render frame</td>
+</tr>
+</tbody>
+</table>
+<h2 id="camera-renderer">Camera renderer</h2>
+<p>Uses <a class="xref" href="../../../api/Stride.Rendering.Compositing.SceneCameraRenderer.html#Stride_Rendering_Compositing_SceneCameraRenderer_Child">Child</a> to render a view from a <a href="../cameras/camera-slots.html">camera slot</a>. The <strong>render camera</strong> renderer takes the input from a <a href="../cameras/index.html">camera</a> in the scene so it can be displayed somewhere.</p>
+<p><img src="media/render-camera-1.png" alt="Camera renderer properties"></p>
+<h3 id="properties-1">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Camera</td>
+<td>Specify a <a href="../cameras/camera-slots.html">camera slot</a> to render from</td>
+</tr>
+<tr>
+<td>Child</td>
+<td>Specify a renderer for the camera (eg a forward renderer or a custom renderer)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scene-renderer-collection">Scene renderer collection</h2>
+<p>The <strong>scene renderer collection</strong> executes multiple renderers (eg camera renderer, render texture, etc) in sequence. This lets you set multiple renderers for an entry point. You can add as many renderers to the collection as you need.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Stride executes the renderers in list order.</p>
+</div>
+<p>To add a renderer to the collection, next to <strong>Children</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select the renderer you want to add.</p>
+<p><img src="media/add-renderer-to-scene-renderer-collection.png" alt="Add to scene collection"></p>
+<h2 id="forward-renderer">Forward renderer</h2>
+<p>In a typical setup, the <strong>forward renderer</strong> renders almost everything in your scene. It renders, in order:</p>
+<ol>
+<li>opaque objects</li>
+<li>transparent objects</li>
+<li><a href="../post-effects/index.html">post effects</a></li>
+</ol>
+<p>The forward renderer is also where you set VR options. For more information, see <a href="../../virtual-reality/index.html">Virtual reality</a>.</p>
+<p>You configure the forward renderer properties in the <strong>forward entry node</strong>.</p>
+<h2 id="single-stage-renderer">Single stage renderer</h2>
+<p><img src="media/single-stage-renderer.png" alt="Single stage renderer"></p>
+<h2 id="force-aspect-ratio-scene-renderer">Force aspect ratio scene renderer</h2>
+<p>Uses <a class="xref" href="../../../api/Stride.Rendering.Compositing.ForceAspectRatioSceneRenderer.html">ForceAspectRatioSceneRenderer</a> to force an aspect ratio and applies a letterbox if the ratio is different from the screen. Use this before the <strong>render camera</strong>.</p>
+<p><img src="media/force-aspect-ratio-properties.png" alt="Force aspect ratio"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Child</td>
+<td>Specify a renderer for the camera (eg a forward renderer or a custom renderer)</td>
+</tr>
+<tr>
+<td>Fixed aspect ratio</td>
+<td>The aspect ratio to force the view to</td>
+</tr>
+<tr>
+<td>Force aspect ratio</td>
+<td>Enable forced aspect ratio</td>
+</tr>
+</tbody>
+</table>
+<h2 id="render-texture">Render texture</h2>
+<p>Renders to a render texture, which you can display in your scene (eg to display security camera footage on a screen). For more information, see <a href="render-textures.html">Render textures</a>.</p>
+<p><img src="media/render-texture-scene-renderer-properties.png" alt="Render texture properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Child</td>
+<td>Specify a renderer for the camera (eg a forward renderer or a custom renderer)</td>
+</tr>
+<tr>
+<td>Render texture</td>
+<td>Specify a texture to render to</td>
+</tr>
+</tbody>
+</table>
+<h2 id="render-mask">Render mask</h2>
+<p><img src="media/change-render-mask.png" alt="Render mask"></p>
+<p>The <strong>render mask</strong> filters which groups are rendered. You can use it to only render particular models. For more information, see <a href="render-groups-and-masks.html">Render groups and render masks</a></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Graphics compositor</a></li>
+<li><a href="../cameras/camera-slots.html">Camera slots</a></li>
+<li><a href="custom-scene-renderers.html">Custom scene renders</a></li>
+<li><a href="debug-renderers.html">Debug renderers</a></li>
+<li><a href="render-groups-and-masks.html">Render groups and render masks</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/scene-renderers.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

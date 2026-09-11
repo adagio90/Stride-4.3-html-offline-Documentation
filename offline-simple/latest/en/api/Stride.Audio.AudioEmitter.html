@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AudioEmitter | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AudioEmitter | Stride API ">
+      
+      <meta name="description" content="Represents a 3D audio emitter in the audio scene. This object, used in combination with an , can simulate 3D audio localization effects for a given sound implementing the  interface. For more details take a look at the  function.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Audio_AudioEmitter.md&amp;value=---%0Auid%3A%20Stride.Audio.AudioEmitter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Audio.AudioEmitter">
+
+
+
+  <h1 id="Stride_Audio_AudioEmitter" data-uid="Stride.Audio.AudioEmitter" class="text-break">
+Class AudioEmitter  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Audio.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a 3D audio emitter in the audio scene.
+This object, used in combination with an <a class="xref" href="Stride.Audio.AudioListener.html">AudioListener</a>, can simulate 3D audio localization effects for a given sound implementing the <a class="xref" href="Stride.Audio.IPositionableSound.html">IPositionableSound</a> interface.
+For more details take a look at the <a class="xref" href="Stride.Audio.IPositionableSound.html#Stride_Audio_IPositionableSound_Apply3D_Stride_Audio_AudioEmitter_">Apply3D(AudioEmitter)</a> function.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AudioEmitter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AudioEmitter</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Audio_AudioEmitter__ctor_" data-uid="Stride.Audio.AudioEmitter.#ctor*"></a>
+
+  <h3 id="Stride_Audio_AudioEmitter__ctor" data-uid="Stride.Audio.AudioEmitter.#ctor">
+  AudioEmitter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Audio.AudioEmitter.html">AudioEmitter</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioEmitter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Audio_AudioEmitter_Position" data-uid="Stride.Audio.AudioEmitter.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position of the emitter in the 3D world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Position</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Audio_AudioEmitter_Velocity" data-uid="Stride.Audio.AudioEmitter.Velocity">
+  Velocity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The velocity of the emitter in the 3D world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Velocity</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Stride_Audio_AudioEmitter_Velocity_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is only used to calculate the doppler effect on the sound effect</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Audio_AudioEmitter_Forward_" data-uid="Stride.Audio.AudioEmitter.Forward*"></a>
+
+  <h3 id="Stride_Audio_AudioEmitter_Forward" data-uid="Stride.Audio.AudioEmitter.Forward">
+  Forward
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the forward orientation vector for this emitter. This vector represents the orientation the emitter is looking at.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Forward { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Audio_AudioEmitter_Forward_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>By default, this value is (0,0,1).</p>
+<p>The value provided will be normalized if it is not already.</p>
+<p>The values of the Forward and Up vectors must be orthonormal (at right angles to one another). 
+Behavior is undefined if these vectors are not orthonormal.</p>
+<p>Doppler and Matrix values between an <see name="AudioEmitter"></see> and an <a class="xref" href="Stride.Audio.AudioEmitter.html">AudioEmitter</a> are effected by the emitter orientation.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The value provided to the set accessor is (0,0,0) or <a class="xref" href="Stride.Audio.AudioEmitter.html#Stride_Audio_AudioEmitter_Up">Up</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Audio_AudioEmitter_Up_" data-uid="Stride.Audio.AudioEmitter.Up*"></a>
+
+  <h3 id="Stride_Audio_AudioEmitter_Up" data-uid="Stride.Audio.AudioEmitter.Up">
+  Up
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Up orientation vector for this emitter. This vector up of the world for the emitter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Up { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Audio_AudioEmitter_Up_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>By default, this value is (0,1,0).</p>
+<p>The value provided will be normalized if it is not already.</p>
+<p>The values of the Forward and Up vectors must be orthonormal (at right angles to one another). 
+Behavior is undefined if these vectors are not orthonormal.</p>
+<p>Doppler and Matrix values between an <see name="AudioEmitter"></see> and an <a class="xref" href="Stride.Audio.AudioEmitter.html">AudioEmitter</a> are effected by the emitter orientation.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The value provided to the set accessor is (0,0,0).</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="Stride.Audio.IPositionableSound.html#Stride_Audio_IPositionableSound_Apply3D_Stride_Audio_AudioEmitter_">Apply3D</a>(<a class="xref" href="Stride.Audio.AudioEmitter.html">AudioEmitter</a>)</div>
+      <div><a class="xref" href="Stride.Audio.AudioListener.html">AudioListener</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/AudioEmitter.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VirtualFileSystem | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VirtualFileSystem | Stride API ">
+      
+      <meta name="description" content="Virtual abstraction over a file system. It handles access to files, http, packages, path rewrite, etc...">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_IO_VirtualFileSystem.md&amp;value=---%0Auid%3A%20Stride.Core.IO.VirtualFileSystem%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.IO.VirtualFileSystem">
+
+
+
+  <h1 id="Stride_Core_IO_VirtualFileSystem" data-uid="Stride.Core.IO.VirtualFileSystem" class="text-break">
+Class VirtualFileSystem  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.IO.html">IO</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.IO.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Virtual abstraction over a file system.
+It handles access to files, http, packages, path rewrite, etc...</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class VirtualFileSystem</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">VirtualFileSystem</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_AllDirectorySeparatorChars" data-uid="Stride.Core.IO.VirtualFileSystem.AllDirectorySeparatorChars">
+  AllDirectorySeparatorChars
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly char[] AllDirectorySeparatorChars</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_AltDirectorySeparatorChar" data-uid="Stride.Core.IO.VirtualFileSystem.AltDirectorySeparatorChar">
+  AltDirectorySeparatorChar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly char AltDirectorySeparatorChar</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationBinary" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationBinary">
+  ApplicationBinary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application binary folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationBinary</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationCache" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationCache">
+  ApplicationCache
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application cache folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationCache</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationData" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationData">
+  ApplicationData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application data file provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationData</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationDatabase" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationDatabase">
+  ApplicationDatabase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application database file provider (Index level).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationDatabase</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationDatabaseIndexName" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationDatabaseIndexName">
+  ApplicationDatabaseIndexName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string ApplicationDatabaseIndexName</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationDatabaseIndexPath" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationDatabaseIndexPath">
+  ApplicationDatabaseIndexPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string ApplicationDatabaseIndexPath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationDatabasePath" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationDatabasePath">
+  ApplicationDatabasePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string ApplicationDatabasePath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationLocal" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationLocal">
+  ApplicationLocal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application user local folder. Included in backup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationLocal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationObjectDatabase" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationObjectDatabase">
+  ApplicationObjectDatabase
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application database file provider (ObjectId level).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IVirtualFileProvider ApplicationObjectDatabase</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationRoaming" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationRoaming">
+  ApplicationRoaming
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application user roaming folder. Included in backup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationRoaming</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ApplicationTemporary" data-uid="Stride.Core.IO.VirtualFileSystem.ApplicationTemporary">
+  ApplicationTemporary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application temporary data provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly IVirtualFileProvider ApplicationTemporary</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_DirectorySeparatorChar" data-uid="Stride.Core.IO.VirtualFileSystem.DirectorySeparatorChar">
+  DirectorySeparatorChar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly char DirectorySeparatorChar</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_Drive" data-uid="Stride.Core.IO.VirtualFileSystem.Drive">
+  Drive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The whole host file system. This should be used only in tools.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DriveFileProvider Drive</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.DriveFileProvider.html">DriveFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_LocalDatabasePath" data-uid="Stride.Core.IO.VirtualFileSystem.LocalDatabasePath">
+  LocalDatabasePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string LocalDatabasePath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_Providers_" data-uid="Stride.Core.IO.VirtualFileSystem.Providers*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_Providers" data-uid="Stride.Core.IO.VirtualFileSystem.Providers">
+  Providers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the registered providers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;IVirtualFileProvider&gt; Providers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a>&gt;</dt>
+    <dd><p>The providers.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_BuildPath_" data-uid="Stride.Core.IO.VirtualFileSystem.BuildPath*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_BuildPath_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.BuildPath(System.String,System.String)">
+  BuildPath(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string BuildPath(string path, string relativePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>relativePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_Combine_" data-uid="Stride.Core.IO.VirtualFileSystem.Combine*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_Combine_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.Combine(System.String,System.String)">
+  Combine(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Combines the specified paths.
+Similiar to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.path.combine#system-io-path-combine(system-string-system-string)">Combine(string, string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Combine(string path1, string path2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path1.</p>
+</dd>
+    <dt><code>path2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path2.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The combined path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_CreateDirectory_" data-uid="Stride.Core.IO.VirtualFileSystem.CreateDirectory*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_CreateDirectory_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.CreateDirectory(System.String)">
+  CreateDirectory(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates all directories so that path exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CreateDirectory(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_CreateRelativePath_" data-uid="Stride.Core.IO.VirtualFileSystem.CreateRelativePath*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_CreateRelativePath_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.CreateRelativePath(System.String,System.String)">
+  CreateRelativePath(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L465"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates the relative path that can access to <code class="paramref">target</code> from <code class="paramref">sourcePath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string CreateRelativePath(string target, string sourcePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The target.</p>
+</dd>
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The source path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The relative path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_DirectoryExists_" data-uid="Stride.Core.IO.VirtualFileSystem.DirectoryExists*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_DirectoryExists_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.DirectoryExists(System.String)">
+  DirectoryExists(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks the existence of a directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DirectoryExists(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the directory to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the directory exists, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_FileDelete_" data-uid="Stride.Core.IO.VirtualFileSystem.FileDelete*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_FileDelete_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.FileDelete(System.String)">
+  FileDelete(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FileDelete(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_FileExists_" data-uid="Stride.Core.IO.VirtualFileSystem.FileExists*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_FileExists_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.FileExists(System.String)">
+  FileExists(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks the existence of a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool FileExists(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the file exists, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_FileExistsAsync_" data-uid="Stride.Core.IO.VirtualFileSystem.FileExistsAsync*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_FileExistsAsync_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.FileExistsAsync(System.String)">
+  FileExistsAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;bool&gt; FileExistsAsync(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_FileMove_" data-uid="Stride.Core.IO.VirtualFileSystem.FileMove*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_FileMove_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.FileMove(System.String,System.String)">
+  FileMove(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FileMove(string sourcePath, string destinationPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>destinationPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_FileSize_" data-uid="Stride.Core.IO.VirtualFileSystem.FileSize*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_FileSize_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.FileSize(System.String)">
+  FileSize(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long FileSize(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_GetAbsolutePath_" data-uid="Stride.Core.IO.VirtualFileSystem.GetAbsolutePath*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_GetAbsolutePath_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.GetAbsolutePath(System.String)">
+  GetAbsolutePath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the absolute path (system dependent) for the specified path in the context of the virtual file system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetAbsolutePath(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path local to the virtual file system.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An absolute path (system dependent .i.e C:\Path\To\Your\File.x).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_GetFileName_" data-uid="Stride.Core.IO.VirtualFileSystem.GetFileName*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_GetFileName_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.GetFileName(System.String)">
+  GetFileName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L450"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the file's name with its extension (&quot;/path/to/file/fileName.ext&quot;-&gt;&quot;fileName.ext&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetFileName(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>path containing file's path and name</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the file with its extension</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_GetLastWriteTime_" data-uid="Stride.Core.IO.VirtualFileSystem.GetLastWriteTime*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_GetLastWriteTime_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.GetLastWriteTime(System.String)">
+  GetLastWriteTime(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime GetLastWriteTime(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_GetParentFolder_" data-uid="Stride.Core.IO.VirtualFileSystem.GetParentFolder*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_GetParentFolder_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.GetParentFolder(System.String)">
+  GetParentFolder(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parent folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetParentFolder(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The parent folder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>path</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>path doesn't contain a /;path</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_GetTempFileName_" data-uid="Stride.Core.IO.VirtualFileSystem.GetTempFileName*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_GetTempFileName" data-uid="Stride.Core.IO.VirtualFileSystem.GetTempFileName">
+  GetTempFileName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a temporary zero-byte file and returns its full path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTempFileName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The full path of the created temporary file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_ListFiles_" data-uid="Stride.Core.IO.VirtualFileSystem.ListFiles*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ListFiles_System_String_System_String_Stride_Core_IO_VirtualSearchOption_" data-uid="Stride.Core.IO.VirtualFileSystem.ListFiles(System.String,System.String,Stride.Core.IO.VirtualSearchOption)">
+  ListFiles(string, string, VirtualSearchOption)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lists the files matching a pattern in a specified directory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string[]&gt; ListFiles(string path, string searchPattern, VirtualSearchOption searchOption)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+    <dt><code>searchPattern</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The search pattern.</p>
+</dd>
+    <dt><code>searchOption</code> <a class="xref" href="Stride.Core.IO.VirtualSearchOption.html">VirtualSearchOption</a></dt>
+    <dd><p>The search option.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]&gt;</dt>
+    <dd><p>The list of files matching the pattern.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_MountFileSystem_" data-uid="Stride.Core.IO.VirtualFileSystem.MountFileSystem*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_MountFileSystem_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.MountFileSystem(System.String,System.String)">
+  MountFileSystem(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mounts the specified path in the specified virtual file mount point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IVirtualFileProvider MountFileSystem(string mountPoint, string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mountPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The mount point in the VFS.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The directory path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_OpenStream_" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStream*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_OpenStream_System_String_Stride_Core_IO_VirtualFileMode_Stride_Core_IO_VirtualFileAccess_Stride_Core_IO_VirtualFileShare_" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStream(System.String,Stride.Core.IO.VirtualFileMode,Stride.Core.IO.VirtualFileAccess,Stride.Core.IO.VirtualFileShare)">
+  OpenStream(string, VirtualFileMode, VirtualFileAccess, VirtualFileShare)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the stream from a given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Stream OpenStream(string path, VirtualFileMode mode, VirtualFileAccess access, VirtualFileShare share = VirtualFileShare.Read)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.IO.VirtualFileMode.html">VirtualFileMode</a></dt>
+    <dd><p>The stream opening mode (append, open, create, etc...).</p>
+</dd>
+    <dt><code>access</code> <a class="xref" href="Stride.Core.IO.VirtualFileAccess.html">VirtualFileAccess</a></dt>
+    <dd><p>The stream access.</p>
+</dd>
+    <dt><code>share</code> <a class="xref" href="Stride.Core.IO.VirtualFileShare.html">VirtualFileShare</a></dt>
+    <dd><p>The stream share mode.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_OpenStream_" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStream*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_OpenStream_System_String_Stride_Core_IO_VirtualFileMode_Stride_Core_IO_VirtualFileAccess_Stride_Core_IO_VirtualFileShare_Stride_Core_IO_IVirtualFileProvider__" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStream(System.String,Stride.Core.IO.VirtualFileMode,Stride.Core.IO.VirtualFileAccess,Stride.Core.IO.VirtualFileShare,Stride.Core.IO.IVirtualFileProvider@)">
+  OpenStream(string, VirtualFileMode, VirtualFileAccess, VirtualFileShare, out IVirtualFileProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the stream from a given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Stream OpenStream(string path, VirtualFileMode mode, VirtualFileAccess access, VirtualFileShare share, out IVirtualFileProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.IO.VirtualFileMode.html">VirtualFileMode</a></dt>
+    <dd><p>The stream opening mode (append, open, create, etc...).</p>
+</dd>
+    <dt><code>access</code> <a class="xref" href="Stride.Core.IO.VirtualFileAccess.html">VirtualFileAccess</a></dt>
+    <dd><p>The stream access.</p>
+</dd>
+    <dt><code>share</code> <a class="xref" href="Stride.Core.IO.VirtualFileShare.html">VirtualFileShare</a></dt>
+    <dd><p>The stream share mode.</p>
+</dd>
+    <dt><code>provider</code> <a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd><p>The provider used to load the stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_OpenStreamAsync_" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStreamAsync*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_OpenStreamAsync_System_String_Stride_Core_IO_VirtualFileMode_Stride_Core_IO_VirtualFileAccess_Stride_Core_IO_VirtualFileShare_" data-uid="Stride.Core.IO.VirtualFileSystem.OpenStreamAsync(System.String,Stride.Core.IO.VirtualFileMode,Stride.Core.IO.VirtualFileAccess,Stride.Core.IO.VirtualFileShare)">
+  OpenStreamAsync(string, VirtualFileMode, VirtualFileAccess, VirtualFileShare)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;Stream&gt; OpenStreamAsync(string path, VirtualFileMode mode, VirtualFileAccess access, VirtualFileShare share = VirtualFileShare.Read)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.IO.VirtualFileMode.html">VirtualFileMode</a></dt>
+    <dd></dd>
+    <dt><code>access</code> <a class="xref" href="Stride.Core.IO.VirtualFileAccess.html">VirtualFileAccess</a></dt>
+    <dd></dd>
+    <dt><code>share</code> <a class="xref" href="Stride.Core.IO.VirtualFileShare.html">VirtualFileShare</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_RegisterProvider_" data-uid="Stride.Core.IO.VirtualFileSystem.RegisterProvider*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_RegisterProvider_Stride_Core_IO_IVirtualFileProvider_" data-uid="Stride.Core.IO.VirtualFileSystem.RegisterProvider(Stride.Core.IO.IVirtualFileProvider)">
+  RegisterProvider(IVirtualFileProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers the specified virtual file provider at the specified mount location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterProvider(IVirtualFileProvider provider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd><p>The provider.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_RemountFileSystem_" data-uid="Stride.Core.IO.VirtualFileSystem.RemountFileSystem*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_RemountFileSystem_System_String_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.RemountFileSystem(System.String,System.String)">
+  RemountFileSystem(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mounts or remounts the specified path in the specified virtual file mount point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IVirtualFileProvider RemountFileSystem(string mountPoint, string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mountPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The mount point in the VFS.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The directory path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_ResolveAbsolutePath_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveAbsolutePath*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ResolveAbsolutePath_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveAbsolutePath(System.String)">
+  ResolveAbsolutePath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the path with its .. or . parts simplified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ResolveAbsolutePath(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The resolved absolute path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_ResolvePath_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolvePath*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ResolvePath_System_String_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolvePath(System.String)">
+  ResolvePath(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resolves the path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ResolvePath(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The resolved path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_ResolveProvider_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveProvider*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ResolveProvider_System_String_System_Boolean_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveProvider(System.String,System.Boolean)">
+  ResolveProvider(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L505"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resolves the virtual file provider for a given path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VirtualFileSystem.ResolveProviderResult ResolveProvider(string path, bool resolveTop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path.</p>
+</dd>
+    <dt><code>resolveTop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> [resolve top].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.VirtualFileSystem.html">VirtualFileSystem</a>.<a class="xref" href="Stride.Core.IO.VirtualFileSystem.ResolveProviderResult.html">ResolveProviderResult</a></dt>
+    <dd><p>The virtual file system provider and local path in it.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>path cannot be resolved to a provider.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_ResolveProviderUnsafe_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveProviderUnsafe*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_ResolveProviderUnsafe_System_String_System_Boolean_" data-uid="Stride.Core.IO.VirtualFileSystem.ResolveProviderUnsafe(System.String,System.Boolean)">
+  ResolveProviderUnsafe(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L528"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VirtualFileSystem.ResolveProviderResult ResolveProviderUnsafe(string path, bool resolveTop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>resolveTop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IO.VirtualFileSystem.html">VirtualFileSystem</a>.<a class="xref" href="Stride.Core.IO.VirtualFileSystem.ResolveProviderResult.html">ResolveProviderResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_VirtualFileSystem_UnregisterProvider_" data-uid="Stride.Core.IO.VirtualFileSystem.UnregisterProvider*"></a>
+
+  <h3 id="Stride_Core_IO_VirtualFileSystem_UnregisterProvider_Stride_Core_IO_IVirtualFileProvider_System_Boolean_" data-uid="Stride.Core.IO.VirtualFileSystem.UnregisterProvider(Stride.Core.IO.IVirtualFileProvider,System.Boolean)">
+  UnregisterProvider(IVirtualFileProvider, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unregisters the specified virtual file provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnregisterProvider(IVirtualFileProvider provider, bool dispose = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <a class="xref" href="Stride.Core.IO.IVirtualFileProvider.html">IVirtualFileProvider</a></dt>
+    <dd><p>The provider.</p>
+</dd>
+    <dt><code>dispose</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate that the provider should be disposed, if it inherits from IDisposable interface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.IO/VirtualFileSystem.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

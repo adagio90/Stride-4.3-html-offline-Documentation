@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LightShadowMapRendererBase | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LightShadowMapRendererBase | Stride API ">
+      
+      <meta name="description" content="Base class for shadow map renderers">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Shadows_LightShadowMapRendererBase.md&amp;value=---%0Auid%3A%20Stride.Rendering.Shadows.LightShadowMapRendererBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase">
+
+
+
+  <h1 id="Stride_Rendering_Shadows_LightShadowMapRendererBase" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase" class="text-break">
+Class LightShadowMapRendererBase  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Shadows.html">Shadows</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class for shadow map renderers</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(Inherited = true, DefaultMemberMode = DataMemberMode.Never)]
+public abstract class LightShadowMapRendererBase : ILightShadowMapRenderer, ILightShadowRenderer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">LightShadowMapRendererBase</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Shadows.ILightShadowMapRenderer.html">ILightShadowMapRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.Shadows.ILightShadowRenderer.html">ILightShadowRenderer</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Shadows.LightDirectionalShadowMapRenderer.html">LightDirectionalShadowMapRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.Shadows.LightPointShadowMapRendererCubeMap.html">LightPointShadowMapRendererCubeMap</a></div>
+      <div><a class="xref" href="Stride.Rendering.Shadows.LightPointShadowMapRendererParaboloid.html">LightPointShadowMapRendererParaboloid</a></div>
+      <div><a class="xref" href="Stride.Rendering.Shadows.LightSpotShadowMapRenderer.html">LightSpotShadowMapRenderer</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase__ctor_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase__ctor" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.#ctor">
+  LightShadowMapRendererBase()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LightShadowMapRendererBase()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_shadowMaps" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.shadowMaps">
+  shadowMaps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PoolListStruct&lt;LightShadowMapTexture&gt; shadowMaps</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.PoolListStruct-1.html">PoolListStruct</a>&lt;<a class="xref" href="Stride.Rendering.Shadows.LightShadowMapTexture.html">LightShadowMapTexture</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_shadowRenderViews" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.shadowRenderViews">
+  shadowRenderViews
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PoolListStruct&lt;ShadowMapRenderView&gt; shadowRenderViews</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.PoolListStruct-1.html">PoolListStruct</a>&lt;<a class="xref" href="Stride.Rendering.Shadows.ShadowMapRenderView.html">ShadowMapRenderView</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_ShadowCasterRenderStage_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.ShadowCasterRenderStage*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_ShadowCasterRenderStage" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.ShadowCasterRenderStage">
+  ShadowCasterRenderStage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shadow map render stage this light shadow map renderer uses</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public RenderStage ShadowCasterRenderStage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_ApplyViewParameters_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.ApplyViewParameters*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_ApplyViewParameters_Stride_Rendering_RenderDrawContext_Stride_Rendering_ParameterCollection_Stride_Rendering_Shadows_LightShadowMapTexture_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.ApplyViewParameters(Stride.Rendering.RenderDrawContext,Stride.Rendering.ParameterCollection,Stride.Rendering.Shadows.LightShadowMapTexture)">
+  ApplyViewParameters(RenderDrawContext, ParameterCollection, LightShadowMapTexture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ApplyViewParameters(RenderDrawContext context, ParameterCollection parameters, LightShadowMapTexture shadowMapTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+    <dt><code>parameters</code> <a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a></dt>
+    <dd></dd>
+    <dt><code>shadowMapTexture</code> <a class="xref" href="Stride.Rendering.Shadows.LightShadowMapTexture.html">LightShadowMapTexture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CanRenderLight_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CanRenderLight*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CanRenderLight_Stride_Rendering_Lights_IDirectLight_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CanRenderLight(Stride.Rendering.Lights.IDirectLight)">
+  CanRenderLight(IDirectLight)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Test if this renderer can render this kind of light</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool CanRenderLight(IDirectLight light)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <a class="xref" href="Stride.Rendering.Lights.IDirectLight.html">IDirectLight</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_Collect_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.Collect*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_Collect_Stride_Rendering_RenderContext_Stride_Rendering_RenderView_Stride_Rendering_Shadows_LightShadowMapTexture_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.Collect(Stride.Rendering.RenderContext,Stride.Rendering.RenderView,Stride.Rendering.Shadows.LightShadowMapTexture)">
+  Collect(RenderContext, RenderView, LightShadowMapTexture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Collect(RenderContext context, RenderView sourceView, LightShadowMapTexture lightShadowMap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+    <dt><code>sourceView</code> <a class="xref" href="Stride.Rendering.RenderView.html">RenderView</a></dt>
+    <dd></dd>
+    <dt><code>lightShadowMap</code> <a class="xref" href="Stride.Rendering.Shadows.LightShadowMapTexture.html">LightShadowMapTexture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateRenderView_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateRenderView*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateRenderView" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateRenderView">
+  CreateRenderView()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a default view with the shadow caster stage added to it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ShadowMapRenderView CreateRenderView()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Shadows.ShadowMapRenderView.html">ShadowMapRenderView</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateShaderGroupData_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateShaderGroupData*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateShaderGroupData_Stride_Rendering_Shadows_LightShadowType_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateShaderGroupData(Stride.Rendering.Shadows.LightShadowType)">
+  CreateShaderGroupData(LightShadowType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ILightShadowMapShaderGroupData CreateShaderGroupData(LightShadowType shadowType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowType</code> <a class="xref" href="Stride.Rendering.Shadows.LightShadowType.html">LightShadowType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Shadows.ILightShadowMapShaderGroupData.html">ILightShadowMapShaderGroupData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateShadowMapTexture_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateShadowMapTexture*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_CreateShadowMapTexture_Stride_Rendering_RenderView_Stride_Rendering_Lights_RenderLight_Stride_Rendering_Lights_IDirectLight_System_Int32_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.CreateShadowMapTexture(Stride.Rendering.RenderView,Stride.Rendering.Lights.RenderLight,Stride.Rendering.Lights.IDirectLight,System.Int32)">
+  CreateShadowMapTexture(RenderView, RenderLight, IDirectLight, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual LightShadowMapTexture CreateShadowMapTexture(RenderView renderView, RenderLight renderLight, IDirectLight light, int shadowMapSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderView</code> <a class="xref" href="Stride.Rendering.RenderView.html">RenderView</a></dt>
+    <dd></dd>
+    <dt><code>renderLight</code> <a class="xref" href="Stride.Rendering.Lights.RenderLight.html">RenderLight</a></dt>
+    <dd></dd>
+    <dt><code>light</code> <a class="xref" href="Stride.Rendering.Lights.IDirectLight.html">IDirectLight</a></dt>
+    <dd></dd>
+    <dt><code>shadowMapSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Shadows.LightShadowMapTexture.html">LightShadowMapTexture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_GetShadowType_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.GetShadowType*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_GetShadowType_Stride_Rendering_Lights_LightShadowMap_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.GetShadowType(Stride.Rendering.Lights.LightShadowMap)">
+  GetShadowType(LightShadowMap)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual LightShadowType GetShadowType(LightShadowMap shadowMap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadowMap</code> <a class="xref" href="Stride.Rendering.Lights.LightShadowMap.html">LightShadowMap</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Shadows.LightShadowType.html">LightShadowType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Shadows_LightShadowMapRendererBase_Reset_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.Reset*"></a>
+
+  <h3 id="Stride_Rendering_Shadows_LightShadowMapRendererBase_Reset_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Shadows.LightShadowMapRendererBase.Reset(Stride.Rendering.RenderContext)">
+  Reset(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reset the state of this instance before calling Render method multiple times for different shadow map textures. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Reset(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Rendering_Shadows_LightShadowMapRendererBase_Reset_Stride_Rendering_RenderContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method allows the implementation to prepare some internal states before being rendered.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Shadows/LightShadowMapRendererBase.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

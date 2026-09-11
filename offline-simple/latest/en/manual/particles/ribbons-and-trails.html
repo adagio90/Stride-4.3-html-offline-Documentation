@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Ribbons and trails | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Ribbons and trails | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/ribbons-and-trails.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ribbons-and-trails">Ribbons and trails</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>To create <strong>ribbons</strong> and <strong>trails</strong>, Stride builds the mesh data as a strip connecting the particles, rather than individual quads. Ribbons and trails are often used to create visual effects such as sword slashes.</p>
+<p><img src="media/ribbons-and-trails.jpg" alt="media/particles-tutorials-ribbons-0.jpg"></p>
+<p>In the diagram below, several particles (represented as red dots) are rendered as individual quads (blue squares):</p>
+<p><img src="media/particles-diagram-quads.png" alt="Diagram: individual quads"></p>
+<p>In the diagram below, a strip is created by connecting the particles and rendering quads between the adjacent particles:</p>
+<p><img src="media/particles-diagram-strip.png" alt="Diagram: ribbon of particles"></p>
+<h2 id="ribbons-vs-trails">Ribbons vs trails</h2>
+<p>Both ribbons and trails generate a flat surface which follows an axis connecting adjacent particles in a line. This line defines one of the axes of the surface. The difference is that ribbons always face the camera, and trails don't.</p>
+<p>The gif below shows the different behavior of ribbons (red) and trails (yellow) when viewed from different camera angles. Note how the ribbon doesn't change as the camera moves; it's fixed in space.</p>
+<p><img src="media/ribbons-vs-trails.gif" alt="Ribbons vs trails"></p>
+<h2 id="sort-particles">Sort particles</h2>
+<p>To create ribbons and trails, you usually need to sort the particles into an order. If you don't sort the particles, they connect erratically, as in this diagram:</p>
+<p><img src="media/particles-diagram-unordered.png" alt="Diagram: unordered particles/particles-tutorials-ribbons-2.png"></p>
+<p>Here's an example of how unsorted particles look at runtime:</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay loop class="responsive-video" poster="tutorials/media/sword-slash-2.jpg">
+   <source src="tutorials/media/sword-slash-2.mp4" type="video/mp4">
+</video>
+</div>
+<p>Rather than the particles connecting in order, the strip erratically jumps between particles. (This is the same problem alpha-blended quads have when they're not properly sorted.)</p>
+<p>To sort the particles, under <strong>Particle System &gt; Source &gt; Emitters</strong>, change the <strong>Sorting</strong> property.</p>
+<p><img src="tutorials/media/sort-by-order.png" alt="Sort particles"></p>
+<p>If your particles have the same <strong>lifespan</strong> property, and are emitted no more than once per frame (usually the case at 30 particles per second or fewer), you can sort them by age.</p>
+<p>However, if you spawn several particles per second or your particles vary in lifespan, sorting by age doesn't provide a consistent order, as the sorting parameter changes between frames. In this case, you should sort the particles by order. To do this, you need to add a <strong>spawn order initializer</strong>. To do this, in the entity properties, under <strong>Particle System &gt; Source &gt; Emitters</strong>, next to <strong>Initializers</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Spawn Order</strong>.</p>
+<p><img src="tutorials/media/add-spawn-order-initializer.png" alt="Add spawn-order initializer"></p>
+<p>This adds a spawn order initializer to the emitter. It doesn't have any properties, but it gives the particles a SpawnID we can sort them by.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Sorting by depth might work in niche cases, but this doesn't preserve the order between different frames. We don't recommend it for most situations.</p>
+</div>
+<h2 id="texture-coordinates">Texture coordinates</h2>
+<p>Unlike billboards, which are individual quads, ribbons and trails have a single surface across all particles. To define how textures are mapped across the surface, under <strong>Particle System &gt; Source &gt; Emitters &gt; Shape</strong>, change the <strong>UV Coords</strong> property.</p>
+<p><img src="media/uv-coords.png" alt="UV coords property"></p>
+<ul>
+<li><p><strong>AsIs</strong>: The texture is mapped per segment, copying the same quad stretched between every two particles. This is sometimes useful with flipbook animations (in the <a href="materials.html">Material</a> settings).</p>
+<p><img src="media/particles-diagram-asis.png" alt="As-is texture mapping"></p>
+</li>
+<li><p><strong>Stretched</strong>: The texture is stretched between the first and last particle of the trail or ribbon. The <strong>UV Factor</strong> defines how many times the texture appears across the entire trail or ribbon (1 = once).</p>
+<p><img src="media/particles-diagram-stretched.png" alt="Stretched texture mapping"></p>
+</li>
+<li><p><strong>DistanceBased</strong>: The texture is repeated based on the actual world length of the ribbon or trail rather than the number of particles. The <strong>UV Factor</strong> defines the distance in <a href="../game-studio/world-units.html">world units</a> after which the texture repeats</p>
+<p><img src="media/particles-diagram-distancebased.png" alt="Distance-based texture mapping"></p>
+</li>
+</ul>
+<h2 id="smooth-ribbons-and-trails">Smooth ribbons and trails</h2>
+<p>You can add extra segments between adjacent particles to smooth the lines between particles. To do this, under <strong>Particle System &gt; Source &gt; Emitters &gt; Shape</strong>, change the <strong>Smoothing</strong> property.</p>
+<ul>
+<li><p><strong>None</strong> — No smoothing creates only one segment joining two particles. This creates trails and ribbons with sharp angles.</p>
+<p><img src="media/diagram-smoothing-none.png" alt="Diagram: particle smoothing"></p>
+</li>
+<li><p><strong>Fast</strong> — This uses <a href="https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline">Catmull-Rom interpolation (Wikipedia)</a> to add extra segments between particles, creating a smoother effect. You can set the number of segments with the <strong>Segments</strong> property.</p>
+<p><img src="media/diagram-smoothing-fast.png" alt="Diagram: particle smoothing"></p>
+</li>
+<li><p><strong>Best</strong> — This generally creates the smoothest effect, but requires more CPU. It calculates a circumcircle around every three sequential particles along the control axis, then adds extra control points on the circle, keeping the segments in an arc. For the first and the last segment, there is only one arc to be followed, but for mid-sections, two different arcs from two different circles overlap; Stride interpolates the control points from the first arc and the second as the point approaches the second particle. You can set the number of segments between every two particles with the <strong>Segments</strong> property.</p>
+<p><img src="media/diagram-smoothing-best.png" alt="Diagram: particle smoothing"></p>
+</li>
+</ul>
+<p>This video shows the difference between the three smoothing methods. Note that the rightmost trail (using the <strong>Best</strong> method) is slightly more circular, closer to the actual path of the sword swing.</p>
+<p><img src="media/smoothing-comparison.gif" alt="media/particles-tutorials-ribbons-6.gif"></p>
+<h2 id="sample-project">Sample project</h2>
+<p>For an example of a project that uses ribbons and trails, try the <strong>Ribbon Particles Sample</strong> included with Stride.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="shapes.html">Shapes</a></li>
+<li><a href="tutorials/create-a-trail.html">Tutorial: Create a trail</a></li>
+<li><a href="tutorials/lasers-and-lightning.html">Tutorial: Lasers and lightning</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/ribbons-and-trails.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

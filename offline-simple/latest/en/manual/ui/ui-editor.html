@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>UI editor | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="UI editor | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/ui/ui-editor.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ui-editor">UI editor</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>You can edit <a href="ui-pages.html">UI pages</a> and <a href="ui-libraries.html">UI libraries</a> with the <strong>UI editor</strong>.</p>
+<p>To open the editor, in the <strong>Asset View</strong>, double-click a <strong>UI page</strong> or <strong><a href="ui-libraries.html">UI library</a></strong>.</p>
+<p><img src="media/open-UI-editor.png" alt="Open UI editor"></p>
+<p>The UI editor opens.</p>
+<p><img src="media/ui-editor-overview.png" alt="UI editor overview"></p>
+<p>The UI editor comprises:</p>
+<ul>
+<li><p>the list of <a href="ui-libraries.html">UI libraries</a> (<strong>A</strong>), which contain the elements (such as buttons and grids) you can add to your UI</p>
+</li>
+<li><p>a visual tree of the elements in the UI page (<strong>B</strong>)</p>
+</li>
+<li><p>a preview of the UI page as it appears in the game (<strong>C</strong>)</p>
+</li>
+<li><p>a Property Grid (<strong>D</strong>) to edit the properties of your UI elements</p>
+</li>
+</ul>
+<h2 id="ui-libraries">UI libraries</h2>
+<p>A <strong>UI library</strong> contains <strong>UI elements</strong> (such as grids, buttons, sliders and so on) that you can use and re-use in your UI pages. They work similarly to <a href="../game-studio/prefabs/index.html">prefabs</a> in the Scene Editor.</p>
+<p><img src="media/UI-library.png" alt="UI library"></p>
+<p>For more information, see <a href="ui-libraries.html">UI libraries</a>.</p>
+<h2 id="visual-tree">Visual tree</h2>
+<p>The <strong>visual tree</strong> shows the elements in the UI page and their hierarchy. This is similar to the <strong>Entity Tree</strong> in the Scene Editor.</p>
+<p><img src="media/ui-editor-visual-tree.png" alt="UI asset properties"></p>
+<p>The number in parentheses indicates the number of children an element has. Some elements, such as buttons, can only have one child.</p>
+<p>To re-order elements in the visual tree, drag and drop them.</p>
+<p>To move an element to a new group, right-click the element and select <strong>Group into</strong>. For example, to create a new grid and move an element into it, right-click the element and select <strong>Group into &gt; Grid</strong>.</p>
+<p><img src="media/group-into-grid.png" alt="Group into grid"></p>
+<h2 id="ui-preview">UI preview</h2>
+<p>The <strong>UI preview</strong> displays a preview of the UI as it appears at runtime. The rendering is equivalent to the rendering in the game, assuming the design resolution is the same as the UI component that uses the edited asset.</p>
+<p>By default, the UI is a <strong>billboard</strong>, meaning it always faces the camera. The UI view camera is <strong>orthographic</strong> (see <a href="../graphics/cameras/index.html">Cameras</a>).</p>
+<p>You can select, move, and resize elements in the preview as you do in image editing applications.</p>
+<p><img src="media/ui-editor-selecting.gif" alt="Select an element"></p>
+<p><img src="media/ui-editor-moving.gif" alt="Move an element"></p>
+<p><img src="media/ui-editor-resizing.gif" alt="Resize an element"></p>
+<h3 id="controls">Controls</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pan</td>
+<td>Hold middle mouse button + move mouse</td>
+</tr>
+<tr>
+<td>Zoom</td>
+<td>Mouse wheel</td>
+</tr>
+<tr>
+<td>Speed up pan/zoom</td>
+<td>Hold shift while panning or zooming</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tool-options">Tool options</h3>
+<p>To change the color and size of the selection tools, in the <strong>UI editor toolbar</strong>, click <img src="media/eye-icon.png" alt="Eye icon"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These options have no effect on how the UI is displayed at runtime.</p>
+</div>
+<p><img src="media/ui-editor-view-options.png" alt="UI editor view options"></p>
+<ul>
+<li><p><strong>Guideline</strong>: changes the width of the lines that indicate the distance to the margins (in pixels)</p>
+</li>
+<li><p><strong>Highlight</strong>: changes the width of the highlight that appears when you move your mouse over an element</p>
+</li>
+<li><p><strong>Selection</strong>: changes the width of the selection highlight</p>
+</li>
+<li><p><strong>Sizing</strong>: changes the size of the boxes at the edges of selections used to resize elements</p>
+</li>
+</ul>
+<h2 id="add-a-ui-element-to-a-ui-page">Add a UI element to a UI page</h2>
+<p>To add an element (such as a grid or button), drag it from the <strong>UI library</strong> to the UI page or the <strong>visual tree</strong>.</p>
+<p><img src="media/add-ui-element.gif" alt="Add UI element"></p>
+<h2 id="properties">Properties</h2>
+<p>You can view and edit element properties in the <strong>Property Grid</strong>.</p>
+<p><img src="media/element-property-grid.png" alt="Property Grid!"></p>
+<p>Properties are sorted by <strong>Appearance</strong>, <strong>Behavior</strong>, <strong>Layout</strong> and <strong>Misc</strong>.</p>
+<h3 id="appearance">Appearance</h3>
+<p>Commonly used properties include <code>BackgroundColor</code>, <code>Opacity</code>, <code>Visibility</code> and <code>ClipToBounds</code>.</p>
+<p><img src="media/appearance-properties.png" alt="Appearance properties"></p>
+<h3 id="behavior">Behavior</h3>
+<p>Commonly used properties include whether the element responds to touch events(<code>CanBeHitByUser</code>).</p>
+<p><img src="media/behavior-properties.png" alt="Behavior properties"></p>
+<h3 id="layout">Layout</h3>
+<p>Commonly used properties include the size of the element (<code>Height</code>, <code>Width</code> and <code>Depth</code>), its alignment (<code>HorizontalAlignment</code>, <code>VerticalAlignment</code>, <code>DepthAlignement</code>) and its <code>Margin</code>.</p>
+<p><img src="media/layout-properties.png" alt="Layout properties"></p>
+<h3 id="misc">Misc</h3>
+<p>This category contains only the <code>Name</code> of the element.</p>
+<p><img src="media/misc-properties.png" alt="Misc properties"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="ui-pages.html">UI pages</a></li>
+<li><a href="ui-libraries.html">UI libraries</a></li>
+<li><a href="add-a-ui-to-a-scene.html">Add a UI to a scene</a></li>
+<li><a href="layout-system.html">Layout system</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/ui/ui-editor.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

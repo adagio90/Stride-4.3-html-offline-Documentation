@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Rectangle | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Rectangle | Stride API ">
+      
+      <meta name="description" content="A rectangle structure defining X,Y,Width,Height.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Rectangle.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Rectangle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Rectangle">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Rectangle" data-uid="Stride.Core.Mathematics.Rectangle" class="text-break">
+Struct Rectangle  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A rectangle structure defining X,Y,Width,Height.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;Rectangle&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct Rectangle : IEquatable&lt;Rectangle&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Rectangle__ctor_" data-uid="Stride.Core.Mathematics.Rectangle.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Core.Mathematics.Rectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+  Rectangle(int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle(int x, int y, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The left.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The top.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Empty" data-uid="Stride.Core.Mathematics.Rectangle.Empty">
+  Empty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An empty rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Rectangle Empty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Height" data-uid="Stride.Core.Mathematics.Rectangle.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(3)]
+public int Height</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Width" data-uid="Stride.Core.Mathematics.Rectangle.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(2)]
+public int Width</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_X" data-uid="Stride.Core.Mathematics.Rectangle.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the X position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public int X</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The X position.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Y" data-uid="Stride.Core.Mathematics.Rectangle.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Y position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+public int Y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Y position.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Bottom_" data-uid="Stride.Core.Mathematics.Rectangle.Bottom*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Bottom" data-uid="Stride.Core.Mathematics.Rectangle.Bottom">
+  Bottom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the bottom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Bottom { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The bottom.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_BottomLeft_" data-uid="Stride.Core.Mathematics.Rectangle.BottomLeft*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_BottomLeft" data-uid="Stride.Core.Mathematics.Rectangle.BottomLeft">
+  BottomLeft
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the bottom-left corner of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point BottomLeft { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The bottom-left corner of the rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_BottomRight_" data-uid="Stride.Core.Mathematics.Rectangle.BottomRight*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_BottomRight" data-uid="Stride.Core.Mathematics.Rectangle.BottomRight">
+  BottomRight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the bottom-right corner of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point BottomRight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The bottom-right corner of the rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Center_" data-uid="Stride.Core.Mathematics.Rectangle.Center*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Center" data-uid="Stride.Core.Mathematics.Rectangle.Center">
+  Center
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the Point that specifies the center of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point Center { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The center.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_IsEmpty_" data-uid="Stride.Core.Mathematics.Rectangle.IsEmpty*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_IsEmpty" data-uid="Stride.Core.Mathematics.Rectangle.IsEmpty">
+  IsEmpty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the rectangle is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsEmpty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if [is empty]; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Left_" data-uid="Stride.Core.Mathematics.Rectangle.Left*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Left" data-uid="Stride.Core.Mathematics.Rectangle.Left">
+  Left
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Left { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The left.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Location_" data-uid="Stride.Core.Mathematics.Rectangle.Location*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Location" data-uid="Stride.Core.Mathematics.Rectangle.Location">
+  Location
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point Location { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The location.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Right_" data-uid="Stride.Core.Mathematics.Rectangle.Right*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Right" data-uid="Stride.Core.Mathematics.Rectangle.Right">
+  Right
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Right { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Size_" data-uid="Stride.Core.Mathematics.Rectangle.Size*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Size" data-uid="Stride.Core.Mathematics.Rectangle.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size2 Size { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Size2.html">Size2</a></dt>
+    <dd><p>The size of the rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Top_" data-uid="Stride.Core.Mathematics.Rectangle.Top*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Top" data-uid="Stride.Core.Mathematics.Rectangle.Top">
+  Top
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Top { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The top.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_TopLeft_" data-uid="Stride.Core.Mathematics.Rectangle.TopLeft*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_TopLeft" data-uid="Stride.Core.Mathematics.Rectangle.TopLeft">
+  TopLeft
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the top-left corner of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point TopLeft { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The top-left corner of the rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_TopRight_" data-uid="Stride.Core.Mathematics.Rectangle.TopRight*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_TopRight" data-uid="Stride.Core.Mathematics.Rectangle.TopRight">
+  TopRight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the top-right corner of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point TopRight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The top-right corner of the rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Int2_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Int2)">
+  Contains(Int2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks, if specified <a class="xref" href="Stride.Core.Mathematics.Int2.html">Int2</a> is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(Int2 int2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>int2</code> <a class="xref" href="Stride.Core.Mathematics.Int2.html">Int2</a></dt>
+    <dd><p>Coordinate <a class="xref" href="Stride.Core.Mathematics.Int2.html">Int2</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <a class="xref" href="Stride.Core.Mathematics.Int2.html">Int2</a> is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>, otherwise <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Point_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Point)">
+  Contains(Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this rectangle contains a specified Point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(Point value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The Point to evaluate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Point__System_Boolean__" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Point@,System.Boolean@)">
+  Contains(ref readonly Point, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this rectangle contains a specified Point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Contains(ref readonly Point value, out bool result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The Point to evaluate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>[OutAttribute] true if the specified Point is contained within this rectangle; false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Rectangle)">
+  Contains(Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this rectangle entirely contains a specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(Rectangle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The rectangle to evaluate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Rectangle__System_Boolean__" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Rectangle@,System.Boolean@)">
+  Contains(ref readonly Rectangle, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this rectangle entirely contains a specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Contains(ref readonly Rectangle value, out bool result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The rectangle to evaluate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>[OutAttribute] On exit, is true if this rectangle entirely contains the specified rectangle, or false if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_Stride_Core_Mathematics_Vector2_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(Stride.Core.Mathematics.Vector2)">
+  Contains(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks, if specified <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a> is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(Vector2 vector2D)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector2D</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Coordinate <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a> is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>, otherwise <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_System_Int32_System_Int32_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(System.Int32,System.Int32)">
+  Contains(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this rectangle contains a specified point represented by its x- and y-coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(int x, int y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The x-coordinate of the specified point.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y-coordinate of the specified point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Contains_" data-uid="Stride.Core.Mathematics.Rectangle.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Contains_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Rectangle.Contains(System.Single,System.Single)">
+  Contains(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks, if specified point is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Contains(float x, float y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>X point coordinate.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Y point coordinate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if point is inside <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>, otherwise <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Equals_" data-uid="Stride.Core.Mathematics.Rectangle.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Equals_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.Equals(Stride.Core.Mathematics.Rectangle)">
+  Equals(Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Rectangle other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Equals_" data-uid="Stride.Core.Mathematics.Rectangle.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Rectangle.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_GetHashCode_" data-uid="Stride.Core.Mathematics.Rectangle.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_GetHashCode" data-uid="Stride.Core.Mathematics.Rectangle.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L442"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Inflate_" data-uid="Stride.Core.Mathematics.Rectangle.Inflate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Inflate_System_Int32_System_Int32_" data-uid="Stride.Core.Mathematics.Rectangle.Inflate(System.Int32,System.Int32)">
+  Inflate(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes the edges of the rectangle out by the horizontal and vertical values specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Inflate(int horizontalAmount, int verticalAmount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>horizontalAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Value to push the sides out by.</p>
+</dd>
+    <dt><code>verticalAmount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Value to push the top and bottom out by.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Intersect_" data-uid="Stride.Core.Mathematics.Rectangle.Intersect*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Intersect_Stride_Core_Mathematics_Rectangle_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.Intersect(Stride.Core.Mathematics.Rectangle,Stride.Core.Mathematics.Rectangle)">
+  Intersect(Rectangle, Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a rectangle defining the area where one rectangle overlaps with another rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rectangle Intersect(Rectangle value1, Rectangle value2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The first rectangle to compare.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The second rectangle to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The intersection rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Intersect_" data-uid="Stride.Core.Mathematics.Rectangle.Intersect*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Intersect_Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_Rectangle__" data-uid="Stride.Core.Mathematics.Rectangle.Intersect(Stride.Core.Mathematics.Rectangle@,Stride.Core.Mathematics.Rectangle@,Stride.Core.Mathematics.Rectangle@)">
+  Intersect(ref readonly Rectangle, ref readonly Rectangle, out Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L356"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a rectangle defining the area where one rectangle overlaps with another rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Intersect(ref readonly Rectangle value1, ref readonly Rectangle value2, out Rectangle result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The first rectangle to compare.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The second rectangle to compare.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>[OutAttribute] The area where the two first parameters overlap.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Intersects_" data-uid="Stride.Core.Mathematics.Rectangle.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Intersects_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.Intersects(Stride.Core.Mathematics.Rectangle)">
+  Intersects(Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L324"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a specified rectangle intersects with this rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Intersects(Rectangle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The rectangle to evaluate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Intersects_" data-uid="Stride.Core.Mathematics.Rectangle.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Intersects_Stride_Core_Mathematics_Rectangle__System_Boolean__" data-uid="Stride.Core.Mathematics.Rectangle.Intersects(Stride.Core.Mathematics.Rectangle@,System.Boolean@)">
+  Intersects(ref readonly Rectangle, out bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a specified rectangle intersects with this rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Intersects(ref readonly Rectangle value, out bool result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The rectangle to evaluate</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>[OutAttribute] true if the specified rectangle intersects with this one; false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Offset_" data-uid="Stride.Core.Mathematics.Rectangle.Offset*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Offset_Stride_Core_Mathematics_Point_" data-uid="Stride.Core.Mathematics.Rectangle.Offset(Stride.Core.Mathematics.Point)">
+  Offset(Point)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the position of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Offset(Point amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="Stride.Core.Mathematics.Point.html">Point</a></dt>
+    <dd><p>The values to adjust the position of the rectangle by.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Offset_" data-uid="Stride.Core.Mathematics.Rectangle.Offset*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Offset_System_Int32_System_Int32_" data-uid="Stride.Core.Mathematics.Rectangle.Offset(System.Int32,System.Int32)">
+  Offset(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the position of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Offset(int offsetX, int offsetY)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>offsetX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Change in the x-position.</p>
+</dd>
+    <dt><code>offsetY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Change in the y-position.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_ToString_" data-uid="Stride.Core.Mathematics.Rectangle.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_ToString" data-uid="Stride.Core.Mathematics.Rectangle.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L481"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fully qualified type name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_ToString_" data-uid="Stride.Core.Mathematics.Rectangle.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Rectangle.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Union_" data-uid="Stride.Core.Mathematics.Rectangle.Union*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Union_Stride_Core_Mathematics_Rectangle_Stride_Core_Mathematics_Int2_" data-uid="Stride.Core.Mathematics.Rectangle.Union(Stride.Core.Mathematics.Rectangle,Stride.Core.Mathematics.Int2)">
+  Union(Rectangle, Int2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new rectangle that incorporate the provided point to the given rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rectangle Union(Rectangle rectangle, Int2 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rectangle</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The original rectangle.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Int2.html">Int2</a></dt>
+    <dd><p>The point to incorporate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The union rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Union_" data-uid="Stride.Core.Mathematics.Rectangle.Union*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Union_Stride_Core_Mathematics_Rectangle_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.Union(Stride.Core.Mathematics.Rectangle,Stride.Core.Mathematics.Rectangle)">
+  Union(Rectangle, Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L391"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new rectangle that exactly contains two other rectangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rectangle Union(Rectangle value1, Rectangle value2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The first rectangle to contain.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The second rectangle to contain.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The union rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_Union_" data-uid="Stride.Core.Mathematics.Rectangle.Union*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_Union_Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_Rectangle__" data-uid="Stride.Core.Mathematics.Rectangle.Union(Stride.Core.Mathematics.Rectangle@,Stride.Core.Mathematics.Rectangle@,Stride.Core.Mathematics.Rectangle@)">
+  Union(ref readonly Rectangle, ref readonly Rectangle, out Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new rectangle that exactly contains two other rectangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Union(ref readonly Rectangle value1, ref readonly Rectangle value2, out Rectangle result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The first rectangle to contain.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The second rectangle to contain.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>[OutAttribute] The rectangle that must be the union of the first two rectangles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_op_Equality_" data-uid="Stride.Core.Mathematics.Rectangle.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_op_Equality_Stride_Core_Mathematics_Rectangle_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.op_Equality(Stride.Core.Mathematics.Rectangle,Stride.Core.Mathematics.Rectangle)">
+  operator ==(Rectangle, Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements the operator ==.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Rectangle left, Rectangle right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The left.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The right.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The result of the operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_op_Implicit_" data-uid="Stride.Core.Mathematics.Rectangle.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_op_Implicit_Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_RectangleF" data-uid="Stride.Core.Mathematics.Rectangle.op_Implicit(Stride.Core.Mathematics.Rectangle)~Stride.Core.Mathematics.RectangleF">
+  implicit operator RectangleF(Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an implicit conversion to the <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a> structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator RectangleF(Rectangle value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The source <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a> value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a></dt>
+    <dd><p>The converted structure.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Rectangle_op_Implicit_Stride_Core_Mathematics_Rectangle__Stride_Core_Mathematics_RectangleF_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Performs direct converstion from int to float.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Rectangle_op_Inequality_" data-uid="Stride.Core.Mathematics.Rectangle.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Rectangle_op_Inequality_Stride_Core_Mathematics_Rectangle_Stride_Core_Mathematics_Rectangle_" data-uid="Stride.Core.Mathematics.Rectangle.op_Inequality(Stride.Core.Mathematics.Rectangle,Stride.Core.Mathematics.Rectangle)">
+  operator !=(Rectangle, Rectangle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L464"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implements the operator !=.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Rectangle left, Rectangle right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The left.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a></dt>
+    <dd><p>The right.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The result of the operator.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Rectangle.cs/#L33" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

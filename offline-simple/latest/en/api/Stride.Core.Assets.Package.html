@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Package | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Package | Stride API ">
+      
+      <meta name="description" content="A package managing assets.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Assets_Package.md&amp;value=---%0Auid%3A%20Stride.Core.Assets.Package%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Assets.Package">
+
+
+
+  <h1 id="Stride_Core_Assets_Package" data-uid="Stride.Core.Assets.Package" class="text-break">
+Class Package  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Assets.html">Assets</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Assets.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A package managing assets.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;Package&quot;)]
+[AssetDescription(&quot;.sdpkg&quot;)]
+[AssetFormatVersion(&quot;Assets&quot;, &quot;3.1.0.0&quot;, &quot;0.0.0.4&quot;)]
+[AssetUpgrader(&quot;Assets&quot;, &quot;0.0.0.4&quot;, &quot;3.1.0.0&quot;, typeof(Package.MovePackageInsideProject))]
+public sealed class Package : IFileSynchronizable, IAssetFinder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Package</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.Assets.IFileSynchronizable.html">IFileSynchronizable</a></div>
+      <div><a class="xref" href="Stride.Core.Assets.IAssetFinder.html">IAssetFinder</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.Assets.PackageExtensions.html#Stride_Core_Assets_PackageExtensions_FindAsset_Stride_Core_Assets_Package_Stride_Core_Serialization_Contents_IReference_">PackageExtensions.FindAsset(Package, IReference)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Assets.PackageExtensions.html#Stride_Core_Assets_PackageExtensions_FindDependencies_Stride_Core_Assets_Package_System_Boolean_">PackageExtensions.FindDependencies(Package, bool)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Assets_Package__ctor_" data-uid="Stride.Core.Assets.Package.#ctor*"></a>
+
+  <h3 id="Stride_Core_Assets_Package__ctor" data-uid="Stride.Core.Assets.Package.#ctor">
+  Package()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Assets.Package.html">Package</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Package()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Assets_Package_PackageFileExtension" data-uid="Stride.Core.Assets.Package.PackageFileExtension">
+  PackageFileExtension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.Constants.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file extension used for <a class="xref" href="Stride.Core.Assets.Package.html">Package</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PackageFileExtension = &quot;.sdpkg&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Assets_Package_AssetFolders_" data-uid="Stride.Core.Assets.Package.AssetFolders*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_AssetFolders" data-uid="Stride.Core.Assets.Package.AssetFolders">
+  AssetFolders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the asset directories to lookup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(40, DataMemberMode.Assign)]
+public AssetFolderCollection AssetFolders { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetFolderCollection.html">AssetFolderCollection</a></dt>
+    <dd><p>The asset directories.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Assets_" data-uid="Stride.Core.Assets.Package.Assets*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Assets" data-uid="Stride.Core.Assets.Package.Assets">
+  Assets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the assets stored in this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageAssetCollection Assets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageAssetCollection.html">PackageAssetCollection</a></dt>
+    <dd><p>The assets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Bundles_" data-uid="Stride.Core.Assets.Package.Bundles*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Bundles" data-uid="Stride.Core.Assets.Package.Bundles">
+  Bundles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bundles defined for this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(80)]
+public BundleCollection Bundles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.BundleCollection.html">BundleCollection</a></dt>
+    <dd><p>The bundles.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Container_" data-uid="Stride.Core.Assets.Package.Container*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Container" data-uid="Stride.Core.Assets.Package.Container">
+  Container
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageContainer Container { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageContainer.html">PackageContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_ExplicitFolders_" data-uid="Stride.Core.Assets.Package.ExplicitFolders*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_ExplicitFolders" data-uid="Stride.Core.Assets.Package.ExplicitFolders">
+  ExplicitFolders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the list of folders that are explicitly created but contains no assets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(70)]
+public List&lt;UDirectory&gt; ExplicitFolders { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">UDirectory</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_FullPath_" data-uid="Stride.Core.Assets.Package.FullPath*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_FullPath" data-uid="Stride.Core.Assets.Package.FullPath">
+  FullPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the path to the package file. May be null if the package was not loaded or saved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UFile FullPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UFile</span></dt>
+    <dd><p>The package path.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_IsDirty_" data-uid="Stride.Core.Assets.Package.IsDirty*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_IsDirty" data-uid="Stride.Core.Assets.Package.IsDirty">
+  IsDirty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this instance has been modified since last saving.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDirty { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is dirty; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_IsImplicitProject_" data-uid="Stride.Core.Assets.Package.IsImplicitProject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_IsImplicitProject" data-uid="Stride.Core.Assets.Package.IsImplicitProject">
+  IsImplicitProject
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsImplicitProject { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_IsSystem_" data-uid="Stride.Core.Assets.Package.IsSystem*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_IsSystem" data-uid="Stride.Core.Assets.Package.IsSystem">
+  IsSystem
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this package is a system package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSystem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this package is a system package; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_LoadedAssemblies_" data-uid="Stride.Core.Assets.Package.LoadedAssemblies*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_LoadedAssemblies" data-uid="Stride.Core.Assets.Package.LoadedAssemblies">
+  LoadedAssemblies
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the list of assemblies loaded by this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;PackageLoadedAssembly&gt; LoadedAssemblies { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.PackageLoadedAssembly.html">PackageLoadedAssembly</a>&gt;</dt>
+    <dd><p>The loaded assemblies.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Meta_" data-uid="Stride.Core.Assets.Package.Meta*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Meta" data-uid="Stride.Core.Assets.Package.Meta">
+  Meta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the metadata associated with this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(10)]
+public PackageMeta Meta { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageMeta.html">PackageMeta</a></dt>
+    <dd><p>The meta.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_OutputGroupDirectories_" data-uid="Stride.Core.Assets.Package.OutputGroupDirectories*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_OutputGroupDirectories" data-uid="Stride.Core.Assets.Package.OutputGroupDirectories">
+  OutputGroupDirectories
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the output group directories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(50, DataMemberMode.Assign)]
+public Dictionary&lt;string, UDirectory&gt; OutputGroupDirectories { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <span class="xref">UDirectory</span>&gt;</dt>
+    <dd><p>The output group directories.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_ResourceFolders_" data-uid="Stride.Core.Assets.Package.ResourceFolders*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_ResourceFolders" data-uid="Stride.Core.Assets.Package.ResourceFolders">
+  ResourceFolders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the resource directories to lookup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(45, DataMemberMode.Assign)]
+public List&lt;UDirectory&gt; ResourceFolders { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">UDirectory</span>&gt;</dt>
+    <dd><p>The resource directories.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_RootAssets_" data-uid="Stride.Core.Assets.Package.RootAssets*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_RootAssets" data-uid="Stride.Core.Assets.Package.RootAssets">
+  RootAssets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Asset references that needs to be compiled even if not directly or indirectly referenced (useful for explicit code references).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(100)]
+public RootAssetCollection RootAssets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.RootAssetCollection.html">RootAssetCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_RootDirectory_" data-uid="Stride.Core.Assets.Package.RootDirectory*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_RootDirectory" data-uid="Stride.Core.Assets.Package.RootDirectory">
+  RootDirectory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the top directory of this package on the local disk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UDirectory? RootDirectory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UDirectory</span></dt>
+    <dd><p>The top directory.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_RootNamespace_" data-uid="Stride.Core.Assets.Package.RootNamespace*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_RootNamespace" data-uid="Stride.Core.Assets.Package.RootNamespace">
+  RootNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? RootNamespace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_SerializedVersion_" data-uid="Stride.Core.Assets.Package.SerializedVersion*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_SerializedVersion" data-uid="Stride.Core.Assets.Package.SerializedVersion">
+  SerializedVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the version number for this asset, used internally when migrating assets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(-8000, DataMemberMode.Assign)]
+[DataStyle(DataStyle.Compact)]
+[Display(null, null, Browsable = false)]
+public Dictionary&lt;string, PackageVersion&gt;? SerializedVersion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <span class="xref">PackageVersion</span>&gt;</dt>
+    <dd><p>The version.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Session_" data-uid="Stride.Core.Assets.Package.Session*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Session" data-uid="Stride.Core.Assets.Package.Session">
+  Session
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageSession? Session { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageSession.html">PackageSession</a></dt>
+    <dd><p>The session.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Cannot attach a package to more than one session</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Package_State_" data-uid="Stride.Core.Assets.Package.State*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_State" data-uid="Stride.Core.Assets.Package.State">
+  State
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageState State { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageState.html">PackageState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_TemplateFolders_" data-uid="Stride.Core.Assets.Package.TemplateFolders*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_TemplateFolders" data-uid="Stride.Core.Assets.Package.TemplateFolders">
+  TemplateFolders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the template folders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(90)]
+public List&lt;TemplateFolder&gt; TemplateFolders { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.TemplateFolder.html">TemplateFolder</a>&gt;</dt>
+    <dd><p>The template folders.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Templates_" data-uid="Stride.Core.Assets.Package.Templates*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Templates" data-uid="Stride.Core.Assets.Package.Templates">
+  Templates
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the loaded templates from the <a class="xref" href="Stride.Core.Assets.Package.html#Stride_Core_Assets_Package_TemplateFolders">TemplateFolders</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;TemplateDescription&gt; Templates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.Templates.TemplateDescription.html">TemplateDescription</a>&gt;</dt>
+    <dd><p>The templates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_TemporaryAssets_" data-uid="Stride.Core.Assets.Package.TemporaryAssets*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_TemporaryAssets" data-uid="Stride.Core.Assets.Package.TemporaryAssets">
+  TemporaryAssets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the temporary assets list loaded from disk before they are going into <a class="xref" href="Stride.Core.Assets.Package.html#Stride_Core_Assets_Package_Assets">Assets</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;AssetItem&gt; TemporaryAssets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a>&gt;</dt>
+    <dd><p>The temporary assets.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_UserSettings_" data-uid="Stride.Core.Assets.Package.UserSettings*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_UserSettings" data-uid="Stride.Core.Assets.Package.UserSettings">
+  UserSettings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the package user settings. Usually stored in a .user file alongside the package. Lazily loaded on first time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageUserSettings UserSettings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageUserSettings.html">PackageUserSettings</a></dt>
+    <dd><p>The package user settings.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Assets_Package_AddExistingProject_" data-uid="Stride.Core.Assets.Package.AddExistingProject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_AddExistingProject_Stride_Core_IO_UFile_" data-uid="Stride.Core.Assets.Package.AddExistingProject(Stride.Core.IO.UFile)">
+  AddExistingProject(UFile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an existing project to this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LoggerResult AddExistingProject(UFile pathToMsproj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pathToMsproj</code> <span class="xref">UFile</span></dt>
+    <dd><p>The path to msproj.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Diagnostics.LoggerResult.html">LoggerResult</a></dt>
+    <dd><p>LoggerResult.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_AddExistingProject_" data-uid="Stride.Core.Assets.Package.AddExistingProject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_AddExistingProject_Stride_Core_IO_UFile_Stride_Core_Diagnostics_LoggerResult_" data-uid="Stride.Core.Assets.Package.AddExistingProject(Stride.Core.IO.UFile,Stride.Core.Diagnostics.LoggerResult)">
+  AddExistingProject(UFile, LoggerResult)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an existing project to this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddExistingProject(UFile pathToMsproj, LoggerResult logger)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pathToMsproj</code> <span class="xref">UFile</span></dt>
+    <dd><p>The path to msproj.</p>
+</dd>
+    <dt><code>logger</code> <a class="xref" href="Stride.Core.Diagnostics.LoggerResult.html">LoggerResult</a></dt>
+    <dd><p>The logger.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Clone_" data-uid="Stride.Core.Assets.Package.Clone*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Clone" data-uid="Stride.Core.Assets.Package.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deep clone this package.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Package Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Package.html">Package</a></dt>
+    <dd><p>The package cloned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_FindAsset_" data-uid="Stride.Core.Assets.Package.FindAsset*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_FindAsset_Stride_Core_Assets_AssetId_" data-uid="Stride.Core.Assets.Package.FindAsset(Stride.Core.Assets.AssetId)">
+  FindAsset(AssetId)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds an asset by its identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetItem? FindAsset(AssetId assetId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assetId</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The identifier of the asset.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The corresponding <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a> if found; otherwise, <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Assets_Package_FindAsset_Stride_Core_Assets_AssetId__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Looks for the asset amongst the current package and its dependencies.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Assets_Package_FindAsset_" data-uid="Stride.Core.Assets.Package.FindAsset*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_FindAsset_Stride_Core_IO_UFile_" data-uid="Stride.Core.Assets.Package.FindAsset(Stride.Core.IO.UFile)">
+  FindAsset(UFile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds an asset by its location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetItem? FindAsset(UFile location)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <span class="xref">UFile</span></dt>
+    <dd><p>The location of the asset.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The corresponding <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a> if found; otherwise, <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Assets_Package_FindAsset_Stride_Core_IO_UFile__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Looks for the asset amongst the current package and its dependencies.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Assets_Package_FindAssetFromProxyObject_" data-uid="Stride.Core.Assets.Package.FindAssetFromProxyObject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_FindAssetFromProxyObject_System_Object_" data-uid="Stride.Core.Assets.Package.FindAssetFromProxyObject(System.Object)">
+  FindAssetFromProxyObject(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds an asset from a proxy object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetItem? FindAssetFromProxyObject(object? proxyObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>proxyObject</code> <span class="xref">object</span></dt>
+    <dd><p>The proxy object which is represent the targeted asset.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The corresponding <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a> if found; otherwise, <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Assets_Package_FindAssetFromProxyObject_System_Object__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Looks for the asset amongst the current package and its dependencies.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Assets_Package_FindAssetsInProject_" data-uid="Stride.Core.Assets.Package.FindAssetsInProject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_FindAssetsInProject_System_String_System_String__" data-uid="Stride.Core.Assets.Package.FindAssetsInProject(System.String,System.String@)">
+  FindAssetsInProject(string, out string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L1249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;(UFile FilePath, UFile? Link)&gt; FindAssetsInProject(string projectFullPath, out string? nameSpace)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectFullPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>nameSpace</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;(<span class="xref">UFile</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-stride.core.io.ufile,stride.core.io.ufile-.filepath">FilePath</a>, <span class="xref">UFile</span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-stride.core.io.ufile,stride.core.io.ufile-.link">Link</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_GetDefaultAssetFolder_" data-uid="Stride.Core.Assets.Package.GetDefaultAssetFolder*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_GetDefaultAssetFolder" data-uid="Stride.Core.Assets.Package.GetDefaultAssetFolder">
+  GetDefaultAssetFolder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UDirectory GetDefaultAssetFolder()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">UDirectory</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_GetPackageIdFromFile_" data-uid="Stride.Core.Assets.Package.GetPackageIdFromFile*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_GetPackageIdFromFile_System_String_" data-uid="Stride.Core.Assets.Package.GetPackageIdFromFile(System.String)">
+  GetPackageIdFromFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L494"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the package identifier from file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Guid GetPackageIdFromFile(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd><p>Guid.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>log
+or
+filePath</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Package_ListAssetFiles_" data-uid="Stride.Core.Assets.Package.ListAssetFiles*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_ListAssetFiles_Stride_Core_Assets_Package_System_Boolean_System_Boolean_" data-uid="Stride.Core.Assets.Package.ListAssetFiles(Stride.Core.Assets.Package,System.Boolean,System.Boolean)">
+  ListAssetFiles(Package, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L1166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;PackageLoadingAssetFile&gt; ListAssetFiles(Package package, bool listAssetsInMsbuild, bool listUnregisteredAssets)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>package</code> <a class="xref" href="Stride.Core.Assets.Package.html">Package</a></dt>
+    <dd></dd>
+    <dt><code>listAssetsInMsbuild</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>listUnregisteredAssets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.PackageLoadingAssetFile.html">PackageLoadingAssetFile</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_Load_" data-uid="Stride.Core.Assets.Package.Load*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_Load_Stride_Core_Diagnostics_ILogger_System_String_Stride_Core_Assets_PackageLoadParameters_" data-uid="Stride.Core.Assets.Package.Load(Stride.Core.Diagnostics.ILogger,System.String,Stride.Core.Assets.PackageLoadParameters)">
+  Load(ILogger, string, PackageLoadParameters?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L530"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads only the package description but not assets or plugins.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Package? Load(ILogger log, string filePath, PackageLoadParameters? loadParametersArg = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd><p>The log to receive error messages.</p>
+</dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path.</p>
+</dd>
+    <dt><code>loadParametersArg</code> <a class="xref" href="Stride.Core.Assets.PackageLoadParameters.html">PackageLoadParameters</a></dt>
+    <dd><p>The load parameters argument.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Package.html">Package</a></dt>
+    <dd><p>A package.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>log
+or
+filePath</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Package_LoadProject_" data-uid="Stride.Core.Assets.Package.LoadProject*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_LoadProject_Stride_Core_Diagnostics_ILogger_System_String_" data-uid="Stride.Core.Assets.Package.LoadProject(Stride.Core.Diagnostics.ILogger,System.String)">
+  LoadProject(ILogger, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L587"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PackageContainer LoadProject(ILogger log, string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd></dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.PackageContainer.html">PackageContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_LoadTemporaryAssets_" data-uid="Stride.Core.Assets.Package.LoadTemporaryAssets*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_LoadTemporaryAssets_Stride_Core_Diagnostics_ILogger_System_Collections_Generic_List_Stride_Core_Assets_PackageLoadingAssetFile__System_Boolean_System_Func_Stride_Core_Assets_PackageLoadingAssetFile_System_Boolean__System_Threading_CancellationToken_" data-uid="Stride.Core.Assets.Package.LoadTemporaryAssets(Stride.Core.Diagnostics.ILogger,System.Collections.Generic.List{Stride.Core.Assets.PackageLoadingAssetFile},System.Boolean,System.Func{Stride.Core.Assets.PackageLoadingAssetFile,System.Boolean},System.Threading.CancellationToken)">
+  LoadTemporaryAssets(ILogger, List&lt;PackageLoadingAssetFile&gt;?, bool, Func&lt;PackageLoadingAssetFile, bool&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L823"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Refreshes this package from the disk by loading or reloading all assets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadTemporaryAssets(ILogger log, List&lt;PackageLoadingAssetFile&gt;? assetFiles = null, bool listAssetsInMsbuild = true, Func&lt;PackageLoadingAssetFile, bool&gt;? filterFunc = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd><p>The log.</p>
+</dd>
+    <dt><code>assetFiles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Core.Assets.PackageLoadingAssetFile.html">PackageLoadingAssetFile</a>&gt;</dt>
+    <dd><p>The asset files (loaded from <a class="xref" href="Stride.Core.Assets.Package.html#Stride_Core_Assets_Package_ListAssetFiles_Stride_Core_Assets_Package_System_Boolean_System_Boolean_">ListAssetFiles(Package, bool, bool)</a> if null).</p>
+</dd>
+    <dt><code>listAssetsInMsbuild</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies if we need to evaluate MSBuild files for assets.</p>
+</dd>
+    <dt><code>filterFunc</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="Stride.Core.Assets.PackageLoadingAssetFile.html">PackageLoadingAssetFile</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A function that will filter assets loading</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Package RootDirectory is null
+or
+Package RootDirectory [{0}] does not exist.ToFormat(RootDirectory)</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Package_SaveSingleAsset_" data-uid="Stride.Core.Assets.Package.SaveSingleAsset*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_SaveSingleAsset_Stride_Core_Assets_AssetItem_Stride_Core_Diagnostics_ILogger_" data-uid="Stride.Core.Assets.Package.SaveSingleAsset(Stride.Core.Assets.AssetItem,Stride.Core.Diagnostics.ILogger)">
+  SaveSingleAsset(AssetItem, ILogger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SaveSingleAsset(AssetItem asset, ILogger log)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>asset</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd></dd>
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_SetPackagePath_" data-uid="Stride.Core.Assets.Package.SetPackagePath*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_SetPackagePath_Stride_Core_IO_UFile_System_Boolean_" data-uid="Stride.Core.Assets.Package.SetPackagePath(Stride.Core.IO.UFile,System.Boolean)">
+  SetPackagePath(UFile, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the package path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPackagePath(UFile newPath, bool copyAssets = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newPath</code> <span class="xref">UFile</span></dt>
+    <dd><p>The new path.</p>
+</dd>
+    <dt><code>copyAssets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> assets will be copied relatively to the new location.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_UpdateAssemblyReferences_" data-uid="Stride.Core.Assets.Package.UpdateAssemblyReferences*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_UpdateAssemblyReferences_Stride_Core_Diagnostics_ILogger_Stride_Core_Assets_PackageLoadParameters_" data-uid="Stride.Core.Assets.Package.UpdateAssemblyReferences(Stride.Core.Diagnostics.ILogger,Stride.Core.Assets.PackageLoadParameters)">
+  UpdateAssemblyReferences(ILogger, PackageLoadParameters?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L960"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the assembly references that were not loaded before.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateAssemblyReferences(ILogger log, PackageLoadParameters? loadParametersArg = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd><p>The log.</p>
+</dd>
+    <dt><code>loadParametersArg</code> <a class="xref" href="Stride.Core.Assets.PackageLoadParameters.html">PackageLoadParameters</a></dt>
+    <dd><p>The load parameters argument.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Package_ValidateAssets_" data-uid="Stride.Core.Assets.Package.ValidateAssets*"></a>
+
+  <h3 id="Stride_Core_Assets_Package_ValidateAssets_System_Boolean_System_Boolean_Stride_Core_Diagnostics_ILogger_" data-uid="Stride.Core.Assets.Package.ValidateAssets(System.Boolean,System.Boolean,Stride.Core.Diagnostics.ILogger)">
+  ValidateAssets(bool, bool, ILogger)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L748"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ValidateAssets(bool alwaysGenerateNewAssetId, bool removeUnloadableObjects, ILogger log)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>alwaysGenerateNewAssetId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>removeUnloadableObjects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>log</code> <a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Core_Assets_Package_AssetDirtyChanged" data-uid="Stride.Core.Assets.Package.AssetDirtyChanged">
+  AssetDirtyChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when an asset dirty changed occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DirtyFlagChangedDelegate&lt;AssetItem&gt; AssetDirtyChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.DirtyFlagChangedDelegate-1.html">DirtyFlagChangedDelegate</a>&lt;<a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Assets_Package_PackageDirtyChanged" data-uid="Stride.Core.Assets.Package.PackageDirtyChanged">
+  PackageDirtyChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when package dirty changed occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DirtyFlagChangedDelegate&lt;Package&gt; PackageDirtyChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.DirtyFlagChangedDelegate-1.html">DirtyFlagChangedDelegate</a>&lt;<a class="xref" href="Stride.Core.Assets.Package.html">Package</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Package.cs/#L48" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

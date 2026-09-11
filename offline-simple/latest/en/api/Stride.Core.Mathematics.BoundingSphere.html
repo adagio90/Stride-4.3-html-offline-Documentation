@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct BoundingSphere | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct BoundingSphere | Stride API ">
+      
+      <meta name="description" content="Represents a bounding sphere in three dimensional space.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_BoundingSphere.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.BoundingSphere%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.BoundingSphere">
+
+
+
+  <h1 id="Stride_Core_Mathematics_BoundingSphere" data-uid="Stride.Core.Mathematics.BoundingSphere" class="text-break">
+Struct BoundingSphere  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a bounding sphere in three dimensional space.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public struct BoundingSphere : IEquatable&lt;BoundingSphere&gt;, ISpanFormattable, IFormattable, IIntersectableWithRay, IIntersectableWithPlane</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="Stride.Core.Mathematics.IIntersectableWithRay.html">IIntersectableWithRay</a></div>
+      <div><a class="xref" href="Stride.Core.Mathematics.IIntersectableWithPlane.html">IIntersectableWithPlane</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere__ctor_" data-uid="Stride.Core.Mathematics.BoundingSphere.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere__ctor_Stride_Core_Mathematics_Vector3_System_Single_" data-uid="Stride.Core.Mathematics.BoundingSphere.#ctor(Stride.Core.Mathematics.Vector3,System.Single)">
+  BoundingSphere(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoundingSphere(Vector3 center, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>center</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The center of the sphere in three dimensional space.</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The radius of the sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Center" data-uid="Stride.Core.Mathematics.BoundingSphere.Center">
+  Center
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The center of the sphere in three dimensional space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Center</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Empty" data-uid="Stride.Core.Mathematics.BoundingSphere.Empty">
+  Empty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An empty bounding sphere (Center = 0 and Radius = 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly BoundingSphere Empty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Radius" data-uid="Stride.Core.Mathematics.BoundingSphere.Radius">
+  Radius
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The radius of the sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Radius</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Contains_" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Contains_Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains(Stride.Core.Mathematics.BoundingBox@)">
+  Contains(ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Contains_" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Contains_Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains(Stride.Core.Mathematics.BoundingSphere@)">
+  Contains(ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Contains_" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Contains_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains(Stride.Core.Mathematics.Vector3@)">
+  Contains(ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Contains_" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Contains_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.BoundingSphere.Contains(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Contains(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Equals_" data-uid="Stride.Core.Mathematics.BoundingSphere.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Equals_Stride_Core_Mathematics_BoundingSphere_" data-uid="Stride.Core.Mathematics.BoundingSphere.Equals(Stride.Core.Mathematics.BoundingSphere)">
+  Equals(BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(BoundingSphere value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Equals_" data-uid="Stride.Core.Mathematics.BoundingSphere.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Equals_System_Object_" data-uid="Stride.Core.Mathematics.BoundingSphere.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L460"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_FromBox_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_FromBox_Stride_Core_Mathematics_BoundingBox_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromBox(Stride.Core.Mathematics.BoundingBox)">
+  FromBox(BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> from a given box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere FromBox(BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box that will designate the extents of the sphere.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_FromBox_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_FromBox_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.FromBox(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingSphere@)">
+  FromBox(ref readonly BoundingBox, out BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> from a given box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromBox(ref readonly BoundingBox box, out BoundingSphere result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box that will designate the extents of the sphere.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>When the method completes, the newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_FromPoints_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_FromPoints_Stride_Core_Mathematics_Vector3___" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints(Stride.Core.Mathematics.Vector3[])">
+  FromPoints(Vector3[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere FromPoints(Vector3[] points)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>[]</dt>
+    <dd><p>The points that will be contained by the sphere.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_FromPoints_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_FromPoints_Stride_Core_Mathematics_Vector3___Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints(Stride.Core.Mathematics.Vector3[],Stride.Core.Mathematics.BoundingSphere@)">
+  FromPoints(Vector3[], out BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromPoints(Vector3[] points, out BoundingSphere result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>[]</dt>
+    <dd><p>The points that will be contained by the sphere.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_FromPoints_" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_FromPoints_System_IntPtr_System_Int32_System_Int32_System_Int32_Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.FromPoints(System.IntPtr,System.Int32,System.Int32,System.Int32,Stride.Core.Mathematics.BoundingSphere@)">
+  FromPoints(nint, int, int, int, out BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given unmanaged points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromPoints(nint vertexBufferPtr, int vertexPositionOffsetInBytes, int vertexCount, int vertexStride, out BoundingSphere result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertexBufferPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>A pointer to of vertices containing points.</p>
+</dd>
+    <dt><code>vertexPositionOffsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The point offset in bytes starting from the vertex structure.</p>
+</dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The verterx vertexCount.</p>
+</dd>
+    <dt><code>vertexStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The vertex stride (size of vertex).</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_GetHashCode_" data-uid="Stride.Core.Mathematics.BoundingSphere.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_GetHashCode" data-uid="Stride.Core.Mathematics.BoundingSphere.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.BoundingBox@)">
+  Intersects(ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.BoundingSphere@)">
+  Intersects(ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.Plane@)">
+  Intersects(ref readonly Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref readonly Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_Ray__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.Ray@)">
+  Intersects(ref readonly Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Ray, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_Ray__System_Single__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.Ray@,System.Single@)">
+  Intersects(ref readonly Ray, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Intersects_" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Intersects_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.BoundingSphere.Intersects(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Merge_" data-uid="Stride.Core.Mathematics.BoundingSphere.Merge*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Merge_Stride_Core_Mathematics_BoundingSphere_Stride_Core_Mathematics_BoundingSphere_" data-uid="Stride.Core.Mathematics.BoundingSphere.Merge(Stride.Core.Mathematics.BoundingSphere,Stride.Core.Mathematics.BoundingSphere)">
+  Merge(BoundingSphere, BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L365"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> that is the as large as the total combined area of the two specified spheres.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere Merge(BoundingSphere value1, BoundingSphere value2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first sphere to merge.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second sphere to merge.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Merge_" data-uid="Stride.Core.Mathematics.BoundingSphere.Merge*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Merge_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.Merge(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@)">
+  Merge(ref readonly BoundingSphere, ref readonly BoundingSphere, out BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> that is the as large as the total combined area of the two specified spheres.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge(ref readonly BoundingSphere value1, ref readonly BoundingSphere value2, out BoundingSphere result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first sphere to merge.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second sphere to merge.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_ToString_" data-uid="Stride.Core.Mathematics.BoundingSphere.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_ToString" data-uid="Stride.Core.Mathematics.BoundingSphere.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_ToString_" data-uid="Stride.Core.Mathematics.BoundingSphere.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.BoundingSphere.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_Transform_" data-uid="Stride.Core.Mathematics.BoundingSphere.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_Transform_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.BoundingSphere.Transform(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.BoundingSphere@)">
+  Transform(ref readonly BoundingSphere, ref readonly Matrix, out BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a bounding sphere, yielding the bounding sphere of all points contained by the original one, transformed by the specified transform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref readonly BoundingSphere value, ref readonly Matrix transform, out BoundingSphere result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The original bounding sphere.</p>
+</dd>
+    <dt><code>transform</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transform to apply to the bounding sphere.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The transformed bounding sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_op_Equality_" data-uid="Stride.Core.Mathematics.BoundingSphere.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_op_Equality_Stride_Core_Mathematics_BoundingSphere_Stride_Core_Mathematics_BoundingSphere_" data-uid="Stride.Core.Mathematics.BoundingSphere.op_Equality(Stride.Core.Mathematics.BoundingSphere,Stride.Core.Mathematics.BoundingSphere)">
+  operator ==(BoundingSphere, BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(BoundingSphere left, BoundingSphere right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_BoundingSphere_op_Inequality_" data-uid="Stride.Core.Mathematics.BoundingSphere.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_BoundingSphere_op_Inequality_Stride_Core_Mathematics_BoundingSphere_Stride_Core_Mathematics_BoundingSphere_" data-uid="Stride.Core.Mathematics.BoundingSphere.op_Inequality(Stride.Core.Mathematics.BoundingSphere,Stride.Core.Mathematics.BoundingSphere)">
+  operator !=(BoundingSphere, BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(BoundingSphere left, BoundingSphere right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/BoundingSphere.cs/#L38" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

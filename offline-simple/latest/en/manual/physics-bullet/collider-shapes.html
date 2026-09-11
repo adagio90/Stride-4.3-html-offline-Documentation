@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Collider shapes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Collider shapes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/collider-shapes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="collider-shapes">Collider shapes</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Bullet Physics is being phased out. We no longer plan to support or expand its features as our focus shifts to <a href="../physics/index.html">Bepu Physics</a>. We recommend transitioning to Bepu Physics for access to the latest updates and ongoing improvements.</p>
+</div>
+
+<p>For <a href="colliders.html">colliders</a> to interact, you need to set their shape in the <strong>Property Grid</strong>. You can specify a geometric shape, or use a collider shape asset.</p>
+<p><img src="media/select-collider-shape.png" alt="Select a collider shape"></p>
+<p>Components can have multiple intersecting shapes, and don't have to match the entity model, if it has one. Each shape has additional properties including size, orientation, offset, and so on.</p>
+<h2 id="types-of-collider-shape">Types of collider shape</h2>
+<h3 id="box">Box</h3>
+<p><img src="media/box.png" alt="Box"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is 2D</td>
+<td>Makes the box infinitely flat in one dimension.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>The box size in XYZ values.</td>
+</tr>
+<tr>
+<td>Local offset</td>
+<td>The box position relative its entity.</td>
+</tr>
+<tr>
+<td>Local rotation</td>
+<td>The box rotation in XYZ values.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="capsule">Capsule</h3>
+<p><img src="media/capsule.png" alt="Capsule"></p>
+<p>The capsule shape is especially useful for character components, as its curved base lets the entity move to higher planes (eg when climbing staircases).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is 2D</td>
+<td>Makes the capsule infinitely flat in one dimension.</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>The length of the capsule.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The radius of the capsule.</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>The axis along which the shape is stretched (X, Y, or Z).</td>
+</tr>
+<tr>
+<td>Local offset</td>
+<td>The capsule position relative to its entity.</td>
+</tr>
+<tr>
+<td>Local rotation</td>
+<td>The capsule rotation in XYZ values.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cone">Cone</h3>
+<p><img src="media/cone.png" alt="Cone"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Height</td>
+<td>The height of the cone.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The radius of the cone at the bottom end.</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>The axis along which the shape is stretched (X, Y, or Z).</td>
+</tr>
+<tr>
+<td>Local offset</td>
+<td>The cone position relative to its entity.</td>
+</tr>
+<tr>
+<td>Local rotation</td>
+<td>The cone rotation in XYZ values.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cylinder">Cylinder</h3>
+<p><img src="media/cylinder.png" alt="Cylinder"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Height</td>
+<td>The length of the cylinder.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The radius of the cylinder.</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>Sets the axis along which the shape is stretched (X, Y, or Z).</td>
+</tr>
+<tr>
+<td>Local offset</td>
+<td>The cylinder position relative to its entity.</td>
+</tr>
+<tr>
+<td>Local rotation</td>
+<td>The cylinder  rotation in XYZ values.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sphere">Sphere</h3>
+<p><img src="media/sphere.png" alt="Sphere"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is 2D</td>
+<td>Makes the sphere infinitely flat in one dimension.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The radius of the sphere.</td>
+</tr>
+<tr>
+<td>Local offset</td>
+<td>The sphere position relative to its entity.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="infinite-plane">Infinite plane</h3>
+<p><img src="media/infinite-plane.png" alt="Infinite plane"></p>
+<p>The infinite plane covers an infinite distance across one dimension.
+Think of it like a wall or floor stretching into the distance for ever.
+You can use several infinite planes together to box users in and stop them &quot;tunneling&quot; outside the level.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>Which vector (X, Y, or Z) is perpendicular to the plane. For example, to make an infinite floor, set the normal property to: <em>X:0, Y:1, Z:0</em>.</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>The plane position relative to its entity.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asset">Asset</h3>
+<p>Assigns a collider shape from a collider shape asset (see <strong>Collider shape assets</strong> below).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape</td>
+<td>The collider shape asset used to generate the collider shape.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="collider-shape-assets">Collider shape assets</h2>
+<p>You can also create <strong>collider shape assets</strong> and use them as your collider shape. This means you can edit the collider shape asset and automatically update it in every entity that uses it.</p>
+<h2 id="create-a-collider-shape-asset">Create a collider shape asset</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong> (bottom by default), click <strong>Add asset</strong>.</p>
+</li>
+<li><p>Select <strong>Physics</strong>, then select the shape you want to create.</p>
+<p><img src="media/create-collider-shape-asset.png" alt="Create collider shape asset"></p>
+</li>
+</ol>
+<p>Game Studio creates the new collider shape asset in the <strong>CollisionMeshes</strong> folder.</p>
+<p><img src="media/collider-shape-in-asset-view.png" alt="Collider shape asset in Asset View"></p>
+<h3 id="create-a-collider-shape-asset-from-a-model">Create a collider shape asset from a model</h3>
+<p>This is useful to quickly create a collider shape that matches a model.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (bottom by default), click <strong>Add asset</strong>.</p>
+</li>
+<li><p>Select <strong>Physics</strong> &gt; <strong>Convex hull</strong>.</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="media/select-model.png" alt="Select model"></p>
+</li>
+<li><p>Browse to the model asset you want to create a collider shape asset from and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>Game Studio creates a collider shape asset from the model.</p>
+<h2 id="use-a-collider-shape-asset">Use a collider shape asset</h2>
+<ol>
+<li><p>Under the <strong>static collider</strong> or <strong>rigidbody</strong> properties, under <strong>Collider Shapes</strong>, select <strong>Asset</strong>.</p>
+<p><img src="media/select-asset-collider-shape.png" alt="Select collider shape asset"></p>
+</li>
+<li><p>Next to <strong>Shape</strong>, specify the collider shape asset you want to use.</p>
+<p><img src="media/select-collider-shape-asset.png" alt="Select collider shape asset"></p>
+<p>To do this, drag the asset from the <strong>Asset View</strong> to the <strong>Shape</strong> field in the Property Grid. Alternatively, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>) and browse to the asset.</p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="colliders.html">Colliders</a></li>
+<li><a href="create-a-bouncing-ball.html">Tutorial: Create a bouncing ball</a></li>
+<li><a href="script-a-trigger.html">Tutorial: Script a trigger</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/collider-shapes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

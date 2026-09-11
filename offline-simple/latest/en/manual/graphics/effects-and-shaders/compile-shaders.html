@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Compile shaders | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Compile shaders | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/compile-shaders.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="compile-shaders">Compile shaders</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>Stride converts Stride shaders (<code>sdsl</code> and <code>.sdfx</code> files) into the shader language used by the <a href="../../platforms/set-the-graphics-platform.html">graphics platform</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Shader language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct3D</td>
+<td>HLSL</td>
+</tr>
+<tr>
+<td>OpenGL</td>
+<td>GLSL</td>
+</tr>
+<tr>
+<td>Vulkan</td>
+<td>SPIR-V</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>OpenGL ES</td>
+</tr>
+</tbody>
+</table>
+<p>Stride can convert the shaders at runtime (when the game is running) or at build time (when the editor builds the game assets). When Stride generates shaders at runtime, rendering stops until the shader is compiled. This is usually something you want to avoid in your release build — especially on mobile platforms, which have less CPU, so the pause can be more noticable.</p>
+<h2 id="how-stride-converts-shaders-at-runtime">How Stride converts shaders at runtime</h2>
+<p>Stride can't know in advance which shaders will be used at runtime. This is because users might generate new shader permutations by, for example, changing material parameters or modifying post-effect parameters from scripts. Additionally, the final shaders depend on the graphics features on the execution platform.</p>
+<ol>
+<li><p>When Stride needs a new shader at runtime, it checks its database to see if the shader has already been converted. If the shader is in the database, Stride uses it.</p>
+</li>
+<li><p>If the shader hasn't already been converted, Stride compiles it — either locally (on the device) or remotely (in Game Studio), depending on the package <strong>User Settings</strong> (see below).</p>
+</li>
+<li><p>If <strong>Record used effects</strong> is enabled in the package <strong>User Settings</strong> (see below), Stride notifies Game Studio that it needs a new shader.</p>
+</li>
+<li><p>Game Studio notifies you that there are new shaders to import.</p>
+<p><img src="media/new-effects-to-import.png" alt="New effects"></p>
+<p>In the <strong>Asset View</strong>, the <strong>Import effects</strong> button becomes available.</p>
+<p><img src="media/import-effects-button.png" alt="Import effects"></p>
+</li>
+<li><p>If you click <strong>Import effects</strong>, Game Studio updates the <strong>Effect Log</strong> (or creates it if it doesn't exist) and adds them to the game database to be used the next time you build (see step 1).</p>
+<p><img src="media/effect-log.png" alt="Effect log"></p>
+</li>
+</ol>
+<h2 id="change-how-stride-compiles-shaders">Change how Stride compiles shaders</h2>
+<ol>
+<li><p>In Game Studio, in the <strong>Solution Explorer</strong>, select the package and click <strong>Package properties</strong>.</p>
+<p><img src="media/package-properties-button.png" alt="Package properties"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, set the properties.</p>
+<p><img src="media/package-properties.png" alt="Package properties"></p>
+</li>
+</ol>
+<p>The <strong>Effect compiler</strong> property specifies how to compile the shader.</p>
+<ul>
+<li><p><strong>Local</strong>: Convert the shader on the device. This is recommended for release versions of your game.</p>
+</li>
+<li><p><strong>Remote</strong>: Convert the shader on the developer machine. There's no reason to use this for release versions of your game, as it won't be able to connect to the developer machine.</p>
+</li>
+<li><p><strong>LocalOrRemote</strong>: Convert the shader on the developer machine; if this fails, try to convert it on the device. Like the <strong>Remote</strong> setting, this has no use for release versions of your game.</p>
+</li>
+<li><p><strong>None</strong>: Don't convert shaders. Note that the application will crash if it requires a shader that isn't in the database. Currently, using this feature doesn't save any space your application, so there's no advantage in using it. However, it might be useful for making sure you have every shader in the database; if the game crashes, you know the database is missing at least one shader.</p>
+</li>
+</ul>
+<p>If you enable <strong>Record used effects</strong>, Game Studio adds new shaders to the Effect Log as soon as they're needed. We recommend you disable this for release versions of your game, as it can't connect to the developer machine.</p>
+<h2 id="compile-shaders-remotely-when-developing-for-ios">Compile shaders remotely when developing for iOS</h2>
+<p>As iOS devices can't connect directly to PC, to convert Stride shaders remotely when developing for iOS, you need to use a Python script as a relay between the device, a Mac, and the developer PC.</p>
+<ol>
+<li><p>Make sure your PC and Mac are connected to the same network.</p>
+</li>
+<li><p>On your Mac, install Python. You can download Python from the <a href="https://www.python.org/downloads/">Python site</a>.</p>
+</li>
+<li><p>Download and unzip <a href="media/ios-tcprelay.zip">ios-tcreplay.zip</a>.</p>
+</li>
+<li><p>Open <strong>Terminal</strong>, navigate to the folder where you unzipped the file, and execute <strong>stride-ios-relay.py MyPcName</strong>, where <strong>MyPcName</strong> is the name of your developer PC.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To find the name of your developer PC, on the PC, press the Windows key, type <strong>About</strong>, and press <strong>Enter</strong>. The PC name is listed under <strong>PC name</strong>.</p>
+</div>
+</li>
+</ol>
+<p>The iOS device should now be able to communicate with the PC via your Mac to build shaders remotely.</p>
+<h2 id="error-messages">Error messages</h2>
+<p>You may see the following error in Visual Studio's output pane while running your game:</p>
+<blockquote>
+<p>[RouterClient]: Error: Could not connect to connection router using mode Connect. System.AggregateException: One or more errors occurred. ---&gt; System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:31254</p>
+</blockquote>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/compile-shaders.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

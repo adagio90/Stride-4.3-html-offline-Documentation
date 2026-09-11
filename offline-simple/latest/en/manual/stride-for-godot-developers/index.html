@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Stride for Godot developers | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Stride for Godot developers | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/stride-for-godot-developers/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="stride-for-godot-developers">Stride for Godot developers</h1>
+
+<h2 id="editor">Editor</h2>
+<p>The Stride editor is <strong>Game Studio</strong>. This is the equivalent of the Godot Editor.</p>
+<p><img src="media/stride-vs-godot-godotlayout.webp" alt="Godot layout"></p>
+<p><img src="media/stride-vs-godot-stridelayout.webp" alt="Stride Game Studio layout"></p>
+<p>You can customize the Game Studio layout by dragging tabs, similar to Visual Studio.</p>
+<p>For more information about Game Studio, see the <a href="../game-studio/index.html">Game Studio</a> page.</p>
+<h2 id="code-editor">Code Editor</h2>
+<h3 id="godot">Godot</h3>
+<p>Godot provides a built-in code editor that supports its own scripting language, GDScript, as well as C# and VisualScript. The Godot editor is more tightly integrated with the engine and is generally kept up-to-date with new features.</p>
+<h3 id="stride">Stride</h3>
+<p>Stride comes with an integrated C# code editor within Game Studio. Although functional, this editor is not a high-priority feature and may not receive frequent updates. As such, it is generally recommended to use dedicated IDEs for code editing. Some popular choices include:</p>
+<ul>
+<li>Visual Studio Code: Free, open-source and highly extensible.</li>
+<li>Rider: Paid, but offers a robust set of features tailored for .NET development.</li>
+<li>Visual Studio Community: Free for small teams and individual developers.</li>
+<li>Visual Studio Professional and Enterprise: Paid versions with additional features and services.</li>
+</ul>
+<p>In summary, while both Stride and Godot offer integrated code editors, Stride's editor is best considered a supplementary tool rather than a complete IDE. It is advised to use specialized IDEs for more complex development tasks in Stride. Godot's editor, on the other hand, is robust enough for full-scale development if you are using GDScript or C#.</p>
+<h2 id="terminology">Terminology</h2>
+<table>
+<thead>
+<tr>
+<th>Godot</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene (<code>PackedScene</code>)</td>
+<td>Prefab / scene asset</td>
+</tr>
+<tr>
+<td>Inspector</td>
+<td>Property Grid</td>
+</tr>
+<tr>
+<td>FileSystem</td>
+<td>Solution/Asset View</td>
+</tr>
+<tr>
+<td>2D/3D Viewport</td>
+<td>Scene Editor</td>
+</tr>
+<tr>
+<td>Node</td>
+<td><a class="xref" href="../../api/Stride.Engine.Entity.html"><code>Entity</code></a></td>
+</tr>
+<tr>
+<td>Script attached to Node</td>
+<td>Script component (<a class="xref" href="../../api/Stride.Engine.SyncScript.html"><code>SyncScript</code></a>, <a class="xref" href="../../api/Stride.Engine.AsyncScript.html"><code>AsyncScript</code></a>, <a class="xref" href="../../api/Stride.Engine.StartupScript.html"><code>StartupScript</code></a>)</td>
+</tr>
+<tr>
+<td><code>[Export]</code></td>
+<td><code>[DataMember]</code></td>
+</tr>
+<tr>
+<td><code>[GlobalClass]</code></td>
+<td><code>[DataContract]</code> on serializable classes (to expose custom types in the editor)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="folders-and-files">Folders and files</h2>
+<ul>
+<li><strong>Assets</strong>
+<ul>
+<li>In Godot, you can store assets anywhere.</li>
+<li>In Stride, assets are stored in the <code>Assets</code> folder.</li>
+</ul>
+</li>
+<li>Stride and Godot use the standard C# solution structure. A key difference is that <strong>Stride uses a multi-project architecture with the following projects</strong>:
+<ul>
+<li><code>MyPackage.Game</code> contains your source code.</li>
+<li><code>MyPackage.Platform</code> contains additional code for the platforms your project supports. Game Studio creates folders for each platform (for example, <code>MyPackage.Windows</code>, <code>MyPackage.Linux</code>, etc.). These folders are usually small and only contain the program entry point.</li>
+<li>Any additional subprojects. Stride scans subprojects the same way it scans the main project to find <code>DataContract</code> classes and features for the editor and game.</li>
+</ul>
+</li>
+<li><strong>Bin</strong> contains the compiled binaries and data. Stride creates the folder when you build the project, with a subdirectory for each platform.</li>
+<li><strong>obj</strong> contains cached files. Game Studio creates this folder when you build your project. To force a complete asset and code rebuild, delete this folder and build the project again.</li>
+<li><strong>Resources</strong> is a suggested location for files such as images and audio used by your assets. Godot and Stride use different resource systems, so treat this as a project-organization folder rather than a Godot-style <code>Resource</code> type.</li>
+</ul>
+<h3 id="open-the-project-directory-from-game-studio">Open the project directory from Game Studio</h3>
+<p>You can open the project directory from <strong>Project &gt; Show in explorer</strong> in Game Studio.</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-open-project-in-windows-explorer.png" alt="Open project directory from Game Studio"></p>
+<h2 id="game-settings">Game settings</h2>
+<p>Godot saves global settings in <a href="https://docs.godotengine.org/cs/stable/classes/class_projectsettings.html">Project Settings</a>.</p>
+<p>Stride saves global settings in a single asset, the <strong>Game Settings</strong> asset. You can configure:</p>
+<ul>
+<li>The <strong>default scene</strong></li>
+<li><strong>Rendering settings</strong></li>
+<li><strong>Editor settings</strong></li>
+<li><strong>Texture settings</strong></li>
+<li><strong>Physics settings</strong></li>
+<li><strong>Overrides</strong></li>
+</ul>
+<p>To use the Game Settings asset, in the <strong>Asset View</strong>, select <strong>GameSettings</strong> and view its properties in the <strong>Property Grid</strong>.</p>
+<p><img src="../stride-for-unity-developers/media/game-settings.png" alt="Game settings"></p>
+<h2 id="scenes">Scenes</h2>
+<p>Like Godot, in Stride you place all objects in a scene. Game Studio stores scenes as separate <code>.sdscene</code> assets in your project directory.</p>
+<h3 id="set-the-default-scene">Set the default scene</h3>
+<p>You can have multiple scenes in your project. The scene that loads as soon as your game starts is called the <em>Default Scene</em>.</p>
+<p>To set the default scene:</p>
+<ol>
+<li><p>In the <strong>GameSettings</strong> properties, next to <strong>Default Scene</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-game-settings-default-scene.png" alt="Set default scene"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the default scene and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>For more information about scenes, see <a href="../game-studio/scenes.html">Scenes</a>.</p>
+<h2 id="entities-vs-nodes">Entities vs Nodes</h2>
+<p>In Godot, objects in the scene are called <strong>Nodes</strong> (organized in the <strong>Scene Tree</strong>). In Stride, they're called <strong>entities</strong>.</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-entities.jpg" alt="Entities in Stride"></p>
+<p>Like Nodes, entities are carriers for &quot;behavior&quot; and data. In Godot, this is typically done by using different node types (for example, <code>Node3D</code>, <code>Sprite2D</code>, <code>AudioStreamPlayer</code>) and attaching scripts. In Stride, this is done by adding <strong>components</strong> (transform components, model components, audio components, and so on). If you're used to working with Nodes in Godot, you should have no problem using entities in Game Studio.</p>
+<h2 id="entity-components">Entity components</h2>
+<p>In Stride, you add components to entities in the editor much like you attach child nodes or configure node properties in the Godot editor.</p>
+<p>To add a component to an entity in Game Studio:</p>
+<ol>
+<li><p>Select the entity you want to add the component to.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select the component from the drop-down list.</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-add-component-to-entity.png" alt="Add component"></p>
+</li>
+</ol>
+<h3 id="transform-component">Transform component</h3>
+<p>Like <code>Node3D</code> / <code>Node2D</code> in Godot, each entity in Stride has a <a class="xref" href="../../api/Stride.Engine.TransformComponent.html">Transform component</a> that sets its position, rotation, and scale in the world.</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-entity-transform-component.png" alt="Transform component"></p>
+<p>All entities are created with a Transform component by default.</p>
+<p>In Stride, Transform components contain a LocalMatrix and a WorldMatrix that are updated every Update frame. If you need to force an update sooner, you can use <code>TransformComponent.UpdateLocalMatrix()</code>, <code>Transform.UpdateWorldMatrix()</code>, or <code>Transform.UpdateLocalFromWorld()</code>, depending on how you need to update the matrix.</p>
+<h4 id="local-positionrotationscale">Local Position/Rotation/Scale</h4>
+<p>Stride uses position, rotation, and scale to refer to the local position, rotation, and scale.</p>
+<table>
+<thead>
+<tr>
+<th>Godot (typical 3D)</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position</code></td>
+<td><code>Transform.Position</code></td>
+</tr>
+<tr>
+<td><code>quaternion</code> / <code>basis</code></td>
+<td><code>Transform.Rotation</code></td>
+</tr>
+<tr>
+<td><code>rotation_degrees</code></td>
+<td><code>Transform.RotationEulerXYZ</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>Transform.Scale</code></td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>In Godot, <code>Node3D.rotation</code> is Euler angles in <strong>radians</strong>, and Godot also exposes convenience properties like <code>rotation_degrees</code>.</p>
+<p>In order to get and set rotation using degrees use the utility methods <a class="xref" href="../../api/Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_DegreesToRadians_"><code>MathUtil.DegreesToRadians</code></a> and <a class="xref" href="../../api/Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_RadiansToDegrees_"><code>MathUtil.RadiansToDegrees</code></a> with <code>Transform.RotationEulerXYZ</code>.</p>
+</div>
+<h4 id="world-positionrotationscale">World Position/Rotation/Scale</h4>
+<p>In Godot, world-space transform values are typically accessed via <code>global_*</code> properties or <code>global_transform</code>. In comparison to Godot, many of the Transform component's properties related to its location in the world are accessed via Stride's <a class="xref" href="../../api/Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_WorldMatrix">WorldMatrix</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Godot (4.x, Node3D)</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>global_position</code> / <code>global_transform.origin</code></td>
+<td><code>Transform.WorldMatrix.TranslationVector</code></td>
+</tr>
+<tr>
+<td><code>global_rotation</code> (Euler, radians)</td>
+<td>Decompose from <code>Transform.WorldMatrix</code></td>
+</tr>
+<tr>
+<td><code>global_scale</code></td>
+<td>Decompose from <code>Transform.WorldMatrix</code></td>
+</tr>
+<tr>
+<td><code>global_transform</code></td>
+<td><code>Transform.WorldMatrix</code></td>
+</tr>
+<tr>
+<td><code>global_transform.basis</code> (rotation/scale/shear in global space)</td>
+<td>Use direction vectors and decomposition on <code>Transform.WorldMatrix</code></td>
+</tr>
+<tr>
+<td>Decompose from <code>global_transform</code> / <code>global_transform.basis</code> (rotation/scale etc.)</td>
+<td><code>Transform.WorldMatrix.DecomposeXYZ(out Vector3 rotation)</code></td>
+</tr>
+<tr>
+<td>Decompose translation/scale</td>
+<td><code>Transform.WorldMatrix.Decompose(out Vector3 scale, out Vector3 translation)</code></td>
+</tr>
+<tr>
+<td>Decompose translation/rotation/scale</td>
+<td><code>Transform.WorldMatrix.Decompose(out Vector3 scale, out Quaternion rotation, out Vector3 translation)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>WorldMatrix</code> is only updated after the entire Update loop runs, which means that you may be reading outdated data if that object's or its parent's position changed between the previous frame and now.
+To ensure you're reading the latest position and rotation, you should force the matrix to update by calling <code>Transform.UpdateWorldMatrix()</code> before reading from it.</p>
+</div>
+<h4 id="transform-directions">Transform Directions</h4>
+<p>In Godot, direction vectors are commonly derived from the transform basis (for example using <code>global_transform.basis</code>). In Stride, the <code>WorldMatrix</code> exposes direction vectors directly. Note that those are matrix properties, so setting one of those is not enough to properly rotate the matrix.</p>
+<table>
+<thead>
+<tr>
+<th>Godot (typical 3D)</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-global_transform.basis.z</code> (forward in 3D)</td>
+<td><code>Transform.WorldMatrix.Forward</code></td>
+</tr>
+<tr>
+<td><code>global_transform.basis.z</code> (backward in 3D)</td>
+<td><code>Transform.WorldMatrix.Backward</code></td>
+</tr>
+<tr>
+<td><code>global_transform.basis.x</code> (right)</td>
+<td><code>Transform.WorldMatrix.Right</code></td>
+</tr>
+<tr>
+<td><code>-global_transform.basis.x</code> (left)</td>
+<td><code>Transform.WorldMatrix.Left</code></td>
+</tr>
+<tr>
+<td><code>global_transform.basis.y</code> (up)</td>
+<td><code>Transform.WorldMatrix.Up</code></td>
+</tr>
+<tr>
+<td><code>-global_transform.basis.y</code> (down)</td>
+<td><code>Transform.WorldMatrix.Down</code></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>See the note in <a href="#world-positionrotationscale">World Position/Rotation/Scale</a></p>
+</div>
+<h2 id="assets">Assets</h2>
+<p>Assets are imported and managed in the <strong>Asset View</strong>.</p>
+<h2 id="resources">Resources</h2>
+<p>Godot uses dedicated <code>Resource</code> objects. Stride does not use the same resource-object model. In Stride, equivalent data is usually represented with assets, prefabs, and serializable classes (<code>[DataContract]</code> / <code>[DataMember]</code>) that you reference from entities and scripts.</p>
+<p>For deeper details, see <a href="https://docs.godotengine.org/en/stable/classes/class_resource.html">Godot Resource</a> and <a href="https://docs.godotengine.org/en/stable/classes/class_packedscene.html">Godot PackedScene</a>.</p>
+<h2 id="supported-file-formats">Supported file formats</h2>
+<p>Like Godot, Stride supports file formats including:</p>
+<table>
+<thead>
+<tr>
+<th>Asset type</th>
+<th>Supported formats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Models, animations, skeletons</td>
+<td>.dae, .3ds, .obj, .blend, .x, .md2, .md3, .dxf, .fbx</td>
+</tr>
+<tr>
+<td>Sprites, textures, skyboxes</td>
+<td>.dds, .jpg, .jpeg, .png, .gif, .bmp, .tga, .psd, .tif, .tiff</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>.wav, .mp3, .ogg, .aac, .aiff, .flac, .m4a, .wma, .mpc</td>
+</tr>
+<tr>
+<td>Fonts</td>
+<td>.ttf, .otf</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>.mp4</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about assets, see <a href="../game-studio/assets.html">Assets</a>.</p>
+<h2 id="prefab-inheritance">Prefab inheritance</h2>
+<p>The equivalent of Godot's inherited scene is archetypes. Archetypes are master assets that control the properties of assets you derive from them. Derived assets are useful when you want to create a &quot;remixed&quot; version of an asset. This is similar to prefabs.</p>
+<p>For example, imagine we have three sphere entities that share a material asset named Metal. Now imagine we want to change the color of only one sphere, but keep its other properties the same. We could duplicate the material asset, change its color, and then apply the new asset to only one sphere. But if we later want to change a different property across all the spheres, we have to modify both assets. This is time-consuming and leaves room for mistakes.</p>
+<p>The better approach is to derive a new asset from the archetype. The derived asset inherits properties from the archetype and lets you override individual properties where you need them. For example, we can derive the sphere's material asset and override its color. Then, if we change the gloss of the archetype, the gloss of all three spheres changes.</p>
+<h2 id="object-lifetime">Object lifetime</h2>
+<p>In Godot, nodes are commonly removed with <code>queue_free()</code> / <code>free()</code>. In Stride, entities and components are removed from scenes/entities and then released by the .NET garbage collector when no longer referenced.</p>
+<p>This enables patterns such as removing an entity from one scene and adding it to another later, as long as references are preserved.</p>
+<h2 id="input">Input</h2>
+<p>In Stride, you can handle input through keystrokes, similar to Godot, or through virtual buttons, which is similar to Godot's input mapping.</p>
+<pre><code class="lang-cs">public override void Update()
+{
+    // true for one frame in which the space bar was pressed
+    if (Input.IsKeyDown(Keys.Space))
+    {
+        // Do something.
+    }
+
+    // true while this joystick button is down
+    if (Input.GameControllers[0].IsButtonDown(0))
+    {
+        // Do something.
+    }
+
+    float Horiz = (Input.IsKeyDown(Keys.Left) ? -1f : 0) + (Input.IsKeyDown(Keys.Right) ? 1f : 0);
+    float Vert = (Input.IsKeyDown(Keys.Down) ? -1f : 0) + (Input.IsKeyDown(Keys.Up) ? 1f : 0);
+    //Do something else.
+}
+</code></pre>
+<h2 id="time">Time</h2>
+<table>
+<thead>
+<tr>
+<th>Godot</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>delta</code> in <code>_Process(double delta)</code></td>
+<td><code>Game.UpdateTime.WarpElapsed.TotalSeconds</code></td>
+</tr>
+<tr>
+<td><code>delta</code> in <code>_PhysicsProcess(double delta)</code></td>
+<td><code>simTimeStep</code> in <code>SimulationUpdate(BepuSimulation simulation, float simTimeStep)</code></td>
+</tr>
+<tr>
+<td><code>Engine.time_scale</code></td>
+<td><code>Game.UpdateTime.Factor</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="physics">Physics</h2>
+<p>Both Stride and Godot offer comprehensive physics engines, but their approaches to handling collisions and physics-based interactions differ. Below is a comparison of their features and functionality.</p>
+<h3 id="stride-1">Stride</h3>
+<p>In Stride, there are three main types of colliders:</p>
+<ul>
+<li><strong>Static Colliders:</strong> Fixed in place and do not move, typically used for environment elements like walls or floors.</li>
+<li><strong>Rigidbodies:</strong> Dynamic colliders that are subject to physics simulations, such as gravity or force.</li>
+<li><strong>Characters:</strong> Special colliders designed to work with character controllers.</li>
+</ul>
+<p>In Stride, collision handling is done through physics components and script logic that handle collision events and triggers. For details, see <a href="../physics/index.html">Physics</a>, <a href="../physics/triggers.html">Triggers</a>, and <a href="../physics/raycasting.html">Physics Queries</a>.</p>
+<h3 id="godot-1">Godot</h3>
+<p>In Godot, you can use a signal-based system to react to collisions. Signals are emitted when specific events occur, such as two objects colliding, and you can connect these signals to custom methods to execute your own logic.</p>
+<h2 id="scripts">Scripts</h2>
+<h3 id="different-approaches-to-scripting">Different approaches to scripting</h3>
+<p>In Stride, there are three types of scripts, offering a different paradigm compared to Godot. While Godot requires you to inherit from a specific class to create a node of that type, Stride allows you to extend entities by adding scripts and then searching for specific entities to interact with.</p>
+<h3 id="extending-entities-in-stride">Extending entities in Stride</h3>
+<p>For example, instead of inheriting from <code>CharacterBody3D</code> in Godot, in Stride you would attach a <code>CharacterComponent</code> to an entity. Don't forget to also attach a collision shape to make it interactable. In your scripts, you can then search for these components to manipulate them.</p>
+<h4 id="stride-example">Stride example</h4>
+<pre><code class="lang-csharp">// Example of searching for a CharacterComponent in Stride
+public class MyScript : StartupScript
+{
+    public override void Start()
+    {
+        var characterComponent = Entity.Get&lt;CharacterComponent&gt;();
+
+        if (characterComponent != null)
+        {
+            // Perform actions on characterComponent
+        }
+    }
+}
+</code></pre>
+<h3 id="delegation-over-inheritance">Delegation over inheritance</h3>
+<p>This approach in Stride embodies the principle of &quot;Delegation over Inheritance&quot;, providing you with greater flexibility when designing your game's architecture.</p>
+<h3 id="startupscript">StartupScript</h3>
+<p><code>StartupScript.Start()</code> is closest to Godot's <code>_Ready()</code> in terms of initialization flow, but they are not lifecycle-identical in every engine detail. In Godot, <code>_Ready()</code> runs when a node enters the scene tree, and parent nodes typically become ready before their children. In Stride, <code>StartupScript.Start()</code> runs when the script is started after the scene or entity is initialized, and the exact parent-child start order might not match Godot's. In practice, use <code>StartupScript</code> for initialization and setup tasks.</p>
+<h4 id="stride-example-1">Stride example</h4>
+<pre><code class="lang-csharp">public class BasicMethods : StartupScript
+{
+    // Public member fields and properties that will be visible in Game Studio
+    public override void Start()
+    {
+        // Initialization code for the script
+    }
+
+    public override void Cancel()
+    {
+        // Cleanup code for the script
+    }     
+}
+</code></pre>
+<h4 id="godot-example">Godot example</h4>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_csharp" role="tab" aria-controls="tabpanel_1_csharp" data-tab="csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_gdscript" role="tab" aria-controls="tabpanel_1_gdscript" data-tab="gdscript" tabindex="-1">GDScript</a>
+</li>
+</ul>
+<section id="tabpanel_1_csharp" role="tabpanel" data-tab="csharp">
+
+<pre><code class="lang-csharp">public class BasicMethods : Node
+{
+    // This method is equivalent to Stride's Start in StartupScript
+    public override void _Ready()
+    {
+        // Initialization code for the script
+    }
+
+    // Godot doesn't have a direct equivalent to Stride's Cancel,
+    // but you could use _ExitTree for cleanup
+    public override void _ExitTree()
+    {
+        // Cleanup code for the script
+    }
+}
+</code></pre>
+</section>
+<section id="tabpanel_1_gdscript" role="tabpanel" data-tab="gdscript" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-gdscript">extends Node
+
+func _ready() -&gt; void:
+    # Initialization code for the script
+    pass
+
+# Godot doesn't have a direct equivalent to Stride's Cancel,
+# but you could use _ExitTree for cleanup
+func _exit_tree() -&gt; void:
+    # Cleanup code for the script
+    pass
+</code></pre>
+</section>
+</div>
+<h3 id="syncscript">SyncScript</h3>
+<p>Both Stride and Godot offer methods that are repeatedly called for game updates. In Stride, this method is called <code>Update()</code> and is part of the <code>SyncScript</code> class. In Godot, the equivalent is <code>_Process(double delta)</code>.</p>
+<p><strong>Key Differences</strong></p>
+<ol>
+<li><strong>Delta Time:</strong> Stride's <code>Update()</code> does not include a delta time parameter. In contrast, Godot provides the time since the last frame as an argument (delta) in <code>_Process(double delta)</code>.</li>
+<li><strong>Access to Delta Time:</strong> In Stride, you can still access the delta time through the Game property, <code>using Game.UpdateTime.Elapsed.TotalSeconds</code>.</li>
+</ol>
+<h4 id="stride-example-2">Stride example</h4>
+<pre><code class="lang-csharp">public class BasicMethods : SyncScript
+{
+    public override void Start() { }
+    public override void Cancel() { }        
+    public override void Update()
+    {
+        // Access delta time in Stride
+        double deltaTime = Game.UpdateTime.Elapsed.TotalSeconds;
+
+        // Perform actions based on deltaTime
+    }
+}
+</code></pre>
+<h4 id="godot-example-1">Godot example</h4>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_csharp" role="tab" aria-controls="tabpanel_2_csharp" data-tab="csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_gdscript" role="tab" aria-controls="tabpanel_2_gdscript" data-tab="gdscript" tabindex="-1">GDScript</a>
+</li>
+</ul>
+<section id="tabpanel_2_csharp" role="tabpanel" data-tab="csharp">
+
+<pre><code class="lang-csharp">public class BasicMethods : Node
+{
+    public override void _Ready() { }
+    public override void _ExitTree() { }        
+    public override void _Process(double delta)
+    {
+        // Perform actions based on delta
+    }
+}
+
+</code></pre>
+</section>
+<section id="tabpanel_2_gdscript" role="tabpanel" data-tab="gdscript" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-gdscript">extends Node
+
+func _ready() -&gt; void:
+    pass
+
+func _exit_tree() -&gt; void:
+    pass
+
+func _process(delta: float) -&gt; void:
+    # Perform actions based on delta
+    pass
+</code></pre>
+</section>
+</div>
+<h3 id="asyncscript">AsyncScript</h3>
+<p>Both Stride and Godot provide ways to run code asynchronously, but they use different approaches.</p>
+<h4 id="stride-example-3">Stride example</h4>
+<p>Stride offers a specialized <code>AsyncScript</code> class that allows you to execute code asynchronously using C#'s <code>async</code>/<code>await</code> syntax. The <code>Execute()</code> method can be awaited, allowing your code to run without blocking the main game loop.</p>
+<pre><code class="lang-csharp">public class BasicMethods : AsyncScript
+{
+    // Public member fields and properties will be visible in Game Studio
+    public override async Task Execute()
+    {
+        // The initialization code should come here, if necessary
+
+        // Loop until the game ends (optional depending on the script)
+        while (Game.IsRunning)
+        {
+            await MyEvent;
+
+            // Do some stuff
+
+            // Wait for the next frame (optional depending on the script)
+            await Script.NextFrame();
+        }
+    }
+
+    public override void Cancel()
+    {
+        // Cleanup code for the script
+    }     
+}
+
+</code></pre>
+<h4 id="godot-example-2">Godot example</h4>
+<p>Godot doesn't offer a dedicated <code>AsyncScript</code> class like Stride. However, you can still write asynchronous code in C# using the standard <code>async</code>/<code>await</code> syntax.</p>
+<div class="tabGroup" id="tabgroup_3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3_csharp" role="tab" aria-controls="tabpanel_3_csharp" data-tab="csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_gdscript" role="tab" aria-controls="tabpanel_3_gdscript" data-tab="gdscript" tabindex="-1">GDScript</a>
+</li>
+</ul>
+<section id="tabpanel_3_csharp" role="tabpanel" data-tab="csharp">
+
+<pre><code class="lang-csharp">public class BasicMethods : Node
+{
+    public async override void _Ready()
+    {
+        await ToSignal(GetTree().CreateTimer(1.0f), &quot;timeout&quot;);
+        // Execute code after 1-second timer elapses
+    }
+
+    // Godot doesn't have a direct equivalent to Stride's Cancel method
+    public override void _ExitTree()
+    {
+        // Cleanup code for the script
+    }
+}
+</code></pre>
+</section>
+<section id="tabpanel_3_gdscript" role="tabpanel" data-tab="gdscript" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-gdscript">extends Node
+
+func _ready() -&gt; void:
+    await get_tree().create_timer(1.0).timeout
+    # Execute code after 1-second timer elapses
+    pass
+
+# Godot doesn't have a direct equivalent to Stride's Cancel method
+func _exit_tree() -&gt; void:
+    # Cleanup code for the script
+    pass
+</code></pre>
+</section>
+</div>
+
+<p>In summary, both Stride and Godot offer mechanisms for running code asynchronously, but they achieve this in different ways. Stride provides a built-in <code>AsyncScript</code> class, whereas Godot allows for asynchronous code through standard C# mechanisms.</p>
+<h2 id="script-components">Script components</h2>
+<p>In both Stride and Godot, scripts are used to define behavior and logic for game entities. However, the way you attach and manage these scripts differs between the two engines.</p>
+<h3 id="create-a-script">Create a script</h3>
+<h4 id="stride-2">Stride</h4>
+<p>To create a script, click the <strong>Add asset</strong> button and select <strong>Scripts</strong>.</p>
+<p><img src="../stride-for-unity-developers/media/stride-vs-unity-create-script.png" alt="Create script in Stride"></p>
+<p>Stride has a <a class="xref" href="../../api/Stride.Engine.SyncScript.html">SyncScript</a> class that comes with methods such as:</p>
+<ul>
+<li><a class="xref" href="../../api/Stride.Engine.StartupScript.html#Stride_Engine_StartupScript_Start"><code>SyncScript.Start()</code></a> is called when the script is loaded.</li>
+<li><a class="xref" href="../../api/Stride.Engine.SyncScript.html#Stride_Engine_SyncScript_Update"><code>SyncScript.Update()</code></a> is called every update.</li>
+</ul>
+<p>If you want your script to be a startup or asynchronous, use the corresponding script types:</p>
+<ul>
+<li><a class="xref" href="../../api/Stride.Engine.StartupScript.html"><code>StartupScript</code></a>: this script has a single <a class="xref" href="../../api/Stride.Engine.StartupScript.html#Stride_Engine_StartupScript_Start"><code>StartupScript.Start()</code></a> method. It initializes the scene and its content at startup.</li>
+<li><a class="xref" href="../../api/Stride.Engine.AsyncScript.html"><code>AsyncScript</code></a>: an asynchronous script with a single method <a class="xref" href="../../api/Stride.Engine.AsyncScript.html#Stride_Engine_AsyncScript_Execute"><code>AsyncScript.Execute()</code></a> and you can use async/await inside that method. Asynchronous scripts aren't loaded one by one like synchronous scripts. Instead, they're all loaded in parallel.</li>
+</ul>
+<h4 id="godot-2">Godot</h4>
+<p>In Godot, you can either create a script from the editor or attach an existing script to a node via the Inspector.</p>
+<p>In Godot, you use methods like <code>_Ready()</code> for initialization and <code>_Process(delta)</code> for frame-by-frame updates. Godot also supports the <code>async</code>/<code>await</code> syntax in C#.</p>
+<h3 id="reload-assemblies">Reload assemblies</h3>
+<h4 id="stride-3">Stride</h4>
+<p>After you create a script, you may have to reload the assemblies manually. To do this, click <strong>Reload assemblies</strong> in the Game Studio toolbar.</p>
+<p><img src="../platforms/media/reload-assemblies.png" alt="Reload assemblies"></p>
+<h4 id="godot-3">Godot</h4>
+<p>Godot automatically reloads scripts when they are saved, no manual reload is required.</p>
+<h3 id="add-scripts-to-entities">Add scripts to entities</h3>
+<h4 id="stride-4">Stride</h4>
+<ol>
+<li><p>In the <strong>Entity Tree</strong> (on the left by default), or in the scene, select the entity you want to add the script to.</p>
+<p><img src="../scripts/media/select-entity.png" alt="Select an entity"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select the script you want to add.</p>
+<p><img src="../scripts/media/add-script-component.png" alt="Add script component"></p>
+</li>
+</ol>
+<h4 id="godot-4">Godot</h4>
+<ol>
+<li>Select the node in the <strong>Scene Tree</strong>.</li>
+<li>In the <strong>Inspector</strong>, click the <strong>Attach Script</strong> button or attach an existing script.</li>
+</ol>
+<p>In Stride, scripts are listed alphabetically along with other components. In Godot, scripts are attached directly to nodes and appear as sub-resources in the <strong>Inspector</strong>.</p>
+<p>For more information about adding scripts in Stride, see <a href="../scripts/use-a-script.html">Use a script</a>.</p>
+<h2 id="instantiate-prefabs">Instantiate prefabs</h2>
+<p>In Godot, the common equivalent is instantiating a <code>PackedScene</code>.</p>
+<div class="tabGroup" id="tabgroup_4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_4_csharp" role="tab" aria-controls="tabpanel_4_csharp" data-tab="csharp" tabindex="0" aria-selected="true">C#</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_gdscript" role="tab" aria-controls="tabpanel_4_gdscript" data-tab="gdscript" tabindex="-1">GDScript</a>
+</li>
+</ul>
+<section id="tabpanel_4_csharp" role="tabpanel" data-tab="csharp">
+
+<pre><code class="lang-csharp">var node = packedScene.Instantiate&lt;Node3D&gt;();
+AddChild(node);
+</code></pre>
+</section>
+<section id="tabpanel_4_gdscript" role="tabpanel" data-tab="gdscript" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-gdscript">var node = packedScene.instantiate()
+add_child(node)
+</code></pre>
+</section>
+</div>
+
+<p>In Stride, you can instantiate entities using prefabs. However unlike Godot, a prefab in Stride <strong>can contain multiple entities at it's root</strong>, meaning that instantiating will return <strong>multiple entity instances</strong>.</p>
+<p>In Stride, an entity can be instantiated like so:</p>
+<pre><code class="lang-cs">// Public member fields and properties displayed in the Game Studio Property Grid
+public Prefab CarPrefab;
+public Vector3 SpawnPosition;
+public Quaternion SpawnRotation;
+
+public override void Start()
+{
+    // Initialization of the script
+    List&lt;Entity&gt; carEntities = CarPrefab.Instantiate();
+    
+    // Add the instantiated entities to the root scene
+    SceneSystem.SceneInstance.RootScene.Entities.AddRange(carEntities);
+    
+    // Set the position and rotation for the first entity in the list
+    carEntities[0].Transform.Position = SpawnPosition;
+    carEntities[0].Transform.Rotation = SpawnRotation;
+    
+    // Optionally, you can set a name for the entity
+    carEntities[0].Name = &quot;MyNewEntity&quot;;
+}
+</code></pre>
+<h2 id="serialization">Serialization</h2>
+<h3 id="godot-5">Godot</h3>
+<p>In Godot C#, inspector-exposed members typically use <code>[Export]</code>, and the script is commonly attached to a node type. Export support is tied to types the engine can serialize.</p>
+<h3 id="stride-5">Stride</h3>
+<p>Stride takes a different approach, aiming for closer integration with C#.</p>
+<h4 id="data-contract-attribute">Data Contract Attribute</h4>
+<p>To make your class serializable within Game Studio, add the <code>[DataContract]</code> attribute to your class. By default, all public members will be serialized.</p>
+<pre><code class="lang-csharp">[DataContract]
+public class MyClass
+{
+    public int MyProperty { get; set; }
+}
+</code></pre>
+<h4 id="data-member-attribute">Data Member Attribute</h4>
+<p>If you want to be explicit about what gets serialized, you can use the <code>[DataMember]</code> attribute. This is similar to Godot's <code>[Export]</code> attribute.</p>
+<pre><code class="lang-csharp">[DataContract]
+public class MyClass
+{
+    [DataMember]
+    public int MyProperty { get; set; }
+}
+</code></pre>
+<h4 id="excluding-members">Excluding members</h4>
+<p>To exclude a member from serialization, use the <code>[DataMemberIgnore]</code> attribute.</p>
+<pre><code class="lang-csharp">[DataContract]
+public class MyClass
+{
+    [DataMemberIgnore]
+    public int MyProperty { get; set; }
+}
+</code></pre>
+<h4 id="collections-and-dictionaries">Collections and dictionaries</h4>
+<p>Stride supports <code>ICollection</code> and <code>IDictionary</code> classes for serialization. Note that only primitives and enums can be used as keys in dictionaries.</p>
+<p>In Godot, you need to export Godot collections for them to be visible in the editor.</p>
+<h4 id="nested-serialization">Nested serialization</h4>
+<p>You can serialize any class marked with <code>[DataContract]</code> into the editor, including abstract classes or interfaces. The <strong>Stride Editor</strong> will search for types that match the interfaces or abstract classes, making them eligible for serialization.</p>
+<h2 id="log-output">Log output</h2>
+<p>In Godot, you can print a message with <code>GD.Print</code>.</p>
+<p>To view the log output, go to the <strong>Game Studio</strong> toolbar and click <strong>View</strong>, then enable the <strong>Output</strong> option.</p>
+<p><img src="../stride-for-unity-developers/media/enable-output.png" alt="Enable output"></p>
+<p>Once enabled, the <strong>Output</strong> tab will appear, typically located at the bottom of the <strong>Game Studio</strong> interface.</p>
+<p><img src="../stride-for-unity-developers/media/output-tab.png" alt="Output tab"></p>
+<h3 id="print-debug-messages">Print debug messages</h3>
+<p>Logging from a ScriptComponent:</p>
+<pre><code class="lang-cs">public override void Start()
+{
+    // Enables logging. It will also spawn a console window if no debuggers are attached.
+    // The argument dictates the kinds of message that will be filtered out, in this case, anything with less priority than warning won't show up
+    Log.ActivateLog(LogMessageType.Warning);
+    // Log this message to your console or IDE output window
+    Log.Warning(&quot;hello&quot;);
+}
+</code></pre>
+<pre><code class="lang-cs">System.Diagnostics.Debug.WriteLine(&quot;hello&quot;);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To print debug messages, you have to run the game from your IDE, not Game Studio. Running games cannot print to the Game Studio output window.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../scripts/best-practice.html">Best Practice</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/stride-for-godot-developers/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

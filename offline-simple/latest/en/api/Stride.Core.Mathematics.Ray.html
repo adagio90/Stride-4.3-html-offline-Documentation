@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Ray | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Ray | Stride API ">
+      
+      <meta name="description" content="Represents a three dimensional line based on a point in space and a direction.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Ray.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Ray%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Ray">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Ray" data-uid="Stride.Core.Mathematics.Ray" class="text-break">
+Struct Ray  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a three dimensional line based on a point in space and a direction.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public struct Ray : IEquatable&lt;Ray&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Ray__ctor_" data-uid="Stride.Core.Mathematics.Ray.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray__ctor_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Ray.#ctor(Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3)">
+  Ray(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ray(Vector3 position, Vector3 direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The position in three dimensional space of the origin of the ray.</p>
+</dd>
+    <dt><code>direction</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The normalized direction of the ray.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Ray_Direction" data-uid="Stride.Core.Mathematics.Ray.Direction">
+  Direction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The normalized direction in which the ray points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Direction</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Ray_Position" data-uid="Stride.Core.Mathematics.Ray.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The position in three dimensional space where the ray starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Position</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Ray_Equals_" data-uid="Stride.Core.Mathematics.Ray.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Equals_Stride_Core_Mathematics_Ray_" data-uid="Stride.Core.Mathematics.Ray.Equals(Stride.Core.Mathematics.Ray)">
+  Equals(Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Ray value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Equals_" data-uid="Stride.Core.Mathematics.Ray.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Ray.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_GetHashCode_" data-uid="Stride.Core.Mathematics.Ray.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_GetHashCode" data-uid="Stride.Core.Mathematics.Ray.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingBox@)">
+  Intersects(ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly BoundingBox, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingBox box, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingBox__System_Single__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingBox@,System.Single@)">
+  Intersects(ref readonly BoundingBox, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingBox box, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingSphere@)">
+  Intersects(ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly BoundingSphere, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingSphere sphere, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_BoundingSphere__System_Single__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.BoundingSphere@,System.Single@)">
+  Intersects(ref readonly BoundingSphere, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly BoundingSphere sphere, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Plane@)">
+  Intersects(ref readonly Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Plane, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Plane plane, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Plane__System_Single__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Plane@,System.Single@)">
+  Intersects(ref readonly Plane, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Plane plane, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Ray__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Ray@)">
+  Intersects(ref readonly Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Ray, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_Intersects_" data-uid="Stride.Core.Mathematics.Ray.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_Intersects_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__System_Single__" data-uid="Stride.Core.Mathematics.Ray.Intersects(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,System.Single@)">
+  Intersects(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_ToString_" data-uid="Stride.Core.Mathematics.Ray.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_ToString" data-uid="Stride.Core.Mathematics.Ray.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_ToString_" data-uid="Stride.Core.Mathematics.Ray.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Ray.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Ray_op_Equality_" data-uid="Stride.Core.Mathematics.Ray.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_op_Equality_Stride_Core_Mathematics_Ray_Stride_Core_Mathematics_Ray_" data-uid="Stride.Core.Mathematics.Ray.op_Equality(Stride.Core.Mathematics.Ray,Stride.Core.Mathematics.Ray)">
+  operator ==(Ray, Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Ray left, Ray right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Ray_op_Inequality_" data-uid="Stride.Core.Mathematics.Ray.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Ray_op_Inequality_Stride_Core_Mathematics_Ray_Stride_Core_Mathematics_Ray_" data-uid="Stride.Core.Mathematics.Ray.op_Inequality(Stride.Core.Mathematics.Ray,Stride.Core.Mathematics.Ray)">
+  operator !=(Ray, Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Ray left, Ray right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Ray.cs/#L39" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

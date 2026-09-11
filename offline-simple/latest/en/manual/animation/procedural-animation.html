@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Procedural animation | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Procedural animation | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/procedural-animation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="procedural-animation">Procedural animation</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Procedural animation</strong> is an alternative method of animation. Instead of creating animations yourself, you can use engine components to animate 3D models at runtime.</p>
+<p>In some cases, this creates more effective and efficient animations. For example, imagine a shrink effect that happens when the player shoots a monster with a shrink weapon. Instead of creating a complex shrinking animation, you can access the entity <a class="xref" href="../../api/Stride.Engine.TransformComponent.html">TransformComponent</a> and simply scale the enemy down to the required size.</p>
+<p>The animation can animate a wide variety of components besides Skeleton bones, including:</p>
+<ul>
+<li><a class="xref" href="../../api/Stride.Engine.TransformComponent.html">TransformComponent</a></li>
+<li><a class="xref" href="../../api/Stride.Engine.LightComponent.html">LightComponent</a></li>
+<li><a class="xref" href="../../api/Stride.Physics.RigidbodyComponent.html">RigidBodyComponent</a></li>
+<li><a class="xref" href="../../api/Stride.Engine.EntityComponent.html">Custom components</a></li>
+</ul>
+<p>Stride's animation system works just like Blender or Maya's curve animation editor. Each bone/value is assigned a <a class="xref" href="../../api/Stride.Animations.AnimationCurve.html">curve</a> composed of several <a class="xref" href="../../api/Stride.Animations.KeyFrameData-1.html">points</a> that are interpolated either in linear, cubic or constant fashion.</p>
+<h2 id="code-samples">Code samples</h2>
+<h3 id="transform-component">Transform component</h3>
+<pre><code class="lang-cs">public class AnimationScript : StartupScript
+{
+    public override void Start()
+    {
+        // Create an AnimationClip. Make sure you set its duration properly.
+        var animationClip = new AnimationClip { Duration = TimeSpan.FromSeconds(1) };
+
+        // Add a curves specifying the path to the transformation property.
+        // - You can index components using a special syntax to their key.
+        // - Properties can be qualified with a type name in parenthesis.
+        // - If a type isn't serializable, its fully qualified name must be used.
+
+        animationClip.AddCurve(&quot;[TransformComponent.Key].Rotation&quot;, CreateRotationCurve());
+
+        // Optional: pack all animation channels into an optimized interleaved format.
+        animationClip.Optimize();
+
+        // Add an AnimationComponent to the current entity and register our custom clip.
+        const string animationName = &quot;MyCustomAnimation&quot;;
+        var animationComponent = Entity.GetOrCreate&lt;AnimationComponent&gt;();
+        animationComponent.Animations.Add(animationName, animationClip);
+
+        // Play the animation right away and loop it.
+        var playingAnimation = animationComponent.Play(animationName);
+        playingAnimation.RepeatMode = AnimationRepeatMode.LoopInfinite;
+        playingAnimation.TimeFactor = 0.1f; // slow down
+        playingAnimation.CurrentTime = TimeSpan.FromSeconds(0.6f); // start at different time
+    }
+
+    // Set custom linear rotation curve.
+    private AnimationCurve CreateRotationCurve()
+    {
+        return new AnimationCurve&lt;Quaternion&gt;
+        {
+            InterpolationType = AnimationCurveInterpolationType.Linear,
+            KeyFrames =
+            {
+                CreateKeyFrame(0.00f, Quaternion.RotationX(0)),
+                CreateKeyFrame(0.25f, Quaternion.RotationX(MathUtil.PiOverTwo)),
+                CreateKeyFrame(0.50f, Quaternion.RotationX(MathUtil.Pi)),
+                CreateKeyFrame(0.75f, Quaternion.RotationX(-MathUtil.PiOverTwo)),
+                CreateKeyFrame(1.00f, Quaternion.RotationX(MathUtil.TwoPi))
+            }
+        };
+    }
+
+    private static KeyFrameData&lt;T&gt; CreateKeyFrame&lt;T&gt;(float keyTime, T value)
+    {
+        return new KeyFrameData&lt;T&gt;((CompressedTimeSpan)TimeSpan.FromSeconds(keyTime), value);
+    }
+}
+</code></pre>
+<h3 id="light-components-color">Light component's color</h3>
+<pre><code class="lang-csharp">public class AnimationLight : StartupScript
+{
+    public override void Start()
+    {
+        // Our entity should have a light component
+        var lightC = Entity.Get&lt;LightComponent&gt;();
+
+        // Create an AnimationClip and store unserializable types. Make sure you set its duration properly.
+        var clip = new AnimationClip { Duration = TimeSpan.FromSeconds(1) };
+        var colorLightBaseName = typeof(ColorLightBase).AssemblyQualifiedName;
+        var colorRgbProviderName = typeof(ColorRgbProvider).AssemblyQualifiedName;
+
+        // Point to the path of the color property of the light component
+        clip.AddCurve(
+            $&quot;[LightComponent.Key].Type.({colorLightBaseName})Color.({colorRgbProviderName})Value&quot;, 
+            CreateLightColorCurve()
+        );
+
+        // Play the animation right away and loop it.
+        clip.RepeatMode = AnimationRepeatMode.LoopInfinite;
+        var animC = Entity.GetOrCreate&lt;AnimationComponent&gt;();
+        animC.Animations.Add(&quot;LightCurve&quot;,clip);
+        animC.Play(&quot;LightCurve&quot;);
+    }
+    private AnimationCurve CreateLightColorCurve()
+    {
+        return new AnimationCurve&lt;Vector3&gt;
+        {
+            InterpolationType = AnimationCurveInterpolationType.Linear,
+            KeyFrames =
+            {
+                CreateKeyFrame(0.00f, Vector3.UnitX), // Make the first keyframe a red color
+
+                CreateKeyFrame(0.50f, Vector3.UnitZ), // then blue
+
+                CreateKeyFrame(1.00f, Vector3.UnitX), // then red again
+            }
+        };
+    }
+
+    private static KeyFrameData&lt;T&gt; CreateKeyFrame&lt;T&gt;(float keyTime, T value)
+    {
+        return new KeyFrameData&lt;T&gt;((CompressedTimeSpan)TimeSpan.FromSeconds(keyTime), value);
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you need to animate a bone procedurally you must use the <code>NodeTransformations</code> field of the <code>Skeleton</code>.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Animation index</a></li>
+<li><a href="import-animations.html">Import animations</a></li>
+<li><a href="animation-properties.html">Animation properties</a></li>
+<li><a href="set-up-animations.html">Set up animations</a></li>
+<li><a href="preview-animations.html">Preview animations</a></li>
+<li><a href="animation-scripts.html">Animation scripts</a></li>
+<li><a href="additive-animation.html">Additive animation</a></li>
+<li><a href="custom-blend-trees.html">Custom blend trees</a></li>
+<li><a href="model-node-links.html">Model node links</a></li>
+<li><a href="custom-attributes.html">Custom attributes</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/procedural-animation.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParticleMaterialComputeColor | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParticleMaterialComputeColor | Stride API ">
+      
+      <meta name="description" content="uses a  tree to calculate the pixel&#39;s emissive value">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Particles_Materials_ParticleMaterialComputeColor.md&amp;value=---%0Auid%3A%20Stride.Particles.Materials.ParticleMaterialComputeColor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor">
+
+
+
+  <h1 id="Stride_Particles_Materials_ParticleMaterialComputeColor" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor" class="text-break">
+Class ParticleMaterialComputeColor  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Particles.html">Particles</a>.<a class="xref" href="Stride.Particles.Materials.html">Materials</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Particles.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p><a class="xref" href="Stride.Particles.Materials.ParticleMaterialComputeColor.html">ParticleMaterialComputeColor</a> uses a <a class="xref" href="Stride.Rendering.Materials.IComputeColor.html">IComputeColor</a> tree to calculate the pixel's emissive value</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;ParticleMaterialComputeColor&quot;)]
+[Display(&quot;Emissive Map&quot;, null)]
+public class ParticleMaterialComputeColor : ParticleMaterialSimple</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html">ParticleMaterial</a></div>
+      <div><a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html">ParticleMaterialSimple</a></div>
+      <div><span class="xref">ParticleMaterialComputeColor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_AlphaAdditive">ParticleMaterialSimple.AlphaAdditive</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_ZOffset">ParticleMaterialSimple.ZOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_SoftEdgeDistance">ParticleMaterialSimple.SoftEdgeDistance</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_FaceCulling">ParticleMaterialSimple.FaceCulling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_HasColorField">ParticleMaterialSimple.HasColorField</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_PrepareVertexLayout_Stride_Particles_ParticlePoolFieldsList_">ParticleMaterialSimple.PrepareVertexLayout(ParticlePoolFieldsList)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_ForceUpdate">ParticleMaterialSimple.ForceUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterialSimple.html#Stride_Particles_Materials_ParticleMaterialSimple_SetupPipeline_Stride_Rendering_RenderContext_Stride_Graphics_PipelineStateDescription_">ParticleMaterialSimple.SetupPipeline(RenderContext, PipelineStateDescription)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html#Stride_Particles_Materials_ParticleMaterial_Parameters">ParticleMaterial.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html#Stride_Particles_Materials_ParticleMaterial_IsInitialized">ParticleMaterial.IsInitialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html#Stride_Particles_Materials_ParticleMaterial_HasVertexLayoutChanged">ParticleMaterial.HasVertexLayoutChanged</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_ComputeColor_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ComputeColor*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_ComputeColor" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ComputeColor">
+  ComputeColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a class="xref" href="Stride.Rendering.Materials.IComputeColor.html">IComputeColor</a> allows several channels to be blended together, including textures, vertex streams and fixed values.
+Emissive Map should be allowed to be None because some particles might not need to render, but be used as parents for other particle systems</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(100)]
+[Display(&quot;Emissive Map&quot;, null)]
+public IComputeColor ComputeColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IComputeColor.html">IComputeColor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_EffectName_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.EffectName*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_EffectName" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.EffectName">
+  EffectName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the name of the effect or shader which the material will use</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string EffectName { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_ForceTexCoords_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ForceTexCoords*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_ForceTexCoords" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ForceTexCoords">
+  ForceTexCoords
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Forces the creation of texture coordinates as vertex attribute</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(300)]
+[Display(&quot;Force texcoords&quot;, null)]
+public bool ForceTexCoords { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_UVBuilder_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.UVBuilder*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_UVBuilder" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.UVBuilder">
+  UVBuilder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a class="xref" href="Stride.Particles.Materials.UVBuilder.html">UVBuilder</a> defines how the base coordinates of the particle shape should be modified for texture scrolling, animation, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(200)]
+[Display(&quot;UV coords&quot;, null)]
+public UVBuilder UVBuilder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Materials.UVBuilder.html">UVBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_InitializeCore_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.InitializeCore*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_InitializeCore_Stride_Rendering_RenderContext_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.InitializeCore(Stride.Rendering.RenderContext)">
+  InitializeCore(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the core of the material, such as the shader generator and the parameter collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeCore(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd><p>The current <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_PatchVertexBuffer_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.PatchVertexBuffer*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_PatchVertexBuffer_Stride_Particles_VertexLayouts_ParticleBufferState__Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_Stride_Particles_Sorters_ParticleList__" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.PatchVertexBuffer(Stride.Particles.VertexLayouts.ParticleBufferState@,Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3,Stride.Particles.Sorters.ParticleList@)">
+  PatchVertexBuffer(ref ParticleBufferState, Vector3, Vector3, ref ParticleList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Patch the particle's vertex buffer which was already built by the <a class="xref" href="Stride.Particles.ShapeBuilders.ShapeBuilder.html">ShapeBuilder</a>
+This involes animating hte uv coordinates and filling per-particle fields, such as the color field</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void PatchVertexBuffer(ref ParticleBufferState bufferState, Vector3 invViewX, Vector3 invViewY, ref ParticleList sorter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bufferState</code> <a class="xref" href="Stride.Particles.VertexLayouts.ParticleBufferState.html">ParticleBufferState</a></dt>
+    <dd><p>The particle buffer state which is used to build the assigned vertex buffer</p>
+</dd>
+    <dt><code>invViewX</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Unit vector X (right) in camera space, extracted from the inverse view matrix</p>
+</dd>
+    <dt><code>invViewY</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Unit vector Y (up) in camera space, extracted from the inverse view matrix</p>
+</dd>
+    <dt><code>sorter</code> <a class="xref" href="Stride.Particles.Sorters.ParticleList.html">ParticleList</a></dt>
+    <dd><p>Particle enumerator which can be iterated and returns sported particles</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_Setup_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.Setup*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_Setup_Stride_Rendering_RenderContext_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.Setup(Stride.Rendering.RenderContext)">
+  Setup(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Setups the current material using the graphics device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Setup(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_UpdateVertexBuilder_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.UpdateVertexBuilder*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_UpdateVertexBuilder_Stride_Particles_VertexLayouts_ParticleVertexBuilder_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.UpdateVertexBuilder(Stride.Particles.VertexLayouts.ParticleVertexBuilder)">
+  UpdateVertexBuilder(ParticleVertexBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the required fields for this frame in the vertex buffer builder.
+If nothing has changed since the last frame and the vertex layout is the same, do not add any new required fields</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateVertexBuilder(ParticleVertexBuilder vertexBuilder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertexBuilder</code> <a class="xref" href="Stride.Particles.VertexLayouts.ParticleVertexBuilder.html">ParticleVertexBuilder</a></dt>
+    <dd><p>The target vertex buffer builder</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Materials_ParticleMaterialComputeColor_ValidateEffect_" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ValidateEffect*"></a>
+
+  <h3 id="Stride_Particles_Materials_ParticleMaterialComputeColor_ValidateEffect_Stride_Rendering_RenderContext_Stride_Rendering_EffectValidator__" data-uid="Stride.Particles.Materials.ParticleMaterialComputeColor.ValidateEffect(Stride.Rendering.RenderContext,Stride.Rendering.EffectValidator@)">
+  ValidateEffect(RenderContext, ref EffectValidator)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ValidateEffect(RenderContext context, ref EffectValidator effectValidator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+    <dt><code>effectValidator</code> <a class="xref" href="Stride.Rendering.EffectValidator.html">EffectValidator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Materials/ParticleMaterialComputeColor.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

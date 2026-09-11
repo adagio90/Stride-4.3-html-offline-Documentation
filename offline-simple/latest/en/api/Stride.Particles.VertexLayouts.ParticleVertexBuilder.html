@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParticleVertexBuilder | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParticleVertexBuilder | Stride API ">
+      
+      <meta name="description" content="Manager class for the vertex buffer stream which can dynamically change the required vertex layout and rebuild the buffer based on the particle fields">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Particles_VertexLayouts_ParticleVertexBuilder.md&amp;value=---%0Auid%3A%20Stride.Particles.VertexLayouts.ParticleVertexBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder">
+
+
+
+  <h1 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder" class="text-break">
+Class ParticleVertexBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Particles.html">Particles</a>.<a class="xref" href="Stride.Particles.VertexLayouts.html">VertexLayouts</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Particles.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manager class for the vertex buffer stream which can dynamically change the required vertex layout and rebuild the buffer based on the particle fields</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ParticleVertexBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ParticleVertexBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder__ctor_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.#ctor*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder__ctor" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.#ctor">
+  ParticleVertexBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParticleVertexBuilder()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_IndicesPerQuad" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.IndicesPerQuad">
+  IndicesPerQuad
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int IndicesPerQuad</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_DefaultTexCoords_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.DefaultTexCoords*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_DefaultTexCoords" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.DefaultTexCoords">
+  DefaultTexCoords
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default texture coordinates will default to the first texture coordinates element added to the list in case there are two or more sets</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AttributeDescription DefaultTexCoords { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.VertexLayouts.AttributeDescription.html">AttributeDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_IsBufferDirty_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.IsBufferDirty*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_IsBufferDirty" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.IsBufferDirty">
+  IsBufferDirty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBufferDirty { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_LivingQuads_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.LivingQuads*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_LivingQuads" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.LivingQuads">
+  LivingQuads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LivingQuads { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_MaxParticles_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.MaxParticles*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_MaxParticles" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.MaxParticles">
+  MaxParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxParticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VertexCount_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VertexCount*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VertexCount" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VertexCount">
+  VertexCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current number of vertices which have to be drawn</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VertexCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VertexDeclaration_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VertexDeclaration*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VertexDeclaration" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VertexDeclaration">
+  VertexDeclaration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current <a class="xref" href="Stride.Graphics.VertexDeclaration.html">VertexDeclaration</a> of the contained vertex buffer</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VertexDeclaration VertexDeclaration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.VertexDeclaration.html">VertexDeclaration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VerticesPerParticle_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VerticesPerParticle*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_VerticesPerParticle" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.VerticesPerParticle">
+  VerticesPerParticle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VerticesPerParticle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_AddVertexElement_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.AddVertexElement*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_AddVertexElement_Stride_Graphics_VertexElement_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.AddVertexElement(Stride.Graphics.VertexElement)">
+  AddVertexElement(VertexElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new required element to the list of vertex elements, if it's not in the list already</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddVertexElement(VertexElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="Stride.Graphics.VertexElement.html">VertexElement</a></dt>
+    <dd><p>New element to add</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_Reset_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.Reset*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_Reset" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the <a class="xref" href="Stride.Particles.VertexLayouts.ParticleVertexBuilder.html">ParticleVertexBuilder</a> to its initial state, freeing any graphics memory used</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_ResetVertexElementList_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.ResetVertexElementList*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_ResetVertexElementList" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.ResetVertexElementList">
+  ResetVertexElementList()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the list of required vertex elements, setting it to the minimum mandatory length</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetVertexElementList()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_SetDirty_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.SetDirty*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_SetDirty_System_Boolean_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.SetDirty(System.Boolean)">
+  SetDirty(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDirty(bool dirty)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dirty</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_SetRequiredQuads_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.SetRequiredQuads*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_SetRequiredQuads_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.SetRequiredQuads(System.Int32,System.Int32,System.Int32)">
+  SetRequiredQuads(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the required quads per particle and number of particles so that a sufficiently big buffer can be allocated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRequiredQuads(int quadsPerParticle, int livingParticles, int totalParticles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quadsPerParticle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Required quads per particle, assuming 1 quad = 4 vertices = 6 indices</p>
+</dd>
+    <dt><code>livingParticles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of living particles this frame</p>
+</dd>
+    <dt><code>totalParticles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of total number of possible particles for the parent emitter</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_UpdateVertexLayout_" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.UpdateVertexLayout*"></a>
+
+  <h3 id="Stride_Particles_VertexLayouts_ParticleVertexBuilder_UpdateVertexLayout" data-uid="Stride.Particles.VertexLayouts.ParticleVertexBuilder.UpdateVertexLayout">
+  UpdateVertexLayout()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the vertex layout with the new list. Should be called only when there have been changes to the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateVertexLayout()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/VertexLayouts/ParticleVertexBuilder.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

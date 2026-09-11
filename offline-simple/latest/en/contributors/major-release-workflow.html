@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>[WIP] Major Release Workflow | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="[WIP] Major Release Workflow | Stride contributors ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/major-release-workflow.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="wip-major-release-workflow">[WIP] Major Release Workflow</h1>
+
+<h2 id="engine">Engine</h2>
+<h2 id="admin-tasks">Admin Tasks</h2>
+<ol>
+<li>Update the Stride repository <a href="https://github.com/stride3d/stride/blob/master/README.md">README.md</a>
+<ul>
+<li>In the &quot;Building from Source - Prerequisites&quot; section, update the .NET SDK version references</li>
+</ul>
+</li>
+<li>If there is a .NET SDK version upgrade:
+<ul>
+<li>Update the Discord #welcome channel with new SDK version references. If you're unable to edit the message directly, copy its content, delete the original message, and then create a new one with the updated information</li>
+</ul>
+</li>
+<li>Follow the steps outlined in the <a href="documentation/major-release-workflow.html">Docs Major Release Workflow</a></li>
+<li>Proceed with the steps in the <a href="website/major-release-workflow.html">Website Major Release Workflow</a></li>
+</ol>
+<h2 id="developer-tasks">Developer Tasks</h2>
+<ol>
+<li>Bump engine version (<a href="https://github.com/Eideren/xenko/commit/6fb6580b3c60b98d16e2f01d0cce449d568886da">example commit</a>)</li>
+<li>If there is a .NET SDK version upgrade:
+<ul>
+<li>Aside from usual changes (<a href="https://github.com/stride3d/stride/pull/2888">example PR</a>), one important thing is to update the prerequisites installer (<a href="https://github.com/stride3d/stride/commit/65e93bef9dd301007e65e0c2c684dd6cbc3906a8">example commit</a>) and <code>global.json</code> (<a href="https://github.com/stride3d/stride/commit/4333cd2e28c3ecbbc8462635b80e038cd6cb3ec7">example commit</a>)</li>
+<li>Also, add the new .NET Framework in VSPackage StrideCommandsProxy.cs (<a href="https://github.com/stride3d/stride/commit/dc8ba75d3b127ee39c9650c9c5cbf07a1d730b0c#diff-ed3d93093709147db6205c48c4015b60d98f44ad8d555e94d825e44f5999efb3R181">example commit</a>)</li>
+</ul>
+</li>
+<li>If there is a new Visual Studio released:
+<ul>
+<li>Assuming there is no major breaking changes, simply updating the vsixmanifest so that it can do VS2022, VS2026 and any new versions is enough.</li>
+</ul>
+</li>
+<li>Optional: Update Stride development NuGet packages version in all samples in <code>https://github.com/stride3d/stride/tree/master/samples</code>
+<ul>
+<li>This is especially useful if there are asset upgrader taking a lot of time; otherwise, the default project upgrader will still be run on sample creation</li>
+<li>Open <code>samples\Stride.Samples.sln</code> with GameStudio. Let upgrade run, and do a &quot;save all&quot; from GameStudio; if there is any error opening the project, fix them and reset files before reopening (do not save incomplete <code>csproj</code> changes without asset upgrades)</li>
+<li>Bump versions in <code>sources\editor\Stride.Samples.Templates\ThisPackageVersion.PackageBuild.cs</code> and <code>sources\editor\Stride.Samples.Templates\ThisPackageVersion.DevBuild.cs</code></li>
+</ul>
+</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/major-release-workflow.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

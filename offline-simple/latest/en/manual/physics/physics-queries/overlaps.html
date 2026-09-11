@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overlap | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overlap | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/physics-queries/overlaps.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="overlap">Overlap</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>An <strong>overlap</strong> checks for intersecting collisions in the bounds of a shape. In more basic terms, <strong>it checks which colliders are inside or partially inside of a shape</strong>.</p>
+<h2 id="overlap-query">Overlap query</h2>
+<p>In order to query an <strong>overlap</strong>, use <a class="xref" href="../../../api/Stride.BepuPhysics.BepuSimulation.html#Stride_BepuPhysics_BepuSimulation_Overlap_"><code>Simulation.Overlap</code></a>.</p>
+<h3 id="shape">Shape</h3>
+<p>An overlap requires a <strong>shape</strong>, which can be one of: <a href="https://docs.bepuphysics.com/api/BepuPhysics.Collidables.Box.html"><code>Box</code></a>, <a href="https://docs.bepuphysics.com/api/BepuPhysics.Collidables.Capsule.html"><code>Capsule</code></a>, <a href="https://docs.bepuphysics.com/api/BepuPhysics.Collidables.ConvexHull.html"><code>ConvexHull</code></a>, <a href="https://docs.bepuphysics.com/api/BepuPhysics.Collidables.Sphere.html"><code>Sphere</code></a>, <a href="https://docs.bepuphysics.com/api/BepuPhysics.Collidables.Triangle.html"><code>Triangle</code></a>.</p>
+<h3 id="pose">Pose</h3>
+<p>The <strong>pose</strong> describes how the shape will be positioned in the world.</p>
+<p>Creating a new instance of <a class="xref" href="../../../api/Stride.BepuPhysics.Definitions.RigidPose.html">RigidPose</a> requires two arguments: position and rotation.</p>
+<p>If you want to use the position and rotation of an entity in the scene, you can use <a class="xref" href="../../../api/Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_GetWorldTransformation_"><code>Transform.GetWorldTransform</code></a>.</p>
+<pre><code class="lang-csharp">Entity.Transform.GetWorldTransformation(out var position, out var rotation, out _);
+var pose = new RigidPose(position, rotation);
+</code></pre>
+<h3 id="collection">Collection</h3>
+<p>The <strong>collection</strong> is used for getting the intersecting <a class="xref" href="../../../api/Stride.BepuPhysics.CollidableComponent.html">collidables</a> from the overlap.</p>
+<p>The most basic collection that you can use is a <a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1">list</a>.</p>
+<pre><code class="lang-csharp">var collection = new List&lt;OverlapInfo&gt;();
+</code></pre>
+<h2 id="overlap-query-with-stackalloc">Overlap query (with <code>stackalloc</code>)</h2>
+<p>When repeatedly performing an overlap, it has to keep allocating memory on the heap for the results, which puts more strain on the Garbage Collector (meaning more ram usage). A more optimal solution would be to use <code>stackalloc</code>.</p>
+<p>When using the stack, the method won't require a collection anymore and instead will return an enumerable.</p>
+<pre><code class="lang-csharp">public void Overlap()
+{
+    // Allocate a buffer that can hold up to 16 elements
+    Span&lt;CollidableStack&gt; buffer = stackalloc CollidableStack[16];
+    
+    // Iterate over all results
+    foreach (var collidable in simulation.Overlap(shape, pose, buffer))
+    {
+        // Handle a successful hit
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>A span has a limited amount of elements it can contain</strong>. If there are more hits than the buffer size, only the closest ones will be returned.</p>
+</div>
+<h2 id="overlapinfo-query">OverlapInfo query</h2>
+<p>This query works almost in the same way as the others. The main difference is that it treats each shape of a <a href="../collider-shapes.html#compound">compound collider</a> separately. This can result in the same <a class="xref" href="../../../api/Stride.BepuPhysics.CollidableComponent.html">collidables</a> being returned multiple times.</p>
+<pre><code class="lang-csharp">public void Overlap()
+{
+    // Allocate a buffer that can hold up to 16 elements
+    Span&lt;CollidableStack&gt; buffer = stackalloc CollidableStack[16];
+    
+    // Iterate over all results
+    foreach (var info in simulation.OverlapInfo(shape, pose, buffer))
+    {
+        // Handle a successful hit
+    }
+}
+</code></pre>
+<h2 id="using-a-collision-mask">Using a collision mask</h2>
+<p>Every query has an optional parameter specifying which colliders layers it should be performed on.</p>
+<p>For more information on how to use collision masks, visit the <a href="index.html#querying-specific-collision-masks">main physics queries page</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>Here are a few examples of using <strong>overlaps</strong> in a game.</p>
+<h3 id="checking-if-the-player-is-on-the-ground">Checking if the player is on the ground</h3>
+<p>This example will perform an overlap using a sphere slightly below the player to check if it's touching the ground.</p>
+<p>It's assumed the player is using a capsule for it's collision with the height of <code>2</code>. So the overlap needs to be offsetted from the center by <code>-0.5</code> in order to perfectly match the bottom of the capsule with the sphere and then by an additional small value of <code>-0.01</code> to be able to check the ground.</p>
+<pre><code class="lang-csharp">public bool CheckGrounded(BodyComponent body)
+{
+    var sim = body.Simulation;
+    
+    // Sphere's radius needs to match the capsule's radius
+    var shape = new Sphere(0.5f);
+    var pose = new RigidPose(Entity.Transform.WorldMatrix.TranslationVector - 0.51f, Vector3.Zero);
+    
+    // Checking every layer except the one the player is on
+    var mask = ~body.CollisionLayer.ToMask();
+    
+    Span&lt;CollidableStack&gt; buffer = stackalloc CollidableStack[1];
+    
+    // If there are any collisions under the player, the player is on the ground
+    foreach (var item in sim.Overlap(sphere, pose, buffer, mask))
+        return true;
+
+    return false;
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/physics-queries/overlaps.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

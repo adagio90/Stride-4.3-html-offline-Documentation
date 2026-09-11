@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Material slots | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Material slots | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/material-slots.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="material-slots">Material slots</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>Models can use multiple materials. You can set the materials in the model's <strong>material slots</strong>.</p>
+<p><img src="media/material-slots.png" alt="Material slots"></p>
+<p>For example, the second material slot in this model specifies the material for the visor and the shoulder and chest plate stripes. By changing the material in this slot, we change the material used in these parts of the model.</p>
+<p><img src="media/model-materials-both.png" alt="Materials"></p>
+<p>The material slots themselves — their number and position — are defined in the model source file (eg  <code>.fbx</code>, <code>.obj</code>, etc). You can't edit material slots in Game Studio; you can only change which materials are used in each slot.</p>
+<h2 id="set-materials-on-a-model">Set materials on a model</h2>
+<p>You can change the materials a model uses in two places:</p>
+<ul>
+<li><p>Under the <strong>Materials</strong> properties of the model itself:</p>
+<p><img src="media/model-materials.png" alt="Model materials"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This affects every instance of this model.</p>
+</div>
+</li>
+<li><p>In the <strong>model component</strong> of an entity or <a href="../../game-studio/prefabs/index.html">prefab</a>:</p>
+<p><img src="media/model-materials-in-entity.png" alt="Model materials on entity"></p>
+<p>This only affects <strong>this</strong> instance or prefab.</p>
+</li>
+</ul>
+<h2 id="meshes-and-material-slots">Meshes and material slots</h2>
+<p>Models imported from modeling software can contain meshes. Meshes can share materials via material slots.</p>
+<p><img src="media/material-slot-diagram-1.png" alt="Mesh"></p>
+<p>The association between a mesh and a material slot is defined in the model source file. You can't change these associations in Game Studio, but you can change them in code at runtime.</p>
+<p>To change the association between a mesh and a material, use:</p>
+<pre><code class="lang-cs">MyModelComponent.Model.Meshes[submeshIndex].MaterialIndex = materialIndex;
+</code></pre>
+<p>To change or add a material to the list of materials:</p>
+<pre><code class="lang-cs">MyModelComponent.Materials[ExistingOrNewMaterialIndex] = myMaterial;
+</code></pre>
+<h3 id="merging-meshes">Merging meshes</h3>
+<p>When Stride draws a model with meshes, it performs one GPU draw call for each mesh. By default, to improve performance, at build time, Stride merges meshes that share materials.</p>
+<p><img src="media/material-slot-diagram-2.png" alt="Mesh"></p>
+<p>In the example above, there are five meshes and five draw calls. After merging, there are three meshes and three draw calls.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When Stride merges meshes, it merges the vertex and index buffers. This means you can't draw the meshes separately at runtime, and you can't change the original mesh position (transformation matrix). The meshes become a single mesh with a single material and a single transformation matrix (relative to the model).</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When Stride merges meshes, it changes the draw order of elements. In the case of transparent materials, this can produce different results.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you create a <a href="../../physics/collider-shapes.html">physics collider from a model</a>, Stride builds separate convex hulls for each mesh in the model. If the meshes are merged, only one mesh remains per material, so convex hulls are also built from merged meshes.</p>
+</div>
+<h3 id="disable-mesh-merging">Disable mesh merging</h3>
+<p>You might want to disable mesh merging if you want to:</p>
+<ul>
+<li><p>animate a mesh</p>
+</li>
+<li><p>change the material of a mesh at runtime</p>
+</li>
+</ul>
+<p>To disable mesh merging on a model:</p>
+<ol>
+<li><p>Select the model you want to disable mesh merging for.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, disable <strong>Merge meshes</strong>.</p>
+<p><img src="media/disable-merge-meshes.png" alt="Disable merge meshes"></p>
+</li>
+</ol>
+<h4 id="disable-merging-for-specific-meshes">Disable merging for specific meshes</h4>
+<p>To disable merging only for specific meshes, enable their corresponding <strong>nodes</strong>.</p>
+<ol>
+<li><p>Select the model that contains the meshes.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Skeleton</strong>, make sure the model has a skeleton associated with it.</p>
+<p><img src="media/model-skeleton.png" alt="Model skeleton"></p>
+<p>For more information about skeletons, see <a href="../../animation/index.html">Animation</a>.</p>
+</li>
+<li><p>In the <strong>Asset View</strong>, select the skeleton.</p>
+<p><img src="media/select-model-skeleton.png" alt="Select model skeleton"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Nodes</strong>, select the nodes that correspond to the meshes you don't want to merge.</p>
+<p><img src="media/select-model-skeleton-nodes.png" alt="Nodes"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To see which nodes correspond to which mesh, open the model source file in a modeling application such as Maya.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure you don't disable nodes that are animated at runtime.</p>
+</div>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="material-maps.html">Material maps</a></li>
+<li><a href="material-attributes.html">Material attributes</a></li>
+<li><a href="material-slots.html">Material slots</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/material-slots.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

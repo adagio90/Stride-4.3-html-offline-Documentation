@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 2.1 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 2.1 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-2.1.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-21-release-notes">Xenko 2.1 release notes</h1>
+
+<p>12 September 2017</p>
+<h2 id="highlights">Highlights</h2>
+<h3 id="local-reflections">Local reflections</h3>
+<p>Xenko 2.1 introduces <strong>local reflections</strong>. When you enable this post effect, the scene is reflected in glossy materials.</p>
+<p><img src="media/ReleaseNotes-2.1/local-reflections.jpg" alt="Local reflections"></p>
+<p>You can enable and customize local reflections in the graphics compositor on the <strong>post effects</strong> properties.</p>
+<p><img src="media/ReleaseNotes-2.1/enable-local-reflections.png" alt="Enable local reflections"></p>
+<p>For details, see <a href="../manual/graphics/post-effects/local-reflections.html">Local reflections</a>.</p>
+<h3 id="clear-coat-shading">Clear coat shading</h3>
+<p>Xenko 2.1 includes a <strong>clear-coat material</strong> template that uses physically-based rendering to simulate vehicle paint.</p>
+<p><img src="media/ReleaseNotes-2.1/clear-coat-2.jpg" alt="Clear coat"></p>
+<p>Clear-coat shading has several advantages over creating the effect manually with material layers:</p>
+<ul>
+<li>layers are blended based on distance</li>
+<li>increased performance</li>
+<li>improved visualization</li>
+</ul>
+<p>You can add a predefined <strong>clear coat</strong> material from the <strong>Asset view</strong> under <strong>Add asset &gt; Material</strong>.</p>
+<p><img src="media/ReleaseNotes-2.1/add-clear-coat.png" alt="Add clear coat"></p>
+<p>For details, see <a href="../manual/graphics/materials/clear-coat-shading.html">Clear coat shading</a>.</p>
+<h3 id="thin-glass-materials">Thin glass materials</h3>
+<p>You can now render thin glass materials such as windshields. The diffuse color controls the tint of the glass and how much light is blocked (darker colors block more light).</p>
+<p><img src="media/ReleaseNotes-2.1/glass-materials.webp" alt="Glass materials"></p>
+<p>You can add a predefined <strong>Glass</strong> material from the <strong>Asset view</strong> under <strong>Add asset &gt; Material</strong>.</p>
+<p><img src="media/ReleaseNotes-2.1/select-thin-glass-material.png" alt="Select thin glass material"></p>
+<h3 id="improved-light-shafts">Improved light shafts</h3>
+<p>You can now use <strong>light shafts</strong> with any kind of light that casts shadows (ie point lights, directional lights, or spot lights). You can also use them with multiple shadow cascades.</p>
+<p>Additionally, Game Studio now displays light shaft bounding volumes in the scene editor, so you can easily see the areas where light shafts are created. To show or hide navigation light shaft bounding volumes, in the <strong>scene editor toolbar</strong>, open the <strong>gizmo options</strong> menu and use the <strong>Light shaft bounding volumes</strong> checkbox.</p>
+<p><img src="media/ReleaseNotes-2.1/show-or-hide-light-shaft-bounding-volume.png" alt="Show light shaft bounding volumes"></p>
+<p>The <code>LightShaftComponent</code> settings have been simplified and now have settings to control quality and performance.</p>
+<p>For details, see <a href="../manual/graphics/lights-and-shadows/light-shafts.html">Light shafts</a>.</p>
+<h3 id="texture-streaming">Texture streaming</h3>
+<p>Xenko now supports streaming for textures. This significantly decreases the time it takes to load a game or scene, uses less memory, and makes your game easier to scale.</p>
+<p>Streaming is enabled for textures by default. You can find the option in the texture properties under <strong>Format</strong>.</p>
+<p><img src="media/ReleaseNotes-2.1/enable-streaming.png" alt="Enable streaming"></p>
+<p>You can also set the global <strong>Streaming</strong> settings in <strong>Game settings</strong>.</p>
+<p><img src="media/ReleaseNotes-2.1/streaming-settings.png" alt="Streaming settings"></p>
+<p>For details, see <a href="../manual/graphics/textures/streaming.html">Streaming</a>.</p>
+<h3 id="render-masks">Render masks</h3>
+<p>You can now set which render groups a camera renders under <strong>Graphics Compositor &gt; Entry points &gt; Render masks</strong>. For example, you can have a model be visible to Camera A but invisible to Camera B.</p>
+<p><img src="media/ReleaseNotes-2.1/change-render-mask.png" alt="Render mask"></p>
+<p>For details, see <a href="../manual/graphics/graphics-compositor/render-groups-and-masks.html">Render groups and masks</a>.</p>
+<h3 id="improved-profiler">Improved profiler</h3>
+<p>The <strong>Game Profiler</strong> script now displays more information and is easier to use.</p>
+<p><img src="media/ReleaseNotes-2.1/profiling-profiler-at-runtime.jpg" alt="Profiler at runtime"></p>
+<p>You can now:</p>
+<ul>
+<li><p>profile GPU information</p>
+</li>
+<li><p>switch between CPU, GPU, and FPS-only results with <strong>F1</strong></p>
+</li>
+<li><p>sort the result pages by <strong>Name</strong> or <strong>Time</strong> with <strong>F2</strong></p>
+</li>
+<li><p>change how frequently the profiler gets and displays new results with <strong>- / +</strong></p>
+</li>
+<li><p>jump to a results page with the <strong>number keys</strong>, or move forward and backwards with <strong>F3</strong> and <strong>F4</strong></p>
+</li>
+<li><p>set parameters in Game Studio:</p>
+<p><img src="media/ReleaseNotes-2.1/profiler-properties.png" alt="Profiler properties"></p>
+</li>
+</ul>
+<p>For details, see <a href="../manual/troubleshooting/profiling.html">Profiling</a>.</p>
+<h3 id="debug-text">Debug text</h3>
+<p>You can now display debug text at runtime. For more information, see <a href="../manual/troubleshooting/debug-text.html">Debug text</a>.</p>
+<p><img src="media/ReleaseNotes-2.1/my-debug-text.jpg" alt="Debug text"></p>
+<h3 id="rewritten-input-system">Rewritten input system</h3>
+<p>The input system has been rewritten to track different input devices and allow for better extensibility.</p>
+<ul>
+<li>Allows detection of added/removed devices through events on the InputManager</li>
+<li>New device interfaces such as <code>IMouseDevice</code>, <code>IKeyboardDevice</code>, <code>IGameController</code></li>
+<li>High-level <code>IGamePadDevice</code> replaces the gamepad functionality, with support for XInput</li>
+<li>Lower-level <code>IGameControllerDevice</code> allows access to numbered buttons/axes</li>
+<li>Automatic detection of plugged-in/removed controllers</li>
+<li>Support for different keyboard layouts and IME for text input</li>
+<li>Access to resolution and absolute coordinates for mouse/pointer devices</li>
+<li><code>KeyEvent</code> now has a <code>RepeatCount</code> member, indicating how many times the key has been repeated while being held down</li>
+</ul>
+<p>For details, see <a href="../manual/input/index.html">Input</a>.</p>
+<h3 id="improved-direct3d-12-support">Improved Direct3D 12 support</h3>
+<p>To support graphics functionalities on every platform, we've implemented missing features for the DirectX 12 rendering backend:</p>
+<ul>
+<li>compute and tessellation shaders</li>
+<li>unordered access views for textures and buffers</li>
+<li>structured buffers</li>
+</ul>
+<p>For more details, see the <strong>Changelog</strong> below.</p>
+<h3 id="improved-environment-fresnel">Improved environment fresnel</h3>
+<p>Fresnel describes how light is reflected depending on the angle the material is viewed from. Typically, high angles are more reflective.</p>
+<p>Previously, Xenko used an imprecise polynomial approximation to compute the fresnel for environment lighting (such as cubemaps), resulting in a bigger-than-expected white outline. Xenko now defaults to a precomputed BRDF environment lookup texture that matches our default lighting equations (GGX Schlick). This produces much more accurate rendering.</p>
+<h3 id="japanese-documentation">Japanese documentation</h3>
+<p>The documentation is now available in Japanese. To switch languages, use the <strong>Language</strong> button in the top-right of the documentation site.</p>
+<p><img src="media/ReleaseNotes-2.1/switch-language.png" alt="Switch language"></p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<h3 id="input-system">Input system</h3>
+<ul>
+<li>Renamed <code>PointerState</code> to <code>PointerEventType</code></li>
+<li>Changed the members of <code>PointerEventType</code>:
+<ul>
+<li><code>Down</code> has been renamed to <code>Pressed</code></li>
+<li><code>Move</code> has been renamed to <code>Moved</code></li>
+<li><code>Up</code> has been renamed to <code>Released</code></li>
+<li><code>Cancel</code> has been renamed to <code>Canceled</code></li>
+<li><code>Out</code> has been removed; use <code>Canceled</code> instead</li>
+</ul>
+</li>
+<li>Renamed <code>InputManager.ActivatedGestures</code> to <code>InputManager.Gestures</code></li>
+<li>Changed checking support for sensors using <code>Sensor.IsSupported</code> to <code>InputManager.Sensor != null</code> (where <code>Sensor</code> is the name of the sensor you're checking)</li>
+<li>The <code>HasDown/Pressed/ReleasedMouseButtons()</code> functions on the <code>InputManager</code> are now properties</li>
+<li>Removed <code>GetGamePad()</code>; use <code>IGamePadDevice.State</code> to acquire a gamepad state
+<blockquote>
+<p>To obtain a gamepad, use <code>InputManager.GamePads</code>, <code>InputManager.GetGamePadByIndex(index)</code> or use the <code>InputManager.DeviceAdded/Removed</code> events</p>
+</blockquote>
+</li>
+<li>Removed <code>GamePadState.IsConnected</code>; use the <code>InputManager.DeviceAdded/Removed</code> events or check the value returned by <code>InputManager.GetGamePadByIndex(index) != null</code></li>
+<li>Moved <code>IsPadButtonDown/Pressed/Released()</code> to the <code>IGamePadDevice</code> as <code>IGamePadDevice.IsButtonDown/Pressed/Released()</code></li>
+<li>Moved the <code>SetGamePadVibration()</code> function to the <code>IGamePadDevice</code></li>
+<li>Locking the mouse with <code>InputManager.LockMousePosition()</code> no longer automatically hides the cursor; use <code>IGame.IsMouseVisible</code> for this</li>
+<li>Removed <code>PointerEvent.PointerType</code>; use <code>PointerEvent.Device is IMouseDevice</code> to check if the event came from a mouse</li>
+<li>Removed <code>PointerEvent.IsPrimary</code></li>
+<li>Renamed <code>PointerId</code> on <code>PointerEvent</code> to <code>Id</code></li>
+<li>Renamed <code>State</code> on <code>PointerEvent</code> to <code>EventType</code> and its type to <code>PointerEventType</code></li>
+<li>Removed <code>KeyEvent.Type</code>; to check if this was a pressed or released event, use the boolean <code>KeyEvent.IsDown</code></li>
+<li><code>MouseWheelDelta</code> is now <code>-1</code> or <code>1</code> per scroll unit instead of <code>-120</code> or <code>120</code></li>
+<li>Removed <code>MultiTouchEnabled</code> on the <code>InputManager</code>; multi-touch is always enabled</li>
+</ul>
+<h3 id="light-shafts">Light shafts</h3>
+<ul>
+<li>Removed <code>ExtinctionFactor</code> and <code>ExtinctionRatio</code> to simplify the light shaft component</li>
+</ul>
+<h3 id="engine">Engine</h3>
+<ul>
+<li>Renamed <code>DebugConsoleSystem</code> to <code>DebugTextSystem</code></li>
+<li>Now default <code>RenderStageSelector</code> select all entity groups</li>
+</ul>
+<h2 id="known-issues">Known issues</h2>
+<ul>
+<li>On Linux, when switching the underlying graphics platform, rendering doesn't occur or fail. To fix the problem, delete the cache, local, and roaming folders on the Linux host and restart the game</li>
+<li>
+<ul>
+<li>On iOS, if <code>Enable device-specific builds</code> is on (set in the project properties), it's not possible to debug game code. To speed up development, manually select the architecture of your device from the Advanced tab</li>
+</ul>
+</li>
+<li>Performance issues on mobile (being worked on)</li>
+<li>Live scripting has been temporarily disabled</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-2103---12-september-2017">Version 2.1.0.3 - 12 September 2017</h3>
+<h4 id="enhancements">Enhancements</h4>
+<h5 id="general">General</h5>
+<ul>
+<li>Updated the <a href="https://git.xenko.com/xenko/Xenko-Runtime/blob/master/THIRD%20PARTY.md">list of third-party libraries</a> and sorted by editor and runtime dependencies</li>
+</ul>
+<h5 id="game-studio">Game Studio</h5>
+<ul>
+<li>Reviewed and rewritten editor text (menus, button labels, tooltips and so on)</li>
+<li>Removed redundant dialog boxes</li>
+<li>Improved directional light gizmo visuals</li>
+<li>Improved translation gizmo design. Translation planes now always face the camera</li>
+<li>Reduced graphical glitches and optimized navigation mesh overlay rendering</li>
+<li>Removed special character restriction on string keys for dictionaries</li>
+<li>Changed the default color of the clear frame for better prefab editing</li>
+<li>Added a mark for the origin in the scene and prefab editor</li>
+<li>Added wireframe bounding volume for light shafts</li>
+<li>Added a context menu entry in the asset view to copy an asset's URL</li>
+<li>Allowed <em>mixed</em> document orientation in the dock panel</li>
+</ul>
+<h5 id="assets">Assets</h5>
+<ul>
+<li>Updated to latest version of DirectXTex</li>
+<li>Improved the computation of dependencies between assets leading to faster build and thumbnails generation</li>
+<li>Changed how root parts of hierarchical assets (prefab, scene, UI) are referenced and serialized (direct references instead of Guids)</li>
+</ul>
+<h5 id="engine-1">Engine</h5>
+<ul>
+<li>Added render group mask on the <code>SceneCameraRenderer</code> to cull entities per camera</li>
+<li>Improved the game profiler (reduced performance impact, improved UX &amp; visual, etc)</li>
+<li>Added a profiling key to the script component for user script profiling</li>
+<li>Added streaming support for textures.</li>
+<li>Added support for GPU queries.</li>
+</ul>
+<h5 id="graphics">Graphics</h5>
+<ul>
+<li>FXAA Quality was crashing in many cases, because the value doesn't work with all numbers between 10 and 39. It's now exposed as two controls: a <code>Dithering</code> combobox and a <code>Quality</code> slider</li>
+<li>Improved MSAA depth buffer resolving</li>
+<li>Minor shader fixes</li>
+<li>Added option for random texture sampling to texture maps</li>
+<li>Enabled shadow casting for transparent materials</li>
+<li>Added <code>IsAlphaCutoff</code> option in sprite component</li>
+<li>Added swap function to <code>Texture</code> to swap the content of two textures</li>
+</ul>
+<h5 id="direct3d-12">Direct3D 12</h5>
+<ul>
+<li>Command List implementations for Dispatch, ClearReadWrite, Copy, CopyMultisample, CopyCount</li>
+<li>Resource state transitions fixes</li>
+<li>Resource barriers batching</li>
+<li>Added proper ClearValue setup for render targets and depth stencil buffers</li>
+<li>Added DX12 Debug Layer filter for irrelevant warnings</li>
+<li>Added support for:
+<ul>
+<li>compute pipeline support</li>
+<li>tessellation</li>
+<li>compute, hull, domain and geometry shaders</li>
+<li>unordered access views for textures and buffers</li>
+<li>structured buffers</li>
+<li>staging textures and buffers</li>
+</ul>
+</li>
+</ul>
+<h5 id="input">Input</h5>
+<ul>
+<li>Added <code>AbsoluteMousePosition</code> information to the <code>InputManger</code>.</li>
+<li>Improved gamepad support (new devices supported, improved API, runtime detection, etc.)</li>
+<li>Add interpreted key and IME input support</li>
+</ul>
+<h5 id="navigation">Navigation</h5>
+<ul>
+<li>Changed the default size of new navigation mesh bounding volumes to <code>(1,1,1)</code></li>
+</ul>
+<h5 id="android">Android</h5>
+<ul>
+<li>Modify application context creation to allow use of external display</li>
+</ul>
+<h5 id="uwp">UWP</h5>
+<ul>
+<li>Implemented support for CoreWindow. Disabled for the moment</li>
+</ul>
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<h5 id="game-studio-1">Game Studio</h5>
+<ul>
+<li>Live update of the directional, point and spot light gizmo color wasn't working</li>
+<li>Enabling/disabling light shaft bounding volume components now works as intended</li>
+<li>Added &quot;Fix references&quot; dialog when removing directories with assets</li>
+<li>Corrected lots of English mistakes</li>
+<li>Fixed lots of issues with copy and paste (and replace). Notably it is now possible to copy entities from a scene and child scene at the same time.</li>
+<li>Fixed issues with &quot;Create library from selection&quot; in the UI editor</li>
+<li>Made the GameStudio crash in some rare cases where exceptions could leave a project in a corrupted state</li>
+<li>Fixed various isues in the UI editor when moving elements in the hierarchy</li>
+<li>Fixed issues with thumbnails generation</li>
+<li>Fixed issues with the anchor of a child scene</li>
+</ul>
+<h5 id="assets-1">Assets</h5>
+<ul>
+<li>Asset compilation of huge FBX was sometimes ending in timeout</li>
+<li>Fixed normals, tangents and bitangents NaN values happening during model import</li>
+</ul>
+<h5 id="engine-2">Engine</h5>
+<ul>
+<li>Fixed various memory leaks, especially when destroying a game</li>
+<li>Clustered lighting code was buggy when rendering to multiple views</li>
+<li>Fixed sprite bounding box and frustum culling calculation</li>
+<li>Fixed texture and buffer memory calculations accessible from <code>GraphicsDevice</code></li>
+<li>Removed obsolete <code>ChildSceneComponent</code> class</li>
+</ul>
+<h5 id="graphics-1">Graphics</h5>
+<ul>
+<li>Fixed bug with grid ignoring depth with MSAA enabled</li>
+<li>Added support for nointerpolation/noperspective in Xenko shaders</li>
+<li>Fixed various problems with black artifacts in the shaders (NaNs and invalid normals)</li>
+<li>Light shafts now work as expected when using self-overlapping bounding volumes</li>
+<li>Fixed light probes applying previous environment light twice when there are no light probes</li>
+<li>Material specular map <code>IsEnergyConservative</code> now properly taken into account</li>
+<li>Fixed transparent materials shadows</li>
+<li>Fixed transparent and alpha cut off materials shadows</li>
+<li>Fixed two-sided and flipped material shading</li>
+<li>Fixed mipmap counting</li>
+</ul>
+<h5 id="physics">Physics</h5>
+<ul>
+<li>Fixed capsule shape orientation</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-2.1.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

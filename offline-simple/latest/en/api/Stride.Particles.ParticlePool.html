@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParticlePool | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParticlePool | Stride API ">
+      
+      <meta name="description" content="The  is a class which manages an unmanaged memory block used for the particles. The maximum required size calculated on the number of particles and their fields&#39; sizes is calculated every time the sizes or the count change">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Particles_ParticlePool.md&amp;value=---%0Auid%3A%20Stride.Particles.ParticlePool%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Particles.ParticlePool">
+
+
+
+  <h1 id="Stride_Particles_ParticlePool" data-uid="Stride.Particles.ParticlePool" class="text-break">
+Class ParticlePool  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Particles.html">Particles</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Particles.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a> is a class which manages an unmanaged memory block used for the particles.
+The maximum required size calculated on the number of particles and their fields' sizes is calculated every time the sizes or the count change</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ParticlePool : IDisposable, IEnumerable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ParticlePool</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ForEach__1_System_Collections_IEnumerable_System_Action___0__">EnumerableExtensions.ForEach&lt;T&gt;(IEnumerable, Action&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_IsNullOrEmpty_System_Collections_IEnumerable_">EnumerableExtensions.IsNullOrEmpty(IEnumerable)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Particles_ParticlePool__ctor_" data-uid="Stride.Particles.ParticlePool.#ctor*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool__ctor_System_Int32_System_Int32_Stride_Particles_ParticlePool_ListPolicy_" data-uid="Stride.Particles.ParticlePool.#ctor(System.Int32,System.Int32,Stride.Particles.ParticlePool.ListPolicy)">
+  ParticlePool(int, int, ListPolicy)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a> constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParticlePool(int size, int capacity, ParticlePool.ListPolicy listPolicy = ListPolicy.Stack)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial size in bytes of a single particle</p>
+</dd>
+    <dt><code>capacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial capacity (maximum number of particles) of the pool</p>
+</dd>
+    <dt><code>listPolicy</code> <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a>.<a class="xref" href="Stride.Particles.ParticlePool.ListPolicy.html">ListPolicy</a></dt>
+    <dd><p>List policy - stack (living particles are in the front) or ring</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Particles_ParticlePool_DefaultMaxFielsPerPool" data-uid="Stride.Particles.ParticlePool.DefaultMaxFielsPerPool">
+  DefaultMaxFielsPerPool
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultMaxFielsPerPool = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Particles_ParticlePool_AvailableParticles_" data-uid="Stride.Particles.ParticlePool.AvailableParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_AvailableParticles" data-uid="Stride.Particles.ParticlePool.AvailableParticles">
+  AvailableParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets how many more particles can be spawned</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AvailableParticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_LivingParticles_" data-uid="Stride.Particles.ParticlePool.LivingParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_LivingParticles" data-uid="Stride.Particles.ParticlePool.LivingParticles">
+  LivingParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the number of living (active) particles</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LivingParticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_NextFreeIndex_" data-uid="Stride.Particles.ParticlePool.NextFreeIndex*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_NextFreeIndex" data-uid="Stride.Particles.ParticlePool.NextFreeIndex">
+  NextFreeIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_NextFreeIndex">NextFreeIndex</a> points to the next index ready for allocation, between 0 and <a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_ParticleCapacity">ParticleCapacity</a> - 1.
+In case of stack list the <a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_NextFreeIndex">NextFreeIndex</a> equals the number of living particles in the pool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NextFreeIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_ParticleCapacity_" data-uid="Stride.Particles.ParticlePool.ParticleCapacity*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_ParticleCapacity" data-uid="Stride.Particles.ParticlePool.ParticleCapacity">
+  ParticleCapacity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum allowed number of particles in this <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a>.
+Use <a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_SetCapacity_System_Int32_">SetCapacity(int)</a> if you need to change it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ParticleCapacity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_ParticleData_" data-uid="Stride.Particles.ParticlePool.ParticleData*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_ParticleData" data-uid="Stride.Particles.ParticlePool.ParticleData">
+  ParticleData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ParticleData is where the memory block (particle pool) actually resides.
+Its size equals <a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_ParticleSize">ParticleSize</a> * <a class="xref" href="Stride.Particles.ParticlePool.html#Stride_Particles_ParticlePool_ParticleCapacity">ParticleCapacity</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint ParticleData { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_ParticleSize_" data-uid="Stride.Particles.ParticlePool.ParticleSize*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_ParticleSize" data-uid="Stride.Particles.ParticlePool.ParticleSize">
+  ParticleSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the size of a single <a class="xref" href="Stride.Particles.Particle.html">Particle</a>.
+If PARTICLES_SOA is defined, the size of the <a class="xref" href="Stride.Particles.Particle.html">Particle</a> is the sum of all field strides.
+Otherwise, the size of the <a class="xref" href="Stride.Particles.Particle.html">Particle</a> is the pool's stride.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ParticleSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Particles_ParticlePool_AddParticle_" data-uid="Stride.Particles.ParticlePool.AddParticle*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_AddParticle" data-uid="Stride.Particles.ParticlePool.AddParticle">
+  AddParticle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a new particle to the pool. Doesn't worry about initialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Particle AddParticle()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Particle.html">Particle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_Dispose_" data-uid="Stride.Particles.ParticlePool.Dispose*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_Dispose" data-uid="Stride.Particles.ParticlePool.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_Dispose_" data-uid="Stride.Particles.ParticlePool.Dispose*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_Dispose_System_Boolean_" data-uid="Stride.Particles.ParticlePool.Dispose(System.Boolean)">
+  Dispose(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_DisposeParticleData_" data-uid="Stride.Particles.ParticlePool.DisposeParticleData*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_DisposeParticleData" data-uid="Stride.Particles.ParticlePool.DisposeParticleData">
+  DisposeParticleData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DisposeParticleData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_FieldExists_" data-uid="Stride.Particles.ParticlePool.FieldExists*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_FieldExists_Stride_Particles_ParticleFieldDescription_System_Boolean_" data-uid="Stride.Particles.ParticlePool.FieldExists(Stride.Particles.ParticleFieldDescription,System.Boolean)">
+  FieldExists(ParticleFieldDescription, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L621"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Polls if a filed with this description exists in the pool and optionally forces creation of a new field</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FieldExists(ParticleFieldDescription fieldDesc, bool forceCreate = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldDesc</code> <a class="xref" href="Stride.Particles.ParticleFieldDescription.html">ParticleFieldDescription</a></dt>
+    <dd><p>Description of the field</p>
+</dd>
+    <dt><code>forceCreate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Force the creation of non-existing fields if <code>true</code></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_Finalize_" data-uid="Stride.Particles.ParticlePool.Finalize*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_Finalize" data-uid="Stride.Particles.ParticlePool.Finalize">
+  ~ParticlePool()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ParticlePool()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_FromIndex_" data-uid="Stride.Particles.ParticlePool.FromIndex*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_FromIndex_System_Int32_" data-uid="Stride.Particles.ParticlePool.FromIndex(System.Int32)">
+  FromIndex(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a particle from its index in the pool</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Particle FromIndex(int idx)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>idx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Particle.html">Particle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_GetEnumerator_" data-uid="Stride.Particles.ParticlePool.GetEnumerator*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_GetEnumerator" data-uid="Stride.Particles.ParticlePool.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L649"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="Stride.Particles.ParticlePool.Enumerator.html">ParticlePool.Enumerator</a> to the particles in this <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a>
+In case of <a class="xref" href="Stride.Particles.ParticlePool.ListPolicy.html#Stride_Particles_ParticlePool_ListPolicy_Ring">Ring</a> dead particles are returned too, so the calling entity should handle such cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParticlePool.Enumerator GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a>.<a class="xref" href="Stride.Particles.ParticlePool.Enumerator.html">Enumerator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_GetField_" data-uid="Stride.Particles.ParticlePool.GetField*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_GetField__1_Stride_Particles_ParticleFieldDescription___0__" data-uid="Stride.Particles.ParticlePool.GetField``1(Stride.Particles.ParticleFieldDescription{``0})">
+  GetField&lt;T&gt;(ParticleFieldDescription&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L587"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unsafe method for getting a <a class="xref" href="Stride.Particles.ParticleFieldAccessor.html">ParticleFieldAccessor</a>.
+If the field doesn't exist an invalid accessor is returned to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParticleFieldAccessor&lt;T&gt; GetField&lt;T&gt;(ParticleFieldDescription&lt;T&gt; fieldDesc) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldDesc</code> <a class="xref" href="Stride.Particles.ParticleFieldDescription-1.html">ParticleFieldDescription</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.ParticleFieldAccessor-1.html">ParticleFieldAccessor</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_RemoveField_" data-uid="Stride.Particles.ParticlePool.RemoveField*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_RemoveField_Stride_Particles_ParticleFieldDescription_" data-uid="Stride.Particles.ParticlePool.RemoveField(Stride.Particles.ParticleFieldDescription)">
+  RemoveField(ParticleFieldDescription)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L467"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a particle field from this pool with the specified description, or gets an existing one</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveField(ParticleFieldDescription fieldDesc)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldDesc</code> <a class="xref" href="Stride.Particles.ParticleFieldDescription.html">ParticleFieldDescription</a></dt>
+    <dd><p>Description of the field</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the field was successfully removed, <code>false</code> otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_Reset_" data-uid="Stride.Particles.ParticlePool.Reset*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_Reset" data-uid="Stride.Particles.ParticlePool.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all particle fields, but keeps the particle capacity the same.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_SetCapacity_" data-uid="Stride.Particles.ParticlePool.SetCapacity*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_SetCapacity_System_Int32_" data-uid="Stride.Particles.ParticlePool.SetCapacity(System.Int32)">
+  SetCapacity(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a different capacity (maximum <a class="xref" href="Stride.Particles.Particle.html">Particle</a> count for this pool)
+Whenever possible, existing particles will be copied and continue simulation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCapacity(int newCapacity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newCapacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>New maximum capacity</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticlePool_TryGetField_" data-uid="Stride.Particles.ParticlePool.TryGetField*"></a>
+
+  <h3 id="Stride_Particles_ParticlePool_TryGetField__1_Stride_Particles_ParticleFieldDescription___0__Stride_Particles_ParticleFieldAccessor___0___" data-uid="Stride.Particles.ParticlePool.TryGetField``1(Stride.Particles.ParticleFieldDescription{``0},Stride.Particles.ParticleFieldAccessor{``0}@)">
+  TryGetField&lt;T&gt;(ParticleFieldDescription&lt;T&gt;, out ParticleFieldAccessor&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L602"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the particle field with the specified description if the field exists in this pool</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetField&lt;T&gt;(ParticleFieldDescription&lt;T&gt; fieldDesc, out ParticleFieldAccessor&lt;T&gt; accessor) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldDesc</code> <a class="xref" href="Stride.Particles.ParticleFieldDescription-1.html">ParticleFieldDescription</a>&lt;T&gt;</dt>
+    <dd><p>Field's decription</p>
+</dd>
+    <dt><code>accessor</code> <a class="xref" href="Stride.Particles.ParticleFieldAccessor-1.html">ParticleFieldAccessor</a>&lt;T&gt;</dt>
+    <dd><p>Accessor for the field</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type data for the field</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticlePool.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

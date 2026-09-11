@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct ColorBGRA | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct ColorBGRA | Stride API ">
+      
+      <meta name="description" content="Represents a 32-bit color (4 bytes) in the form of BGRA (in byte order: B, G, R, A).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_ColorBGRA.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.ColorBGRA%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.ColorBGRA">
+
+
+
+  <h1 id="Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA" class="text-break">
+Struct ColorBGRA  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a 32-bit color (4 bytes) in the form of BGRA (in byte order: B, G, R, A).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;ColorBGRA&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct ColorBGRA : IEquatable&lt;ColorBGRA&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_Stride_Core_Mathematics_Vector3_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(Stride.Core.Mathematics.Vector3,System.Single)">
+  ColorBGRA(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(Vector3 value, float alpha)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The red, green, and blue components of the color.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The alpha component of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_Stride_Core_Mathematics_Vector4_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(Stride.Core.Mathematics.Vector4)">
+  ColorBGRA(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The red, green, blue, and alpha components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Byte_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Byte)">
+  ColorBGRA(byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Byte_System_Byte_System_Byte_System_Byte_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+  ColorBGRA(byte, byte, byte, byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(byte red, byte green, byte blue, byte alpha)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>red</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The red component of the color.</p>
+</dd>
+    <dt><code>green</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The green component of the color.</p>
+</dd>
+    <dt><code>blue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The blue component of the color.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The alpha component of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Byte___" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Byte[])">
+  ColorBGRA(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(byte[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The values to assign to the red, green, and blue, alpha components of the color. This must be an array with four elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Int32_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Int32)">
+  ColorBGRA(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(int bgra)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bgra</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all four color components in BGRA.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Single)">
+  ColorBGRA(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Single,System.Single,System.Single,System.Single)">
+  ColorBGRA(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(float red, float green, float blue, float alpha)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>red</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The red component of the color.</p>
+</dd>
+    <dt><code>green</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The green component of the color.</p>
+</dd>
+    <dt><code>blue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The blue component of the color.</p>
+</dd>
+    <dt><code>alpha</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The alpha component of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_Single___" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.Single[])">
+  ColorBGRA(float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>The values to assign to the red, green, and blue, alpha components of the color. This must be an array with four elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA__ctor_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA__ctor_System_UInt32_" data-uid="Stride.Core.Mathematics.ColorBGRA.#ctor(System.UInt32)">
+  ColorBGRA(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorBGRA(uint bgra)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bgra</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A packed integer containing all four color components in BGRA order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_A" data-uid="Stride.Core.Mathematics.ColorBGRA.A">
+  A
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The alpha component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(3)]
+public byte A</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_B" data-uid="Stride.Core.Mathematics.ColorBGRA.B">
+  B
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The blue component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public byte B</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_G" data-uid="Stride.Core.Mathematics.ColorBGRA.G">
+  G
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The green component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+public byte G</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_R" data-uid="Stride.Core.Mathematics.ColorBGRA.R">
+  R
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The red component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(2)]
+public byte R</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Item_" data-uid="Stride.Core.Mathematics.ColorBGRA.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Item_System_Int32_" data-uid="Stride.Core.Mathematics.ColorBGRA.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the alpha component, 1 for the red component, 2 for the green component, and 3 for the blue component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The value of the alpha, red, green, or blue component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 3].</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Add_" data-uid="Stride.Core.Mathematics.ColorBGRA.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Add_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Add(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Add(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Add(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Add_" data-uid="Stride.Core.Mathematics.ColorBGRA.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Add_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Add(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Add(ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref readonly ColorBGRA left, ref readonly ColorBGRA right, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, completes the sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_AdjustContrast_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustContrast*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_AdjustContrast_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustContrast(Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  AdjustContrast(ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L724"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the contrast of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA AdjustContrast(ColorBGRA value, float contrast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color whose contrast is to be adjusted.</p>
+</dd>
+    <dt><code>contrast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the contrast.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_AdjustContrast_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustContrast*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_AdjustContrast_Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustContrast(Stride.Core.Mathematics.ColorBGRA@,System.Single,Stride.Core.Mathematics.ColorBGRA@)">
+  AdjustContrast(ref readonly ColorBGRA, float, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L710"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the contrast of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AdjustContrast(ref readonly ColorBGRA value, float contrast, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color whose contrast is to be adjusted.</p>
+</dd>
+    <dt><code>contrast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the contrast.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_AdjustSaturation_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustSaturation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_AdjustSaturation_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustSaturation(Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  AdjustSaturation(ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L755"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the saturation of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA AdjustSaturation(ColorBGRA value, float saturation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color whose saturation is to be adjusted.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the saturation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_AdjustSaturation_" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustSaturation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_AdjustSaturation_Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.AdjustSaturation(Stride.Core.Mathematics.ColorBGRA@,System.Single,Stride.Core.Mathematics.ColorBGRA@)">
+  AdjustSaturation(ref readonly ColorBGRA, float, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L739"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the saturation of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AdjustSaturation(ref readonly ColorBGRA value, float saturation, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color whose saturation is to be adjusted.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the saturation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Clamp_" data-uid="Stride.Core.Mathematics.ColorBGRA.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Clamp_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Clamp(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Clamp(ColorBGRA, ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L586"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Clamp(ColorBGRA value, ColorBGRA min, ColorBGRA max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Clamp_" data-uid="Stride.Core.Mathematics.ColorBGRA.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Clamp_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Clamp(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Clamp(ref readonly ColorBGRA, ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clamp(ref readonly ColorBGRA value, ref readonly ColorBGRA min, ref readonly ColorBGRA max, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Deconstruct_" data-uid="Stride.Core.Mathematics.ColorBGRA.Deconstruct*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Deconstruct_System_Byte__System_Byte__System_Byte__System_Byte__" data-uid="Stride.Core.Mathematics.ColorBGRA.Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+  Deconstruct(out byte, out byte, out byte, out byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L1080"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deconstructs the vector's components into named variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Deconstruct(out byte r, out byte g, out byte b, out byte a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The R component</p>
+</dd>
+    <dt><code>g</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The G component</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The B component</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The A component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Equals_" data-uid="Stride.Core.Mathematics.ColorBGRA.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Equals_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Equals(Stride.Core.Mathematics.ColorBGRA)">
+  Equals(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L1050"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(ColorBGRA other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Equals_" data-uid="Stride.Core.Mathematics.ColorBGRA.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Equals_System_Object_" data-uid="Stride.Core.Mathematics.ColorBGRA.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L1062"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_FromBgra_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromBgra*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_FromBgra_System_Int32_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromBgra(System.Int32)">
+  FromBgra(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color from a packed BGRA integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA FromBgra(int color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all four color components in BGRA order</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_FromBgra_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromBgra*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_FromBgra_System_UInt32_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromBgra(System.UInt32)">
+  FromBgra(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color from a packed BGRA integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA FromBgra(uint color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A packed integer containing all four color components in BGRA order</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_FromRgba_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromRgba*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_FromRgba_System_Int32_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromRgba(System.Int32)">
+  FromRgba(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color from a packed RGBA integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA FromRgba(int color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all four color components in RGBA order</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_FromRgba_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromRgba*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_FromRgba_System_UInt32_" data-uid="Stride.Core.Mathematics.ColorBGRA.FromRgba(System.UInt32)">
+  FromRgba(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color from a packed RGBA integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA FromRgba(uint color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>color</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A packed integer containing all four color components in RGBA order</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_GetBrightness_" data-uid="Stride.Core.Mathematics.ColorBGRA.GetBrightness*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_GetBrightness" data-uid="Stride.Core.Mathematics.ColorBGRA.GetBrightness">
+  GetBrightness()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the brightness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float GetBrightness()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Hue-Saturation-Brightness (HSB) saturation for this <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_GetHashCode_" data-uid="Stride.Core.Mathematics.ColorBGRA.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_GetHashCode" data-uid="Stride.Core.Mathematics.ColorBGRA.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L1038"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_GetHue_" data-uid="Stride.Core.Mathematics.ColorBGRA.GetHue*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_GetHue" data-uid="Stride.Core.Mathematics.ColorBGRA.GetHue">
+  GetHue()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the hue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float GetHue()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Hue-Saturation-Brightness (HSB) saturation for this <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_GetSaturation_" data-uid="Stride.Core.Mathematics.ColorBGRA.GetSaturation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_GetSaturation" data-uid="Stride.Core.Mathematics.ColorBGRA.GetSaturation">
+  GetSaturation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the saturation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float GetSaturation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Hue-Saturation-Brightness (HSB) saturation for this <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Lerp_" data-uid="Stride.Core.Mathematics.ColorBGRA.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Lerp_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.Lerp(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  Lerp(ColorBGRA, ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L620"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Lerp(ColorBGRA start, ColorBGRA end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The linear interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_ColorBGRA_Lerp_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Lerp_" data-uid="Stride.Core.Mathematics.ColorBGRA.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Lerp_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Lerp(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,System.Single,Stride.Core.Mathematics.ColorBGRA@)">
+  Lerp(ref readonly ColorBGRA, ref readonly ColorBGRA, float, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L602"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref readonly ColorBGRA start, ref readonly ColorBGRA end, float amount, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the linear interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_ColorBGRA_Lerp_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Max_" data-uid="Stride.Core.Mathematics.ColorBGRA.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Max_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Max(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Max(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L672"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the largest components of the specified colorss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Max(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color containing the largest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Max_" data-uid="Stride.Core.Mathematics.ColorBGRA.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Max_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Max(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Max(ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L658"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colorss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Max(ref readonly ColorBGRA left, ref readonly ColorBGRA right, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains an new color composed of the largest components of the source colorss.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Min_" data-uid="Stride.Core.Mathematics.ColorBGRA.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Min_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Min(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Min(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L698"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Min(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A color containing the smallest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Min_" data-uid="Stride.Core.Mathematics.ColorBGRA.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Min_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Min(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Min(ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L684"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Min(ref readonly ColorBGRA left, ref readonly ColorBGRA right, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains an new color composed of the smallest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Modulate_" data-uid="Stride.Core.Mathematics.ColorBGRA.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Modulate_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Modulate(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Modulate(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L498"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Modulate(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Modulate_" data-uid="Stride.Core.Mathematics.ColorBGRA.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Modulate_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Modulate(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Modulate(ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L484"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Modulate(ref readonly ColorBGRA left, ref readonly ColorBGRA right, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Negate_" data-uid="Stride.Core.Mathematics.ColorBGRA.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Negate_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Negate(Stride.Core.Mathematics.ColorBGRA)">
+  Negate(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L546"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Negate(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Negate_" data-uid="Stride.Core.Mathematics.ColorBGRA.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Negate_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Negate(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Negate(ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L533"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly ColorBGRA value, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Scale_" data-uid="Stride.Core.Mathematics.ColorBGRA.Scale*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Scale_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.Scale(Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  Scale(ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Scale(ColorBGRA value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Scale_" data-uid="Stride.Core.Mathematics.ColorBGRA.Scale*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Scale_Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Scale(Stride.Core.Mathematics.ColorBGRA@,System.Single,Stride.Core.Mathematics.ColorBGRA@)">
+  Scale(ref readonly ColorBGRA, float, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L509"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Scale(ref readonly ColorBGRA value, float scale, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_SmoothStep_" data-uid="Stride.Core.Mathematics.ColorBGRA.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_SmoothStep_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.SmoothStep(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  SmoothStep(ColorBGRA, ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L646"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA SmoothStep(ColorBGRA start, ColorBGRA end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The cubic interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_SmoothStep_" data-uid="Stride.Core.Mathematics.ColorBGRA.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_SmoothStep_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__System_Single_Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.SmoothStep(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,System.Single,Stride.Core.Mathematics.ColorBGRA@)">
+  SmoothStep(ref readonly ColorBGRA, ref readonly ColorBGRA, float, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L633"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SmoothStep(ref readonly ColorBGRA start, ref readonly ColorBGRA end, float amount, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>When the method completes, contains the cubic interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Subtract_" data-uid="Stride.Core.Mathematics.ColorBGRA.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Subtract_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.Subtract(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  Subtract(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA Subtract(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to subtract</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_Subtract_" data-uid="Stride.Core.Mathematics.ColorBGRA.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_Subtract_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_ColorBGRA__" data-uid="Stride.Core.Mathematics.ColorBGRA.Subtract(Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@,Stride.Core.Mathematics.ColorBGRA@)">
+  Subtract(ref readonly ColorBGRA, ref readonly ColorBGRA, out ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref readonly ColorBGRA left, ref readonly ColorBGRA right, out ColorBGRA result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to subtract.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>WHen the method completes, contains the difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToArray_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToArray" data-uid="Stride.Core.Mathematics.ColorBGRA.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly byte[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>A four-element array containing the components of the color in BGRA order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToBgra_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToBgra*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToBgra" data-uid="Stride.Core.Mathematics.ColorBGRA.ToBgra">
+  ToBgra()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a packed integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int ToBgra()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all four color components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToColor3_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToColor3*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToColor3" data-uid="Stride.Core.Mathematics.ColorBGRA.ToColor3">
+  ToColor3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a three component color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color3 ToColor3()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>A three component color containing the red, green, and blue components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToRgba_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToRgba*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToRgba" data-uid="Stride.Core.Mathematics.ColorBGRA.ToRgba">
+  ToRgba()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a packed integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int ToRgba()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all four color components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToString_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToString" data-uid="Stride.Core.Mathematics.ColorBGRA.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L993"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToString_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L1003"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToVector3_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToVector3*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToVector3" data-uid="Stride.Core.Mathematics.ColorBGRA.ToVector3">
+  ToVector3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a three component vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vector3 ToVector3()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>A three component vector containing the red, green, and blue components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_ToVector4_" data-uid="Stride.Core.Mathematics.ColorBGRA.ToVector4*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_ToVector4" data-uid="Stride.Core.Mathematics.ColorBGRA.ToVector4">
+  ToVector4()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a four component vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vector4 ToVector4()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>A four component vector containing all four color components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Addition_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Addition*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Addition_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Addition(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  operator +(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L772"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator +(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Equality_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Equality_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Equality(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  operator ==(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L847"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.Color3)~Stride.Core.Mathematics.ColorBGRA">
+  explicit operator ColorBGRA(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L918"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ColorBGRA(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_Color4__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.Color4)~Stride.Core.Mathematics.ColorBGRA">
+  explicit operator ColorBGRA(Color4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L938"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ColorBGRA(Color4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_Color3" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.ColorBGRA)~Stride.Core.Mathematics.Color3">
+  explicit operator Color3(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L868"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Color3(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_Color4" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.ColorBGRA)~Stride.Core.Mathematics.Color4">
+  explicit operator Color4(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L898"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Color4(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_Vector3" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.ColorBGRA)~Stride.Core.Mathematics.Vector3">
+  explicit operator Vector3(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L878"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector3(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_Vector4" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.ColorBGRA)~Stride.Core.Mathematics.Vector4">
+  explicit operator Vector4(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L888"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector4(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_ColorBGRA__System_Int32" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.ColorBGRA)~System.Int32">
+  explicit operator int(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L970"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.Vector3)~Stride.Core.Mathematics.ColorBGRA">
+  explicit operator ColorBGRA(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L908"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ColorBGRA(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_Stride_Core_Mathematics_Vector4__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(Stride.Core.Mathematics.Vector4)~Stride.Core.Mathematics.ColorBGRA">
+  explicit operator ColorBGRA(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L928"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ColorBGRA(Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Explicit_System_Int32__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Explicit(System.Int32)~Stride.Core.Mathematics.ColorBGRA">
+  explicit operator ColorBGRA(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L982"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ColorBGRA(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Implicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Implicit_Stride_Core_Mathematics_Color__Stride_Core_Mathematics_ColorBGRA" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Implicit(Stride.Core.Mathematics.Color)~Stride.Core.Mathematics.ColorBGRA">
+  implicit operator ColorBGRA(Color)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L948"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a> to <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ColorBGRA(Color value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Implicit_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Implicit_Stride_Core_Mathematics_ColorBGRA__Stride_Core_Mathematics_Color" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Implicit(Stride.Core.Mathematics.ColorBGRA)~Stride.Core.Mathematics.Color">
+  implicit operator Color(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L958"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a> to <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Color(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Inequality_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Inequality_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Inequality(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  operator !=(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L858"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  operator *(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L836"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator *(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_Stride_Core_Mathematics_ColorBGRA_System_Single_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply(Stride.Core.Mathematics.ColorBGRA,System.Single)">
+  operator *(ColorBGRA, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L825"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator *(ColorBGRA value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The factor by which to scale the color.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Multiply_System_Single_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Multiply(System.Single,Stride.Core.Mathematics.ColorBGRA)">
+  operator *(float, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L814"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator *(float scale, ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The factor by which to scale the color.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_Subtraction_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Subtraction*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_Subtraction_Stride_Core_Mathematics_ColorBGRA_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_Subtraction(Stride.Core.Mathematics.ColorBGRA,Stride.Core.Mathematics.ColorBGRA)">
+  operator -(ColorBGRA, ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L793"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator -(ColorBGRA left, ColorBGRA right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The second color to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_UnaryNegation_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_UnaryNegation(Stride.Core.Mathematics.ColorBGRA)">
+  operator -(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L803"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator -(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>A negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_ColorBGRA_op_UnaryPlus_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_UnaryPlus*"></a>
+
+  <h3 id="Stride_Core_Mathematics_ColorBGRA_op_UnaryPlus_Stride_Core_Mathematics_ColorBGRA_" data-uid="Stride.Core.Mathematics.ColorBGRA.op_UnaryPlus(Stride.Core.Mathematics.ColorBGRA)">
+  operator +(ColorBGRA)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L782"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assert a color (return it unchanged).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ColorBGRA operator +(ColorBGRA value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The color to assert (unchange).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ColorBGRA.html">ColorBGRA</a></dt>
+    <dd><p>The asserted (unchanged) color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/ColorBGRA.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tutorial: Create a trail | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tutorial: Create a trail | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/tutorials/create-a-trail.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tutorial-create-a-trail">Tutorial: Create a trail</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>This tutorial demonstrates how to use particles to create a <a href="../ribbons-and-trails.html">trail effect</a> for a sword swing.</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-9.jpg">
+<source src="media/sword-slash-9.mp4" type="video/mp4">
+</video>
+</div>
+<h2 id="1-create-a-project">1. Create a project</h2>
+<ol>
+<li><p>In the Stride Launcher, click <strong>Start</strong> and select <strong>New Game</strong>.</p>
+</li>
+<li><p>In the <strong>Create a new game</strong> dialog, under Asset Packs, select <strong>Animated Models</strong>. The Animated Models pack contains assets we'll be using in this example. (Note that we'll make our particle effect from scratch.)</p>
+<p><img src="media/create-a-new-game.png" alt="Create a new game"></p>
+</li>
+<li><p>Give the project a name (eg <em>MyTrailEffect</em>) and click <strong>OK</strong>. Game Studio loads a simple scene with a few entities.</p>
+</li>
+<li><p>We don't need the <strong>Sphere</strong> entity for this tutorial, so go ahead and delete it (select it and press <strong>Delete</strong>).</p>
+</li>
+</ol>
+<h2 id="2-set-up-the-models-and-animation">2. Set up the models and animation</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong>, open the <strong>Models</strong> folder and drag and drop the <strong>mannequinModel</strong> into the scene. The mannequinModel contains a skeleton asset that we'll use for our sword slash animation.</p>
+</li>
+<li><p>With the <strong>mannequinModel</strong> selected, in the <strong>Property Grid</strong>, select <strong>Add component &gt; Animations</strong>. This adds an Animation component to the model.</p>
+<p><img src="media/add-animation.png" alt="Add Animations"></p>
+</li>
+<li><p>Under the <strong>Animations</strong> component, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="media/add-new-playing-animation.png" alt="Add animation"></p>
+</li>
+<li><p>Type a name for the animation.</p>
+</li>
+<li><p>Next to <strong>Clip</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/select-animation-asset.png" alt="Select an animation asset"></p>
+</li>
+<li><p>Browse to the <strong>Animations</strong> folder, select the <strong>Sword_R animation</strong>, and click <strong>OK</strong>. This is our right-to-left slash animation.</p>
+<p><img src="media/select-animation-asset-in-asset-picker.png" alt="Select an animation asset"></p>
+</li>
+<li><p>To play the animation at runtime, we need to add an <a href="../../animation/animation-scripts.html">animation script</a>. We can use the pre-built <strong>AnimationStart</strong> script. In the <strong>Asset View</strong> (bottom pane by default), click <strong>Add asset</strong> and choose <strong>Script &gt; Animation start</strong>.</p>
+<p><img src="../../animation/media/animations-additive-animations-animation-start.png" alt="Add animation script"></p>
+</li>
+<li><p>Specify a name for the script and click <strong>Create script</strong>.</p>
+<p><img src="../../animation/media/name-animation-script.png" alt="Create script"></p>
+<p>9a. If Game Studio asks if you want to save your script, click <strong>Save script</strong>.</p>
+<p>9b. If Game Studio asks if you want to reload the assemblies, click <strong>Reload assemblies</strong>.</p>
+</li>
+<li><p>With the <strong>mannequinModel</strong> selected, in the <strong>Property Grid</strong>, click <strong>Add component</strong> and select the <strong>AnimationStart</strong> script.</p>
+<p><img src="../../animation/media/select-animation-start.png" alt="Add AnimationStart script"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the animation script isn't in the list of components, in the taskbar, save your project and click <strong>Reload game assemblies and update scripts</strong>.</p>
+</div>
+</li>
+<li><p>Under the <strong>Animation</strong> component, under <strong>Item 0</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/select-animation-asset.png" alt="Select an animation asset"></p>
+</li>
+<li><p>Browse to the <strong>Animations</strong> folder and select the <strong>Sword_R animation</strong> again.</p>
+<p><img src="media/select-animation-asset-in-asset-picker.png" alt="Select an animation asset"></p>
+</li>
+<li><p>Now let's give the mannequin a weapon. In the <strong>Asset View</strong>, browse to the <strong>Models</strong> folder and drag the <strong>SwordModel</strong> to the mannequinModel in the Entity Tree. This makes the SwordModel a child entity of the <strong>mannequinModel</strong>.</p>
+</li>
+<li><p>In the Entity Tree, expand <strong>mannequinModel</strong> to see its child entities, and select <strong>SwordModel</strong>.</p>
+<p><img src="media/SwordModel-child-entity.png" alt="SwordModel child entity"></p>
+</li>
+<li><p>With the in the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Model Node Link</strong>. This is called a <strong>Bone Link</strong> in some versions of Stride.</p>
+<p><img src="media/add-model-node-link.png" alt="Add Model Node Link"></p>
+<p>We can use this to link the SwordModel to a point in the mannequinModel skeleton. There's no need to specify a target, as the entity uses its parent entity (<strong>mannequinModel</strong>) by default.</p>
+<p>For more information, see the <a href="../../animation/model-node-links.html">Model node links</a> page.</p>
+</li>
+<li><p>Under <strong>Model Node Link</strong>, in the <strong>Node Name</strong> (or <strong>Bone</strong>) field, select <strong>weapon_bone_R</strong>. This attaches the model to the point in the skeleton that uses a weapon in the right hand.</p>
+</li>
+<li><p>Let's see how everything looks so far. Click <strong>Play</strong> to run the game and check it out. Remember you can use the mouse and WASD keys to move the camera and see the animation from different perspectives.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-1.jpg">
+<source src="media/sword-slash-1.mp4" type="video/mp4">
+</video>
+</div>
+<p>We have a swinging sword animation. Next, let's add a trail effect.</p>
+<h2 id="3-create-a-basic-trail">3. Create a basic trail</h2>
+<p>First we'll build a basic trail, just to see how it looks.</p>
+<ol>
+<li><p>In Game Studio, select the <strong>SwordModel</strong>. In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Particle System</strong>.</p>
+<p><img src="media/add-particle-system.png" alt="Add Particle System"></p>
+<p>This adds a particle system component to the model, which we'll use to build a trail effect.</p>
+</li>
+<li><p>Click <strong>Source</strong> to expand its properties.</p>
+<p><img src="media/expand-source-properties.png" alt="Expand Source properties"></p>
+</li>
+<li><p>Next to <strong>Emitters</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>). This adds a new particle emitter.</p>
+</li>
+<li><p>Under the emitter properties, set the <strong>Shape</strong> to <strong>Trail</strong>.</p>
+<p><img src="media/emitter-shape-trail.png" alt="Set Shape to Trail"></p>
+</li>
+<li><p>Unfortunately, we need to make a brief detour due to a bug in Stride. Under the <strong>Shape</strong> properties, set the <strong>Axis</strong> to <strong>Center</strong>. (The shape should really be set to Edge, but the Edge and Center settings are reversed in the UI. This will be fixed in Stride 1.9.3.)</p>
+<p><img src="media/set-axis-to-center.png" alt="Set Axis to Center"></p>
+</li>
+<li><p>Next to <strong>Spawners</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Per frame</strong>.</p>
+<p><img src="media/add-per-frame-spawner.png" alt="Add per-frame spawner"></p>
+<p>This adds a per-frame spawner to the emitter, which spawns X number of particles per frame (as opposed to, say, per second).</p>
+</li>
+<li><p>Next to <strong>Initializers</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Velocity</strong>.</p>
+<p><img src="media/add-velocity-initializer.png" alt="Add velocity initializer"></p>
+<p>This adds a velocity initializer to the emitter.</p>
+<p>At this point, you can grab the mannequin and move it around the scene to see how the particles behave. They look like a cloud of blocky smoke.</p>
+</li>
+<li><p>Under the velocity initializer, set both the <strong>Velocity min</strong> and <strong>Velocity max</strong> values to <strong>0, 5, 0</strong>.</p>
+<p><img src="media/set-velocity-min-and-max.png" alt="Set velocity min and max"></p>
+<p>This restricts the particles to the Y axis, like an infinitely thin sheet of paper.</p>
+</li>
+<li><p>Next to <strong>Initializers</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Direction</strong>.</p>
+<p><img src="media/add-direction-initializer.png" alt="Add direction initializer"></p>
+<p>This adds a direction initializer to the emitter.</p>
+</li>
+<li><p>Expand the direction initializer to view the properties. Set both the <strong>Direction min</strong> and <strong>Direction max</strong> to <strong>0, 0, -1</strong>. This aligns the trail with the direction of the swing animation.</p>
+</li>
+<li><p>Run the game to see how the particles look with the sword-swinging animation.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-2.jpg">
+<source src="media/sword-slash-2.mp4" type="video/mp4">
+</video>
+</div>
+<p>We have a trail, but it doesn't look too good yet. It's too long, it's a single block of color, its particles interconnect strangely, and it never disappears.</p>
+<h2 id="4-sort-the-particles">4. Sort the particles</h2>
+<p>Because the particles are rendered as billboards, the segments of the trail interconnect strangely. To create a proper trail effect, we need to sort the particles into an order by adding a <strong>spawn order initializer</strong>.</p>
+<ol>
+<li><p>In the SwordModel properties, under <strong>Particle System &gt; Source &gt; Emitters</strong>, next to <strong>Initializers</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Spawn Order</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure you don't select <strong>Spawn Order (Parent)</strong> or <strong>Spawn Order (Group)</strong>.</p>
+</div>
+<p><img src="media/add-spawn-order-initializer.png" alt="Add spawn-order initializer"></p>
+<p>This adds a spawn order initializer to the emitter. It doesn't have any properties, but it gives the particles a SpawnID we can sort them by.</p>
+</li>
+<li><p>Under <strong>Emitters</strong>, under <strong>Sorting</strong>, choose <strong>ByOrder</strong>.</p>
+<p><img src="media/sort-by-order.png" alt="Sort by order"></p>
+</li>
+<li><p>Under <strong>Initalizers</strong>, under the <strong>Velocity</strong> initializer, change both the <strong>Velocity min</strong> and <strong>Velocity max</strong> values to <strong>0,0.5,0</strong>.</p>
+<p><img src="media/change-velocity.png" alt="Change velocity"></p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-3.jpg">
+<source src="media/sword-slash-3.mp4" type="video/mp4">
+</video>
+</div>
+<p>Now the particles move cohesively.</p>
+<h2 id="5-change-the-length">5. Change the length</h2>
+<p>In the SwordModel properties, under <strong>Particle System &gt; Source &gt; Emitters</strong>, change the <strong>Lifespan</strong> to <strong>0.2, 0.2</strong>.</p>
+<p><img src="media/change-emitter-lifespan.png" alt="Change emitter lifespan"></p>
+<p>Move the mannequin around the scene and notice how the trails extinguish more quickly.</p>
+<h2 id="6-add-a-texture">6. Add a texture</h2>
+<p>To fix the color, we'll give the particles a &quot;swoosh&quot; texture:</p>
+<p><img src="media/swoosh.png" alt="Swoosh.png texture"></p>
+<ol>
+<li><p>Save the texture image above (<strong>swoosh.png</strong>) to disk.</p>
+</li>
+<li><p>Import it into the project. To do this, in the <strong>Asset View</strong>, click <strong>Add asset &gt; Textures &gt; Color</strong> and select <strong>swoosh.png</strong>.</p>
+<p><img src="media/add-texture.png" alt="Add a texture"></p>
+</li>
+<li><p>In the <strong>SwordModel</strong> properties, expand <strong>Emitters &gt; Material</strong>. Click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>). Browse to the <strong>Textures</strong> folder and select <strong>swoosh.png</strong>.</p>
+<p><img src="media/add-material.png" alt="Add material texture"></p>
+</li>
+<li><p>Set the <strong>Alpha-Add</strong> bar to <strong>1</strong>, so it's 100% emissive.</p>
+<p><img src="media/alpha-add.png" alt="Alpha add bar"></p>
+</li>
+<li><p>Under the <strong>Particle emitter</strong> properties, expand <strong>Shape</strong> and set <strong>UV Coords</strong> to <strong>Stretched</strong> and <strong>UV Factor</strong> to <strong>1</strong>.</p>
+<p><img src="media/UV-coords-and-factor.png" alt="Set UV"></p>
+</li>
+<li><p>Expand <strong>UV Rotate</strong>. Under <strong>Clockwise</strong>, select 90 degrees. This rotates the texture 90 degrees clockwise, so the &quot;swoosh&quot; lines point in the right direction.</p>
+<p><img src="media/rotate-material.png" alt="Rotate material"></p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-4.jpg">
+<source src="media/sword-slash-4.mp4" type="video/mp4">
+</video>
+</div>
+<p>We're getting closer. But the trail doesn't disappear, so it looks like it's attached to the sword. We need to make the effect appear when the mannequin swings, then disappear at the end of the swing.</p>
+<h2 id="7-make-the-particle-effect-a-prefab">7. Make the particle effect a prefab</h2>
+<p>So far, we've created a particle effect by attaching it as a component to the sword. Now we're going to separate the effect from the sword and make it an independent entity we can turn on and off when we like. To do this, we'll create a prefab. For more information about prefabs, see the <a href="../../game-studio/prefabs/index.html">prefab documentation</a>.</p>
+<ol>
+<li><p>Right-click the <strong>SwordModel</strong> and select <strong>Create prefab from selection</strong>.</p>
+<p><img src="media/create-prefab-from-selection.png" alt="Create prefab from selection"></p>
+<p>Game Studio creates a prefab from the SwordModel and adds it to the Asset View. By creating a prefab from the selection, we can quickly copy over the options we've set up so far.</p>
+</li>
+<li><p>We don't want the SwordModel itself to be a prefab — we just used it as a template to create the prefab from. It should be separate from our new particle effect prefab, so right-click it and select <strong>Break link to prefab</strong>.</p>
+<p><img src="media/break-link-to-prefab.png" alt="Break link to prefab"></p>
+</li>
+<li><p>Because naming things properly makes everything easier, rename the prefab <em>SwordTrail</em>. To do this, in the <strong>Asset View</strong>, right-click the <strong>SwordModel</strong> prefab, select <strong>Rename</strong>, and type <em>SwordTrail</em>.</p>
+<p><img src="media/rename-prefab.png" alt="Rename prefab"></p>
+</li>
+<li><p>Double-click the <strong>SwordTrail</strong> prefab to open it in the Prefab Editor. This is where we'll customize the prefab.</p>
+<p><img src="media/prefab-editor.png" alt="Prefab Editor"></p>
+</li>
+<li><p>The prefab contains just one entity, SwordModel. It's not going to be a model for much longer, so let's rename this entity <em>SwordTrail</em> (the same as the prefab it belongs to).</p>
+</li>
+<li><p>Remove the <strong>Model</strong> and the <strong>Model Node Link</strong> (or <strong>Bone Link</strong>) components from the <strong>SwordTrail</strong> entity. We don't need them any more — this prefab will just be a particle effect.</p>
+</li>
+<li><p>Likewise, under <strong>Particle System &gt; Source &gt; Emitters &gt; Initializers</strong>, delete the <strong>Velocity</strong> initializer. For now, we want the prefab effect to be static.</p>
+<p><img src="media/delete-velocity-initializer.png" alt="Delete velocity initializer"></p>
+</li>
+<li><p>In the <strong>SwordTrail</strong> properties, under <strong>Particle System &gt; Source &gt; Emitters &gt; Spawners</strong>, set <strong>Loop</strong> to <strong>One shot</strong> and change <strong>Duration</strong> to <strong>0.2, 0.2</strong>.</p>
+<p><img src="media/initializers-loop.png" alt="Set the initializer loop and duration"></p>
+</li>
+<li><p>Now we've created a separate prefab for the particle effect, we don't need to keep a particle effect on the sword model. In the main scene, select <strong>SwordModel</strong> and delete the <strong>Particle System</strong> component.</p>
+</li>
+</ol>
+<h2 id="8-control-the-effect-prefab-with-a-script">8. Control the effect prefab with a script</h2>
+<p>We've created a sword trail effect prefab. Next we'll use a script to spawn the effect every time the mannequin swings and delete the effect a few frames later.</p>
+<ol>
+<li><p>Open the project in Visual Studio. To do this, in Game Studio, click the Visual Studio icon (<strong>Open in IDE</strong>).</p>
+<p><img src="media/open-visual-studio.png" alt="Open Visual Studio"></p>
+</li>
+<li><p>In Visual Studio, right-click the game project and select <strong>Add &gt; New item</strong>. In the <strong>Name</strong> field, give your script the name <em>SpawnTrail</em>, and click <strong>Add</strong>.</p>
+</li>
+<li><p>Replace the script content with the code in this script: <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/tutorials/media/SpawnTrail.cs">SpawnTrail.cs</a></p>
+<p>This is a modified version of the Prefab Instance script included in Stride. Instead of listening to events or key presses, it listens to animation changes — such as our sword swing animation.</p>
+</li>
+<li><p>In the script, make sure the <code>namespace</code> is correct. This usually matches your Stride project name (eg <em>MyTrailEffect</em>).</p>
+<p><img src="media/script-namespace.png" alt="Namespace"></p>
+</li>
+<li><p>Save the script and the Visual Studio project (<strong>Ctrl + Shift + S</strong>).</p>
+</li>
+<li><p>In Game Studio, reload the assemblies.</p>
+<p><img src="media/reload-assemblies.png" alt="Reload assemblies"></p>
+</li>
+<li><p>In the <strong>MainScene</strong>, select the <strong>SwordModel</strong>.</p>
+<p><img src="media/select-swordmodel.png" alt="Select SwordModel"></p>
+</li>
+<li><p>In the SwordModel properties, click <strong>Add component</strong> and select the <strong>SpawnTrail</strong> script. This adds the script as a component.</p>
+<p><img src="media/add-script-component.png" alt="Add script component"></p>
+</li>
+<li><p>Under the <strong>SpawnTrail</strong> component properties, next to <strong>Source</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/select-asset-for-script.png" alt="Select a source"></p>
+</li>
+<li><p>In the Entity Picker, select the <strong>SwordTrail</strong> prefab.</p>
+<p><img src="media/select-swordtrail-prefab-as-asset.png" alt="Select the swordtrail prefab"></p>
+</li>
+<li><p>In the SpawnTrail component, in the <strong>Animation</strong> field, click the hand icon (<strong>Select an asset</strong>).     The <strong>Select an asset</strong> window opens.</p>
+<p>In the left pane, select the <strong>mannequinModel</strong> and click <strong>OK</strong>.</p>
+<p><img src="media/pick-mannequin-model.png" alt="Pick mannequin model in Entity Picker"></p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-5.jpg">
+<source src="media/sword-slash-5.mp4" type="video/mp4">
+</video>
+</div>
+<p>Thanks to our script, the particle effect appears at the start of the sword swing animation and disappears at the end.</p>
+<h2 id="9-adjust-the-trail-start-time">9. Adjust the trail start time</h2>
+<ol>
+<li><p>With the <strong>Sword_R</strong> animation asset selected, check the swing animation in the <strong>Asset Preview</strong> in the bottom-right. (If the Asset Preview isn't displayed, check <strong>View &gt; Asset Preview</strong>.)</p>
+<p>The Asset Preview shows the animation length in seconds. If you look closely, you can see the mannequin doesn't begin to swing the sword down until about 0.1 seconds into the animation. Let's set the trail effect to spawn just when the mannequin swings.</p>
+</li>
+<li><p>Select the <strong>SwordModel</strong>.</p>
+</li>
+<li><p>In the <strong>SpawnTrail</strong> properties, set the <strong>Start time</strong> to 0.06. This means the trail effect won't spawn until 0.06 seconds into the swing animation, which looks a little more natural. Feel free to tweak this to your liking.</p>
+</li>
+<li><p>Run the game to see how it looks.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-6.jpg">
+<source src="media/sword-slash-6.mp4" type="video/mp4">
+</video>
+</div>
+<p>You might notice our trail effect looks a little jagged, creating a &quot;spiderweb&quot; effect. Let's make it more curved.</p>
+<h2 id="10-curve-the-trail">10. Curve the trail</h2>
+<ol>
+<li><p>In the <strong>SwordTrail</strong> prefab, on the <strong>SwordTrail</strong> entity, under <strong>Particle System &gt; Source &gt; Emitters &gt; Shape</strong>, set <strong>Smoothing</strong> to <strong>Best</strong> and <strong>Segments</strong> to <strong>5</strong>.</p>
+<p><img src="media/smoothing-best.png" alt="Smoothing and segments"></p>
+<p>This adds three vertices between the particles of our trail, which should be enough to create a noticeably smoother effect.</p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-7.jpg">
+<source src="media/sword-slash-7.mp4" type="video/mp4">
+</video>
+</div>
+<p>The inner curve, at the sword hilt, is smoother. But the curve at the sword's edge is still jagged.</p>
+<p><img src="media/smoothing.png" alt="Smoothed and unsmoothed areas"></p>
+<p>We want to smooth the effect at the sword's edge, where it's more noticeable. To do that, we'll flip the particle direction.</p>
+<ol>
+<li><p>Still in the <strong>SwordTrail</strong> prefab, in the <strong>Transform</strong> component properties, change the <strong>Position</strong> to <strong>0, 0, -1</strong>.</p>
+<p><img src="media/swordtrail-position.png" alt="Swordtrail position"></p>
+<p>This moves the starting point of the particle effect to the tip of the sword.</p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-8.jpg">
+<source src="media/sword-slash-8.mp4" type="video/mp4">
+</video>
+</div>
+<p>Now we have a new problem. Because we moved the particle effect to the tip of the sword, the particles are flying from the tip. We need to reverse their direction, so they move down along the sword blade to the hilt.</p>
+<ol start="6">
+<li><p>Under <strong>Particle System &gt; Source &gt; Emitters &gt; Initializers</strong>, under the <strong>Direction</strong> initializer, change both the <strong>Direction min</strong> and <strong>Direction max</strong> to <strong>0, 0, 1</strong>. This inverts the trail direction.</p>
+<p><img src="media/initializer-direction.png" alt="Initializer direction"></p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-9.jpg">
+<source src="media/sword-slash-9.mp4" type="video/mp4">
+</video>
+</div>
+<p>Congratulations! You created a trail effect from scratch. How you tweak it now is up to you.</p>
+<h2 id="sample-project">Sample project</h2>
+<p>Here's a more elaborate trail that combines multiple particle effects:</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay controls loop preload="none" poster="media/sword-slash-10.jpg">
+<source src="media/sword-slash-10.mp4" type="video/mp4">
+</video>
+</div>
+<p>If you'd like to see how it works, <a href="media/MyTrailEffect.zip">download the project file</a> and take a look.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="custom-particles.html">Tutorial: Custom particles</a></li>
+<li><a href="inheritance.html">Tutorial: Inheritance</a></li>
+<li><a href="lasers-and-lightning.html">Tutorial: Lasers and lightning</a></li>
+<li><a href="../index.html">Particles</a></li>
+<li><a href="../create-particles.html">Create particles</a></li>
+<li><a href="../../animation/model-node-links.html">Model node links</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/tutorials/create-a-trail.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

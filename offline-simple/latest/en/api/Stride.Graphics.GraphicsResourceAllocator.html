@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GraphicsResourceAllocator | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GraphicsResourceAllocator | Stride API ">
+      
+      <meta name="description" content="A  allocator tracking usage reference and allowing to recycle unused resources based on a recycle policy.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_GraphicsResourceAllocator.md&amp;value=---%0Auid%3A%20Stride.Graphics.GraphicsResourceAllocator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.GraphicsResourceAllocator">
+
+
+
+  <h1 id="Stride_Graphics_GraphicsResourceAllocator" data-uid="Stride.Graphics.GraphicsResourceAllocator" class="text-break">
+Class GraphicsResourceAllocator  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A <a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a> allocator tracking usage reference and allowing to recycle unused resources based on a recycle policy.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GraphicsResourceAllocator : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">GraphicsResourceAllocator</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceAllocatorExtensions.html#Stride_Graphics_GraphicsResourceAllocatorExtensions_GetTemporaryTexture2D_Stride_Graphics_GraphicsResourceAllocator_Stride_Graphics_TextureDescription_">GraphicsResourceAllocatorExtensions.GetTemporaryTexture2D(GraphicsResourceAllocator, TextureDescription)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceAllocatorExtensions.html#Stride_Graphics_GraphicsResourceAllocatorExtensions_GetTemporaryTexture2D_Stride_Graphics_GraphicsResourceAllocator_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_MipMapCount_Stride_Graphics_TextureFlags_System_Int32_">GraphicsResourceAllocatorExtensions.GetTemporaryTexture2D(GraphicsResourceAllocator, int, int, PixelFormat, MipMapCount, TextureFlags, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceAllocatorExtensions.html#Stride_Graphics_GraphicsResourceAllocatorExtensions_GetTemporaryTexture2D_Stride_Graphics_GraphicsResourceAllocator_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_">GraphicsResourceAllocatorExtensions.GetTemporaryTexture2D(GraphicsResourceAllocator, int, int, PixelFormat, TextureFlags, int)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Graphics_GraphicsResourceAllocator_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is threadsafe. Accessing a member will lock globally this instance.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator__ctor_" data-uid="Stride.Graphics.GraphicsResourceAllocator.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator__ctor_Stride_Graphics_GraphicsDevice_" data-uid="Stride.Graphics.GraphicsResourceAllocator.#ctor(Stride.Graphics.GraphicsDevice)">
+  GraphicsResourceAllocator(GraphicsDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.GraphicsResourceAllocator.html">GraphicsResourceAllocator</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsResourceAllocator(GraphicsDevice graphicsDevice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsDevice</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_RecyclePolicy_" data-uid="Stride.Graphics.GraphicsResourceAllocator.RecyclePolicy*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_RecyclePolicy" data-uid="Stride.Graphics.GraphicsResourceAllocator.RecyclePolicy">
+  RecyclePolicy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default recycle policy. Default is always recycle no matter the state of the resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsResourceRecyclePolicyDelegate RecyclePolicy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsResourceRecyclePolicyDelegate.html">GraphicsResourceRecyclePolicyDelegate</a></dt>
+    <dd><p>The default recycle policy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_Services_" data-uid="Stride.Graphics.GraphicsResourceAllocator.Services*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_Services" data-uid="Stride.Graphics.GraphicsResourceAllocator.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the services registry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IServiceRegistry Services { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IServiceRegistry.html">IServiceRegistry</a></dt>
+    <dd><p>The services registry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_AddReference_" data-uid="Stride.Graphics.GraphicsResourceAllocator.AddReference*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_AddReference_Stride_Graphics_GraphicsResource_" data-uid="Stride.Graphics.GraphicsResourceAllocator.AddReference(Stride.Graphics.GraphicsResource)">
+  AddReference(GraphicsResource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Increments the reference to a temporary resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddReference(GraphicsResource resource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resource</code> <a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_CreateBuffer_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateBuffer*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_CreateBuffer_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateBuffer(Stride.Graphics.BufferDescription,Stride.Graphics.PixelFormat)">
+  CreateBuffer(BufferDescription, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a temporary buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Buffer CreateBuffer(BufferDescription description, PixelFormat viewFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The shader view format on the buffer</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>Buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_CreateQueryPool_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateQueryPool*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_CreateQueryPool_Stride_Graphics_GraphicsResourceAllocator_QueryPoolDescription_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateQueryPool(Stride.Graphics.GraphicsResourceAllocator.QueryPoolDescription,Stride.Graphics.PixelFormat)">
+  CreateQueryPool(QueryPoolDescription, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual QueryPool CreateQueryPool(GraphicsResourceAllocator.QueryPoolDescription description, PixelFormat viewFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.GraphicsResourceAllocator.html">GraphicsResourceAllocator</a>.<a class="xref" href="Stride.Graphics.GraphicsResourceAllocator.QueryPoolDescription.html">QueryPoolDescription</a></dt>
+    <dd></dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.QueryPool.html">QueryPool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_CreateTexture_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateTexture*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_CreateTexture_Stride_Graphics_TextureDescription_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.GraphicsResourceAllocator.CreateTexture(Stride.Graphics.TextureDescription,Stride.Graphics.PixelFormat)">
+  CreateTexture(TextureDescription, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a texture for output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Texture CreateTexture(TextureDescription description, PixelFormat viewFormat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The pixel format seen by the shader</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>Texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_Destroy_" data-uid="Stride.Graphics.GraphicsResourceAllocator.Destroy*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_Destroy" data-uid="Stride.Graphics.GraphicsResourceAllocator.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_GetQueryPool_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetQueryPool*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_GetQueryPool_Stride_Graphics_QueryType_System_Int32_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetQueryPool(Stride.Graphics.QueryType,System.Int32)">
+  GetQueryPool(QueryType, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryPool GetQueryPool(QueryType queryType, int queryCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>queryType</code> <a class="xref" href="Stride.Graphics.QueryType.html">QueryType</a></dt>
+    <dd></dd>
+    <dt><code>queryCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.QueryPool.html">QueryPool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_GetTemporaryBuffer_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetTemporaryBuffer*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_GetTemporaryBuffer_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetTemporaryBuffer(Stride.Graphics.BufferDescription,Stride.Graphics.PixelFormat)">
+  GetTemporaryBuffer(BufferDescription, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a texture for the specified description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer GetTemporaryBuffer(BufferDescription description, PixelFormat viewFormat = PixelFormat.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The pixel format seen by the shader</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>A texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_GetTemporaryTexture_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetTemporaryTexture*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_GetTemporaryTexture_Stride_Graphics_TextureDescription_" data-uid="Stride.Graphics.GraphicsResourceAllocator.GetTemporaryTexture(Stride.Graphics.TextureDescription)">
+  GetTemporaryTexture(TextureDescription)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a texture for the specified description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture GetTemporaryTexture(TextureDescription description)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_Recycle_" data-uid="Stride.Graphics.GraphicsResourceAllocator.Recycle*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_Recycle" data-uid="Stride.Graphics.GraphicsResourceAllocator.Recycle">
+  Recycle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Recycles unused resources (with a  <a class="xref" href="Stride.Graphics.GraphicsResourceLink.html#Stride_Graphics_GraphicsResourceLink_ReferenceCount">ReferenceCount</a> == 0 ) with the <a class="xref" href="Stride.Graphics.GraphicsResourceAllocator.html#Stride_Graphics_GraphicsResourceAllocator_RecyclePolicy">RecyclePolicy</a>. By Default, no recycle policy installed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recycle()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_Recycle_" data-uid="Stride.Graphics.GraphicsResourceAllocator.Recycle*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_Recycle_Stride_Graphics_GraphicsResourceRecyclePolicyDelegate_" data-uid="Stride.Graphics.GraphicsResourceAllocator.Recycle(Stride.Graphics.GraphicsResourceRecyclePolicyDelegate)">
+  Recycle(GraphicsResourceRecyclePolicyDelegate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Recycles unused resource with the specified recycle policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recycle(GraphicsResourceRecyclePolicyDelegate recyclePolicy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>recyclePolicy</code> <a class="xref" href="Stride.Graphics.GraphicsResourceRecyclePolicyDelegate.html">GraphicsResourceRecyclePolicyDelegate</a></dt>
+    <dd><p>The recycle policy.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>recyclePolicy</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_GraphicsResourceAllocator_ReleaseReference_" data-uid="Stride.Graphics.GraphicsResourceAllocator.ReleaseReference*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsResourceAllocator_ReleaseReference_Stride_Graphics_GraphicsResourceBase_" data-uid="Stride.Graphics.GraphicsResourceAllocator.ReleaseReference(Stride.Graphics.GraphicsResourceBase)">
+  ReleaseReference(GraphicsResourceBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Decrements the reference to a temporary resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReleaseReference(GraphicsResourceBase resource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resource</code> <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html">GraphicsResourceBase</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsResourceAllocator.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

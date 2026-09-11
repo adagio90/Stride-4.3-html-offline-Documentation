@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Edit sprites | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Edit sprites | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/sprites/edit-sprites.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="edit-sprites">Edit sprites</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>After you <a href="import-sprite-sheets.html">import a sprite sheet</a>, you can use the dedicated <strong>Sprite Editor</strong> to select sprites within the sprite sheet.</p>
+<p>You can also edit sprite properties in the <strong>Property Grid</strong> like any other asset.</p>
+<h2 id="open-the-sprite-editor">Open the Sprite Editor</h2>
+<p>To open the Sprite Editor, in the <strong>Asset View</strong>, double-click the sprite sheet asset.</p>
+<p>The sprite sheet opens in the Sprite Editor.</p>
+<p><img src="media/sprite-editor.png" alt="Sprite Editor"></p>
+<h3 id="set-sprite-sheet-type">Set sprite sheet type</h3>
+<p>You can set whether the sprite sheet contains gameplay sprites (<strong>Sprite2D</strong>) or UI sprites (<strong>UI</strong>). This has no effect on how the sprite is rendered at runtime, but lets you set slightly different properties, described under <strong>Sprite properties</strong> below. You can change the sprite sheet type any time.</p>
+<p><img src="media/sprite2D-UI.png" alt="Choose Sprite 2D or UI"></p>
+<h3 id="add-a-sprite">Add a sprite</h3>
+<ol>
+<li><p>Click the <strong>Add empty sprite</strong> button.</p>
+<p><img src="media/add-sprite-button.png" alt="Add sprite"></p>
+<p>Game Studio adds a empty sprite to the list.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> on the right, in the <strong>Source</strong> field, specify the sprite sheet that contains the sprite.</p>
+</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you want to create a new sprite from the same sprite sheet as other sprites in the list, it's often faster to duplicate an existing sprite. To duplicate a sprite, select it and click <strong>Duplicate selected sprites</strong> or press <strong>Ctrl + D</strong>.</p>
+<p><img src="media/duplicate-selected-sprites.png" alt="Duplicate selected sprites"></p>
+</div>
+<h3 id="sprite-list">Sprite list</h3>
+<p>The Sprite Editor lists the sprites in your project on the left. Each sprite has an index number; the first has the index <em>[0]</em>, second has index <em>[1]</em>, and so on. You can use these indexes in your scripts (see <a href="use-sprites.html">Use sprites</a>).</p>
+<p><img src="media/sprite-list.png" alt="Sprite list"></p>
+<p>To change the order (and index number) of sprites, use the <img src="media/move-sprite-up-and-down.png" alt="Move selected sprite up/down"> (<strong>Move selected sprite up/down</strong>) buttons. For example, if you move <em>[1] Sprite</em> down, it becomes <em>[2] Sprite</em>.</p>
+<p>To rename a sprite in the list, double-click it and type a new name.</p>
+<h3 id="set-the-texture-region">Set the texture region</h3>
+<p>You create sprites by defining rectangular <strong>texture regions</strong> in the sprite sheet.</p>
+<p><img src="media/select-sprite.png" alt="Select a sprite region"></p>
+<p>There are three ways to do this: by using the Magic Wand tool, by setting the edges of the region manually, or by specifying the pixel coordinates in the sprite properties.</p>
+<h4 id="use-the-magic-wand">Use the Magic Wand</h4>
+<p>The <strong>Magic Wand</strong> selects the texture region around a sprite automatically. This is usually the fastest way to select sprites.</p>
+<p><img src="media/magic-wand.gif" alt="Magic wand"></p>
+<p>To select or deselect the Magic Wand, click the icon in the Sprite Editor toolbar, or press the <strong>M</strong> key.</p>
+<p><img src="media/select-magic-wand.png" alt="Select Magic Wand"></p>
+<p>To choose how the Magic Wand identifies texture regions, use the <strong>drop-down list</strong> in the toolbar.</p>
+<p><img src="media/magic-wand-select-transparency-or-color-key.png" alt="Select transparency or color key"></p>
+<ul>
+<li><p><strong>Transparency</strong>: The Magic Wand treats the edges of the non-transparent regions as the edges of the texture region. For example, if the sprite is surrounded by transparent space, it sets the texture region at the edge of the transparent space.</p>
+</li>
+<li><p><strong>Color key</strong>: The Magic Wand identifies texture regions using the color set under <strong>Color key</strong> in the Sprite Editor. For example, if the sprite is surrounded by absolute black (#FF000000), and you set absolute black as the color key, the Magic Wand sets the texture region at the edge of the absolute black space.</p>
+</li>
+</ul>
+<h4 id="set-texture-region-manually">Set texture region manually</h4>
+<p>You can drag the edges of the texture region and reposition the region manually.</p>
+<p>
+    <video autoplay loop class="responsive-video" poster="media\select-sprite-borders.jpg">
+       <source src="media/select-sprite-borders.mp4" type="video/mp4">
+    </video>
+</p>
+<h4 id="set-the-texture-region-in-the-property-grid">Set the texture region in the Property Grid</h4>
+<p>You can define the pixel coordinates of the texture region in <strong>Property Grid</strong> under <strong>Texture Region</strong>. X is the left edge, Y is the top, Z is the right, and W is the bottom.</p>
+<p><img src="media/set-texture-region-in-property-grid.png" alt="Set texture region in Property Grid"></p>
+<h4 id="use-entire-sprite-sheet-for-the-sprite">Use entire sprite sheet for the sprite</h4>
+<p>If you want to use the entire sprite sheet image for the sprite, you can do this quickly by clicking <strong>Use whole image for this sprite</strong> in the toolbar. This is useful when you have only one sprite in a sprite sheet.</p>
+<p><img src="media/use-entire-sprite-sheet.png" alt="Use entire sprite sheet"></p>
+<h3 id="set-transparency">Set transparency</h3>
+<p>By default, Stride treats transparent areas of the sprite sheet as transparent at runtime. Alternatively, you can set a key color as transparent. To do this, select <strong>Use color key</strong> and define a color. For example, if you set absolute black (#FF000000), areas of absolute black are transparent at runtime.</p>
+<p><img src="media/color-key.png" alt="Select color key"></p>
+<p>You can also use the <strong>color picker</strong> tool to select a color from the sprite sheet.</p>
+<p><img src="media/color-picker.png" alt="Color picker"></p>
+<h2 id="sprite-properties">Sprite properties</h2>
+<p>You can set the properties of individual sprites in the <strong>Property Grid</strong>.</p>
+<p><img src="media/adjust-frame-properties.png" alt="Adjust frame properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>The path to the sprite sheet</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>The name of this sprite. You can also edit this by double-clicking a sprite in the sprite list in the Sprite Editor</td>
+</tr>
+<tr>
+<td>Texture region</td>
+<td>The region of the sprite sheet used for this sprite</td>
+</tr>
+<tr>
+<td>Pixels per unit</td>
+<td>The number of pixels representing a unit in the scene. The higher this number, the smaller the sprite is rendered in the scene</td>
+</tr>
+<tr>
+<td>Orientation</td>
+<td>If you select <strong>Rotated90</strong>, Stride rotates the sprite 90 degrees at runtime</td>
+</tr>
+<tr>
+<td>Center</td>
+<td>The position of the center of the sprite, in pixels. By default, the center is <strong>0, 0</strong>. Note: this property is only available if the sprite sheet type is set to <strong>Sprite2D</strong> in the Sprite Editor.</td>
+</tr>
+<tr>
+<td>Center from middle</td>
+<td>Have the value in the Center property represent the offset of the sprite center from the middle of the sprite. Note: this property is only available if the sprite sheet type is set to <strong>Sprite2D</strong> in the Sprite Editor.</td>
+</tr>
+<tr>
+<td>Borders</td>
+<td>The size in pixels of the sprite borders (areas that don't deform when stretched). X is the left border, Y is the top, Z is the right, and W is the bottom. For more information, see <a href="set-sprite-borders.html">Set sprite borders</a>. Note: this property is only available if the sprite sheet is set to <strong>UI</strong> on the left.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sprite-sheet-properties">Sprite sheet properties</h2>
+<p>You can also set the properties for the entire sprite sheet asset. To access the properties:</p>
+<ul>
+<li><p>select the sprite sheet asset in the <strong>Asset View</strong> and set the properties in the <strong>Property Grid</strong>, or</p>
+</li>
+<li><p>in the Sprite Editor, click <strong>Sprite sheet properties</strong>.</p>
+<p><img src="media/sprite-sheet-properties-button.png" alt="Sprite sheet properties button"></p>
+</li>
+</ul>
+<p>Many of the properties are the same as texture properties.</p>
+<p><img src="media/sprite-sheet-properties.png" alt="Sprite sheet properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sheet Type</td>
+<td>Specify whether this sprite sheet is used for 2D sprites or UI elements. If you select <strong>Sprite sheet for UI</strong>, you can define <a href="set-sprite-borders.html">sprite borders</a> in the sprites.</td>
+</tr>
+<tr>
+<td>Color Key Color</td>
+<td>The color used for transparency at runtime. This is only applied if <strong>Color Key Enabled</strong> is selected below</td>
+</tr>
+<tr>
+<td>Color Key Enabled</td>
+<td>Use the color set in the <strong>Color Key Color</strong> property for transparency at runtime. If this isn't selected, the project uses transparent areas of the sprite sheet instead</td>
+</tr>
+<tr>
+<td>Compress</td>
+<td>Compress the texture to a format based on the target platform. The final texture size will be a multiple of 4.</td>
+</tr>
+<tr>
+<td>ColorSpace</td>
+<td>The color space for the sprites in the sprite sheet (Auto, Linear, or Gamma)</td>
+</tr>
+<tr>
+<td>Alpha</td>
+<td>The texture alpha format which all the sprites in the sprite sheet are converted to (None, Mask, Explicit, Interpolated, or Auto)</td>
+</tr>
+<tr>
+<td>Generate Mipmaps</td>
+<td>Generates mipmaps for all sprites in the sprite sheet</td>
+</tr>
+<tr>
+<td>Premultiply Alpha</td>
+<td>Premultiply all color components of the images by their alpha component</td>
+</tr>
+<tr>
+<td>Allow Multipacking</td>
+<td>Generate multiple atlas textures if the sprites can't fit into a single atlas</td>
+</tr>
+<tr>
+<td>Allow rotations</td>
+<td>Rotate sprites inside the sprite sheet to optimize space. This doesn't affect how sprites are displayed at runtime.</td>
+</tr>
+<tr>
+<td>Border size</td>
+<td>The size in pixels of the border around the sprites. This prevents side effects in the sprite sheet.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="import-sprite-sheets.html">Import sprite sheets</a></li>
+<li><a href="set-sprite-borders.html">Set sprite borders</a></li>
+<li><a href="use-sprites.html">Use sprites</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/sprites/edit-sprites.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

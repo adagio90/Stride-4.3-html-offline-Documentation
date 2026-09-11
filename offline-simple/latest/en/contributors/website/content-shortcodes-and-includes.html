@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Shortcodes and Includes | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Shortcodes and Includes | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/content-shortcodes-and-includes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="shortcodes-and-includes">Shortcodes and Includes</h1>
+
+<p>You can see examples here <a href="https://www.stride3d.net/blog/examples/">https://www.stride3d.net/blog/examples/</a>.</p>
+<h2 id="alert">Alert</h2>
+<p>To add an alert, use the following <code>include</code>, where:</p>
+<ul>
+<li><code>type</code> is one of the following: <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>danger</code>, <code>warning</code>, <code>info</code>, <code>light</code>, <code>dark</code>. Using these types will automatically include a relevant icon</li>
+<li><code>icon</code> is a Font Awesome icon, which is optional. You can use any free icon, e.g., fa-check.</li>
+<li><code>title</code> is the title of the alert</li>
+</ul>
+<pre><code class="lang-liquid"># This will render as a green box without the icon
+{% include _alert.html type:'success' icon:'' title:'No icon: Stride contributors are proud to announce a new release now running on .NET 6 supporting the latest C# 10.' %}
+
+# This will render as a green box with a check icon
+{% include _alert.html type:'success' title:'No icon: Stride contributors are proud to announce a new release now running on .NET 6 supporting the latest C# 10.' %}
+
+# This will render as a green box with a custom icon
+{% include _alert.html type:'success' icon:'fa-face-smile' title:'No icon: Stride contributors are proud to announce a new release now running on .NET 6 supporting the latest C# 10.' %}
+</code></pre>
+<h3 id="examples">Examples</h3>
+<p>See the examples <a href="https://www.stride3d.net/blog/examples/#alert">here</a>.</p>
+<p><img src="media/alert-examples.jpg" alt="Alert examples in the Stride website"></p>
+<h2 id="alert-banner">Alert Banner</h2>
+<p>A global alert banner can be used for promotional purposes. The banner can be activated in <code>site.json</code>. It will show up on every single page.</p>
+<pre><code class="lang-json">&quot;alert-banner&quot;: true
+</code></pre>
+<p>The HTML can be updated in the <code>/_includes/alert-banner.html</code> file.</p>
+<p><img src="media/alert-banner-example.jpg" alt="Alert Banner examples in the Stride website"></p>
+<h2 id="image">Image</h2>
+<p>Add responsive images using shortcodes. Be sure to include a descriptive title, as it will improve your post's search engine visibility. Also, if possible, use the <strong>webp</strong> format for images, which can also be used for transparent images. This will improve the performance of your site.</p>
+<h3 id="img">img</h3>
+<p>To add a responsive image, use the following shortcode:</p>
+<p><code>{% img 'title' 'url' %}</code></p>
+<p>Replace <code>title</code> with a descriptive title for the image and <code>url</code> with the image URL. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;img alt=&quot;title&quot; src=&quot;url&quot; class=&quot;img-fluid mb-2&quot; loading=&quot;lazy&quot; data-src=&quot;url&quot;&gt;
+</code></pre>
+<h3 id="img-click">img-click</h3>
+<p>To add a responsive image with a clickable link that opens the image in full size, use the following shortcode:</p>
+<p><code>{% img-click 'title' 'url' %}</code></p>
+<p>Replace <code>title</code> with a descriptive title for the image and <code>url</code> with the image URL. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;a href=&quot;url&quot; title=&quot;title&quot; class=&quot;mb-2&quot;&gt;&lt;img alt=&quot;title&quot; src=&quot;url&quot; class=&quot;img-fluid&quot; loading=&quot;lazy&quot; data-src=&quot;url&quot;&gt;&lt;/a&gt;
+</code></pre>
+<p>To add a responsive image with a clickable link that directs users to a custom destination, use the following shortcode:</p>
+<p><code>{% img-click 'title' 'url' 'destinationUrl' %}</code></p>
+<p>Replace <code>title</code> with a descriptive title for the image, <code>url</code> with the image URL, and <code>destinationUrl</code> with the target URL when the image is clicked. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;a href=&quot;destinationUrl&quot; title=&quot;title&quot; class=&quot;mb-2&quot;&gt;&lt;img alt=&quot;title&quot; src=&quot;url&quot; class=&quot;img-fluid&quot; loading=&quot;lazy&quot; data-src=&quot;url&quot;&gt;&lt;/a&gt;
+</code></pre>
+<h2 id="video">Video</h2>
+<p>We should consider hosting our videos on YouTube whenever possible.</p>
+<h3 id="youtube">youtube</h3>
+<p>To embed a <strong>YouTube video</strong>, use the following shortcode:</p>
+<p><code>{% youtube 'id' %}</code></p>
+<p>Replace <code>id</code> with the YouTube video ID. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;div class=&quot;ratio ratio-16x9 mb-2&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/id&quot; title=&quot;YouTube video&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="youtube-playlist">youtube-playlist</h3>
+<p>To embed a <strong>YouTube playlist</strong>, use the following shortcode:</p>
+<p><code>{% youtube-playlist 'id' %}</code></p>
+<p>Replace <code>id</code> with the YouTube playlist ID. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;div class=&quot;ratio ratio-16x9 mb-2&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/videoseries?list=id&quot; title=&quot;YouTube video&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+</code></pre>
+<p>To embed a video hosted elsewhere, use the following shortcode:</p>
+<h3 id="hosting-our-own-videos">Hosting our own videos</h3>
+<p><code>{% video 'url' %}</code></p>
+<p>Replace <code>url</code> with the video URL (e.g., .mp4 file). Make sure you have a matching .jpg file with the same name as the .mp4 file for the poster attribute. This shortcode renders as:</p>
+<pre><code class="lang-html">&lt;!-- jpgUrl = url.replace(&quot;.mp4&quot;, &quot;.jpg&quot;) // make sure you have a pair .mp4 and .jpg --&gt;
+&lt;div class=&quot;ratio ratio-16x9 mb-2&quot;&gt;&lt;video autoplay loop class=&quot;responsive-video&quot; poster=&quot;jpgUrl&quot;&gt;&lt;source src=&quot;url&quot; type=&quot;video/mp4&quot;&gt;&lt;/video&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="how-to-encode-videos">How to encode videos</h3>
+<p>Videos can be generated by many software in various formats &amp; size, so they might end up being incompatible with web browsers or mobile, or simply be way too large.
+It is better to stick to a format with low requirements such as H264 baseline profile (works almost everywhere).</p>
+<p>To do so, process the file using <a href="https://ffmpeg.org/download.html">fmpeg</a>:</p>
+<pre><code>ffmpeg -i myvideo_original.mp4 -profile:v baseline -level 3.0 -an myvideo.mp4
+</code></pre>
+<p>Also, generate a static thumbnail so that people can preview it before downloading the video (very important on mobile):</p>
+<p>ToDo: Check if webp can be generated from ffmpeg</p>
+<pre><code>ffmpeg -i myvideo.mp4 -vframes 1 -f image2 -y myvideo.jpg
+</code></pre>
+<p>ToDo: Maybe we could provide a simple tool to do that without using command line.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/content-shortcodes-and-includes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

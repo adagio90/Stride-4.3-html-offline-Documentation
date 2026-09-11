@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Publish a NuGet package | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Publish a NuGet package | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/external-packages/publish-a-nuget-package.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="publish-a-nuget-package">Publish a NuGet package</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span></p>
+<p>This is a guide on how to publish and share a Stride package.</p>
+<h2 id="setup">Setup</h2>
+<p>Before a package can be published, it first has to be properly setup in order to work with Stride and C#.</p>
+<h3 id="changing-metadata">Changing metadata</h3>
+<p>You'll need to change the package's metadata in order to publish it on the internet.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_metadata-visual-studio" role="tab" aria-controls="tabpanel_1_metadata-visual-studio" data-tab="metadata-visual-studio" tabindex="0" aria-selected="true">Visual Studio</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_metadata-manual" role="tab" aria-controls="tabpanel_1_metadata-manual" data-tab="metadata-manual" tabindex="-1">Manual</a>
+</li>
+</ul>
+<section id="tabpanel_1_metadata-visual-studio" role="tabpanel" data-tab="metadata-visual-studio">
+
+<p>In the <strong>Solution Explorer</strong> panel, right click on your package and select <strong>Properties</strong>.</p>
+<p><img src="media/visual-studio-package-properties-context-menu.webp" alt=""></p>
+<p>In the <strong>Package</strong> tab, fill out all the fields you need.</p>
+<p><img src="media/visual-studio-package-properties-package-tab.webp" alt=""></p>
+</section>
+<section id="tabpanel_1_metadata-manual" role="tabpanel" data-tab="metadata-manual" aria-hidden="true" hidden="hidden">
+
+<p>You can change the metadata manually, by editing the <code>.csproj</code> file of the package you are trying to publish.</p>
+<p>Example configuration:</p>
+<pre><code class="lang-xml">&lt;PropertyGroup&gt;
+  &lt;PackageId&gt;MyGame.MyLibrary&lt;/PackageId&gt;
+  &lt;Version&gt;1.0.0&lt;/Version&gt;
+  &lt;Authors&gt;ProfileName1,ProfileName2&lt;/Authors&gt;
+  &lt;Description&gt;My Description&lt;/Description&gt;
+&lt;/PropertyGroup&gt;
+</code></pre>
+</section>
+</div>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>The <strong>package id</strong> needs to be the same as the <code>.csproj</code> file's name in order to avoid complications.</p>
+</div>
+<p>For more information about how to <strong>correctly</strong> fill out metadata, visit <a href="https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices">the Microsoft documentation</a>.</p>
+<h3 id="add-the-module-initializer">Add the module initializer</h3>
+<p>If Stride is failing to load your custom package, you'll have to manually register it using a <strong>module initializer</strong>.</p>
+<p>To do this, create a <code>Module.cs</code> file in the root of your package and add the below code to it:</p>
+<pre><code class="lang-csharp">using Stride.Core.Reflection;
+using Stride.Core;
+using System.Reflection;
+
+namespace MyNamespaceHere;
+
+internal class Module
+{
+    [ModuleInitializer]
+    public static void Initialize()
+    {
+        AssemblyRegistry.Register(typeof(Module).GetTypeInfo().Assembly, AssemblyCommonCategories.Assets);
+    }
+}
+</code></pre>
+<h3 id="check-the-sdpkg-file">Check the <code>.sdpkg</code> file</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If your package <strong>doesn't have a <code>.sdpkg</code> file</strong> and it <strong>only includes code</strong>, you can skip this step.</p>
+</div>
+<p>The <code>.sdpkg</code> file's name <strong>has to match the package id and the <code>.csproj</code> file's name exactly</strong>. If it's incorrect, the engine won't load it and in turn, it will prevent it's assets from loading.</p>
+<h3 id="including-assets-and-resources">Including assets and resources</h3>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If your package <strong>doesn't have a <code>.sdpkg</code> file</strong> and it <strong>only includes code</strong>, you can skip this step.</p>
+</div>
+<p>Without proper setup, the packing process will ignore any non-code content.</p>
+<p>To make NuGet include stride files in the package, you'll have to modify the <code>.csproj</code> file of the package and include these lines:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+    &lt;None Include=&quot;*.sdpkg&quot; Pack=&quot;true&quot; PackagePath=&quot;stride&quot;/&gt;
+    &lt;None Include=&quot;Assets/*.*&quot; Pack=&quot;true&quot; PackagePath=&quot;stride/Assets&quot;/&gt;
+    &lt;None Include=&quot;Resources/*.*&quot; Pack=&quot;true&quot; PackagePath=&quot;stride/Resources&quot;/&gt;
+    &lt;None Include=&quot;Effects/*.*&quot; Pack=&quot;true&quot; PackagePath=&quot;stride/Effects&quot;/&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<p><strong>Explanation</strong> <br>
+The <code>&lt;None&gt;</code> item tells C# not to treat the specified files in <code>Include</code> as code. This is what it already did, but by explicitly stating this, we can set additional parameters. This includes setting <code>Pack</code> to <code>true</code> in order to include these items in the package as normal files and specifying the <code>PackagePath</code> to make sure they are placed in the correct directory inside of the package.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If your package includes more directories outside of <code>Assets</code>, <code>Resources</code> and <code>Effects</code>, make sure to create separate entries for them.</p>
+</div>
+<h2 id="packing">Packing</h2>
+<p>Once you've setup your package correctly, you can <strong>pack it</strong> to create a <code>.nupkg</code> file, that can be easily shared with other people.</p>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_packing-visual-studio" role="tab" aria-controls="tabpanel_2_packing-visual-studio" data-tab="packing-visual-studio" tabindex="0" aria-selected="true">Visual Studio</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_packing-command-line" role="tab" aria-controls="tabpanel_2_packing-command-line" data-tab="packing-command-line" tabindex="-1">Command line</a>
+</li>
+</ul>
+<section id="tabpanel_2_packing-visual-studio" role="tabpanel" data-tab="packing-visual-studio">
+
+<p>Before starting, change the configuration of your project to <strong>Release mode</strong>.</p>
+<p><img src="media/visual-studio-change-configuration.webp" alt=""></p>
+<p>After that, right click the package in the <strong>Solution Explorer</strong> panel and select <strong>Pack</strong>.</p>
+<p><img src="media/visual-studio-pack.webp" alt=""></p>
+<p>Once the process is done, the <code>.nupkg</code> file will be created in <code>/packageLocation/bin/Release</code>.</p>
+</section>
+<section id="tabpanel_2_packing-command-line" role="tabpanel" data-tab="packing-command-line" aria-hidden="true" hidden="hidden">
+
+<p>In order to pack using the command line, use the <code>dotnet</code> command.</p>
+<pre><code class="lang-bash">dotnet pack path/to/the/package
+</code></pre>
+<p>This will create the <code>.nupkg</code> file under <code>/path/to/the/package/bin/Release</code>.</p>
+</section>
+</div>
+<h2 id="checking-the-package-contents">Checking the package contents</h2>
+<p>You can check to see if the package's contents were generated correctly by using <a href="https://nuget.info">nuget.info</a> - a website for inspecting <code>.nupkg</code> files.</p>
+<p><img src="media/nuget-info.webp" alt=""></p>
+<p>Things to look out for:</p>
+<ol>
+<li>Make sure everything related to Stride is located in the <code>stride</code> folder.</li>
+<li>Make sure the <code>.sdpkg</code> file is located in <strong>~/stride</strong> and that it's name matches the package id.</li>
+</ol>
+<h2 id="publishing-your-package">Publishing your package</h2>
+<p>You can publish your package on <a href="https://nuget.org">nuget.org</a> directly from the website, or by using commands like <code>dotnet</code> or <code>nuget</code>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="using-nuget-packages.html">Using NuGet packages</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/external-packages/publish-a-nuget-package.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

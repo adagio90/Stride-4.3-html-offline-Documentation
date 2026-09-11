@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Profiling | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Profiling | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/troubleshooting/profiling.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="profiling">Profiling</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>You can <strong>profile</strong> your project to check its runtime performance and find problems. Use the Stride <strong>Game Profiler</strong> script or an external profiling tool such as the Performance Profiler in Visual Studio.</p>
+<p><img src="media/profiling.png" alt="Profiling"></p>
+<h2 id="profile-with-the-stride-game-profiler-script">Profile with the Stride <strong>Game Profiler</strong> script</h2>
+<p>The <strong>Game Profiler</strong> script shows how performance costs change at runtime. This helps isolate bottlenecks and find their cause.</p>
+<p><img src="media/profiling-profiler-at-runtime.jpg" alt="Profiler at runtime"></p>
+<p>To use the script:</p>
+<ol>
+<li><p>In the <strong>Asset View</strong>, click <img src="media/profiling-add-new-asset-button.png" alt="Add new asset button"> and select <strong>Scripts &gt; Game Profiler</strong>.</p>
+<p><img src="media/profiling-add-game-profiler-script.png" alt="Add Game Profiler script"></p>
+</li>
+<li><p>The <strong>New script dialog</strong> opens. Leave the default information and click <strong>Create script</strong>.</p>
+<p><img src="media/create-profiler-script.png" alt="New script"></p>
+<p>Game Studio adds the GameProfiler script to your project.</p>
+</li>
+<li><p>Add the script to an entity. For instructions, see <a href="../scripts/use-a-script.html">Use scripts</a>.</p>
+</li>
+<li><p>Select the entity that contains the <strong>GameProfiler</strong>.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), enable the <strong>Game Profiler</strong> component.</p>
+<p><img src="media/enable-profiler-component.png" alt="Enable component"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can also enable and disable the profiler at runtime with <strong>Left Ctrl + Left Shift + P</strong>.</p>
+</div>
+</li>
+<li><p>Run the game.</p>
+<p>The Game Profiler shows profiling results as your game runs.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Game Profiler disables VSync. This gives you the true profiling values, ignoring sync time.</p>
+</div>
+</li>
+</ol>
+<h3 id="game-profiler-properties">Game Profiler properties</h3>
+<p>To change the Game Profiler properties, select the <strong>GameProfiler</strong> entity and use the <strong>Property Grid</strong>.</p>
+<p><img src="media/profiler-properties.png" alt="Profiler properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter</td>
+<td>The kind of information the profiler displays (FPS only, CPU, or GPU). At runtime, change with <strong>F1</strong>.</td>
+</tr>
+<tr>
+<td>Sort by</td>
+<td>Sort the result pages by: <br><p><strong>Name</strong>: the profile key (the thing being profiled) <br><p><strong>Time</strong>: the key that uses the most time <br><p>At runtime, toggle with <strong>F2</strong>.</p></td>
+</tr>
+<tr>
+<td>Refresh interval (ms)</td>
+<td>How frequently the profiler gets and displays new results. At runtime, control with <strong>- / +</strong>.</td>
+</tr>
+<tr>
+<td>Display page</td>
+<td>The results page displayed. At runtime, jump to a page with the <strong>number keys</strong>, or move forward and backwards with <strong>F3</strong> and <strong>F4</strong>.</td>
+</tr>
+<tr>
+<td>Text color</td>
+<td>The color of the profiler text</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>See <a href="../scripts/scheduling-and-priorities.html">Scheduling and priorities</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="understanding-the-game-profiler-results">Understanding the Game Profiler results</h3>
+<p>The top row displays information about basic performance.</p>
+<p><img src="media/fps-profiling.png" alt="FPS profiling"></p>
+<ul>
+<li><code>Displaying</code>: the kind of information the profiler displays (FPS only, CPU, or GPU)</li>
+<li><code>Frame</code>: the current frame</li>
+<li><code>Update</code>: the average time (ms) taken to update the game since the profiler last refreshed</li>
+<li><code>Draw</code>: the average time (ms) taken to render the frame since the profiler last refreshed</li>
+<li><code>FPS</code>: the average number of frames rendered per second</li>
+</ul>
+<p>If you select <strong>CPU</strong> as the display mode, the profiler displays:</p>
+<p><img src="media/fps-cpu.png" alt="CPU profiling"></p>
+<ul>
+<li><code>Total</code>: the amount of memory currently used</li>
+<li><code>Peak</code>: the peak memory use since the game started</li>
+<li><code>Allocations</code>: the amount of memory allocated or freed since the profiler last refreshed</li>
+<li><code>Gen0</code>, <code>Gen1</code>, <code>Gen1</code>: the number of garbage collections per each generation of object (<code>Gen0</code> is the most recent generation)</li>
+</ul>
+<p>If you select <strong>GPU</strong> as the display mode, the profiler displays:</p>
+<p><img src="media/fps-gpu.png" alt="GPU profiling"></p>
+<ul>
+<li><code>Device</code>: the graphics device (manufacturer's description)</li>
+<li><code>Platform</code>: the currently used backend (eg DirectX, OpenGL, Vulkan, etc)</li>
+<li><code>Profile</code>: the feature level for your game, set in <strong>Game Settings &gt; Rendering</strong> (see <a href="../game-studio/game-settings.html">Game settings</a>)</li>
+<li><code>Resolution</code>: the game resolution</li>
+<li><code>Drawn triangles</code>: the number of triangles drawn per frame</li>
+<li><code>Draw calls</code>: the number of draw calls per frame</li>
+<li><code>Buffer memory</code>: the amount of memory allocated to buffers</li>
+<li><code>Texture memory</code>: the amount of memory allocated to textures</li>
+</ul>
+<p>In the <strong>GPU</strong> and <strong>CPU</strong> modes, the profiler displays information about the parts of the code being profiled, including active scripts.</p>
+<p><img src="media/profiler-columns.png" alt="Profiler columns"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Each value describes the events per frame since the last profiler refresh.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TOTAL</code></td>
+<td>The total time taken to execute the code in one frame</td>
+</tr>
+<tr>
+<td><code>AVG/CALL</code></td>
+<td>Average time taken to execute a single call of the code</td>
+</tr>
+<tr>
+<td><code>MIN/CALL</code></td>
+<td>The shortest amount of time taken to execute a single call of the code</td>
+</tr>
+<tr>
+<td><code>MAX/CALL</code></td>
+<td>The longest amount of time taken to execute a single call of the code</td>
+</tr>
+<tr>
+<td><code>CALLS</code></td>
+<td>The number of times the code was executed in one frame</td>
+</tr>
+<tr>
+<td><code>MARKS</code></td>
+<td>The number of times per frame marked code is executed. This column is only displayed if marked code is executed</td>
+</tr>
+<tr>
+<td><code>PROFILE KEY / EXTRA INFO</code></td>
+<td>The part of the code (such as a function or script) being profiled. This column also displays additional information, such as the number of entities affected.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="game-profiler-runtime-controls">Game Profiler runtime controls</h3>
+<p>You can change the Game Profiler settings at runtime using keyboard shortcuts.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left Ctrl + Left Shift + P</td>
+<td>Enable/disable the profiler</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Toggle between CPU, GPU, and FPS-only results</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Toggle between sorting by profile key and time</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>/ +  | Slow down / speed up the refresh time
+F3 / F4 | Page back / page forward
+Number keys | Jump to a page</li>
+</ul>
+<h3 id="use-the-game-profiler-in-code">Use the Game Profiler in code</h3>
+<ul>
+<li><p>Enable profiling:</p>
+<pre><code class="lang-cs">GameProfiler.EnableProfiling();
+</code></pre>
+</li>
+<li><p>Enable profiling only for the profiler keys you specify:</p>
+<pre><code class="lang-cs">GameProfiler.EnableProfiling(true, {mykey1,mykey2});
+</code></pre>
+</li>
+<li><p>Enable the profiling except for the profiler keys you specify:</p>
+<pre><code class="lang-cs">GameProfiler.EnableProfiling(false, {mykey1,mykey2});
+</code></pre>
+</li>
+<li><p>To access the prolifing key of a script, use <a class="xref" href="../../api/Stride.Engine.ScriptComponent.html#Stride_Engine_ScriptComponent_ProfilingKey">ProfilingKey</a>.</p>
+</li>
+</ul>
+<h2 id="use-external-profiling-tools">Use external profiling tools</h2>
+<p>Instead of using the Stride Game Profiler, you can use external profiling tools to profile your project.</p>
+<table>
+<thead>
+<tr>
+<th>Profiler</th>
+<th>Type</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">Visual Studio profiler</a></td>
+<td>Visual Studio feature</td>
+<td>Desktop and mobile</td>
+</tr>
+<tr>
+<td><a href="https://www.xamarin.com/profiler">Xamarin Profiler</a></td>
+<td>Standalone tool distributed with Xamarin Studio</td>
+<td>Mobile</td>
+</tr>
+<tr>
+<td><a href="https://renderdoc.org/builds">RenderDoc</a></td>
+<td>Standalone</td>
+<td>Desktop and mobile</td>
+</tr>
+</tbody>
+</table>
+<h3 id="use-the-visual-studio-profiler">Use the Visual Studio profiler</h3>
+<p>Visual Studio has powerful in-built profiling tools that can identify common performance issues.</p>
+<ol>
+<li><p>In Visual Studio, open your project solution (<code>.sln</code>) file.</p>
+</li>
+<li><p>To open the profiler, press <strong>Alt + F2</strong>, or in the task bar click <strong>Analyze &gt; Performance Profiler</strong>.</p>
+<p><img src="media/profiling-profiling-in-visual-studio-start-profiler.png" alt="Launch Visual Studio profiler"></p>
+</li>
+<li><p>In the <strong>Profiler</strong> window, select the profiling tools you want to run.</p>
+<p><img src="media/profiling-profiling-in-visual-studio-gpu-cpu-profiling-launch.png" alt="Launch Visual Studio profiler"></p>
+<p>You can run multiple profiling tools at once.</p>
+</li>
+<li><p>To launch the profiler, in the Performance Profiler tab, at the bottom, click <strong>Start</strong>.</p>
+<p><img src="media/profiler-start-button.png" alt="Profiler Start button"></p>
+<p>Visual Studio runs your application and begins profiling.</p>
+</li>
+</ol>
+<p>For more information about the Visual Studio profiler, see the <a href="https://msdn.microsoft.com/en-us/library/mt210448.aspx">MSDN documentation</a>.</p>
+<h3 id="use-renderdoc">Use RenderDoc</h3>
+<p>RenderDoc is a free MIT licensed stand-alone graphics debugger that allows quick and easy single-frame capture and detailed introspection of any application using Vulkan, D3D11, OpenGL &amp; OpenGL ES or D3D12 across Windows, Linux, Android, or Nintendo Switch™.</p>
+<ol>
+<li><p>Download <a href="https://renderdoc.org/builds">RenderDoc</a>.</p>
+</li>
+<li><p>Optional: This step is optional and only necessary if you want to have render pass markers with name following the Graphics Compositor:</p>
+<p>2.1. In your executable project (Windows), locate <code>game.Run();</code> and insert the following code just before:</p>
+<pre><code class="lang-cs">game.GraphicsDeviceManager.DeviceCreationFlags |= DeviceCreationFlags.Debug;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you have a <code>SharpDXException</code> of type <code>DXGI_ERROR_SDK_COMPONENT_MISSING</code>, please follow the instructions from <a href="https://docs.microsoft.com/en-us/windows/uwp/gaming/use-the-directx-runtime-and-visual-studio-graphics-diagnostic-features">https://docs.microsoft.com/en-us/windows/uwp/gaming/use-the-directx-runtime-and-visual-studio-graphics-diagnostic-features</a></p>
+</div>
+<p>2.2. Also, make sure profiler is enabled by calling this code from any of your game script:</p>
+<pre><code class="lang-cs">GameProfiler.EnableProfiling();
+</code></pre>
+</li>
+<li><p>Optional: Add a package reference to <code>Stride.Graphics.RenderDocPlugin</code>.</p>
+<p>You can then use the @'Stride.Graphics.RenderDocManager' class to trigger captures:</p>
+<pre><code class="lang-cs">var renderDocManager = new RenderDocManager();
+renderDocManager.StartFrameCapture(GraphicsDevice, IntPtr.Zero);
+// Some rendering code...
+renderDocManager.EndFrameCapture(GraphicsDevice, IntPtr.Zero);
+</code></pre>
+</li>
+</ol>
+<h2 id="common-bottlenecks">Common bottlenecks</h2>
+<p>As CPU and GPU process different types of data, it's usually easy to identify which part is causing a bottleneck.</p>
+<p>Most GPU problems arise when the application uses expensive rendering techniques, such as post effects, lighting, shadows, and tessellation. To identify the problem, disable rendering features.</p>
+<p>If instead there seems to be a CPU bottleneck, reduce the complexity of the scene.</p>
+<p>For graphics:</p>
+<ul>
+<li>decrease the resolution of your game</li>
+<li>reduce the quality of your <a href="../graphics/post-effects/index.html">post effects</a></li>
+<li>reduce the number of lights and size of <a href="../graphics/lights-and-shadows/shadows.html">shadow maps</a></li>
+<li>reduce shadow map sizes</li>
+<li>use culling techniques to reduce the number of objects and vertices rendered</li>
+</ul>
+<p>For textures:</p>
+<ul>
+<li>use <a href="../graphics/textures/compression.html">compressed textures</a> on slower devices</li>
+<li>use sprite sheets, not individual images</li>
+<li>use texture atlases, not separate textures</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="profiling.html">Profiling</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/troubleshooting/profiling.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

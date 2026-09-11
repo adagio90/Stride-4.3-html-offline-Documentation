@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SpriteBatch | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SpriteBatch | Stride API ">
+      
+      <meta name="description" content="Renders a group of sprites.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_SpriteBatch.md&amp;value=---%0Auid%3A%20Stride.Graphics.SpriteBatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.SpriteBatch">
+
+
+
+  <h1 id="Stride_Graphics_SpriteBatch" data-uid="Stride.Graphics.SpriteBatch" class="text-break">
+Class SpriteBatch  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Renders a group of sprites.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SpriteBatch : BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;<a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a>.<a class="xref" href="Stride.Graphics.SpriteBatch.SpriteDrawInfo.html">SpriteDrawInfo</a>&gt;</div>
+      <div><span class="xref">SpriteBatch</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_ResourceContextPool">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.ResourceContextPool</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_ResourceContext">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.ResourceContext</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_mutablePipeline">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.mutablePipeline</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_graphicsDevice">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.graphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_blendState">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.blendState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_rasterizerState">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.rasterizerState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_samplerState">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.samplerState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_depthStencilState">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.depthStencilState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_stencilReferenceValue">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.stencilReferenceValue</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_sortMode">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.sortMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_Effect">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.Effect</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_GraphicsContext">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.GraphicsContext</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_DefaultEffect">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.DefaultEffect</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_DefaultEffectSRgb">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.DefaultEffectSRgb</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_TextureComparer">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.TextureComparer</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_BackToFrontComparer">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.BackToFrontComparer</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_FrontToBackComparer">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.FrontToBackComparer</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_Destroy">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_Parameters">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_Begin_Stride_Graphics_GraphicsContext_Stride_Rendering_EffectInstance_Stride_Graphics_SpriteSortMode_System_Nullable_Stride_Graphics_BlendStateDescription__Stride_Graphics_SamplerState_System_Nullable_Stride_Graphics_DepthStencilStateDescription__System_Nullable_Stride_Graphics_RasterizerStateDescription__System_Int32_">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.Begin(GraphicsContext, EffectInstance, SpriteSortMode, BlendStateDescription?, SamplerState, DepthStencilStateDescription?, RasterizerStateDescription?, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_CheckBeginHasBeenCalled_System_String_">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.CheckBeginHasBeenCalled(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_CheckEndHasBeenCalled_System_String_">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.CheckEndHasBeenCalled(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_End">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.End()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.BatchBase-1.html#Stride_Graphics_BatchBase_1_Draw_Stride_Graphics_Texture_Stride_Graphics_BatchBase__0__ElementInfo__">BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.Draw(Texture, in BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.ElementInfo)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_SpriteBatch__ctor_" data-uid="Stride.Graphics.SpriteBatch.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch__ctor_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_" data-uid="Stride.Graphics.SpriteBatch.#ctor(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32)">
+  SpriteBatch(GraphicsDevice, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteBatch(GraphicsDevice graphicsDevice, int bufferElementCount = 1024, int batchCapacity = 64)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsDevice</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+    <dt><code>bufferElementCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number element that can be batched in one time.</p>
+</dd>
+    <dt><code>batchCapacity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The batch capacity default to 64.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_SpriteBatch_DefaultDepth_" data-uid="Stride.Graphics.SpriteBatch.DefaultDepth*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DefaultDepth" data-uid="Stride.Graphics.SpriteBatch.DefaultDepth">
+  DefaultDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default depth value used by the <a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a> when the <a class="xref" href="Stride.Graphics.SpriteBatch.html#Stride_Graphics_SpriteBatch_VirtualResolution">VirtualResolution</a> is not set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DefaultDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_SpriteBatch_DefaultDepth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>More precisely, this value represents the length &quot;farPlane-nearPlane&quot; used by the default projection matrix.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_TextureSpriteFontEffect_" data-uid="Stride.Graphics.SpriteBatch.TextureSpriteFontEffect*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_TextureSpriteFontEffect" data-uid="Stride.Graphics.SpriteBatch.TextureSpriteFontEffect">
+  TextureSpriteFontEffect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EffectInstance TextureSpriteFontEffect { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_VirtualResolution_" data-uid="Stride.Graphics.SpriteBatch.VirtualResolution*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_VirtualResolution" data-uid="Stride.Graphics.SpriteBatch.VirtualResolution">
+  VirtualResolution
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the virtual resolution used for this <a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3? VirtualResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_SpriteBatch_Begin_" data-uid="Stride.Graphics.SpriteBatch.Begin*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Begin_Stride_Graphics_GraphicsContext_Stride_Core_Mathematics_Matrix_Stride_Core_Mathematics_Matrix_Stride_Graphics_SpriteSortMode_System_Nullable_Stride_Graphics_BlendStateDescription__Stride_Graphics_SamplerState_System_Nullable_Stride_Graphics_DepthStencilStateDescription__System_Nullable_Stride_Graphics_RasterizerStateDescription__Stride_Rendering_EffectInstance_System_Int32_" data-uid="Stride.Graphics.SpriteBatch.Begin(Stride.Graphics.GraphicsContext,Stride.Core.Mathematics.Matrix,Stride.Core.Mathematics.Matrix,Stride.Graphics.SpriteSortMode,System.Nullable{Stride.Graphics.BlendStateDescription},Stride.Graphics.SamplerState,System.Nullable{Stride.Graphics.DepthStencilStateDescription},System.Nullable{Stride.Graphics.RasterizerStateDescription},Stride.Rendering.EffectInstance,System.Int32)">
+  Begin(GraphicsContext, Matrix, Matrix, SpriteSortMode, BlendStateDescription?, SamplerState, DepthStencilStateDescription?, RasterizerStateDescription?, EffectInstance, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a sprite batch rendering using the specified sorting mode and blend state, sampler, depth stencil, rasterizer state objects, plus a custom effect and a 2D transformation matrix. Passing null for any of the state objects selects the default default state objects (BlendState.AlphaBlend, DepthStencilState.Default, RasterizerState.CullCounterClockwise, SamplerState.LinearClamp). Passing a null effect selects the default SpriteBatch Class shader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(GraphicsContext graphicsContext, Matrix viewMatrix, Matrix projectionMatrix, SpriteSortMode sortMode = SpriteSortMode.Deferred, BlendStateDescription? blendState = null, SamplerState samplerState = null, DepthStencilStateDescription? depthStencilState = null, RasterizerStateDescription? rasterizerState = null, EffectInstance effect = null, int stencilValue = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsContext</code> <a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context to use.</p>
+</dd>
+    <dt><code>viewMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The view matrix to use for the batch session</p>
+</dd>
+    <dt><code>projectionMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The projection matrix to use for the batch session</p>
+</dd>
+    <dt><code>sortMode</code> <a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd><p>The sprite drawing order to use for the batch session</p>
+</dd>
+    <dt><code>blendState</code> <a class="xref" href="Stride.Graphics.BlendStateDescription.html">BlendStateDescription</a>?</dt>
+    <dd><p>The blending state to use for the batch session</p>
+</dd>
+    <dt><code>samplerState</code> <a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd><p>The sampling state to use for the batch session</p>
+</dd>
+    <dt><code>depthStencilState</code> <a class="xref" href="Stride.Graphics.DepthStencilStateDescription.html">DepthStencilStateDescription</a>?</dt>
+    <dd><p>The depth stencil state to use for the batch session</p>
+</dd>
+    <dt><code>rasterizerState</code> <a class="xref" href="Stride.Graphics.RasterizerStateDescription.html">RasterizerStateDescription</a>?</dt>
+    <dd><p>The rasterizer state to use for the batch session</p>
+</dd>
+    <dt><code>effect</code> <a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd><p>The effect to use for the batch session</p>
+</dd>
+    <dt><code>stencilValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of the stencil buffer to take as reference for the batch session</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Begin_" data-uid="Stride.Graphics.SpriteBatch.Begin*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Begin_Stride_Graphics_GraphicsContext_Stride_Core_Mathematics_Matrix_Stride_Graphics_SpriteSortMode_System_Nullable_Stride_Graphics_BlendStateDescription__Stride_Graphics_SamplerState_System_Nullable_Stride_Graphics_DepthStencilStateDescription__System_Nullable_Stride_Graphics_RasterizerStateDescription__Stride_Rendering_EffectInstance_System_Int32_" data-uid="Stride.Graphics.SpriteBatch.Begin(Stride.Graphics.GraphicsContext,Stride.Core.Mathematics.Matrix,Stride.Graphics.SpriteSortMode,System.Nullable{Stride.Graphics.BlendStateDescription},Stride.Graphics.SamplerState,System.Nullable{Stride.Graphics.DepthStencilStateDescription},System.Nullable{Stride.Graphics.RasterizerStateDescription},Stride.Rendering.EffectInstance,System.Int32)">
+  Begin(GraphicsContext, Matrix, SpriteSortMode, BlendStateDescription?, SamplerState, DepthStencilStateDescription?, RasterizerStateDescription?, EffectInstance, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a sprite batch rendering using the specified sorting mode and blend state, sampler, depth stencil, rasterizer state objects, plus a custom effect and a 2D transformation matrix. Passing null for any of the state objects selects the default default state objects (BlendState.AlphaBlend, DepthStencilState.Default, RasterizerState.CullCounterClockwise, SamplerState.LinearClamp). Passing a null effect selects the default SpriteBatch Class shader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(GraphicsContext graphicsContext, Matrix viewMatrix, SpriteSortMode sortMode = SpriteSortMode.Deferred, BlendStateDescription? blendState = null, SamplerState samplerState = null, DepthStencilStateDescription? depthStencilState = null, RasterizerStateDescription? rasterizerState = null, EffectInstance effect = null, int stencilValue = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsContext</code> <a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context to use.</p>
+</dd>
+    <dt><code>viewMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The view matrix to use for the batch session</p>
+</dd>
+    <dt><code>sortMode</code> <a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd><p>The sprite drawing order to use for the batch session</p>
+</dd>
+    <dt><code>blendState</code> <a class="xref" href="Stride.Graphics.BlendStateDescription.html">BlendStateDescription</a>?</dt>
+    <dd><p>The blending state to use for the batch session</p>
+</dd>
+    <dt><code>samplerState</code> <a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd><p>The sampling state to use for the batch session</p>
+</dd>
+    <dt><code>depthStencilState</code> <a class="xref" href="Stride.Graphics.DepthStencilStateDescription.html">DepthStencilStateDescription</a>?</dt>
+    <dd><p>The depth stencil state to use for the batch session</p>
+</dd>
+    <dt><code>rasterizerState</code> <a class="xref" href="Stride.Graphics.RasterizerStateDescription.html">RasterizerStateDescription</a>?</dt>
+    <dd><p>The rasterizer state to use for the batch session</p>
+</dd>
+    <dt><code>effect</code> <a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd><p>The effect to use for the batch session</p>
+</dd>
+    <dt><code>stencilValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of the stencil buffer to take as reference for the batch session</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Begin_" data-uid="Stride.Graphics.SpriteBatch.Begin*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Begin_Stride_Graphics_GraphicsContext_Stride_Graphics_SpriteSortMode_Stride_Rendering_EffectInstance_" data-uid="Stride.Graphics.SpriteBatch.Begin(Stride.Graphics.GraphicsContext,Stride.Graphics.SpriteSortMode,Stride.Rendering.EffectInstance)">
+  Begin(GraphicsContext, SpriteSortMode, EffectInstance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a sprite batch operation using deferred sort and default state objects (BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullCounterClockwise).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(GraphicsContext graphicsContext, SpriteSortMode sortMode, EffectInstance effect)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsContext</code> <a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context to use.</p>
+</dd>
+    <dt><code>sortMode</code> <a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd><p>The sprite drawing order to use for the batch session</p>
+</dd>
+    <dt><code>effect</code> <a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd><p>The effect to use for the batch session</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Begin_" data-uid="Stride.Graphics.SpriteBatch.Begin*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Begin_Stride_Graphics_GraphicsContext_Stride_Graphics_SpriteSortMode_System_Nullable_Stride_Graphics_BlendStateDescription__Stride_Graphics_SamplerState_System_Nullable_Stride_Graphics_DepthStencilStateDescription__System_Nullable_Stride_Graphics_RasterizerStateDescription__Stride_Rendering_EffectInstance_System_Int32_" data-uid="Stride.Graphics.SpriteBatch.Begin(Stride.Graphics.GraphicsContext,Stride.Graphics.SpriteSortMode,System.Nullable{Stride.Graphics.BlendStateDescription},Stride.Graphics.SamplerState,System.Nullable{Stride.Graphics.DepthStencilStateDescription},System.Nullable{Stride.Graphics.RasterizerStateDescription},Stride.Rendering.EffectInstance,System.Int32)">
+  Begin(GraphicsContext, SpriteSortMode, BlendStateDescription?, SamplerState, DepthStencilStateDescription?, RasterizerStateDescription?, EffectInstance, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a sprite batch rendering using the specified sorting mode and blend state, sampler, depth stencil and rasterizer state objects, plus a custom effect. Passing null for any of the state objects selects the default default state objects (BlendState.AlphaBlend, DepthStencilState.Default, RasterizerState.CullCounterClockwise, SamplerState.LinearClamp). Passing a null effect selects the default SpriteBatch Class shader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(GraphicsContext graphicsContext, SpriteSortMode sortMode = SpriteSortMode.Deferred, BlendStateDescription? blendState = null, SamplerState samplerState = null, DepthStencilStateDescription? depthStencilState = null, RasterizerStateDescription? rasterizerState = null, EffectInstance effect = null, int stencilValue = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsContext</code> <a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context to use.</p>
+</dd>
+    <dt><code>sortMode</code> <a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd><p>The sprite drawing order to use for the batch session</p>
+</dd>
+    <dt><code>blendState</code> <a class="xref" href="Stride.Graphics.BlendStateDescription.html">BlendStateDescription</a>?</dt>
+    <dd><p>The blending state to use for the batch session</p>
+</dd>
+    <dt><code>samplerState</code> <a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd><p>The sampling state to use for the batch session</p>
+</dd>
+    <dt><code>depthStencilState</code> <a class="xref" href="Stride.Graphics.DepthStencilStateDescription.html">DepthStencilStateDescription</a>?</dt>
+    <dd><p>The depth stencil state to use for the batch session</p>
+</dd>
+    <dt><code>rasterizerState</code> <a class="xref" href="Stride.Graphics.RasterizerStateDescription.html">RasterizerStateDescription</a>?</dt>
+    <dd><p>The rasterizer state to use for the batch session</p>
+</dd>
+    <dt><code>effect</code> <a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd><p>The effect to use for the batch session</p>
+</dd>
+    <dt><code>stencilValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of the stencil buffer to take as reference for the batch session</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_CalculateDefaultProjection_" data-uid="Stride.Graphics.SpriteBatch.CalculateDefaultProjection*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_CalculateDefaultProjection_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Graphics.SpriteBatch.CalculateDefaultProjection(Stride.Core.Mathematics.Vector3)">
+  CalculateDefaultProjection(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculate the default projection matrix for the provided virtual resolution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix CalculateDefaultProjection(Vector3 virtualResolution)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>virtualResolution</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The default projection matrix for the provided virtual resolution</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_SpriteBatch_CalculateDefaultProjection_Stride_Core_Mathematics_Vector3__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The sprite batch default projection is an orthogonal matrix such as (0,0) is the Top/Left corner of the screen and
+(VirtualResolution.X, VirtualResolution.Y) is the Bottom/Right corner of the screen.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_CalculateDefaultProjection_" data-uid="Stride.Graphics.SpriteBatch.CalculateDefaultProjection*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_CalculateDefaultProjection_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Matrix__" data-uid="Stride.Graphics.SpriteBatch.CalculateDefaultProjection(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Matrix@)">
+  CalculateDefaultProjection(ref Vector3, out Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculate the default projection matrix for the provided virtual resolution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CalculateDefaultProjection(ref Vector3 virtualResolution, out Matrix projection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>virtualResolution</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>projection</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_RectangleF_Stride_Core_Mathematics_Color4_Stride_Core_Mathematics_Color4_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.RectangleF,Stride.Core.Mathematics.Color4,Stride.Core.Mathematics.Color4)">
+  Draw(Texture, RectangleF, Color4, Color4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, destination rectangle, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, RectangleF destinationRectangle, Color4 color, Color4 colorAdd = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>destinationRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a></dt>
+    <dd><p>A rectangle that specifies (in screen coordinates) the destination for drawing the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_RectangleF_Stride_Core_Mathematics_Color4_Stride_Core_Mathematics_Color4__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Before making any calls to Draw, you must call Begin. Once all calls to Draw are complete, call End.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_RectangleF_System_Nullable_Stride_Core_Mathematics_RectangleF__Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_Stride_Graphics_ImageOrientation_System_Single_Stride_Core_Mathematics_Color4_Stride_Graphics_SwizzleMode_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.RectangleF,System.Nullable{Stride.Core.Mathematics.RectangleF},Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,Stride.Graphics.ImageOrientation,System.Single,Stride.Core.Mathematics.Color4,Stride.Graphics.SwizzleMode)">
+  Draw(Texture, RectangleF, RectangleF?, Color4, float, Vector2, SpriteEffects, ImageOrientation, float, Color4, SwizzleMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, destination rectangle, source rectangle, color, rotation, origin, effects and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, RectangleF destinationRectangle, RectangleF? sourceRectangle, Color4 color, float rotation, Vector2 origin, SpriteEffects effects = SpriteEffects.None, ImageOrientation orientation = ImageOrientation.AsIs, float layerDepth = 0, Color4 colorAdd = default, SwizzleMode swizzle = SwizzleMode.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>destinationRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a></dt>
+    <dd><p>A rectangle that specifies (in screen coordinates) the destination for drawing the sprite. If this rectangle is not the same size as the source rectangle, the sprite will be scaled to fit.</p>
+</dd>
+    <dt><code>sourceRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a>?</dt>
+    <dd><p>A rectangle that specifies (in texels) the source texels from a texture. Use null to draw the entire texture.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in the texture in pixels (dependent of image orientation). Default value is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.ImageOrientation.html">ImageOrientation</a></dt>
+    <dd><p>The source image orientation</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+    <dt><code>swizzle</code> <a class="xref" href="Stride.Graphics.SwizzleMode.html">SwizzleMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2)">
+  Draw(Texture, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color_Stride_Core_Mathematics_Color4_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color,Stride.Core.Mathematics.Color4)">
+  Draw(Texture, Vector2, Color, Color4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, Color color, Color4 colorAdd = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_Stride_Graphics_ImageOrientation_System_Single_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,Stride.Graphics.ImageOrientation,System.Single)">
+  Draw(Texture, Vector2, Color4, float, Vector2, Vector2, SpriteEffects, ImageOrientation, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position, source rectangle, color, rotation, origin, scale, effects, and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects = SpriteEffects.None, ImageOrientation orientation = ImageOrientation.AsIs, float layerDepth = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in the texture in pixels (dependent of image orientation). Default value is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.ImageOrientation.html">ImageOrientation</a></dt>
+    <dd><p>The source image orientation</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_System_Single_Stride_Graphics_SpriteEffects_Stride_Graphics_ImageOrientation_System_Single_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,System.Single,Stride.Graphics.SpriteEffects,Stride.Graphics.ImageOrientation,System.Single)">
+  Draw(Texture, Vector2, Color4, float, Vector2, float, SpriteEffects, ImageOrientation, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position, source rectangle, color, rotation, origin, scale, effects, and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, Color4 color, float rotation, Vector2 origin, float scale = 1, SpriteEffects effects = SpriteEffects.None, ImageOrientation orientation = ImageOrientation.AsIs, float layerDepth = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in the texture in pixels (dependent of image orientation). Default value is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.ImageOrientation.html">ImageOrientation</a></dt>
+    <dd><p>The source image orientation</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_System_Nullable_Stride_Core_Mathematics_RectangleF__Stride_Core_Mathematics_Color4_Stride_Core_Mathematics_Color4_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,System.Nullable{Stride.Core.Mathematics.RectangleF},Stride.Core.Mathematics.Color4,Stride.Core.Mathematics.Color4)">
+  Draw(Texture, Vector2, RectangleF?, Color4, Color4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position, source rectangle, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, RectangleF? sourceRectangle, Color4 color, Color4 colorAdd = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>sourceRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a>?</dt>
+    <dd><p>A rectangle that specifies (in texels) the source texels from a texture. Use null to draw the entire texture.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_System_Nullable_Stride_Core_Mathematics_RectangleF__Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_Stride_Graphics_ImageOrientation_System_Single_Stride_Core_Mathematics_Color4_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,System.Nullable{Stride.Core.Mathematics.RectangleF},Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,Stride.Graphics.ImageOrientation,System.Single,Stride.Core.Mathematics.Color4)">
+  Draw(Texture, Vector2, RectangleF?, Color4, float, Vector2, Vector2, SpriteEffects, ImageOrientation, float, Color4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position, source rectangle, color, rotation, origin, scale, effects, and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, RectangleF? sourceRectangle, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects = SpriteEffects.None, ImageOrientation orientation = ImageOrientation.AsIs, float layerDepth = 0, Color4 colorAdd = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>sourceRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a>?</dt>
+    <dd><p>A rectangle that specifies (in texels) the source texels from a texture. Use null to draw the entire texture.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in the texture in pixels (dependent of image orientation). Default value is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.ImageOrientation.html">ImageOrientation</a></dt>
+    <dd><p>The source image orientation</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_Draw_" data-uid="Stride.Graphics.SpriteBatch.Draw*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_Draw_Stride_Graphics_Texture_Stride_Core_Mathematics_Vector2_System_Nullable_Stride_Core_Mathematics_RectangleF__Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_System_Single_Stride_Graphics_SpriteEffects_Stride_Graphics_ImageOrientation_System_Single_Stride_Core_Mathematics_Color4_Stride_Graphics_SwizzleMode_" data-uid="Stride.Graphics.SpriteBatch.Draw(Stride.Graphics.Texture,Stride.Core.Mathematics.Vector2,System.Nullable{Stride.Core.Mathematics.RectangleF},Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,System.Single,Stride.Graphics.SpriteEffects,Stride.Graphics.ImageOrientation,System.Single,Stride.Core.Mathematics.Color4,Stride.Graphics.SwizzleMode)">
+  Draw(Texture, Vector2, RectangleF?, Color4, float, Vector2, float, SpriteEffects, ImageOrientation, float, Color4, SwizzleMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sprite to a batch of sprites for rendering using the specified texture, position, source rectangle, color, rotation, origin, scale, effects, and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw(Texture texture, Vector2 position, RectangleF? sourceRectangle, Color4 color, float rotation, Vector2 origin, float scale = 1, SpriteEffects effects = SpriteEffects.None, ImageOrientation orientation = ImageOrientation.AsIs, float layerDepth = 0, Color4 colorAdd = default, SwizzleMode swizzle = SwizzleMode.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>sourceRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a>?</dt>
+    <dd><p>A rectangle that specifies (in texels) the source texels from a texture. Use null to draw the entire texture.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color4.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in the texture in pixels (dependent of image orientation). Default value is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.ImageOrientation.html">ImageOrientation</a></dt>
+    <dd><p>The source image orientation</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>colorAdd</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd></dd>
+    <dt><code>swizzle</code> <a class="xref" href="Stride.Graphics.SwizzleMode.html">SwizzleMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_String_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.String,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, string, Vector2, Color4, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, string text, Vector2 position, Color4 color, TextAlignment alignment = TextAlignment.Left)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A text string.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_String_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_System_Single_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.String,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,System.Single,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, string, Vector2, Color4, float, Vector2, Vector2, SpriteEffects, float, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, color, rotation, origin, scale, effects and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, string text, Vector2 position, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth, TextAlignment alignment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A text string.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in virtual pixels; the default is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_String_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.String,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, string, float, Vector2, Color4, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, string text, float fontSize, Vector2 position, Color4 color, TextAlignment alignment = TextAlignment.Left)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A text string.</p>
+</dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The font size in pixels (ignored in the case of static fonts)</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_String_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_System_Single_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.String,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,System.Single,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, string, float, Vector2, Color4, float, Vector2, Vector2, SpriteEffects, float, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L451"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, color, rotation, origin, scale, effects and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, string text, float fontSize, Vector2 position, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth, TextAlignment alignment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A text string.</p>
+</dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The font size in pixels (ignored in the case of static fonts)</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in virtual pixels; the default is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_Text_StringBuilder_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.Text.StringBuilder,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, StringBuilder, Vector2, Color4, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, StringBuilder text, Vector2 position, Color4 color, TextAlignment alignment = TextAlignment.Left)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd><p>Text string.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_Text_StringBuilder_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_System_Single_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.Text.StringBuilder,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,System.Single,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, StringBuilder, Vector2, Color4, float, Vector2, Vector2, SpriteEffects, float, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, color, rotation, origin, scale, effects and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, StringBuilder text, Vector2 position, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth, TextAlignment alignment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd><p>Text string.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in virtual pixels; the default is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_Text_StringBuilder_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.Text.StringBuilder,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, StringBuilder, float, Vector2, Color4, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, and color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, StringBuilder text, float fontSize, Vector2 position, Color4 color, TextAlignment alignment = TextAlignment.Left)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd><p>Text string.</p>
+</dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The font size in pixels (ignored in the case of static fonts)</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_DrawString_" data-uid="Stride.Graphics.SpriteBatch.DrawString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_DrawString_Stride_Graphics_SpriteFont_System_Text_StringBuilder_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Color4_System_Single_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_Stride_Graphics_SpriteEffects_System_Single_Stride_Graphics_TextAlignment_" data-uid="Stride.Graphics.SpriteBatch.DrawString(Stride.Graphics.SpriteFont,System.Text.StringBuilder,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Color4,System.Single,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2,Stride.Graphics.SpriteEffects,System.Single,Stride.Graphics.TextAlignment)">
+  DrawString(SpriteFont, StringBuilder, float, Vector2, Color4, float, Vector2, Vector2, SpriteEffects, float, TextAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a string to a batch of sprites for rendering using the specified font, text, position, color, rotation, origin, scale, effects and layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DrawString(SpriteFont spriteFont, StringBuilder text, float fontSize, Vector2 position, Color4 color, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth, TextAlignment alignment)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>A font for displaying text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd><p>Text string.</p>
+</dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The font size in pixels (ignored in the case of static fonts)</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The location (in screen coordinates) to draw the sprite.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color to tint a sprite. Use Color.White for full color with no tinting.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Specifies the angle (in radians) to rotate the sprite about its center.</p>
+</dd>
+    <dt><code>origin</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The sprite origin in virtual pixels; the default is (0,0) which represents the upper-left corner.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>Scale factor.</p>
+</dd>
+    <dt><code>effects</code> <a class="xref" href="Stride.Graphics.SpriteEffects.html">SpriteEffects</a></dt>
+    <dd><p>Effects to apply.</p>
+</dd>
+    <dt><code>layerDepth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The depth of a layer. By default, 0 represents the front layer and 1 represents a back layer. Use SpriteSortMode if you want sprites to be sorted during drawing.</p>
+</dd>
+    <dt><code>alignment</code> <a class="xref" href="Stride.Graphics.TextAlignment.html">TextAlignment</a></dt>
+    <dd><p>Describes how to align the text to draw</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_MeasureString_" data-uid="Stride.Graphics.SpriteBatch.MeasureString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_MeasureString_Stride_Graphics_SpriteFont_System_String_System_Nullable_Stride_Core_Mathematics_Vector2__" data-uid="Stride.Graphics.SpriteBatch.MeasureString(Stride.Graphics.SpriteFont,System.String,System.Nullable{Stride.Core.Mathematics.Vector2})">
+  MeasureString(SpriteFont, string, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Measure the size of the given text in virtual pixels depending on the target size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 MeasureString(SpriteFont spriteFont, string text, Vector2? targetSize = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>The font used to draw the text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text to measure.</p>
+</dd>
+    <dt><code>targetSize</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a>?</dt>
+    <dd><p>The size of the target to render in. If null, the size of the window back buffer is used.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The size of the text in virtual pixels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The provided sprite font is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_MeasureString_" data-uid="Stride.Graphics.SpriteBatch.MeasureString*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_MeasureString_Stride_Graphics_SpriteFont_System_String_System_Single_System_Nullable_Stride_Core_Mathematics_Vector2__" data-uid="Stride.Graphics.SpriteBatch.MeasureString(Stride.Graphics.SpriteFont,System.String,System.Single,System.Nullable{Stride.Core.Mathematics.Vector2})">
+  MeasureString(SpriteFont, string, float, Vector2?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Measure the size of the given text in virtual pixels depending on the target size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 MeasureString(SpriteFont spriteFont, string text, float fontSize, Vector2? targetSize = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spriteFont</code> <a class="xref" href="Stride.Graphics.SpriteFont.html">SpriteFont</a></dt>
+    <dd><p>The font used to draw the text.</p>
+</dd>
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text to measure.</p>
+</dd>
+    <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The font size (in pixels) used to draw the text.</p>
+</dd>
+    <dt><code>targetSize</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a>?</dt>
+    <dd><p>The size of the target to render in. If null, the size of the window back buffer is used.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The size of the text in virtual pixels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The provided sprite font is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_PrepareForRendering_" data-uid="Stride.Graphics.SpriteBatch.PrepareForRendering*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_PrepareForRendering" data-uid="Stride.Graphics.SpriteBatch.PrepareForRendering">
+  PrepareForRendering()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L634"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PrepareForRendering()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_SpriteBatch_UpdateBufferValuesFromElementInfo_" data-uid="Stride.Graphics.SpriteBatch.UpdateBufferValuesFromElementInfo*"></a>
+
+  <h3 id="Stride_Graphics_SpriteBatch_UpdateBufferValuesFromElementInfo_Stride_Graphics_BatchBase_Stride_Graphics_SpriteBatch_SpriteDrawInfo__ElementInfo__System_IntPtr_System_IntPtr_System_Int32_" data-uid="Stride.Graphics.SpriteBatch.UpdateBufferValuesFromElementInfo(Stride.Graphics.BatchBase{Stride.Graphics.SpriteBatch.SpriteDrawInfo}.ElementInfo@,System.IntPtr,System.IntPtr,System.Int32)">
+  UpdateBufferValuesFromElementInfo(ref ElementInfo, nint, nint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L590"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update the mapped vertex and index buffer values using the provided element info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void UpdateBufferValuesFromElementInfo(ref BatchBase&lt;SpriteBatch.SpriteDrawInfo&gt;.ElementInfo elementInfo, nint vertexPtr, nint indexPtr, int vertexOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elementInfo</code> <a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;<a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a>.<a class="xref" href="Stride.Graphics.SpriteBatch.SpriteDrawInfo.html">SpriteDrawInfo</a>&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ElementInfo.html">ElementInfo</a></dt>
+    <dd><p>The structure containing the information about the element to draw.</p>
+</dd>
+    <dt><code>vertexPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>indexPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+    <dt><code>vertexOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/SpriteBatch.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

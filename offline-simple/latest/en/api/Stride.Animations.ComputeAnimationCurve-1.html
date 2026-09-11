@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ComputeAnimationCurve&lt;T&gt; | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ComputeAnimationCurve&lt;T&gt; | Stride API ">
+      
+      <meta name="description" content="A node which describes a binary operation between two compute curves">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Animations_ComputeAnimationCurve_1.md&amp;value=---%0Auid%3A%20Stride.Animations.ComputeAnimationCurve%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Animations.ComputeAnimationCurve`1">
+
+
+
+  <h1 id="Stride_Animations_ComputeAnimationCurve_1" data-uid="Stride.Animations.ComputeAnimationCurve`1" class="text-break">
+Class ComputeAnimationCurve&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Animations.html">Animations</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A node which describes a binary operation between two compute curves</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(Inherited = true)]
+[Display(&quot;Animation&quot;, null, Expand = ExpandRule.Never)]
+public abstract class ComputeAnimationCurve&lt;T&gt; : Comparer&lt;AnimationKeyFrame&lt;T&gt;&gt;, IComparer&lt;AnimationKeyFrame&lt;T&gt;&gt;, IComparer, IComputeCurve&lt;T&gt;, IComputeCurve where T : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Sampled data's type</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1">Comparer</a>&lt;<a class="xref" href="Stride.Animations.AnimationKeyFrame-1.html">AnimationKeyFrame</a>&lt;T&gt;&gt;</div>
+      <div><span class="xref">ComputeAnimationCurve&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;<a class="xref" href="Stride.Animations.AnimationKeyFrame-1.html">AnimationKeyFrame</a>&lt;T&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></div>
+      <div><a class="xref" href="Stride.Animations.IComputeCurve-1.html">IComputeCurve</a>&lt;T&gt;</div>
+      <div><a class="xref" href="Stride.Animations.IComputeCurve.html">IComputeCurve</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveColor4.html">ComputeAnimationCurveColor4</a></div>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveFloat.html">ComputeAnimationCurveFloat</a></div>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveQuaternion.html">ComputeAnimationCurveQuaternion</a></div>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveVector2.html">ComputeAnimationCurveVector2</a></div>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveVector3.html">ComputeAnimationCurveVector3</a></div>
+      <div><a class="xref" href="Stride.Animations.ComputeAnimationCurveVector4.html">ComputeAnimationCurveVector4</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1.create">Comparer&lt;AnimationKeyFrame&lt;T&gt;&gt;.Create(Comparison&lt;AnimationKeyFrame&lt;T&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.comparer-1.default">Comparer&lt;AnimationKeyFrame&lt;T&gt;&gt;.Default</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_KeyFrames_" data-uid="Stride.Animations.ComputeAnimationCurve`1.KeyFrames*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_KeyFrames" data-uid="Stride.Animations.ComputeAnimationCurve`1.KeyFrames">
+  KeyFrames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackingCollection&lt;AnimationKeyFrame&lt;T&gt;&gt; KeyFrames { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingCollection-1.html">TrackingCollection</a>&lt;<a class="xref" href="Stride.Animations.AnimationKeyFrame-1.html">AnimationKeyFrame</a>&lt;T&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_Compare_" data-uid="Stride.Animations.ComputeAnimationCurve`1.Compare*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_Compare_Stride_Animations_AnimationKeyFrame__0__Stride_Animations_AnimationKeyFrame__0__" data-uid="Stride.Animations.ComputeAnimationCurve`1.Compare(Stride.Animations.AnimationKeyFrame{`0},Stride.Animations.AnimationKeyFrame{`0})">
+  Compare(AnimationKeyFrame&lt;T&gt;, AnimationKeyFrame&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When overridden in a derived class, performs a comparison of two objects of the same type and returns a value indicating whether one object is less than, equal to, or greater than the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Compare(AnimationKeyFrame&lt;T&gt; x, AnimationKeyFrame&lt;T&gt; y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="Stride.Animations.AnimationKeyFrame-1.html">AnimationKeyFrame</a>&lt;T&gt;</dt>
+    <dd><p>The first object to compare.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="Stride.Animations.AnimationKeyFrame-1.html">AnimationKeyFrame</a>&lt;T&gt;</dt>
+    <dd><p>The second object to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A signed integer that indicates the relative values of <code class="paramref">x</code> and <code class="paramref">y</code>, as shown in the following table.</p>
+ <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"><code class="paramref">x</code> is less than <code class="paramref">y</code>.</td></tr><tr><td class="term"> Zero</td><td class="description"><code class="paramref">x</code> equals <code class="paramref">y</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"><code class="paramref">x</code> is greater than <code class="paramref">y</code>.</td></tr></tbody></table>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Type</p>
+<pre><code class="lang-csharp">T</code></pre>
+<p>does not implement either the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable&lt;T&gt;</a> generic interface or the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a> interface.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_Cubic_" data-uid="Stride.Animations.ComputeAnimationCurve`1.Cubic*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_Cubic__0___0___0___0__System_Single__0__" data-uid="Stride.Animations.ComputeAnimationCurve`1.Cubic(`0@,`0@,`0@,`0@,System.Single,`0@)">
+  Cubic(ref T, ref T, ref T, ref T, float, out T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Cubic(ref T value1, ref T value2, ref T value3, ref T value4, float t, out T result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>value2</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>value3</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>value4</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_Evaluate_" data-uid="Stride.Animations.ComputeAnimationCurve`1.Evaluate*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_Evaluate_System_Single_" data-uid="Stride.Animations.ComputeAnimationCurve`1.Evaluate(System.Single)">
+  Evaluate(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Evaluates the compute curve's value at the specified location, usually in the [0 .. 1] range</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Evaluate(float location)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Location to sample at</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Sampled value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_Linear_" data-uid="Stride.Animations.ComputeAnimationCurve`1.Linear*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_Linear__0___0__System_Single__0__" data-uid="Stride.Animations.ComputeAnimationCurve`1.Linear(`0@,`0@,System.Single,`0@)">
+  Linear(ref T, ref T, float, out T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Linear(ref T value1, ref T value2, float t, out T result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>value2</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>result</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_SampleRaw_" data-uid="Stride.Animations.ComputeAnimationCurve`1.SampleRaw*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_SampleRaw_System_Single_" data-uid="Stride.Animations.ComputeAnimationCurve`1.SampleRaw(System.Single)">
+  SampleRaw(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unoptimized sampler which searches all the keyframes in order. Intended to be used for baking purposes only</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected T SampleRaw(float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Location t to sample at, between 0 and 1</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Sampled and interpolated data value</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Animations_ComputeAnimationCurve_1_UpdateChanges_" data-uid="Stride.Animations.ComputeAnimationCurve`1.UpdateChanges*"></a>
+
+  <h3 id="Stride_Animations_ComputeAnimationCurve_1_UpdateChanges" data-uid="Stride.Animations.ComputeAnimationCurve`1.UpdateChanges">
+  UpdateChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates any optimizations in the curve if data has changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UpdateChanges()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> there were changes since the last time; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Animations/ComputeAnimationCurve.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

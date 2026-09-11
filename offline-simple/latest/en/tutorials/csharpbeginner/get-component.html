@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Getting a component | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Getting a component | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/get-component.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="getting-a-component">Getting a component</h1>
+
+<p>You can find this sample in the tutorial project: <strong>Menu</strong> →  <strong>Getting a component</strong></p>
+<h2 id="explanation">Explanation</h2>
+<p>This C# beginner tutorial covers how to get and remove components.</p>
+<p>Components are one of the most important concepts in Stride. Every entity in the scene has a list of components. The transform for instance is also a component.</p>
+<p>When we make custom scripts that inherit from <code>SyncScript</code> or <code>AsyncScript</code>, they turn into Components that we can attach to entities. We can attach these components to entities by using the editor or we can attach them by code.</p>
+<p><img src="media/getting-a-component.webp" alt="Get a component"></p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/qRZG8qXkvDQ?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="code">Code</h2>
+<h3 id="ammocomponent">AmmoComponent</h3>
+<p>This is the first component that we attach to an entity. In the second script, we will try to get this AmmoComponent.</p>
+<pre><code class="lang-csharp" name="AmmoComponent">using Stride.Engine;
+
+namespace CSharpBeginner.Code
+{
+    /// &lt;summary&gt;
+    /// This script is used in combination with the GettingAComponent.cs script 
+    /// &lt;/summary&gt;
+    public class AmmoComponent : StartupScript
+    {
+        private readonly int maxBullets = 30;
+        private readonly int currentBullets = 12;
+
+        public override void Start() { }
+
+        public int GetRemainingAmmo()
+        {
+            return maxBullets - currentBullets;
+        }
+    }
+}
+</code></pre><h3 id="getting-a-component-1">Getting A Component</h3>
+<p>This component script, will retrieve the AmmoComponent script above and use its public method.</p>
+<pre><code class="lang-csharp" name="GettingAComponent">using Stride.Core.Mathematics;
+using Stride.Engine;
+
+namespace CSharpBeginner.Code
+{
+    /// &lt;summary&gt;
+    /// This script demonstrates how to get and remove components that are attached to an entity. 
+    /// Try not to Get a component every frame as this will have negative performance impact. 
+    /// Instead try to cache a component in the start method or when an object is initialized/triggered
+    /// &lt;para&gt;
+    /// https://doc.stride3d.net/latest/en/tutorials/csharpbeginner/get-component.html
+    /// &lt;/para&gt;
+    /// &lt;/summary&gt;
+    public class GettingAComponentDemo : SyncScript
+    {
+        private int ammoCount1 = 0;
+        private int ammoCount2 = 0;
+
+        public override void Start()
+        {
+            // We retrieve the Ammo component that is also attached to the current entity
+            var ammoComponent1 = Entity.Get&lt;AmmoComponent&gt;();
+
+            // We can now access public methods and properties of the retrieve component
+            ammoCount1 = ammoComponent1.GetRemainingAmmo();
+
+            // We now remove the AmmoComponent from our entity. If we try to retrieve it again, null will be returned
+            Entity.Remove&lt;AmmoComponent&gt;();
+            var ammoComponent2 = Entity.Get&lt;AmmoComponent&gt;();
+
+            // Now that 'ammoComponent' is null, we will never be able to retrieve the total ammo
+            if (ammoComponent2 != null)
+            {
+                // This line will never happen
+                ammoCount2 = ammoComponent2.GetRemainingAmmo();
+            }
+
+            // Add the component again so that it doesn't crash next run
+            Entity.Add(ammoComponent1);
+        }
+
+        public override void Update()
+        {
+            // We display the stored ammo count on screen
+            DebugText.Print(&quot;Ammo count 1: &quot; + ammoCount1.ToString(), new Int2(300, 200));
+            DebugText.Print(&quot;Ammo count 2: &quot; + ammoCount2.ToString(), new Int2(300, 220));
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/get-component.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

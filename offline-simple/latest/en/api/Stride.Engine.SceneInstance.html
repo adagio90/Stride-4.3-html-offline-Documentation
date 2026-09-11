@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SceneInstance | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SceneInstance | Stride API ">
+      
+      <meta name="description" content="Manage a collection of entities within a .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Engine_SceneInstance.md&amp;value=---%0Auid%3A%20Stride.Engine.SceneInstance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Engine.SceneInstance">
+
+
+
+  <h1 id="Stride_Engine_SceneInstance" data-uid="Stride.Engine.SceneInstance" class="text-break">
+Class SceneInstance  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Engine.html">Engine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manage a collection of entities within a <a class="xref" href="Stride.Engine.SceneInstance.html#Stride_Engine_SceneInstance_RootScene">RootScene</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class SceneInstance : EntityManager, IDisposable, IComponent, IReferencable, ICollectorHolder, IReadOnlySet&lt;Entity&gt;, IReadOnlyCollection&lt;Entity&gt;, IEnumerable&lt;Entity&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Engine.EntityManager.html">EntityManager</a></div>
+      <div><span class="xref">SceneInstance</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Engine.Entity.html">Entity</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="Stride.Engine.Entity.html">Entity</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Engine.Entity.html">Entity</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_ExecutionMode">EntityManager.ExecutionMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_EntityAdded">EntityManager.EntityAdded</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_EntityRemoved">EntityManager.EntityRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_HierarchyChanged">EntityManager.HierarchyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_ComponentTypeAdded">EntityManager.ComponentTypeAdded</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_ComponentChanged">EntityManager.ComponentChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Services">EntityManager.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Processors">EntityManager.Processors</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Count">EntityManager.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_ComponentTypes">EntityManager.ComponentTypes</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Update_Stride_Games_GameTime_">EntityManager.Update(GameTime)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Contains_Stride_Engine_Entity_">EntityManager.Contains(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_GetEnumerator">EntityManager.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_GetProcessor__1">EntityManager.GetProcessor&lt;TProcessor&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Remove_Stride_Engine_Entity_">EntityManager.Remove(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityManager.html#Stride_Engine_EntityManager_Draw_Stride_Rendering_RenderContext_">EntityManager.Draw(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__">EnumerableExtensions.ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_IndexOf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">EnumerableExtensions.IndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_LastIndexOf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">EnumerableExtensions.LastIndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_NotNull__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.NotNull&lt;T&gt;(IEnumerable&lt;T?&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ToHashCode__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.ToHashCode&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ForEach__1_System_Collections_IEnumerable_System_Action___0__">EnumerableExtensions.ForEach&lt;T&gt;(IEnumerable, Action&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_IsNullOrEmpty_System_Collections_IEnumerable_">EnumerableExtensions.IsNullOrEmpty(IEnumerable)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Engine_SceneInstance__ctor_" data-uid="Stride.Engine.SceneInstance.#ctor*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance__ctor_Stride_Core_IServiceRegistry_" data-uid="Stride.Engine.SceneInstance.#ctor(Stride.Core.IServiceRegistry)">
+  SceneInstance(IServiceRegistry)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Engine.EntityManager.html">EntityManager</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SceneInstance(IServiceRegistry registry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>registry</code> <a class="xref" href="Stride.Core.IServiceRegistry.html">IServiceRegistry</a></dt>
+    <dd><p>The registry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_SceneInstance__ctor_" data-uid="Stride.Engine.SceneInstance.#ctor*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance__ctor_Stride_Core_IServiceRegistry_Stride_Engine_Scene_Stride_Engine_Design_ExecutionMode_" data-uid="Stride.Engine.SceneInstance.#ctor(Stride.Core.IServiceRegistry,Stride.Engine.Scene,Stride.Engine.Design.ExecutionMode)">
+  SceneInstance(IServiceRegistry, Scene, ExecutionMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Engine.SceneInstance.html">SceneInstance</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SceneInstance(IServiceRegistry services, Scene rootScene, ExecutionMode executionMode = ExecutionMode.Runtime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="Stride.Core.IServiceRegistry.html">IServiceRegistry</a></dt>
+    <dd><p>The services.</p>
+</dd>
+    <dt><code>rootScene</code> <a class="xref" href="Stride.Engine.Scene.html">Scene</a></dt>
+    <dd><p>The scene entity root.</p>
+</dd>
+    <dt><code>executionMode</code> <a class="xref" href="Stride.Engine.Design.ExecutionMode.html">ExecutionMode</a></dt>
+    <dd><p>The mode that determines which processors are executed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>services
+or
+rootScene</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Engine_SceneInstance_Current" data-uid="Stride.Engine.SceneInstance.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A property key to get the current scene from the <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">Tags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PropertyKey&lt;SceneInstance&gt; Current</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyKey-1.html">PropertyKey</a>&lt;<a class="xref" href="Stride.Engine.SceneInstance.html">SceneInstance</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_SceneInstance_CurrentRenderSystem" data-uid="Stride.Engine.SceneInstance.CurrentRenderSystem">
+  CurrentRenderSystem
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A property key to get the current render system from the <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">Tags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PropertyKey&lt;RenderSystem&gt; CurrentRenderSystem</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyKey-1.html">PropertyKey</a>&lt;<a class="xref" href="Stride.Rendering.RenderSystem.html">RenderSystem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_SceneInstance_CurrentVisibilityGroup" data-uid="Stride.Engine.SceneInstance.CurrentVisibilityGroup">
+  CurrentVisibilityGroup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A property key to get the current visibility group from the <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">Tags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PropertyKey&lt;VisibilityGroup&gt; CurrentVisibilityGroup</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyKey-1.html">PropertyKey</a>&lt;<a class="xref" href="Stride.Rendering.VisibilityGroup.html">VisibilityGroup</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Engine_SceneInstance_RootScene_" data-uid="Stride.Engine.SceneInstance.RootScene*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance_RootScene" data-uid="Stride.Engine.SceneInstance.RootScene">
+  RootScene
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene RootScene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.Scene.html">Scene</a></dt>
+    <dd><p>The scene.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_SceneInstance_VisibilityGroups_" data-uid="Stride.Engine.SceneInstance.VisibilityGroups*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance_VisibilityGroups" data-uid="Stride.Engine.SceneInstance.VisibilityGroups">
+  VisibilityGroups
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackingCollection&lt;VisibilityGroup&gt; VisibilityGroups { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingCollection-1.html">TrackingCollection</a>&lt;<a class="xref" href="Stride.Rendering.VisibilityGroup.html">VisibilityGroup</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Engine_SceneInstance_Destroy_" data-uid="Stride.Engine.SceneInstance.Destroy*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance_Destroy" data-uid="Stride.Engine.SceneInstance.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_SceneInstance_GetCurrent_" data-uid="Stride.Engine.SceneInstance.GetCurrent*"></a>
+
+  <h3 id="Stride_Engine_SceneInstance_GetCurrent_Stride_Rendering_RenderContext_" data-uid="Stride.Engine.SceneInstance.GetCurrent(Stride.Rendering.RenderContext)">
+  GetCurrent(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current scene valid only from a rendering context. May be null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SceneInstance GetCurrent(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.SceneInstance.html">SceneInstance</a></dt>
+    <dd><p>Stride.Engine.SceneInstance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Engine_SceneInstance_RootSceneChanged" data-uid="Stride.Engine.SceneInstance.RootSceneChanged">
+  RootSceneChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the scene changed from a scene child component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; RootSceneChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/SceneInstance.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AssetResolver | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AssetResolver | Stride API ">
+      
+      <meta name="description" content="Helper to find available new asset locations and identifiers.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Assets_Analysis_AssetResolver.md&amp;value=---%0Auid%3A%20Stride.Core.Assets.Analysis.AssetResolver%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Assets.Analysis.AssetResolver">
+
+
+
+  <h1 id="Stride_Core_Assets_Analysis_AssetResolver" data-uid="Stride.Core.Assets.Analysis.AssetResolver" class="text-break">
+Class AssetResolver  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Assets.html">Assets</a>.<a class="xref" href="Stride.Core.Assets.Analysis.html">Analysis</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Assets.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Helper to find available new asset locations and identifiers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AssetResolver</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AssetResolver</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver__ctor_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.#ctor*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver__ctor" data-uid="Stride.Core.Assets.Analysis.AssetResolver.#ctor">
+  AssetResolver()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetResolver()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver__ctor_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.#ctor*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver__ctor_Stride_Core_NamingHelper_ContainsLocationDelegate_Stride_Core_Assets_Analysis_AssetResolver_ContainsAssetWithIdDelegate_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.#ctor(Stride.Core.NamingHelper.ContainsLocationDelegate,Stride.Core.Assets.Analysis.AssetResolver.ContainsAssetWithIdDelegate)">
+  AssetResolver(ContainsLocationDelegate?, ContainsAssetWithIdDelegate?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetResolver(NamingHelper.ContainsLocationDelegate? containsLocation, AssetResolver.ContainsAssetWithIdDelegate? containsAssetWithId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>containsLocation</code> <span class="xref">NamingHelper</span>.<span class="xref">ContainsLocationDelegate</span></dt>
+    <dd><p>The delegate used to check if an asset location is already used.</p>
+</dd>
+    <dt><code>containsAssetWithId</code> <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a>.<a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.ContainsAssetWithIdDelegate.html">ContainsAssetWithIdDelegate</a></dt>
+    <dd><p>The delegate used to check if an asset identifier is already used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_AlwaysCreateNewId_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.AlwaysCreateNewId*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_AlwaysCreateNewId" data-uid="Stride.Core.Assets.Analysis.AssetResolver.AlwaysCreateNewId">
+  AlwaysCreateNewId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to always generate a new id on <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html#Stride_Core_Assets_Analysis_AssetResolver_RegisterId_Stride_Core_Assets_AssetId_Stride_Core_Assets_AssetId__">RegisterId(AssetId, out AssetId)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AlwaysCreateNewId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if [force new identifier]; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_ContainsAssetWithId_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ContainsAssetWithId*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_ContainsAssetWithId" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ContainsAssetWithId">
+  ContainsAssetWithId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a delegate to test if an asset id is already used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetResolver.ContainsAssetWithIdDelegate? ContainsAssetWithId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a>.<a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.ContainsAssetWithIdDelegate.html">ContainsAssetWithIdDelegate</a></dt>
+    <dd><p>A delegate to test if an asset id is already used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_ContainsLocation_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ContainsLocation*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_ContainsLocation" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ContainsLocation">
+  ContainsLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a delegate to test if a location is already used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NamingHelper.ContainsLocationDelegate? ContainsLocation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">NamingHelper</span>.<span class="xref">ContainsLocationDelegate</span></dt>
+    <dd><p>A delegate to test if a location is already used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_ExistingIds_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ExistingIds*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_ExistingIds" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ExistingIds">
+  ExistingIds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the asset ids already used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HashSet&lt;AssetId&gt; ExistingIds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a>&gt;</dt>
+    <dd><p>The existing ids.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_ExistingLocations_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ExistingLocations*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_ExistingLocations" data-uid="Stride.Core.Assets.Analysis.AssetResolver.ExistingLocations">
+  ExistingLocations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the locations already used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HashSet&lt;string&gt; ExistingLocations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The locations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_FromPackage_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.FromPackage*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_FromPackage_Stride_Core_Assets_Package_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.FromPackage(Stride.Core.Assets.Package)">
+  FromPackage(Package)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a> using an existing package to check the existence of asset locations and ids.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AssetResolver FromPackage(Package package)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>package</code> <a class="xref" href="Stride.Core.Assets.Package.html">Package</a></dt>
+    <dd><p>The package.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a></dt>
+    <dd><p>A new AssetResolver.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>package</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_FromPackage_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.FromPackage*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_FromPackage_System_Collections_Generic_IList_Stride_Core_Assets_Package__" data-uid="Stride.Core.Assets.Analysis.AssetResolver.FromPackage(System.Collections.Generic.IList{Stride.Core.Assets.Package})">
+  FromPackage(IList&lt;Package&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a> using an existing package to check the existence of asset locations and ids.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AssetResolver FromPackage(IList&lt;Package&gt; packages)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>packages</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Stride.Core.Assets.Package.html">Package</a>&gt;</dt>
+    <dd><p>The packages.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetResolver.html">AssetResolver</a></dt>
+    <dd><p>A new AssetResolver.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>package</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_RegisterId_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.RegisterId*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_RegisterId_Stride_Core_Assets_AssetId_Stride_Core_Assets_AssetId__" data-uid="Stride.Core.Assets.Analysis.AssetResolver.RegisterId(Stride.Core.Assets.AssetId,Stride.Core.Assets.AssetId@)">
+  RegisterId(AssetId, out AssetId)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers an asset identifier for usage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RegisterId(AssetId assetId, out AssetId newGuid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assetId</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The asset identifier.</p>
+</dd>
+    <dt><code>newGuid</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The new unique identifier if an asset has already been registered with the same id.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the asset id is already in used. <code class="paramref">newGuid</code> contains a new guid, <code>false</code> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetResolver_RegisterLocation_" data-uid="Stride.Core.Assets.Analysis.AssetResolver.RegisterLocation*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetResolver_RegisterLocation_Stride_Core_IO_UFile_Stride_Core_IO_UFile__" data-uid="Stride.Core.Assets.Analysis.AssetResolver.RegisterLocation(Stride.Core.IO.UFile,Stride.Core.IO.UFile@)">
+  RegisterLocation(UFile, out UFile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds a name available for a new asset. This method will try to create a name based on an existing name and will append
+&quot;_&quot; + (number++) on every try. The new location found is added to the known existing locations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RegisterLocation(UFile location, out UFile newLocation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <span class="xref">UFile</span></dt>
+    <dd><p>The location.</p>
+</dd>
+    <dt><code>newLocation</code> <span class="xref">UFile</span></dt>
+    <dd><p>The new location.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if there is a new location, <code>false</code> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetResolver.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Scheduler | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Scheduler | Stride API ">
+      
+      <meta name="description" content="Scheduler that manage a group of cooperating .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_MicroThreading_Scheduler.md&amp;value=---%0Auid%3A%20Stride.Core.MicroThreading.Scheduler%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.MicroThreading.Scheduler">
+
+
+
+  <h1 id="Stride_Core_MicroThreading_Scheduler" data-uid="Stride.Core.MicroThreading.Scheduler" class="text-break">
+Class Scheduler  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.MicroThreading.html">MicroThreading</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.MicroThreading.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Scheduler that manage a group of cooperating <a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Scheduler : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Scheduler</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Core_MicroThreading_Scheduler_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Microthreading provides a way to execute many small execution contexts who cooperatively yield to each others.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler__ctor_" data-uid="Stride.Core.MicroThreading.Scheduler.#ctor*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler__ctor" data-uid="Stride.Core.MicroThreading.Scheduler.#ctor">
+  Scheduler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.MicroThreading.Scheduler.html">Scheduler</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scheduler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Current_" data-uid="Stride.Core.MicroThreading.Scheduler.Current*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Current" data-uid="Stride.Core.MicroThreading.Scheduler.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the scheduler associated with current micro thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Scheduler? Current { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.Scheduler.html">Scheduler</a></dt>
+    <dd><p>The scheduler associated with current micro thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_CurrentMicroThread_" data-uid="Stride.Core.MicroThreading.Scheduler.CurrentMicroThread*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_CurrentMicroThread" data-uid="Stride.Core.MicroThreading.Scheduler.CurrentMicroThread">
+  CurrentMicroThread
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current micro thread (self).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MicroThread? CurrentMicroThread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a></dt>
+    <dd><p>The current micro thread (self).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_FrameChannel_" data-uid="Stride.Core.MicroThreading.Scheduler.FrameChannel*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_FrameChannel" data-uid="Stride.Core.MicroThreading.Scheduler.FrameChannel">
+  FrameChannel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Channel&lt;int&gt; FrameChannel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.Channel-1.html">Channel</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_MicroThreads_" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreads*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_MicroThreads" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreads">
+  MicroThreads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the list of every non-stopped micro threads.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;MicroThread&gt; MicroThreads { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a>&gt;</dt>
+    <dd><p>The list of every non-stopped micro threads.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_RunningMicroThread_" data-uid="Stride.Core.MicroThreading.Scheduler.RunningMicroThread*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_RunningMicroThread" data-uid="Stride.Core.MicroThreading.Scheduler.RunningMicroThread">
+  RunningMicroThread
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current running micro thread in this scheduler through <a class="xref" href="Stride.Core.MicroThreading.Scheduler.html#Stride_Core_MicroThreading_Scheduler_Run">Run()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MicroThread? RunningMicroThread { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a></dt>
+    <dd><p>The current running micro thread in this scheduler.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Add_" data-uid="Stride.Core.MicroThreading.Scheduler.Add*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Add_System_Func_System_Threading_Tasks_Task__Stride_Core_MicroThreading_MicroThreadFlags_" data-uid="Stride.Core.MicroThreading.Scheduler.Add(System.Func{System.Threading.Tasks.Task},Stride.Core.MicroThreading.MicroThreadFlags)">
+  Add(Func&lt;Task&gt;, MicroThreadFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a micro thread out of the specified function and schedules it as last micro thread to run in this scheduler.
+Note that in case of multithreaded scheduling, it might start before this function returns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MicroThread Add(Func&lt;Task&gt; microThreadFunction, MicroThreadFlags flags = MicroThreadFlags.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>microThreadFunction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>&gt;</dt>
+    <dd><p>The function to create a micro thread from.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Stride.Core.MicroThreading.MicroThreadFlags.html">MicroThreadFlags</a></dt>
+    <dd><p>The flags.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a></dt>
+    <dd><p>A micro thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Create_" data-uid="Stride.Core.MicroThreading.Scheduler.Create*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Create" data-uid="Stride.Core.MicroThreading.Scheduler.Create">
+  Create()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new empty micro thread, that could later be started with <a class="xref" href="Stride.Core.MicroThreading.MicroThread.html#Stride_Core_MicroThreading_MicroThread_Start_System_Func_System_Threading_Tasks_Task__Stride_Core_MicroThreading_ScheduleMode_">Start(Func&lt;Task&gt;, ScheduleMode)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MicroThread Create()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a></dt>
+    <dd><p>A new empty micro thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Dispose_" data-uid="Stride.Core.MicroThreading.Scheduler.Dispose*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Dispose" data-uid="Stride.Core.MicroThreading.Scheduler.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Dispose_" data-uid="Stride.Core.MicroThreading.Scheduler.Dispose*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Dispose_System_Boolean_" data-uid="Stride.Core.MicroThreading.Scheduler.Dispose(System.Boolean)">
+  Dispose(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_NextFrame_" data-uid="Stride.Core.MicroThreading.Scheduler.NextFrame*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_NextFrame" data-uid="Stride.Core.MicroThreading.Scheduler.NextFrame">
+  NextFrame()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Yields execution until next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ChannelMicroThreadAwaiter&lt;int&gt; NextFrame()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.ChannelMicroThreadAwaiter-1.html">ChannelMicroThreadAwaiter</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Task that will resume next frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Run_" data-uid="Stride.Core.MicroThreading.Scheduler.Run*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Run" data-uid="Stride.Core.MicroThreading.Scheduler.Run">
+  Run()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs until no runnable tasklets left.
+This function is reentrant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_WhenAll_" data-uid="Stride.Core.MicroThreading.Scheduler.WhenAll*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_WhenAll_Stride_Core_MicroThreading_MicroThread___" data-uid="Stride.Core.MicroThreading.Scheduler.WhenAll(Stride.Core.MicroThreading.MicroThread[])">
+  WhenAll(params MicroThread[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Task that will completes when all MicroThread executions are completed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task WhenAll(params MicroThread[] microThreads)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>microThreads</code> <a class="xref" href="Stride.Core.MicroThreading.MicroThread.html">MicroThread</a>[]</dt>
+    <dd><p>The micro threads.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that will complete when all micro threads are complete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_MicroThreading_Scheduler_Yield_" data-uid="Stride.Core.MicroThreading.Scheduler.Yield*"></a>
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_Yield" data-uid="Stride.Core.MicroThreading.Scheduler.Yield">
+  Yield()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Yields execution.
+If any other micro thread is pending, it will be run now and current micro thread will be scheduled as last.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MicroThreadYieldAwaiter Yield()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.MicroThreading.MicroThreadYieldAwaiter.html">MicroThreadYieldAwaiter</a></dt>
+    <dd><p>Task that will resume later during same frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_MicroThreadCallbackEnd" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreadCallbackEnd">
+  MicroThreadCallbackEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SchedulerThreadEventArgs&gt;? MicroThreadCallbackEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Core.MicroThreading.SchedulerThreadEventArgs.html">SchedulerThreadEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_MicroThreadCallbackStart" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreadCallbackStart">
+  MicroThreadCallbackStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SchedulerThreadEventArgs&gt;? MicroThreadCallbackStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Core.MicroThreading.SchedulerThreadEventArgs.html">SchedulerThreadEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_MicroThreadEnded" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreadEnded">
+  MicroThreadEnded
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SchedulerThreadEventArgs&gt;? MicroThreadEnded</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Core.MicroThreading.SchedulerThreadEventArgs.html">SchedulerThreadEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_MicroThreading_Scheduler_MicroThreadStarted" data-uid="Stride.Core.MicroThreading.Scheduler.MicroThreadStarted">
+  MicroThreadStarted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;SchedulerThreadEventArgs&gt;? MicroThreadStarted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Core.MicroThreading.SchedulerThreadEventArgs.html">SchedulerThreadEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.MicroThreading/Scheduler.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

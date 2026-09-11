@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Material maps | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Material maps | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/material-maps.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="material-maps">Material maps</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Material maps</strong> calculate how materials are rendered. They can use two kinds of values: color (RGB) values or scalar (single float) values.</p>
+<p>You can use material maps for several purposes, including gloss maps, diffuse maps, or  blend maps (for combining <a href="material-layers.html">material layers</a>)</p>
+<p>Material maps can fetch values using one of several providers:</p>
+<ul>
+<li><strong>Vertex stream</strong>: a value taken from mesh attributes</li>
+<li><strong>Binary operator</strong>: a combination of any other two providers</li>
+<li><strong>Float4 / Float</strong>: a constant value</li>
+<li><strong>Color</strong>: a hex color value</li>
+<li><strong>Shader</strong>: a value provided by a ComputeColor shader. This lets you use procedural values</li>
+<li><strong>Texture</strong>: a value sampled from a <a href="../textures/index.html">texture</a></li>
+</ul>
+<p>To choose the provider, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select it from the drop-down menu:</p>
+<p><img src="media/material-colors-1.png" alt="media/material-colors-1.png"></p>
+<h2 id="vertex-stream">Vertex stream</h2>
+<p>This provider takes a value from an attribute of the mesh of the model you apply the material to.</p>
+<p>It has two modes: <strong>Color Vertex Stream</strong> and <strong>Custom Vertex Stream</strong>. To switch between them, with <strong>Vertex Stream</strong> selected as the provider, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and choose the mode you want to use.</p>
+<p><img src="media/vertex-stream-mode.png" alt="Vertex stream mode"></p>
+<h3 id="color-vertex-stream">Color vertex stream</h3>
+<p>Takes a color value from the mesh.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index</td>
+<td>The index in the named stream</td>
+</tr>
+<tr>
+<td>Channel</td>
+<td>The channel (RGBA) to sample from the stream</td>
+</tr>
+</tbody>
+</table>
+<h3 id="custom-vertex-stream">Custom vertex stream</h3>
+<p>Takes a value from the mesh channel you specify.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Semantic name of the channel to read data from</td>
+</tr>
+<tr>
+<td>Channel</td>
+<td>The channel (RGBA) to sample from the stream</td>
+</tr>
+</tbody>
+</table>
+<h2 id="binary-operator">Binary operator</h2>
+<p>Perform a binary operation from two color/scalar value providers. You can nest as many material maps inside binary operators as you need (including further binary operators).</p>
+<p>To choose how the operation works, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select from the drop-down menu. The operations are similar to options when blending layers in Photoshop.</p>
+<p><img src="media/operation-mode.png" alt="Operation mode"></p>
+<p><code>Result = LeftColor  &lt;operator&gt; RightColor</code></p>
+<p><img src="media/material-colors-4.png" alt="media/material-colors-4.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operator</td>
+<td>A binary operator (eg add, multiply, etc)</td>
+</tr>
+<tr>
+<td>Left</td>
+<td>The left color/scalar used in the operation</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>The right color/scalar used in the operation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="float4--float">Float4 / Float</h2>
+<p>Provided directly as a constant value over the whole material.</p>
+<p>In the case of RGB values, you control the RGBA value with the X, Y, Z and W values (<em>Float4</em>).</p>
+<p><img src="media/material-colors-xyzw.png" alt="xyzw"></p>
+<p>In the case of scalar values, you control the value with a slider (<em>Float</em>).</p>
+<p><img src="media/blend-map-slider.png" alt="Blend map slider"></p>
+<h2 id="color">Color</h2>
+<p>A value provided from a color hex value. This is only available for material maps that use RGB values.</p>
+<p><img src="media/material-colors-3.png" alt="media/material-colors-3.png"></p>
+<h2 id="shader">Shader</h2>
+<p>A value provided by a ComputeColor shader. This lets you use procedural values.</p>
+<p>For an example of a ComputeColor shader, see the <a href="../../particles/tutorials/particle-materials.html">Particle materials tutorial</a>.</p>
+<h2 id="texture">Texture</h2>
+<p>Sample the color/scalar from a <a href="../textures/index.html">texture</a>.</p>
+<p>For example, the images below demonstrate how the texture changes the way Stride blends materials.</p>
+<p><img src="media/blend-map-diagram.png" alt="Blend map diagram"></p>
+<p><img src="media/blend-map-diagram2.png" alt="Blend map diagram"></p>
+<p><img src="media/material-colors-2.png" alt="media/material-colors-2.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture</td>
+<td>A reference to a texture</td>
+</tr>
+<tr>
+<td>Channel</td>
+<td>The channel (R, G, B, A) used to extract the scalar value. Only valid for scalar textures</td>
+</tr>
+<tr>
+<td>Texcoord Index</td>
+<td>The texture coordinates (u,v) to use from the mesh with this texture</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>The sampling method (eg Linear, Point, Anisotropic, etc)</td>
+</tr>
+<tr>
+<td>Address Mode U / V</td>
+<td><p><br>Defines how (u,v) coordinates are addressed</p><br> <p><br> <strong>Wrap</strong>: Tiles (u,v) at integer junctions. For example, if u ranges from 0.0 to 3.0, the texture repeats three times on the U axis</p><br> <p><br><strong>Mirror</strong>: Flips (u,v) at integer junctions. For example, if u ranges from 0.0 to 1.0, the texture is displayed as expected; but from 1.0 to 2.0, the texture is mirrored </p><br> <p><br> <strong>Clamp</strong>: Clamps (u,v) to the range (0.0, 1.0)</p><br></td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>A scale applied to (u,v)</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>An offset applied to (u,v)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="material-attributes.html">Material attributes</a></li>
+<li><a href="material-layers.html">Material layers</a></li>
+</ul>
+<ul>
+<li><a href="material-slots.html">Material slots</a></li>
+<li><a href="materials-for-developers.html">Materials for developers</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/material-maps.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

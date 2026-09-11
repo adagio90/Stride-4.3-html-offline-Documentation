@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Generation Pipeline | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Generation Pipeline | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/documentation/documentation-generation-pipeline.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="generation-pipeline">Generation Pipeline</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>As of now, <strong>Docfx</strong> does not natively support the generation of multi-language and multi-version documentation. To address this limitation, the Stride team has developed a PowerShell script. Initially, separate scripts were created for each language; however, these have since been consolidated into a single script named <a href="https://github.com/stride3d/stride-docs/blob/staging/BuildDocs.ps1"><code>BuildDocs.ps1</code></a>. This unified script is capable of generating documentation in all supported languages.</p>
+<p>The script serves two main purposes:</p>
+<ul>
+<li>It features a non-interactive mode, utilized by the Continuous Integration/Continuous Deployment (CI/CD) pipeline to automatically generate documentation for all languages and the most recent version, eliminating the need for user intervention.</li>
+<li>It also offers an interactive command-line UI, allowing users to select which languages they wish to generate documentation for.</li>
+</ul>
+<h2 id="a-simplified-overview">A Simplified Overview</h2>
+<p>Here's a straightforward explanation of how the documentation generation process works.</p>
+<p>The <code>/en</code> folder serves as the repository for the primary documentation files. When documentation for another language (e.g., Japanese) is built, the files from <code>/en</code> are copied over to a temporary folder, for example, <code>/jp-tmp</code>. This ensures that the non-English versions will contain all the files present in the <code>/en</code> folder. Files that have been translated (found in folders like <code>/jp</code>) will overwrite their English counterparts in the temp folder <code>/jp-tmp</code>.</p>
+<p>Docfx is invoked multiple times, once for each language, to create the documentation. The generated documents are stored in the <code>_site</code> folder, organized according to the latest version information obtained from <code>version.json</code>. For example:</p>
+<pre><code>/_site/4.1/en
+/_site/4.1/jp
+</code></pre>
+<h3 id="docfx-files-processed">Docfx Files Processed</h3>
+<p>This section outlines the file processing carried out by Docfx during the documentation generation:</p>
+<ul>
+<li><strong>Table of Contents (TOC) Files:</strong> 7 files processed</li>
+<li><strong>Assets:</strong> 1620 items (images, videos, etc.) included</li>
+<li><strong>Conceptual Files:</strong> 358 files processed, resulting in 304 HTML files</li>
+<li><strong>Warnings (No API Metadata):</strong> 44 instances encountered</li>
+<li><strong>Warnings (API Metadata):</strong> 200 instances of missing or incorrect references</li>
+<li><strong>API Files:</strong> 2825 files processed, resulting in 2133 HTML files</li>
+</ul>
+<h2 id="docs-build-workflow">Docs Build Workflow</h2>
+<p>In this part, we elaborate on the individual steps involved in the documentation build workflow for the Stride Docs project.</p>
+<ul>
+<li><strong>Start</strong>
+<ul>
+<li>Initiates the workflow by reading the <code>$BuildAll</code> parameter.
+<ul>
+<li>If set to 'Yes', it proceeds to generate all languages and the Stride API automatically, which is particularly useful for CI/CD.</li>
+<li>If set to 'No', it will prompt the user to select languages through an interactive command-line UI.</li>
+</ul>
+</li>
+<li>Sets the <code>$Version</code> parameter based on the <code>-Version</code> command-line argument or fetches it from <code>version.json</code> if the argument is not provided.</li>
+</ul>
+</li>
+<li><strong>Read-LanguageConfigurations</strong>
+<ul>
+<li>Reads <code>languages.json</code> to identify which languages should be generated.</li>
+</ul>
+</li>
+<li><strong>BuildAll</strong>
+<ul>
+<li>Pre-configures some variables for non-interactive mode, effectively skipping the <code>Get-UserInput</code> step.</li>
+</ul>
+</li>
+<li><strong>Get-UserInput</strong>
+<ul>
+<li>In interactive mode, this step prompts the user to choose the languages to generate, as well as whether to launch a local web server.</li>
+</ul>
+</li>
+<li><strong>Ask-IncludeAPI</strong>
+<ul>
+<li>Further queries if the user wants the Stride API included in the documentation build.</li>
+</ul>
+</li>
+<li><strong>Ask-UseExistingAPI</strong>
+<ul>
+<li>Queries if the user wants to re-use already generated Stride API yml files.</li>
+</ul>
+</li>
+<li><strong>Start-LocalWebsite</strong>
+<ul>
+<li>If selected, launches a local web server to host the generated website.</li>
+</ul>
+</li>
+<li><strong>Generate-APIDoc</strong>
+<ul>
+<li>Executes <code>docfx.exe</code> to generate the metadata needed for the Stride API documentation.</li>
+</ul>
+</li>
+<li><strong>Remove-APIDoc</strong>
+<ul>
+<li>Removes the generated API metadata.</li>
+</ul>
+</li>
+<li><strong>Build-EnglishDoc</strong>
+<ul>
+<li>Uses <code>docfx.exe</code> to build the English documentation, incorporating the Stride API documentation if metadata is available.</li>
+</ul>
+</li>
+<li><strong>PostProcessing Steps</strong>
+<ul>
+<li>PostProcessing-FixingSitemap
+<ul>
+<li>Adjusts the <code>sitemap.xml</code> to use '/latest/en' paths, allowing the most current version to maintain a consistent URL.</li>
+</ul>
+</li>
+<li>PostProcessing-Fixing404AbsolutePath
+<ul>
+<li>Modifies asset (CSS, JS, ) paths in <code>404.html</code> to be absolute, as required by IIS for 404 page.</li>
+</ul>
+</li>
+<li>Copy-ExtraItems
+<ul>
+<li>Copies additional items like <code>versions.json</code>, <code>web.config</code>, <code>ReleaseNotes.md</code> and <code>robots.txt</code>, while also updating the <code>%deployment_version%</code> parameter in the <code>web.config</code> file.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Build-AllLanguagesDocs</strong>
+<ul>
+<li>Iterates over all selected languages and triggers the <code>Build-NonEnglishDoc</code> function for each.</li>
+</ul>
+</li>
+<li><strong>Build-NonEnglishDoc</strong>
+<ul>
+<li>Executes <code>docfx.exe</code> to compile non-English documentation, incorporating Stride API documentation if metadata is present.</li>
+</ul>
+</li>
+<li><strong>PostProcessing-DocFxDocUrl</strong>
+<ul>
+<li>Adjusts HTML tags and GitHub links, removing any <code>_tmp</code> suffixes. Also updates GitHub links to English if the translation is unavailable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="workflow-diagram">Workflow Diagram</h2>
+<pre><code class="lang-mermaid">%% Define styles
+
+%% Main Graph
+graph TB
+
+%% Nodes
+    Start[Start]
+    A[Read-LanguageConfigurations]
+    B{BuildAll}
+    C[Get-UserInput]
+    D[Generate-APIDoc]
+    E{Ask-IncludeAPI}
+    E1{Ask-UseExistingAPI}
+    End[End]
+    F[Start-LocalWebsite]
+    G[Cancel]
+    H[Remove-APIDoc]
+    M{isEnLanguage or isAllLanguages}
+    N[Build-EnglishDoc]
+    O[PostProcessing-FixingSitemap]
+    O1[PostProcessing-Fixing404AbsolutePath]
+    P[Copy-ExtraItems]
+    R{isAllLanguages}
+    S[Build-AllLanguagesDocs]
+    T[Build-NonEnglishDoc]
+    Y[PostProcessing-DocFxDocUrl]
+    Z[End]
+
+%% Edges
+    Start --&gt; A --&gt; B
+    B --&gt;|Yes| D
+    B --&gt;|No| C
+    subgraph User Interaction
+    C --&gt; E
+    E --&gt;|Yes| E1
+    E --&gt;|No| H
+    C --&gt; F --&gt; F1{{docfx serve}}
+    C --&gt; G
+    end
+    F1 --&gt; End
+    G --&gt; End
+    E1 --&gt;|No| D
+    E1 --&gt;|Yes| M
+    subgraph Documentation Generation
+    H --&gt; M
+    D --&gt; D1{{docfx metadata}} --&gt; M
+    M --&gt;|Yes| N
+    M --&gt;|No| R
+    N --&gt; DocFX{{docfx build}} --&gt; O --&gt; O1--&gt; P
+    P --&gt; R
+    R --&gt;|Yes| S
+    R --&gt;|No| T
+    S --&gt; T
+    T --&gt; X{{docfx build}}
+    X --&gt; X1{{docfx pdf}}
+    X1 --&gt; Y
+    Y --&gt; Z
+    end
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/documentation/documentation-generation-pipeline.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

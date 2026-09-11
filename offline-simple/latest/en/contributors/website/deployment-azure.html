@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Deployment | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Deployment | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/deployment-azure.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="deployment">Deployment</h1>
+
+<p>Our team has explored various deployment options, ultimately selecting the method detailed in this guide for its efficacy. Additionally, for demonstration purposes, you can refer to the <a href="deployment-azure.html#deployment-to-github-pages">Deployment to GitHub Pages</a> section for alternative deployment strategies you can use to showcase your updates.</p>
+<h2 id="deploying-to-azure-web-apps-windows-with-iis">Deploying to Azure Web Apps (Windows) with IIS</h2>
+<p>This guide is crafted for individuals who already have access to the Azure subscription. It provides step-by-step instructions for setting up a new Azure Web App, specifically tailored for staging environments. Note that the process for setting up a production environment is similar, but requires a distinct web app name.</p>
+<p>Deployments to Azure Web Apps are automated through GitHub Actions, forming an integral part of our Continuous Integration/Continuous Deployment (CI/CD) process. The CI/CD pipeline is configured to automatically trigger deployments upon merging changes into either the <code>staging</code> or <code>release</code> branches.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The deployment process outlined here is already established and running, hosted on Azure and sponsored by the .NET Foundation. This guide serves primarily as a reference for maintainers in the event that a new deployment setup is required.</p>
+</div>
+<h3 id="setting-up-a-new-azure-web-app">Setting up a new Azure Web App</h3>
+<p>Follow these instructions carefully to establish your Azure Web App in a staging environment. For deploying in a production environment, replicate these steps with an alternate web app name for differentiation.</p>
+<ol>
+<li>Navigate to the <a href="https://portal.azure.com/">Azure Portal</a></li>
+<li>Select <strong>Create a resource</strong></li>
+<li>Choose <strong>Create a Web App</strong></li>
+<li>In the Basic Tab
+<ul>
+<li>Choose your existing subscription and resource group</li>
+<li>Under Instance Details, enter:
+<ul>
+<li>Name: <strong>stride-website-staging</strong></li>
+<li>Publish: <strong>Code</strong></li>
+<li>Runtime stack: <strong>ASP.NET V4.8</strong></li>
+<li>OS: <strong>Windows</strong></li>
+<li>Region: as the current web</li>
+<li>Pricing Plan - An existing App Service Plan should appear if the region and resource group match that of the existing web app. Currently we use <strong>Standard S1</strong>.</li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In the Deployment Tab - This step can be completed later if preferred.
+<ul>
+<li>Enable Continuous deployment</li>
+<li>Select account, organisation <code>Stride</code>, repository <code>stride-website</code> and branch <code>staging</code></li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+<li>In the Monitoring Tab
+<ul>
+<li>Leave all settings as default</li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+<li>Monitoring Tab
+<ul>
+<li>Disable Application Insights - This is not needed at this stage</li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+<li>In the Tags Tab
+<ul>
+<li>Leave this blank unless you wish to add tags</li>
+<li>Click <strong>Next</strong></li>
+</ul>
+</li>
+<li>In the Review Tab
+<ul>
+<li>Review your settings</li>
+<li>Click <strong>Create</strong></li>
+<li>The GitHub Action will be added to the repository and run automatically. It will fail at this stage, but this will be resolved in the subsequent steps.</li>
+</ul>
+</li>
+</ol>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>If you have completed the <strong>Deployment Tab</strong> process, ensure that the deployment profile includes the <strong>DeleteExistingFiles</strong> property. This property may need to be set to <code>False</code> or <code>True</code> depending on the specific requirements of your deployment. For instance, Stride Docs deployment retains files from previous deployments, allowing multiple versions like <code>4.2</code>, <code>4.1</code>, etc., to be maintained. Adjust this setting based on your deployment needs.</p>
+</div>
+<h3 id="adjusting-the-web-app-configuration">Adjusting the Web App Configuration</h3>
+<ol>
+<li>Proceed to the newly created Web App</li>
+<li>Click on <strong>Configuration</strong></li>
+<li>Select <strong>General Settings</strong></li>
+<li>Change the <code>Http version</code> to <strong>2.0</strong></li>
+<li>Change <code>Ftp state</code> to <strong>FTPS only</strong></li>
+<li>Change <code>HTTPS Only</code> to <strong>On</strong></li>
+<li>Click <strong>Save</strong> to apply the changes</li>
+</ol>
+<h3 id="modifying-the-github-action">Modifying the GitHub Action</h3>
+<p>The previous step will have added a GitHub Action to your repository, which might fail initially. To address this, you need to modify the GitHub Action:</p>
+<ol>
+<li>Navigate to the repository</li>
+<li>Select <strong>Actions</strong></li>
+<li>You have the option to stop the currently running action</li>
+<li>Locate the new GitHub Action file <em>(stride-website/blob/master/.github/workflows/some-file-name.yml)</em> that was automatically generated by Azure Portal. We need to extract the <code>app-name</code> and <code>publish-profile</code> values from it and disable the push trigger.
+<ul>
+<li>To disable the push trigger, retain only <strong>workflow_dispatch</strong> (manual trigger) as shown below:</li>
+</ul>
+<pre><code>on:
+#  push:
+#    branches:
+#      - staging
+    workflow_dispatch:
+</code></pre>
+</li>
+<li>Open the <code>stride-website-staging-azure.yml</code> workflow and update it with the values obtained in the previous step. Save your changes.</li>
+<li>This workflow might also need to be added to the <code>master</code> branch if it is not already present.</li>
+<li>Execute the workflow <code>stride-website-staging-azure.yml</code>. Ensure you select the correct branch <code>staging</code> and click <strong>Run workflow</strong>. This action will deploy the website to the Azure Web App.</li>
+</ol>
+<h3 id="github-actions">GitHub Actions</h3>
+<ul>
+<li><code>stride-website-github.yml</code>: Facilitates manual deployment to GitHub Pages in the forked repository, primarily used for showcasing updates</li>
+<li><code>stride-website-release-azure.yml</code>: Automates deployment to production upon merging changes into <code>release</code> branch, with a manual trigger option also available</li>
+<li><code>stride-website-staging-azure.yml</code>: Enables automatic deployment to <a href="https://stride-website-staging.azurewebsites.net/">staging</a> upon merging changes into <code>staging</code> branch, along with an option for manual triggering</li>
+<li><code>stride-website-wiki.yml</code>: Automatically deploys to the GitHub Wiki when changes are pushed to the <code>wiki</code> folder in the <code>master</code> branch, also includes a manual trigger feature</li>
+</ul>
+<h2 id="deployment-to-github-pages">Deployment to GitHub Pages</h2>
+<p>To showcase your updates, especially helpful for design changes pending review, you can deploy the website either to your infrastructure or to GitHub Pages, a free hosting service. Once deployed, share the link with us for review.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>In your <code>stride-website</code> repository:</p>
+<ol>
+<li>Navigate to <strong>Settings</strong> → <strong>Actions</strong> → <strong>General</strong> → <strong>Workflow Permissions</strong>
+<ul>
+<li>Choose <strong>Read and write permissions</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="run-github-action">Run GitHub Action</h3>
+<ol>
+<li>Go to <strong>Actions</strong>, select <strong>Build Stride Web for GitHub Staging</strong>
+<ul>
+<li>Click <strong>Run workflow</strong>; you may optionally select a branch</li>
+</ul>
+</li>
+<li>Monitor the build logs while the action is in progress</li>
+<li>Upon successful build, a <code>gh-pages</code> branch will be created</li>
+<li>Navigate to <strong>Settings</strong> → <strong>Pages</strong>
+<ul>
+<li>Choose the <code>gh-pages</code> branch with the root option and click <strong>Save</strong></li>
+</ul>
+</li>
+<li>After saving, an internal GitHub Action <strong>pages build and deployment</strong> is automatically created and triggered, deploying the content to the GitHub Pages website</li>
+<li>Initially, the website will be accessible at <code>https://[your-username].github.io/stride-website</code> but with broken styling</li>
+</ol>
+<h3 id="add-custom-domain">Add Custom Domain</h3>
+<ol>
+<li>To resolve styling issues, deploy the site to a custom domain. This is necessary because the site isn't deployed at the root directory on GitHub Pages</li>
+<li>Go to <strong>Settings</strong> → <strong>Pages</strong> → <strong>Custom domain</strong>
+<ul>
+<li>Enter your custom domain and follow the instructions for verification</li>
+</ul>
+</li>
+<li>Upon saving, the <strong>pages build and deployment</strong> action is triggered again, adding a <code>CNAME</code> file containing your custom domain name to the <code>gh-pages</code> branch</li>
+<li>Your website should now be fully operational on your custom domain, for example, <code>https://stride-website.vaclavelias.com/</code> is hosted on GitHub Pages</li>
+</ol>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/deployment-azure.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Collidables | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Collidables | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/colliders.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="collidables">Collidables</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>Collidables are the base entity components for physics objects. There are three main types:</p>
+<ul>
+<li><a href="static-colliders.html">Statics</a>: Objects that don't move (terrain, walls, floors, large rocks)</li>
+<li><a href="rigid-bodies.html">Bodies</a>: Moving objects, affected by gravity and collisions (cans, balls, boxes) or <a href="kinematic-rigid-bodies.html">Kinematics</a> (moving platforms, doors)</li>
+<li><a href="characters.html">Characters</a>: Colliders for basic characters (player character, animals, NPCs)</li>
+</ul>
+<p><img src="media/rigid-bodies-static-and-rigid-body-colliders.png" alt="Static and rigidbody colliders"></p>
+<p>You can also:</p>
+<ul>
+<li>Define the <a href="collider-shapes.html">shape of collidables components</a></li>
+<li>Make <a href="triggers.html">triggers</a>, and detect when other physics objects pass through them</li>
+<li>Constrain collider movement with <a href="constraints.html">constraints</a></li>
+</ul>
+<h2 id="collisions">Collisions</h2>
+<p>Collidables interact according to the table below.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Characters</th>
+<th>Bodies</th>
+<th>Statics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Characters</td>
+<td>Collides</td>
+<td>Collides and bounces</td>
+<td>Collides</td>
+</tr>
+<tr>
+<td>Bodies</td>
+<td>Collides and bounces</td>
+<td>Collides and bounces</td>
+<td>Collides and bounces</td>
+</tr>
+<tr>
+<td>Statics</td>
+<td>Collides</td>
+<td>Collides and bounces</td>
+<td>Pass through</td>
+</tr>
+</tbody>
+</table>
+<p>Characters do not have any inertia, and so cannot bounce off of bodies or statics when colliding with them.</p>
+<p>Three other factor control whether two collidables would collide with each other, their <code>Collision Layer</code>, <code>Collision Group</code> and their <code>Contact Event Handler</code></p>
+<h2 id="collision-layers">Collision Layers</h2>
+<p>The collision layer controls whether that object would collide with object on other layers.</p>
+<p>This relationship is controlled through the <a href="simulation.html">Simulation's Collision Matrix</a>.</p>
+<h2 id="collision-group">Collision Group</h2>
+<p>This property is used to filter collisions inside a group of object, when two or more objects must share the same <code>Collision Layer</code>, but should not collide between each other.</p>
+<p>It allows objects sharing the same <code>CollisionGroup.Id</code> to pass through each other when the absolute difference between their <code>IndexA</code>, <code>IndexB</code>, and <code>IndexC</code> is less than two.</p>
+<p>Its utility is best shown through concrete examples.</p>
+<ul>
+<li><p>You have multiple characters <code>A, B, C, D</code> all set to the same <code>CollisionLayer</code>, they are split in two teams <code>A, B</code> and <code>C, D</code>. Members of the same team must not collide between each other, you can set <code>A, B</code>'s Id to 1 and <code>C, D</code>'s Id to 2.</p>
+</li>
+<li><p>You have a chain of three colliders attached to each other <code>A, B, C</code>, you don't want A and C to collide with B, but A and C should collide together.
+Set A, B and C's Ids to 1 to start filtering, leave A's <code>IndexA</code> at 0, B's to 1 and C to 2.
+A and C will collide since the difference between their <code>IndexA</code> is equal to two,
+but neither of them will collide with B since they are both only one away from B's <code>IndexA</code> value.</p>
+</li>
+</ul>
+<h2 id="contact-event-handler">Contact Event Handler</h2>
+<p>The contact event handler is a class that receives collision data whenever the object it is associated with collides with the world.</p>
+<p>It is most often used to transform physics object into 'trigger boxes', areas that run events whenever objects, like the player character, passes through them. See <a href="triggers.html">Triggers</a>.</p>
+<p>If the contact event handler you bind to an object is set to <code>NoContactResponse</code>, the object will never prevent anything from passing through it, it will only collect collision events.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="static-colliders.html">Static</a></li>
+<li><a href="rigid-bodies.html">Body</a></li>
+<li><a href="characters.html">Character</a></li>
+<li><a href="colliders.html">Colliders</a></li>
+<li><a href="tutorials.html">Physics tutorials</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/colliders.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

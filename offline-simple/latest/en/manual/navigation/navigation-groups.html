@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Navigation groups | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Navigation groups | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/navigation/navigation-groups.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="navigation-groups">Navigation groups</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Level designer</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Navigation groups</strong> define different navigation properties for the entities you add to them. You define navigation groups in the project <strong>game settings</strong>.</p>
+<p>You can create different navigation groups for different kinds of entity. For example, if your game features vehicles controlled by scripts, you might create different navigation groups for different sizes of vehicle, each with different properties: a car group, a bus group, a motorcycle group, and so on.</p>
+<h2 id="create-a-navigation-group">Create a navigation group</h2>
+<ol>
+<li><p>In the <strong>Solution Explorer</strong> (the bottom-left pane by default), select the <strong>Assets folder</strong>.</p>
+<p><img src="media/select-asset-folder.png" alt="Select Assets folder asset"></p>
+</li>
+<li><p>In the <strong>Asset View</strong> (the bottom pane by default), select the <strong>Game Settings</strong> asset.</p>
+<p><img src="media/select-game-settings-asset.png" alt="Select Game Settings asset"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (the right-hand pane by default), expand <strong>Navigation Settings</strong>.</p>
+<p><img src="media/navigation-settings.png" alt="Game settings"></p>
+</li>
+<li><p>Next to <strong>Groups</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p>Game Studio adds a new item to the list of navigation groups.</p>
+<p><img src="media/navigation-group-properties.png" alt="Navigation group properties"></p>
+</li>
+<li><p>Set the properties for the navigation group. Entities you add to this group use these properties.</p>
+</li>
+</ol>
+<h2 id="navigation-group-properties">Navigation group properties</h2>
+<p>In most cases, the navigation group properties should approximately match the properties in the <a href="../physics/characters.html">character component</a> of the entities in the group, if they have one.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item</td>
+<td>The name of the group</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>The height of the entities in this group. Entities can't enter areas with ceilings lower than this value</td>
+</tr>
+<tr>
+<td>Maximum climb height</td>
+<td>The maximum height that entities in this group can climb</td>
+</tr>
+<tr>
+<td>Maximum slope</td>
+<td>The maximum incline (in degrees) that entities in this group can climb. Entities can't go up or down slopes higher than this value. In most cases, this should be approximately the same value as the <strong>max slope</strong> property in the <a href="../physics/characters.html">character component</a> of the entities in this group, if they have one.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The larger this value, the larger the area of the navigation mesh entities use. Entities can't pass through gaps of less than twice the radius.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="navigation-meshes.html">Navigation meshes</a></li>
+<li><a href="navigation-bounding-boxes.html">Navigation bounding boxes</a></li>
+<li><a href="navigation-components.html">Navigation components</a></li>
+<li><a href="dynamic-navigation.html">Dynamic navigation</a></li>
+<li><a href="../physics/characters.html">Physics — Characters</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/navigation/navigation-groups.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

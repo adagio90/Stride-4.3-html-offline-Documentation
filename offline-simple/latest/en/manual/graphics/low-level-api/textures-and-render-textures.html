@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Textures and render textures | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Textures and render textures | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/low-level-api/textures-and-render-textures.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="textures-and-render-textures">Textures and render textures</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>Stride uses the <a class="xref" href="../../../api/Stride.Graphics.Texture.html">Texture</a> class to interact with texture objects in code.</p>
+<p>For more information about rendering to a texture, see <a href="../graphics-compositor/render-textures.html">Render textures</a>.</p>
+<h2 id="load-a-texture">Load a texture</h2>
+<p>To load a texture from an asset in Stride, call this function:</p>
+<pre><code class="lang-cs">// loads the texture called duck.dds (or .png etc.)
+var myTexture = Content.Load&lt;Texture&gt;(&quot;duck&quot;);
+</code></pre>
+<p>This automatically generates a texture object with all its fields correctly filled.</p>
+<h2 id="create-a-texture">Create a texture</h2>
+<p>You can also create textures without any assets (eg to be used as render target). To do this, call the constructor of the <a class="xref" href="../../../api/Stride.Graphics.Texture.html">Texture</a> class. See the <a class="xref" href="../../../api/Stride.Graphics.Texture.html">Texture</a> class reference to get the full list of available options and parameters. Some texture formats might not be available on all platforms.</p>
+<h3 id="code-create-a-texture">Code: Create a texture</h3>
+<pre><code class="lang-cs">var myTexture = Texture.New2D(GraphicsDevice, 512, 512, false, PixelFormat.R8G8B8A8_UNorm, TextureFlags.ShaderResource);
+</code></pre>
+<h2 id="render-textures">Render textures</h2>
+<h3 id="create-a-render-target">Create a render target</h3>
+<p>The <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html">GraphicsPresenter</a> class always provides a default render target and a depth buffer. They are accessible through the <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html#Stride_Graphics_GraphicsPresenter_BackBuffer">BackBuffer</a> and <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html#Stride_Graphics_GraphicsPresenter_DepthStencilBuffer">DepthStencilBuffer</a> properties. The presenter is exposed by the <a class="xref" href="../../../api/Stride.Graphics.GraphicsDevice.html#Stride_Graphics_GraphicsDevice_Presenter">Presenter</a> property of the <a class="xref" href="../../../api/Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>. However, you might want to use your own buffer to perform off-screen rendering or post-processes. As a result, Stride offers a simple way to create textures that can act as render textures and a depth buffers.</p>
+<h3 id="code-create-a-custom-render-target-and-depth-buffer">Code: Create a custom render target and depth buffer</h3>
+<pre><code class="lang-cs">// render target
+var myRenderTarget = Texture.New2D(GraphicsDevice, 512, 512, false, PixelFormat.R8G8B8A8_UNorm, TextureFlags.ShaderResource | TextureFlags.RenderTarget);
+ 
+// writable depth buffer
+var myDepthBuffer = Texture.New2D(GraphicsDevice, 512, 512, false, PixelFormat.D16_UNorm, TextureFlags.DepthStencil);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Don't forget the flag <a class="xref" href="../../../api/Stride.Graphics.TextureFlags.html#Stride_Graphics_TextureFlags_RenderTarget">RenderTarget</a> to enable the render target behavior.</p>
+<p>Make sure the PixelFormat is correct, especially for the depth buffer. Be careful of the available formats on the target platform.</p>
+</div>
+<h3 id="use-a-render-target">Use a render target</h3>
+<p>Once these buffers are created, you can easily set them as current render textures.</p>
+<h3 id="code-use-a-render-target">Code: Use a render target</h3>
+<pre><code class="lang-cs">// settings the render textures
+CommandList.SetRenderTargetAndViewport(myDepthBuffer, myRenderTarget);
+ 
+// setting the default render target
+CommandList.SetRenderTargetAndViewport(GraphicsDevice.Presenter.DepthStencilBuffer, GraphicsDevice.Presenter.BackBuffer);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure both the render target and the depth buffer have the same size. Otherwise, the depth buffer isn't used.</p>
+</div>
+<p>You can set multiple render textures at the same time. See the overloads of <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetRenderTargets_Stride_Graphics_Texture_Stride_Graphics_Texture___">SetRenderTargets(Texture, Texture[])</a> and <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetRenderTargetsAndViewport_Stride_Graphics_Texture_Stride_Graphics_Texture___">SetRenderTargetsAndViewport(Texture, Texture[])</a> method.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Only the <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html#Stride_Graphics_GraphicsPresenter_BackBuffer">BackBuffer</a> is displayed on screen, so you need to render it to display something.</p>
+</div>
+<h3 id="clear-a-render-target">Clear a render target</h3>
+<p>To clear render textures, call the <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_Clear_Stride_Graphics_Texture_Stride_Core_Mathematics_Color4_">Clear(Texture, Color4)</a> and <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_Clear_Stride_Graphics_Texture_Stride_Graphics_DepthStencilClearOptions_System_Single_System_Byte_">Clear(Texture, DepthStencilClearOptions, float, byte)</a> methods.</p>
+<h3 id="code-clear-the-targets">Code: Clear the targets</h3>
+<pre><code class="lang-cs">CommandList.Clear(GraphicsDevice.Presenter.BackBuffer, Color.Black);
+CommandList.Clear(GraphicsDevice.Presenter.DepthStencilBuffer, DepthStencilClearOptions.DepthBuffer); // only clear the depth buffer
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Don't forget to clear the <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html#Stride_Graphics_GraphicsPresenter_BackBuffer">BackBuffer</a> and the <a class="xref" href="../../../api/Stride.Graphics.GraphicsPresenter.html#Stride_Graphics_GraphicsPresenter_DepthStencilBuffer">DepthStencilBuffer</a> each frame. If you don't, you might get unexpected behavior depending on the device. If you want to keep the contents of a frame, use an intermediate render target.</p>
+</div>
+<h2 id="viewport">Viewport</h2>
+<p><a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetRenderTargetAndViewport_Stride_Graphics_Texture_Stride_Graphics_Texture_">SetRenderTargetAndViewport(Texture, Texture)</a> adjusts the current <a class="xref" href="../../../api/Stride.Graphics.Viewport.html">Viewport</a> to the full size of the render target.</p>
+<p>If you only want to render to a subset of the texture, set the render target and viewport separately using <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetRenderTarget_Stride_Graphics_Texture_Stride_Graphics_Texture_">SetRenderTarget(Texture, Texture)</a> and <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetViewport_Stride_Graphics_Viewport_">SetViewport(Viewport)</a>.</p>
+<p>You can bind multiple viewports using <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetViewports_Stride_Graphics_Viewport___">SetViewports(Viewport[])</a> and <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetViewports_System_Int32_Stride_Graphics_Viewport___">SetViewports(int, Viewport[])</a> overloads for use with a geometry shader.</p>
+<h3 id="code-set-the-viewports">Code: Set the viewports</h3>
+<pre><code class="lang-cs">// example of a full HD buffer
+CommandList.SetRenderTarget(GraphicsDevice.Presenter.DepthStencilBuffer, GraphicsDevice.Presenter.BackBuffer); // no viewport set
+ 
+// example of setting the viewport to have a 10-pixel border around the image in a full HD buffer (1920x1080)
+var viewport = new Viewport(10, 10, 1900, 1060);
+CommandList.SetViewport(viewport);
+</code></pre>
+<h2 id="scissor">Scissor</h2>
+<p>The <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetScissorRectangle_Stride_Core_Mathematics_Rectangle_">SetScissorRectangle(Rectangle)</a> and <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_SetScissorRectangles_Stride_Core_Mathematics_Rectangle___">SetScissorRectangles(Rectangle[])</a> methods set the scissors. Unlike the viewport, you need to provide the coordinates of the location of the vertices defining the scissor instead of its size.</p>
+<h3 id="code-set-the-scissor">Code: Set the scissor</h3>
+<pre><code class="lang-cs">// example of setting the scissor to crop the image by 10 pixel around it in a full hd buffer (1920x1080)
+var rectangle = new Rectangle(10, 10, 1910, 1070);
+CommandList.SetScissorRectangles(rectangle);
+ 
+var rectangles = new[] { new Rectangle(10, 10, 1900, 1060), new Rectangle(0, 0, 256, 256) };
+CommandList.SetScissorRectangles(rectangles);
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../graphics-compositor/render-textures.html">Render textures</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/low-level-api/textures-and-render-textures.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Set up a video | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Set up a video | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/video/set-up-a-video.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="set-up-a-video">Set up a video</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>
+<video autoplay loop class="responsive-video" poster="media/video-thumbnail.jpg">
+   <source src="media/video-in-game.mp4" type="video/mp4">
+</video>
+</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Stride supports most major video formats, but converts them to <code>.mp4</code>. To reduce compilation time, we recommend you use <code>.mp4</code> files so Stride doesn't have to convert them.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, Stride doesn't support video on iOS platforms.</p>
+</div>
+<h2 id="1-add-a-video-asset">1. Add a video asset</h2>
+<p>Before you can use a video in your game, you need to import it as an <a href="../game-studio/assets.html">asset</a>.</p>
+<ol>
+<li><p>Drag the video file from <strong>Explorer</strong> into the <strong>Asset View</strong>.</p>
+<p>Alternatively, in the <strong>Asset View</strong>, click <strong>Add asset</strong> and select <strong>Media &gt; Video</strong>, then browse to the video you want to add and click <strong>Open</strong>.</p>
+<p><img src="media/add-video-asset.png" alt="Add video asset"></p>
+</li>
+<li><p>If the video has audio tracks, you can import these at the same time, or import just the audio from the video.</p>
+<p><img src="media/import-from-video.png" alt="Import video"></p>
+</li>
+<li><p>Click <strong>OK</strong>.</p>
+<p>Stride adds the video as an asset in the <strong>Asset View</strong>. If you imported audio tracks from the video file, Stride adds them as separate <a href="../audio/index.html">audio assets</a>.</p>
+<p><img src="media/video-and-audio-assets.png" alt="Video and audio assets"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, you can't preview videos in the Asset Preview.</p>
+</div>
+<p>For information about video asset properties, see <a href="video-properties.html">Video properties</a>.</p>
+</li>
+</ol>
+<h2 id="2-add-a-video-component">2. Add a video component</h2>
+<ol>
+<li><p>In the <strong>Scene Editor</strong>, select or create an entity to add a video component to.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>It's usually simplest to add the component to the same entity that has the texture plays the video. This just makes it easier to organize your scene.</p>
+</div>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Video</strong>.</p>
+<p><img src="media/add-component.png" alt="Add video component"></p>
+<p>Stride adds a <strong>video component</strong> to the entity.</p>
+<p><img src="media/video-component.png" alt="Video component"></p>
+</li>
+<li><p>In the <strong>Video</strong> properties, under <strong>Source</strong>, select the video asset.</p>
+<p><img src="media/video-source.png" alt="Video source"></p>
+</li>
+<li><p>Under <strong>Target</strong>, select the texture you want to display the video from.</p>
+<p><img src="media/video-target.png" alt="Video target"></p>
+<p>Models that use this texture will display the video.</p>
+<p>When the video isn't playing in your scene, Stride displays the texture instead.</p>
+</li>
+</ol>
+<h2 id="3-create-a-script-to-play-the-video">3. Create a script to play the video</h2>
+<p>After you set up the video component, play it from a <a href="../scripts/index.html">script</a> using:</p>
+<pre><code class="lang-cs">myVideoComponent.Instance.Play();
+</code></pre>
+<h3 id="other-functions">Other functions</h3>
+<ul>
+<li><code>LoopRange</code>: The looping range (must be an area in the video in <code>PlayRange</code>)</li>
+<li><code>IsLooping</code>: Loop the video loop infinitely</li>
+<li><code>SpeedFactor</code>: Set the video play speed. <code>1</code> is normal speed.</li>
+<li><code>PlayState</code>: The current video play state (<code>playing</code>, <code>paused</code> or <code>stopped</code>)</li>
+<li><code>Duration</code>: The duration of the video</li>
+<li><code>CurrentTime</code>: The current play time in the video</li>
+<li><code>Volume</code>: The audio volume</li>
+<li><code>PlayRange</code>: The video start and end time</li>
+<li><code>Play/Pause/Stop</code>: Play, pause, or stop the video</li>
+<li><code>Seek</code>: Seek to a given time</li>
+</ul>
+<h3 id="example-script">Example script</h3>
+<pre><code class="lang-cs">{
+    public class VideoScript : StartupScript
+    {
+        // Game Studio displays the public member fields and properties you declare in this script
+
+        public override void Start()
+        {
+            // Initialization of the script.
+            Entity.Get&lt;VideoComponent&gt;().Instance.Play();
+        }
+    }
+}
+</code></pre>
+<h2 id="4-add-the-script-to-the-entity">4. Add the script to the entity</h2>
+<ol>
+<li><p>In the <strong>Scene Editor</strong>, select the entity that has the video component.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select the video script.</p>
+<p><img src="media/add-video-script.png" alt="My video script"></p>
+<p>Stride adds the script as a component.</p>
+<p>You can adjust <a href="../scripts/public-properties-and-fields.html">public variables you define in the script</a> in the <strong>Property Grid</strong> under the script component properties.</p>
+<p><img src="media/video-script-properties.png" alt="Properties"></p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="video-properties.html">Video properties</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/video/set-up-a-video.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

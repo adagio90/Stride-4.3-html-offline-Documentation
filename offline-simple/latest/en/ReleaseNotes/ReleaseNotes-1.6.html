@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 1.6 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 1.6 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.6.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-16-release-notes">Xenko 1.6 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="prefabs">Prefabs</h3>
+<p>Prefabs allow you to assemble entities into building blocks and easily reuse them in any of your scenes. Changes to your prefabs will be reflected on all instances (as long as properties are not overridden).</p>
+<p>We even took the concept one step further to empower our users, by having prefabs within prefabs, as well as the possibility to use only part of a prefab when you instantiate it. And of course, removing or rearranging a few entities won't break your prefab synchronization!</p>
+<img src="media/ReleaseNotes-1.6/prefabs.gif" align="center">
+<h3 id="archetypes">Archetypes</h3>
+<p>You can now use any asset as an archetype for another asset. When you change a property of the archetype, the new value will be automatically propagated to all the derived assets, unless you specifically override them. Archetypes can be used with most asset types.</p>
+<img src="media/ReleaseNotes-1.6/assset-templating.gif" align="center">
+<h3 id="particles">Particles</h3>
+<p>You can now create and edit particle systems directly in the Xenko Game Studio. Particles are deeply integrated in the game engine and leverage the powerful effect system and its high level of customization.</p>
+<p>While there are still several features on the roadmap, the current implementation is sufficient for most games. The ability to customize almost all aspects of the particle engine allows you to add features tailored to your game's specific needs.</p>
+<img src="media/ReleaseNotes-1.6/particle1.gif" align="center">
+<p>Feel free to visit our <a href="../manual/particles/index.html">particle documentation</a>.</p>
+<h4 id="features">Features</h4>
+<p>The particle engine supports many features out of the box:</p>
+<ul>
+<li>Render particles as different shapes like billboards, 3D oriented quads or your own custom implementation</li>
+<li>Powerful force fields which offer more control than simple attractors and repulsors</li>
+<li>Collisions</li>
+<li>Animated attributes such as size, color, rotation</li>
+<li>Flip books, UV animation and support for the Xenko Shading Language</li>
+<li>Ribbons and trails renderers added to the engine. Check out our <a href="../manual/particles/ribbons-and-trails.html">tutorial</a> for more details.</li>
+</ul>
+<h4 id="modular-system">Modular system</h4>
+<p>All aspects of particle systems are broken down into individuals modules like spawners, initializers and updaters, and each of these modules is easily tweakable and customizable. Check out the samples and the Xenko documentation for a detailed walk-through.</p>
+<h4 id="curve-editor">Curve Editor</h4>
+<p>The Game Studio now also comes with a built-in curve editor. For now only the particle engine uses curve animation. In the future, it will also power our property animation system and our storyboard system.</p>
+<img src="media/ReleaseNotes-1.6/particle2.gif" align="center">
+<h3 id="new-graphics-engine">New Graphics Engine</h3>
+<p>Most of our graphics pipeline, both low-, medium- and high-level, has been almost completely rewritten, and should be ready for the future.</p>
+<p>The low-level API has been changed to more closely resemble DirectX 12 and Vulkan. For a list of breaking changes, please see below.</p>
+<p>The high-level pipeline has been completely reworked, to achieve the following goals, most of which we will tackle in the upcoming releases:</p>
+<ul>
+<li>Introduce a clean and extensible architecture to easily build new graphics features on (hoping to soon add a Forward+ renderer, IBL light probes, RLR, etc.)</li>
+<li>New medium-level layer: lightweight RenderFeature, RenderStage, RenderObject, etc.</li>
+<li>Easy for users to write small customizations (by implementing RenderFeatures)</li>
+<li>Allow multi-threading of all parts of the pipeline</li>
+<li>Make optimal use of next-gen graphics APIs</li>
+<li>Reduce the amount of &quot;magic&quot; done by the effect system to increase performance</li>
+<li>Minimize work by taking better advantage of different update frequencies (PerView, PerMaterial, PerLighting, etc.)</li>
+<li>Take advantage of new API (first class support for Pipeline State Objects, Descriptor Sets, etc.)</li>
+</ul>
+<p>Stay tuned for technical details and performance evaluation in the near future!</p>
+<h3 id="direct3d-12">Direct3D 12</h3>
+<p>Direct3D 12 has been added as a new build target. While still experimental, it already supports all parts of our rendering pipeline.</p>
+<p>You can try it by changing the ‘Preferred Graphics Platform’ in the ‘Rendering Settings’ of your ‘Game Settings’ asset.</p>
+<h3 id="better-opengl-support">Better OpenGL support</h3>
+<p>Our OpenGL renderer has been improved and should behave much better (shadows, PBR, etc.). Also, we now deliver OpenGL and OpenGL ES on Windows as build targets.</p>
+<p>You can also try them by changing the ‘Preferred Graphics Platform’ in the ‘Rendering Settings’ of your ‘Game Settings’ asset.</p>
+<h3 id="scripts-are-now-components">Scripts are now components</h3>
+<p>So far, there could only be one component per type on an Entity. This was quite cumbersome, especially for scripts, which had to be stored inside the <code>ScriptComponent.Scripts</code> list. It also resulted in many special cases to make them work in the editor (i.e. references between scripts, assembly reloading, etc.).</p>
+<p>Now multiple components of a type are allowed. This affects scripts and physics components, and can be used for custom components for which more than one instance is sensible.</p>
+<p>We hope this makes your life easier!</p>
+<h3 id="event-system">Event system</h3>
+<p>We added a simple event system that will allow your script to easily communicate with each other.
+Check out the <code>EventKey&lt;&gt;</code> and <code>EventReceiver&lt;&gt;</code> classes.
+You can create an EventKey from your sender scripts and consume events using <code>EventReceiver</code> from other scripts.</p>
+<h3 id="game-settings-overrides">Game Settings overrides</h3>
+<p>The Game Settings asset has been improved: You can now have different settings depending on the platform or GPU.</p>
+<p>For example, you might want to set different off-screen resolutions for your game on Android depending on the GPU model. Or you could use one of our new Direct3D12, OpenGL or OpenGL ES renderers on Windows.</p>
+<h2 id="version-167-beta">Version 1.6.7-beta</h2>
+<p>Release date: 2016/06/09</p>
+<h3 id="enhancements">Enhancements</h3>
+<h4 id="game-studio">Game Studio</h4>
+<ul>
+<li>Don't wait for editor initialization before showing the editor window. This should prevent editor layouts from suddendly switching without notice, especially when opening a big scene.</li>
+<li>Save the list of opened editors more often (everytime a new editor is opened). Before it was only saved when editing the Game Studio properly and thus the list would not be saved when a crash occurred.</li>
+</ul>
+<h3 id="issues-fixed">Issues fixed</h3>
+<h4 id="graphics">Graphics</h4>
+<ul>
+<li>D3D12: Static sampler didn't properly set comparison func and border, resulting in broken shadow maps</li>
+<li>OpenGL ES: Improved texture format supports depending on OpenGL ES version and extension presents (esp. for float texture on ES2)</li>
+<li>OpenGL ES: EXT_sRGB doesn't seem to properly work on Adreno 4xx, but since it is usually available through ES3 context, we use that first when available</li>
+<li>OpenGL: AMD GPU driver didn't like the fact there was no #version in the Copy GLSL shader</li>
+<li>OpenGL: Even though we use SDL, image loading now uses same code as WinForms/WPF (since SDL_image loading code is not implemented yet)</li>
+</ul>
+<h4 id="assets">Assets</h4>
+<ul>
+<li>AssetCompiler was caching assemblies so that they could be modified while running. This feature is only useful in development and was making thing both slower and causing too long path issues, it has therefore been disabled for end-user install (<a href="https://github.com/SiliconStudio/xenko/issues/410">#410</a>)</li>
+</ul>
+<h4 id="engine">Engine</h4>
+<ul>
+<li>Added missing XenkoDefaultFont root asset in default package, this makes the profiler system work again out of the box.</li>
+</ul>
+<h4 id="game-studio-1">Game Studio</h4>
+<ul>
+<li>Fix a crash that could occurs when loading a project that contains broken paths to resource files</li>
+<li>Prevent the Game Studio process to keep running when a fatal problem occurs during the loading</li>
+</ul>
+<h4 id="particles-1">Particles</h4>
+<ul>
+<li>Bug fix where two or more child entities concurrently try to update their parent entity's transform matrix.</li>
+</ul>
+<h2 id="version-166-beta">Version 1.6.6-beta</h2>
+<p>Release date: 2016/05/27</p>
+<h3 id="enhancements-1">Enhancements</h3>
+<h4 id="game-studio-2">Game Studio</h4>
+<ul>
+<li>Don't force opening the default scene every time the Game Studio is started (except for new project). The default scene will only open if it was the case during the last session (same behavior as any other editor).</li>
+</ul>
+<h3 id="issues-fixed-1">Issues fixed</h3>
+<h4 id="game-studio-3">Game Studio</h4>
+<ul>
+<li>Fix an issue preventing to save editor layout when the history of projects reach the maximum size (currently 20 projects).</li>
+<li>Material Selection mode (which allows you to pick a material by clicking directly on the mesh area) was broken.</li>
+</ul>
+<h4 id="engine-1">Engine</h4>
+<ul>
+<li>Changed how OpenGL ES expected vs actual version is handled; this should fix various issues related to context creation on Android and also code targeting older OpenGL should be more consistent across devices.</li>
+<li>There was some issues for GPU resource disposal that might have lead to incorrect state (might fix some issues when closing scenes in the editor).</li>
+<li>ShadowMaps across multiple RenderViews were not working properly (same shadow map texture can be reused but in fact was not).</li>
+<li>Improved the engine's behavior when mobile apps require to handle multiple orientations.</li>
+</ul>
+<h4 id="particles-2">Particles</h4>
+<ul>
+<li>Fixed an issue where non-uniform scaling and rotation on the entities resulted in wrong rotation of the particle system. Currently only uniform scaling is supported.</li>
+</ul>
+<h2 id="version-165-beta">Version 1.6.5-beta</h2>
+<p>Release date: 2016/05/17</p>
+<h3 id="enhancements-2">Enhancements</h3>
+<h4 id="game-studio-4">Game Studio</h4>
+<ul>
+<li>When an image is added to a sprite sheet, the texture region is now sized to the whole image by default.</li>
+<li>The dialog asking for assembly reloading only pops up when the Game Studio has focus.</li>
+<li>The dialog asking to save script only pops up for a script created from inside the Game Studio.</li>
+</ul>
+<h3 id="issues-fixed-2">Issues fixed</h3>
+<h4 id="engine-2">Engine</h4>
+<ul>
+<li>Fix negative index parameter of SpriteFromSheet.GetSprite throwing an exception. Negative index now circles around the collection of sprites (e.g. -1 return the last sprite).</li>
+<li>If a background component was enabled and then disabled, it would still render.</li>
+<li>MSAA rasterizer state was enabled even when not needed (with level 0 so it didn't affect much, except subtle differences in tessellation tests).</li>
+<li>Removed a ThrowNotImplementedException in OnSoundControllerListChanged, re-implemented the missing part.</li>
+<li>Made non generic EventKey and EventReceiver consume bool instead of byte</li>
+<li>Fix a possible crash in PhysicsColliderShape Compose</li>
+<li>Fix culling of shadows casters when no shadow receivers are present</li>
+</ul>
+<h4 id="game-studio-5">Game Studio</h4>
+<ul>
+<li>Fix issues in the sprite editor cache keeping old version of images after their source file had been changed.</li>
+<li>Fix issues in the sprite editor tool that sized incorrectly the texture region, borders or center.</li>
+<li>When closing editor, there was a NullReferenceException in the Gizmo System.</li>
+<li>Fix a crash when using audio and sound assets.</li>
+<li>Fix a crash when trying to copy the crash report itself.</li>
+<li>Fix a crash when adding scripts to entities</li>
+</ul>
+<h2 id="version-164-beta">Version 1.6.4-beta</h2>
+<p>Release date: 2016/04/28</p>
+<h3 id="issues-fixed-3">Issues fixed</h3>
+<ul>
+<li>Fix an issue in the rotation editor when decomposing the rotation matrix into Euler angles.</li>
+<li>Some information were missing in the new GPU crash report</li>
+</ul>
+<h2 id="version-163-beta">Version 1.6.3-beta</h2>
+<p>Release date: 2016/04/27</p>
+<h3 id="enhancements-3">Enhancements</h3>
+<h4 id="game-studio-6">Game Studio</h4>
+<ul>
+<li>Some manipulations with a multi-selection of entities are now faster.</li>
+<li>Improve prefab thumbnails</li>
+<li>Display an helper message in the curve editor on how to add a keyframe when the curve is empty</li>
+<li>Improved crash report so that we have more information about previous exceptions when GPU fails</li>
+</ul>
+<h4 id="android">Android</h4>
+<ul>
+<li>Allow dynamic device orientation switching (desired orientations must be selected from Visual Studio)</li>
+</ul>
+<h4 id="ios">iOS</h4>
+<ul>
+<li>Allow dynamic device orientation switching (desired orientations must be selected from Visual Studio)</li>
+<li>Bumped minimum iOS version requirement from 6.0 to 7.0</li>
+<li>Made some internal classes public to allow fine control of Game start-up by overriding them (experimental)</li>
+</ul>
+<h3 id="issues-fixed-4">Issues fixed</h3>
+<h4 id="game-studio-7">Game Studio</h4>
+<ul>
+<li>Fix an issue in the sprite editor preventing to properly edit newly added frames</li>
+<li>Fix a cache issue in the sprite editor preventing to the magic wand to work properly after modifying a source image externally (<a href="https://github.com/SiliconStudio/xenko/issues/389">#389</a>)</li>
+<li>Fix a crash that could occur when manipulating the Materials of a model component in the scene editor</li>
+<li>Fix a crash when loading projects with Audio related components/assets</li>
+<li>Fix a crash that might occur when closing an editor</li>
+<li>Fix an issue when asset compiler was failing but not properly returning error. As a result, it was easy to run into issue like running the game once and keep it in background (lock files), editing, and when running it again it would still use the older compiled assets.</li>
+<li>Lights and camera gizmo were improperly scaled</li>
+</ul>
+<h4 id="rendering">Rendering</h4>
+<ul>
+<li>Camera now ignore scaling when computing view matrix</li>
+<li>Made various types public instead of internal, so that user can easily extend the rendering pipeline by themselves</li>
+<li>EffectValidator was failing on effects without any permutation values (<a href="https://github.com/SiliconStudio/xenko/issues/378">#378</a>)</li>
+<li>Added a debugger proxy for the new ParameterCollection</li>
+<li>MSAA parameters are now properly forwarded to the main swap chain. Note that it still can't be used in RenderFrame until MSAA targets are properly resolved.</li>
+</ul>
+<h4 id="particles-3">Particles</h4>
+<ul>
+<li>Fix an issue with particles ignoring camera groups when rendering (<a href="https://github.com/SiliconStudio/xenko/issues/380">#380</a>).</li>
+<li>Fix a crash when Spawner's duration and delay were both 0 (<a href="https://github.com/SiliconStudio/xenko/issues/384">#384</a>).</li>
+</ul>
+<h4 id="android-1">Android</h4>
+<ul>
+<li>The Activity is not destroyed anymore when changing device orientation</li>
+</ul>
+<h4 id="ios-1">iOS</h4>
+<ul>
+<li>Fixed a native library dependency issue that prevented Xamarin Incremental build to work properly (There is still a possibly Xamarin side bug preventing this feature to work properly)</li>
+<li>Animation engine custom IL code was not working with latest Xamarin AOT, this is now fixed</li>
+</ul>
+<h4 id="built-in-scripts">Built-in Scripts</h4>
+<ul>
+<li>Fixed PlayerController script to reflect physics component changes</li>
+</ul>
+<h2 id="version-162-beta">Version 1.6.2-beta</h2>
+<p>Release date: 2016/04/04</p>
+<h3 id="issues-fixed-5">Issues fixed</h3>
+<h4 id="game-studio-8">Game Studio</h4>
+<ul>
+<li>The Sprite editor was not properly working anymore due to a regression in 1.6.1-beta</li>
+<li>Referencing an entity inside its own script was crashing the Game Studio</li>
+<li>Fix a concurrency issue that could make the Game Studio crash occasionally</li>
+<li>Tooltip with no text were displayed above some properties</li>
+</ul>
+<h4 id="graphics-1">Graphics</h4>
+<ul>
+<li>Fix a potential issue in the lighting code</li>
+</ul>
+<h2 id="version-161-beta">Version 1.6.1-beta</h2>
+<p>Release date: 2016/03/30</p>
+<h3 id="enhancements-4">Enhancements</h3>
+<h4 id="particles-4">Particles</h4>
+<ul>
+<li>Ribbons and trails renderers added to the engine. Check out our <a href="../../../manual/particles/particles-tutorials/particles-tutorials-ribbons/index.md">tutorial</a> for more details.</li>
+</ul>
+<h4 id="game-studio-9">Game Studio</h4>
+<ul>
+<li>Add statistics on asset usage in the references panel.</li>
+<li>Edition of a string key (e.g. animation key name) can be done inline.</li>
+<li>Improve performance of the curve editor.</li>
+<li>To ease edition of a vector compute curve in the curve editor, other components are also displayed.</li>
+<li>Textboxes in property grid display their content in tooltip.</li>
+<li>Allow to see the property of an asset while it is open in its editor</li>
+<li>Samples and new games now have resource files in an &quot;Resources&quot; folder instead of &quot;RawAssets&quot;</li>
+</ul>
+<h4 id="physics">Physics</h4>
+<ul>
+<li>Added proper entity offset in CharacterComponent Teleport.</li>
+<li>Added utility method Ended in Collision, to avoid writing do/while constructs.</li>
+</ul>
+<h3 id="issues-fixed-6">Issues fixed</h3>
+<h4 id="game-studio-10">Game Studio</h4>
+<ul>
+<li>Fix memory leaks happening when opening and closing scene editor repeatedly</li>
+<li>Fix frequent crash on GameStudio startup because of a thread race condition when setting up file systems</li>
+<li>Fix issue on tree views that sometimes selected the same item more that once, resulting in incorrect property display on property grid.</li>
+<li>Fix issue with maximized window size on multi-monitor system (<a href="https://github.com/SiliconStudio/xenko/issues/361">#361</a>)</li>
+<li>Fix resetting value of a rotation in the property grid.</li>
+<li>Fix save, undo and redo not working on curve editor when the window is in floating mode (was already working when docked).</li>
+<li>Fix zooming issue in curve editor.</li>
+<li>Fix particles not being rendered in thumbnails and asset preview.</li>
+<li>Fix shaders not being reloaded dynamically on shader code file save.</li>
+<li>Fix disappearing Physics Gizmos</li>
+<li>Fix missing settings in NewGame</li>
+<li>Restored different color for trigger collider shapes in debug renderer.</li>
+<li>Fix a crash occurring when closing a scene or prefab editor, or closing the GameStudio itself</li>
+<li>Fix an issue when modifying members of structures in the property grid</li>
+<li>Prevent the property grid to be cleared when switching from a selection of asset to a selection of entities</li>
+</ul>
+<h4 id="graphics-2">Graphics</h4>
+<ul>
+<li>Structs can now be used in shaders. Switched light shaders to use them</li>
+<li>Improve <code>EffectReflection</code> API</li>
+<li>Fix many issues related to fullscreen switching and alt-enter is now fully supported.</li>
+<li>Fix reflection of array texture types (<a href="https://github.com/SiliconStudio/xenko/issues/369">#369</a>)</li>
+<li>Add missing CommandList.SetBlendFactor() method</li>
+</ul>
+<h4 id="engine-3">Engine</h4>
+<ul>
+<li>Various memory leaks fixed</li>
+<li>Remote effect compilation was broken when done with another computer the game was built with</li>
+<li>Used effect notification was failing when shaders were using custom permutation keys</li>
+<li>Fix Entity.EnableAll ignored argument, you can now use this method properly.</li>
+</ul>
+<h4 id="physics-1">Physics</h4>
+<ul>
+<li>Fixed CylinderColliderShape issues with Scaling.</li>
+</ul>
+<h2 id="version-160-beta">Version 1.6.0-beta</h2>
+<p>Release date: 2016/03/15</p>
+<h3 id="how-to-upgrade">How to upgrade</h3>
+<p>Simply open your older projects with new version of GameStudio. It will probably fail to compile your assemblies since API changed little bit, but you can still continue.</p>
+<p>Then, save back your project in GameStudio. You now can open your project with Visual Studio and try to fix your game code with latest API changes.</p>
+<h3 id="enhancements-5">Enhancements</h3>
+<h4 id="assets-1">Assets</h4>
+<h4 id="engine-4">Engine</h4>
+<ul>
+<li>The KeyedSortedList now implements ICollection<t> instead of IList<t> and is more consistent with CollectionDescriptor.</t></t></li>
+</ul>
+<h4 id="game-studio-11">Game Studio</h4>
+<ul>
+<li>Support for prefabs, add a prefab editor</li>
+<li>Create derived assets and support property inheritance</li>
+<li>Added a curve editor to edit animation curve</li>
+<li>Layout is saved on a solution basis. When reloading a project, Game Studio will try to present the same layout and reopen all assets that were edited (this include scenes, prefabs and sprite sheets).</li>
+<li>Add a confirmation dialog to enable saving newly created script automatically.</li>
+<li>Add a confirmation dialog to enable reloading modified assemblies automatically. This is necessary for the script to appear in the list of components that can be added to an entity.</li>
+<li>Physics gizmos are shown by default.</li>
+<li>Preview of an asset can be displayed even if this asset is being edited.</li>
+<li>Project folder can be opened in Windows explorer from the launcher with right-clicking.</li>
+<li>Properties of derived asset are displayed in gray, unless they are overridden. In this case they are displayed in bold.</li>
+<li>Rework scene initialization in the scene editor: the scene will be available almost immediately, and content (model, etc.) will be streamed in as soon as they are (asynchronously) loaded.</li>
+<li>The entity fixup wizard has been removed. Now when an entity is deleted, all references to it or to one of its component is reset to null.</li>
+<li>The gizmo and camera menus are now displayed in the top-right corner.</li>
+<li>Entity hierarchy is synchronized (automatically expanded) with the selected entity in the scene.</li>
+</ul>
+<h4 id="graphics-3">Graphics</h4>
+<ul>
+<li>New D3D12 renderer (experimental)</li>
+<li>New Windows OpenGL and OpenGL ES renderers (experimental)</li>
+<li>Rewrote most of the low- and high-level graphics code to have better performance and better take advantage of new graphics APIs</li>
+<li>Properly separated rendering in 4 phases: Collect (collect &amp; cull), Extract (copy data from scene to renderers), Prepare (prepare cbuffer data &amp; heavy computations), Draw (emit draw calls)</li>
+<li>Introduced concepts of RenderFeature (entry point for extending rendering), RenderStage (effect selection), RenderView and RenderObject</li>
+<li>Render sorting logic can now be customized (culling will be soon too)</li>
+<li>Low-level API has been rewritten to match better new API: CommandList, DescriptorSet, DescriptorHeap, PipelineState, etc.</li>
+<li>Introduced concept of RendererProcessor which are responsible for pushing component data to rendering</li>
+<li>Many other changes, that will soon be covered in documentation</li>
+</ul>
+<h4 id="input">Input</h4>
+<ul>
+<li>Improved GamePad event management to resemble the keyboard API.</li>
+</ul>
+<h3 id="issues-fixed-7">Issues fixed</h3>
+<h4 id="game-studio-12">Game Studio</h4>
+<ul>
+<li>Fix Scripts thumbnail generation during project launch.</li>
+<li>Fix Settings window sharing columns layout with property grid (<a href="https://github.com/SiliconStudio/xenko/issues/341">#341</a>).</li>
+<li>Fix default IDE settings incorrectly reset to null.</li>
+<li>Fix a crash occurring when duplicating an object quickly after selecting it.</li>
+<li>Fix an issue with the message box incorrectly resizing.</li>
+<li>Tooltips are always visible even if the control (menu, button…) is disabled.</li>
+<li>Fix several issues with undo/redo.</li>
+<li>Fix drag and drop of components into properties</li>
+<li>Sometimes the Game Studio was not asking to save when closed with some changes in a project.</li>
+<li>Fix some issues related to folders in scene editor.</li>
+<li>Redo does not re-open asset picker anymore.</li>
+</ul>
+<h4 id="graphics-4">Graphics</h4>
+<ul>
+<li>Tangents generation was invalid and might have resulted in various swaps</li>
+</ul>
+<h4 id="physics-2">Physics</h4>
+<ul>
+<li>Improved collision detection reliability</li>
+<li>Fixed collision filter groups</li>
+<li>Fixed enable/disable component behavior</li>
+</ul>
+<h3 id="breaking-changes">Breaking changes</h3>
+<h4 id="graphics-5">Graphics</h4>
+<ul>
+<li>Extending rendering is quite different from before. Please check SpaceEscape and other samples to have a better idea while we prepare documentation.</li>
+<li>Many methods of GraphicsDevice have been split off into a second class: CommandList</li>
+<li>Added objects such as PipelineState, DescriptorSet and DescriptorHeap to better match new graphics API</li>
+<li>Game now contains a GraphicsContext which gives access to the current CommandList</li>
+<li>GraphicsDevice.BackBuffer and GraphicsDevice.DepthStencilBuffer are gone. Use GraphicsDevice.Presenter.BackBuffer to access the actual backbuffer.</li>
+<li>In addition to RenderContext, there is now a RenderDrawContext. Some methods have been changed to expect the latter.</li>
+<li>ParameterCollection has been rewritten to be much more memory and performance efficient (data is now stored directly in buffers).</li>
+<li>Transferring values from application to shaders and computation of effect permutations used to be done through various inefficient ParameterCollection overrides. This should now be done using RenderFeatures.</li>
+</ul>
+<h4 id="physics-3">Physics</h4>
+<ul>
+<li>PhysicsComponents are now split into 3 different types (Rigidbody, Character, StaticCollider) which can be added multiple times in an entity.</li>
+<li>PhysicsElements are now removed, including the Collider, Rigidbody and Character classes. They now are merged into the new components.</li>
+</ul>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li>Sometimes duplicate contacts are detected by the physics engine</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.6.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

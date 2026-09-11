@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Dispatcher | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Dispatcher | Stride API ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Threading_Dispatcher.md&amp;value=---%0Auid%3A%20Stride.Core.Threading.Dispatcher%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Threading.Dispatcher">
+
+
+
+  <h1 id="Stride_Core_Threading_Dispatcher" data-uid="Stride.Core.Threading.Dispatcher" class="text-break">
+Class Dispatcher  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Threading.html">Threading</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Dispatcher</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Dispatcher</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Threading_Dispatcher_MaxDegreeOfParallelism_" data-uid="Stride.Core.Threading.Dispatcher.MaxDegreeOfParallelism*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_MaxDegreeOfParallelism" data-uid="Stride.Core.Threading.Dispatcher.MaxDegreeOfParallelism">
+  MaxDegreeOfParallelism
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int MaxDegreeOfParallelism { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Threading_Dispatcher_For_" data-uid="Stride.Core.Threading.Dispatcher.For*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_For_System_Int32_System_Int32_System_Action_System_Int32__" data-uid="Stride.Core.Threading.Dispatcher.For(System.Int32,System.Int32,System.Action{System.Int32})">
+  For(int, int, Action&lt;int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void For(int fromInclusive, int toExclusive, Action&lt;int&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toExclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForBatched_" data-uid="Stride.Core.Threading.Dispatcher.ForBatched*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForBatched_System_Int32_System_Action_System_Int32_System_Int32__" data-uid="Stride.Core.Threading.Dispatcher.ForBatched(System.Int32,System.Action{System.Int32,System.Int32})">
+  ForBatched(int, Action&lt;int, int&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForBatched(int items, Action&lt;int, int&gt; executeBatch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>executeBatch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForBatched_" data-uid="Stride.Core.Threading.Dispatcher.ForBatched*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForBatched__1_System_Int32___0_" data-uid="Stride.Core.Threading.Dispatcher.ForBatched``1(System.Int32,``0)">
+  ForBatched&lt;TJob&gt;(int, TJob)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The call producing the least amount of overhead, other methods are built on top of this one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForBatched&lt;TJob&gt;(int items, TJob batchJob) where TJob : Dispatcher.IBatchJob</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount of items to process,
+this total will be split into multiple batches,
+each batch runs <code class="typeparamref">TJob</code>.<a class="xref" href="Stride.Core.Threading.Dispatcher.IBatchJob.html#Stride_Core_Threading_Dispatcher_IBatchJob_Process_System_Int32_System_Int32_">Process(int, int)</a> with the range of items for that batch</p>
+</dd>
+    <dt><code>batchJob</code> <span class="xref">TJob</span></dt>
+    <dd><p>An object shared across all threads running this job, if TJob is a struct each threads will work off of a unique copy of it</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TJob</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>If any of the threads executing this job threw an exception, it will be re-thrown in the caller's scope</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForBatched_" data-uid="Stride.Core.Threading.Dispatcher.ForBatched*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForBatched__1_System_Int32___0___" data-uid="Stride.Core.Threading.Dispatcher.ForBatched``1(System.Int32,``0@,)">
+  ForBatched&lt;T&gt;(int, ref T, delegate*&lt;ref T, int, int, void&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForBatched&lt;T&gt;(int items, ref T parameter, delegate*&lt;ref T, int, int, void&gt; executeBatch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>parameter</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>executeBatch</code> delegate*&lt;ref T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForBatched_" data-uid="Stride.Core.Threading.Dispatcher.ForBatched*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForBatched__1_System_Int32___0___" data-uid="Stride.Core.Threading.Dispatcher.ForBatched``1(System.Int32,``0@,)">
+  ForBatched&lt;T&gt;(int, ref T, delegate*&lt;ref T, int, int, void&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForBatched&lt;T&gt;(int items, ref T parameter, delegate*&lt;ref T, int, int, void&gt; executeBatch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>parameter</code> <span class="xref">T</span></dt>
+    <dd></dd>
+    <dt><code>executeBatch</code> delegate*&lt;ref T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.void">void</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__1_Stride_Core_Collections_FastCollection___0__System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``1(Stride.Core.Collections.FastCollection{``0},System.Action{``0})">
+  ForEach&lt;T&gt;(FastCollection&lt;T&gt;, Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(FastCollection&lt;T&gt; collection, Action&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Collections.FastCollection-1.html">FastCollection</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__1_Stride_Core_Threading_ConcurrentCollector___0__Stride_Core_Threading_Dispatcher_ValueAction___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``1(Stride.Core.Threading.ConcurrentCollector{``0},Stride.Core.Threading.Dispatcher.ValueAction{``0})">
+  ForEach&lt;T&gt;(ConcurrentCollector&lt;T&gt;, ValueAction&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(ConcurrentCollector&lt;T&gt; collection, Dispatcher.ValueAction&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="Stride.Core.Threading.Dispatcher.html">Dispatcher</a>.<a class="xref" href="Stride.Core.Threading.Dispatcher.ValueAction-1.html">ValueAction</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__1_Stride_Core_Threading_ConcurrentCollector___0__System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``1(Stride.Core.Threading.ConcurrentCollector{``0},System.Action{``0})">
+  ForEach&lt;T&gt;(ConcurrentCollector&lt;T&gt;, Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(ConcurrentCollector&lt;T&gt; collection, Action&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__1_System_Collections_Generic_List___0__System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``1(System.Collections.Generic.List{``0},System.Action{``0})">
+  ForEach&lt;T&gt;(List&lt;T&gt;, Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(List&lt;T&gt; collection, Action&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__1___0___System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``1(``0[],System.Action{``0})">
+  ForEach&lt;T&gt;(T[], Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T&gt;(T[] collection, Action&lt;T&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> T[]</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__2_Stride_Core_Threading_ConcurrentCollector___0__System_Func___1__System_Action___0___1__System_Action___1__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``2(Stride.Core.Threading.ConcurrentCollector{``0},System.Func{``1},System.Action{``0,``1},System.Action{``1})">
+  ForEach&lt;T, TLocal&gt;(ConcurrentCollector&lt;T&gt;, Func&lt;TLocal&gt;, Action&lt;T, TLocal&gt;, Action&lt;TLocal&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T, TLocal&gt;(ConcurrentCollector&lt;T&gt; collection, Func&lt;TLocal&gt; initializeLocal, Action&lt;T, TLocal&gt; action, Action&lt;TLocal&gt; finalizeLocal = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>initializeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;T, TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>finalizeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TLocal</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__2_System_Collections_Generic_Dictionary___0___1__System_Action_System_Collections_Generic_KeyValuePair___0___1___" data-uid="Stride.Core.Threading.Dispatcher.ForEach``2(System.Collections.Generic.Dictionary{``0,``1},System.Action{System.Collections.Generic.KeyValuePair{``0,``1}})">
+  ForEach&lt;TKey, TValue&gt;(Dictionary&lt;TKey, TValue&gt;, Action&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;TKey, TValue&gt;(Dictionary&lt;TKey, TValue&gt; collection, Action&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; action) where TKey : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;TKey, TValue&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TKey</code></dt>
+    <dd></dd>
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__2___1_System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``2(``1,System.Action{``0})">
+  ForEach&lt;T, TList&gt;(TList, Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;T, TList&gt;(TList collection, Action&lt;T&gt; action) where TList : IReadOnlyList&lt;T&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <span class="xref">TList</span></dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+    <dt><code>TList</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__3_System_Collections_Generic_Dictionary___0___1__System_Func___2__System_Action_System_Collections_Generic_KeyValuePair___0___1____2__System_Action___2__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{``2},System.Action{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Action{``2})">
+  ForEach&lt;TKey, TValue, TLocal&gt;(Dictionary&lt;TKey, TValue&gt;, Func&lt;TLocal&gt;, Action&lt;KeyValuePair&lt;TKey, TValue&gt;, TLocal&gt;, Action&lt;TLocal&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;TKey, TValue, TLocal&gt;(Dictionary&lt;TKey, TValue&gt; collection, Func&lt;TLocal&gt; initializeLocal, Action&lt;KeyValuePair&lt;TKey, TValue&gt;, TLocal&gt; action, Action&lt;TLocal&gt; finalizeLocal = null) where TKey : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;TKey, TValue&gt;</dt>
+    <dd></dd>
+    <dt><code>initializeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;, TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>finalizeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TKey</code></dt>
+    <dd></dd>
+    <dt><code>TValue</code></dt>
+    <dd></dd>
+    <dt><code>TLocal</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_ForEach_" data-uid="Stride.Core.Threading.Dispatcher.ForEach*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_ForEach__3___2_System_Func___1__System_Action___0___1__System_Action___1__" data-uid="Stride.Core.Threading.Dispatcher.ForEach``3(``2,System.Func{``1},System.Action{``0,``1},System.Action{``1})">
+  ForEach&lt;TItem, TLocal, TList&gt;(TList, Func&lt;TLocal&gt;, Action&lt;TItem, TLocal&gt;, Action&lt;TLocal&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ForEach&lt;TItem, TLocal, TList&gt;(TList collection, Func&lt;TLocal&gt; initializeLocal, Action&lt;TItem, TLocal&gt; action, Action&lt;TLocal&gt; finalizeLocal = null) where TList : IReadOnlyList&lt;TItem&gt;</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <span class="xref">TList</span></dt>
+    <dd></dd>
+    <dt><code>initializeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;TItem, TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>finalizeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TItem</code></dt>
+    <dd></dd>
+    <dt><code>TLocal</code></dt>
+    <dd></dd>
+    <dt><code>TList</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_For_" data-uid="Stride.Core.Threading.Dispatcher.For*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_For__1_System_Int32_System_Int32_System_Func___0__System_Action_System_Int32___0__System_Action___0__" data-uid="Stride.Core.Threading.Dispatcher.For``1(System.Int32,System.Int32,System.Func{``0},System.Action{System.Int32,``0},System.Action{``0})">
+  For&lt;TLocal&gt;(int, int, Func&lt;TLocal&gt;, Action&lt;int, TLocal&gt;, Action&lt;TLocal&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void For&lt;TLocal&gt;(int fromInclusive, int toExclusive, Func&lt;TLocal&gt; initializeLocal, Action&lt;int, TLocal&gt; action, Action&lt;TLocal&gt; finalizeLocal = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromInclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>toExclusive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>initializeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, TLocal&gt;</dt>
+    <dd></dd>
+    <dt><code>finalizeLocal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;TLocal&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TLocal</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_Sort_" data-uid="Stride.Core.Threading.Dispatcher.Sort*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_Sort__1_Stride_Core_Collections_FastList___0__System_Collections_Generic_IComparer___0__" data-uid="Stride.Core.Threading.Dispatcher.Sort``1(Stride.Core.Collections.FastList{``0},System.Collections.Generic.IComparer{``0})">
+  Sort&lt;T&gt;(FastList&lt;T&gt;, IComparer&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in the future alongside FastList. We will have an alternative using Span&lt;T&gt; which you will be able to fallback to.&quot;)]
+public static void Sort&lt;T&gt;(FastList&lt;T&gt; collection, IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Collections.FastList-1.html">FastList</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>comparer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_Sort_" data-uid="Stride.Core.Threading.Dispatcher.Sort*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_Sort__1_Stride_Core_Threading_ConcurrentCollector___0__System_Collections_Generic_IComparer___0__" data-uid="Stride.Core.Threading.Dispatcher.Sort``1(Stride.Core.Threading.ConcurrentCollector{``0},System.Collections.Generic.IComparer{``0})">
+  Sort&lt;T&gt;(ConcurrentCollector&lt;T&gt;, IComparer&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Sort&lt;T&gt;(ConcurrentCollector&lt;T&gt; collection, IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> <a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>comparer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Threading_Dispatcher_Sort_" data-uid="Stride.Core.Threading.Dispatcher.Sort*"></a>
+
+  <h3 id="Stride_Core_Threading_Dispatcher_Sort__1___0___System_Int32_System_Int32_System_Collections_Generic_IComparer___0__" data-uid="Stride.Core.Threading.Dispatcher.Sort``1(``0[],System.Int32,System.Int32,System.Collections.Generic.IComparer{``0})">
+  Sort&lt;T&gt;(T[], int, int, IComparer&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Sort&lt;T&gt;(T[] collection, int index, int length, IComparer&lt;T&gt; comparer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collection</code> T[]</dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>comparer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icomparer-1">IComparer</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Threading/Dispatcher.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

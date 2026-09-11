@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NavigationMeshBuilder | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NavigationMeshBuilder | Stride API ">
+      
+      <meta name="description" content="Incremental navigation mesh builder. Builds the navigation mesh in individual tiles">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Navigation_NavigationMeshBuilder.md&amp;value=---%0Auid%3A%20Stride.Navigation.NavigationMeshBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Navigation.NavigationMeshBuilder">
+
+
+
+  <h1 id="Stride_Navigation_NavigationMeshBuilder" data-uid="Stride.Navigation.NavigationMeshBuilder" class="text-break">
+Class NavigationMeshBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Navigation.html">Navigation</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Navigation.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Incremental navigation mesh builder.
+Builds the navigation mesh in individual tiles</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NavigationMeshBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">NavigationMeshBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Navigation_NavigationMeshBuilder__ctor_" data-uid="Stride.Navigation.NavigationMeshBuilder.#ctor*"></a>
+
+  <h3 id="Stride_Navigation_NavigationMeshBuilder__ctor_Stride_Navigation_NavigationMesh_" data-uid="Stride.Navigation.NavigationMeshBuilder.#ctor(Stride.Navigation.NavigationMesh)">
+  NavigationMeshBuilder(NavigationMesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the builder, optionally with a previous navigation mesh when building incrementally</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NavigationMeshBuilder(NavigationMesh oldNavigationMesh = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldNavigationMesh</code> <a class="xref" href="Stride.Navigation.NavigationMesh.html">NavigationMesh</a></dt>
+    <dd><p>The previous navigation mesh, to allow incremental builds</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Navigation_NavigationMeshBuilder_Logger" data-uid="Stride.Navigation.NavigationMeshBuilder.Logger">
+  Logger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The logger to send additional information to</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Logger Logger</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Diagnostics.Logger.html">Logger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Navigation_NavigationMeshBuilder_Add_" data-uid="Stride.Navigation.NavigationMeshBuilder.Add*"></a>
+
+  <h3 id="Stride_Navigation_NavigationMeshBuilder_Add_Stride_Navigation_StaticColliderData_" data-uid="Stride.Navigation.NavigationMeshBuilder.Add(Stride.Navigation.StaticColliderData)">
+  Add(StaticColliderData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds information about a collider to this builder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(StaticColliderData colliderData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colliderData</code> <a class="xref" href="Stride.Navigation.StaticColliderData.html">StaticColliderData</a></dt>
+    <dd><p>A collider data object to add</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Navigation_NavigationMeshBuilder_Add_Stride_Navigation_StaticColliderData__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>You can only register a single <a class="xref" href="Stride.Physics.StaticColliderComponent.html">StaticColliderComponent</a> once</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>When trying to register collider data with the same <a class="xref" href="Stride.Physics.StaticColliderComponent.html">StaticColliderComponent</a> twice</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Navigation_NavigationMeshBuilder_Build_" data-uid="Stride.Navigation.NavigationMeshBuilder.Build*"></a>
+
+  <h3 id="Stride_Navigation_NavigationMeshBuilder_Build_Stride_Navigation_NavigationMeshBuildSettings_System_Collections_Generic_ICollection_Stride_Navigation_NavigationMeshGroup__Stride_Physics_CollisionFilterGroupFlags_System_Collections_Generic_ICollection_Stride_Core_Mathematics_BoundingBox__System_Threading_CancellationToken_" data-uid="Stride.Navigation.NavigationMeshBuilder.Build(Stride.Navigation.NavigationMeshBuildSettings,System.Collections.Generic.ICollection{Stride.Navigation.NavigationMeshGroup},Stride.Physics.CollisionFilterGroupFlags,System.Collections.Generic.ICollection{Stride.Core.Mathematics.BoundingBox},System.Threading.CancellationToken)">
+  Build(NavigationMeshBuildSettings, ICollection&lt;NavigationMeshGroup&gt;, CollisionFilterGroupFlags, ICollection&lt;BoundingBox&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs the build of a navigation mesh</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NavigationMeshBuildResult Build(NavigationMeshBuildSettings buildSettings, ICollection&lt;NavigationMeshGroup&gt; groups, CollisionFilterGroupFlags includedCollisionGroups, ICollection&lt;BoundingBox&gt; boundingBoxes, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buildSettings</code> <a class="xref" href="Stride.Navigation.NavigationMeshBuildSettings.html">NavigationMeshBuildSettings</a></dt>
+    <dd><p>The build settings to pass to recast</p>
+</dd>
+    <dt><code>groups</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="Stride.Navigation.NavigationMeshGroup.html">NavigationMeshGroup</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>includedCollisionGroups</code> <a class="xref" href="Stride.Physics.CollisionFilterGroupFlags.html">CollisionFilterGroupFlags</a></dt>
+    <dd><p>The collision groups that will affect which colliders are considered solid</p>
+</dd>
+    <dt><code>boundingBoxes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>&gt;</dt>
+    <dd><p>A collection of bounding boxes to use as the region for which to generate navigation mesh tiles</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A cancellation token to interrupt the build process</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Navigation.NavigationMeshBuildResult.html">NavigationMeshBuildResult</a></dt>
+    <dd><p>The build result</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Navigation_NavigationMeshBuilder_Remove_" data-uid="Stride.Navigation.NavigationMeshBuilder.Remove*"></a>
+
+  <h3 id="Stride_Navigation_NavigationMeshBuilder_Remove_Stride_Navigation_StaticColliderData_" data-uid="Stride.Navigation.NavigationMeshBuilder.Remove(Stride.Navigation.StaticColliderData)">
+  Remove(StaticColliderData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a specific collider from the builder</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(StaticColliderData colliderData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colliderData</code> <a class="xref" href="Stride.Navigation.StaticColliderData.html">StaticColliderData</a></dt>
+    <dd><p>The collider data object to remove</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Navigation/NavigationMeshBuilder.cs/#L24" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Serialization | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Serialization | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/serialization.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="serialization">Serialization</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>The editor and serialization system uses four attributes to determine what is serialized and visible in the editor.</p>
+<h3 id="datacontractattribute">DataContractAttribute</h3>
+<p>Adding the <a class="xref" href="../../api/Stride.Core.DataContractAttribute.html"><code>DataContractAttribute</code></a> to your <code>class</code> or <code>struct</code> notifies the serializer that it should serialize the data it contains, and the editor that it should display fields and properties of that type, along with the scenes or assets that might include it.</p>
+<pre><code class="lang-cs">[Stride.Core.DataContract(Inherited = true)]
+public class MySerializedClass
+{
+    public float MyValue;
+}
+
+// 'DataContract' is inherited above. You don't need to specify it for a derived class.
+public class MyDerivedSerializedClass : MySerializedClass
+{
+    public string MyName;
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Your IDE may wrongfully add <code>System.Runtime.Serialization</code> to your list of <code>using</code> when adding <code>DataContract</code>.
+They are not interchangeable.
+Make sure that your <code>DataContract</code> comes from <code>Stride.Core</code>, specifying the namespace explicitly like shown above if necessary.</p>
+</div>
+<h3 id="datamemberattribute">DataMemberAttribute</h3>
+<p>The <a class="xref" href="../../api/Stride.Core.DataMemberAttribute.html"><code>DataMemberAttribute</code></a> notifies the editor and serializer that the property or field on this <a href="#datacontractattribute"><code>DataContract</code></a>'ed <code>class</code> or <code>struct</code> should be serialized. Note that you can omit this attribute for most public fields and properties, as they will be included by default. See <a href="#fields">Fields</a> and <a href="#properties">Properties</a> for specifics.</p>
+<pre><code class="lang-cs">[Stride.Core.DataContract]
+public class MySerializedClass
+{
+    [Stride.Core.DataMember]
+    internal float MyValue;
+}
+</code></pre>
+<h3 id="dataaliasattribute">DataAliasAttribute</h3>
+<p>The <a class="xref" href="../../api/Stride.Core.DataAliasAttribute.html"><code>DataAliasAttribute</code></a> can be used to ensure you do not break previously serialized data whenever you have to change how that member is named in your source.</p>
+<pre><code class="lang-cs">[Stride.Core.DataAlias(&quot;PreviousNameOfProp&quot;)]
+public string MyRenamedProp { get; set; }
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Alias remaps values only while in the editor; this feature is specific to the YAML serialization system. Alias will be ignored during builds and at runtime.</p>
+</div>
+<h3 id="datamemberignoreattribute">DataMemberIgnoreAttribute</h3>
+<p>The <a class="xref" href="../../api/Stride.Core.DataMemberIgnoreAttribute.html"><code>DataMemberIgnoreAttribute</code></a> notifies the editor and serializer that the property or field on this <a href="#datacontractattribute"><code>DataContract</code></a>'ed <code>class</code> or <code>struct</code> should <em><strong>NOT</strong></em> be serialized.</p>
+<pre><code class="lang-cs">[Stride.Core.DataContract]
+public class MySerializedClass
+{
+    [Stride.Core.DataMemberIgnore]
+    public float MyValue { get; set; } // This public property will NOT show up in the editor
+}
+</code></pre>
+<h4 id="todo">TODO</h4>
+<ul>
+<li><a class="xref" href="../../api/Stride.Core.DataMemberCustomSerializerAttribute.html">DataMemberCustomSerializerAttribute</a></li>
+<li><a class="xref" href="../../api/Stride.Updater.DataMemberUpdatableAttribute.html">DataMemberUpdatableAttribute</a></li>
+</ul>
+<h2 id="rule-of-thumb">Rule of Thumb</h2>
+<p>Serialization and the editor's access and view of your properties mirrors how access modifiers work in C#.</p>
+<p>Think of the serializer/editor as being a class external to your codebase, if you want the serializer to
+read and write your properties you have to ensure that the access modifiers for its getter and setter
+allows the serializer to access them.</p>
+<p>If you're hiding that property behind an <code>internal</code> access modifier, you have to annotate it with
+the attribute to ensure it is visible to the serializer.</p>
+<h2 id="fields">Fields</h2>
+<pre><code class="lang-cs">// Read and set in the editor by default
+public object obj;
+
+// Read and set in editor with attribute
+[DataMember] public internal object obj;
+
+// Read only fields cannot be modified to point at another object, but the currently set object may be modified
+public readonly object obj;
+[DataMember] internal readonly object obj;
+
+// Never
+private protected/private/protected object obj;
+</code></pre>
+<h2 id="properties">Properties</h2>
+<pre><code class="lang-cs">// Read and set in the editor ...
+
+// By default
+public object obj { get; set; }
+public object obj { get =&gt; x; set =&gt; x = value; }
+
+// Forced with the attribute for 'internal' modifiers
+[DataMember] public object obj { internal get; public/internal set; }
+[DataMember] public object obj { internal get =&gt; x; public/internal set =&gt; x; }
+
+// Read only
+public object obj { get; }
+
+// Read only for any non-public access modifier
+public object obj { get; internal/private protected/private/protected set; }
+public object obj { get =&gt; x; internal/private protected/private/protected set =&gt; x = value; }
+
+// Read only for internal properties must be enforced through the attribute
+[DataMember] internal object obj { get; }
+[DataMember] internal object obj { get =&gt; x; }
+
+// Read only, special case for get-only public properties without backing field, 
+//They must use the attribute to be deserialized, see the comment below
+[DataMember] public object obj { get =&gt; x; }
+
+// Read only for access modifiers more restrictive than internal, even with the attribute
+[DataMember] public object obj { internal get; private protected/private/protected set; }
+[DataMember] public object obj { internal get =&gt; x; private protected/private/protected set =&gt; x; }
+
+// Never
+private protected/private/protected object obj { get; set; }
+private protected/private/protected object obj { get =&gt; x; set =&gt; x; }
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Get-only public properties without backing field (<code>public object obj { get =&gt; x; }</code>) are not serialized by default as
+they are, more often than not, shortcuts to values of another object or used purely as a function.
+It might make more sense to change it to <code>{ get; } = new MyObject();</code> or <code>{ get; init; }</code> if you want to serialize it,
+and if that doesn't work for you, feel free to add the attribute to enforce serialization.</p>
+</div>
+<h3 id="what-about-init-">What about <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/init">init</a> ?</h3>
+<p>The <code>init</code> access modifier is seen as a <code>public set</code> by the editor and serialization, it will be settable in the editor.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="public-properties-and-fields.html">Public properties and fields</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/serialization.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MaterialGeneratorContext | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MaterialGeneratorContext | Stride API ">
+      
+      <meta name="description" content="Main entry point class for generating shaders from a">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Materials_MaterialGeneratorContext.md&amp;value=---%0Auid%3A%20Stride.Rendering.Materials.MaterialGeneratorContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Materials.MaterialGeneratorContext">
+
+
+
+  <h1 id="Stride_Rendering_Materials_MaterialGeneratorContext" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext" class="text-break">
+Class MaterialGeneratorContext  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Materials.html">Materials</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Main entry point class for generating shaders from a <a class="xref" href="Stride.Rendering.Materials.MaterialDescriptor.html">MaterialDescriptor</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MaterialGeneratorContext : ShaderGeneratorContext, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html">ShaderGeneratorContext</a></div>
+      <div><span class="xref">MaterialGeneratorContext</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_FindAsset">ShaderGeneratorContext.FindAsset</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetAssetFriendlyName">ShaderGeneratorContext.GetAssetFriendlyName</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_Log">ShaderGeneratorContext.Log</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_Content">ShaderGeneratorContext.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_Parameters">ShaderGeneratorContext.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_CurrentOverrides">ShaderGeneratorContext.CurrentOverrides</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_ColorSpace">ShaderGeneratorContext.ColorSpace</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_IsNotPixelStage">ShaderGeneratorContext.IsNotPixelStage</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_OptimizeMaterials">ShaderGeneratorContext.OptimizeMaterials</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetParameterKey_Stride_Rendering_ParameterKey_">ShaderGeneratorContext.GetParameterKey(ParameterKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GenerateTextureFromColor_Stride_Core_Mathematics_Color_">ShaderGeneratorContext.GenerateTextureFromColor(Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetTextureKey_Stride_Graphics_Texture_Stride_Rendering_ObjectParameterKey_Stride_Graphics_Texture__System_Nullable_Stride_Core_Mathematics_Color__">ShaderGeneratorContext.GetTextureKey(Texture, ObjectParameterKey&lt;Texture&gt;, Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetSamplerKey_Stride_Graphics_SamplerStateDescription_Stride_Graphics_GraphicsDevice_">ShaderGeneratorContext.GetSamplerKey(SamplerStateDescription, GraphicsDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetTextureKey_Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Stride_Rendering_Materials_MaterialComputeColorKeys_">ShaderGeneratorContext.GetTextureKey(ComputeTextureBase, MaterialComputeColorKeys)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_GetSamplerKey_Stride_Rendering_Materials_ComputeColors_ComputeColorParameterSampler_">ShaderGeneratorContext.GetSamplerKey(ComputeColorParameterSampler)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_ResetParameterKeys">ShaderGeneratorContext.ResetParameterKeys()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_PushOverrides_Stride_Rendering_Materials_MaterialOverrides_">ShaderGeneratorContext.PushOverrides(MaterialOverrides)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html#Stride_Rendering_Materials_ShaderGeneratorContext_PopOverrides">ShaderGeneratorContext.PopOverrides()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Destroy">ComponentBase.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext__ctor_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext__ctor_Stride_Rendering_Material_Stride_Graphics_GraphicsDevice_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.#ctor(Stride.Rendering.Material,Stride.Graphics.GraphicsDevice)">
+  MaterialGeneratorContext(Material, GraphicsDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html">MaterialGeneratorContext</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaterialGeneratorContext(Material material = null, GraphicsDevice graphicsDevice = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>material</code> <a class="xref" href="Stride.Rendering.Material.html">Material</a></dt>
+    <dd></dd>
+    <dt><code>graphicsDevice</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_DefaultFinalCallbackOrder" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.DefaultFinalCallbackOrder">
+  DefaultFinalCallbackOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultFinalCallbackOrder = 0</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_CurrentMaterialDescriptor_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.CurrentMaterialDescriptor*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_CurrentMaterialDescriptor" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.CurrentMaterialDescriptor">
+  CurrentMaterialDescriptor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current material descriptor on the material stack</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMaterialDescriptor CurrentMaterialDescriptor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialDescriptor.html">IMaterialDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_GraphicsProfile_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GraphicsProfile*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_GraphicsProfile" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GraphicsProfile">
+  GraphicsProfile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The graphics profile this material will be compatiable with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsProfile GraphicsProfile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_Material_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Material*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_Material" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Material">
+  Material
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the compiled <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html#Stride_Rendering_Materials_MaterialGeneratorContext_Material">Material</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material Material { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Material.html">Material</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_MaterialPass_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.MaterialPass*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_MaterialPass" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.MaterialPass">
+  MaterialPass
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the compiled <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html#Stride_Rendering_Materials_MaterialGeneratorContext_MaterialPass">MaterialPass</a>. Only valid during <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorStep.html#Stride_Rendering_Materials_MaterialGeneratorStep_GenerateShader">GenerateShader</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaterialPass MaterialPass { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.MaterialPass.html">MaterialPass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PassCount_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PassCount*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PassCount" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PassCount">
+  PassCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>In case of multi pass materials, this describe the number of passes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PassCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PassIndex_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PassIndex*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PassIndex" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PassIndex">
+  PassIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current pass (used by multipass materials). Only valid during <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorStep.html#Stride_Rendering_Materials_MaterialGeneratorStep_GenerateShader">GenerateShader</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PassIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_Step_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Step*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_Step" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Step">
+  Step
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current step of material generation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaterialGeneratorStep Step { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorStep.html">MaterialGeneratorStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_AddFinalCallback_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddFinalCallback*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_AddFinalCallback_Stride_Rendering_Materials_MaterialShaderStage_Stride_Rendering_Materials_MaterialGeneratorContext_MaterialGeneratorCallback_System_Int32_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddFinalCallback(Stride.Rendering.Materials.MaterialShaderStage,Stride.Rendering.Materials.MaterialGeneratorContext.MaterialGeneratorCallback,System.Int32)">
+  AddFinalCallback(MaterialShaderStage, MaterialGeneratorCallback, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFinalCallback(MaterialShaderStage stage, MaterialGeneratorContext.MaterialGeneratorCallback callback, int order = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html">MaterialGeneratorContext</a>.<a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.MaterialGeneratorCallback.html">MaterialGeneratorCallback</a></dt>
+    <dd></dd>
+    <dt><code>order</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_AddShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddShaderSource*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_AddShaderSource_Stride_Rendering_Materials_MaterialShaderStage_Stride_Shaders_ShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddShaderSource(Stride.Rendering.Materials.MaterialShaderStage,Stride.Shaders.ShaderSource)">
+  AddShaderSource(MaterialShaderStage, ShaderSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddShaderSource(MaterialShaderStage stage, ShaderSource shaderSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>shaderSource</code> <a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_AddShading_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddShading*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_AddShading__1___0_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddShading``1(``0)">
+  AddShading&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShadingModelShaderBuilder AddShading&lt;T&gt;(T shadingModel) where T : class, IMaterialShadingModelFeature</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadingModel</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.ShadingModelShaderBuilder.html">ShadingModelShaderBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_AddStreamInitializer_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddStreamInitializer*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_AddStreamInitializer_Stride_Rendering_Materials_MaterialShaderStage_System_String_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.AddStreamInitializer(Stride.Rendering.Materials.MaterialShaderStage,System.String)">
+  AddStreamInitializer(MaterialShaderStage, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddStreamInitializer(MaterialShaderStage stage, string streamInitilizerSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>streamInitilizerSource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_ComputeShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.ComputeShaderSource*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_ComputeShaderSource_Stride_Rendering_Materials_MaterialShaderStage_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.ComputeShaderSource(Stride.Rendering.Materials.MaterialShaderStage)">
+  ComputeShaderSource(MaterialShaderStage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShaderSource ComputeShaderSource(MaterialShaderStage stage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_GenerateStreamInitializers_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GenerateStreamInitializers*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_GenerateStreamInitializers_Stride_Rendering_Materials_MaterialShaderStage_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GenerateStreamInitializers(Stride.Rendering.Materials.MaterialShaderStage)">
+  GenerateStreamInitializers(MaterialShaderStage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShaderSource GenerateStreamInitializers(MaterialShaderStage stage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_GetShading_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetShading*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_GetShading__1___0_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetShading``1(``0)">
+  GetShading&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShadingModelShaderBuilder GetShading&lt;T&gt;(T shadingModel) where T : class, IMaterialShadingModelFeature</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shadingModel</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.ShadingModelShaderBuilder.html">ShadingModelShaderBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_GetStreamBlendShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetStreamBlendShaderSource*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_GetStreamBlendShaderSource_System_String_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetStreamBlendShaderSource(System.String)">
+  GetStreamBlendShaderSource(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShaderSource GetStreamBlendShaderSource(string stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_GetStreamFinalModifier_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetStreamFinalModifier*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_GetStreamFinalModifier__1_Stride_Rendering_Materials_MaterialShaderStage_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.GetStreamFinalModifier``1(Stride.Rendering.Materials.MaterialShaderStage)">
+  GetStreamFinalModifier&lt;T&gt;(MaterialShaderStage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ShaderSource GetStreamFinalModifier&lt;T&gt;(MaterialShaderStage stage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_HasShaderSources_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.HasShaderSources*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_HasShaderSources_Stride_Rendering_Materials_MaterialShaderStage_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.HasShaderSources(Stride.Rendering.Materials.MaterialShaderStage)">
+  HasShaderSources(MaterialShaderStage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasShaderSources(MaterialShaderStage stage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PopLayer_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopLayer*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PopLayer" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopLayer">
+  PopLayer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pops the current layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopLayer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PopMaterial_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopMaterial*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PopMaterial" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopMaterial">
+  PopMaterial()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMaterialDescriptor PopMaterial()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialDescriptor.html">IMaterialDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PopPass_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopPass*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PopPass" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PopPass">
+  PopPass()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PopPass()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PushLayer_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushLayer*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PushLayer_Stride_Rendering_Materials_IComputeScalar_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushLayer(Stride.Rendering.Materials.IComputeScalar)">
+  PushLayer(IComputeScalar)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pushes a new layer with the specified blend map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PushLayer(IComputeScalar blendMap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>blendMap</code> <a class="xref" href="Stride.Rendering.Materials.IComputeScalar.html">IComputeScalar</a></dt>
+    <dd><p>The blend map used by this layer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PushMaterial_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushMaterial*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PushMaterial_Stride_Rendering_Materials_IMaterialDescriptor_System_String_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushMaterial(Stride.Rendering.Materials.IMaterialDescriptor,System.String)">
+  PushMaterial(IMaterialDescriptor, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Push a material for processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PushMaterial(IMaterialDescriptor materialDescriptor, string materialName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>materialDescriptor</code> <a class="xref" href="Stride.Rendering.Materials.IMaterialDescriptor.html">IMaterialDescriptor</a></dt>
+    <dd><p>The material descriptor.</p>
+</dd>
+    <dt><code>materialName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Friendly name of the material.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the material is valid and can be visited, <code>false</code> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>materialDescriptor</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_PushPass_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushPass*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_PushPass" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.PushPass">
+  PushPass()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MaterialPass PushPass()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.MaterialPass.html">MaterialPass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_SetMultiplePasses_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetMultiplePasses*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_SetMultiplePasses_System_String_System_Int32_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetMultiplePasses(System.String,System.Int32)">
+  SetMultiplePasses(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Register this material with multiple passes. This is only possible once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMultiplePasses(string module, int passCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>module</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The module</p>
+</dd>
+    <dt><code>passCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_Stride_Rendering_Materials_MaterialShaderStage_System_String_Stride_Rendering_Materials_IComputeNode_Stride_Rendering_ObjectParameterKey_Stride_Graphics_Texture__Stride_Rendering_ParameterKey_System_Nullable_Stride_Core_Mathematics_Color__" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream(Stride.Rendering.Materials.MaterialShaderStage,System.String,Stride.Rendering.Materials.IComputeNode,Stride.Rendering.ObjectParameterKey{Stride.Graphics.Texture},Stride.Rendering.ParameterKey,System.Nullable{Stride.Core.Mathematics.Color})">
+  SetStream(MaterialShaderStage, string, IComputeNode, ObjectParameterKey&lt;Texture&gt;, ParameterKey, Color?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStream(MaterialShaderStage stage, string stream, IComputeNode computeNode, ObjectParameterKey&lt;Texture&gt; defaultTexturingKey, ParameterKey defaultValueKey, Color? defaultTextureValue = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>computeNode</code> <a class="xref" href="Stride.Rendering.Materials.IComputeNode.html">IComputeNode</a></dt>
+    <dd></dd>
+    <dt><code>defaultTexturingKey</code> <a class="xref" href="Stride.Rendering.ObjectParameterKey-1.html">ObjectParameterKey</a>&lt;<a class="xref" href="Stride.Graphics.Texture.html">Texture</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>defaultValueKey</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+    <dt><code>defaultTextureValue</code> <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_Stride_Rendering_Materials_MaterialShaderStage_System_String_Stride_Rendering_Materials_MaterialStreamType_Stride_Shaders_ShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream(Stride.Rendering.Materials.MaterialShaderStage,System.String,Stride.Rendering.Materials.MaterialStreamType,Stride.Shaders.ShaderSource)">
+  SetStream(MaterialShaderStage, string, MaterialStreamType, ShaderSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStream(MaterialShaderStage stage, string stream, MaterialStreamType streamType, ShaderSource shaderSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>streamType</code> <a class="xref" href="Stride.Rendering.Materials.MaterialStreamType.html">MaterialStreamType</a></dt>
+    <dd></dd>
+    <dt><code>shaderSource</code> <a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStream_System_String_Stride_Rendering_Materials_IComputeNode_Stride_Rendering_ObjectParameterKey_Stride_Graphics_Texture__Stride_Rendering_ParameterKey_System_Nullable_Stride_Core_Mathematics_Color__" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStream(System.String,Stride.Rendering.Materials.IComputeNode,Stride.Rendering.ObjectParameterKey{Stride.Graphics.Texture},Stride.Rendering.ParameterKey,System.Nullable{Stride.Core.Mathematics.Color})">
+  SetStream(string, IComputeNode, ObjectParameterKey&lt;Texture&gt;, ParameterKey, Color?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStream(string stream, IComputeNode computeNode, ObjectParameterKey&lt;Texture&gt; defaultTexturingKey, ParameterKey defaultValueKey, Color? defaultTextureValue = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>computeNode</code> <a class="xref" href="Stride.Rendering.Materials.IComputeNode.html">IComputeNode</a></dt>
+    <dd></dd>
+    <dt><code>defaultTexturingKey</code> <a class="xref" href="Stride.Rendering.ObjectParameterKey-1.html">ObjectParameterKey</a>&lt;<a class="xref" href="Stride.Graphics.Texture.html">Texture</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>defaultValueKey</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+    <dt><code>defaultTextureValue</code> <a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStreamFinalModifier_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStreamFinalModifier*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_SetStreamFinalModifier__1_Stride_Rendering_Materials_MaterialShaderStage_Stride_Shaders_ShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.SetStreamFinalModifier``1(Stride.Rendering.Materials.MaterialShaderStage,Stride.Shaders.ShaderSource)">
+  SetStreamFinalModifier&lt;T&gt;(MaterialShaderStage, ShaderSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetStreamFinalModifier&lt;T&gt;(MaterialShaderStage stage, ShaderSource shaderSource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>shaderSource</code> <a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_UseStream_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.UseStream*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_UseStream_Stride_Rendering_Materials_MaterialShaderStage_System_String_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.UseStream(Stride.Rendering.Materials.MaterialShaderStage,System.String)">
+  UseStream(MaterialShaderStage, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UseStream(MaterialShaderStage stage, string stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_UseStreamWithCustomBlend_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.UseStreamWithCustomBlend*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_UseStreamWithCustomBlend_Stride_Rendering_Materials_MaterialShaderStage_System_String_Stride_Shaders_ShaderSource_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.UseStreamWithCustomBlend(Stride.Rendering.Materials.MaterialShaderStage,System.String,Stride.Shaders.ShaderSource)">
+  UseStreamWithCustomBlend(MaterialShaderStage, string, ShaderSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UseStreamWithCustomBlend(MaterialShaderStage stage, string stream, ShaderSource blendStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stage</code> <a class="xref" href="Stride.Rendering.Materials.MaterialShaderStage.html">MaterialShaderStage</a></dt>
+    <dd></dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>blendStream</code> <a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialGeneratorContext_Visit_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Visit*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialGeneratorContext_Visit_Stride_Rendering_Materials_IMaterialFeature_" data-uid="Stride.Rendering.Materials.MaterialGeneratorContext.Visit(Stride.Rendering.Materials.IMaterialFeature)">
+  Visit(IMaterialFeature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Visit(IMaterialFeature feature)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feature</code> <a class="xref" href="Stride.Rendering.Materials.IMaterialFeature.html">IMaterialFeature</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/MaterialGeneratorContext.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

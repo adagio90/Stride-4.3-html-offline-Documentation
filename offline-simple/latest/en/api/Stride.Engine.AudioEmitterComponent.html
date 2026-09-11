@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AudioEmitterComponent | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AudioEmitterComponent | Stride API ">
+      
+      <meta name="description" content="Component representing an audio emitter.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Engine_AudioEmitterComponent.md&amp;value=---%0Auid%3A%20Stride.Engine.AudioEmitterComponent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Engine.AudioEmitterComponent">
+
+
+
+  <h1 id="Stride_Engine_AudioEmitterComponent" data-uid="Stride.Engine.AudioEmitterComponent" class="text-break">
+Class AudioEmitterComponent  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Engine.html">Engine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Component representing an audio emitter.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Audio emitter&quot;, null, Expand = ExpandRule.Once)]
+[DataContract(&quot;AudioEmitterComponent&quot;)]
+[DefaultEntityComponentProcessor(typeof(AudioEmitterProcessor), ExecutionMode = ExecutionMode.Runtime)]
+[ComponentOrder(7000)]
+[ComponentCategory(&quot;Audio&quot;)]
+public sealed class AudioEmitterComponent : ActivableEntityComponent, IIdentifiable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></div>
+      <div><a class="xref" href="Stride.Engine.ActivableEntityComponent.html">ActivableEntityComponent</a></div>
+      <div><span class="xref">AudioEmitterComponent</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Engine.ActivableEntityComponent.html#Stride_Engine_ActivableEntityComponent_Enabled">ActivableEntityComponent.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Entity">EntityComponent.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Id">EntityComponent.Id</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="Stride_Engine_AudioEmitterComponent_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+Associate this component to an entity to simulate a 3D localized source of sound coming from the entity center.
+</p>
+<p>
+Several sounds can be associated to a single AudioEmitterComponent.
+Use the <a class="xref" href="Stride.Engine.AudioEmitterComponent.html#Stride_Engine_AudioEmitterComponent_Sounds">Sounds</a> dictionary to associate or dissociate a <a class="xref" href="Stride.Audio.SoundBase.html">SoundBase</a> to the emitter component.
+Each SoundBase associated to the emitter component can be controlled (played, paused, stopped, ...) independently for the others.
+Once attached to the emitter component, a SoundBase is controlled using a <a class="xref" href="Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a>.
+To get the AudioEmitterSoundController associated to a SoundBase use the readonly <a class="xref" href="Stride.Engine.AudioEmitterComponent.html#Stride_Engine_AudioEmitterComponent_Item_System_String_">this[string]</a> indexer.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_Sounds" data-uid="Stride.Engine.AudioEmitterComponent.Sounds">
+  Sounds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sounds this audio emitter can play and use</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(10)]
+public TrackingDictionary&lt;string, Sound&gt; Sounds</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingDictionary-2.html">TrackingDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="Stride.Audio.Sound.html">Sound</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_DirectionalFactor_" data-uid="Stride.Engine.AudioEmitterComponent.DirectionalFactor*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_DirectionalFactor" data-uid="Stride.Engine.AudioEmitterComponent.DirectionalFactor">
+  DirectionalFactor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If 0 the sound will be omnidirectional, 1 fully directional</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(30)]
+[DataMemberRange(0, 1, 0.1, 0.2, 3)]
+public float DirectionalFactor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_Environment_" data-uid="Stride.Engine.AudioEmitterComponent.Environment*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_Environment" data-uid="Stride.Engine.AudioEmitterComponent.Environment">
+  Environment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reverberation model that this emitter will use</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(40)]
+public HrtfEnvironment Environment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Audio.HrtfEnvironment.html">HrtfEnvironment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_Item_" data-uid="Stride.Engine.AudioEmitterComponent.Item*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_Item_System_String_" data-uid="Stride.Engine.AudioEmitterComponent.Item(System.String)">
+  this[string]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sound controllers associated with the sounds this audio emitter can play and use, use this to access and play sounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioEmitterSoundController this[string soundName] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>soundName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the sound you want to access.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a></dt>
+    <dd><p>The sound controller.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_UseHRTF_" data-uid="Stride.Engine.AudioEmitterComponent.UseHRTF*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_UseHRTF" data-uid="Stride.Engine.AudioEmitterComponent.UseHRTF">
+  UseHRTF
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If possible use a more complex HRTF algorithm to perform 3D sound simulation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(20)]
+public bool UseHRTF { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_AttachSound_" data-uid="Stride.Engine.AudioEmitterComponent.AttachSound*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_AttachSound_Stride_Audio_SoundBase_" data-uid="Stride.Engine.AudioEmitterComponent.AttachSound(Stride.Audio.SoundBase)">
+  AttachSound(SoundBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attach a <a class="xref" href="Stride.Audio.SoundBase.html">SoundBase</a> to this emitter component.
+Once attached a <a class="xref" href="Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a> can be queried using readonly <a class="xref" href="Stride.Engine.AudioEmitterComponent.html#Stride_Engine_AudioEmitterComponent_Item_System_String_">this[string]</a> indexer to control the attached SoundBase.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioEmitterSoundController AttachSound(SoundBase sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="Stride.Audio.SoundBase.html">SoundBase</a></dt>
+    <dd><p>The SoundBase to attach</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Engine_AudioEmitterComponent_AttachSound_Stride_Audio_SoundBase__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Attaching a SoundBase already attached has no effects.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The provided <code class="paramref">sound</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provided <code class="paramref">sound</code> can not be localized (contains more than one channel).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Engine_AudioEmitterComponent_DetachSound_" data-uid="Stride.Engine.AudioEmitterComponent.DetachSound*"></a>
+
+  <h3 id="Stride_Engine_AudioEmitterComponent_DetachSound_Stride_Audio_SoundBase_" data-uid="Stride.Engine.AudioEmitterComponent.DetachSound(Stride.Audio.SoundBase)">
+  DetachSound(SoundBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Detach a <a class="xref" href="Stride.Audio.SoundBase.html">SoundBase</a> from this emitter component.
+Once detach the controller previously associated to the SoundBase is invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DetachSound(SoundBase sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="Stride.Audio.SoundBase.html">SoundBase</a></dt>
+    <dd><p>The SoundBase to detach.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>The provided <code class="paramref">sound</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The provided <code class="paramref">sound</code> is not currently attached to the emitter component.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/AudioEmitterComponent.cs/#L30" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

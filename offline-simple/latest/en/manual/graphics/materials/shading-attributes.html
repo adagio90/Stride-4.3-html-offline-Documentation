@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Shading attributes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Shading attributes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/shading-attributes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="shading-attributes">Shading attributes</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>The material <strong>shading attributes</strong> define the color characteristics of the material and how it reacts to light.</p>
+<p><img src="media/shading-properties.png" alt="Shading attributes"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To display a material, you need to select at least one shading model (diffuse, specular or emissive model) in the model attributes.</p>
+</div>
+<h2 id="diffuse">Diffuse</h2>
+<p>The <strong>diffuse</strong> is the basic color of the material. A pure diffuse material is completely non-reflective and &quot;flat&quot; in appearance.</p>
+<p><img src="media/material-attributes-25.png" alt="media/material-attributes-25.png"></p>
+<p>The final diffuse contribution is calculated like this:</p>
+<ul>
+<li>the <strong>diffuse</strong> defines the color used by the diffuse model</li>
+<li>the <strong>diffuse model</strong> defines which shading model is used for rendering the diffuse component (see below)</li>
+</ul>
+<p>Currently, the diffuse attribute supports only a <strong>diffuse map</strong>.</p>
+<p><img src="media/material-attributes-23.png" alt="media/material-attributes-23.png"></p>
+<h3 id="diffuse-model">Diffuse model</h3>
+<p>The <strong>diffuse model</strong> determines how the diffuse material reacts to light. You can use the <strong>Lambert</strong> or <strong>cel-shading</strong>.</p>
+<h4 id="lambert-model">Lambert model</h4>
+<p>Under the Lambert model, light is reflected equally in all directions with an intensity following a cosine angular distribution (angle between the normal and the light):</p>
+<p><img src="media/material-attributes-24.png" alt="media/material-attributes-24.png"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A pure Lambertian material doesn't exist in reality. A material always has a little specular reflection. This effect is more visible at grazing angles (a mostly diffuse surface becomes shiny at grazing angle).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diffuse map</td>
+<td>The diffuse map color provider</td>
+</tr>
+<tr>
+<td>Diffuse model</td>
+<td>The shading model for diffuse lighting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="specular">Specular</h2>
+<p>A <strong>specular</strong> is a point of light reflected in a material.</p>
+<p><img src="media/specular-highlight.png" alt="Specular highlight"></p>
+<p>The specular color can be defined using a metalness map (which uses the diffuse color as a base color), or a specular map (the specular color is defined separately from the diffuse color).</p>
+<h3 id="metalness-map">Metalness map</h3>
+<p>The <strong>metalness map</strong> simplifies parametrization between the diffuse and specular color.</p>
+<p>By taking into into account the fact that almost all materials always have some &quot;metalness&quot;/reflectance in them, using the metalness map provides realistic materials with minimal parametrization.</p>
+<p>The final specular color is calculated by mixing a fixed low-reflection color and the diffuse color.</p>
+<ul>
+<li>With the metalness color at <code>0.0</code>, the effective specular color is equal to <code>0.02</code>, while the diffuse color is unchanged. The material is not metal but exhibits some reflectance and is sensitive to the Fresnel effect.</li>
+<li>With the metalness color at <code>1.0</code>, the effective specular color is equal to the diffuse color, and the diffuse color is set to <code>0</code>. The material is considered a pure metal.
+<img src="media/material-attributes-26.png" alt="media/material-attributes-26.png"></li>
+</ul>
+<p>The screenshots below show the result of the metalness factor on a material with the following attributes:</p>
+<ul>
+<li>Gloss = <code>0.8</code></li>
+<li>Diffuse = <code>#848484</code>, Lambert</li>
+<li>Specular GGX</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pure diffuse (no metalness)</th>
+<th>Metalness = <code>0.0</code></th>
+<th>Metalness = <code>1.0</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-27.png" alt="media/material-attributes-27.png"></td>
+<td><img src="media/material-attributes-28.png" alt="media/material-attributes-28.png"></td>
+<td><img src="media/material-attributes-29.png" alt="media/material-attributes-29.png"></td>
+</tr>
+<tr>
+<td>- The diffuse color is dominant</td>
+<td>- The diffuse color is dominant</td>
+<td>- The diffuse color isn't visible</td>
+</tr>
+<tr>
+<td>- The specular color isn't visible</td>
+<td>- The specular color is visible (<code>0.02</code>)</td>
+<td>- The specular color is visible</td>
+</tr>
+</tbody>
+</table>
+<h3 id="specular-map">Specular map</h3>
+<p>The specular map provides more control over the actual specular color, but requires you to modify the diffuse color accordingly.</p>
+<p>Unlike the metalness workflow, this lets you have a different specular color from the diffuse color even in low-reflection scenarios, allowing for materials with special behavior.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can combine metalness and specular workflows in the same material by adding separate <a href="material-layers.html">layers</a>.</p>
+</div>
+<h2 id="specular-model">Specular model</h2>
+<p>A pure specular surface produces a highlight of a light in a mirror direction. In practice, a broad range of specular materials, not entirely smooth, can reflect light in multiple directions. Stride simulates this using the <strong>microfacet</strong> model, also known as <a href="http://www.cs.columbia.edu/%7Ebelhumeur/courses/appearance/cook-torrance.pdf">Cook-Torrance (academic paper)</a>.</p>
+<p><img src="media/material-attributes-33.png" alt="media/material-attributes-33.png"></p>
+<p>The microfacet is defined by the following formula, where Rs is the resulting specular reflectance:</p>
+<p><img src="media/material-attributes-34.png" alt="media/material-attributes-34.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fresnel</td>
+<td>Defines the amount of light that is reflected and transmitted. The models supported are: <br><strong>Schlick</strong>: An approximation of the Fresnel effect (default)<br><strong>Thin glass</strong>: A simulation of light passing through glass<br><strong>None</strong>: The material as-is with no Fresnel effect</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>Defines the visibility between of the microfacets between (0, 1). Also known as the geometry attenuation - Shadowing and Masking - in the original Cook-Torrance. Stride simplifies the formula to use the visibility term instead: <br><img src="media/material-attributes-35.png" alt="media/material-attributes-35.png"><br>and<br><img src="media/material-attributes-36.png" alt="media/material-attributes-36.png"><br><strong>Schlick GGX</strong> (default)<br><strong>Implicit</strong>: The microsurface is always visible and generates no shadowing or masking<br><strong>Cook-Torrance</strong><br><strong>Kelemen</strong><br><strong>Neumann</strong><br><strong>Smith-Beckmann</strong><br><strong>Smith-GGX correlated</strong><br><strong>Schlick-Beckmann</strong></td>
+</tr>
+<tr>
+<td>Normal Distribution</td>
+<td>Defines how the normal is distributed. The gloss attribute is used by this part of the function to modify the distribution of the normal.<br><strong>GGX</strong> (default)<br><strong>Beckmann</strong><br><strong>Blinn-Phong</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="emissive">Emissive</h2>
+<p>An <strong>emissive</strong> material is a surface that emits light.</p>
+<p><img src="media/material-attributes-37.png" alt="media/material-attributes-37.png"></p>
+<p>With HDR, a <a href="../post-effects/bloom.html">Bloom</a> and a <a href="../post-effects/bright-filter.html">Bright filter</a> post-processing effects, we can see the influence of an emissive material:</p>
+<p><img src="media/material-attributes-38.png" alt="media/material-attributes-38.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Emissive map</td>
+<td>The emissive map color provider</td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td>The factor to multiply by the color of the color provider</td>
+</tr>
+<tr>
+<td>Use alpha</td>
+<td>Use the alpha of the emissive map as the main alpha color of the material (instead of using the alpha of the diffuse map by default)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="geometry-attributes.html">Geometry attributes</a></li>
+<li><a href="misc-attributes.html">Misc attributes</a></li>
+<li><a href="material-maps.html">Material maps</a></li>
+<li><a href="material-layers.html">Material layers</a></li>
+<li><a href="materials-for-developers.html">Materials for developers</a></li>
+<li><a href="../effects-and-shaders/custom-shaders.html">Custom shaders</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/shading-attributes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

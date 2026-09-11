@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tutorial: Script a trigger | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tutorial: Script a trigger | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/script-a-trigger.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tutorial-script-a-trigger">Tutorial: Script a trigger</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Bullet Physics is being phased out. We no longer plan to support or expand its features as our focus shifts to <a href="../physics/index.html">Bepu Physics</a>. We recommend transitioning to Bepu Physics for access to the latest updates and ongoing improvements.</p>
+</div>
+
+<p>In this tutorial, we'll create a <a href="../physics/triggers.html">trigger</a> that doubles the size of a ball when the ball passes through it.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The screenshots and videos in this tutorial were made using an earlier version of Stride, so some parts of the UI, and the default skybox and sphere, might look different from your version.</p>
+</div>
+<h2 id="1-create-a-bouncing-ball">1. Create a bouncing ball</h2>
+<p>Follow the instructions in the <a href="create-a-bouncing-ball.html">Create a bouncing ball</a> tutorial. This creates a simple scene in which a ball falls from mid-air, hits the ground, and bounces.</p>
+<h2 id="2-set-the-restitution">2. Set the restitution</h2>
+<p>For this tutorial, we'll set the restitution of both the ground and the sphere to 0.9, which makes the ball very bouncy. This makes it easier to see the effect of the trigger later, as the ball will bounce in and out of the trigger area repeatedly.</p>
+<ol>
+<li><p>Select the <strong>Sphere</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Rigidbody</strong>, set the <strong>Restitution</strong> to <em>0.9</em>.</p>
+<p><img src="media/physics-tutorials-rigidbody-restitution.png" alt="Set restitution for a sphere"></p>
+</li>
+<li><p>Select the <strong>Ground</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Static Collider</strong>, set the <strong>Restitution</strong> to <em>0.9</em>.</p>
+<p><img src="media/physics-tutorials-static-collider-restitution.png" alt="Set restitution for the ground"></p>
+</li>
+</ol>
+<h2 id="3-add-a-trigger">3. Add a trigger</h2>
+<p>Now we'll add a trigger between the ball and the ground, so the ball passes through it.</p>
+<ol>
+<li><p>In the <strong>Scene Editor</strong>, click the white plus button (<strong>Create new entity</strong>) and select <strong>Empty entity</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-new-entity.png" alt="Create new entity"></p>
+<p>Game Studio adds an entity to the scene with the default name <strong>Entity</strong>.</p>
+</li>
+<li><p>This entity will be our trigger, so rename it <em>Trigger</em> to make it easy to identify.</p>
+</li>
+<li><p>Since we don't need the trigger to move, we'll make it a static collider. In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Static Collider</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-bouncing-ball-add-collider-component.png" alt="Add Static collider component"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, expand the <strong>Static Collider component</strong> to view its properties.</p>
+</li>
+<li><p>Select the <strong>Is Trigger</strong> checkbox.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-is-trigger-checkbox.png" alt="Check 'Is trigger'"></p>
+<p>This makes the collider a trigger. This means objects can pass through it, but are still detected in the code.</p>
+</li>
+<li><p>We need to give the trigger a shape. Next to <strong>Collider Shapes</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Box</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-box-shape-to-a-trigger.png" alt="Add collider shape"></p>
+<p>This gives the trigger a box shape.</p>
+<p><img src="media/physics-tutorials-added-trigger-area.png" alt="Added trigger"></p>
+</li>
+<li><p>Let's make the trigger a larger area. In the <strong>Property Grid</strong>, under the <strong>Transform</strong> component properties, set the <strong>scale</strong> to: <em>X:2, Y:2, Z:2</em></p>
+<p><img src="media/physics-tutorials-create-a-trigger-scale-trigger.png" alt="Scale a trigger"></p>
+<p>This doubles the size of the trigger.</p>
+<p><img src="media/physics-tutorials-added-trigger-doubled-area.png" alt="Added trigger"></p>
+</li>
+</ol>
+<h2 id="4-give-the-trigger-a-model">4. Give the trigger a model</h2>
+<p>Right now, the trigger is invisible at runtime. To better show how the trigger works, we'll make it a transparent box. This has no effect on how the trigger works; it just means we can easily see where it is at runtime.</p>
+<ol>
+<li><p>Create a new procedural model asset. To do this, in the <strong>Asset View</strong>, click <strong>Add asset</strong>, and select <strong>Models &gt; Cube</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-a-model.png" alt="Add a model asset"></p>
+</li>
+<li><p>Create a new empty material asset. To do this, in the <strong>Asset View</strong>, click <strong>Add asset</strong>, and select <strong>Materials &gt; Material</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-a-material-asset.png" alt="Add a material asset"></p>
+</li>
+<li><p>Let's rename the material to make it easy to identify. To do this, right-click, select <strong>Rename</strong>, and type a new name (eg <em>Transparent</em>).</p>
+</li>
+<li><p>Select the <strong>Trigger</strong> entity. In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Model</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-a-model-component.png" alt="Add a model component"></p>
+<p>Game Studio adds a model component to the entity.</p>
+</li>
+<li><p>Under <strong>Model</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/physics-tutorials-pick-an-asset-up.png" alt="Pick an asset up"></p>
+</li>
+<li><p>Select the <strong>Cube</strong> model we created in step 1 and click <strong>OK</strong>.</p>
+<p><img src="media/physics-tutorials-select-cube-model.png" alt="Select Cube model"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Model &gt; Materials</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/physics-tutorials-material-asset-picker.png" alt="Select material"></p>
+</li>
+<li><p>Select the <strong>Transparent</strong> material we created in step 2 and click <strong>OK</strong>.</p>
+<p><img src="media/physics-tutorials-select-transparent-material.png" alt="Select material"></p>
+</li>
+<li><p>In the <strong>Asset View</strong>, select the <strong>Transparent</strong> material asset.</p>
+<p><img src="media/physics-tutorials-select-material-asset.png" alt="Select material in Asset View"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Misc &gt; Transparency</strong>, select <strong>Blend</strong>.</p>
+<p><img src="media/physics-tutorials-set-blend.png" alt="Select Blend"></p>
+</li>
+<li><p>By default, the Alpha is set to 1. This makes the material completely opaque. To set it to 50% opacity, set the <strong>Alpha</strong> to 0.5.</p>
+<p><img src="media/physics-tutorials-set-blend-alpha.png" alt="Select Blend"></p>
+<p>Now the trigger area will be visible at runtime.</p>
+</li>
+</ol>
+<h2 id="5-position-the-trigger">5. Position the trigger</h2>
+<p>We need to position the trigger between the ground and the sphere, so the ball falls through it.</p>
+<p>In the <strong>Property Grid</strong>, under <strong>Transform</strong>, set the <strong>Position</strong> to: <em>X:0, Y:3, Z:0</em></p>
+<p>Now the trigger entity is between the ground and the sphere:</p>
+<p><img src="media/physics-tutorials-create-a-trigger-trigger-between-ground-and-sphere.png" alt="Trigger between ground and sphere"></p>
+<h2 id="6-change-the-sphere-size-with-script">6. Change the sphere size with script</h2>
+<p>If we run the project now (<strong>F5</strong>), the ball falls through the trigger, but nothing happens.</p>
+<p>
+<video autoplay loop class="responsive-video" poster="media/bouncing-ball-with-trigger-no-effect.png">
+   <source src="media/bouncing-ball-with-trigger-no-effect.mp4" type="video/mp4">
+</video>
+</p>
+<p>Let's write a script to change the size of the ball when it enters the trigger.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For more information about scripts, see <a href="../scripts/index.html">Scripts</a>.</p>
+</div>
+<ol>
+<li><p>In the <strong>Asset View</strong>, click <strong>Add asset</strong> and select <strong>Scripts</strong> &gt; <strong>Async Script</strong>.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-async-script.png" alt="Use a script"></p>
+</li>
+<li><p>In the <strong>Create a script</strong> dialog, name your script <em>Trigger</em> and click <strong>Create script</strong>.</p>
+<p>2a. If Game Studio asks if you want to save your script, click <strong>Save</strong>.</p>
+<p>2b. If Game Studio asks if you want to reload the assemblies, click <strong>Reload</strong>.</p>
+</li>
+<li><p>Open the script, replace its content with the following code, and save the file:</p>
+<pre><code class="lang-cs">using Stride.Engine;
+using Stride.Physics;
+using System.Threading.Tasks;
+using Stride.Core.Mathematics;
+
+namespace TransformTrigger
+// You can use any namespace you like for this script.
+{
+    public class Trigger : AsyncScript
+    {
+        public override async Task Execute()
+        {
+            var trigger = Entity.Get&lt;PhysicsComponent&gt;();
+            trigger.ProcessCollisions = true;
+
+            // Start state machine
+            while (Game.IsRunning)
+            {
+                // 1. Wait for an entity to collide with the trigger
+                var firstCollision = await trigger.NewCollision();
+
+                var otherCollider = trigger == firstCollision.ColliderA
+                    ? firstCollision.ColliderB
+                    : firstCollision.ColliderA;
+                otherCollider.Entity.Transform.Scale = new Vector3(2.0f, 2.0f, 2.0f);
+
+                // 2. Wait for the entity to exit the trigger
+                await firstCollision.Ended();
+
+                otherCollider.Entity.Transform.Scale= new Vector3(1.0f, 1.0f, 1.0f);
+            }
+        }
+    }
+}
+</code></pre>
+<p>This code doubles the size (scale) of any entity that enters the trigger. When the entity exits the trigger, it returns to its original size.</p>
+</li>
+<li><p>Reload the assemblies.</p>
+</li>
+</ol>
+<h2 id="7-add-the-script">7. Add the script</h2>
+<p>Finally, let's add this script to the trigger entity as a component.</p>
+<ol>
+<li><p>In <strong>Game Studio</strong>, select the <strong>Trigger</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select the <strong>Trigger</strong> script.</p>
+<p><img src="media/physics-tutorials-create-a-trigger-add-script-component-to-entity.png" alt="Add script component to entity"></p>
+</li>
+</ol>
+<h2 id="8-run-the-project">8. Run the project</h2>
+<p>Run the project (<strong>F5</strong>) to see the trigger in action.</p>
+<p>The ball falls through the trigger, doubles in size, exits the trigger, and returns to its normal size.</p>
+<p>
+<video autoplay loop class="responsive-video" poster="media/bouncing-ball-with-trigger-scaled_first_frame.png">
+   <source src="media/bouncing-ball-with-trigger-scaled.mp4" type="video/mp4">
+</video>
+</p>
+<h2 id="more-ideas">More ideas</h2>
+<p>You can alter the script to make other changes when the sphere enters the trigger.</p>
+<p>For example, you can switch the material on the sphere entity. This script switches the material on the Sphere entity from the <strong>Sphere Material</strong> to the <strong>Ground Material</strong> and back again:</p>
+<pre><code class="lang-cs">using Stride.Engine;
+using Stride.Physics;
+using System.Threading.Tasks;
+using Stride.Core.Mathematics;
+using Stride.Rendering;
+
+namespace TransformTrigger
+// You can use any namespace you like for this script.
+{
+    public class Trigger : AsyncScript
+    {
+        private Material material1;
+        private Material material2;
+    
+        public override async Task Execute()
+        {
+            var trigger = Entity.Get&lt;PhysicsComponent&gt;();
+            trigger.ProcessCollisions = true;
+            
+            // Make sure the materials are loaded 
+            material1 = Content.Load&lt;Material&gt;(&quot;Sphere Material&quot;);
+            material2 = Content.Load&lt;Material&gt;(&quot;Ground Material&quot;);
+
+            // Start state machine
+            while (Game.IsRunning)
+            {
+                // 1. Wait for an entity to collide with the trigger
+                var firstCollision = await trigger.NewCollision();
+
+                var otherCollider = trigger == firstCollision.ColliderA
+                    ? firstCollision.ColliderB
+                    : firstCollision.ColliderA;
+                    
+                // 2. Change the material on the entity
+                otherCollider.Entity.Get&lt;ModelComponent&gt;().Materials[0] = material2;
+                
+                // 3. Wait for the entity to exit the trigger
+                await firstCollision.Ended();
+
+                // 4. Change the material back to the original one
+                otherCollider.Entity.Get&lt;ModelComponent&gt;().Materials[0] = material1;
+            }
+        }
+        
+        public override void Cancel()
+        {
+            Content.Unload(material1);
+            Content.Unload(material2);
+        }
+    }
+}
+</code></pre>
+<p>
+<video autoplay loop class="responsive-video" poster="media/bouncing-ball-with-trigger-material_first_frame.png">
+   <source src="media/bouncing-ball-with-trigger-material.mp4" type="video/mp4">
+</video>
+</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="create-a-bouncing-ball.html">Tutorial: Create a bouncing ball</a></li>
+<li><a href="colliders.html">Colliders</a></li>
+<li><a href="collider-shapes.html">Collider shapes</a></li>
+<li><a href="../scripts/index.html">Scripts</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/script-a-trigger.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

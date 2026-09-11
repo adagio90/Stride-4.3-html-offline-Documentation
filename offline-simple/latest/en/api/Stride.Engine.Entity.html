@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Entity | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Entity | Stride API ">
+      
+      <meta name="description" content="Represents a game entity that typically aggregates multiple  instances. For more information about entities, see Adding entities and Managing entities.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Engine_Entity.md&amp;value=---%0Auid%3A%20Stride.Engine.Entity%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Engine.Entity">
+
+
+
+  <h1 id="Stride_Engine_Entity" data-uid="Stride.Engine.Entity" class="text-break">
+Class Entity  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Engine.html">Engine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a game entity that typically aggregates multiple <a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a> instances.
+For more information about entities, see <a href="https://doc.stride3d.net/latest/en/manual/game-studio/add-entities.html">Adding entities</a>
+and <a href="https://doc.stride3d.net/latest/en/manual/game-studio/manage-entities.html">Managing entities</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ContentSerializer(typeof(Entity.EntityContentSerializer))]
+[DataSerializer(typeof(Entity.EntitySerializer))]
+[DataStyle(DataStyle.Normal)]
+[DataContract(&quot;Entity&quot;)]
+public sealed class Entity : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder, IEnumerable&lt;EntityComponent&gt;, IEnumerable, IIdentifiable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">Entity</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="BepuSimulationExtensions.html#BepuSimulationExtensions_GetSimulation_Stride_Engine_Entity_">BepuSimulationExtensions.GetSimulation(Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityExtensions.html#Stride_Engine_EntityExtensions_Clone_Stride_Engine_Entity_">EntityExtensions.Clone(Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityExtensions.html#Stride_Engine_EntityExtensions_EnableAll_Stride_Engine_Entity_System_Boolean_System_Boolean_">EntityExtensions.EnableAll(Entity, bool, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityExtensions.html#Stride_Engine_EntityExtensions_Enable__1_Stride_Engine_Entity_System_Boolean_System_Boolean_">EntityExtensions.Enable&lt;T&gt;(Entity, bool, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityExtensions.html#Stride_Engine_EntityExtensions_GetChildren_Stride_Engine_Entity_">EntityExtensions.GetChildren(Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_AddChild_Stride_Engine_Entity_Stride_Engine_Entity_">EntityTransformExtensions.AddChild(Entity, Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_FindChild_Stride_Engine_Entity_System_String_">EntityTransformExtensions.FindChild(Entity, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_FindRoot_Stride_Engine_Entity_">EntityTransformExtensions.FindRoot(Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_GetChild_Stride_Engine_Entity_System_Int32_">EntityTransformExtensions.GetChild(Entity, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_GetParent_Stride_Engine_Entity_">EntityTransformExtensions.GetParent(Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_RemoveChild_Stride_Engine_Entity_Stride_Engine_Entity_">EntityTransformExtensions.RemoveChild(Entity, Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_RemoveChild_Stride_Engine_Entity_System_Guid_">EntityTransformExtensions.RemoveChild(Entity, Guid)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_SetParent_Stride_Engine_Entity_Stride_Engine_Entity_">EntityTransformExtensions.SetParent(Entity, Entity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ForEach__1_System_Collections_Generic_IEnumerable___0__System_Action___0__">EnumerableExtensions.ForEach&lt;T&gt;(IEnumerable&lt;T&gt;, Action&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_IndexOf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">EnumerableExtensions.IndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_LastIndexOf__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__">EnumerableExtensions.LastIndexOf&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_NotNull__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.NotNull&lt;T&gt;(IEnumerable&lt;T?&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ToHashCode__1_System_Collections_Generic_IEnumerable___0__">EnumerableExtensions.ToHashCode&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_ForEach__1_System_Collections_IEnumerable_System_Action___0__">EnumerableExtensions.ForEach&lt;T&gt;(IEnumerable, Action&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.Extensions.EnumerableExtensions.html#Stride_Core_Extensions_EnumerableExtensions_IsNullOrEmpty_System_Collections_IEnumerable_">EnumerableExtensions.IsNullOrEmpty(IEnumerable)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Engine_Entity__ctor_" data-uid="Stride.Engine.Entity.#ctor*"></a>
+
+  <h3 id="Stride_Engine_Entity__ctor" data-uid="Stride.Engine.Entity.#ctor">
+  Entity()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a new <a class="xref" href="Stride.Engine.Entity.html">Entity</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity__ctor_" data-uid="Stride.Engine.Entity.#ctor*"></a>
+
+  <h3 id="Stride_Engine_Entity__ctor_System_String_" data-uid="Stride.Engine.Entity.#ctor(System.String)">
+  Entity(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a new <a class="xref" href="Stride.Engine.Entity.html">Entity</a> instance having the provided name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name to give to the entity</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity__ctor_" data-uid="Stride.Engine.Entity.#ctor*"></a>
+
+  <h3 id="Stride_Engine_Entity__ctor_System_String_Stride_Core_Mathematics_Vector3_System_Nullable_Stride_Core_Mathematics_Quaternion__System_Nullable_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Engine.Entity.#ctor(System.String,Stride.Core.Mathematics.Vector3,System.Nullable{Stride.Core.Mathematics.Quaternion},System.Nullable{Stride.Core.Mathematics.Vector3})">
+  Entity(string, Vector3, Quaternion?, Vector3?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a new <a class="xref" href="Stride.Engine.Entity.html">Entity</a> instance having the provided name, initial position, rotation and scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Entity(string name = null, Vector3 position = default, Quaternion? rotation = null, Vector3? scale = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name to give to the entity</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The initial position of the entity</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a>?</dt>
+    <dd><p>The initial rotation of the entity</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>?</dt>
+    <dd><p>The initial scale of the entity</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Engine_Entity_Components_" data-uid="Stride.Engine.Entity.Components*"></a>
+
+  <h3 id="Stride_Engine_Entity_Components" data-uid="Stride.Engine.Entity.Components">
+  Components
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The components stored in this entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(100, DataMemberMode.Content)]
+public EntityComponentCollection Components { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.EntityComponentCollection.html">EntityComponentCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_EntityManager_" data-uid="Stride.Engine.Entity.EntityManager*"></a>
+
+  <h3 id="Stride_Engine_Entity_EntityManager" data-uid="Stride.Engine.Entity.EntityManager">
+  EntityManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The entity manager which processes this entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EntityManager EntityManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.EntityManager.html">EntityManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Id_" data-uid="Stride.Engine.Entity.Id*"></a>
+
+  <h3 id="Stride_Engine_Entity_Id" data-uid="Stride.Engine.Entity.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the id of this instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(-10)]
+[Display(null, null, Browsable = false)]
+public Guid Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Name_" data-uid="Stride.Engine.Entity.Name*"></a>
+
+  <h3 id="Stride_Engine_Entity_Name" data-uid="Stride.Engine.Entity.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of this component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public override string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Scene_" data-uid="Stride.Engine.Entity.Scene*"></a>
+
+  <h3 id="Stride_Engine_Entity_Scene" data-uid="Stride.Engine.Entity.Scene">
+  Scene
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The scene this entity is in. <br>
+Setting this to null will remove the entity from the scene and detach it from its parent if it has one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene Scene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.Scene.html">Scene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Transform_" data-uid="Stride.Engine.Entity.Transform*"></a>
+
+  <h3 id="Stride_Engine_Entity_Transform" data-uid="Stride.Engine.Entity.Transform">
+  Transform
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="Stride.Engine.Entity.html#Stride_Engine_Entity_Transform">Transform</a> associated to this entity.
+Added for convenience over usual Get/Set method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TransformComponent Transform { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Engine_Entity_Add_" data-uid="Stride.Engine.Entity.Add*"></a>
+
+  <h3 id="Stride_Engine_Entity_Add_Stride_Engine_EntityComponent_" data-uid="Stride.Engine.Entity.Add(Stride.Engine.EntityComponent)">
+  Add(EntityComponent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the specified component to the entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(EntityComponent component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></dt>
+    <dd><p>The component to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if the component is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Engine_Entity_GetAll_" data-uid="Stride.Engine.Entity.GetAll*"></a>
+
+  <h3 id="Stride_Engine_Entity_GetAll__1" data-uid="Stride.Engine.Entity.GetAll``1">
+  GetAll&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all components of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; GetAll&lt;T&gt;() where T : EntityComponent</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The component or null if does no exist</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_GetEnumerator_" data-uid="Stride.Engine.Entity.GetEnumerator*"></a>
+
+  <h3 id="Stride_Engine_Entity_GetEnumerator" data-uid="Stride.Engine.Entity.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the enumerator of <a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastCollection&lt;EntityComponent&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastCollection-1.html">FastCollection</a>&lt;<a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a>&gt;.<a class="xref" href="Stride.Engine.EntityComponent.html">Enumerator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_GetOrCreate_" data-uid="Stride.Engine.Entity.GetOrCreate*"></a>
+
+  <h3 id="Stride_Engine_Entity_GetOrCreate__1" data-uid="Stride.Engine.Entity.GetOrCreate``1">
+  GetOrCreate&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or create a component with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetOrCreate&lt;T&gt;() where T : EntityComponent, new()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>A new or existing instance of {T}</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the entity component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Get_" data-uid="Stride.Engine.Entity.Get*"></a>
+
+  <h3 id="Stride_Engine_Entity_Get__1" data-uid="Stride.Engine.Entity.Get``1">
+  Get&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first component of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;() where T : EntityComponent</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The component or null if does no exist</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Get_" data-uid="Stride.Engine.Entity.Get*"></a>
+
+  <h3 id="Stride_Engine_Entity_Get__1_System_Int32_" data-uid="Stride.Engine.Entity.Get``1(System.Int32)">
+  Get&lt;T&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index'th component of the specified type. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(int index) where T : EntityComponent</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index'th component to select.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The component or null if does no exist</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Engine_Entity_Get__1_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><ul>
+<li>If index &gt; 0, it will take the index'th component of the specified <code class="typeparamref">T</code>.</li>
+<li>An index == 0 is equivalent to calling <a class="xref" href="Stride.Engine.Entity.html#Stride_Engine_Entity_Get__1">Get&lt;T&gt;()</a></li>
+<li>if index &lt; 0, it will start from the end of the list to the beginning. A value of -1 means the first last component.</li>
+</ul>
+</div>
+
+
+
+
+  <a id="Stride_Engine_Entity_Remove_" data-uid="Stride.Engine.Entity.Remove*"></a>
+
+  <h3 id="Stride_Engine_Entity_Remove_Stride_Engine_EntityComponent_" data-uid="Stride.Engine.Entity.Remove(Stride.Engine.EntityComponent)">
+  Remove(EntityComponent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(EntityComponent component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>component</code> <a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_RemoveAll_" data-uid="Stride.Engine.Entity.RemoveAll*"></a>
+
+  <h3 id="Stride_Engine_Entity_RemoveAll__1" data-uid="Stride.Engine.Entity.RemoveAll``1">
+  RemoveAll&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all components of the specified type or derived type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAll&lt;T&gt;() where T : EntityComponent</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_Remove_" data-uid="Stride.Engine.Entity.Remove*"></a>
+
+  <h3 id="Stride_Engine_Entity_Remove__1" data-uid="Stride.Engine.Entity.Remove``1">
+  Remove&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the first component of the specified type or derived type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove&lt;T&gt;() where T : EntityComponent</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_Entity_ToString_" data-uid="Stride.Engine.Entity.ToString*"></a>
+
+  <h3 id="Stride_Engine_Entity_ToString" data-uid="Stride.Engine.Entity.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/Entity.cs/#L26" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

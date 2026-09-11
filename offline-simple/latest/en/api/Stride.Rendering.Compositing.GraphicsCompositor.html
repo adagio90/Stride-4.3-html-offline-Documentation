@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GraphicsCompositor | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GraphicsCompositor | Stride API ">
+      
+      <meta name="description" content="The GraphicsCompositor class organizes how scenes are rendered in the Stride engine, providing extensive customization of the rendering pipeline.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Compositing_GraphicsCompositor.md&amp;value=---%0Auid%3A%20Stride.Rendering.Compositing.GraphicsCompositor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Compositing.GraphicsCompositor">
+
+
+
+  <h1 id="Stride_Rendering_Compositing_GraphicsCompositor" data-uid="Stride.Rendering.Compositing.GraphicsCompositor" class="text-break">
+Class GraphicsCompositor  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Compositing.html">Compositing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The <code>GraphicsCompositor</code> class organizes how scenes are rendered in the Stride engine, providing extensive customization of the rendering pipeline.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataSerializerGlobal(typeof(ReferenceSerializer&lt;GraphicsCompositor&gt;), null, DataSerializerGenericMode.None, false, false, Profile = &quot;Content&quot;)]
+[ContentSerializer(typeof(DataContentSerializerWithReuse&lt;GraphicsCompositor&gt;))]
+[DataContract]
+[DataSerializerGlobal(null, typeof(FastTrackingCollection&lt;RenderStage&gt;), DataSerializerGenericMode.None, false, false)]
+[DataSerializerGlobal(null, typeof(FastTrackingCollection&lt;RootRenderFeature&gt;), DataSerializerGenericMode.None, false, false)]
+public class GraphicsCompositor : RendererBase, IComponent, IReferencable, ICollectorHolder, IGraphicsRenderer, IGraphicsRendererBase, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererCoreBase.html">RendererCoreBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererBase.html">RendererBase</a></div>
+      <div><span class="xref">GraphicsCompositor</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRenderer.html">IGraphicsRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererBase.html">IGraphicsRendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_Draw_Stride_Rendering_RenderDrawContext_">RendererBase.Draw(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Enabled">RendererCoreBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Profiling">RendererCoreBase.Profiling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GPUProfilingKey">RendererCoreBase.GPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CPUProfilingKey">RendererCoreBase.CPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Context">RendererCoreBase.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Services">RendererCoreBase.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Content">RendererCoreBase.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GraphicsDevice">RendererCoreBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EffectSystem">RendererCoreBase.EffectSystem</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialized">RendererCoreBase.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialize_Stride_Rendering_RenderContext_">RendererCoreBase.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Unload">RendererCoreBase.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PreDrawCore_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PreDrawCore(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PostDrawCore_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PostDrawCore(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedBuffer_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_">RendererCoreBase.NewScopedBuffer(BufferDescription, PixelFormat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedTypedBuffer_System_Int32_Stride_Graphics_PixelFormat_System_Boolean_Stride_Graphics_GraphicsResourceUsage_">RendererCoreBase.NewScopedTypedBuffer(int, PixelFormat, bool, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PushScopedResource__1___0_">RendererCoreBase.PushScopedResource&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CheckIsInDrawCore">RendererCoreBase.CheckIsInDrawCore()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_ToLoadAndUnload__1___0_">RendererCoreBase.ToLoadAndUnload&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PreDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PreDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EnsureContext_Stride_Rendering_RenderContext_">RendererCoreBase.EnsureContext(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PostDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PostDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Rendering_Compositing_GraphicsCompositor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class handles the initialization and destruction of the render system, manages the cameras used in the composition, and controls the render stages and features.
+It provides entry points for the game compositor, a single view compositor, and a compositor used by the scene editor.</p>
+<p>
+Key features of the <code>GraphicsCompositor</code> include:
+</p>
+<ul><li>Using one or multiple cameras</li><li>Filtering entities</li><li>Rendering to one or more render textures with different viewports</li><li>Setting HDR or LDR rendering</li><li>Applying post effects to a render target</li><li>Clearing a render target or only the depth buffer</li><li>Editable in the Game Studio and at runtime from scripts</li></ul>
+<p>
+For more information, see the
+<a href="https://doc.stride3d.net/latest/en/manual/graphics/graphics-compositor/index.html">Graphics Compositor</a> documentation.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_Current" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A property key to get the current <a class="xref" href="Stride.Rendering.Compositing.GraphicsCompositor.html">GraphicsCompositor</a> from the <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">Tags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PropertyKey&lt;GraphicsCompositor&gt; Current</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyKey-1.html">PropertyKey</a>&lt;<a class="xref" href="Stride.Rendering.Compositing.GraphicsCompositor.html">GraphicsCompositor</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_Cameras_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Cameras*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_Cameras" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Cameras">
+  Cameras
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the cameras used by this composition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(10)]
+public SceneCameraSlotCollection Cameras { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.SceneCameraSlotCollection.html">SceneCameraSlotCollection</a></dt>
+    <dd><p>The cameras.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_Editor_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Editor*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_Editor" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Editor">
+  Editor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The entry point for a compositor used by the scene editor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISceneRenderer Editor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.ISceneRenderer.html">ISceneRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_Game_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Game*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_Game" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Game">
+  Game
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The entry point for the game compositor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISceneRenderer Game { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.ISceneRenderer.html">ISceneRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_RenderFeatures_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderFeatures*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_RenderFeatures" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderFeatures">
+  RenderFeatures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of render features.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(30)]
+public IList&lt;RootRenderFeature&gt; RenderFeatures { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Stride.Rendering.RootRenderFeature.html">RootRenderFeature</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_RenderStages_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderStages*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_RenderStages" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderStages">
+  RenderStages
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of render stages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(20)]
+public IList&lt;RenderStage&gt; RenderStages { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_RenderSystem_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderSystem*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_RenderSystem" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.RenderSystem">
+  RenderSystem
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the render system used with this graphics compositor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderSystem RenderSystem { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderSystem.html">RenderSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_SingleView_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.SingleView*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_SingleView" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.SingleView">
+  SingleView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The entry point for a compositor that can render a single view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISceneRenderer SingleView { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.ISceneRenderer.html">ISceneRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_Destroy_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Destroy*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_Destroy" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_DrawCore_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.DrawCore*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_DrawCore_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.DrawCore(Stride.Rendering.RenderDrawContext)">
+  DrawCore(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Main drawing method for this renderer that must be implemented.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DrawCore(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_GraphicsCompositor_InitializeCore_" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.InitializeCore*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_GraphicsCompositor_InitializeCore" data-uid="Stride.Rendering.Compositing.GraphicsCompositor.InitializeCore">
+  InitializeCore()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeCore()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/GraphicsCompositor.cs/#L41" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

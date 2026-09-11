@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PixelBuffer | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PixelBuffer | Stride API ">
+      
+      <meta name="description" content="An unmanaged buffer of pixels.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_PixelBuffer.md&amp;value=---%0Auid%3A%20Stride.Graphics.PixelBuffer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.PixelBuffer">
+
+
+
+  <h1 id="Stride_Graphics_PixelBuffer" data-uid="Stride.Graphics.PixelBuffer" class="text-break">
+Class PixelBuffer  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An unmanaged buffer of pixels.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PixelBuffer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">PixelBuffer</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_PixelBuffer__ctor_" data-uid="Stride.Graphics.PixelBuffer.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer__ctor_System_Int32_System_Int32_Stride_Graphics_PixelFormat_System_Int32_System_Int32_System_IntPtr_" data-uid="Stride.Graphics.PixelBuffer.#ctor(System.Int32,System.Int32,Stride.Graphics.PixelFormat,System.Int32,System.Int32,System.IntPtr)">
+  PixelBuffer(int, int, PixelFormat, int, int, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelBuffer(int width, int height, PixelFormat format, int rowStride, int bufferStride, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>rowStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row pitch.</p>
+</dd>
+    <dt><code>bufferStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The slice pitch.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The pixels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_PixelBuffer_BufferStride_" data-uid="Stride.Graphics.PixelBuffer.BufferStride*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_BufferStride" data-uid="Stride.Graphics.PixelBuffer.BufferStride">
+  BufferStride
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total size in bytes of this pixel buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BufferStride { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size in bytes of the pixel buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_DataPointer_" data-uid="Stride.Graphics.PixelBuffer.DataPointer*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_DataPointer" data-uid="Stride.Graphics.PixelBuffer.DataPointer">
+  DataPointer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pointer to the pixel buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint DataPointer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The pointer to the pixel buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_Format_" data-uid="Stride.Graphics.PixelBuffer.Format*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_Format" data-uid="Stride.Graphics.PixelBuffer.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat Format { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_Height_" data-uid="Stride.Graphics.PixelBuffer.Height*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_Height" data-uid="Stride.Graphics.PixelBuffer.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_PixelSize_" data-uid="Stride.Graphics.PixelBuffer.PixelSize*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_PixelSize" data-uid="Stride.Graphics.PixelBuffer.PixelSize">
+  PixelSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pixel size in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PixelSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pixel size in bytes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_RowStride_" data-uid="Stride.Graphics.PixelBuffer.RowStride*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_RowStride" data-uid="Stride.Graphics.PixelBuffer.RowStride">
+  RowStride
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the row stride in number of bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RowStride { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The row stride in number of bytes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_Width_" data-uid="Stride.Graphics.PixelBuffer.Width*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_Width" data-uid="Stride.Graphics.PixelBuffer.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_PixelBuffer_ConvertFormatToNonSRgb_" data-uid="Stride.Graphics.PixelBuffer.ConvertFormatToNonSRgb*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_ConvertFormatToNonSRgb" data-uid="Stride.Graphics.PixelBuffer.ConvertFormatToNonSRgb">
+  ConvertFormatToNonSRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the format to non sRGB.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertFormatToNonSRgb()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_ConvertFormatToSRgb_" data-uid="Stride.Graphics.PixelBuffer.ConvertFormatToSRgb*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_ConvertFormatToSRgb" data-uid="Stride.Graphics.PixelBuffer.ConvertFormatToSRgb">
+  ConvertFormatToSRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the format to sRGB.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertFormatToSRgb()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_CopyTo_" data-uid="Stride.Graphics.PixelBuffer.CopyTo*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_CopyTo_Stride_Graphics_PixelBuffer_" data-uid="Stride.Graphics.PixelBuffer.CopyTo(Stride.Graphics.PixelBuffer)">
+  CopyTo(PixelBuffer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies this pixel buffer to a destination pixel buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(PixelBuffer pixelBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixelBuffer</code> <a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a></dt>
+    <dd><p>The destination pixel buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_CopyTo_Stride_Graphics_PixelBuffer__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The destination pixel buffer must have exactly the same dimensions (width, height) and format than this instance.
+Destination buffer can have different row stride.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_GetPixel_" data-uid="Stride.Graphics.PixelBuffer.GetPixel*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_GetPixel__1_System_Int32_System_Int32_" data-uid="Stride.Graphics.PixelBuffer.GetPixel``1(System.Int32,System.Int32)">
+  GetPixel&lt;T&gt;(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pixel value at a specified position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetPixel&lt;T&gt;(int x, int y) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The x-coordinate.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y-coordinate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The pixel value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_GetPixel__1_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Caution, this method doesn't check bounding.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_GetPixels_" data-uid="Stride.Graphics.PixelBuffer.GetPixels*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_GetPixels__1_System_Int32_" data-uid="Stride.Graphics.PixelBuffer.GetPixels``1(System.Int32)">
+  GetPixels&lt;T&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets scanline pixels from the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T[] GetPixels&lt;T&gt;(int yOffset = 0) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y line offset.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd><p>Scanline pixels from the buffer</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_GetPixels__1_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is working on a row basis. The <code class="paramref">yOffset</code> is specifying the first row to get
+the pixels from.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the sizeof(T) is an invalid size</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_GetPixels_" data-uid="Stride.Graphics.PixelBuffer.GetPixels*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_GetPixels__1___0___System_Int32_" data-uid="Stride.Graphics.PixelBuffer.GetPixels``1(``0[],System.Int32)">
+  GetPixels&lt;T&gt;(T[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets scanline pixels from the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetPixels&lt;T&gt;(T[] pixels, int yOffset = 0) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> T[]</dt>
+    <dd><p>An allocated scanline pixel buffer</p>
+</dd>
+    <dt><code>yOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y line offset.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_GetPixels__1___0___System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is working on a row basis. The <code class="paramref">yOffset</code> is specifying the first row to get
+the pixels from.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the sizeof(T) is an invalid size</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_GetPixels_" data-uid="Stride.Graphics.PixelBuffer.GetPixels*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_GetPixels__1___0___System_Int32_System_Int32_System_Int32_" data-uid="Stride.Graphics.PixelBuffer.GetPixels``1(``0[],System.Int32,System.Int32,System.Int32)">
+  GetPixels&lt;T&gt;(T[], int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets scanline pixels from the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetPixels&lt;T&gt;(T[] pixels, int yOffset, int pixelIndex, int pixelCount) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> T[]</dt>
+    <dd><p>An allocated scanline pixel buffer</p>
+</dd>
+    <dt><code>yOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y line offset.</p>
+</dd>
+    <dt><code>pixelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Offset into the destination <code class="paramref">pixels</code> buffer.</p>
+</dd>
+    <dt><code>pixelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of pixels to write into the destination <code class="paramref">pixels</code> buffer.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_GetPixels__1___0___System_Int32_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is working on a row basis. The <code class="paramref">yOffset</code> is specifying the first row to get
+the pixels from.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the sizeof(T) is an invalid size</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_Save_" data-uid="Stride.Graphics.PixelBuffer.Save*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_Save_System_IO_Stream_Stride_Graphics_ImageFileType_" data-uid="Stride.Graphics.PixelBuffer.Save(System.IO.Stream,Stride.Graphics.ImageFileType)">
+  Save(Stream, ImageFileType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves this pixel buffer to a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(Stream imageStream, ImageFileType fileType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>imageStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The destination stream.</p>
+</dd>
+    <dt><code>fileType</code> <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a></dt>
+    <dd><p>Specify the output format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_Save_System_IO_Stream_Stride_Graphics_ImageFileType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method support the following format: <code>dds, bmp, jpg, png, gif, tiff, wmp, tga</code>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_SetPixel_" data-uid="Stride.Graphics.PixelBuffer.SetPixel*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_SetPixel__1_System_Int32_System_Int32___0_" data-uid="Stride.Graphics.PixelBuffer.SetPixel``1(System.Int32,System.Int32,``0)">
+  SetPixel&lt;T&gt;(int, int, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pixel value at a specified position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPixel&lt;T&gt;(int x, int y, T value) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The x-coordinate.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y-coordinate.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The pixel value.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_SetPixel__1_System_Int32_System_Int32___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Caution, this method doesn't check bounding.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_SetPixels_" data-uid="Stride.Graphics.PixelBuffer.SetPixels*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_SetPixels__1___0___System_Int32_" data-uid="Stride.Graphics.PixelBuffer.SetPixels``1(``0[],System.Int32)">
+  SetPixels&lt;T&gt;(T[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets scanline pixels to the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPixels&lt;T&gt;(T[] sourcePixels, int yOffset = 0) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePixels</code> T[]</dt>
+    <dd><p>Source pixel buffer</p>
+</dd>
+    <dt><code>yOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y line offset.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_SetPixels__1___0___System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is working on a row basis. The <code class="paramref">yOffset</code> is specifying the first row to get
+the pixels from.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the sizeof(T) is an invalid size</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_PixelBuffer_SetPixels_" data-uid="Stride.Graphics.PixelBuffer.SetPixels*"></a>
+
+  <h3 id="Stride_Graphics_PixelBuffer_SetPixels__1___0___System_Int32_System_Int32_System_Int32_" data-uid="Stride.Graphics.PixelBuffer.SetPixels``1(``0[],System.Int32,System.Int32,System.Int32)">
+  SetPixels&lt;T&gt;(T[], int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets scanline pixels to the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPixels&lt;T&gt;(T[] sourcePixels, int yOffset, int pixelIndex, int pixelCount) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePixels</code> T[]</dt>
+    <dd><p>Source pixel buffer</p>
+</dd>
+    <dt><code>yOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The y line offset.</p>
+</dd>
+    <dt><code>pixelIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Offset into the source <code class="paramref">sourcePixels</code> buffer.</p>
+</dd>
+    <dt><code>pixelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of pixels to write into the source <code class="paramref">sourcePixels</code> buffer.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_PixelBuffer_SetPixels__1___0___System_Int32_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is working on a row basis. The <code class="paramref">yOffset</code> is specifying the first row to get
+the pixels from.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the sizeof(T) is an invalid size</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/PixelBuffer.cs/#L33" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

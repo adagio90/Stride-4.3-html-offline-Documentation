@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Mouse | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Mouse | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/mouse.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mouse">Mouse</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>The <strong>mouse</strong> is a common input device for desktop games.</p>
+<p>There are two ways to handle mouse input in Stride:</p>
+<ul>
+<li>Query <strong>mouse button states</strong>.</li>
+<li>For cross-platform games that target mobile devices, you can use <a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a> lists.
+For more information, see <a href="pointers.html">Pointers</a>.</li>
+</ul>
+<p>You can access <strong>mouse button states</strong> and <strong>pointer events list</strong> from the <a class="xref" href="../../api/Stride.Input.InputManager.html">Input manager</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Project type</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html">InputManager</a></td>
+<td>Desktop only</td>
+<td>For desktop games, you usually handle input with multiple mouse buttons. This means you should use <strong>mouse button states</strong>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a></td>
+<td>Cross-platform</td>
+<td>For mobile games, you usually simulate pointers with just the left mouse button. This means you can treat the mouse input like pointers. There's no need to create separate mouse-specific controls. For more information, see <a href="pointers.html">Pointers</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about these options, see the <a href="index.html">Input index</a>.</p>
+<h2 id="check-mouse-availability">Check mouse availability</h2>
+<p>Before handling mouse input, use <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_HasMouse">Input.HasMouse</a> to check if a mouse is connected.</p>
+<h2 id="get-the-mouse-position">Get the mouse position</h2>
+<p>You can get the mouse position in normalized or absolute coordinates.</p>
+<h3 id="normalized-coordinates">Normalized coordinates</h3>
+<p><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_MousePosition">MousePosition</a> returns the mouse pointer position in <strong>normalized</strong> X, Y coordinates instead of actual screen sizes in pixels. This means the pointer position adjusts to any resolution and you don't have to write separate code for different resolutions.</p>
+<ul>
+<li>(0,0): the pointer is in the top-left corner of the screen</li>
+<li>(1,1): the pointer is in the bottom-right corner of the screen</li>
+</ul>
+<h3 id="absolute-coordinates">Absolute coordinates</h3>
+<p><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_AbsoluteMousePosition">InputManager.AbsoluteMousePosition</a> returns the mouse pointer position in absolute X and Y coordinates (the actual screen size in pixels). For example, if the pointer is in the top-left corner of the screen, the values are (0,0). If the pointer is in the bottom-right corner, the values depends on the screen resolution (eg 1280, 720).</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To get the actual size of the screen, access <a class="xref" href="../../api/Stride.Input.IPointerDevice.html#Stride_Input_IPointerDevice_SurfaceSize">IPointerDevice.SurfaceSize</a>. For example:</p>
+<pre><code class="lang-cs">var surfaceSize = Input.Mouse.SurfaceSize;
+</code></pre>
+</div>
+<h2 id="query-mouse-button-state-changes">Query mouse button state changes</h2>
+<p>You can use the mouse buttons to trigger actions in a project. For example, in first-person shooter games, the left mouse button is commonly used to shoot.</p>
+<p>The <a class="xref" href="../../api/Stride.Input.InputManager.html">Input manager</a> has several methods that check mouse button states (<em>Pressed</em>, <em>Down</em>, or <em>Released</em>):</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_HasDownMouseButtons">HasDownMouseButtons</a></td>
+<td>Checks if one or more mouse buttons are currently pressed down.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_HasPressedMouseButtons">HasPressedMouseButtons</a></td>
+<td>Checks if one or more mouse buttons were pressed in the last update.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_HasReleasedMouseButtons">HasReleasedMouseButtons</a></td>
+<td>Checks if one or more mouse buttons were released in the last update.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_IsMouseButtonDown_Stride_Input_MouseButton_">IsMouseButtonDown (MouseButton)</a></td>
+<td>Checks if a specified mouse button is currently pressed down.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_IsMouseButtonPressed_Stride_Input_MouseButton_">IsMouseButtonPressed (MouseButton)</a></td>
+<td>Checks if a specified mouse button was pressed in the last update.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_IsMouseButtonReleased_Stride_Input_MouseButton_">IsMouseButtonReleased (MouseButton)</a></td>
+<td>Checks if a specified mouse button was released in the last update.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mouse-delta">Mouse delta</h3>
+<p>Use <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_MouseDelta">InputManager.MouseDelta</a> to get the change in mouse position in normalized coordinates since the last update. You can use this to analyze mouse movement speed and direction.</p>
+<h3 id="mouse-wheel-delta">Mouse wheel delta</h3>
+<p>You can use the mouse wheel to trigger actions in a project. For example, in a first-person shooter game, moving the mouse wheel might switch weapons or zoom a camera.</p>
+<p>The <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_MouseWheelDelta">InputManager.MouseWheelDelta</a> returns a positive value when the user scrolls forwards and a negative value when the user scrolls backwards. A value of <code>0</code> indicates no movement.</p>
+<h2 id="lock-the-mouse-position">Lock the mouse position</h2>
+<p>For some projects, the user needs to move the mouse cursor beyond the borders of the screen. For example, first-person shooter games usually need 360-degree camera rotation. In these cases, you also probably want the mouse cursor to be hidden.</p>
+<p>You can lock the mouse position and hide the cursor with the following properties and methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method or property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_LockMousePosition_System_Boolean_">LockMousePosition(Boolean)</a></td>
+<td>Locks the mouse position until the next call to the <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_UnlockMousePosition">UnlockMousePosition()</a> event.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_UnlockMousePosition">UnlockMousePosition()</a></td>
+<td>Unlocks the mouse position locked by the <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_LockMousePosition_System_Boolean_">LockMousePosition(Boolean)</a> event.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_IsMousePositionLocked">IsMousePositionLocked</a></td>
+<td>Checks if the mouse position is locked.</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can get or set mouse visibility with <a class="xref" href="../../api/Stride.Games.GameWindow.html#Stride_Games_GameWindow_IsMouseVisible">GameWindow.IsMouseVisible</a>.</p>
+</div>
+<h2 id="example-code">Example code</h2>
+<pre><code class="lang-cs">public class MouseInputScript : SyncScript
+{
+	public override void Update()
+	{
+		//If the left mouse button is pressed in this update, do something.
+		if (Input.IsMouseButtonDown(MouseButton.Left))
+		{   
+		}
+		//If the middle mouse button has been pressed since the last update, do something.
+		if (Input.IsMouseButtonPressed(MouseButton.Middle))
+		{  
+		}
+
+		//If the mouse moved more than 0.2 units of the screen size in X direction, do something.
+		if (Input.MouseDelta.X &gt; 0.2f)
+		{
+		}
+		
+	}
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="pointers.html">Pointers</a></li>
+<li><a href="virtual-buttons.html">Virtual buttons</a></li>
+<li><a href="keyboards.html">Keyboard</a></li>
+<li><a href="gamepads.html">Gamepads</a></li>
+<li><a href="index.html">Input overview</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/mouse.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

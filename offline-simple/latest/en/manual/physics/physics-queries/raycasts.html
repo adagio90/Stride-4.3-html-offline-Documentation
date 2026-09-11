@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Raycasts | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Raycasts | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/physics-queries/raycasts.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="raycasts">Raycasts</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Raycast</strong> is the most commonly used type of physics query. It casts a ray in a direction and returns what it collided with. In more basic terms, <strong>it's like shooting an invisible laser and seeing what it hits</strong>.</p>
+<p>Raycasts can be used for firing weapons or NPC AI.</p>
+<h2 id="raycast-query">Raycast query</h2>
+<p>In order to perform a raycast, use <a class="xref" href="../../../api/Stride.BepuPhysics.BepuSimulation.html#Stride_BepuPhysics_BepuSimulation_RayCast_"><code>Simulation.RayCast</code></a>. The method returns true, if it manages to hit something. In that case, all information about the hit will be contained in <a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html">HitInfo</a>.</p>
+<pre><code class="lang-csharp">public void Shoot()
+{
+    var simulation = Entity.GetSimulation();
+    
+    // The origin point from which the ray will start
+    var origin = Entity.Transform.WorldMatrix.TranslationVector;
+    
+    // The direction of the ray
+    // In this case, it will go in the forward direction of the entity
+    var direction = Entity.Transform.WorldMatrix.Forward;
+    
+    // The maximum distance of the ray
+    var maxDistance = 16f;
+    
+    if (simulation.RayCast(origin, direction, maxDistance, out HitInfo result))
+    {
+        // Handle a successful hit
+    }
+}
+</code></pre>
+<h2 id="penetrating-raycast-query">Penetrating raycast query</h2>
+<p>The difference between this type of query and the normal one is that, when the ray reaches an object, it doesn't stop and instead it keeps going until it reaches it's maximum length.</p>
+<p>To perform a penetrating raycast, use <a class="xref" href="../../../api/Stride.BepuPhysics.BepuSimulation.html#Stride_BepuPhysics_BepuSimulation_RayCastPenetrating_"><code>Simulation.RayCastPenetrating</code></a>.</p>
+<pre><code class="lang-csharp">public void Shoot()
+{
+    var hits = new List&lt;HitInfo&gt;();
+    simulation.RayCastPenetrating(origin, direction, maxDistance, hits);
+    
+    // Iterate over all results
+    foreach (var hitInfo in hits)
+    {
+        // Handle a successful hit
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>There are no guarantees as to the order hits are returned in</strong>. If you want them to be ordered by distance, you will have to sort the results yourself.</p>
+</div>
+<h2 id="penetrating-raycast-query-with-stackalloc">Penetrating raycast query (with <code>stackalloc</code>)</h2>
+<p>When repeatedly performing a penetrating raycast, it has to keep allocating memory on the heap for the results, which puts more strain on the Garbage Collector (meaning more ram usage). A more optimal solution would be to use <code>stackalloc</code>.</p>
+<pre><code class="lang-csharp">public void Shoot()
+{
+    // Allocate a buffer that can hold up to 16 elements
+    Span&lt;HitInfoStack&gt; buffer = stackalloc HitInfoStack[16];
+    
+    // Iterate over all results
+    foreach (var hitInfo in simulation.RayCastPenetrating(origin, maxDistance, buffer))
+    {
+        // Handle a successful hit
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>A span has a limited amount of elements it can contain</strong>. If there are more hits than the buffer size, only the closest ones will be returned.</p>
+</div>
+<h2 id="handling-a-hit">Handling a hit</h2>
+<p>Every hit is represented by <a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html"><code>HitInfo</code></a>, which contains all information about the hit.</p>
+<ul>
+<li><a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Point"><code>Point</code></a> - the position in the world where the collidable was hit.</li>
+<li><a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Normal"><code>Normal</code></a> - the normal vector of the surface that was hit.</li>
+<li><a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Distance"><code>Distance</code></a> - the distance between origin and <code>Point</code> when <code>Direction</code> is unit length. When it isn't, you can expect that <code>actualDistance = Direction.Length * Distance</code></li>
+<li><a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Collidable"><code>Collidable</code></a> - the <a class="xref" href="../../../api/Stride.BepuPhysics.CollidableComponent.html">collidable component</a> that was hit.</li>
+<li><a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_ChildIndex"><code>ChildIndex</code></a> - the index of the shape used in a <a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Distance">collidables</a> <a class="xref" href="../../../api/Stride.BepuPhysics.CollidableComponent.html#Stride_BepuPhysics_CollidableComponent_Collider">collider</a> if it's a <a href="../collider-shapes.html#compound">compound collider</a>.</li>
+</ul>
+<h3 id="getting-the-entity">Getting the entity</h3>
+<p>Because <a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Collidable"><code>Collidable</code></a> is a component, you can get the entity from it.</p>
+<pre><code class="lang-csharp">var entity = hit.Collidable.Entity;
+</code></pre>
+<h3 id="getting-the-distance-from-a-hit">Getting the distance from a hit</h3>
+<p>Distance from a hit can be calculated by using <a class="xref" href="../../../api/Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Distance_">Vector3.Distance</a> with the ray origin and <a class="xref" href="../../../api/Stride.BepuPhysics.HitInfo.html#Stride_BepuPhysics_HitInfo_Point"><code>Point</code></a>.</p>
+<pre><code class="lang-csharp">var actualDistance = Vector3.Distance(origin, hit.Point);
+</code></pre>
+<h2 id="using-a-collision-mask">Using a collision mask</h2>
+<p>Every query has an optional parameter specifying which collision layers it should be performed on.</p>
+<p>For more information on how to use collision masks, visit the <a href="index.html#querying-specific-collision-masks">main physics queries page</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>Here are a few examples of using <strong>raycasts</strong> in a game.</p>
+<h3 id="dealing-damage">Dealing damage</h3>
+<p>When the left mouse button is pressed, if there is an entity with a 'HostileUnit' script in front the entity that is firing the ray, deal damage to it. Collision Layers 0 and 1 will be ignored.</p>
+<pre><code class="lang-csharp">public override void Update()
+{
+    var simulation = Entity.GetSimulation();
+    var rayDir = Entity.Transform.WorldMatrix.Forward;
+    var maxDistance = 10f;
+    
+    // All layers except 0 &amp; 1
+    var layers = CollisionMask.Everything &amp; ~(CollisionMask.Layer0 | CollisionMask.Layer1); 
+
+    if (Input.IsMouseButtonPressed(MouseButton.Left) &amp;&amp;
+        simulation.RayCast(rayStart, rayDir, maxDistance, out HitInfo hitResult, layers))
+    {
+        var hostile = hitResult.Collidable.Entity.Get&lt;HostileUnit&gt;();
+        
+        // If the hit is a hostile unit, apply damage
+        if (hostile != null)
+            hostile.DealDamage();
+    }
+}
+</code></pre>
+<h3 id="getting-info-from-a-penetrating-raycast">Getting info from a penetrating raycast</h3>
+<p>This method will perform a penetrating raycast in the direction the entity is looking at, in a range of 16 meters.</p>
+<p>The method will only log information of the first 16 hits.</p>
+<pre><code class="lang-csharp">public void Shoot()
+{
+    var simulation = Entity.GetSimulation();
+    var origin = Entity.Transform.WorldMatrix.TranslationVector;
+    var direction = Entity.Transform.WorldMatrix.Forward;
+    
+    Span&lt;HitInfoStack&gt; buffer = stackalloc HitInfoStack[16];
+    
+    foreach (var hitInfo in simulation.RayCastPenetrating(origin, direction, 16f, buffer))
+    {
+        Log.Warning($&quot;T: {hitInfo.Distance}\nNormal: {hitInfo.Normal}\nEntity : {hitInfo.Collidable.Entity}&quot;);
+    }
+}
+</code></pre>
+<h3 id="raycasting-using-the-mouse">Raycasting using the mouse</h3>
+<p>This method will perform a raycast from the mouse's position on the screen.</p>
+<pre><code class="lang-cs">public static bool ScreenPositionToWorldPositionRaycast(Vector2 screenPos, CameraComponent camera)
+{
+    Matrix invViewProj = Matrix.Invert(camera.ViewProjectionMatrix);
+
+    // Reconstruct the projection-space position in the (-1, +1) range.
+    // Don't forget that Y is down in screen coordinates, but up in projection space
+    Vector3 sPos;
+    sPos.X = screenPos.X * 2f - 1f;
+    sPos.Y = 1f - screenPos.Y * 2f;
+
+    // Compute the near (start) point for the raycast
+    // It's assumed to have the same projection space (x,y) coordinates and z = 0 (lying on the near plane)
+    // We need to unproject it to world space
+    sPos.Z = 0f;
+    var vectorNear = Vector3.Transform(sPos, invViewProj);
+    vectorNear /= vectorNear.W;
+
+    // Compute the far (end) point for the raycast
+    // It's assumed to have the same projection space (x,y) coordinates and z = 1 (lying on the far plane)
+    // We need to unproject it to world space
+    sPos.Z = 1f;
+    var vectorFar = Vector3.Transform(sPos, invViewProj);
+    vectorFar /= vectorFar.W;
+
+    var delta = (vectorFar - vectorNear).XYZ();
+    var maxDistance = delta.Length();
+    var dir = delta / maxDistance; // normalize delta
+
+    // Raycast from the point on the near plane to the point on the far plane and get the collision result
+    return camera.Entity.GetSimulation().RayCast(vectorNear.XYZ(), dir, maxDistance, out HitInfo hit);
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/physics-queries/raycasts.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ComputeTextureColor | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ComputeTextureColor | Stride API ">
+      
+      <meta name="description" content="A color texture node.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Materials_ComputeColors_ComputeTextureColor.md&amp;value=---%0Auid%3A%20Stride.Rendering.Materials.ComputeColors.ComputeTextureColor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor">
+
+
+
+  <h1 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor" class="text-break">
+Class ComputeTextureColor  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Materials.html">Materials</a>.<a class="xref" href="Stride.Rendering.Materials.ComputeColors.html">ComputeColors</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A color texture node.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;ComputeTextureColor&quot;)]
+[Display(&quot;Texture&quot;, null)]
+public class ComputeTextureColor : ComputeTextureBase, IComputeColor, IComputeNode</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeNode.html">ComputeNode</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeKeyedBase.html">ComputeKeyedBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html">ComputeTextureBase</a></div>
+      <div><span class="xref">ComputeTextureColor</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Materials.IComputeColor.html">IComputeColor</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.IComputeNode.html">IComputeNode</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Enabled">ComputeTextureBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Texture">ComputeTextureBase.Texture</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_TexcoordIndex">ComputeTextureBase.TexcoordIndex</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Filtering">ComputeTextureBase.Filtering</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_AddressModeU">ComputeTextureBase.AddressModeU</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_AddressModeV">ComputeTextureBase.AddressModeV</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Scale">ComputeTextureBase.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_Offset">ComputeTextureBase.Offset</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_UseRandomTextureCoordinates">ComputeTextureBase.UseRandomTextureCoordinates</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_ToString">ComputeTextureBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureBase.html#Stride_Rendering_Materials_ComputeColors_ComputeTextureBase_GenerateShaderSource_Stride_Rendering_Materials_ShaderGeneratorContext_Stride_Rendering_Materials_MaterialComputeColorKeys_">ComputeTextureBase.GenerateShaderSource(ShaderGeneratorContext, MaterialComputeColorKeys)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeKeyedBase.html#Stride_Rendering_Materials_ComputeColors_ComputeKeyedBase_Key">ComputeKeyedBase.Key</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeKeyedBase.html#Stride_Rendering_Materials_ComputeColors_ComputeKeyedBase_UsedKey">ComputeKeyedBase.UsedKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeNode.html#Stride_Rendering_Materials_ComputeColors_ComputeNode_GetChildren_System_Object_">ComputeNode.GetChildren(object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor">
+  ComputeTextureColor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComputeTextureColor()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor_Stride_Graphics_Texture_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor(Stride.Graphics.Texture)">
+  ComputeTextureColor(Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.html">ComputeTextureColor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComputeTextureColor(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor__ctor_Stride_Graphics_Texture_Stride_Rendering_Materials_TextureCoordinate_Stride_Core_Mathematics_Vector2_Stride_Core_Mathematics_Vector2_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.#ctor(Stride.Graphics.Texture,Stride.Rendering.Materials.TextureCoordinate,Stride.Core.Mathematics.Vector2,Stride.Core.Mathematics.Vector2)">
+  ComputeTextureColor(Texture, TextureCoordinate, Vector2, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.html">ComputeTextureColor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ComputeTextureColor(Texture texture, TextureCoordinate texcoordIndex, Vector2 scale, Vector2 offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The texture.</p>
+</dd>
+    <dt><code>texcoordIndex</code> <a class="xref" href="Stride.Rendering.Materials.TextureCoordinate.html">TextureCoordinate</a></dt>
+    <dd><p>Index of the texcoord.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The scale.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The offset.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_FallbackValue_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.FallbackValue*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_FallbackValue" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.FallbackValue">
+  FallbackValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default value used when no texture is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(15)]
+public ComputeColor FallbackValue { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.ComputeColors.ComputeColor.html">ComputeColor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_HasChanged_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.HasChanged*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_HasChanged" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.HasChanged">
+  HasChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates if the IComputeColor has changed since the last time it was checked, which might require recompilation of the shader mixins.
+Once polled, it will reset all cached states and revert to false until other changes have been triggered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasChanged { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_Swizzle_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.Swizzle*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_Swizzle" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.Swizzle">
+  Swizzle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the channel swizzling for texture sampling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Swizzle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_GenerateShaderFromFallbackValue_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.GenerateShaderFromFallbackValue*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_GenerateShaderFromFallbackValue_Stride_Rendering_Materials_ShaderGeneratorContext_Stride_Rendering_Materials_MaterialComputeColorKeys_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.GenerateShaderFromFallbackValue(Stride.Rendering.Materials.ShaderGeneratorContext,Stride.Rendering.Materials.MaterialComputeColorKeys)">
+  GenerateShaderFromFallbackValue(ShaderGeneratorContext, MaterialComputeColorKeys)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ShaderSource GenerateShaderFromFallbackValue(ShaderGeneratorContext context, MaterialComputeColorKeys baseKeys)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.Materials.ShaderGeneratorContext.html">ShaderGeneratorContext</a></dt>
+    <dd></dd>
+    <dt><code>baseKeys</code> <a class="xref" href="Stride.Rendering.Materials.MaterialComputeColorKeys.html">MaterialComputeColorKeys</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Shaders.ShaderSource.html">ShaderSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_GetTextureChannelAsString_" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.GetTextureChannelAsString*"></a>
+
+  <h3 id="Stride_Rendering_Materials_ComputeColors_ComputeTextureColor_GetTextureChannelAsString" data-uid="Stride.Rendering.Materials.ComputeColors.ComputeTextureColor.GetTextureChannelAsString">
+  GetTextureChannelAsString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string GetTextureChannelAsString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/ComputeColors/ComputeTextureColor.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

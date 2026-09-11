@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Manage assets | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Manage assets | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/manage-assets.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="manage-assets">Manage assets</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span></p>
+<p>This page explains how to edit and manage your assets.</p>
+<h2 id="edit-assets-in-the-property-grid">Edit assets in the Property Grid</h2>
+<p>You can edit most assets using the <strong>Property Grid</strong>. By default, this is in the top-right of Game Studio.</p>
+<p>For example, to change the color of a material asset::</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom by default), select the material.</p>
+<p><img src="media/edit-asset-sphere-material-asset-view-tab.png" alt="Select material in the Asset View"></p>
+</li>
+<li><p>In the Property Grid, under <strong>Shading &gt; Diffuse</strong>, next to <strong>Diffuse Map</strong>, click the <strong>colored box</strong>, which displays the asset color (yellow in this example).</p>
+<p>The color picker opens.</p>
+<p><img src="media/edit-asset-color-picker-palette-diffuse.png" alt="Color picker and Palette"></p>
+</li>
+<li><p>Select a new color for the asset.</p>
+<p><img src="media/edit-asset-color-change-selected-asset.png" alt="Asset is now red"></p>
+</li>
+</ol>
+<p>The <strong>Asset Preview</strong> (bottom right by default) displays asset changes in real time.</p>
+<p>The <strong>Asset View</strong> indicates assets with unsaved changes with asterisks (*).</p>
+<p><img src="media/asset-unsaved-changes.png" alt="Unsaved changes"></p>
+<h2 id="edit-assets-using-dedicated-editors">Edit assets using dedicated editors</h2>
+<p>Game Studio has dedicated editors for the following asset types:</p>
+<ul>
+<li>prefabs</li>
+<li>scenes</li>
+<li>sprite sheets</li>
+<li>UI pages</li>
+<li>UI libraries</li>
+<li>scripts</li>
+</ul>
+<p>For example, you edit scenes in the <strong>Scene Editor</strong>.</p>
+<p><img src="media/manage-assets-scene-editor.png" alt="Scene Editor"></p>
+<p>To open the dedicated editor for these types of asset:</p>
+<ul>
+<li>double-click the asset, or</li>
+<li>right-click the asset and select <strong>Edit asset</strong>, or</li>
+<li>select the asset and type <strong>Ctrl + Enter</strong></li>
+</ul>
+<h2 id="organize-assets">Organize assets</h2>
+<p>We recommend you organize your assets into subfolders by type. This makes projects much easier to manage, especially as they become large.</p>
+<p><img src="media/manage-assets-organized-project.png" alt="Organized project"></p>
+<p>Assets are contained in the <strong>Assets</strong> folder of your project package. You can see the project in the <strong>Solution Explorer</strong> (by default shown in the bottom left).</p>
+<ul>
+<li>To create a subfolder, right-click the parent folder and select <strong>Create subfolder</strong>.</li>
+<li>To move an asset, select one or more assets in the <strong>Asset View</strong> and drag and drop them to the folder.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you move an asset, Game Studio updates all references to other assets inside the asset.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To see the URL and type of an asset, move the mouse over the asset thumbnail.
+<img src="media/asset-creation-solution-explorer.png" alt="Details of new asset in Asset View tab"></p>
+</div>
+<h2 id="include-assets-in-the-build">Include assets in the build</h2>
+<p>By default, Stride doesn't include every asset when you build the game. This is because you might not need every asset at runtime — for example, if the asset is incomplete.</p>
+<p>Stride only includes assets which:</p>
+<ul>
+<li>you've specifically marked for inclusion (<strong>root assets</strong>), or</li>
+<li>are <strong>referenced</strong> by a root asset</li>
+</ul>
+<p>Game Studio indicates whether an asset is included with a colored icon in the top-left of the asset thumbnail.</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blue <p><br><img src="media/manage-assets-reference-asset.png" alt="Blue"></p><br></td>
+<td>The asset is a root asset and included in the build.</td>
+</tr>
+<tr>
+<td>Green <p><br><img src="media/manage-assets-include-asset.png" alt="Green"></p><br></td>
+<td>The asset is referenced by a root asset and included in the build.</td>
+</tr>
+<tr>
+<td>Gray <p><br><img src="media/manage-assets-exclude-asset.png" alt="Gray"></p><br></td>
+<td>The asset isn't included in the build.</td>
+</tr>
+</tbody>
+</table>
+<p>If you plan to load an asset at runtime using scripts, make it a root asset. To do this:</p>
+<ul>
+<li><p>click the <strong>gray dot</strong> in the top-left of the thumbnail, or</p>
+</li>
+<li><p>right-click the asset and select <strong>Include in build as root asset</strong></p>
+<p><img src="media/right-click-include-in-build-as-root-asset.png" alt="Include in build as root asset"></p>
+</li>
+</ul>
+<h2 id="asset-view-options">Asset View options</h2>
+<p>To change the Asset View options, click the eye icon in the Asset View toolbar.</p>
+<p><img src="media/asset-view-options.png" alt="Asset View options"></p>
+<p>You can:</p>
+<ul>
+<li>display assets in the selected folder only, the selected folder and subfolder</li>
+<li>sort assets by name, type, unsaved changes, and modification date</li>
+<li>switch between tile view (default) and grid view</li>
+</ul>
+<h2 id="filter-assets">Filter assets</h2>
+<p>When browsing assets in the <strong>Asset View</strong> (in the bottom by default), you can filter by name, tag, type, or a combination of all three.</p>
+<p>The tag and name filters are &quot;and&quot; filters. For example, if you filter by <em>tag:level</em> and <em>name:knight</em>, the Asset View only displays assets with the tag &quot;level&quot; <strong>and</strong> the name &quot;knight&quot;.</p>
+<p>Type filters are &quot;or&quot; filters. For example, if you filter by <em>type:animation</em> and <em>type:texture</em>, the Asset View only displays assets that are animations <strong>or</strong> textures.</p>
+<h3 id="add-a-filter">Add a filter</h3>
+<ol>
+<li><p>In the Asset View, type in the filter bar.</p>
+<p>Game Studio displays a list of matching filters (name, type, or tag).</p>
+<p><img src="media/add-filter.png" alt="add-filter.png"></p>
+</li>
+<li><p>To filter by name, press <strong>Enter</strong>.</p>
+<p>To filter by a tag or type, select <strong>tag</strong> or <strong>type</strong> filters in the drop-down list.</p>
+<p>Game Studio applies the filter and shows matching assets in the Asset View.</p>
+</li>
+</ol>
+<p>You can add multiple filters. Name filters are green, tag filters are blue, and type filters are orange.</p>
+<p><img src="media/filter-tags.png" alt="filter-tags"></p>
+<h3 id="toggle-filters-on-and-off">Toggle filters on and off</h3>
+<p>To toggle a filter on and off without removing it, click it. Disabled filters have darker colors.</p>
+<p><img src="media/disabled-filter-tags.png" alt="filter-tags"></p>
+<h3 id="remove-a-filter">Remove a filter</h3>
+<p>To remove a filter, click the X icon in the filter tag.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="create-assets.html">Create assets</a></li>
+<li><a href="manage-assets.html">Manage assets</a></li>
+<li><a href="use-assets.html">Use assets</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/manage-assets.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Textures | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Textures | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="textures">Textures</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Textures</strong> are images mainly used in <a href="../materials/index.html">materials</a>. Stride maps textures to the surfaces the material covers.</p>
+<p>Textures can add color information to a material — for example, to add a brick pattern to a wall or a wood pattern to a table. The values of the pixels in a texture (<strong>texels</strong>) can also be used for other calculations, such as in specular maps, metalness maps, or <a href="normal-maps.html">normal maps</a>.</p>
+<p>Materials typically contain multiple textures; for example, a material might contain a color texture, a normal map texture, and a roughness texture.</p>
+<p>Textures can also be used outside materials; for example, you can draw them directly to the UI, or use them in <a href="../../sprites/index.html">sprites</a>.</p>
+<h2 id="supported-file-types">Supported file types</h2>
+<p>You can use the following file types as textures:</p>
+<ul>
+<li><code>.dds</code></li>
+<li><code>.jpg</code></li>
+<li><code>.jpeg</code></li>
+<li><code>.png</code></li>
+<li><code>.gif</code></li>
+<li><code>.bmp</code></li>
+<li><code>.tga</code></li>
+<li><code>.psd</code></li>
+<li><code>.tif</code></li>
+<li><code>.tiff</code></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<ul>
+<li>Stride only imports the first frame of animated image files, such as animated gifs or PNGs. They don't animate in Stride; they appear as static images.</li>
+<li>Stride currently doesn't support movie files.</li>
+</ul>
+</div>
+<h2 id="add-a-texture">Add a texture</h2>
+<p>In the <strong>Asset View</strong>, click <strong>Add asset</strong> &gt; <strong>Texture</strong>, then select a template for the texture (<strong>color</strong>, <strong>grayscale</strong> or <strong>normal map</strong>):</p>
+<p><img src="media/add-texture.png" alt="Add texture"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Render targets are a different kind of texture, and don't use images. Instead, they render the output from a <a href="../cameras/index.html">camera</a>. For more information, see <a href="../graphics-compositor/render-textures.html">Render targets</a>.</p>
+</div>
+<p>Alternatively, drag the texture file from Explorer to the Asset View:</p>
+<p><img src="media/create-assets-drop-resource.png" alt="Drap and drop a resource file to the Asset View"></p>
+<p>Then select a texture template (<strong>color</strong>, <strong>grayscale</strong> or <strong>normal map</strong>):</p>
+<p><img src="media/create-assets-drag-drop-select-asset-template.png" alt="List of asset templates"></p>
+<p>Game Studio adds the texture to the Asset View:</p>
+<p><img src="media/create-assets-drag-drop-asset-created.png" alt="Texture asset created"></p>
+<h2 id="texture-properties">Texture properties</h2>
+<p>The following properties are common to all textures.</p>
+<p><img src="media/texture-properties.png" alt="Texture properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width</td>
+<td>The width of the texture in-game</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>The height of the texture in-game</td>
+</tr>
+<tr>
+<td>Use percentages</td>
+<td>Use percentages for width and height instead of actual pixel size</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Use <strong>Color</strong> for textures you want to display as images, <strong>Normal map</strong> for normal maps, and <strong>Grayscale</strong> to provide values for other things (eg specular maps, metalness maps, roughness maps). Color textures and normal maps have additional properties (see below).</td>
+</tr>
+<tr>
+<td>Generate mipmaps</td>
+<td>Generate different versions of the texture at different resolutions to be displayed at different distances. Improves performance, removes visual artifacts, and reduces pop-in when using <strong>streaming</strong>, but uses more memory. Unnecessary for textures always at the same distance from the camera (such as UIs).</td>
+</tr>
+<tr>
+<td>Compress</td>
+<td>Compress the final texture to a format based on the target platform and usage. The final texture is a multiple of 4. For more information, see <a href="compression.html">Texture compression</a>.</td>
+</tr>
+<tr>
+<td>Stream</td>
+<td>Stream the texture dynamically at runtime. This improves performance and scene loading times. Not recommended for important textures you always want to be loaded, such as splash screens. For more information, see <a href="streaming.html">Streaming</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="color-texture-properties">Color texture properties</h3>
+<p>The following properties apply if you set the texture <strong>type</strong> to <strong>color</strong>.</p>
+<p><img src="media/color-texture-properties.png" alt="Color texture properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sRGB sampling</td>
+<td>Store the texture in sRGB format and convert to linear space when sampled. Recommended for all color textures, unless they're explicitly in linear space.</td>
+</tr>
+<tr>
+<td>Color key enabled</td>
+<td>Use the color set in the <strong>Color key color</strong> property for transparency at runtime. If disabled, the project uses transparent areas of the texture instead</td>
+</tr>
+<tr>
+<td>Color key color</td>
+<td>The color used for transparency at runtime. Only applied if <strong>Color key enabled</strong> is selected.</td>
+</tr>
+<tr>
+<td>Alpha</td>
+<td>The texture alpha format (<strong>None</strong>, <strong>Mask</strong>, <strong>Explicit</strong>, <strong>Interpolated</strong>, or <strong>Auto</strong>)</td>
+</tr>
+<tr>
+<td>Premultiply alpha</td>
+<td>Premultiply all color components of the images by their alpha component</td>
+</tr>
+</tbody>
+</table>
+<h3 id="normal-map-properties">Normal map properties</h3>
+<p>The following property applies if you set the texture <strong>type</strong> to <strong>normal map</strong>.</p>
+<p><img src="media/normal-map-texture-properties.png" alt="Normal map textures"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invert Y</td>
+<td>Have positive Y-component (green) face up in tangent space. This depends on the tools you use to create normal maps.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about normal maps, see the <a href="normal-maps.html">Normal maps</a> page.</p>
+<h2 id="grayscale-textures">Grayscale textures</h2>
+<p>Grayscale texture use only the R channel of the image (finalRGBA = originalRRRR).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you add a texture to a scene (as a sprite component), and set the texture type to grayscale, it appears red, not monochrome. This is because the image uses the R (red) channel.</p>
+</div>
+<blockquote>
+<p>To make the channel monochrome, in the <strong>Sprite</strong> component properties, set the <strong>Type</strong> as <strong>Grayscale</strong>. For more information about the sprite component properties, see <a href="../../sprites/use-sprites.html">Use sprites</a>.</p>
+</blockquote>
+<p>You can use grayscale textures to provide values in <a href="../materials/material-maps.html">material maps</a>. For example, you can use a texture as a <strong>blend map</strong> to blend two material layers:</p>
+<p><img src="../materials/media/blend-map-diagram.png" alt="Blend map diagram"></p>
+<p><img src="../materials/media/blend-map-diagram2.png" alt="Blend map diagram"></p>
+<p>Note how the blend map texture corresponds to the patterning on the result.</p>
+<p>For more information, see <a href="../materials/material-maps.html">Material maps</a>.</p>
+<h3 id="global-texture-settings">Global texture settings</h3>
+<p>For instructions about how to access the global texture settings, see the <a href="../../game-studio/game-settings.html">Game Settings</a> page.</p>
+<p><img src="../../game-studio/media/texture-settings.png" alt="Texture settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture quality</td>
+<td>The texture quality when encoding textures. <strong>Fast</strong> uses the least CPU, but has the lowest quality. Higher settings might result in slower builds, depending on the target platform.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="normal-maps.html">Normal maps</a></li>
+<li><a href="compression.html">Texture compression</a></li>
+<li><a href="streaming.html">Texture streaming</a></li>
+<li><a href="../materials/index.html">Materials</a></li>
+<li><a href="../../sprites/index.html">Sprites</a></li>
+<li><a href="../graphics-compositor/render-textures.html">Render textures</a></li>
+<li><a href="skyboxes-and-backgrounds.html">Skyboxes and backgrounds</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

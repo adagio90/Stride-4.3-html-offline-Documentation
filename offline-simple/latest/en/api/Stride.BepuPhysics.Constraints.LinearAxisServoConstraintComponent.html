@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LinearAxisServoConstraintComponent | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LinearAxisServoConstraintComponent | Stride API ">
+      
+      <meta name="description" content="Constrains two bodies&#39; position to a plane local to the first body">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent.md&amp;value=---%0Auid%3A%20Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent">
+
+
+
+  <h1 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent" class="text-break">
+Class LinearAxisServoConstraintComponent  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.BepuPhysics.html">BepuPhysics</a>.<a class="xref" href="Stride.BepuPhysics.Constraints.html">Constraints</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.BepuPhysics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Constrains two bodies' position to a plane local to the first body</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+[DefaultEntityComponentProcessor(typeof(ConstraintProcessor), ExecutionMode = ExecutionMode.Runtime)]
+[ComponentCategory(&quot;Physics - Bepu Constraint&quot;)]
+public sealed class LinearAxisServoConstraintComponent : TwoBodyConstraintComponent&lt;LinearAxisServo&gt;, IIdentifiable, IServo, ISpring, IWithTwoLocalOffset, ITwoBody</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponentBase.html">ConstraintComponentBase</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponent-1.html">ConstraintComponent</a>&lt;<span class="xref">LinearAxisServo</span>&gt;</div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.TwoBodyConstraintComponent-1.html">TwoBodyConstraintComponent</a>&lt;<span class="xref">LinearAxisServo</span>&gt;</div>
+      <div><span class="xref">LinearAxisServoConstraintComponent</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.IServo.html">IServo</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.ISpring.html">ISpring</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.IWithTwoLocalOffset.html">IWithTwoLocalOffset</a></div>
+      <div><a class="xref" href="Stride.BepuPhysics.Constraints.ITwoBody.html">ITwoBody</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.TwoBodyConstraintComponent-1.html#Stride_BepuPhysics_Constraints_TwoBodyConstraintComponent_1_A">TwoBodyConstraintComponent&lt;LinearAxisServo&gt;.A</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.TwoBodyConstraintComponent-1.html#Stride_BepuPhysics_Constraints_TwoBodyConstraintComponent_1_B">TwoBodyConstraintComponent&lt;LinearAxisServo&gt;.B</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponent-1.html#Stride_BepuPhysics_Constraints_ConstraintComponent_1_Attached">ConstraintComponent&lt;LinearAxisServo&gt;.Attached</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponent-1.html#Stride_BepuPhysics_Constraints_ConstraintComponent_1_GetAccumulatedImpulseMagnitude">ConstraintComponent&lt;LinearAxisServo&gt;.GetAccumulatedImpulseMagnitude()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponent-1.html#Stride_BepuPhysics_Constraints_ConstraintComponent_1_GetAccumulatedForceMagnitude">ConstraintComponent&lt;LinearAxisServo&gt;.GetAccumulatedForceMagnitude()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponentBase.html#Stride_BepuPhysics_Constraints_ConstraintComponentBase_Enabled">ConstraintComponentBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.BepuPhysics.Constraints.ConstraintComponentBase.html#Stride_BepuPhysics_Constraints_ConstraintComponentBase_Bodies">ConstraintComponentBase.Bodies</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Entity">EntityComponent.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Id">EntityComponent.Id</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent__ctor_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.#ctor*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent__ctor" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.#ctor">
+  LinearAxisServoConstraintComponent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LinearAxisServoConstraintComponent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalOffsetA_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalOffsetA*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalOffsetA" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalOffsetA">
+  LocalOffsetA
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset from the center of body A to its attachment in A's local space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 LocalOffsetA { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalOffsetB_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalOffsetB*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalOffsetB" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalOffsetB">
+  LocalOffsetB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset from the center of body B to its attachment in B's local space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 LocalOffsetB { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalPlaneNormal_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalPlaneNormal*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_LocalPlaneNormal" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.LocalPlaneNormal">
+  LocalPlaneNormal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Direction of the plane normal in the local space of body A</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 LocalPlaneNormal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoBaseSpeed_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoBaseSpeed*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoBaseSpeed" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoBaseSpeed">
+  ServoBaseSpeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum speed that the constraint will try to use to move towards the target.
+If the speed implied by the spring configuration is higher than this, the servo will attempt to use the higher speed.
+Will be clamped by the MaximumSpeed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ServoBaseSpeed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoMaximumForce_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoMaximumForce*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoMaximumForce" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoMaximumForce">
+  ServoMaximumForce
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum force that the constraint can apply to move towards the target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ServoMaximumForce { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoMaximumForce_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value is specified in terms of force: a change in momentum over time. It is approximated as a maximum impulse (an instantaneous change in momentum) on a per-substep basis. In other words, for a given velocity iteration, the constraint's impulse can be no larger than <a class="xref" href="Stride.BepuPhysics.Constraints.IServo.html#Stride_BepuPhysics_Constraints_IServo_ServoMaximumForce">ServoMaximumForce</a> * dt where dt is the substep duration.</p>
+</div>
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoMaximumSpeed_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoMaximumSpeed*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_ServoMaximumSpeed" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.ServoMaximumSpeed">
+  ServoMaximumSpeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum speed that the constraint can try to use to move towards the target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ServoMaximumSpeed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_SpringDampingRatio_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.SpringDampingRatio*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_SpringDampingRatio" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.SpringDampingRatio">
+  SpringDampingRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio of the spring's actual damping to its critical damping. 0 is undamped, 1 is critically damped, and higher values are overdamped.
+Higher damping ratios reduce oscillations and make the connection less elastic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpringDampingRatio { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_SpringFrequency_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.SpringFrequency*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_SpringFrequency" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.SpringFrequency">
+  SpringFrequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The target number of undamped oscillations per unit of time.
+Higher frequency values create stiffer connections, while lower values allow more elasticity in the joint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SpringFrequency { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_TargetOffset_" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.TargetOffset*"></a>
+
+  <h3 id="Stride_BepuPhysics_Constraints_LinearAxisServoConstraintComponent_TargetOffset" data-uid="Stride.BepuPhysics.Constraints.LinearAxisServoConstraintComponent.TargetOffset">
+  TargetOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Target offset from A's plane anchor to B's anchor along the plane normal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TargetOffset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.BepuPhysics/Stride.BepuPhysics/Constraints/LinearAxisServoConstraintComponent.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,3961 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Texture | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Texture | Stride API ">
+      
+      <meta name="description" content="Class used for all Textures (1D, 2D, 3D, DepthStencil, RenderTargets...etc.)">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_Texture.md&amp;value=---%0Auid%3A%20Stride.Graphics.Texture%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.Texture">
+
+
+
+  <h1 id="Stride_Graphics_Texture" data-uid="Stride.Graphics.Texture" class="text-break">
+Class Texture  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Class used for all Textures (1D, 2D, 3D, DepthStencil, RenderTargets...etc.)</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataSerializerGlobal(typeof(ReferenceSerializer&lt;Texture&gt;), null, DataSerializerGenericMode.None, false, false, Profile = &quot;Content&quot;)]
+[ContentSerializer(typeof(TextureContentSerializer))]
+[ContentSerializer(typeof(TextureImageSerializer))]
+[DataSerializer(typeof(TextureSerializer))]
+public sealed class Texture : GraphicsResource, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResourceBase.html">GraphicsResourceBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a></div>
+      <div><span class="xref">Texture</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Reload">GraphicsResourceBase.Reload</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_GraphicsDevice">GraphicsResourceBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Destroyed">GraphicsResourceBase.Destroyed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_GetSerializationData_Stride_Graphics_Texture_">GraphicsSerializerExtensions.GetSerializationData(Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_SetSerializationData_Stride_Graphics_Texture_Stride_Graphics_Data_TextureSerializationData_">GraphicsSerializerExtensions.SetSerializationData(Texture, TextureSerializationData)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_SetSerializationData_Stride_Graphics_Texture_Stride_Graphics_Image_">GraphicsSerializerExtensions.SetSerializationData(Texture, Image)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.TextureExtensions.html#Stride_Graphics_TextureExtensions_CreateDepthTextureCompatible_Stride_Graphics_Texture_">TextureExtensions.CreateDepthTextureCompatible(Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.TextureExtensions.html#Stride_Graphics_TextureExtensions_EnsureRenderTarget_Stride_Graphics_Texture_">TextureExtensions.EnsureRenderTarget(Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.TextureExtensions.html#Stride_Graphics_TextureExtensions_ToDepthStencilReadOnlyTexture_Stride_Graphics_Texture_">TextureExtensions.ToDepthStencilReadOnlyTexture(Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.TextureExtensions.html#Stride_Graphics_TextureExtensions_ToTextureView_Stride_Graphics_Texture_Stride_Graphics_ViewType_System_Int32_System_Int32_">TextureExtensions.ToTextureView(Texture, ViewType, int, int)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_Texture__ctor_" data-uid="Stride.Graphics.Texture.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_Texture__ctor" data-uid="Stride.Graphics.Texture.#ctor">
+  Texture()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_Texture_ArraySize_" data-uid="Stride.Graphics.Texture.ArraySize*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ArraySize" data-uid="Stride.Graphics.Texture.ArraySize">
+  ArraySize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of textures in the array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArraySize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size of the array.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_ArraySize_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This field is only valid for 1D, 2D and Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_ArraySlice_" data-uid="Stride.Graphics.Texture.ArraySlice*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ArraySlice" data-uid="Stride.Graphics.Texture.ArraySlice">
+  ArraySlice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The array index of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArraySlice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Depth_" data-uid="Stride.Graphics.Texture.Depth*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Depth" data-uid="Stride.Graphics.Texture.Depth">
+  Depth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The depth of the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Depth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Description_" data-uid="Stride.Graphics.Texture.Description*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Description" data-uid="Stride.Graphics.Texture.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Common description for the original texture. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureDescription Description { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_Description_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This field and the properties in TextureDessciption must be considered as readonly when accessing from this instance.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_Dimension_" data-uid="Stride.Graphics.Texture.Dimension*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Dimension" data-uid="Stride.Graphics.Texture.Dimension">
+  Dimension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dimension of a texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureDimension Dimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureDimension.html">TextureDimension</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Flags_" data-uid="Stride.Graphics.Texture.Flags*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Flags" data-uid="Stride.Graphics.Texture.Flags">
+  Flags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Texture flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureFlags Flags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Format_" data-uid="Stride.Graphics.Texture.Format*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Format" data-uid="Stride.Graphics.Texture.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Texture format (see <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a>)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat Format { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_FullQualitySize_" data-uid="Stride.Graphics.Texture.FullQualitySize*"></a>
+
+  <h3 id="Stride_Graphics_Texture_FullQualitySize" data-uid="Stride.Graphics.Texture.FullQualitySize">
+  FullQualitySize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When texture streaming is activated, the size of the texture when loaded at full quality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size3 FullQualitySize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Size3.html">Size3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Height_" data-uid="Stride.Graphics.Texture.Height*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Height" data-uid="Stride.Graphics.Texture.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The height of the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsBlockCompressed_" data-uid="Stride.Graphics.Texture.IsBlockCompressed*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsBlockCompressed" data-uid="Stride.Graphics.Texture.IsBlockCompressed">
+  IsBlockCompressed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a boolean indicating whether this <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> is a using a block compress format (BC1, BC2, BC3, BC4, BC5, BC6H, BC7).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBlockCompressed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsDepthStencil_" data-uid="Stride.Graphics.Texture.IsDepthStencil*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsDepthStencil" data-uid="Stride.Graphics.Texture.IsDepthStencil">
+  IsDepthStencil
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a depth stencil.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDepthStencil { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is a depth stencil; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsDepthStencilReadOnly_" data-uid="Stride.Graphics.Texture.IsDepthStencilReadOnly*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsDepthStencilReadOnly" data-uid="Stride.Graphics.Texture.IsDepthStencilReadOnly">
+  IsDepthStencilReadOnly
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L342"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a depth stencil readonly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDepthStencilReadOnly { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is a depth stencil readonly; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsMultisample_" data-uid="Stride.Graphics.Texture.IsMultisample*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsMultisample" data-uid="Stride.Graphics.Texture.IsMultisample">
+  IsMultisample
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a multi sample texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMultisample { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is multi sample texture; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsRenderTarget_" data-uid="Stride.Graphics.Texture.IsRenderTarget*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsRenderTarget" data-uid="Stride.Graphics.Texture.IsRenderTarget">
+  IsRenderTarget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a render target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRenderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is render target; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsShaderResource_" data-uid="Stride.Graphics.Texture.IsShaderResource*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsShaderResource" data-uid="Stride.Graphics.Texture.IsShaderResource">
+  IsShaderResource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a shader resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsShaderResource { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is a shader resource; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsUnorderedAccess_" data-uid="Stride.Graphics.Texture.IsUnorderedAccess*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsUnorderedAccess" data-uid="Stride.Graphics.Texture.IsUnorderedAccess">
+  IsUnorderedAccess
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is a shader resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsUnorderedAccess { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is a shader resource; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_MipLevel_" data-uid="Stride.Graphics.Texture.MipLevel*"></a>
+
+  <h3 id="Stride_Graphics_Texture_MipLevel" data-uid="Stride.Graphics.Texture.MipLevel">
+  MipLevel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The miplevel index of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MipLevel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip level.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_MipLevels_" data-uid="Stride.Graphics.Texture.MipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Texture_MipLevels" data-uid="Stride.Graphics.Texture.MipLevels">
+  MipLevels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of mipmap levels in the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MipLevels { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip levels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_MultisampleCount_" data-uid="Stride.Graphics.Texture.MultisampleCount*"></a>
+
+  <h3 id="Stride_Graphics_Texture_MultisampleCount" data-uid="Stride.Graphics.Texture.MultisampleCount">
+  MultisampleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Structure that specifies multisampling parameters for the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultisampleCount MultisampleCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MultisampleCount.html">MultisampleCount</a></dt>
+    <dd><p>The multi sample level.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_MultisampleCount_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This field is only valid for a 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_Options_" data-uid="Stride.Graphics.Texture.Options*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Options" data-uid="Stride.Graphics.Texture.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource options for DirectX 11 textures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureOptions Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureOptions.html">TextureOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_SharedHandle_" data-uid="Stride.Graphics.Texture.SharedHandle*"></a>
+
+  <h3 id="Stride_Graphics_Texture_SharedHandle" data-uid="Stride.Graphics.Texture.SharedHandle">
+  SharedHandle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shared handle if created with TextureOption.Shared or TextureOption.SharedNthandle, IntPtr.Zero otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint SharedHandle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_SharedNtHandleName_" data-uid="Stride.Graphics.Texture.SharedNtHandleName*"></a>
+
+  <h3 id="Stride_Graphics_Texture_SharedNtHandleName" data-uid="Stride.Graphics.Texture.SharedNtHandleName">
+  SharedNtHandleName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the name of the shared Nt handle when created with TextureOption.SharedNthandle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SharedNtHandleName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Size_" data-uid="Stride.Graphics.Texture.Size*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Size" data-uid="Stride.Graphics.Texture.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size of this texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Size3 Size { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Size3.html">Size3</a></dt>
+    <dd><p>The size.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Usage_" data-uid="Stride.Graphics.Texture.Usage*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Usage" data-uid="Stride.Graphics.Texture.Usage">
+  Usage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Value that identifies how the texture is to be read from and written to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsResourceUsage Usage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewDepth_" data-uid="Stride.Graphics.Texture.ViewDepth*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewDepth" data-uid="Stride.Graphics.Texture.ViewDepth">
+  ViewDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The depth of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewDepth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The view depth.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewDescription_" data-uid="Stride.Graphics.Texture.ViewDescription*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewDescription" data-uid="Stride.Graphics.Texture.ViewDescription">
+  ViewDescription
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the view description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureViewDescription ViewDescription { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureViewDescription.html">TextureViewDescription</a></dt>
+    <dd><p>The view description.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewDimension_" data-uid="Stride.Graphics.Texture.ViewDimension*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewDimension" data-uid="Stride.Graphics.Texture.ViewDimension">
+  ViewDimension
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dimension of the texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureDimension ViewDimension { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureDimension.html">TextureDimension</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewFlags_" data-uid="Stride.Graphics.Texture.ViewFlags*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewFlags" data-uid="Stride.Graphics.Texture.ViewFlags">
+  ViewFlags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The format of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureFlags ViewFlags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>The type of the view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewFormat_" data-uid="Stride.Graphics.Texture.ViewFormat*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewFormat" data-uid="Stride.Graphics.Texture.ViewFormat">
+  ViewFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The format of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat ViewFormat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewHeight_" data-uid="Stride.Graphics.Texture.ViewHeight*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewHeight" data-uid="Stride.Graphics.Texture.ViewHeight">
+  ViewHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The height of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewType_" data-uid="Stride.Graphics.Texture.ViewType*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewType" data-uid="Stride.Graphics.Texture.ViewType">
+  ViewType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The format of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewType ViewType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.ViewType.html">ViewType</a></dt>
+    <dd><p>The type of the view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ViewWidth_" data-uid="Stride.Graphics.Texture.ViewWidth*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ViewWidth" data-uid="Stride.Graphics.Texture.ViewWidth">
+  ViewWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The width of this texture view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewWidth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Width_" data-uid="Stride.Graphics.Texture.Width*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Width" data-uid="Stride.Graphics.Texture.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The width of the texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_Texture_CalculateMipLevels_" data-uid="Stride.Graphics.Texture.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculateMipLevels_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Texture.CalculateMipLevels(System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L571"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 1D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CalculateMipLevels_" data-uid="Stride.Graphics.Texture.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculateMipLevels_System_Int32_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Texture.CalculateMipLevels(System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 2D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, int height, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CalculateMipLevels_" data-uid="Stride.Graphics.Texture.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculateMipLevels_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Texture.CalculateMipLevels(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, int, int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L624"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 2D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, int height, int depth, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the texture.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CalculateMipSize_" data-uid="Stride.Graphics.Texture.CalculateMipSize*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculateMipSize_System_Int32_System_Int32_" data-uid="Stride.Graphics.Texture.CalculateMipSize(System.Int32,System.Int32)">
+  CalculateMipSize(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L559"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the size of a particular mip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipSize(int size, int mipLevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size.</p>
+</dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>System.Int32.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CalculatePixelDataCount_" data-uid="Stride.Graphics.Texture.CalculatePixelDataCount*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculatePixelDataCount__1_System_Int32_" data-uid="Stride.Graphics.Texture.CalculatePixelDataCount``1(System.Int32)">
+  CalculatePixelDataCount&lt;TData&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L686"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of pixel data this texture is requiring for a particular mip level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CalculatePixelDataCount&lt;TData&gt;(int mipLevel = 0) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of pixel data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T pixel data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_CalculatePixelDataCount__1_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is used to allocated a texture data buffer to hold pixel datas: var textureData = new T[ texture.CalculatePixelCount&lt;T&gt;() ] ;.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_CalculateWidth_" data-uid="Stride.Graphics.Texture.CalculateWidth*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CalculateWidth__1_System_Int32_" data-uid="Stride.Graphics.Texture.CalculateWidth``1(System.Int32)">
+  CalculateWidth&lt;TData&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L666"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the expected width of a texture using a specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CalculateWidth&lt;TData&gt;(int mipLevel = 0) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The expected width</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T pixel data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If the size is invalid</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_Clone_" data-uid="Stride.Graphics.Texture.Clone*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Clone" data-uid="Stride.Graphics.Texture.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1076"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes a copy of this texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A copy of this texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_Clone_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method doesn't copy the content of the texture.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_CountMips_" data-uid="Stride.Graphics.Texture.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CountMips_System_Int32_" data-uid="Stride.Graphics.Texture.CountMips(System.Int32)">
+  CountMips(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CountMips_" data-uid="Stride.Graphics.Texture.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CountMips_System_Int32_System_Int32_" data-uid="Stride.Graphics.Texture.CountMips(System.Int32,System.Int32)">
+  CountMips(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1410"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_CountMips_" data-uid="Stride.Graphics.Texture.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Texture_CountMips_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Graphics.Texture.CountMips(System.Int32,System.Int32,System.Int32)">
+  CountMips(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1415"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width, int height, int depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Destroy_" data-uid="Stride.Graphics.Texture.Destroy*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Destroy" data-uid="Stride.Graphics.Texture.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_GetData_" data-uid="Stride.Graphics.Texture.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetData_Stride_Graphics_CommandList_Stride_Graphics_Texture_Stride_Graphics_DataPointer_System_Int32_System_Int32_System_Boolean_" data-uid="Stride.Graphics.Texture.GetData(Stride.Graphics.CommandList,Stride.Graphics.Texture,Stride.Graphics.DataPointer,System.Int32,System.Int32,System.Boolean)">
+  GetData(CommandList, Texture, DataPointer, int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L792"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this texture from GPU memory to a pointer on CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public bool GetData(CommandList commandList, Texture stagingTexture, DataPointer toData, int arraySlice = 0, int mipSlice = 0, bool doNotWait = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The staging texture used to transfer the texture to.</p>
+</dd>
+    <dt><code>toData</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>The pointer to data in CPU memory.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>doNotWait</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> this method will return immediately if the resource is still being used by the GPU for writing. Default is false</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if data was correctly retrieved, <code>false</code> if <code class="paramref">doNotWait</code> flag was true and the resource is still being used by the GPU for writing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_GetData_Stride_Graphics_CommandList_Stride_Graphics_Texture_Stride_Graphics_DataPointer_System_Int32_System_Int32_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_GetDataAsImage_" data-uid="Stride.Graphics.Texture.GetDataAsImage*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetDataAsImage_Stride_Graphics_CommandList_" data-uid="Stride.Graphics.Texture.GetDataAsImage(Stride.Graphics.CommandList)">
+  GetDataAsImage(CommandList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GPU content of this texture as an <a class="xref" href="Stride.Graphics.Image.html">Image</a> on the CPU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Image GetDataAsImage(CommandList commandList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_GetDataAsImage_" data-uid="Stride.Graphics.Texture.GetDataAsImage*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetDataAsImage_Stride_Graphics_CommandList_Stride_Graphics_Texture_" data-uid="Stride.Graphics.Texture.GetDataAsImage(Stride.Graphics.CommandList,Stride.Graphics.Texture)">
+  GetDataAsImage(CommandList, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GPU content of this texture to an <a class="xref" href="Stride.Graphics.Image.html">Image</a> on the CPU.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Image GetDataAsImage(CommandList commandList, Texture stagingTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The staging texture used to temporary transfer the image from the GPU to CPU.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If stagingTexture is not a staging texture.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_GetData_" data-uid="Stride.Graphics.Texture.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Texture_System_Span___0__System_Int32_System_Int32_System_Boolean_" data-uid="Stride.Graphics.Texture.GetData``1(Stride.Graphics.CommandList,Stride.Graphics.Texture,System.Span{``0},System.Int32,System.Int32,System.Boolean)">
+  GetData&lt;T&gt;(CommandList, Texture, Span&lt;T&gt;, int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L812"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this texture from GPU memory to a pointer on CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetData&lt;T&gt;(CommandList commandList, Texture stagingTexture, Span&lt;T&gt; toData, int arraySlice = 0, int mipSlice = 0, bool doNotWait = false) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The staging texture used to transfer the texture to.</p>
+</dd>
+    <dt><code>toData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</dt>
+    <dd><p>The pointer to data in CPU memory.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>doNotWait</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> this method will return immediately if the resource is still being used by the GPU for writing. Default is false</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if data was correctly retrieved, <code>false</code> if <code class="paramref">doNotWait</code> flag was true and the resource is still being used by the GPU for writing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Texture_System_Span___0__System_Int32_System_Int32_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_GetData_" data-uid="Stride.Graphics.Texture.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Texture___0___System_Int32_System_Int32_System_Boolean_" data-uid="Stride.Graphics.Texture.GetData``1(Stride.Graphics.CommandList,Stride.Graphics.Texture,``0[],System.Int32,System.Int32,System.Boolean)">
+  GetData&lt;TData&gt;(CommandList, Texture, TData[], int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L755"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this texture from GPU memory to an array of data on CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetData&lt;TData&gt;(CommandList commandList, Texture stagingTexture, TData[] toData, int arraySlice = 0, int mipSlice = 0, bool doNotWait = false) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The staging texture used to transfer the texture to.</p>
+</dd>
+    <dt><code>toData</code> TData[]</dt>
+    <dd><p>To data.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>doNotWait</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> this method will return immediately if the resource is still being used by the GPU for writing. Default is false</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if data was correctly retrieved, <code>false</code> if <code class="paramref">doNotWait</code> flag was true and the resource is still being used by the GPU for writing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Texture___0___System_Int32_System_Int32_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_GetData_" data-uid="Stride.Graphics.Texture.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_System_Int32_System_Int32_" data-uid="Stride.Graphics.Texture.GetData``1(Stride.Graphics.CommandList,System.Int32,System.Int32)">
+  GetData&lt;TData&gt;(CommandList, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L703"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content of this texture to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TData[] GetData&lt;TData&gt;(CommandList commandList, int arraySlice = 0, int mipSlice = 0) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>TData[]</dt>
+    <dd><p>The texture data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList_System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_GetData_" data-uid="Stride.Graphics.Texture.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList___0___System_Int32_System_Int32_System_Boolean_" data-uid="Stride.Graphics.Texture.GetData``1(Stride.Graphics.CommandList,``0[],System.Int32,System.Int32,System.Boolean)">
+  GetData&lt;TData&gt;(CommandList, TData[], int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L724"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this texture to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetData&lt;TData&gt;(CommandList commandList, TData[] toData, int arraySlice = 0, int mipSlice = 0, bool doNotWait = false) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>toData</code> TData[]</dt>
+    <dd><p>The destination buffer to receive a copy of the texture datas.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>doNotWait</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> this method will return immediately if the resource is still being used by the GPU for writing. Default is false</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if data was correctly retrieved, <code>false</code> if <code class="paramref">doNotWait</code> flag was true and the resource is still being used by the GPU for writing.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_GetData__1_Stride_Graphics_CommandList___0___System_Int32_System_Int32_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource if this texture is not already a stagging resouce, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_GetMipMapDescription_" data-uid="Stride.Graphics.Texture.GetMipMapDescription*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetMipMapDescription_System_Int32_" data-uid="Stride.Graphics.Texture.GetMipMapDescription(System.Int32)">
+  GetMipMapDescription(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L548"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the mipmap description of this instance for the specified mipmap level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MipMapDescription GetMipMapDescription(int mipmap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mipmap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MipMapDescription.html">MipMapDescription</a></dt>
+    <dd><p>A description of a particular mipmap for this texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_GetSubResourceIndex_" data-uid="Stride.Graphics.Texture.GetSubResourceIndex*"></a>
+
+  <h3 id="Stride_Graphics_Texture_GetSubResourceIndex_System_Int32_System_Int32_" data-uid="Stride.Graphics.Texture.GetSubResourceIndex(System.Int32,System.Int32)">
+  GetSubResourceIndex(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the absolute sub-resource index from the array and mip slice.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetSubResourceIndex(int arraySlice, int mipSlice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A value equals to arraySlice * Description.MipLevels + mipSlice.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_IsDepthStencilReadOnlySupported_" data-uid="Stride.Graphics.Texture.IsDepthStencilReadOnlySupported*"></a>
+
+  <h3 id="Stride_Graphics_Texture_IsDepthStencilReadOnlySupported_Stride_Graphics_GraphicsDevice_" data-uid="Stride.Graphics.Texture.IsDepthStencilReadOnlySupported(Stride.Graphics.GraphicsDevice)">
+  IsDepthStencilReadOnlySupported(GraphicsDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Texture.Direct3D.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDepthStencilReadOnlySupported(GraphicsDevice device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Load_" data-uid="Stride.Graphics.Texture.Load*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Load_Stride_Graphics_GraphicsDevice_System_IO_Stream_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_System_Boolean_" data-uid="Stride.Graphics.Texture.Load(Stride.Graphics.GraphicsDevice,System.IO.Stream,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage,System.Boolean)">
+  Load(GraphicsDevice, Stream, TextureFlags, GraphicsResourceUsage, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1099"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a texture from a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture Load(GraphicsDevice device, Stream stream, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream to load the texture from.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>True to load the texture with unordered access enabled. Default is false.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>Usage of the resource. Default is <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html#Stride_Graphics_GraphicsResourceUsage_Immutable">Immutable</a></p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the texture should be loaded as an sRGB texture. If false, the texture is load in its default format.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New_" data-uid="Stride.Graphics.Texture.New*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_Image_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.Image,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, Image, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a texture from a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New(GraphicsDevice device, Image image, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>image</code> <a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>The image.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>True to load the texture with unordered access enabled. Default is false.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>Usage of the resource. Default is <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html#Stride_Graphics_GraphicsResourceUsage_Immutable">Immutable</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Dimension not supported</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_New_" data-uid="Stride.Graphics.Texture.New*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_TextureDescription_Stride_Graphics_DataBox___" data-uid="Stride.Graphics.Texture.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.TextureDescription,Stride.Graphics.DataBox[])">
+  New(GraphicsDevice, TextureDescription, params DataBox[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new texture with the specified generic texture description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New(GraphicsDevice graphicsDevice, TextureDescription description, params DataBox[] boxes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsDevice</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>boxes</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd><p>The data boxes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A Texture instance, either a RenderTarget or DepthStencilBuffer or Texture, depending on Binding flags.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>graphicsDevice</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_New_" data-uid="Stride.Graphics.Texture.New*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_TextureDescription_Stride_Graphics_TextureViewDescription_Stride_Graphics_DataBox___" data-uid="Stride.Graphics.Texture.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.TextureDescription,Stride.Graphics.TextureViewDescription,Stride.Graphics.DataBox[])">
+  New(GraphicsDevice, TextureDescription, TextureViewDescription, params DataBox[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new texture with the specified generic texture description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New(GraphicsDevice graphicsDevice, TextureDescription description, TextureViewDescription viewDescription, params DataBox[] boxes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsDevice</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>viewDescription</code> <a class="xref" href="Stride.Graphics.TextureViewDescription.html">TextureViewDescription</a></dt>
+    <dd><p>The view description.</p>
+</dd>
+    <dt><code>boxes</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd><p>The data boxes.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A Texture instance, either a RenderTarget or DepthStencilBuffer or Texture, depending on Binding flags.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>graphicsDevice</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_New1D_" data-uid="Stride.Graphics.Texture.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New1D_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New1D(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,System.Int32,Stride.Graphics.GraphicsResourceUsage)">
+  New1D(GraphicsDevice, int, MipMapCount, PixelFormat, TextureFlags, int, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions1D.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New1D(GraphicsDevice device, int width, MipMapCount mipCount, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, int arraySize = 1, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New1D_" data-uid="Stride.Graphics.Texture.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New1D_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New1D(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,System.Int32,Stride.Graphics.GraphicsResourceUsage)">
+  New1D(GraphicsDevice, int, PixelFormat, TextureFlags, int, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions1D.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New1D(GraphicsDevice device, int width, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, int arraySize = 1, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New1D_" data-uid="Stride.Graphics.Texture.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New1D_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_System_IntPtr_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New1D(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,System.IntPtr,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New1D(GraphicsDevice, int, PixelFormat, nint, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions1D.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single level of mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New1D(GraphicsDevice device, int width, PixelFormat format, nint dataPtr, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>dataPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Data ptr</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_New1D_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_System_IntPtr_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first dimension of mipMapTextures describes the number of array (Texture Array), second dimension is the mipmap, the third is the texture data for a particular mipmap.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_New1D_" data-uid="Stride.Graphics.Texture.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New1D__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New1D``1(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,``0[],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New1D&lt;T&gt;(GraphicsDevice, int, PixelFormat, T[], TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions1D.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 1D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single level of mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New1D&lt;T&gt;(GraphicsDevice device, int width, PixelFormat format, T[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> T[]</dt>
+    <dd><p>Texture data. Size of must be equal to sizeof(Format) * width</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the initial data to upload to the texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_New1D__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first dimension of mipMapTextures describes the number of array (Texture Array), second dimension is the mipmap, the third is the texture data for a particular mipmap.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_New2D_" data-uid="Stride.Graphics.Texture.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New2D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_DataBox___Stride_Graphics_TextureFlags_System_Int32_Stride_Graphics_GraphicsResourceUsage_Stride_Graphics_MultisampleCount_Stride_Graphics_TextureOptions_" data-uid="Stride.Graphics.Texture.New2D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.DataBox[],Stride.Graphics.TextureFlags,System.Int32,Stride.Graphics.GraphicsResourceUsage,Stride.Graphics.MultisampleCount,Stride.Graphics.TextureOptions)">
+  New2D(GraphicsDevice, int, int, MipMapCount, PixelFormat, DataBox[], TextureFlags, int, GraphicsResourceUsage, MultisampleCount, TextureOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions2D.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New2D(GraphicsDevice device, int width, int height, MipMapCount mipCount, PixelFormat format, DataBox[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, int arraySize = 1, GraphicsResourceUsage usage = GraphicsResourceUsage.Default, MultisampleCount multisampleCount = MultisampleCount.None, TextureOptions options = TextureOptions.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd><p>Texture datas through an array of <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a></p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+    <dt><code>multisampleCount</code> <a class="xref" href="Stride.Graphics.MultisampleCount.html">MultisampleCount</a></dt>
+    <dd><p>The multisample count.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Stride.Graphics.TextureOptions.html">TextureOptions</a></dt>
+    <dd><p>The options, e.g. sharing</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New2D_" data-uid="Stride.Graphics.Texture.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New2D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_Stride_Graphics_GraphicsResourceUsage_Stride_Graphics_TextureOptions_" data-uid="Stride.Graphics.Texture.New2D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,System.Int32,Stride.Graphics.GraphicsResourceUsage,Stride.Graphics.TextureOptions)">
+  New2D(GraphicsDevice, int, int, MipMapCount, PixelFormat, TextureFlags, int, GraphicsResourceUsage, TextureOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions2D.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New2D(GraphicsDevice device, int width, int height, MipMapCount mipCount, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, int arraySize = 1, GraphicsResourceUsage usage = GraphicsResourceUsage.Default, TextureOptions options = TextureOptions.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Stride.Graphics.TextureOptions.html">TextureOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New2D_" data-uid="Stride.Graphics.Texture.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New2D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_Stride_Graphics_GraphicsResourceUsage_Stride_Graphics_TextureOptions_" data-uid="Stride.Graphics.Texture.New2D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,System.Int32,Stride.Graphics.GraphicsResourceUsage,Stride.Graphics.TextureOptions)">
+  New2D(GraphicsDevice, int, int, PixelFormat, TextureFlags, int, GraphicsResourceUsage, TextureOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions2D.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New2D(GraphicsDevice device, int width, int height, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, int arraySize = 1, GraphicsResourceUsage usage = GraphicsResourceUsage.Default, TextureOptions options = TextureOptions.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Stride.Graphics.TextureOptions.html">TextureOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New2D_" data-uid="Stride.Graphics.Texture.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New2D__1_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_Stride_Graphics_TextureOptions_" data-uid="Stride.Graphics.Texture.New2D``1(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.PixelFormat,``0[],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage,Stride.Graphics.TextureOptions)">
+  New2D&lt;T&gt;(GraphicsDevice, int, int, PixelFormat, T[], TextureFlags, GraphicsResourceUsage, TextureOptions)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions2D.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single level of mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New2D&lt;T&gt;(GraphicsDevice device, int width, int height, PixelFormat format, T[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable, TextureOptions options = TextureOptions.None) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> T[]</dt>
+    <dd><p>The texture data for a single mipmap and a single array slice. See remarks</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+    <dt><code>options</code> <a class="xref" href="Stride.Graphics.TextureOptions.html">TextureOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the pixel data to upload to the texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_New2D__1_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_Stride_Graphics_TextureOptions__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each value in textureData is a pixel in the destination texture.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_New3D_" data-uid="Stride.Graphics.Texture.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New3D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_DataBox___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New3D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.DataBox[],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New3D(GraphicsDevice, int, int, int, MipMapCount, PixelFormat, DataBox[], TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions3D.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New3D(GraphicsDevice device, int width, int height, int depth, MipMapCount mipCount, PixelFormat format, DataBox[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd></dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New3D_" data-uid="Stride.Graphics.Texture.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New3D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New3D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New3D(GraphicsDevice, int, int, int, MipMapCount, PixelFormat, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions3D.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New3D(GraphicsDevice device, int width, int height, int depth, MipMapCount mipCount, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New3D_" data-uid="Stride.Graphics.Texture.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New3D_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New3D(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New3D(GraphicsDevice, int, int, int, PixelFormat, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions3D.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with a single mipmap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New3D(GraphicsDevice device, int width, int height, int depth, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_New3D_" data-uid="Stride.Graphics.Texture.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Texture_New3D__1_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.New3D``1(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,System.Int32,Stride.Graphics.PixelFormat,``0[],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New3D&lt;T&gt;(GraphicsDevice, int, int, int, PixelFormat, T[], TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.Extensions3D.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> with texture data for the firs map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture New3D&lt;T&gt;(GraphicsDevice device, int width, int height, int depth, PixelFormat format, T[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> T[]</dt>
+    <dd><p>The texture data, width * height * depth datas</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>true if the texture needs to support unordered read write.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 3D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the data to upload to the texture</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_New3D__1_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_System_Int32_Stride_Graphics_PixelFormat___0___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first dimension of mipMapTextures describes the number of is an array ot Texture3D Array</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Texture_NewCube_" data-uid="Stride.Graphics.Texture.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Texture_NewCube_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.NewCube(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  NewCube(GraphicsDevice, int, MipMapCount, PixelFormat, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture NewCube(GraphicsDevice device, int size, MipMapCount mipCount, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size (in pixels) of the top-level faces of the cube texture.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>The texture flags.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_NewCube_" data-uid="Stride.Graphics.Texture.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Texture_NewCube_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_DataBox___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.NewCube(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.DataBox[],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  NewCube(GraphicsDevice, int, PixelFormat, DataBox[], TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> from a initial data..</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture NewCube(GraphicsDevice device, int size, PixelFormat format, DataBox[] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size (in pixels) of the top-level faces of the cube texture.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd><p>an array of 6 textures. See remarks</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>The texture flags.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_NewCube_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_DataBox___Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first dimension of mipMapTextures describes the number of array (TextureCube Array), the second is the texture data for a particular cube face.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Invalid texture datas. First dimension must be equal to 6;textureData</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_NewCube_" data-uid="Stride.Graphics.Texture.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Texture_NewCube_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.NewCube(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  NewCube(GraphicsDevice, int, PixelFormat, TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture NewCube(GraphicsDevice device, int size, PixelFormat format, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size (in pixels) of the top-level faces of the cube texture.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>The texture flags.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of 2D <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_NewCube_" data-uid="Stride.Graphics.Texture.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Texture_NewCube__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat___0_____Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Texture.NewCube``1(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.PixelFormat,``0[][],Stride.Graphics.TextureFlags,Stride.Graphics.GraphicsResourceUsage)">
+  NewCube&lt;T&gt;(GraphicsDevice, int, PixelFormat, T[][], TextureFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> from a initial data..</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture NewCube&lt;T&gt;(GraphicsDevice device, int size, PixelFormat format, T[][] textureData, TextureFlags textureFlags = TextureFlags.ShaderResource, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size (in pixels) of the top-level faces of the cube texture.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>textureData</code> T[][]</dt>
+    <dd><p>an array of 6 textures. See remarks</p>
+</dd>
+    <dt><code>textureFlags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>The texture flags.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of Cube <a class="xref" href="Stride.Graphics.Texture.html">Texture</a> class.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of a pixel data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_NewCube__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_PixelFormat___0_____Stride_Graphics_TextureFlags_Stride_Graphics_GraphicsResourceUsage__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The first dimension of mipMapTextures describes the number of array (TextureCube Array), the second is the texture data for a particular cube face.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Invalid texture datas. First dimension must be equal to 6;textureData</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_OnDestroyed_" data-uid="Stride.Graphics.Texture.OnDestroyed*"></a>
+
+  <h3 id="Stride_Graphics_Texture_OnDestroyed" data-uid="Stride.Graphics.Texture.OnDestroyed">
+  OnDestroyed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Texture.Direct3D.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when graphics device has been detected to be internally destroyed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDestroyed()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_OnRecreate_" data-uid="Stride.Graphics.Texture.OnRecreate*"></a>
+
+  <h3 id="Stride_Graphics_Texture_OnRecreate" data-uid="Stride.Graphics.Texture.OnRecreate">
+  OnRecreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when graphics device has been recreated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool OnRecreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if item transitioned to a <a class="xref" href="Stride.Graphics.GraphicsResourceLifetimeState.html#Stride_Graphics_GraphicsResourceLifetimeState_Active">Active</a> state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Recreate_" data-uid="Stride.Graphics.Texture.Recreate*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Recreate_Stride_Graphics_DataBox___" data-uid="Stride.Graphics.Texture.Recreate(Stride.Graphics.DataBox[])">
+  Recreate(DataBox[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Texture.Direct3D.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recreate(DataBox[] dataBoxes = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataBoxes</code> <a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ReleaseData_" data-uid="Stride.Graphics.Texture.ReleaseData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ReleaseData" data-uid="Stride.Graphics.Texture.ReleaseData">
+  ReleaseData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L520"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases the texture data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReleaseData()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Save_" data-uid="Stride.Graphics.Texture.Save*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Save_Stride_Graphics_CommandList_System_IO_Stream_Stride_Graphics_ImageFileType_" data-uid="Stride.Graphics.Texture.Save(Stride.Graphics.CommandList,System.IO.Stream,Stride.Graphics.ImageFileType)">
+  Save(CommandList, Stream, ImageFileType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves this texture to a stream with a specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(CommandList commandList, Stream stream, ImageFileType fileType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>fileType</code> <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a></dt>
+    <dd><p>Type of the image file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_Save_" data-uid="Stride.Graphics.Texture.Save*"></a>
+
+  <h3 id="Stride_Graphics_Texture_Save_Stride_Graphics_CommandList_System_IO_Stream_Stride_Graphics_Texture_Stride_Graphics_ImageFileType_" data-uid="Stride.Graphics.Texture.Save(Stride.Graphics.CommandList,System.IO.Stream,Stride.Graphics.Texture,Stride.Graphics.ImageFileType)">
+  Save(CommandList, Stream, Texture, ImageFileType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves this texture to a stream with a specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(CommandList commandList, Stream stream, Texture stagingTexture, ImageFileType fileType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The staging texture used to temporary transfer the image from the GPU to CPU.</p>
+</dd>
+    <dt><code>fileType</code> <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a></dt>
+    <dd><p>Type of the image file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If stagingTexture is not a staging texture.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_SetData_" data-uid="Stride.Graphics.Texture.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_SetData_Stride_Graphics_CommandList_Stride_Graphics_DataPointer_System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion__" data-uid="Stride.Graphics.Texture.SetData(Stride.Graphics.CommandList,Stride.Graphics.DataPointer,System.Int32,System.Int32,System.Nullable{Stride.Graphics.ResourceRegion})">
+  SetData(CommandList, DataPointer, int, int, ResourceRegion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L925"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an data on CPU memory to this texture into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public void SetData(CommandList commandList, DataPointer fromData, int arraySlice = 0, int mipSlice = 0, ResourceRegion? region = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>region</code> <a class="xref" href="Stride.Graphics.ResourceRegion.html">ResourceRegion</a>?</dt>
+    <dd><p>Destination region</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_SetData_Stride_Graphics_CommandList_Stride_Graphics_DataPointer_System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See unmanaged documentation for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_SetData_" data-uid="Stride.Graphics.Texture.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_SetData__1_Stride_Graphics_CommandList_System_Span___0__System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion__" data-uid="Stride.Graphics.Texture.SetData``1(Stride.Graphics.CommandList,System.Span{``0},System.Int32,System.Int32,System.Nullable{Stride.Graphics.ResourceRegion})">
+  SetData&lt;T&gt;(CommandList, Span&lt;T&gt;, int, int, ResourceRegion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L943"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an data on CPU memory to this texture into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;T&gt;(CommandList commandList, Span&lt;T&gt; fromData, int arraySlice = 0, int mipSlice = 0, ResourceRegion? region = null) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>region</code> <a class="xref" href="Stride.Graphics.ResourceRegion.html">ResourceRegion</a>?</dt>
+    <dd><p>Destination region</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_SetData__1_Stride_Graphics_CommandList_System_Span___0__System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See unmanaged documentation for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_SetData_" data-uid="Stride.Graphics.Texture.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Texture_SetData__1_Stride_Graphics_CommandList___0___System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion__" data-uid="Stride.Graphics.Texture.SetData``1(Stride.Graphics.CommandList,``0[],System.Int32,System.Int32,System.Nullable{Stride.Graphics.ResourceRegion})">
+  SetData&lt;TData&gt;(CommandList, TData[], int, int, ResourceRegion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L773"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data on CPU memory to this texture into GPU memory using the specified <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> (The graphics device could be deffered).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;TData&gt;(CommandList commandList, TData[] fromData, int arraySlice = 0, int mipSlice = 0, ResourceRegion? region = null) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The command list.</p>
+</dd>
+    <dt><code>fromData</code> TData[]</dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>arraySlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The array slice index. This value must be set to 0 for Texture 3D.</p>
+</dd>
+    <dt><code>mipSlice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mip slice index.</p>
+</dd>
+    <dt><code>region</code> <a class="xref" href="Stride.Graphics.ResourceRegion.html">ResourceRegion</a>?</dt>
+    <dd><p>Destination region</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Texture_SetData__1_Stride_Graphics_CommandList___0___System_Int32_System_Int32_System_Nullable_Stride_Graphics_ResourceRegion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See unmanaged documentation for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Texture_ToStaging_" data-uid="Stride.Graphics.Texture.ToStaging*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ToStaging" data-uid="Stride.Graphics.Texture.ToStaging">
+  ToStaging()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L1085"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return an equivalent staging texture CPU read-writable from this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture ToStaging()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The equivalent staging texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Texture_ToTextureView_" data-uid="Stride.Graphics.Texture.ToTextureView*"></a>
+
+  <h3 id="Stride_Graphics_Texture_ToTextureView_Stride_Graphics_TextureViewDescription_" data-uid="Stride.Graphics.Texture.ToTextureView(Stride.Graphics.TextureViewDescription)">
+  ToTextureView(TextureViewDescription)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.cs/#L538"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a view on this texture for a particular <a class="xref" href="Stride.Graphics.Texture.html#Stride_Graphics_Texture_ViewType">ViewType</a>, array index (or zIndex for Texture3D), and mipmap index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture ToTextureView(TextureViewDescription viewDescription)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewDescription</code> <a class="xref" href="Stride.Graphics.TextureViewDescription.html">TextureViewDescription</a></dt>
+    <dd><p>The view description.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new texture object that is bouded to the requested view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Texture.ExtensionsCube.cs/#L30" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Graphics compositor | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Graphics compositor | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="graphics-compositor">Graphics compositor</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This page requires a basic understanding of graphics pipelines.</p>
+</div>
+<p>The <strong>graphics compositor</strong> organizes how <a href="../../game-studio/scenes.html">scenes</a> are rendered. You can use it to customize almost every part of the rendering pipeline. For example, you can:</p>
+<ul>
+<li>use one or multiple <a href="../cameras/index.html">cameras</a></li>
+<li>filter entities</li>
+<li>render to one or more <a href="render-textures.html">render textures</a>, with different viewports</li>
+<li>set HDR or LDR rendering</li>
+<li>apply <a href="../post-effects/index.html">post effects</a> to a render target, selected before or after rendering a camera</li>
+<li>clear a render target or clear only the depth buffer (eg to always render on top of a render target in a FPS game, or render the UI)</li>
+<li>modify the compositor from scripts (or any animation system), for example to modify post effects</li>
+</ul>
+<h2 id="create-a-graphics-compositor">Create a graphics compositor</h2>
+<p>Stride includes a graphics compositor when you create a project.</p>
+<p>If you need to create another graphics compositor, in the <strong>Asset View</strong>, click <strong>Add asset</strong> and select <strong>Misc &gt; Graphics compositor</strong>.</p>
+<p><img src="media/add-graphics-compositor.png" alt="Add graphics compositor"></p>
+<p>You can choose one of two presets:</p>
+<ul>
+<li>Level 10 (HDR with <a href="../post-effects/index.html">post effects</a>)</li>
+<li>Level 9 (LDR with no post effects)</li>
+</ul>
+<h2 id="set-the-graphics-compositor">Set the graphics compositor</h2>
+<p>You can have multiple graphics compositors in your project, but you can only use one compositor at a time. At runtime, Stride uses the graphics compositor you specify in <a href="../../game-studio/game-settings.html">Game Settings</a>.</p>
+<p><img src="../../game-studio/media/game-settings-graphics-compositor.png" alt="Set default scene"></p>
+<p>You can also change the graphics compositor at runtime in a script.</p>
+<h2 id="open-the-graphics-compositor-editor">Open the graphics compositor editor</h2>
+<p>You customize the graphics compositor in the <strong>graphics compositor editor</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The graphics compositor editor is an experimental feature.</p>
+</div>
+<p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="media/graphics-compositor-asset.png" alt="Graphics Compositor asset"></p>
+<p>The <strong>graphics compositor editor</strong> opens.</p>
+<p><img src="media/graphics-compositor-editor.png" alt="Graphics Compositor editor"></p>
+<h2 id="nodes">Nodes</h2>
+<p>The graphics compositor editor is divided into <strong>nodes</strong>. You can set the properties of each node in the <strong>Property Grid</strong> on the right.</p>
+<h3 id="entry-points">Entry points</h3>
+<p>In the <strong>Entry Points</strong> node, you configure the pipeline for each entry point.</p>
+<p><img src="media/entry-points-node.png" alt="Entry points node"></p>
+<p>There are three entry points:</p>
+<ul>
+<li><strong>Game</strong>, to render your game</li>
+<li><strong>Editor</strong>, to render the Game Studio editor</li>
+<li><strong>Single view</strong> (referred to as <strong>Utility</strong> in the Property Grid), to render other things, such as <a href="../lights-and-shadows/light-probes.html">light probes</a> and <a href="../textures/skyboxes-and-backgrounds.html">cubemaps</a></li>
+</ul>
+<p>Each entry point can use a separate rendering pipeline. For example, the game and editor might share the same forward renderer and <a href="../post-effects/index.html">post-processing effects</a> while your single view uses a separate forward renderer.</p>
+<h4 id="connect-an-entry-point-to-a-renderer">Connect an entry point to a renderer</h4>
+<ol>
+<li><p>Select the <strong>Entry point</strong> node.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, next to the entry point you want to connect (<strong>Editor</strong>, <strong>Game</strong> or <strong>Utility</strong>), select the renderer you want to connect to.</p>
+<p><img src="media/connect-entry-point.png" alt="Select renderer"></p>
+</li>
+</ol>
+<p>For information about the different renderers, see <a href="scene-renderers.html">Scene renderers</a>.</p>
+<h3 id="forward-renderer">Forward renderer</h3>
+<p>In a typical setup, the <strong>forward renderer</strong> renders almost everything in your scene. It renders, in order:</p>
+<ol>
+<li>opaque objects</li>
+<li>transparent objects</li>
+<li><a href="../post-effects/index.html">post effects</a></li>
+</ol>
+<p>The forward renderer is also where you set <a href="../../virtual-reality/index.html">virtual reality</a> options. You configure the forward renderer properties in the <strong>forward entry node</strong>.</p>
+<h3 id="debug-renderer">Debug renderer</h3>
+<p>The <strong>debug renderer</strong> is used by scripts to print debug information. For more information, see <a href="debug-renderers.html">Debug renderers</a>.</p>
+<h3 id="post-processing-effects">Post-processing effects</h3>
+<p>The <strong>post-processing effects</strong> node comes after the forward renderer and controls the post effects in your game. For more information, see <a href="../post-effects/index.html">post-processing effects</a>.</p>
+<h2 id="create-a-node">Create a node</h2>
+<p>To create a node, right-click the graphics compositor editor and select the type of node you want to create:</p>
+<p><img src="../../virtual-reality/media/create-node.png" alt="Create node"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../cameras/camera-slots.html">Camera slots</a></li>
+<li><a href="scene-renderers.html">Scene renderers</a>
+<ul>
+<li><a href="custom-scene-renderers.html">Custom scene renders</a></li>
+</ul>
+</li>
+<li><a href="debug-renderers.html">Debug renderers</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

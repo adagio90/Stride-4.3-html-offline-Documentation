@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Draw vertices | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Draw vertices | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/low-level-api/draw-vertices.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="draw-vertices">Draw vertices</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>When loading a scene, Stride automatically handles the draw calls to display the scene throughout the entity system. This page introduces manual drawing.</p>
+<h2 id="primitives">Primitives</h2>
+<p>Stride provides the following set of built-in primitives:</p>
+<ul>
+<li>Plane</li>
+<li>Cube</li>
+<li>Sphere</li>
+<li>Geosphere</li>
+<li>Cylinder</li>
+<li>Torus</li>
+<li>Teapot</li>
+</ul>
+<p>They aren't automatically created along with the <a class="xref" href="../../../api/Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>, so you have to instantiate them. You can do this through the <a class="xref" href="../../../api/Stride.Graphics.GeometricPrimitives.GeometricPrimitive.html">GeometricPrimitive</a> class.</p>
+<p><strong>Code:</strong> Creating and using a primitive</p>
+<pre><code class="lang-cs">// creation
+var myCube = GeometricPrimitive.Cube.New(GraphicsDevice);
+var myTorus = GeometricPrimitive.Torus.New(GraphicsDevice);
+ 
+// ...
+ 
+// draw one on screen
+myCube.Draw(CommandList, EffectInstance);
+</code></pre>
+<p>They have no effect associated with them, so the user has to provide an <a class="xref" href="../../../api/Stride.Rendering.EffectInstance.html">EffectInstance</a> when drawing. For information on loading effects, please see <a href="../effects-and-shaders/index.html">Effects and shaders</a>.</p>
+<h2 id="custom-drawing">Custom drawing</h2>
+<p>Outside of built-in primitives, any geometry can be drawn by creating custom vertex buffers. To create a vertex buffer, first a <a class="xref" href="../../../api/Stride.Graphics.VertexDeclaration.html">VertexDeclaration</a> has to be defined. A vertex declaration describes the elements of each vertex and their layout.
+For details, see the <a class="xref" href="../../../api/Stride.Graphics.VertexElement.html">VertexElement</a> reference page.</p>
+<p>Next, a vertex buffer can be created from an array of vertices. The vertex data type has to match the <a class="xref" href="../../../api/Stride.Graphics.VertexDeclaration.html">VertexDeclaration</a>.</p>
+<p>Given vertex buffer and declaration, a <a class="xref" href="../../../api/Stride.Graphics.VertexBufferBinding.html">VertexBufferBinding</a> can be created.</p>
+<p><strong>Code:</strong> Creating a vertex buffer</p>
+<pre><code class="lang-cs">// Create a vertex layout with position and texture coordinate
+var layout = new VertexDeclaration(VertexElement.Position&lt;Vector3&gt;(), VertexElement.TextureCoordinate&lt;Vector2&gt;()); 
+ 
+// Create the vertex buffer from an array of vertices
+var vertices = new VertexPositionTexture[vertexCount];
+var vertexBuffer = Buffer.Vertex.New(GraphicsDevice, vertices);
+ 
+// Create a vertex buffer binding
+var vertexBufferBinding = new VertexBufferBinding(vertexBuffer, layout, vertexCount);
+</code></pre>
+<p>To draw the newly created vertex buffer, it has to be bound to the pipeline. The vertex layout and the <a class="xref" href="../../../api/Stride.Graphics.PrimitiveType.html">PrimitiveType</a> to draw have to be included in the <a href="pipeline-state.html">pipeline state</a> object. The buffer itself can be set dynamically.</p>
+<p>Afterwards, the vertices are ready to be rendered using <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_Draw_System_Int32_System_Int32_">Draw(int, int)</a>.</p>
+<p><strong>Code:</strong> Binding and drawing vertex buffers</p>
+<pre><code class="lang-cs">// Set the pipeline state
+pipelineStateDescription.InputElements = vertexBufferBinding.Layout.CreateInputElements();
+pipelineStateDescription.PrimitiveType = PrimitiveType.TriangleStrip;
+ 
+// Create and set a PipelineState object
+// ...
+
+// Bind the vertex buffer to the pipeline
+commandList.SetVertexBuffers(0, vertexBuffer, 0, vertexBufferBinding.Stride);
+ 
+// Draw the vertices
+commandList.Draw(vertexCount);
+</code></pre>
+<p>It is also possible to draw indexed geometry. To use an index buffer, first create it similarly to the vertex buffer and bind it to the pipeline.
+It can then be used for drawing using <a class="xref" href="../../../api/Stride.Graphics.CommandList.html#Stride_Graphics_CommandList_DrawIndexed_System_Int32_System_Int32_System_Int32_">DrawIndexed(int, int, int)</a>.</p>
+<p><strong>Code:</strong> Drawing indexed vertices</p>
+<pre><code class="lang-cs">// Create the index buffer
+var indices = new short[indexCount];
+var is32Bits = false;
+var indexBuffer = Buffer.Index.New(GraphicsDevice, indices);
+ 
+// set the VAO
+commandList.SetIndexBuffer(indexBuffer, 0, is32Bits);
+
+// Draw indexed vertices
+commandList.DrawIndexed(indexBuffer.ElementCount);
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/low-level-api/draw-vertices.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

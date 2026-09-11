@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImageEffect | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImageEffect | Stride API ">
+      
+      <meta name="description" content="Post effect base class.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Images_ImageEffect.md&amp;value=---%0Auid%3A%20Stride.Rendering.Images.ImageEffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Images.ImageEffect">
+
+
+
+  <h1 id="Stride_Rendering_Images_ImageEffect" data-uid="Stride.Rendering.Images.ImageEffect" class="text-break">
+Class ImageEffect  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Images.html">Images</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Post effect base class.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public abstract class ImageEffect : DrawEffect, IComponent, IReferencable, ICollectorHolder, IImageEffect, IGraphicsRenderer, IGraphicsRendererBase, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererCoreBase.html">RendererCoreBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererBase.html">RendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.DrawEffect.html">DrawEffect</a></div>
+      <div><span class="xref">ImageEffect</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.IImageEffect.html">IImageEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRenderer.html">IGraphicsRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererBase.html">IGraphicsRendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Compositing.MSAAResolver.html">MSAAResolver</a></div>
+      <div><a class="xref" href="Stride.Rendering.ComputeEffect.LambertianPrefiltering.LambertianPrefilteringSHNoCompute.html">LambertianPrefilteringSHNoCompute</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.Afterimage.html">Afterimage</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.AmbientOcclusion.html">AmbientOcclusion</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.Bloom.html">Bloom</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.BokehBlur.html">BokehBlur</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.BrightFilter.html">BrightFilter</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.CoCMapBlur.html">CoCMapBlur</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ColorTransformGroup.html">ColorTransformGroup</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.DepthMinMax.html">DepthMinMax</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.DepthOfField.html">DepthOfField</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.Fog.html">Fog</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.GaussianBlur.html">GaussianBlur</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html">ImageEffectShader</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageMultiScaler.html">ImageMultiScaler</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageReadback-1.html">ImageReadback&lt;T&gt;</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.LensFlare.html">LensFlare</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.LightShafts.html">LightShafts</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.LightStreak.html">LightStreak</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.LocalReflections.html">LocalReflections</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.LuminanceEffect.html">LuminanceEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.Outline.html">Outline</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.PostProcessingEffects.html">PostProcessingEffects</a></div>
+      <div><a class="xref" href="Stride.Rendering.SubsurfaceScattering.SubsurfaceScatteringBlur.html">SubsurfaceScatteringBlur</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_SamplingPattern">DrawEffect.SamplingPattern</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Parameters">DrawEffect.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Scaler">DrawEffect.Scaler</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_SetDefaultParameters">DrawEffect.SetDefaultParameters()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_">DrawEffect.Draw(RenderDrawContext, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_System_Object___">DrawEffect.Draw(RenderDrawContext, string, params object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_ToString">DrawEffect.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_DrawCore_Stride_Rendering_RenderDrawContext_">RendererBase.DrawCore(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_Draw_Stride_Rendering_RenderDrawContext_">RendererBase.Draw(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Enabled">RendererCoreBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Profiling">RendererCoreBase.Profiling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GPUProfilingKey">RendererCoreBase.GPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CPUProfilingKey">RendererCoreBase.CPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Context">RendererCoreBase.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Services">RendererCoreBase.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Content">RendererCoreBase.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GraphicsDevice">RendererCoreBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EffectSystem">RendererCoreBase.EffectSystem</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialized">RendererCoreBase.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialize_Stride_Rendering_RenderContext_">RendererCoreBase.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_InitializeCore">RendererCoreBase.InitializeCore()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Unload">RendererCoreBase.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedBuffer_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_">RendererCoreBase.NewScopedBuffer(BufferDescription, PixelFormat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedTypedBuffer_System_Int32_Stride_Graphics_PixelFormat_System_Boolean_Stride_Graphics_GraphicsResourceUsage_">RendererCoreBase.NewScopedTypedBuffer(int, PixelFormat, bool, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PushScopedResource__1___0_">RendererCoreBase.PushScopedResource&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CheckIsInDrawCore">RendererCoreBase.CheckIsInDrawCore()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Destroy">RendererCoreBase.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_ToLoadAndUnload__1___0_">RendererCoreBase.ToLoadAndUnload&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PreDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PreDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EnsureContext_Stride_Rendering_RenderContext_">RendererCoreBase.EnsureContext(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PostDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PostDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageEffect__ctor_" data-uid="Stride.Rendering.Images.ImageEffect.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect__ctor" data-uid="Stride.Rendering.Images.ImageEffect.#ctor">
+  ImageEffect()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Images.ImageEffect.html">ImageEffect</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImageEffect()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect__ctor_" data-uid="Stride.Rendering.Images.ImageEffect.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect__ctor_Stride_Rendering_RenderContext_System_String_" data-uid="Stride.Rendering.Images.ImageEffect.#ctor(Stride.Rendering.RenderContext,System.String)">
+  ImageEffect(RenderContext, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Images.ImageEffect.html">ImageEffect</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImageEffect(RenderContext context, string name = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>context</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect__ctor_" data-uid="Stride.Rendering.Images.ImageEffect.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect__ctor_System_String_System_Boolean_" data-uid="Stride.Rendering.Images.ImageEffect.#ctor(System.String,System.Boolean)">
+  ImageEffect(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Images.ImageEffect.html">ImageEffect</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImageEffect(string name, bool supersample = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name.</p>
+</dd>
+    <dt><code>supersample</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>context</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_DepthStencil_" data-uid="Stride.Rendering.Images.ImageEffect.DepthStencil*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_DepthStencil" data-uid="Stride.Rendering.Images.ImageEffect.DepthStencil">
+  DepthStencil
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the output depth stencil texture.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture DepthStencil { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The depth stencil output.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_EnableSetRenderTargets_" data-uid="Stride.Rendering.Images.ImageEffect.EnableSetRenderTargets*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_EnableSetRenderTargets" data-uid="Stride.Rendering.Images.ImageEffect.EnableSetRenderTargets">
+  EnableSetRenderTargets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a boolean to enable GraphicsDevice.SetDepthAndRenderTargets from output. Default is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool EnableSetRenderTargets { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A boolean to enable GraphicsDevice.SetDepthAndRenderTargets from output. Default is <code>true</code></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_HasDepthStencilOutput_" data-uid="Stride.Rendering.Images.ImageEffect.HasDepthStencilOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_HasDepthStencilOutput" data-uid="Stride.Rendering.Images.ImageEffect.HasDepthStencilOutput">
+  HasDepthStencilOutput
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L370"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this effect has depth stencil output texture binded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool HasDepthStencilOutput { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance has depth stencil output; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_InputCount_" data-uid="Stride.Rendering.Images.ImageEffect.InputCount*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_InputCount" data-uid="Stride.Rendering.Images.ImageEffect.InputCount">
+  InputCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of input textures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InputCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The input count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_OutputCount_" data-uid="Stride.Rendering.Images.ImageEffect.OutputCount*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_OutputCount" data-uid="Stride.Rendering.Images.ImageEffect.OutputCount">
+  OutputCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of output render target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int OutputCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The output count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_DisposeCreatedRenderTargetViews_" data-uid="Stride.Rendering.Images.ImageEffect.DisposeCreatedRenderTargetViews*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_DisposeCreatedRenderTargetViews_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Images.ImageEffect.DisposeCreatedRenderTargetViews(Stride.Rendering.RenderDrawContext)">
+  DisposeCreatedRenderTargetViews(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dispose the render target views that have been created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void DisposeCreatedRenderTargetViews(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_GetInput_" data-uid="Stride.Rendering.Images.ImageEffect.GetInput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_GetInput_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.GetInput(System.Int32)">
+  GetInput(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an input texture by the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture GetInput(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>Texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>index</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_GetOutput_" data-uid="Stride.Rendering.Images.ImageEffect.GetOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_GetOutput_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.GetOutput(System.Int32)">
+  GetOutput(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an output render target for the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture GetOutput(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>RenderTarget.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>index</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_GetSafeInput_" data-uid="Stride.Rendering.Images.ImageEffect.GetSafeInput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_GetSafeInput_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.GetSafeInput(System.Int32)">
+  GetSafeInput(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a non-null input texture by the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture GetSafeInput(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>Texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_GetSafeOutput_" data-uid="Stride.Rendering.Images.ImageEffect.GetSafeOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_GetSafeOutput_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.GetSafeOutput(System.Int32)">
+  GetSafeOutput(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an non-null output render target for the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture GetSafeOutput(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>RenderTarget.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_Stride_Graphics_TextureDescription_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D(Stride.Graphics.TextureDescription)">
+  NewScopedRenderTarget2D(TextureDescription)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a render target with the specified description, scoped for the duration of the <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_DrawCore_Stride_Rendering_RenderDrawContext_">DrawCore(RenderDrawContext)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture NewScopedRenderTarget2D(TextureDescription description)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.TextureDescription.html">TextureDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_MipMapCount_Stride_Graphics_TextureFlags_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D(System.Int32,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.MipMapCount,Stride.Graphics.TextureFlags,System.Int32)">
+  NewScopedRenderTarget2D(int, int, PixelFormat, MipMapCount, TextureFlags, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a render target output for the specified description, scoped for the duration of the <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_DrawCore_Stride_Rendering_RenderDrawContext_">DrawCore(RenderDrawContext)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture NewScopedRenderTarget2D(int width, int height, PixelFormat format, MipMapCount mipCount, TextureFlags flags = TextureFlags.ShaderResource | TextureFlags.RenderTarget, int arraySize = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>mipCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>Number of mipmaps, set to true to have all mipmaps, set to an int &gt;=1 for a particular mipmap count.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>Sets the texture flags (for unordered access...etc.)</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of texture class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_NewScopedRenderTarget2D_System_Int32_System_Int32_Stride_Graphics_PixelFormat_Stride_Graphics_TextureFlags_System_Int32_" data-uid="Stride.Rendering.Images.ImageEffect.NewScopedRenderTarget2D(System.Int32,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.TextureFlags,System.Int32)">
+  NewScopedRenderTarget2D(int, int, PixelFormat, TextureFlags, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L440"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a render target output for the specified description with a single mipmap, scoped for the duration of the <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_DrawCore_Stride_Rendering_RenderDrawContext_">DrawCore(RenderDrawContext)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture NewScopedRenderTarget2D(int width, int height, PixelFormat format, TextureFlags flags = TextureFlags.ShaderResource | TextureFlags.RenderTarget, int arraySize = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>Describes the format to use.</p>
+</dd>
+    <dt><code>flags</code> <a class="xref" href="Stride.Graphics.TextureFlags.html">TextureFlags</a></dt>
+    <dd><p>Sets the texture flags (for unordered access...etc.)</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the texture 2D array, default to 1.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>A new instance of texture class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_PostDrawCore_" data-uid="Stride.Rendering.Images.ImageEffect.PostDrawCore*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_PostDrawCore_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Images.ImageEffect.PostDrawCore(Stride.Rendering.RenderDrawContext)">
+  PostDrawCore(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PostDrawCore(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_PreDrawCore_" data-uid="Stride.Rendering.Images.ImageEffect.PreDrawCore*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_PreDrawCore_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Images.ImageEffect.PreDrawCore(Stride.Rendering.RenderDrawContext)">
+  PreDrawCore(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PreDrawCore(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_Reset_" data-uid="Stride.Rendering.Images.ImageEffect.Reset*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_Reset" data-uid="Stride.Rendering.Images.ImageEffect.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the state of this effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetDepthOutput_" data-uid="Stride.Rendering.Images.ImageEffect.SetDepthOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture_" data-uid="Stride.Rendering.Images.ImageEffect.SetDepthOutput(Stride.Graphics.Texture,Stride.Graphics.Texture)">
+  SetDepthOutput(Texture, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the render target output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDepthOutput(Texture depthStencilView, Texture renderTargetView)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>depthStencilView</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The depth stencil output view.</p>
+</dd>
+    <dt><code>renderTargetView</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The render target output view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetDepthOutput_" data-uid="Stride.Rendering.Images.ImageEffect.SetDepthOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture___" data-uid="Stride.Rendering.Images.ImageEffect.SetDepthOutput(Stride.Graphics.Texture,Stride.Graphics.Texture[])">
+  SetDepthOutput(Texture, params Texture[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the render target outputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDepthOutput(Texture depthStencilView, params Texture[] renderTargetViews)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>depthStencilView</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The depth stencil output view.</p>
+</dd>
+    <dt><code>renderTargetViews</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>[]</dt>
+    <dd><p>The render target output views.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetInput_" data-uid="Stride.Rendering.Images.ImageEffect.SetInput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetInput_System_Int32_Stride_Graphics_Texture_" data-uid="Stride.Rendering.Images.ImageEffect.SetInput(System.Int32,Stride.Graphics.Texture)">
+  SetInput(int, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an input texture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInput(int slot, Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>slot</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The slot.</p>
+</dd>
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetOutput_" data-uid="Stride.Rendering.Images.ImageEffect.SetOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture_" data-uid="Stride.Rendering.Images.ImageEffect.SetOutput(Stride.Graphics.Texture)">
+  SetOutput(Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the render target output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOutput(Texture view)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>view</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The render target output view.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>view</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetOutput_" data-uid="Stride.Rendering.Images.ImageEffect.SetOutput*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture___" data-uid="Stride.Rendering.Images.ImageEffect.SetOutput(Stride.Graphics.Texture[])">
+  SetOutput(params Texture[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the render target outputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOutput(params Texture[] views)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>views</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a>[]</dt>
+    <dd><p>The render target output views.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetRenderTargets_" data-uid="Stride.Rendering.Images.ImageEffect.SetRenderTargets*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetRenderTargets_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Images.ImageEffect.SetRenderTargets(Stride.Rendering.RenderDrawContext)">
+  SetRenderTargets(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the render targets for the image effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SetRenderTargets(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetScissorRectangle_" data-uid="Stride.Rendering.Images.ImageEffect.SetScissorRectangle*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetScissorRectangle_System_Nullable_Stride_Core_Mathematics_Rectangle__" data-uid="Stride.Rendering.Images.ImageEffect.SetScissorRectangle(System.Nullable{Stride.Core.Mathematics.Rectangle})">
+  SetScissorRectangle(Rectangle?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds a single scissor rectangle to the rasterizer stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetScissorRectangle(Rectangle? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>?</dt>
+    <dd><p>The scissor rectangle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetScissorRectangles_" data-uid="Stride.Rendering.Images.ImageEffect.SetScissorRectangles*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetScissorRectangles_System_ReadOnlySpan_Stride_Core_Mathematics_Rectangle__" data-uid="Stride.Rendering.Images.ImageEffect.SetScissorRectangles(System.ReadOnlySpan{Stride.Core.Mathematics.Rectangle})">
+  SetScissorRectangles(ReadOnlySpan&lt;Rectangle&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds a set of scissor rectangles to the rasterizer stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetScissorRectangles(ReadOnlySpan&lt;Rectangle&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Rectangle.html">Rectangle</a>&gt;</dt>
+    <dd><p>The set of scissor rectangles to bind.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Rendering_Images_ImageEffect_SetScissorRectangles_System_ReadOnlySpan_Stride_Core_Mathematics_Rectangle___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>'s <code>MaxViewportAndScissorRectangleCount</code> viewports can be used simultaneously</p>
+</div>
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetViewport_" data-uid="Stride.Rendering.Images.ImageEffect.SetViewport*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetViewport_System_Nullable_Stride_Graphics_Viewport__" data-uid="Stride.Rendering.Images.ImageEffect.SetViewport(System.Nullable{Stride.Graphics.Viewport})">
+  SetViewport(Viewport?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds a single viewport to the rasterizer stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewport(Viewport? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Graphics.Viewport.html">Viewport</a>?</dt>
+    <dd><p>The viewport.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageEffect_SetViewports_" data-uid="Stride.Rendering.Images.ImageEffect.SetViewports*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageEffect_SetViewports_System_ReadOnlySpan_Stride_Graphics_Viewport__" data-uid="Stride.Rendering.Images.ImageEffect.SetViewports(System.ReadOnlySpan{Stride.Graphics.Viewport})">
+  SetViewports(ReadOnlySpan&lt;Viewport&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds a set of viewports to the rasterizer stage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetViewports(ReadOnlySpan&lt;Viewport&gt; values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="Stride.Graphics.Viewport.html">Viewport</a>&gt;</dt>
+    <dd><p>The set of viewports to bind.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Rendering_Images_ImageEffect_SetViewports_System_ReadOnlySpan_Stride_Graphics_Viewport___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>'s <code>MaxViewportAndScissorRectangleCount</code> scissors can be used simultaneously</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageEffect.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

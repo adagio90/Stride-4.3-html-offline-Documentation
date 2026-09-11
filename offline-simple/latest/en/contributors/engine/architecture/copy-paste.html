@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Copy and paste | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Copy and paste | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/engine/architecture/copy-paste.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="copy-and-paste">Copy and paste</h1>
+
+<h2 id="introduction">Introduction</h2>
+<h3 id="rationale">Rationale</h3>
+<p>Any good editing software has some kind of copy/paste system and Stride is no exception. Copy/paste should be intuitive and work in a lot of cases: any situation that make sense for a user.</p>
+<h3 id="goals">Goals</h3>
+<p>From a usability point of view, the capabilities of the copy/paste system should be:</p>
+<ul>
+<li>Copy anything.</li>
+<li>Paste anywhere.</li>
+</ul>
+<h3 id="scope">Scope</h3>
+<p>The copy/paste system should at term support all those cases:</p>
+<ul>
+<li>copy/paste of assets</li>
+<li>copy/paste of properties of assets</li>
+<li>copy/paste of parts of assets (e.g. entities in a scene or prefab)</li>
+<li>copy/paste of settings</li>
+<li>support for copy/paste between different instances of the GameStudio</li>
+</ul>
+<h3 id="current-state-october-2017">Current state (October 2017)</h3>
+<ul>
+<li>[x] copy/paste of assets</li>
+<li>[-] copy/paste of properties of assets
+<ul>
+<li>[x] support for primitives</li>
+<li>[x] support for collections</li>
+<li>[-] partial support for dictionaries</li>
+<li>[x] support for asset references and asset part references</li>
+<li>[x] support for structures and class instances</li>
+<li>[ ] no support for virtual properties (copy works in some cases, paste doesn't)</li>
+</ul>
+</li>
+<li>[-] copy/paste of parts of assets
+<ul>
+<li>[x] support for entities in scene or prefab</li>
+<li>[x] support for UI elements, but need more testing, especially regarding attached properties</li>
+<li>[x] support for sprites in spritesheet</li>
+</ul>
+</li>
+<li>[ ] copy/paste of settings (should be easy to add)</li>
+<li>[-] support for copy/paste between different instances of the GameStudio
+<ul>
+<li>there is no technical obstacle as copying use the clipboard</li>
+<li>already working, but need more testing, especially regarding identifiers and references</li>
+<li>might need to introduce a unique Guid per project (or even per GameStudio instance) to detect and solve potential conflicts</li>
+</ul>
+</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>From the user point of view, the entry points in the GameStudio are context menus (property grid, assets in asset view, entities in scene and prefab editors, etc.). Keyboard shortcuts (&quot;Ctrl+C&quot; and &quot;Ctrl+V&quot;) also work in the same location.</p>
+<h3 id="copy">Copy</h3>
+<p>The order of events when the user copies &quot;something&quot; are:</p>
+<ol>
+<li>keyboard or context menu</li>
+<li>copy command in the corresponding editor or viewmodel</li>
+<li>eventually, some preparation code specific to the editor or asset</li>
+<li>call to one of <code>ICopyPasteService</code> copy methods
+<ol>
+<li>encapsulation into a <code>CopyPasteData</code> container</li>
+<li>collection of necessary metadata</li>
+<li>serialization to <code>string</code></li>
+</ol>
+</li>
+<li>save to clipboard</li>
+</ol>
+<h3 id="paste">Paste</h3>
+<p>The order of events when the user pastes &quot;something&quot; are:</p>
+<ol>
+<li>get text from clipboard and check that data is valid</li>
+<li>call <code>ICopyPasteService.DeserializeCopiedData()</code> method
+<ol>
+<li>deserialization from <code>string</code></li>
+<li>find a valid <code>IPasteProcessor</code> for the data</li>
+<li>call <code>IPasteProcessor.ProcessDeserializedData()</code> method</li>
+<li>apply metadata overrides</li>
+</ol>
+</li>
+<li>actual paste
+<ul>
+<li>either use the result directly (simple case)</li>
+<li>or call <code>IPasteProcessor.Paste()</code> (more complex scenario such as entities)</li>
+</ul>
+</li>
+</ol>
+<h2 id="implementation-details">Implementation details</h2>
+<p>The copy/paste API is exposed by the <code>ICopyPasteService</code> interface. It is available by consumers through the <code>ServiceProvider</code> (see <code>ViewModelBase</code> class).</p>
+<p>Implementation details are hidden from the API as only interfaces are exposed: <code>ICopyPasteService</code>, <code>IPasteResult</code>, <code>IPasteItem</code>, <code>IPasteProcessor</code>. This makes integration easier and allows extensibility for the future.</p>
+<h3 id="service">Service</h3>
+<h4 id="icopypasteservice-interface"><code>ICopyPasteService</code> interface</h4>
+<p>This interface is the main entry point for the copy/paste API. It exposes the copy and paste method as well as the registration (or unregistration) of processors.</p>
+<h5 id="copyfromasset-and-copyfromassets-methods"><code>CopyFromAsset()</code> and <code>CopyFromAssets()</code> methods</h5>
+<p>Those methods create a serialized version of an asset or part of an asset  that can then be put into the clipboard.</p>
+<h5 id="copymultipleassets-method"><code>CopyMultipleAssets()</code> method</h5>
+<p>This is a legacy method that is only used to copy a collection of <code>AssetItem</code>. Ideally it should be reworked so that <code>CopyFromAssets()</code> could be used instead. That implies modifying the call-site of this method (see <code>AssetCollectionViewModel.CopySelection()</code>) as well as the corresponding paste process (see <code>AssetItemPasteProcessor</code> and <code>AssetCollectionViewModel.Paste()</code>).</p>
+<h5 id="canpaste-method"><code>CanPaste()</code> method</h5>
+<p>This method allows to quickly check if the serialized data can be pasted given the expected types of the target.</p>
+<h5 id="deserializecopieddata-method"><code>DeserializeCopiedData()</code> method</h5>
+<p>This method attempts to deserialize the string data into a object compatible with the target. The object returned (<code>IPasteResult</code> see below) contains the data (if the process was successful) and a reference to the paste processors that were used.</p>
+<h4 id="copypasteservice-class"><code>CopyPasteService</code> class</h4>
+<p>Internal implementation of the <code>ICopyPasteService</code> interface. it doesn't expose more functionalities than the interface.</p>
+<h3 id="data-and-serialization">Data and serialization</h3>
+<p>When the copy service is asked to copy some objects, it first put them in a container before serialization. The container has some additional properties and metadata that gives some context to the copied objects. These metadata will then be used when pasting to help resolve some situations.</p>
+<h4 id="copypastedata-class"><code>CopyPasteData</code> class</h4>
+<p>It is the top container of copied data. In the serialized YAML it is the root of the document.</p>
+<h5 id="itemtype-property"><code>ItemType</code> property</h5>
+<p>This string property contains the type of the copied items, serialized as a YAML tag. Having the type available as a top property allows before pasting to quickly check the type of the data without deserializing the whole document.</p>
+<h5 id="items-property"><code>Items</code> property</h5>
+<p>The copy/paste feature supports copying more than one object at a time, provided that the object types are all compatible (either same type or share a common base type). This property holds the list of copied items.</p>
+<h5 id="overrides-property"><code>Overrides</code> property</h5>
+<p>Objects that are copied from the property grid can override their base (e.g. in case of an archetype or prefab). Before serialization, the overrides metadata are collected for the copied objects and put into this property.</p>
+<h4 id="copypasteitem-class"><code>CopyPasteItem</code> class</h4>
+<p>Each item is also put inside a container in order to attach per-item contextual metadata.</p>
+<h5 id="data-property"><code>Data</code> property</h5>
+<p>The copied data itself.</p>
+<h5 id="sourceid-property"><code>SourceId</code> property</h5>
+<p>Identifier to the asset from which the data was copied. This will be used later by the paste processors to determine whether the pasted data must be cloned or used as-is depending on some conditions.</p>
+<h5 id="isrootobjectreference-property"><code>IsRootObjectReference</code> property</h5>
+<p>Indicates if the copied data is a reference to another object.</p>
+<h4 id="pasteresult-class"><code>PasteResult</code> class</h4>
+<p>(implements <code>IPasteResult</code> interface)
+Similarly to the copy step, pasted data (i.e. copied data that has been deserialized and processed by a paste processor) is returned by the service inside a container. The paste result is itself a collection of items as each <code>CopyPasteItem</code> from the copied data is processed separately.</p>
+<h4 id="pasteitem-class"><code>PasteItem</code> class</h4>
+<p>(implements <code>IPasteItem</code> interface)
+Represents one item of the resulting paste data. It also contains a reference to the processor that was used to process the deserialized data.</p>
+<h3 id="copy-processors">Copy processors</h3>
+<p>(implement <code>ICopyProcessor</code>)</p>
+<p>A copy processor processes the data before it is serialized. At the moment there is only one such processor.</p>
+<p>Remark: copy processors are registered as plugins (see <code>AssetsPlugin.RegisterCopyProcessors()</code>).</p>
+<h4 id="entitycomponentcopyprocessor"><code>EntityComponentCopyProcessor</code></h4>
+<p>This copy processor is applied when copying a <code>TransformComponent</code> or an <code>EntityComponentCollection</code> containing one or more <code>TransformComponent</code>. In such cases, the list of children of the transform is cleared so that only the transform properties (position, rotation and scale) are copied.</p>
+<h3 id="paste-processors">Paste processors</h3>
+<p>(implement <code>IPasteProcessor</code>)</p>
+<p>A paste processor has two roles:</p>
+<ul>
+<li>first, it processed the data just after it has been deserialized. That step prepares the data before it can be applies to the target. This usually involves converting to match certain types and resolving references.</li>
+<li>if the data could be processed, it then paste it into the final target object. Only during that step is an actual asset modified.</li>
+</ul>
+<p>Paste processors are registered as plugins (see <code>AssetsPlugin.RegisterPasteProcessors()</code>). The order of registration matters: when looking for a matching processor, the service will iterate through the list of registered processors in reverse order (last registered first) and return the first one than can process the data (i.e. the first one which <code>Accept()</code> method returns <code>true</code>). At the moment it is working fine but when plugins will be more widely supported it might cause some conflicts. An explicit priority order could be given to each processor.</p>
+<p>Currently the registration order is:</p>
+<ol>
+<li><code>AssetPropertyPasteProcessor</code></li>
+<li><code>AssetItemPasteProcessor</code></li>
+<li><code>EntityComponentPasteProcessor</code></li>
+<li><code>EntityHierarchyPasteProcessor</code></li>
+<li><code>UIHierarchyPasteProcessor</code></li>
+</ol>
+<h4 id="assetpropertypasteprocessor-class"><code>AssetPropertyPasteProcessor</code> class</h4>
+<p>This is the default paste processor with the lowest priority (registered first, see above). It supports the following features:</p>
+<ul>
+<li>pasting a value into a target property</li>
+<li>pasting a single item into a target collection (appending or adding one item depending on the index)</li>
+<li>pasting a collection into a target collection (appending or inserting items depending on the index)</li>
+<li>replacing a target collection with a single item or a collection</li>
+</ul>
+<p>It will also try to convert the pasted value into the type or the target (see <code>TypeConverterHelper</code> helper class).</p>
+<h4 id="assetitempasteprocessor-class"><code>AssetItemPasteProcessor</code> class</h4>
+<p>This processor only accepts single object or collection of <code>AssetItem</code>. It is used when copying and pasting assets in the asset view.</p>
+<h4 id="entitycomponentpasteprocessor-class"><code>EntityComponentPasteProcessor</code> class</h4>
+<p>(inherits <code>AssetPropertyPasteProcessor</code>)</p>
+<p>This processor extends the behavior of <code>AssetPropertyPasteProcessor</code> in the case of <code>EntityComponent</code>. It adds some special rules specific to components:</p>
+<ul>
+<li>the <code>TransformComponent</code> cannot be removed from an <code>EntityComponentCollection</code></li>
+<li>the <code>TransformComponent</code> cannot be replaced by a different type of component</li>
+<li>when replacing the <code>TransformComponent</code>, instead manually replace its properties (position, rotation and scale)</li>
+<li>multiple instances of component are allowed only if the component class is decorated with a <code>AllowMultipleComponentAttribute</code>.</li>
+</ul>
+<h4 id="assetcompositehierarchypasteprocessor-class"><code>AssetCompositeHierarchyPasteProcessor</code> class</h4>
+<p>This processor supports pasting hierarchical data (<code>AssetCompositeHierarchyData&lt;TAssetPartDesign, TAssetPart&gt;</code>) into a hierarchical asset composite (<code>AssetCompositeHierarchy&lt;TAssetPartDesign, TAssetPart&gt;</code>). Typically used for prefab, scene or UI assets.</p>
+<p>The tricky part is actually handling all the part references (hierarchy) and the inheritance from the base (composite). There is a lot of cloning and remapping of identifiers involved in that process.</p>
+<h4 id="entityhierarchypasteprocessor-class"><code>EntityHierarchyPasteProcessor</code> class</h4>
+<p>(inherits <code>AssetCompositeHierarchyPasteProcessor</code>)</p>
+<p>This processor is dedicated to hierarchy of entities (i.e. scene or prefab assets). It handles the actual pasting into the target asset.</p>
+<h4 id="uihierarchypasteprocessor-class"><code>UIHierarchyPasteProcessor</code> class</h4>
+<p>(inherits <code>AssetCompositeHierarchyPasteProcessor</code>)</p>
+<p>This processor is dedicated to hierarchy of UI elements (i.e. UI page or library assets). It handles the actual pasting into the target asset.</p>
+<h3 id="post-paste-processors">Post-paste processors</h3>
+<p>(implement <code>IAssetPostPasteProcessor</code>)</p>
+<p>Small hack to apply special case when a scene asset is copied/pasted in the asset view. This should be reworked to allow more general cases.</p>
+<p>Remark: post-paste processors are registered as plugins (see <code>AssetsPlugin.RegisterPostPasteProcessors()</code>).</p>
+<h4 id="scenepostpasteprocessor-class"><code>ScenePostPasteProcessor</code> class</h4>
+<p>Because scene asset are also hierarchical (a scene can contain child scenes), when creating a copy of a scene those relationship must be cleared.</p>
+<h3 id="editor-commands">Editor commands</h3>
+<p>In the property grid, the copy, paste and replace capabilities are available through the context menu of the properties and keyboard shortcuts. There are implemented by node commands.</p>
+<h4 id="copypropertycommand-class"><code>CopyPropertyCommand</code> class</h4>
+<p>This command assumes that data can always be copied and thus is available on all asset nodes. It basically asks the <code>ICopyService</code> to serialize the node value and then sets the clipboard.</p>
+<h4 id="pastepropertycommandbase-class"><code>PastePropertyCommandBase</code> class</h4>
+<p>This command implements the paste capability in the property grid. It is always attached  to all asset nodes. However it is disabled, when pasting is not possible: readonly property, incompatible data.</p>
+<p>When pasting, the command automatically creates a transaction to enable undo and redo.</p>
+<p>This abstract class is inherited by <code>PastePropertyCommand</code> and <code>ReplacePropertyCommand</code> where the only difference is that the latter will set the <code>AssetPropertyPasteProcessor.IsReplaceKey</code> property key to <code>true</code>. Depending on the value, paste processors will either paste or replace. It is only meaningful in the context of collection, as pasting a value to a single property is the same as replacing it.</p>
+<h3 id="others">Others</h3>
+<h4 id="safeclipboard-class"><code>SafeClipboard</code> class</h4>
+<p>The <code>System.Windows.Clipboard</code> can sometimes throw <code>COMException</code> when the clipboard is not available (only one process can access the clipboard at a given time). This class is a tiny wrapper that silently ignores (catches) those exceptions.</p>
+<h2 id="documentation-and-references">Documentation and references</h2>
+<p>The only user documentation currently existing can be found in one blog post (<a href="https://stride3d.net/blog/copy-paste/">https://stride3d.net/blog/copy-paste/</a>) and the release notes of the 1.9-beta version (<a href="http://doc.stride3d.net/latest/en/ReleaseNotes/ReleaseNotes-1.9.html">http://doc.stride3d.net/latest/en/ReleaseNotes/ReleaseNotes-1.9.html</a>).</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/engine/architecture/copy-paste.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

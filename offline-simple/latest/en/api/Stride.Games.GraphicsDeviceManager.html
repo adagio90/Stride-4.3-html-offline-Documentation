@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GraphicsDeviceManager | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GraphicsDeviceManager | Stride API ">
+      
+      <meta name="description" content="Manages the  lifecycle.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Games_GraphicsDeviceManager.md&amp;value=---%0Auid%3A%20Stride.Games.GraphicsDeviceManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Games.GraphicsDeviceManager">
+
+
+
+  <h1 id="Stride_Games_GraphicsDeviceManager" data-uid="Stride.Games.GraphicsDeviceManager" class="text-break">
+Class GraphicsDeviceManager  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Games.html">Games</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Games.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages the <a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_GraphicsDevice">GraphicsDevice</a> lifecycle.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GraphicsDeviceManager : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder, IGraphicsDeviceManager, IGraphicsDeviceService</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">GraphicsDeviceManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Games.IGraphicsDeviceManager.html">IGraphicsDeviceManager</a></div>
+      <div><a class="xref" href="Stride.Graphics.IGraphicsDeviceService.html">IGraphicsDeviceService</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DefaultBackBufferHeight" data-uid="Stride.Games.GraphicsDeviceManager.DefaultBackBufferHeight">
+  DefaultBackBufferHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default height for the back buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int DefaultBackBufferHeight</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DefaultBackBufferWidth" data-uid="Stride.Games.GraphicsDeviceManager.DefaultBackBufferWidth">
+  DefaultBackBufferWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default width for the back buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int DefaultBackBufferWidth</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_DeviceCreationFlags_" data-uid="Stride.Games.GraphicsDeviceManager.DeviceCreationFlags*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DeviceCreationFlags" data-uid="Stride.Games.GraphicsDeviceManager.DeviceCreationFlags">
+  DeviceCreationFlags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the device creation flags that will be used to create the <a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_GraphicsDevice">GraphicsDevice</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeviceCreationFlags DeviceCreationFlags { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd><p>The device creation flags.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_GraphicsDevice_" data-uid="Stride.Games.GraphicsDeviceManager.GraphicsDevice*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_GraphicsDevice" data-uid="Stride.Games.GraphicsDeviceManager.GraphicsDevice">
+  GraphicsDevice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current graphcs device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsDevice GraphicsDevice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_IsFullScreen_" data-uid="Stride.Games.GraphicsDeviceManager.IsFullScreen*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_IsFullScreen" data-uid="Stride.Games.GraphicsDeviceManager.IsFullScreen">
+  IsFullScreen
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this instance is full screen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFullScreen { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is full screen; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferFormat_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferFormat*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferFormat" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferFormat">
+  PreferredBackBufferFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the preferred back buffer format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat PreferredBackBufferFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The preferred back buffer format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferHeight_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferHeight*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferHeight" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferHeight">
+  PreferredBackBufferHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the height of the preferred back buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PreferredBackBufferHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the preferred back buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferWidth_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferWidth*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredBackBufferWidth" data-uid="Stride.Games.GraphicsDeviceManager.PreferredBackBufferWidth">
+  PreferredBackBufferWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L321"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the width of the preferred back buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PreferredBackBufferWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the preferred back buffer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredColorSpace_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredColorSpace*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredColorSpace" data-uid="Stride.Games.GraphicsDeviceManager.PreferredColorSpace">
+  PreferredColorSpace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default color space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorSpace PreferredColorSpace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.ColorSpace.html">ColorSpace</a></dt>
+    <dd><p>The default color space.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredDepthStencilFormat_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredDepthStencilFormat*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredDepthStencilFormat" data-uid="Stride.Games.GraphicsDeviceManager.PreferredDepthStencilFormat">
+  PreferredDepthStencilFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the preferred depth stencil format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat PreferredDepthStencilFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The preferred depth stencil format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredFullScreenOutputIndex_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredFullScreenOutputIndex*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredFullScreenOutputIndex" data-uid="Stride.Games.GraphicsDeviceManager.PreferredFullScreenOutputIndex">
+  PreferredFullScreenOutputIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The output (monitor) index to use when switching to fullscreen mode. Doesn't have any effect when windowed mode is used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PreferredFullScreenOutputIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredGraphicsProfile_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredGraphicsProfile*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredGraphicsProfile" data-uid="Stride.Games.GraphicsDeviceManager.PreferredGraphicsProfile">
+  PreferredGraphicsProfile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the list of graphics profile to select from the best feature to the lower feature. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsProfile[] PreferredGraphicsProfile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The graphics profile.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Games_GraphicsDeviceManager_PreferredGraphicsProfile_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>By default, the PreferredGraphicsProfile is set to { <a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_11_1">Level_11_1</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_11_0">Level_11_0</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_10_1">Level_10_1</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_10_0">Level_10_0</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_9_3">Level_9_3</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_9_2">Level_9_2</a>,
+<a class="xref" href="Stride.Graphics.GraphicsProfile.html#Stride_Graphics_GraphicsProfile_Level_9_1">Level_9_1</a>}</p>
+</div>
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredMultisampleCount_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredMultisampleCount*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredMultisampleCount" data-uid="Stride.Games.GraphicsDeviceManager.PreferredMultisampleCount">
+  PreferredMultisampleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether [prefer multi sampling].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultisampleCount PreferredMultisampleCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MultisampleCount.html">MultisampleCount</a></dt>
+    <dd><p><code>true</code> if [prefer multi sampling]; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_PreferredRefreshRate_" data-uid="Stride.Games.GraphicsDeviceManager.PreferredRefreshRate*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreferredRefreshRate" data-uid="Stride.Games.GraphicsDeviceManager.PreferredRefreshRate">
+  PreferredRefreshRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L364"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the preferred refresh rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rational PreferredRefreshRate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Rational.html">Rational</a></dt>
+    <dd><p>The preferred refresh rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_RequiredAdapterUid_" data-uid="Stride.Games.GraphicsDeviceManager.RequiredAdapterUid*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_RequiredAdapterUid" data-uid="Stride.Games.GraphicsDeviceManager.RequiredAdapterUid">
+  RequiredAdapterUid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If populated the engine will try to initialize the device with the same unique id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RequiredAdapterUid { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_ShaderProfile_" data-uid="Stride.Games.GraphicsDeviceManager.ShaderProfile*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_ShaderProfile" data-uid="Stride.Games.GraphicsDeviceManager.ShaderProfile">
+  ShaderProfile
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the shader graphics profile that will be used to compile shaders. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsProfile? ShaderProfile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>?</dt>
+    <dd><p>The shader graphics profile.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Games_GraphicsDeviceManager_ShaderProfile_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this property is not set, the profile used to compile the shader will be taken from the <a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_GraphicsDevice">GraphicsDevice</a>
+based on the list provided by <a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_PreferredGraphicsProfile">PreferredGraphicsProfile</a></p>
+</div>
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_SupportedOrientations_" data-uid="Stride.Games.GraphicsDeviceManager.SupportedOrientations*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_SupportedOrientations" data-uid="Stride.Games.GraphicsDeviceManager.SupportedOrientations">
+  SupportedOrientations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the supported orientations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DisplayOrientation SupportedOrientations { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.DisplayOrientation.html">DisplayOrientation</a></dt>
+    <dd><p>The supported orientations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_SynchronizeWithVerticalRetrace_" data-uid="Stride.Games.GraphicsDeviceManager.SynchronizeWithVerticalRetrace*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_SynchronizeWithVerticalRetrace" data-uid="Stride.Games.GraphicsDeviceManager.SynchronizeWithVerticalRetrace">
+  SynchronizeWithVerticalRetrace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether [synchronize with vertical retrace].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SynchronizeWithVerticalRetrace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if [synchronize with vertical retrace]; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_ApplyChanges_" data-uid="Stride.Games.GraphicsDeviceManager.ApplyChanges*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_ApplyChanges" data-uid="Stride.Games.GraphicsDeviceManager.ApplyChanges">
+  ApplyChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L449"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies the changes from this instance and change or create the <a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_GraphicsDevice">GraphicsDevice</a> according to the new values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyChanges()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_CanResetDevice_" data-uid="Stride.Games.GraphicsDeviceManager.CanResetDevice*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_CanResetDevice_Stride_Games_GraphicsDeviceInformation_" data-uid="Stride.Games.GraphicsDeviceManager.CanResetDevice(Stride.Games.GraphicsDeviceInformation)">
+  CanResetDevice(GraphicsDeviceInformation)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L615"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether this instance is compatible with the the specified new <a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool CanResetDevice(GraphicsDeviceInformation newDeviceInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newDeviceInfo</code> <a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a></dt>
+    <dd><p>The new device info.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance this instance is compatible with the the specified new <a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_Destroy_" data-uid="Stride.Games.GraphicsDeviceManager.Destroy*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_Destroy" data-uid="Stride.Games.GraphicsDeviceManager.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_FindBestDevice_" data-uid="Stride.Games.GraphicsDeviceManager.FindBestDevice*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_FindBestDevice_System_Boolean_" data-uid="Stride.Games.GraphicsDeviceManager.FindBestDevice(System.Boolean)">
+  FindBestDevice(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L626"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds the best device that is compatible with the preferences defined in this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual GraphicsDeviceInformation FindBestDevice(bool anySuitableDevice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>anySuitableDevice</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> a device can be selected from any existing adapters, otherwise, it will select only from default adapter.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a></dt>
+    <dd><p>The graphics device information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_IsPreferredProfileAvailable_" data-uid="Stride.Games.GraphicsDeviceManager.IsPreferredProfileAvailable*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_IsPreferredProfileAvailable_Stride_Graphics_GraphicsProfile___Stride_Graphics_GraphicsProfile__" data-uid="Stride.Games.GraphicsDeviceManager.IsPreferredProfileAvailable(Stride.Graphics.GraphicsProfile[],Stride.Graphics.GraphicsProfile@)">
+  IsPreferredProfileAvailable(GraphicsProfile[], out GraphicsProfile)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L799"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool IsPreferredProfileAvailable(GraphicsProfile[] preferredProfiles, out GraphicsProfile availableProfile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>preferredProfiles</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd></dd>
+    <dt><code>availableProfile</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_OnDeviceCreated_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceCreated*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_OnDeviceCreated_System_Object_System_EventArgs_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceCreated(System.Object,System.EventArgs)">
+  OnDeviceCreated(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L861"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDeviceCreated(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_OnDeviceDisposing_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceDisposing*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_OnDeviceDisposing_System_Object_System_EventArgs_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceDisposing(System.Object,System.EventArgs)">
+  OnDeviceDisposing(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L866"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDeviceDisposing(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_OnDeviceReset_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceReset*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_OnDeviceReset_System_Object_System_EventArgs_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceReset(System.Object,System.EventArgs)">
+  OnDeviceReset(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L871"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDeviceReset(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_OnDeviceResetting_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceResetting*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_OnDeviceResetting_System_Object_System_EventArgs_" data-uid="Stride.Games.GraphicsDeviceManager.OnDeviceResetting(System.Object,System.EventArgs)">
+  OnDeviceResetting(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L876"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDeviceResetting(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_OnPreparingDeviceSettings_" data-uid="Stride.Games.GraphicsDeviceManager.OnPreparingDeviceSettings*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_OnPreparingDeviceSettings_System_Object_Stride_Games_PreparingDeviceSettingsEventArgs_" data-uid="Stride.Games.GraphicsDeviceManager.OnPreparingDeviceSettings(System.Object,Stride.Games.PreparingDeviceSettingsEventArgs)">
+  OnPreparingDeviceSettings(object, PreparingDeviceSettingsEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L881"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <a class="xref" href="Stride.Games.PreparingDeviceSettingsEventArgs.html">PreparingDeviceSettingsEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_RankDevices_" data-uid="Stride.Games.GraphicsDeviceManager.RankDevices*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_RankDevices_System_Collections_Generic_List_Stride_Games_GraphicsDeviceInformation__" data-uid="Stride.Games.GraphicsDeviceManager.RankDevices(System.Collections.Generic.List{Stride.Games.GraphicsDeviceInformation})">
+  RankDevices(List&lt;GraphicsDeviceInformation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L692"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ranks a list of <a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a> before creating a new device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void RankDevices(List&lt;GraphicsDeviceInformation&gt; foundDevices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>foundDevices</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Games.GraphicsDeviceInformation.html">GraphicsDeviceInformation</a>&gt;</dt>
+    <dd><p>The list of devices that can be reorder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_SelectOrientation_" data-uid="Stride.Games.GraphicsDeviceManager.SelectOrientation*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_SelectOrientation_Stride_Graphics_DisplayOrientation_System_Int32_System_Int32_System_Boolean_" data-uid="Stride.Games.GraphicsDeviceManager.SelectOrientation(Stride.Graphics.DisplayOrientation,System.Int32,System.Int32,System.Boolean)">
+  SelectOrientation(DisplayOrientation, int, int, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L549"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static DisplayOrientation SelectOrientation(DisplayOrientation orientation, int width, int height, bool allowLandscapeLeftAndRight)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>orientation</code> <a class="xref" href="Stride.Graphics.DisplayOrientation.html">DisplayOrientation</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>allowLandscapeLeftAndRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.DisplayOrientation.html">DisplayOrientation</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GraphicsDeviceManager_SetPreferredGraphicsProfile_" data-uid="Stride.Games.GraphicsDeviceManager.SetPreferredGraphicsProfile*"></a>
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_SetPreferredGraphicsProfile_Stride_Graphics_GraphicsProfile___" data-uid="Stride.Games.GraphicsDeviceManager.SetPreferredGraphicsProfile(Stride.Graphics.GraphicsProfile[])">
+  SetPreferredGraphicsProfile(params GraphicsProfile[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the preferred graphics profile.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPreferredGraphicsProfile(params GraphicsProfile[] levels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>levels</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The levels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="Stride.Games.GraphicsDeviceManager.html#Stride_Games_GraphicsDeviceManager_PreferredGraphicsProfile">PreferredGraphicsProfile</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DeviceCreated" data-uid="Stride.Games.GraphicsDeviceManager.DeviceCreated">
+  DeviceCreated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a device is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; DeviceCreated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DeviceDisposing" data-uid="Stride.Games.GraphicsDeviceManager.DeviceDisposing">
+  DeviceDisposing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a device is disposing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; DeviceDisposing</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DeviceReset" data-uid="Stride.Games.GraphicsDeviceManager.DeviceReset">
+  DeviceReset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a device is reseted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; DeviceReset</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_DeviceResetting" data-uid="Stride.Games.GraphicsDeviceManager.DeviceResetting">
+  DeviceResetting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a device is resetting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; DeviceResetting</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GraphicsDeviceManager_PreparingDeviceSettings" data-uid="Stride.Games.GraphicsDeviceManager.PreparingDeviceSettings">
+  PreparingDeviceSettings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;PreparingDeviceSettingsEventArgs&gt; PreparingDeviceSettings</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Games.PreparingDeviceSettingsEventArgs.html">PreparingDeviceSettingsEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GraphicsDeviceManager.cs/#L36" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

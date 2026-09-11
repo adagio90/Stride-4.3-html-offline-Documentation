@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Create a bouncing ball | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Create a bouncing ball | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/create-a-bouncing-ball.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="create-a-bouncing-ball">Create a bouncing ball</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>In this tutorial, we'll use the <a href="colliders.html">static and body components</a> to create a ball bouncing on a floor.</p>
+<h2 id="1-create-a-new-project">1. Create a new project</h2>
+<p>Start a <strong>New Game</strong> project.</p>
+<p>The default scene comes pre-loaded with five entities: Camera, Directional light, Skybox, Ground, and Sphere. We're going to add physics components to the <strong>Ground</strong> and <strong>Sphere</strong> entities.</p>
+<h2 id="2-add-a-static-component">2. Add a Static Component</h2>
+<p>Let's begin by adding a <a href="static-colliders.html">static collider</a> component to the Ground entity. A static component is a physics object that doesn't move. Typical static component are walls, floors, large rocks, and so on. In this case, the static component will give the ball something to bounce on.</p>
+<ol>
+<li><p>Select the <strong>Ground</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Static Collider</strong>.</p>
+<p><img src="media/add-static-component.png" alt="Add Static collider component"></p>
+</li>
+<li><p>Set the <a href="collider-shapes.html">collider shape</a> to match the shape of the entity. To do this, in the <strong>Property Grid</strong>, expand the <strong>Static Component</strong> to view its properties.</p>
+</li>
+<li><p>Next to <strong>Colliders</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Box Collider</strong>.</p>
+<p><img src="media/compound-types.png" alt="Add Static collider component"></p>
+<p>This adds a static collider to the ground, so the ball has something to bounce off.</p>
+</li>
+<li><p>Set the <code>Size</code> property to <code>X: 10, Y: 0.1, Z: 10</code> to create a flat plane from this box</p>
+</li>
+</ol>
+<h2 id="3-add-a-body-component">3. Add a Body Component</h2>
+<p>Next, we'll add a <a href="rigid-bodies.html">body</a> component to the sphere. A body is a physics object that moves — perfect for our bouncing ball.</p>
+<ol>
+<li><p>In the <strong>Scene Editor</strong>, select the <strong>Sphere</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Rigidbody</strong>.</p>
+<p><img src="media/add-body-component.png" alt="Add Static collider component"></p>
+</li>
+<li><p>Just like we did for the Ground entity, set the <a href="collider-shapes.html">collider shape</a> to match the entity. To do this, in the <strong>Property Grid</strong>, expand the <strong>Body Component</strong> to view its properties.</p>
+</li>
+<li><p>Next to <strong>Colliders</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Sphere</strong>.</p>
+<p><img src="media/compound-types.png" alt="Add Static collider component"></p>
+</li>
+</ol>
+<h2 id="4-position-the-ball">4. Position the ball</h2>
+<p>Let's position the sphere so it starts in midair and falls to the ground.</p>
+<ol>
+<li><p>Select the <strong>Sphere</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Transform</strong>, set the <strong>Position</strong> to: <code>X: 0, Y: 6, Z: 0</code></p>
+<p>This places the ball in midair above the ground.</p>
+</li>
+</ol>
+<h2 id="5-position-the-camera">5. Position the camera</h2>
+<p>Now we'll move the camera to give us a good view of the scene.</p>
+<ol>
+<li><p>Select the <strong>Camera</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Transform</strong>, set the <strong>Position</strong> to: <code>X: 11, Y: 3, Z: -4</code></p>
+<p>You can see preview the camera view in the <strong>Camera preview</strong> in the bottom-right of the Scene Editor.</p>
+<p><img src="media/physics-tutorials-camera-preview.png" alt="Camera preview"></p>
+</li>
+</ol>
+<h2 id="6-set-the-restitution">6. Set the restitution</h2>
+<p>Let's see what the scene looks like so far. To run the project, press <strong>F5</strong>.</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay loop class="responsive-video">
+   <source src="media/physics-tutorials-create-a-bouncing-ball-falling-ball.mp4" type="video/mp4">
+</video>
+</div>
+<p>The Sphere (body) responds to gravity and falls. The Ground (static collider) breaks its fall. But there's no bounce effect yet.</p>
+<p>To create a bounce effect, we need to change the <code>Spring Frequency</code> and <code>Spring Daming Ratio</code> of the Sphere.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Bepu internally uses speculative contacts which does not play well with traditional coefficient of restitution. Instead, bounces can be implemented through contact constraint springiness, this specificity mean that bounces actually take place over multiple simulation steps instead of on contact. This may be counter-intuitive for users accustomed to other engine's restitution-based bounciness.</p>
+</div>
+<ul>
+<li>Bounciness is dominated by <code>Spring Damping Ratio</code>; setting it to zero minimizes energy loss on impact.</li>
+<li>Increasing <code>Spring Frequency</code> can make impacts less bouncy when. This happens because the integration rate becomes too slow to represent the motion, and it gets damped away. Increasing the substepping rate or using more timesteps preserves bounciness with higher frequencies.</li>
+</ul>
+<p>Let's set the <code>Spring Frequency</code> and <code>Spring Damping Ratio</code> of the Sphere.</p>
+<ol>
+<li><p>Select the <strong>Sphere</strong> entity.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Body</strong>, set the <code>Spring Frequency</code> to 3 and <code>Spring Damping Ratio</code> to 0.</p>
+</li>
+</ol>
+<p>To see how this changes the physics, run the project again (<strong>F5</strong>). This time, the ball bounces on the ground before coming to a stop:</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay loop class="responsive-video">
+   <source src="media/physics-tutorials-create-a-bouncing-ball-falling-and-bouncing-ball.mp4" type="video/mp4">
+</video>
+</div>
+<p>Now that we've created a bouncing ball, we can use it to learn to <a href="script-a-trigger.html">Script a trigger</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="colliders.html">Colliders</a></li>
+<li><a href="collider-shapes.html">Collider shape</a></li>
+<li><a href="script-a-trigger.html">Tutorial: Script a trigger</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/create-a-bouncing-ball.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RootRenderFeature | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RootRenderFeature | Stride API ">
+      
+      <meta name="description" content="A top-level renderer that work on a specific kind of , such as Mesh, Particle, Sprite, etc...">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_RootRenderFeature.md&amp;value=---%0Auid%3A%20Stride.Rendering.RootRenderFeature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.RootRenderFeature">
+
+
+
+  <h1 id="Stride_Rendering_RootRenderFeature" data-uid="Stride.Rendering.RootRenderFeature" class="text-break">
+Class RootRenderFeature  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A top-level renderer that work on a specific kind of <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a>, such as Mesh, Particle, Sprite, etc...</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RootRenderFeature : RenderFeature, IComponent, IReferencable, ICollectorHolder, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RenderFeature.html">RenderFeature</a></div>
+      <div><span class="xref">RootRenderFeature</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Background.BackgroundRenderFeature.html">BackgroundRenderFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.RootEffectRenderFeature.html">RootEffectRenderFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.Sprites.SpriteRenderFeature.html">SpriteRenderFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.UI.UIRenderFeature.html">UIRenderFeature</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Context">RenderFeature.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_RenderSystem">RenderFeature.RenderSystem</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Initialized">RenderFeature.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Enabled">RenderFeature.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Initialize_Stride_Rendering_RenderContext_">RenderFeature.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Destroy">RenderFeature.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_InitializeCore">RenderFeature.InitializeCore()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Collect">RenderFeature.Collect()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Extract">RenderFeature.Extract()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_PrepareEffectPermutations_Stride_Rendering_RenderDrawContext_">RenderFeature.PrepareEffectPermutations(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Prepare_Stride_Rendering_RenderDrawContext_">RenderFeature.Prepare(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Draw_Stride_Rendering_RenderDrawContext_Stride_Rendering_RenderView_Stride_Rendering_RenderViewStage_">RenderFeature.Draw(RenderDrawContext, RenderView, RenderViewStage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Draw_Stride_Rendering_RenderDrawContext_Stride_Rendering_RenderView_Stride_Rendering_RenderViewStage_System_Int32_System_Int32_">RenderFeature.Draw(RenderDrawContext, RenderView, RenderViewStage, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Flush_Stride_Rendering_RenderDrawContext_">RenderFeature.Flush(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_OnRenderSystemChanged">RenderFeature.OnRenderSystemChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_RootRenderFeature__ctor_" data-uid="Stride.Rendering.RootRenderFeature.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature__ctor" data-uid="Stride.Rendering.RootRenderFeature.#ctor">
+  RootRenderFeature()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RootRenderFeature()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_RootRenderFeature_RenderData" data-uid="Stride.Rendering.RootRenderFeature.RenderData">
+  RenderData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderDataHolder RenderData</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderDataHolder.html">RenderDataHolder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_RootRenderFeature_RenderObjects" data-uid="Stride.Rendering.RootRenderFeature.RenderObjects">
+  RenderObjects
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a> initialized with this root render feature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RenderObject&gt; RenderObjects</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_RootRenderFeature_Index_" data-uid="Stride.Rendering.RootRenderFeature.Index*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_Index" data-uid="Stride.Rendering.RootRenderFeature.Index">
+  Index
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Index { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_ObjectNodeReferences_" data-uid="Stride.Rendering.RootRenderFeature.ObjectNodeReferences*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_ObjectNodeReferences" data-uid="Stride.Rendering.RootRenderFeature.ObjectNodeReferences">
+  ObjectNodeReferences
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Object nodes to process this frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConcurrentCollector&lt;ObjectNodeReference&gt; ObjectNodeReferences { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;<a class="xref" href="Stride.Rendering.ObjectNodeReference.html">ObjectNodeReference</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_RenderNodes_" data-uid="Stride.Rendering.RootRenderFeature.RenderNodes*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_RenderNodes" data-uid="Stride.Rendering.RootRenderFeature.RenderNodes">
+  RenderNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of render nodes for this specific root render feature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConcurrentCollector&lt;RenderNode&gt; RenderNodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Threading.ConcurrentCollector-1.html">ConcurrentCollector</a>&lt;<a class="xref" href="Stride.Rendering.RenderNode.html">RenderNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_RenderStageSelectors_" data-uid="Stride.Rendering.RootRenderFeature.RenderStageSelectors*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_RenderStageSelectors" data-uid="Stride.Rendering.RootRenderFeature.RenderStageSelectors">
+  RenderStageSelectors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Overrides that allow defining which render stages are enabled for a specific <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public FastTrackingCollection&lt;RenderStageSelector&gt; RenderStageSelectors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastTrackingCollection-1.html">FastTrackingCollection</a>&lt;<a class="xref" href="Stride.Rendering.RenderStageSelector.html">RenderStageSelector</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_SortKey_" data-uid="Stride.Rendering.RootRenderFeature.SortKey*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_SortKey" data-uid="Stride.Rendering.RootRenderFeature.SortKey">
+  SortKey
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sort key used during rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte SortKey { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_SupportedRenderObjectType_" data-uid="Stride.Rendering.RootRenderFeature.SupportedRenderObjectType*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_SupportedRenderObjectType" data-uid="Stride.Rendering.RootRenderFeature.SupportedRenderObjectType">
+  SupportedRenderObjectType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of render object supported by this <a class="xref" href="Stride.Rendering.RootRenderFeature.html">RootRenderFeature</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Type SupportedRenderObjectType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_RootRenderFeature_BindPerViewShaderResource_" data-uid="Stride.Rendering.RootRenderFeature.BindPerViewShaderResource*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_BindPerViewShaderResource_System_String_Stride_Rendering_RenderView_Stride_Graphics_GraphicsResource_" data-uid="Stride.Rendering.RootRenderFeature.BindPerViewShaderResource(System.String,Stride.Rendering.RenderView,Stride.Graphics.GraphicsResource)">
+  BindPerViewShaderResource(string, RenderView, GraphicsResource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allows the renderer to inject per view resources such as depth buffer and opaque pass output.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void BindPerViewShaderResource(string logicalGroupName, RenderView renderView, GraphicsResource resource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logicalGroupName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Name of the logical group to bind to.</p>
+</dd>
+    <dt><code>renderView</code> <a class="xref" href="Stride.Rendering.RenderView.html">RenderView</a></dt>
+    <dd></dd>
+    <dt><code>resource</code> <a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_ComputeDataArrayExpectedSize_" data-uid="Stride.Rendering.RootRenderFeature.ComputeDataArrayExpectedSize*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_ComputeDataArrayExpectedSize_Stride_Rendering_DataType_" data-uid="Stride.Rendering.RootRenderFeature.ComputeDataArrayExpectedSize(Stride.Rendering.DataType)">
+  ComputeDataArrayExpectedSize(DataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int ComputeDataArrayExpectedSize(DataType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="Stride.Rendering.DataType.html">DataType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_CreateViewObjectNode_" data-uid="Stride.Rendering.RootRenderFeature.CreateViewObjectNode*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_CreateViewObjectNode_Stride_Rendering_RenderView_Stride_Rendering_RenderObject_" data-uid="Stride.Rendering.RootRenderFeature.CreateViewObjectNode(Stride.Rendering.RenderView,Stride.Rendering.RenderObject)">
+  CreateViewObjectNode(RenderView, RenderObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a view object node during Extract phase.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewObjectNodeReference CreateViewObjectNode(RenderView view, RenderObject renderObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>view</code> <a class="xref" href="Stride.Rendering.RenderView.html">RenderView</a></dt>
+    <dd></dd>
+    <dt><code>renderObject</code> <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ViewObjectNodeReference.html">ViewObjectNodeReference</a></dt>
+    <dd><p>The view object node reference.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_GetObjectNode_" data-uid="Stride.Rendering.RootRenderFeature.GetObjectNode*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_GetObjectNode_Stride_Rendering_ObjectNodeReference_" data-uid="Stride.Rendering.RootRenderFeature.GetObjectNode(Stride.Rendering.ObjectNodeReference)">
+  GetObjectNode(ObjectNodeReference)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the object node from its reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObjectNode GetObjectNode(ObjectNodeReference reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Stride.Rendering.ObjectNodeReference.html">ObjectNodeReference</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ObjectNode.html">ObjectNode</a></dt>
+    <dd><p>The object node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_GetRenderNode_" data-uid="Stride.Rendering.RootRenderFeature.GetRenderNode*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_GetRenderNode_Stride_Rendering_RenderNodeReference_" data-uid="Stride.Rendering.RootRenderFeature.GetRenderNode(Stride.Rendering.RenderNodeReference)">
+  GetRenderNode(RenderNodeReference)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the render node from its reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderNode GetRenderNode(RenderNodeReference reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Stride.Rendering.RenderNodeReference.html">RenderNodeReference</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderNode.html">RenderNode</a></dt>
+    <dd><p>The render node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_GetViewObjectNode_" data-uid="Stride.Rendering.RootRenderFeature.GetViewObjectNode*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_GetViewObjectNode_Stride_Rendering_ViewObjectNodeReference_" data-uid="Stride.Rendering.RootRenderFeature.GetViewObjectNode(Stride.Rendering.ViewObjectNodeReference)">
+  GetViewObjectNode(ViewObjectNodeReference)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the view object node from its reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ViewObjectNode GetViewObjectNode(ViewObjectNodeReference reference)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Stride.Rendering.ViewObjectNodeReference.html">ViewObjectNodeReference</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ViewObjectNode.html">ViewObjectNode</a></dt>
+    <dd><p>The view object node.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_OnAddRenderObject_" data-uid="Stride.Rendering.RootRenderFeature.OnAddRenderObject*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_OnAddRenderObject_Stride_Rendering_RenderObject_" data-uid="Stride.Rendering.RootRenderFeature.OnAddRenderObject(Stride.Rendering.RenderObject)">
+  OnAddRenderObject(RenderObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a render object is added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnAddRenderObject(RenderObject renderObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderObject</code> <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_OnRemoveRenderObject_" data-uid="Stride.Rendering.RootRenderFeature.OnRemoveRenderObject*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_OnRemoveRenderObject_Stride_Rendering_RenderObject_" data-uid="Stride.Rendering.RootRenderFeature.OnRemoveRenderObject(Stride.Rendering.RenderObject)">
+  OnRemoveRenderObject(RenderObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when a render object is removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnRemoveRenderObject(RenderObject renderObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderObject</code> <a class="xref" href="Stride.Rendering.RenderObject.html">RenderObject</a></dt>
+    <dd><p>The render object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_PrepareDataArrays_" data-uid="Stride.Rendering.RootRenderFeature.PrepareDataArrays*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_PrepareDataArrays" data-uid="Stride.Rendering.RootRenderFeature.PrepareDataArrays">
+  PrepareDataArrays()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrepareDataArrays()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_Reset_" data-uid="Stride.Rendering.RootRenderFeature.Reset*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_Reset" data-uid="Stride.Rendering.RootRenderFeature.Reset">
+  Reset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_RootRenderFeature_Unload_" data-uid="Stride.Rendering.RootRenderFeature.Unload*"></a>
+
+  <h3 id="Stride_Rendering_RootRenderFeature_Unload" data-uid="Stride.Rendering.RootRenderFeature.Unload">
+  Unload()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Unload()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/RootRenderFeature.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

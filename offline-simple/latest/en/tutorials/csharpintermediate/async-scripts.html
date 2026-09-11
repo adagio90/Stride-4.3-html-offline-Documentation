@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Async scripts | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Async scripts | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/async-scripts.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="async-scripts">Async scripts</h1>
+
+<p>This C# Intermediate tutorial covers the usage of asynchronous scripts or <code>async</code> scripts.</p>
+<h2 id="explanation">Explanation</h2>
+<p>Up until this point every tutorial has been using <code>sync</code> scripts. That means that those scripts are executed right after each other. If one particular sync script would take 1 second to complete, our game would freeze that 1 second, until the update loop is complete. All of the previously made Sync scripts can be made into an Async script.</p>
+<p>With Async scripts we can perform heavy duty operations or reach out to an api without it freezing our application. A game can be made entirely with either Sync or Async scripts, or a combination of them both.</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/xWozou1AJGM?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="retrieving-data-from-a-web-api">Retrieving data from a web api</h2>
+<p>A common use case for async scripts is retrieving data from a web API. Depending on the speed of the API and the amount of data to be retrieved, this can take up to somewhere between 20 milliseconds and 2 seconds.</p>
+<pre><code class="lang-csharp" name="AsyncWebApi">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+
+namespace CSharpIntermediate.Code
+{
+    public class AsyncWebApi : AsyncScript
+    {
+        private List&lt;OpenCollectiveEvent&gt; openCollectiveEvents;
+
+        public override async Task Execute()
+        {
+            openCollectiveEvents = new List&lt;OpenCollectiveEvent&gt;();
+
+            while (Game.IsRunning)
+            {
+                int drawX = 500, drawY = 600;
+                DebugText.Print($&quot;Press A to get Api data from https://opencollective.com/stride3d&quot;, new Int2(drawX, drawY));
+
+                if (Input.IsKeyPressed(Stride.Input.Keys.G))
+                {
+                    await RetrieveStrideRepos();
+                    await Script.NextFrame();
+                }
+
+                foreach (var openCollectiveEvent in openCollectiveEvents)
+                {
+                    drawY += 20;
+                    DebugText.Print(openCollectiveEvent.Name, new Int2(drawX, drawY));
+                }
+
+                // We have to await the next frame. If we don't do this, our game will be stuck in an infinite loop
+                await Script.NextFrame();
+            }
+        }
+
+        private async Task RetrieveStrideRepos()
+        {
+            // We can use an HttpClient to make requests to web api's
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(&quot;https://opencollective.com/stride3d/events.json?limit=4&quot;);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                // We store the contents of the response in a string
+                string responseContent = await response.Content.ReadAsStringAsync();
+
+                // We deserialze the string into an object
+                openCollectiveEvents = JsonSerializer.Deserialize&lt;List&lt;OpenCollectiveEvent&gt;&gt;(responseContent);
+            }
+        }
+
+        public class OpenCollectiveEvent
+        {
+            public string Name { get; set; }
+
+            public string StartsAt { get; set; }
+        }
+    }
+}
+</code></pre><h2 id="async-collision-trigger">Async Collision trigger</h2>
+<p>In a previous tutorial we made a collision trigger script that would notify the user once an object is passing through it. We can make a similar script using Async script.</p>
+<pre><code class="lang-csharp" name="AsyncCollisionTrigger">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using System.Threading.Tasks;
+using Stride.Engine;
+using Stride.Physics;
+using Stride.Rendering;
+
+namespace CSharpIntermediate.Code
+{
+    public class AsyncCollisionTriggerDemo : AsyncScript
+    {
+        private Material yellowMaterial;
+        private Material redMaterial;
+
+        public override async Task Execute()
+        {
+            // Store the collider component
+            var staticCollider = Entity.Get&lt;StaticColliderComponent&gt;();
+  
+            //Preload some materials
+            yellowMaterial = Content.Load&lt;Material&gt;(&quot;Materials/Yellow&quot;);
+
+            while (Game.IsRunning)
+            {
+                // Wait for an entity to collide with the trigger
+                var collision = await staticCollider.NewCollision();
+                var ballCollider = staticCollider == collision.ColliderA ? collision.ColliderB : collision.ColliderA;
+
+                // Store current material
+                var modelComponent = ballCollider.Entity.Get&lt;ModelComponent&gt;();
+                var originalMaterial = modelComponent.Materials[0];
+
+                // Change the material on the entity
+                modelComponent.Materials[0] = yellowMaterial;
+
+                // Wait for the entity to exit the trigger
+                await staticCollider.CollisionEnded();
+
+                // Alternative
+                // await collision.Ended(); //This checks for the end of any collision on the actual collision object
+
+                // Change the material back to the original one
+                modelComponent.Materials[0] = originalMaterial;
+            }
+        }
+
+        public override void Cancel()
+        {
+            Content.Unload(yellowMaterial);
+            Content.Unload(redMaterial);
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/async-scripts.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

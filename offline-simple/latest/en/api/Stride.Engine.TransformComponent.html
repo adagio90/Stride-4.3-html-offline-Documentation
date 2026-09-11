@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TransformComponent | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TransformComponent | Stride API ">
+      
+      <meta name="description" content="Defines Position, Rotation and Scale of its .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Engine_TransformComponent.md&amp;value=---%0Auid%3A%20Stride.Engine.TransformComponent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Engine.TransformComponent">
+
+
+
+  <h1 id="Stride_Engine_TransformComponent" data-uid="Stride.Engine.TransformComponent" class="text-break">
+Class TransformComponent  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Engine.html">Engine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Defines Position, Rotation and Scale of its <a class="xref" href="Stride.Engine.Entity.html">Entity</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;TransformComponent&quot;)]
+[DataSerializerGlobal(null, typeof(FastCollection&lt;TransformComponent&gt;), DataSerializerGenericMode.None, false, false)]
+[DefaultEntityComponentProcessor(typeof(TransformProcessor))]
+[Display(&quot;Transform&quot;, null, Expand = ExpandRule.Once)]
+[ComponentOrder(0)]
+public sealed class TransformComponent : EntityComponent, IIdentifiable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></div>
+      <div><span class="xref">TransformComponent</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Entity">EntityComponent.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityComponent.html#Stride_Engine_EntityComponent_Id">EntityComponent.Id</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_GetWorldTransformation_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3__">EntityTransformExtensions.GetWorldTransformation(TransformComponent, out Vector3, out Quaternion, out Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_LocalToWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3_">EntityTransformExtensions.LocalToWorld(TransformComponent, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_LocalToWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3__">EntityTransformExtensions.LocalToWorld(TransformComponent, ref Vector3, ref Quaternion, ref Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_LocalToWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__">EntityTransformExtensions.LocalToWorld(TransformComponent, ref Vector3, out Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_SetWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Quaternion_">EntityTransformExtensions.SetWorld(TransformComponent, Quaternion)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_SetWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3_">EntityTransformExtensions.SetWorld(TransformComponent, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_SetWorld_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Quaternion_">EntityTransformExtensions.SetWorld(TransformComponent, Vector3, Quaternion)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_WorldToLocal_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3_">EntityTransformExtensions.WorldToLocal(TransformComponent, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_WorldToLocal_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3__">EntityTransformExtensions.WorldToLocal(TransformComponent, ref Vector3, ref Quaternion, ref Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Engine.EntityTransformExtensions.html#Stride_Engine_EntityTransformExtensions_WorldToLocal_Stride_Engine_TransformComponent_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__">EntityTransformExtensions.WorldToLocal(TransformComponent, ref Vector3, out Vector3)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Engine_TransformComponent__ctor_" data-uid="Stride.Engine.TransformComponent.#ctor*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent__ctor" data-uid="Stride.Engine.TransformComponent.#ctor">
+  TransformComponent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TransformComponent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_LocalMatrix" data-uid="Stride.Engine.TransformComponent.LocalMatrix">
+  LocalMatrix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The local matrix.
+Its value is automatically recomputed at each frame from the position, rotation and scale.
+One can use <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_UpdateLocalMatrix">UpdateLocalMatrix()</a> to force the update to happen before next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix LocalMatrix</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Stride_Engine_TransformComponent_LocalMatrix_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The setter should not be used and is accessible only for performance purposes.</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_Position" data-uid="Stride.Engine.TransformComponent.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The translation relative to the parent transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(10)]
+public Vector3 Position</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_PostOperations" data-uid="Stride.Engine.TransformComponent.PostOperations">
+  PostOperations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is where we can register some custom work to be done after world matrix has been computed, such as updating model node hierarchy or physics for local node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastListStruct&lt;TransformOperation&gt; PostOperations</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastListStruct-1.html">FastListStruct</a>&lt;<a class="xref" href="Stride.Engine.TransformOperation.html">TransformOperation</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_Rotation" data-uid="Stride.Engine.TransformComponent.Rotation">
+  Rotation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rotation relative to the parent transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(20)]
+public Quaternion Rotation</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_Scale" data-uid="Stride.Engine.TransformComponent.Scale">
+  Scale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The scaling relative to the parent transformation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(30)]
+public Vector3 Scale</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_TransformLink" data-uid="Stride.Engine.TransformComponent.TransformLink">
+  TransformLink
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TransformLink TransformLink</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.TransformLink.html">TransformLink</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_TransformComponent_WorldMatrix" data-uid="Stride.Engine.TransformComponent.WorldMatrix">
+  WorldMatrix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The world matrix.
+Its value is automatically recomputed at each frame from the local and the parent matrices.
+One can use <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_UpdateWorldMatrix">UpdateWorldMatrix()</a> to force the update to happen before next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix WorldMatrix</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="Stride_Engine_TransformComponent_WorldMatrix_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The setter should not be used and is accessible only for performance purposes.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Engine_TransformComponent_Children_" data-uid="Stride.Engine.TransformComponent.Children*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_Children" data-uid="Stride.Engine.TransformComponent.Children">
+  Children
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the children of this <a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FastCollection&lt;TransformComponent&gt; Children { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastCollection-1.html">FastCollection</a>&lt;<a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_TransformComponent_Parent_" data-uid="Stride.Engine.TransformComponent.Parent*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_Parent" data-uid="Stride.Engine.TransformComponent.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the parent of this <a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TransformComponent Parent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.TransformComponent.html">TransformComponent</a></dt>
+    <dd><p>The parent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_TransformComponent_RotationEulerXYZ_" data-uid="Stride.Engine.TransformComponent.RotationEulerXYZ*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_RotationEulerXYZ" data-uid="Stride.Engine.TransformComponent.RotationEulerXYZ">
+  RotationEulerXYZ
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the euler rotation, with XYZ order.
+Not stable: setting value and getting it again might return different value as it is internally encoded as a <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> in <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_Rotation">Rotation</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 RotationEulerXYZ { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The euler rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_TransformComponent_UseTRS_" data-uid="Stride.Engine.TransformComponent.UseTRS*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_UseTRS" data-uid="Stride.Engine.TransformComponent.UseTRS">
+  UseTRS
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to use the Translation/Rotation/Scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(null, null, Browsable = false)]
+public bool UseTRS { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if [use TRS]; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Engine_TransformComponent_UpdateLocalFromWorld_" data-uid="Stride.Engine.TransformComponent.UpdateLocalFromWorld*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_UpdateLocalFromWorld" data-uid="Stride.Engine.TransformComponent.UpdateLocalFromWorld">
+  UpdateLocalFromWorld()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the local matrix based on the world matrix and the parent entity's or containing scene's world matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateLocalFromWorld()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_TransformComponent_UpdateLocalMatrix_" data-uid="Stride.Engine.TransformComponent.UpdateLocalMatrix*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_UpdateLocalMatrix" data-uid="Stride.Engine.TransformComponent.UpdateLocalMatrix">
+  UpdateLocalMatrix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the local matrix.
+If <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_UseTRS">UseTRS</a> is true, <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_LocalMatrix">LocalMatrix</a> will be updated from <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_Position">Position</a>, <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_Rotation">Rotation</a> and <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_Scale">Scale</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateLocalMatrix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_TransformComponent_UpdateWorldMatrix_" data-uid="Stride.Engine.TransformComponent.UpdateWorldMatrix*"></a>
+
+  <h3 id="Stride_Engine_TransformComponent_UpdateWorldMatrix" data-uid="Stride.Engine.TransformComponent.UpdateWorldMatrix">
+  UpdateWorldMatrix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the world matrix.
+It will first call <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_UpdateLocalMatrix">UpdateLocalMatrix()</a> on self, and <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_UpdateWorldMatrix">UpdateWorldMatrix()</a> on <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_Parent">Parent</a> if not null.
+Then <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_WorldMatrix">WorldMatrix</a> will be updated by multiplying <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_LocalMatrix">LocalMatrix</a> and parent <a class="xref" href="Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_WorldMatrix">WorldMatrix</a> (if any).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateWorldMatrix()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/TransformComponent.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Gizmos | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Gizmos | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/gizmos.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="gizmos">Gizmos</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Gizmos</strong> are a tool which you can implement over your components to provide visual assistance for designers when manipulating component values.</p>
+<p>Here's an exhaustive example one could implement:</p>
+<pre><code class="lang-cs">using Stride.Core;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Engine.Gizmos;
+using Stride.Graphics;
+using Stride.Graphics.GeometricPrimitives;
+using Stride.Rendering;
+using Stride.Rendering.Materials;
+using Stride.Rendering.Materials.ComputeColors;
+
+// We will be implementing a Gizmo for the following class
+public class MyScript : StartupScript
+{
+    
+}
+
+// This attribute specifies to the engine that the following gizmo class is bound to 'MyScript', 
+// the game studio will pick that up and spawn an instance of that class for each 'MyScript' in the scene
+[GizmoComponent(typeof(MyScript), isMainGizmo:false/*When true, only the first gizmo on an entity with true is visible, false means that it is always visible*/)]
+public class Gizmo : IEntityGizmo
+{
+    private bool _selected, _enabled;
+    private MyScript _component;
+    private ModelComponent _model;
+    private Material _material, _materialOnSelect;
+
+    // This property is set based on whether the gizmo is globally turned on or off in the editor's view settings
+    public bool IsEnabled
+    {
+        get
+        {
+            return _enabled;
+        }
+        set
+        {
+            _enabled = value;
+            _model.Enabled = _enabled;
+        }
+    }
+
+    // The size slider value in the view settings pane
+    public float SizeFactor { get; set; }
+
+    // The editor will set this property whenever the entity the component is on is selected
+    public bool IsSelected
+    {
+        get
+        {
+            return _selected;
+        }
+        set
+        {
+            _selected = value;
+            _model.Materials[0] = _selected ? _materialOnSelect : _material;
+            // The logic below shows gizmos for all components when they are on in the gizmo settings, and when off, only shows the one from the selected entity
+            // Removing the line hides gizmos even when selected when the gizmo settings is off
+            _model.Enabled = _selected || _enabled;
+        }
+    }
+
+    // This constructor is called by the editor, 
+    // A gizmo class MUST contain a constructor with a single parameter of the component's type
+    public Gizmo(MyScript component)
+    {
+        _component = component;
+    }
+
+    public bool HandlesComponentId(OpaqueComponentId pickedComponentId, out Entity? selection)
+    {
+        // This function is called when scene picking/mouse clicking in the scene on a gizmo
+        // The engine calls this function on each gizmos, gizmos in term notify the engine
+        // when the given component comes from them by returning true, and provide the editor with the corresponding entity this gizmo represents
+        if (pickedComponentId.Match(_model))
+        {
+            selection = _component.Entity;
+            return true;
+        }
+        selection = null;
+        return false;
+    }
+
+    public void Initialize(IServiceRegistry services, Scene editorScene)
+    {
+        // As part of initialization, we create a model in the editor scene to visualize the gizmo
+        var graphicsDevice = services.GetSafeServiceAs&lt;IGraphicsDeviceService&gt;().GraphicsDevice;
+
+        // In our case we'll just rely on the GeometricPrimitive API to create a sphere for us
+        // You don't have to create one right away, you can delay it until the component is in the appropriate state
+        // You can also dynamically create and update one in the Update() function further below
+        var sphere = GeometricPrimitive.Sphere.New(graphicsDevice);
+
+        var vertexBuffer = sphere.VertexBuffer;
+        var indexBuffer = sphere.IndexBuffer;
+        var vertexBufferBinding = new VertexBufferBinding(vertexBuffer, new VertexPositionNormalTexture().GetLayout(), vertexBuffer.ElementCount);
+        var indexBufferBinding = new IndexBufferBinding(indexBuffer, sphere.IsIndex32Bits, indexBuffer.ElementCount);
+
+        _material = Material.New(graphicsDevice, new MaterialDescriptor
+        {
+            Attributes =
+            {
+                Emissive = new MaterialEmissiveMapFeature(new ComputeColor(new Color4(0.25f,0.75f,0.25f,0.05f).ToColorSpace(graphicsDevice.ColorSpace))) { UseAlpha = true },
+                Transparency = new MaterialTransparencyBlendFeature()
+            },
+        });
+        _materialOnSelect = Material.New(graphicsDevice, new MaterialDescriptor
+        {
+            Attributes =
+            {
+                Emissive = new MaterialEmissiveMapFeature(new ComputeColor(new Color4(0.25f,0.75f,0.25f,0.5f).ToColorSpace(graphicsDevice.ColorSpace))) { UseAlpha = true },
+                Transparency = new MaterialTransparencyBlendFeature()
+            },
+        });
+
+        _model = new ModelComponent
+        {
+            Model = new Model
+            {
+                (_selected ? _materialOnSelect : _material),
+                new Mesh
+                {
+                    Draw = new MeshDraw
+                    {
+                        StartLocation = 0,
+                        // You can swap to LineList or LineStrip to show the model in wireframe mode, you'll have to adapt your index buffer to that new type though
+                        PrimitiveType = PrimitiveType.TriangleList,
+                        VertexBuffers = new[] { vertexBufferBinding },
+                        IndexBuffer = indexBufferBinding,
+                        DrawCount = indexBuffer.ElementCount,
+                    }
+                }
+            },
+            RenderGroup = IEntityGizmo.PickingRenderGroup, // This RenderGroup allows scene picking/selection, use a different one if you don't want selection
+            Enabled = _selected || _enabled
+        };
+
+        var entity = new Entity($&quot;{nameof(Gizmo)} for {_component.Entity.Name}&quot;){ _model };
+        entity.Transform.UseTRS = false; // We're controlling the matrix directly in this case
+        entity.Scene = editorScene;
+
+        vertexBuffer.DisposeBy(entity);
+        indexBuffer.DisposeBy(entity); // Attach buffers to the entity for manual disposal later
+    }
+
+    public void Dispose()
+    {
+        _model.Entity.Scene = null;
+        _model.Entity.Dispose(); // Clear the two buffers we attached above
+    }
+
+    public void Update()
+    {
+        // This is where you'll update how the gizmo looks based on MyScript's state
+        // Here we'll just ensure the gizmo follows the entity it is representing whenever that entity moves, 
+        // note that UseTRS is disabled above to improve performance and ensure that there are no world space issues
+        _model.Entity.Transform.LocalMatrix = _component.Entity.Transform.WorldMatrix;
+    }
+}
+</code></pre>
+<p>And the result:</p>
+<p><img src="media/gizmo.png" alt="Green sphere gizmo"></p>
+<p>Do note that you may have to restart the editor if it was open while you introduced this new gizmo.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/gizmos.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Cameras | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Cameras | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/cameras/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="cameras">Cameras</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p><strong>Cameras</strong> capture your scene and display it to the player. Without cameras, you can't see anything in your game.</p>
+<p>You can have an unlimited number of cameras in your scene.</p>
+<h2 id="create-a-camera-in-game-studio">Create a camera in Game Studio</h2>
+<p>In the Scene Editor, right-click and select <strong>Camera</strong>, then choose the kind of camera you want to create (<strong>perspective</strong> or <strong>orthographic</strong>).</p>
+<p><img src="media/add-camera.png" alt="Add camera"></p>
+<p>Game Studio creates an entity with a camera component attached.</p>
+<p>Alternatively, select the entity you want to be a camera, and in the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Camera</strong>.</p>
+<p><img src="media/add-camera-component.png" alt="Add a camera component"></p>
+<h2 id="camera-properties">Camera properties</h2>
+<p><img src="media/camera-properties.png" alt="Camera properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projection</td>
+<td>The type of projection used by the camera (perspective or orthographic)</td>
+</tr>
+<tr>
+<td>Field of view (degrees)</td>
+<td>The vertical field of view used for perspective projection</td>
+</tr>
+<tr>
+<td>Orthographic size</td>
+<td>The height of the orthographic projection (the orthographic width is automatically calculated based on the target ratio). This has the effect of zooming in and out</td>
+</tr>
+<tr>
+<td>Near clip plane</td>
+<td>The nearest point the camera can see</td>
+</tr>
+<tr>
+<td>Far clip plane</td>
+<td>The furthest point the camera can see</td>
+</tr>
+<tr>
+<td>Custom aspect ratio</td>
+<td>Use a custom aspect ratio you specify.  Otherwise, automatically adjust the aspect ratio to the render target ratio</td>
+</tr>
+<tr>
+<td>Custom aspect ratio</td>
+<td>The aspect ratio for the camera (when the <strong>Custom aspect ratio</strong> option is selected)</td>
+</tr>
+<tr>
+<td>Slot</td>
+<td>The camera slot used in the graphics compositor. For more information, see <a href="camera-slots.html">Camera slots</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="perspective-and-orthographic-cameras">Perspective and orthographic cameras</h2>
+<p><strong>Perspective cameras</strong> provide a &quot;real-world&quot; perspective of the objects in your scene. In this view, objects close to the camera appear larger, and lines of identical lengths appear different due to foreshortening, as in reality. Perspective cameras are most used for games that require a realistic perspective, such as third-person and first-person games.</p>
+<p>With <strong>orthographic cameras</strong>, objects are always the same size, no matter their distance from the camera. Parallel lines never touch, and there's no vanishing point. Orthographic cameras are most used for games with isometric perspectives, such as some strategy, 4X, or role-playing games.</p>
+<p><img src="../../game-studio/media/perspective-orthographic-diagram.png" alt="Perspective and orthographic diagram"></p>
+<table>
+<thead>
+<tr>
+<th>Perspective</th>
+<th>Orthographic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/perspective-screenshot.png" alt="Perspective view"></td>
+<td><img src="media/orthographic-screenshot.png" alt="Orthographic view"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-of-view-perspective-mode-only">Field of view (perspective mode only)</h3>
+<p>When the camera is set to <strong>perspective</strong> mode, the <strong>field of view</strong> changes the camera frustum, and has the effect of zooming in and out of the scene. At high settings (90 and above), the field of view creates stretched &quot;fish-eye lens&quot; views. The default setting is 45.</p>
+<table>
+<thead>
+<tr>
+<th>Field of view: 45 (default)</th>
+<th>Field of view: 90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/perspective-screenshot.png" alt="Default FOV"></td>
+<td><img src="media/90-degree-fov.png" alt="High FOV"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="orthographic-size-orthographic-mode-only">Orthographic size (orthographic mode only)</h3>
+<p>When the camera is set to <strong>orthographic</strong> mode, the <strong>orthographic size</strong> has the effect of zooming in and out.</p>
+<table>
+<thead>
+<tr>
+<th>Orthographic size: 10 (default)</th>
+<th>Orthographic size: 50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/orthographic-size-10.png" alt="Default FOV"></td>
+<td><img src="media/orthographic-size-50.png" alt="High FOV"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="near-and-far-planes">Near and far planes</h2>
+<p>The near and far planes determine where the camera's view begins and ends.</p>
+<ul>
+<li><p>The <strong>near plane</strong> is the closest point the camera can see. The default setting is 0.1. Objects before this point aren't drawn.</p>
+</li>
+<li><p>The <strong>far plane</strong>, also known as the draw distance, is the furthest point the camera can see. Objects beyond this point aren't drawn. The default setting is 1000.</p>
+</li>
+</ul>
+<p>Stride renders the area between the near and far planes.</p>
+<p><img src="../../game-studio/media/camera-position.png" alt="Camera position"></p>
+<table>
+<thead>
+<tr>
+<th>Near plane 0.1 (default); far plane: 50</th>
+<th>Near plane: 7; far plane 1000 (default)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/far-clip-50.png" alt="Far plane: 50"></td>
+<td><img src="media/near-clip-7.png" alt="Near plane: 7"></td>
+</tr>
+<tr>
+<td>With a low <strong>far plane</strong> value, objects in the near distance aren't drawn.</td>
+<td>With a high <strong>near plane</strong> value, objects close to the camera aren't drawn.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="camera-scripts">Camera scripts</h2>
+<p>You can control cameras using <strong>camera scripts</strong>. Stride includes three camera script templates: an FPS camera script, a side-scrolling camera script, and a basic camera controller script.</p>
+<h3 id="add-a-camera-script-in-game-studio">Add a camera script in Game Studio</h3>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom by default), click <strong>Add asset &gt; Scripts</strong> and choose the camera script you want to add.</p>
+<p><img src="media/add-camera-script.png" alt="Add a camera script"></p>
+</li>
+<li><p>In the <strong>Scene Editor</strong>, select the entity with the camera you want to control.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select the camera script you want to use.</p>
+<p><img src="media/add-camera-script-component.png" alt="Add script component"></p>
+<p>Game Studio adds the camera script to the entity.</p>
+</li>
+</ol>
+<p>For more information about how to create and use scripts, see <a href="../../scripts/index.html">Scripts</a>.</p>
+<h2 id="camera-slots">Camera slots</h2>
+<p><strong>Camera slots</strong> link the <a href="index.html">graphics compositor</a> to the cameras in your scene. You bind each camera to a slot, then define which slot the compositor uses. This means you can change the <a href="../../game-studio/manage-scenes.html">root scene</a> or graphics compositor without having to assign new cameras each time.</p>
+<p>For more information, see <a href="camera-slots.html">Camera slots</a>.</p>
+<h2 id="render-a-camera-to-a-texture">Render a camera to a texture</h2>
+<p>You can send a camera's view to a texture and use the texture on objects in your scene. For example, you can use this to display part of your scene on a TV screen in the same scene, such as security camera footage. For more information, see <a href="../graphics-compositor/render-textures.html">Render textures</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="camera-slots.html">Camera slots</a></li>
+<li><a href="animate-a-camera-with-a-model-file.html">Animate a camera</a></li>
+<li><a href="../graphics-compositor/index.html">Graphics compositor</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/cameras/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

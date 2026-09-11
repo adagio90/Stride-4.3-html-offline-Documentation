@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Raycasting | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Raycasting | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/raycasting.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="raycasting">Raycasting</h1>
+
+<p>This C# Intermediate tutorial covers raycasting.</p>
+<h2 id="explanation">Explanation</h2>
+<p>Raycasting is an essential subject in 3D games. With raycasts we can detect if and what kinds of objects are in our line of sight. This can be used for detecting enemies or how far an object really is.</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/uIM6jxM7OyE?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="raycast">Raycast</h2>
+<p>This script sends out a raycast from the weapons barrel and sends it to an endpoint a little further. We check if we hit something along the way. If we do, we calculate the distance between the weapon barrel and the hit point. We then scale a laser to that distance to visualize the actual raycast. Depending on the collision group and filters, some objects are ignored.</p>
+<pre><code class="lang-csharp" name="editorpages">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using CSharpIntermediate.Code.Extensions;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Physics;
+
+namespace CSharpIntermediate.Code
+{
+    public class RaycastDemo : SyncScript
+    {
+        public CollisionFilterGroupFlags CollideWithGroup;
+        public bool CollideWithTriggers = false;
+        public Entity HitPoint;
+
+        private const float maxDistance = 4.0f;
+        private Entity laser;
+        private Simulation simulation;
+      
+        public override void Start()
+        {
+            //Store the physics simulation object
+            simulation = this.GetSimulation();
+            laser = Entity.FindChild(&quot;Laser&quot;);
+        }
+
+        public override void Update()
+        {
+            int drawX = 340;
+            int drawY = 80;
+            DebugText.Print(&quot;Press Q and E to raise/lower weapons&quot;, new Int2(drawX, drawY));
+
+            var raycastStart = Entity.Transform.Position;
+            var raycastEnd = Entity.Transform.Position + new Vector3(0, 0, maxDistance);
+          
+            drawY += 40;
+
+            // Send a raycast from the start to the endposition
+            if (simulation.Raycast(raycastStart, raycastEnd, out HitResult hitResult, CollisionFilterGroups.DefaultFilter, CollideWithGroup, CollideWithTriggers))
+            {
+                // If we hit something, calculate the distance to the hitpoint and scale the laser to that distance
+                HitPoint.Transform.Position = hitResult.Point;
+                var distance = Vector3.Distance(hitResult.Point, raycastStart);
+                laser.Transform.Scale.Z = distance;
+
+                DebugText.Print(&quot;Hit a collider&quot;, new Int2(drawX, drawY));
+                DebugText.Print($&quot;Raycast hit distance: {distance}&quot;, new Int2(drawX, drawY + 20));
+                DebugText.Print($&quot;Raycast hit point: {hitResult.Point.Print()}&quot;, new Int2(drawX, drawY + 40));
+                DebugText.Print($&quot;Raycast hit entity: {hitResult.Collider.Entity.Name}&quot;, new Int2(drawX, drawY + 60));
+            }
+            else
+            {
+                // If we didn't hit anything, scale the laser to match the distance between start and end
+                HitPoint.Transform.Position = raycastEnd;
+                laser.Transform.Scale.Z = Vector3.Distance(raycastStart, raycastEnd);
+                DebugText.Print(&quot;No collider hit&quot;, new Int2(drawX, drawY));
+            }
+        }
+    }
+}
+</code></pre><h2 id="penetrative-raycast">Penetrative raycast</h2>
+<p>In our first script, the raycast returns to us as soon as it hits the first object along its path. We can also send out a raycast to an endpoint, and let it return to us when it has reached its endpoint. It gives us back a list of objects that it has hit along the way. This list can be empty but also exists out of various objects. Depending on the collision group and filters, some objects are ignored.</p>
+<pre><code class="lang-csharp" name="editorpages">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using System.Collections.Generic;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Physics;
+
+namespace CSharpIntermediate.Code
+{
+    public class RaycastPenetratingDemo : SyncScript
+    {
+        public CollisionFilterGroupFlags CollideWithGroup;
+        public bool CollideWithTriggers = false;
+
+        private Entity laser;
+        private const float maxDistance = 3.0f;
+        private Simulation simulation;
+
+        public override void Start()
+        {
+            simulation = this.GetSimulation();
+            laser = Entity.FindChild(&quot;Laser&quot;);
+        }
+
+        public override void Update()
+        {
+            int drawX = 700;
+            int drawY = 80;
+            DebugText.Print(&quot;Raycast penetration demo&quot;, new Int2(drawX, drawY));
+
+            var raycastStart = Entity.Transform.Position;
+            var raycastEnd = Entity.Transform.Position + new Vector3(0, 0, -maxDistance);
+
+            var distance = Vector3.Distance(raycastStart, raycastEnd);
+            laser.Transform.Scale.Z = distance;
+
+            var hitResults = new List&lt;HitResult&gt;();
+            simulation.RaycastPenetrating(raycastStart, raycastEnd, hitResults, CollisionFilterGroups.DefaultFilter, CollideWithGroup, CollideWithTriggers);
+
+            drawY += 40;
+            if (hitResults.Count &gt; 0)
+            {
+                DebugText.Print($&quot;Raycast has hit {hitResults.Count} object(s)&quot;, new Int2(drawX, drawY));
+
+                foreach (var hitResult in hitResults)
+                {
+                    drawY += 20;
+                    DebugText.Print($&quot;- Raycast has hit: {hitResult.Collider.Entity.Name}&quot;, new Int2(drawX, drawY));
+                }
+            }
+            else
+            {
+                DebugText.Print(&quot;No collider hit&quot;, new Int2(drawX, drawY));
+            }
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/raycasting.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

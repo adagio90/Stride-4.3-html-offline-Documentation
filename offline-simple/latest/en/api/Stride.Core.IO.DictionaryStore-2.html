@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DictionaryStore&lt;TKey, TValue&gt; | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DictionaryStore&lt;TKey, TValue&gt; | Stride API ">
+      
+      <meta name="description" content="A Key-&amp;gt;Value store that will be incrementally saved on the HDD. Thread-safe and process-safe.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_IO_DictionaryStore_2.md&amp;value=---%0Auid%3A%20Stride.Core.IO.DictionaryStore%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.IO.DictionaryStore`2">
+
+
+
+  <h1 id="Stride_Core_IO_DictionaryStore_2" data-uid="Stride.Core.IO.DictionaryStore`2" class="text-break">
+Class DictionaryStore&lt;TKey, TValue&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.IO.html">IO</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Serialization.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A Key-&gt;Value store that will be incrementally saved on the HDD.
+Thread-safe and process-safe.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DictionaryStore&lt;TKey, TValue&gt; : Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;, IDisposable where TKey : notnull</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TKey</code></dt>
+    <dd><p>The type of the key.</p>
+</dd>
+    <dt><code>TValue</code></dt>
+    <dd><p>The type of the value.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.IO.Store-1.html">Store</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;&gt;</div>
+      <div><span class="xref">DictionaryStore&lt;TKey, TValue&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.Serialization.Contents.ContentIndexMap.html">ContentIndexMap</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_stream">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.stream</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_transaction">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.transaction</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_lockObject">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.lockObject</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_UseTransaction">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.UseTransaction</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_AutoLoadNewValues">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.AutoLoadNewValues</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_Dispose">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_Dispose_System_Boolean_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_AddValues_System_Collections_Generic_IEnumerable__0__">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.AddValues(IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_AddValue__0_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.AddValue(KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_Save">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.Save()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_Reset">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_ResetInternal">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.ResetInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_LoadNewValues">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.LoadNewValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_AddUnsaved__0_System_Int32_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.AddUnsaved(KeyValuePair&lt;TKey, TValue&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_RemoveUnsaved__0_System_Int32_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.RemoveUnsaved(KeyValuePair&lt;TKey, TValue&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_RemoveUnsaved_System_Collections_Generic_IEnumerable__0__System_Int32_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.RemoveUnsaved(IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_AddLoaded__0_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.AddLoaded(KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_GetPendingItems_System_Int32_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.GetPendingItems(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_BuildContext_System_IO_Stream_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.BuildContext(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_ReadEntries_System_IO_Stream_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.ReadEntries(Stream)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.IO.Store-1.html#Stride_Core_IO_Store_1_WriteEntry_System_IO_Stream__0_">Store&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;.WriteEntry(Stream, KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2__ctor_" data-uid="Stride.Core.IO.DictionaryStore`2.#ctor*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2__ctor_System_IO_Stream_" data-uid="Stride.Core.IO.DictionaryStore`2.#ctor(System.IO.Stream)">
+  DictionaryStore(Stream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DictionaryStore(Stream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_loadedIdMap" data-uid="Stride.Core.IO.DictionaryStore`2.loadedIdMap">
+  loadedIdMap
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Dictionary&lt;TKey, TValue&gt; loadedIdMap</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;TKey, TValue&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_unsavedIdMap" data-uid="Stride.Core.IO.DictionaryStore`2.unsavedIdMap">
+  unsavedIdMap
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Dictionary&lt;TKey, DictionaryStore&lt;TKey, TValue&gt;.UnsavedIdMapEntry&gt; unsavedIdMap</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;TKey, <a class="xref" href="Stride.Core.IO.DictionaryStore-2.html">DictionaryStore</a>&lt;TKey, TValue&gt;.<a class="xref" href="Stride.Core.IO.DictionaryStore-2.UnsavedIdMapEntry.html">UnsavedIdMapEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_Item_" data-uid="Stride.Core.IO.DictionaryStore`2.Item*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_Item__0_" data-uid="Stride.Core.IO.DictionaryStore`2.Item(`0)">
+  this[TKey]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the item with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TValue this[TKey key] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">TKey</span></dt>
+    <dd><p>The key of the item to get or set.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TValue</span></dt>
+    <dd><p>The item to get or set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_AddLoaded_" data-uid="Stride.Core.IO.DictionaryStore`2.AddLoaded*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_AddLoaded_System_Collections_Generic_KeyValuePair__0__1__" data-uid="Stride.Core.IO.DictionaryStore`2.AddLoaded(System.Collections.Generic.KeyValuePair{`0,`1})">
+  AddLoaded(KeyValuePair&lt;TKey, TValue&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a value that has already been saved in the store (saved state).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AddLoaded(KeyValuePair&lt;TKey, TValue&gt; item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;</dt>
+    <dd><p>The item.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_AddUnsaved_" data-uid="Stride.Core.IO.DictionaryStore`2.AddUnsaved*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_AddUnsaved_System_Collections_Generic_KeyValuePair__0__1__System_Int32_" data-uid="Stride.Core.IO.DictionaryStore`2.AddUnsaved(System.Collections.Generic.KeyValuePair{`0,`1},System.Int32)">
+  AddUnsaved(KeyValuePair&lt;TKey, TValue&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a value that has not yet been saved in the store (pending state).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AddUnsaved(KeyValuePair&lt;TKey, TValue&gt; item, int currentTransaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;</dt>
+    <dd><p>The item.</p>
+</dd>
+    <dt><code>currentTransaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_Contains_" data-uid="Stride.Core.IO.DictionaryStore`2.Contains*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_Contains__0_" data-uid="Stride.Core.IO.DictionaryStore`2.Contains(`0)">
+  Contains(TKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the item with the specified key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">TKey</span></dt>
+    <dd><p>The key of the item to get or set.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The item to get or set.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_GetPendingItems_" data-uid="Stride.Core.IO.DictionaryStore`2.GetPendingItems*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_GetPendingItems_System_Int32_" data-uid="Stride.Core.IO.DictionaryStore`2.GetPendingItems(System.Int32)">
+  GetPendingItems(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the list of pending items for a given transaction index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; GetPendingItems(int currentTransaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currentTransaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_GetValues_" data-uid="Stride.Core.IO.DictionaryStore`2.GetValues*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_GetValues" data-uid="Stride.Core.IO.DictionaryStore`2.GetValues">
+  GetValues()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the values stored including unsaved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyValuePair&lt;TKey, TValue&gt;[] GetValues()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;[]</dt>
+    <dd><p>Values stored including unsaved.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_RemoveUnsaved_" data-uid="Stride.Core.IO.DictionaryStore`2.RemoveUnsaved*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_RemoveUnsaved_System_Collections_Generic_KeyValuePair__0__1__System_Int32_" data-uid="Stride.Core.IO.DictionaryStore`2.RemoveUnsaved(System.Collections.Generic.KeyValuePair{`0,`1},System.Int32)">
+  RemoveUnsaved(KeyValuePair&lt;TKey, TValue&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a value that has not yet been saved (pending state).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RemoveUnsaved(KeyValuePair&lt;TKey, TValue&gt; item, int currentTransaction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;</dt>
+    <dd><p>The item.</p>
+</dd>
+    <dt><code>currentTransaction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_ResetInternal_" data-uid="Stride.Core.IO.DictionaryStore`2.ResetInternal*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_ResetInternal" data-uid="Stride.Core.IO.DictionaryStore`2.ResetInternal">
+  ResetInternal()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the store to an empty state, to be implemented by subclasses if necessary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ResetInternal()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_SearchValues_" data-uid="Stride.Core.IO.DictionaryStore`2.SearchValues*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_SearchValues_System_Func_System_Collections_Generic_KeyValuePair__0__1__System_Boolean__" data-uid="Stride.Core.IO.DictionaryStore`2.SearchValues(System.Func{System.Collections.Generic.KeyValuePair{`0,`1},System.Boolean})">
+  SearchValues(Func&lt;KeyValuePair&lt;TKey, TValue&gt;, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; SearchValues(Func&lt;KeyValuePair&lt;TKey, TValue&gt;, bool&gt; predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_IO_DictionaryStore_2_TryGetValue_" data-uid="Stride.Core.IO.DictionaryStore`2.TryGetValue*"></a>
+
+  <h3 id="Stride_Core_IO_DictionaryStore_2_TryGetValue__0__1__" data-uid="Stride.Core.IO.DictionaryStore`2.TryGetValue(`0,`1@)">
+  TryGetValue(TKey, out TValue)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to get the value from its key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetValue(TKey key, out TValue value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">TKey</span></dt>
+    <dd><p>The key.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">TValue</span></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Serialization/IO/DictionaryStore.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

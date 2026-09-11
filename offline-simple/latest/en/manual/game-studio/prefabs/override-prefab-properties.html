@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Override prefab properties | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Override prefab properties | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/prefabs/override-prefab-properties.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="override-prefab-properties">Override prefab properties</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>If you modify a property in a prefab instance, the instance no longer inherits changes from the prefab for that property. This is called an <strong>override</strong>.</p>
+<p><img src="media/create-manage-prefabs-how-prefabs-work.png" alt="How prefabs work"></p>
+<p>In the following video, the <strong>Lamp</strong> prefab contains several box entities that belong to the <strong>Boxes</strong> parent. When we delete the boxes from the instance, only that instance is affected. The prefab (shown on the right) is unchanged.</p>
+<p>If we add another box to the <strong>Boxes</strong> parent in the prefab, it doesn't appear in the overridden instance. That's because we deleted the <strong>Boxes</strong> parent from that instance.</p>
+<div class="ratio ratio-16x9 mb-3">
+<video autoplay loop class="responsive-video" poster="media/delete-boxes-from-prefab-instance.jpg">
+   <source src="media/delete-boxes-from-prefab-instance.mp4" type="video/mp4">
+</video>
+</div>
+<h2 id="view-overridden-properties">View overridden properties</h2>
+<p>In the <strong>Property Grid</strong>, you can see which properties of the prefab instance differ from the base values in the prefab.</p>
+<ul>
+<li><p><strong>Overridden</strong> and <strong>unique</strong> properties are <strong>white and bold</strong>:</p>
+<p><img src="media/use-prefabs-overriden-properties-appear-white.png" alt="Overridden properties are white"></p>
+</li>
+<li><p><strong>Identical</strong> properties are <strong>gray</strong>:</p>
+<p><img src="media/use-prefabs-identical-properties-appear-gray.png" alt="Identical properties are gray"></p>
+</li>
+</ul>
+<h3 id="reset-a-property-to-the-prefab-value">Reset a property to the prefab value</h3>
+<p>To reset an overridden property to the value in the parent prefab, right-click the property and click <strong>Reset to base value</strong>.</p>
+<p><img src="media/use-prefabs-reset-property-to-base-value.png" alt="Reset to base value"></p>
+<h2 id="example">Example</h2>
+<p>In this example, we have a prefab of a futuristic lamppost.</p>
+<p><img src="media/lamppost-prefab.jpg" alt="Lamppost"></p>
+<p>The lamppost prefab is composed of three entities: a column, a pillar, and a spot light. These are listed in the Entity Tree in the Prefab Editor.</p>
+<p><img src="media/lamppost-prefab-entities.png" alt="Add entities"></p>
+<p>Let's add five instances of the lamppost prefab to our scene.</p>
+<p><img src="media/lamppost-prefab-instances.jpg" alt="Five lampposts"></p>
+<p>Now we'll modify one of the instances. In the Scene Editor, we select one <strong>spot light</strong> entity and, in the spot light component properties, change its color to red. The Property Grid displays the modified <strong>Color</strong> property in <strong>bold white</strong>. This means it's overriding the prefab property.</p>
+<p><img src="media/override-prefab-property.png" alt="Overridden property"></p>
+<p>We can see this in the scene view.</p>
+<p><img src="media/pink-lamppost-prefab.jpg" alt="Pink spotlight"></p>
+<p>Now let's see what happens when we go back to the Prefab Editor and change the color of the spot light in the prefab to green.</p>
+<p><img src="media/change-prefab-color-to-green.png" alt="Change color to green"></p>
+<p>Four of the lampposts now have a green light. The fifth is still red, as overridden properties don't change when you modify the prefab.</p>
+<p><img src="media/lamppost-prefab-instances-with-override.jpg" alt="Changed colors"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Prefab index</a></li>
+<li><a href="create-a-prefab.html">Create a prefab</a></li>
+<li><a href="use-prefabs.html">Use prefabs</a></li>
+<li><a href="edit-prefabs.html">Edit prefabs</a></li>
+<li><a href="nested-prefabs.html">Nested prefabs</a></li>
+<li><a href="prefab-models.html">Prefab models</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/prefabs/override-prefab-properties.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

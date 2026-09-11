@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class EntityProcessor | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EntityProcessor | Stride API ">
+      
+      <meta name="description" content="Entity processor, triggered on various  events such as Entity and Component additions and removals.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Engine_EntityProcessor.md&amp;value=---%0Auid%3A%20Stride.Engine.EntityProcessor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Engine.EntityProcessor">
+
+
+
+  <h1 id="Stride_Engine_EntityProcessor" data-uid="Stride.Engine.EntityProcessor" class="text-break">
+Class EntityProcessor  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Engine.html">Engine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Entity processor, triggered on various <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a> events such as Entity and Component additions and removals.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class EntityProcessor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">EntityProcessor</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Engine.EntityProcessor-2.html">EntityProcessor&lt;TComponent, TData&gt;</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Engine_EntityProcessor__ctor_" data-uid="Stride.Engine.EntityProcessor.#ctor*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor__ctor_System_Type_System_Type___" data-uid="Stride.Engine.EntityProcessor.#ctor(System.Type,System.Type[])">
+  EntityProcessor(Type, Type[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EntityProcessor(Type mainComponentType, Type[] additionalTypes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mainComponentType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>Type of the main component.</p>
+</dd>
+    <dt><code>additionalTypes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>[]</dt>
+    <dd><p>The additional types required by this processor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If parameteters are null</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If a type does not inherit from EntityComponent</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Engine_EntityProcessor_DrawProfilingState" data-uid="Stride.Engine.EntityProcessor.DrawProfilingState">
+  DrawProfilingState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draw Profiling state of this entity processor for the current frame.
+Pay attention this is a struct, use directly.
+Useful to add custom Mark events into processors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProfilingState DrawProfilingState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Diagnostics.ProfilingState.html">ProfilingState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_EntityProcessor_Tags" data-uid="Stride.Engine.EntityProcessor.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tags associated to this entity processor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyContainer Tags</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyContainer.html">PropertyContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Engine_EntityProcessor_UpdateProfilingState" data-uid="Stride.Engine.EntityProcessor.UpdateProfilingState">
+  UpdateProfilingState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update Profiling state of this entity processor for the current frame.
+Pay attention this is a struct, use directly.
+Useful to add custom Mark events into processors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProfilingState UpdateProfilingState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Diagnostics.ProfilingState.html">ProfilingState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Engine_EntityProcessor_Enabled_" data-uid="Stride.Engine.EntityProcessor.Enabled*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_Enabled" data-uid="Stride.Engine.EntityProcessor.Enabled">
+  Enabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Enabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_EntityManager_" data-uid="Stride.Engine.EntityProcessor.EntityManager*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_EntityManager" data-uid="Stride.Engine.EntityProcessor.EntityManager">
+  EntityManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current entity manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EntityManager EntityManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Engine.EntityManager.html">EntityManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_HasRequiredComponents_" data-uid="Stride.Engine.EntityProcessor.HasRequiredComponents*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_HasRequiredComponents" data-uid="Stride.Engine.EntityProcessor.HasRequiredComponents">
+  HasRequiredComponents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this processor is requiring some components to be present in addition to the main component of <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_MainComponentType">MainComponentType</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasRequiredComponents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_MainComponentType_" data-uid="Stride.Engine.EntityProcessor.MainComponentType*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_MainComponentType" data-uid="Stride.Engine.EntityProcessor.MainComponentType">
+  MainComponentType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the primary component type handled by this processor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type MainComponentType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_Order_" data-uid="Stride.Engine.EntityProcessor.Order*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_Order" data-uid="Stride.Engine.EntityProcessor.Order">
+  Order
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the order of this processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Order { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_RequiredTypes_" data-uid="Stride.Engine.EntityProcessor.RequiredTypes*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_RequiredTypes" data-uid="Stride.Engine.EntityProcessor.RequiredTypes">
+  RequiredTypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the required components for an entity to be added to this entity processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TypeInfo[] RequiredTypes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.typeinfo">TypeInfo</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_Services_" data-uid="Stride.Engine.EntityProcessor.Services*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_Services" data-uid="Stride.Engine.EntityProcessor.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the services.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IServiceRegistry Services { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.IServiceRegistry.html">IServiceRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Engine_EntityProcessor_Draw_" data-uid="Stride.Engine.EntityProcessor.Draw*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_Draw_Stride_Rendering_RenderContext_" data-uid="Stride.Engine.EntityProcessor.Draw(Stride.Rendering.RenderContext)">
+  Draw(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs work related to this processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Draw(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_InternalAddEntity_" data-uid="Stride.Engine.EntityProcessor.InternalAddEntity*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_InternalAddEntity_Stride_Engine_Entity_" data-uid="Stride.Engine.EntityProcessor.InternalAddEntity(Stride.Engine.Entity)">
+  InternalAddEntity(Entity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds the entity to the internal list of the <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.
+Exposed for inheriting class that has no access to SceneInstance as internal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InternalAddEntity(Entity entity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Stride.Engine.Entity.html">Entity</a></dt>
+    <dd><p>The entity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_InternalRemoveEntity_" data-uid="Stride.Engine.EntityProcessor.InternalRemoveEntity*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_InternalRemoveEntity_Stride_Engine_Entity_System_Boolean_" data-uid="Stride.Engine.EntityProcessor.InternalRemoveEntity(Stride.Engine.Entity,System.Boolean)">
+  InternalRemoveEntity(Entity, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the entity to the internal list of the <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.
+Exposed for inheriting class that has no access to SceneInstance as internal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InternalRemoveEntity(Entity entity, bool removeParent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Stride.Engine.Entity.html">Entity</a></dt>
+    <dd><p>The entity.</p>
+</dd>
+    <dt><code>removeParent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if entity should be removed from its parent</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_OnSystemAdd_" data-uid="Stride.Engine.EntityProcessor.OnSystemAdd*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_OnSystemAdd" data-uid="Stride.Engine.EntityProcessor.OnSystemAdd">
+  OnSystemAdd()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Run when this <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> is added to an <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void OnSystemAdd()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_OnSystemRemove_" data-uid="Stride.Engine.EntityProcessor.OnSystemRemove*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_OnSystemRemove" data-uid="Stride.Engine.EntityProcessor.OnSystemRemove">
+  OnSystemRemove()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Run when this <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> is removed from an <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void OnSystemRemove()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_ProcessEntityComponent_" data-uid="Stride.Engine.EntityProcessor.ProcessEntityComponent*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_ProcessEntityComponent_Stride_Engine_Entity_Stride_Engine_EntityComponent_System_Boolean_" data-uid="Stride.Engine.EntityProcessor.ProcessEntityComponent(Stride.Engine.Entity,Stride.Engine.EntityComponent,System.Boolean)">
+  ProcessEntityComponent(Entity, EntityComponent, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if <a class="xref" href="Stride.Engine.Entity.html">Entity</a> needs to be either added or removed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ProcessEntityComponent(Entity entity, EntityComponent entityComponent, bool forceRemove)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Stride.Engine.Entity.html">Entity</a></dt>
+    <dd><p>The entity.</p>
+</dd>
+    <dt><code>entityComponent</code> <a class="xref" href="Stride.Engine.EntityComponent.html">EntityComponent</a></dt>
+    <dd></dd>
+    <dt><code>forceRemove</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_RemoveAllEntities_" data-uid="Stride.Engine.EntityProcessor.RemoveAllEntities*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_RemoveAllEntities" data-uid="Stride.Engine.EntityProcessor.RemoveAllEntities">
+  RemoveAllEntities()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Should be called prior removal, it will unregister all entities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void RemoveAllEntities()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Engine_EntityProcessor_Update_" data-uid="Stride.Engine.EntityProcessor.Update*"></a>
+
+  <h3 id="Stride_Engine_EntityProcessor_Update_Stride_Games_GameTime_" data-uid="Stride.Engine.EntityProcessor.Update(Stride.Games.GameTime)">
+  Update(GameTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs work related to this processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Update(GameTime time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Engine/EntityProcessor.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Local installation | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Local installation | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/installation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="local-installation">Local installation</h1>
+
+<p>This guide will walk you through the steps to install the Stride website on your local machine for development purposes. Although we use the Windows operating system for development, the steps should be similar for other operating systems.</p>
+<p><a href="content.html#small-updates">Minor updates</a> can be made directly on GitHub. However, for <a href="content.html#major-updates">more significant updates</a> that affect multiple pages, we recommend using a local development environment so you can see the impact of your changes beforehand. This is because we use the <a href="https://www.11ty.dev/docs/">Eleventy</a> static site generator, and in some cases, all pages need to be regenerated. This approach helps you assess your changes before submitting a pull request.</p>
+<p>This guide assumes you have a basic understanding of the technologies used in the Stride website.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before updating the Stride website, ensure you are familiar with the following prerequisites:</p>
+<ol>
+<li>Familiarity with the command line</li>
+<li><strong>.NET SDK 10.0 or higher:</strong> You can download the installer from the <a href="https://dotnet.microsoft.com/en-us/download">.NET SDK website</a>
+<ul>
+<li>If .NET SDK is already installed, ensure you have version 10.0 or higher. You can check your version by running <code>dotnet --info</code> in a terminal.</li>
+</ul>
+</li>
+<li><strong>Git installed:</strong> You will need Git for version control. If you don't have Git installed, you can download it from the <a href="https://git-scm.com/downloads">Git website</a></li>
+<li><strong>Development IDE of choice:</strong> Choose an Integrated Development Environment (IDE) that you're comfortable with for development. Although there are various popular choices, such as Visual Studio, Visual Studio Code, and others, this guide will focus on using <strong>Visual Studio</strong>, as it is the primary IDE for the Stride project, and as of writing, we use <strong>Visual Studio 2026</strong>. You can download the free Community edition from the <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio website</a></li>
+</ol>
+<h2 id="installation-steps">Installation Steps</h2>
+<ol>
+<li>❓You might want to create an issue so we can track your contribution and avoid duplicate work. If you're unsure whether your contribution is needed, feel free to create an issue and ask</li>
+<li>🍴 Fork the repository by navigating to the <a href="https://github.com/stride3d/stride-website">Stride website repository</a> and clicking the <strong>Fork</strong> button in the top-right corner</li>
+<li>📥 Clone your forked repository using the following command, replacing <code>your-username</code> with your GitHub username: <code>git clone https://github.com/your-username/stride-website.git</code>
+<ul>
+<li>💡<strong>Tip:</strong> It's a good idea to create a new branch for each feature or bug fix you work on. This helps keep your forked repository organized and makes it easier to manage multiple pull requests</li>
+</ul>
+</li>
+<li>📁 Go to the project folder <code>cd stride-website</code></li>
+<li>🚀 Run <code>npm install</code> to install all dependencies</li>
+</ol>
+<h2 id="running-the-development-server">Running the Development Server</h2>
+<ol>
+<li>🚀 Run <code>npm start</code> (<code>npx @11ty/eleventy --serve</code>) in the command line to start the development server</li>
+<li>📋 You should see many logs in the command line, indicating the progress and displaying any errors
+<ul>
+<li>⚠️ A Windows Security warning may appear on the first run (Allow Node.js JavaScript Runtime to communicate on these networks). Click <strong>Allow access</strong></li>
+</ul>
+</li>
+<li>🌐 Open the site in your browser by navigating to <code>http://localhost:8080/</code></li>
+<li>💻 Open the project in Visual Studio by opening the <code>Stride.Web.sln</code> solution file, or use the IDE of your choice</li>
+<li>🔄 Once you save the updated file, the website will automatically refresh in the browser</li>
+<li>😃 Happy coding!</li>
+</ol>
+<p><em>ToDo: Attach a screenshot of the command line output</em></p>
+<p>Let's <a href="content.html">update the content</a> now!</p>
+<h2 id="aspnet-core">ASP.NET Core</h2>
+<p>This static website can also be hosted using ASP.NET Core.</p>
+<p>Although we're not currently using the ASP.NET Core website, it remains available for future use. If necessary, we can integrate dynamic ASP.NET Core pages with the static pages generated by Eleventy.</p>
+<p>To edit the website through Visual Studio, open the <code>Stride.Web.sln</code> solution, which will load the website in the IDE. You can then modify the pages and content and run the website directly from Visual Studio.</p>
+<p>During the Visual Studio build process, <code>npm run build</code> is executed, generating the static website in the same <code>_site</code> folder as previously described. The ASP.NET Core website uses this folder instead of the default <code>wwwroot</code>. This customization is specified in the <code>Program.cs</code> file.</p>
+<pre><code class="lang-csharp">var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = &quot;_site&quot; // Set the folder where the static files are located (e.g., Eleventy output folder)
+});
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/installation.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

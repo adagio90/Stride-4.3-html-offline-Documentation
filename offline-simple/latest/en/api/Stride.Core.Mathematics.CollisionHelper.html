@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CollisionHelper | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CollisionHelper | Stride API ">
+      
+      <meta name="description" content="Contains static methods to help in determining intersections, containment, etc.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_CollisionHelper.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.CollisionHelper%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.CollisionHelper">
+
+
+
+  <h1 id="Stride_Core_Mathematics_CollisionHelper" data-uid="Stride.Core.Mathematics.CollisionHelper" class="text-break">
+Class CollisionHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contains static methods to help in determining intersections, containment, etc.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CollisionHelper</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">CollisionHelper</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_BoxContainsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_BoxContainsBox_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsBox(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingBox@)">
+  BoxContainsBox(ref readonly BoundingBox, ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsBox(ref readonly BoundingBox box1, ref readonly BoundingBox box2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The first box to test.</p>
+</dd>
+    <dt><code>box2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The second box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_BoxContainsPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_BoxContainsPoint_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsPoint(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.Vector3@)">
+  BoxContainsPoint(ref readonly BoundingBox, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsPoint(ref readonly BoundingBox box, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_BoxContainsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_BoxContainsSphere_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxContainsSphere(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingSphere@)">
+  BoxContainsSphere(ref readonly BoundingBox, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsSphere(ref readonly BoundingBox box, ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_BoxIntersectsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxIntersectsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_BoxIntersectsBox_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxIntersectsBox(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingBox@)">
+  BoxIntersectsBox(ref readonly BoundingBox, ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsBox(ref readonly BoundingBox box1, ref readonly BoundingBox box2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The first box to test.</p>
+</dd>
+    <dt><code>box2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The second box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_BoxIntersectsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxIntersectsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_BoxIntersectsSphere_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.BoxIntersectsSphere(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingSphere@)">
+  BoxIntersectsSphere(ref readonly BoundingBox, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsSphere(ref readonly BoundingBox box, ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_ClosestPointBoxPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointBoxPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_ClosestPointBoxPoint_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointBoxPoint(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  ClosestPointBoxPoint(ref readonly BoundingBox, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointBoxPoint(ref readonly BoundingBox box, ref readonly Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the closest point between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_ClosestPointPlanePoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointPlanePoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_ClosestPointPlanePoint_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointPlanePoint(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  ClosestPointPlanePoint(ref readonly Plane, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPlanePoint(ref readonly Plane plane, ref readonly Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the closest point between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_ClosestPointPointTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointPointTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_ClosestPointPointTriangle_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointPointTriangle(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  ClosestPointPointTriangle(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the closest point between a point and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPointTriangle(ref readonly Vector3 point, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex to test.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the closest point between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_ClosestPointSpherePoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointSpherePoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_ClosestPointSpherePoint_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointSpherePoint(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  ClosestPointSpherePoint(ref readonly BoundingSphere, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSpherePoint(ref readonly BoundingSphere sphere, ref readonly Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The bounding sphere.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_ClosestPointSphereSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointSphereSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_ClosestPointSphereSphere_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.ClosestPointSphereSphere(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@)">
+  ClosestPointSphereSphere(ref readonly BoundingSphere, ref readonly BoundingSphere, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSphereSphere(ref readonly BoundingSphere sphere1, ref readonly BoundingSphere sphere2, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first sphere to test.</p>
+</dd>
+    <dt><code>sphere2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second sphere to test.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_CollisionHelper_ClosestPointSphereSphere_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the two spheres are overlapping, but not directly ontop of each other, the closest point
+is the 'closest' point of intersection. This can also be considered is the deepest point of
+intersection.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_DistanceBoxBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceBoxBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_DistanceBoxBox_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceBoxBox(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.BoundingBox@)">
+  DistanceBoxBox(ref readonly BoundingBox, ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxBox(ref readonly BoundingBox box1, ref readonly BoundingBox box2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The first box to test.</p>
+</dd>
+    <dt><code>box2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The second box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_DistanceBoxPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceBoxPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_DistanceBoxPoint_Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceBoxPoint(Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.Vector3@)">
+  DistanceBoxPoint(ref readonly BoundingBox, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxPoint(ref readonly BoundingBox box, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_DistancePlanePoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.DistancePlanePoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_DistancePlanePoint_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.DistancePlanePoint(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@)">
+  DistancePlanePoint(ref readonly Plane, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistancePlanePoint(ref readonly Plane plane, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_DistanceSpherePoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceSpherePoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_DistanceSpherePoint_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceSpherePoint(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@)">
+  DistanceSpherePoint(ref readonly BoundingSphere, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSpherePoint(ref readonly BoundingSphere sphere, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_DistanceSphereSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceSphereSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_DistanceSphereSphere_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.DistanceSphereSphere(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@)">
+  DistanceSphereSphere(ref readonly BoundingSphere, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSphereSphere(ref readonly BoundingSphere sphere1, ref readonly BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first sphere to test.</p>
+</dd>
+    <dt><code>sphere2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance between the two objects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_FrustumContainsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.FrustumContainsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_FrustumContainsBox_Stride_Core_Mathematics_BoundingFrustum__Stride_Core_Mathematics_BoundingBoxExt__" data-uid="Stride.Core.Mathematics.CollisionHelper.FrustumContainsBox(Stride.Core.Mathematics.BoundingFrustum@,Stride.Core.Mathematics.BoundingBoxExt@)">
+  FrustumContainsBox(ref readonly BoundingFrustum, ref readonly BoundingBoxExt)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1471"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingFrustum.html">BoundingFrustum</a> intersects or contains an AABB determined by its center and extent.
+Faster variant specific for frustum culling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool FrustumContainsBox(ref readonly BoundingFrustum frustum, ref readonly BoundingBoxExt boundingBoxExt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frustum</code> <a class="xref" href="Stride.Core.Mathematics.BoundingFrustum.html">BoundingFrustum</a></dt>
+    <dd><p>The frustum.</p>
+</dd>
+    <dt><code>boundingBoxExt</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBoxExt.html">BoundingBoxExt</a></dt>
+    <dd><p>The bounding box ext.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if XXXX, <code>false</code> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_GetNearestHit_" data-uid="Stride.Core.Mathematics.CollisionHelper.GetNearestHit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_GetNearestHit__1_System_Collections_Generic_IEnumerable___0__Stride_Core_Mathematics_Ray____0__System_Single__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.GetNearestHit``1(System.Collections.Generic.IEnumerable{``0},Stride.Core.Mathematics.Ray@,``0@,System.Single@,Stride.Core.Mathematics.Vector3@)">
+  GetNearestHit&lt;T&gt;(IEnumerable&lt;T&gt;, ref readonly Ray, out T, out float, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the nearest hit object starting from the position of the ray in the direction of the ray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetNearestHit&lt;T&gt;(IEnumerable&lt;T&gt; objects, ref readonly Ray ray, out T hitObject, out float distance, out Vector3 point) where T : struct, IIntersectableWithRay</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>objects</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The objects that get tested for a collision with the ray.</p>
+</dd>
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray.</p>
+</dd>
+    <dt><code>hitObject</code> <span class="xref">T</span></dt>
+    <dd><p>The hit object.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance from the start of the ray.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The position of the collision.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether there was a hit.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_LinePlaneIntersection_" data-uid="Stride.Core.Mathematics.CollisionHelper.LinePlaneIntersection*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_LinePlaneIntersection_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.LinePlaneIntersection(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3@)">
+  LinePlaneIntersection(Plane, Vector3, Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a Line and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool LinePlaneIntersection(Plane plane, Vector3 point1, Vector3 point2, out Vector3 intersection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>point1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first point of the line to test.</p>
+</dd>
+    <dt><code>point2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second point of the line to test.</p>
+</dd>
+    <dt><code>intersection</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsBox_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsBox(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.BoundingBox@)">
+  PlaneIntersectsBox(ref readonly Plane, ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1093"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsBox(ref readonly Plane plane, ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPlane_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPlane*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPlane_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPlane(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Plane@)">
+  PlaneIntersectsPlane(ref readonly Plane, ref readonly Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1007"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref readonly Plane plane1, ref readonly Plane plane2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane1</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The first plane to test.</p>
+</dd>
+    <dt><code>plane2</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The second plane to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPlane_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPlane*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPlane_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Ray__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPlane(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Ray@)">
+  PlaneIntersectsPlane(ref readonly Plane, ref readonly Plane, out Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1031"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref readonly Plane plane1, ref readonly Plane plane2, out Ray line)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane1</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The first plane to test.</p>
+</dd>
+    <dt><code>plane2</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The second plane to test.</p>
+</dd>
+    <dt><code>line</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>When the method completes, contains the line of intersection
+as a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>, or a zero ray if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPlane_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Ray___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Although a ray is set to have an origin, the ray returned by this method is really
+a line in three dimensions which has no real origin. The ray is considered valid when
+both the positive direction is used and when the negative direction is used.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsPoint_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsPoint(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@)">
+  PlaneIntersectsPoint(ref readonly Plane, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L987"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsPoint(ref readonly Plane plane, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsSphere_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsSphere(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.BoundingSphere@)">
+  PlaneIntersectsSphere(ref readonly Plane, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsSphere(ref readonly Plane plane, ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_PlaneIntersectsTriangle_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.PlaneIntersectsTriangle(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  PlaneIntersectsTriangle(ref readonly Plane, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1069"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsTriangle(ref readonly Plane plane, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsBox_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_BoundingBox__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsBox(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.BoundingBox@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsBox(ref readonly Ray, ref readonly BoundingBox, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L909"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref readonly Ray ray, ref readonly BoundingBox box, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsBox_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_BoundingBox__System_Single__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsBox(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.BoundingBox@,System.Single@)">
+  RayIntersectsBox(ref readonly Ray, ref readonly BoundingBox, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L803"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref readonly Ray ray, ref readonly BoundingBox box, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPlane_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPlane*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPlane_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPlane(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsPlane(ref readonly Ray, ref readonly Plane, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref readonly Ray ray, ref readonly Plane plane, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPlane_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPlane*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPlane_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Plane__System_Single__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPlane(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Plane@,System.Single@)">
+  RayIntersectsPlane(ref readonly Ray, ref readonly Plane, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L520"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref readonly Ray ray, ref readonly Plane plane, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsPoint_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsPoint(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsPoint(ref readonly Ray, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPoint(ref readonly Ray ray, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsRay_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsRay*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsRay_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsRay(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsRay(ref readonly Ray, ref readonly Ray, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsRay(ref readonly Ray ray1, ref readonly Ray ray2, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray1</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The first ray to test.</p>
+</dd>
+    <dt><code>ray2</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The second ray to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersect.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsRay_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs a ray vs ray intersection test based on the following formula
+from Goldman.
+<code>s = det([o_2 - o_1, d_2, d_1 x d_2]) / ||d_1 x d_2||^2</code>
+<code>t = det([o_2 - o_1, d_1, d_1 x d_2]) / ||d_1 x d_2||^2</code>
+Where o_1 is the position of the first ray, o_2 is the position of the second ray,
+d_1 is the normalized direction of the first ray, d_2 is the normalized direction
+of the second ray, det denotes the determinant of a matrix, x denotes the cross
+product, [ ] denotes a matrix, and || || denotes the length or magnitude of a vector.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsRectangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsRectangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsRectangle_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Vector3__System_Int32_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsRectangle(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Vector3@,System.Int32,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsRectangle(ref readonly Ray, ref readonly Matrix, ref readonly Vector3, int, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L710"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a rectangle (2D).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsRectangle(ref readonly Ray ray, ref readonly Matrix rectangleWorldMatrix, ref readonly Vector3 rectangleSize, int normalAxis, out Vector3 intersectionPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test</p>
+</dd>
+    <dt><code>rectangleWorldMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The world matrix applied on the rectangle</p>
+</dd>
+    <dt><code>rectangleSize</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size of the rectangle in 3D</p>
+</dd>
+    <dt><code>normalAxis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of axis defining the normal of the rectangle in the world. This value should be 0, 1 or 2</p>
+</dd>
+    <dt><code>intersectionPoint</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The position of the intersection point in the world</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><returns>true</returns> if the ray and rectangle intersects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsSphere_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsSphere(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsSphere(ref readonly Ray, ref readonly BoundingSphere, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L969"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref readonly Ray ray, ref readonly BoundingSphere sphere, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsSphere_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_BoundingSphere__System_Single__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsSphere(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.BoundingSphere@,System.Single@)">
+  RayIntersectsSphere(ref readonly Ray, ref readonly BoundingSphere, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L929"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref readonly Ray ray, ref readonly BoundingSphere sphere, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsTriangle_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsTriangle(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  RayIntersectsTriangle(ref readonly Ray, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L689"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref readonly Ray ray, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsTriangle_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__System_Single__" data-uid="Stride.Core.Mathematics.CollisionHelper.RayIntersectsTriangle(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,System.Single@)">
+  RayIntersectsTriangle(ref readonly Ray, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L593"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref readonly Ray ray, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_CollisionHelper_RayIntersectsTriangle_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__System_Single___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method tests if the ray intersects either the front or back of the triangle.
+If the ray is parallel to the triangle's plane, no intersection is assumed to have
+happened. If the intersection of the ray and the triangle is behind the origin of
+the ray, no intersection is assumed to have happened. In both cases of assumptions,
+this method returns false.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereContainsBox_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsBox*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereContainsBox_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsBox(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingBox@)">
+  SphereContainsBox(ref readonly BoundingSphere, ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsBox(ref readonly BoundingSphere sphere, ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereContainsPoint_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsPoint*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereContainsPoint_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsPoint(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@)">
+  SphereContainsPoint(ref readonly BoundingSphere, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsPoint(ref readonly BoundingSphere sphere, ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereContainsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereContainsSphere_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsSphere(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@)">
+  SphereContainsSphere(ref readonly BoundingSphere, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1451"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsSphere(ref readonly BoundingSphere sphere1, ref readonly BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The first sphere to test.</p>
+</dd>
+    <dt><code>sphere2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The second sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereContainsTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereContainsTriangle_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereContainsTriangle(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  SphereContainsTriangle(ref readonly BoundingSphere, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsTriangle(ref readonly BoundingSphere sphere, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.ContainmentType.html">ContainmentType</a></dt>
+    <dd><p>The type of containment the two objects have.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereIntersectsSphere_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereIntersectsSphere*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereIntersectsSphere_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereIntersectsSphere(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.BoundingSphere@)">
+  SphereIntersectsSphere(ref readonly BoundingSphere, ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsSphere(ref readonly BoundingSphere sphere1, ref readonly BoundingSphere sphere2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere1</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>First sphere to test.</p>
+</dd>
+    <dt><code>sphere2</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>Second sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_CollisionHelper_SphereIntersectsTriangle_" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereIntersectsTriangle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_CollisionHelper_SphereIntersectsTriangle_Stride_Core_Mathematics_BoundingSphere__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.CollisionHelper.SphereIntersectsTriangle(Stride.Core.Mathematics.BoundingSphere@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  SphereIntersectsTriangle(ref readonly BoundingSphere, ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L1213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsTriangle(ref readonly BoundingSphere sphere, ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/CollisionHelper.cs/#L59" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

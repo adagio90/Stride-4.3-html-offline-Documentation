@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Raycasting | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Raycasting | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/raycasting.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="raycasting">Raycasting</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Bullet Physics is being phased out. We no longer plan to support or expand its features as our focus shifts to <a href="../physics/index.html">Bepu Physics</a>. We recommend transitioning to Bepu Physics for access to the latest updates and ongoing improvements.</p>
+</div>
+
+<p><strong>Raycasting</strong> traces an invisible line through the scene to find intersecting <a href="colliders.html">colliders</a>. This is useful, for example, to check which objects are in a gun's line of fire, or are under the mouse cursor when the user clicks.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Raycasting uses <strong>colliders</strong> to calculate intersections. It ignores entities that have no collider component. For more information, see <a href="colliders.html">Colliders</a>.</p>
+</div>
+<p>To use a raycast, in the current <a class="xref" href="../../api/Stride.Physics.Simulation.html">Simulation</a>, use <a class="xref" href="../../api/Stride.Physics.Simulation.html#Stride_Physics_Simulation_Raycast_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_Stride_Physics_CollisionFilterGroups_Stride_Physics_CollisionFilterGroupFlags_System_Boolean_Stride_Physics_EFlags_">Simulation.Raycast</a>.</p>
+<p>For an example of raycasting, see the <strong>Physics Sample</strong> project included with Stride.</p>
+<h2 id="example-code">Example code</h2>
+<p>This code sends a raycast from the mouse's screen position:</p>
+<pre><code class="lang-cs">public static bool ScreenPositionToWorldPositionRaycast(Vector2 screenPos, CameraComponent camera, Simulation simulation)
+{
+    Matrix invViewProj = Matrix.Invert(camera.ViewProjectionMatrix);
+
+    // Reconstruct the projection-space position in the (-1, +1) range.
+    //    Don't forget that Y is down in screen coordinates, but up in projection space
+    Vector3 sPos;
+    sPos.X = screenPos.X * 2f - 1f;
+    sPos.Y = 1f - screenPos.Y * 2f;
+
+    // Compute the near (start) point for the raycast
+    // It's assumed to have the same projection space (x,y) coordinates and z = 0 (lying on the near plane)
+    // We need to unproject it to world space
+    sPos.Z = 0f;
+    var vectorNear = Vector3.Transform(sPos, invViewProj);
+    vectorNear /= vectorNear.W;
+
+    // Compute the far (end) point for the raycast
+    // It's assumed to have the same projection space (x,y) coordinates and z = 1 (lying on the far plane)
+    // We need to unproject it to world space
+    sPos.Z = 1f;
+    var vectorFar = Vector3.Transform(sPos, invViewProj);
+    vectorFar /= vectorFar.W;
+
+    // Raycast from the point on the near plane to the point on the far plane and get the collision result
+    var result = simulation.Raycast(vectorNear.XYZ(), vectorFar.XYZ());
+    return result.Succeeded;
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>There are multiple ways to retrieve a reference to this <code>Simulation</code> from inside one of your <code>ScriptComponent</code>:</p>
+<ul>
+<li>The recommended way is through a reference to a physics component, something like <code>myRigidBody.Simulation</code> or <code>myCollision.Simulation</code> as it is the fastest.</li>
+<li>Then through <code>SceneSystem</code> by calling <code>SceneSystem.SceneInstance.GetProcessor&lt;PhysicsProcessor&gt;()?.Simulation</code>.</li>
+<li>Or through <code>this.GetSimulation()</code>, note that the <code>this</code> is required as it is an extension method.</li>
+</ul>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="colliders.html">Colliders</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/raycasting.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

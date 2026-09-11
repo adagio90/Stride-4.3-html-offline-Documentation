@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LightProcessor | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LightProcessor | Stride API ">
+      
+      <meta name="description" content="Process  stored in an  by providing grouped lights per types/shadows.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Lights_LightProcessor.md&amp;value=---%0Auid%3A%20Stride.Rendering.Lights.LightProcessor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Lights.LightProcessor">
+
+
+
+  <h1 id="Stride_Rendering_Lights_LightProcessor" data-uid="Stride.Rendering.Lights.LightProcessor" class="text-break">
+Class LightProcessor  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Lights.html">Lights</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Process <a class="xref" href="Stride.Engine.LightComponent.html">LightComponent</a> stored in an <a class="xref" href="Stride.Engine.EntityManager.html">EntityManager</a> by providing grouped lights per types/shadows.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class LightProcessor : EntityProcessor&lt;LightComponent, RenderLight&gt;, IEntityComponentRenderProcessor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a></div>
+      <div><a class="xref" href="Stride.Engine.EntityProcessor-2.html">EntityProcessor</a>&lt;<a class="xref" href="Stride.Engine.LightComponent.html">LightComponent</a>, <a class="xref" href="Stride.Rendering.Lights.RenderLight.html">RenderLight</a>&gt;</div>
+      <div><span class="xref">LightProcessor</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.IEntityComponentRenderProcessor.html">IEntityComponentRenderProcessor</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_ComponentDatas">EntityProcessor&lt;LightComponent, RenderLight&gt;.ComponentDatas</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_OnSystemAdd">EntityProcessor&lt;LightComponent, RenderLight&gt;.OnSystemAdd()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_OnSystemRemove">EntityProcessor&lt;LightComponent, RenderLight&gt;.OnSystemRemove()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_RemoveAllEntities">EntityProcessor&lt;LightComponent, RenderLight&gt;.RemoveAllEntities()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_ProcessEntityComponent_Stride_Engine_Entity_Stride_Engine_EntityComponent_System_Boolean_">EntityProcessor&lt;LightComponent, RenderLight&gt;.ProcessEntityComponent(Entity, EntityComponent, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_GenerateComponentData_Stride_Engine_Entity__0_">EntityProcessor&lt;LightComponent, RenderLight&gt;.GenerateComponentData(Entity, LightComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_IsAssociatedDataValid_Stride_Engine_Entity__0__1_">EntityProcessor&lt;LightComponent, RenderLight&gt;.IsAssociatedDataValid(Entity, LightComponent, RenderLight)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_OnEntityComponentAdding_Stride_Engine_Entity__0__1_">EntityProcessor&lt;LightComponent, RenderLight&gt;.OnEntityComponentAdding(Entity, LightComponent, RenderLight)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor-2.html#Stride_Engine_EntityProcessor_2_OnEntityComponentRemoved_Stride_Engine_Entity__0__1_">EntityProcessor&lt;LightComponent, RenderLight&gt;.OnEntityComponentRemoved(Entity, LightComponent, RenderLight)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_Tags">EntityProcessor.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_UpdateProfilingState">EntityProcessor.UpdateProfilingState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_DrawProfilingState">EntityProcessor.DrawProfilingState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_Enabled">EntityProcessor.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_MainComponentType">EntityProcessor.MainComponentType</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_RequiredTypes">EntityProcessor.RequiredTypes</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_HasRequiredComponents">EntityProcessor.HasRequiredComponents</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_Order">EntityProcessor.Order</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityProcessor.EntityManager</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_Services">EntityProcessor.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_Update_Stride_Games_GameTime_">EntityProcessor.Update(GameTime)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_RemoveAllEntities">EntityProcessor.RemoveAllEntities()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_ProcessEntityComponent_Stride_Engine_Entity_Stride_Engine_EntityComponent_System_Boolean_">EntityProcessor.ProcessEntityComponent(Entity, EntityComponent, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_InternalAddEntity_Stride_Engine_Entity_">EntityProcessor.InternalAddEntity(Entity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_InternalRemoveEntity_Stride_Engine_Entity_System_Boolean_">EntityProcessor.InternalRemoveEntity(Entity, bool)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor__ctor_" data-uid="Stride.Rendering.Lights.LightProcessor.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor__ctor" data-uid="Stride.Rendering.Lights.LightProcessor.#ctor">
+  LightProcessor()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Lights.LightProcessor.html">LightProcessor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightProcessor()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_DefaultDirection" data-uid="Stride.Rendering.Lights.LightProcessor.DefaultDirection">
+  DefaultDirection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default direction of a light vector is (x,y,z) = (0,0,-1)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Vector3 DefaultDirection</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_Lights_" data-uid="Stride.Rendering.Lights.LightProcessor.Lights*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_Lights" data-uid="Stride.Rendering.Lights.LightProcessor.Lights">
+  Lights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the active lights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderLightCollection Lights { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Lights.RenderLightCollection.html">RenderLightCollection</a></dt>
+    <dd><p>The lights.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_VisibilityGroup_" data-uid="Stride.Rendering.Lights.LightProcessor.VisibilityGroup*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_VisibilityGroup" data-uid="Stride.Rendering.Lights.LightProcessor.VisibilityGroup">
+  VisibilityGroup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VisibilityGroup VisibilityGroup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.VisibilityGroup.html">VisibilityGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_Draw_" data-uid="Stride.Rendering.Lights.LightProcessor.Draw*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_Draw_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Lights.LightProcessor.Draw(Stride.Rendering.RenderContext)">
+  Draw(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs work related to this processor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Draw(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_GenerateComponentData_" data-uid="Stride.Rendering.Lights.LightProcessor.GenerateComponentData*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_GenerateComponentData_Stride_Engine_Entity_Stride_Engine_LightComponent_" data-uid="Stride.Rendering.Lights.LightProcessor.GenerateComponentData(Stride.Engine.Entity,Stride.Engine.LightComponent)">
+  GenerateComponentData(Entity, LightComponent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates associated data to the given entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override RenderLight GenerateComponentData(Entity entity, LightComponent component)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Stride.Engine.Entity.html">Entity</a></dt>
+    <dd><p>The entity.</p>
+</dd>
+    <dt><code>component</code> <a class="xref" href="Stride.Engine.LightComponent.html">LightComponent</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Lights.RenderLight.html">RenderLight</a></dt>
+    <dd><p>The associated data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_GetRenderLight_" data-uid="Stride.Rendering.Lights.LightProcessor.GetRenderLight*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_GetRenderLight_Stride_Engine_LightComponent_" data-uid="Stride.Rendering.Lights.LightProcessor.GetRenderLight(Stride.Engine.LightComponent)">
+  GetRenderLight(LightComponent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderLight GetRenderLight(LightComponent lightComponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lightComponent</code> <a class="xref" href="Stride.Engine.LightComponent.html">LightComponent</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Lights.RenderLight.html">RenderLight</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_IsAssociatedDataValid_" data-uid="Stride.Rendering.Lights.LightProcessor.IsAssociatedDataValid*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_IsAssociatedDataValid_Stride_Engine_Entity_Stride_Engine_LightComponent_Stride_Rendering_Lights_RenderLight_" data-uid="Stride.Rendering.Lights.LightProcessor.IsAssociatedDataValid(Stride.Engine.Entity,Stride.Engine.LightComponent,Stride.Rendering.Lights.RenderLight)">
+  IsAssociatedDataValid(Entity, LightComponent, RenderLight)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if the current associated data is valid, or if readding the entity is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool IsAssociatedDataValid(Entity entity, LightComponent component, RenderLight associatedData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <a class="xref" href="Stride.Engine.Entity.html">Entity</a></dt>
+    <dd><p>The entity.</p>
+</dd>
+    <dt><code>component</code> <a class="xref" href="Stride.Engine.LightComponent.html">LightComponent</a></dt>
+    <dd></dd>
+    <dt><code>associatedData</code> <a class="xref" href="Stride.Rendering.Lights.RenderLight.html">RenderLight</a></dt>
+    <dd><p>The associated data.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the change in associated data requires the entity to be readded, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_OnSystemAdd_" data-uid="Stride.Rendering.Lights.LightProcessor.OnSystemAdd*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_OnSystemAdd" data-uid="Stride.Rendering.Lights.LightProcessor.OnSystemAdd">
+  OnSystemAdd()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Run when this <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> is added to an <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnSystemAdd()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_LightProcessor_OnSystemRemove_" data-uid="Stride.Rendering.Lights.LightProcessor.OnSystemRemove*"></a>
+
+  <h3 id="Stride_Rendering_Lights_LightProcessor_OnSystemRemove" data-uid="Stride.Rendering.Lights.LightProcessor.OnSystemRemove">
+  OnSystemRemove()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Run when this <a class="xref" href="Stride.Engine.EntityProcessor.html">EntityProcessor</a> is removed from an <a class="xref" href="Stride.Engine.EntityProcessor.html#Stride_Engine_EntityProcessor_EntityManager">EntityManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnSystemRemove()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Lights/LightProcessor.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

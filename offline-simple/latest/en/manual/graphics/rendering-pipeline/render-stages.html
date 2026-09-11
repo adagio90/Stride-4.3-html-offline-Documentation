@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Render stages | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Render stages | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/rendering-pipeline/render-stages.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="render-stages">Render stages</h1>
+
+<p><strong>Render stages</strong> define how given objects are rendered (usually with their associated <a href="../effects-and-shaders/index.html">effect/shader</a>). They also let you control advanced properties such as sorting and filtering objects.</p>
+<p>Objects can subscribe to multiple render stages. For example, a mesh typically subscribes to both the <code>Opaque</code> and <code>ShadowCaster</code> stages, or the <code>Transparent</code> stage.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Render stages don't define the rendering order. The rendering order is controlled by the <a href="../graphics-compositor/index.html">graphics compositor</a>.</p>
+</div>
+<h2 id="effect-slots">Effect slots</h2>
+<p><strong>Effect slots</strong> determine which <a href="../effects-and-shaders/index.html">effect/shader</a> a render stage uses. You choose the effect slot with <a class="xref" href="../../../api/Stride.Rendering.RenderStage.html#Stride_Rendering_RenderStage_EffectSlotName">EffectSlotName</a>.</p>
+<p>If multiple render stages exclusively render different objects, the stages can share the same effect slot. For example, as the opaque stage only renders opaque objects and the transparent stage only renders transparent objects, both stages can use the main effect slot.</p>
+<p>If they render any of the same objects, they can't share effect slots. This is why, for example, we typically render opaque meshes with the main effect slot, then render opaque meshes again with the shadow caster effect slot to create shadows.</p>
+<p>A typical setup of render stages:</p>
+<table>
+<thead>
+<tr>
+<th>Render stage</th>
+<th>Effect slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opaque</td>
+<td>Main</td>
+</tr>
+<tr>
+<td>Transparent</td>
+<td>Main</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Main</td>
+</tr>
+<tr>
+<td>Shadow caster</td>
+<td>Shadow caster</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sort-objects-in-a-render-stage">Sort objects in a render stage</h2>
+<p><a class="xref" href="../../../api/Stride.Rendering.RenderStage.html#Stride_Rendering_RenderStage_SortMode">SortMode</a> defines how Stride sorts objects in that render stage. Stride comes with several <a class="xref" href="../../../api/Stride.Rendering.SortMode.html">SortMode</a> implementations, such as:</p>
+<ul>
+<li><a class="xref" href="../../../api/Stride.Rendering.FrontToBackSortMode.html">FrontToBackSortMode</a>, which renders objects from front to back with limited precision, and tries to avoid state changes in the same depth range of objects (useful for opaque objects and shadows)</li>
+<li><a class="xref" href="../../../api/Stride.Rendering.BackToFrontSortMode.html">BackToFrontSortMode</a>, which renders objects strictly from back to front (useful for transparent objects)</li>
+<li><a class="xref" href="../../../api/Stride.Rendering.StateChangeSortMode.html">StateChangeSortMode</a>, which tries to reduce state changes</li>
+</ul>
+<p>Of course, you're free to implement your own, too.</p>
+<h2 id="filter-objects-in-a-render-stage">Filter objects in a render stage</h2>
+<p>To create your own filter for objects in a render stage, inherit from <a class="xref" href="../../../api/Stride.Rendering.RenderStageFilter.html">RenderStageFilter</a>.</p>
+<h3 id="render-stage-selectors">Render stage selectors</h3>
+<p><strong>Render stage selectors</strong> define which objects in your scene are sent to which render stage, and choose which <a href="../effects-and-shaders/effect-language.html">effect</a> to use when rendering a given object.</p>
+<p>For example, this is the typical setup for meshes:</p>
+<ul>
+<li><a class="xref" href="../../../api/Stride.Rendering.MeshTransparentRenderStageSelector.html">MeshTransparentRenderStageSelector</a> chooses either the <code>Main</code> or <code>Transparent</code> render stage, depending on the material properties. The default effect is <code>StrideForwardShadingEffect</code> defined by Stride (you can create your own if you want).</li>
+<li><a class="xref" href="../../../api/Stride.Rendering.Shadows.ShadowMapRenderStageSelector.html">ShadowMapRenderStageSelector</a> selects opaque meshes that cast shadows and adds them to the <code>ShadowMapCaster</code> render stage. The default effect is <code>StrideForwardShadingEffect.ShadowMapCaster</code>, defined by Stride.</li>
+</ul>
+<p>Either can filter by <a href="../graphics-compositor/render-groups-and-masks.html">render group</a>.</p>
+<p>You can customize everything, so you can add other predefined render stage selectors (eg to add UI to a later full-screen pass), or create your own selector specific to your game.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Rendering pipeline</a></li>
+<li><a href="render-features.html">Render features</a></li>
+<li><a href="../effects-and-shaders/index.html">Effects and shaders</a></li>
+<li><a href="../graphics-compositor/index.html">Graphics compositor</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/rendering-pipeline/render-stages.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

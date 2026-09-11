@@ -1,0 +1,4026 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Double4 | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Double4 | Stride API ">
+      
+      <meta name="description" content="Represents a four dimensional mathematical vector with double-precision floats.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Double4.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Double4%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Double4">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Double4" data-uid="Stride.Core.Mathematics.Double4" class="text-break">
+Struct Double4  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a four dimensional mathematical vector with double-precision floats.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;double4&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct Double4 : IEquatable&lt;Double4&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_Stride_Core_Mathematics_Double2_System_Double_System_Double_" data-uid="Stride.Core.Mathematics.Double4.#ctor(Stride.Core.Mathematics.Double2,System.Double,System.Double)">
+  Double4(Double2, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Double2 value, double z, double w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double2.html">Double2</a></dt>
+    <dd><p>A vector containing the values with which to initialize the X and Y components.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the Z component of the vector.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the W component of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_Stride_Core_Mathematics_Double3_System_Double_" data-uid="Stride.Core.Mathematics.Double4.#ctor(Stride.Core.Mathematics.Double3,System.Double)">
+  Double4(Double3, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Double3 value, double w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double3.html">Double3</a></dt>
+    <dd><p>A vector containing the values with which to initialize the X, Y, and Z components.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the W component of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_Stride_Core_Mathematics_Vector4_" data-uid="Stride.Core.Mathematics.Double4.#ctor(Stride.Core.Mathematics.Vector4)">
+  Double4(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(Vector4 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The Vector4 to construct the Double4 from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_System_Double_" data-uid="Stride.Core.Mathematics.Double4.#ctor(System.Double)">
+  Double4(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_System_Double_System_Double_System_Double_System_Double_" data-uid="Stride.Core.Mathematics.Double4.#ctor(System.Double,System.Double,System.Double,System.Double)">
+  Double4(double, double, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double x, double y, double z, double w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the X component of the vector.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the Y component of the vector.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the Z component of the vector.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Initial value for the W component of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4__ctor_" data-uid="Stride.Core.Mathematics.Double4.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4__ctor_System_Double___" data-uid="Stride.Core.Mathematics.Double4.#ctor(System.Double[])">
+  Double4(double[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Double4(double[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>The values to assign to the X, Y, Z, and W components of the vector. This must be an array with four elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_One" data-uid="Stride.Core.Mathematics.Double4.One">
+  One
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> with all of its components set to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 One</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_SizeInBytes" data-uid="Stride.Core.Mathematics.Double4.SizeInBytes">
+  SizeInBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> type, in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SizeInBytes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_UnitW" data-uid="Stride.Core.Mathematics.Double4.UnitW">
+  UnitW
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The W unit <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> (0, 0, 0, 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitW</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_UnitX" data-uid="Stride.Core.Mathematics.Double4.UnitX">
+  UnitX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The X unit <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> (1, 0, 0, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitX</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_UnitY" data-uid="Stride.Core.Mathematics.Double4.UnitY">
+  UnitY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Y unit <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> (0, 1, 0, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitY</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_UnitZ" data-uid="Stride.Core.Mathematics.Double4.UnitZ">
+  UnitZ
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Z unit <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> (0, 0, 1, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 UnitZ</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_W" data-uid="Stride.Core.Mathematics.Double4.W">
+  W
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The W component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(3)]
+public double W</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_X" data-uid="Stride.Core.Mathematics.Double4.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The X component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public double X</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_Y" data-uid="Stride.Core.Mathematics.Double4.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Y component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+public double Y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_Z" data-uid="Stride.Core.Mathematics.Double4.Z">
+  Z
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Z component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(2)]
+public double Z</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Double4_Zero" data-uid="Stride.Core.Mathematics.Double4.Zero">
+  Zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> with all of its components set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Double4 Zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Double4_IsNormalized_" data-uid="Stride.Core.Mathematics.Double4.IsNormalized*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_IsNormalized" data-uid="Stride.Core.Mathematics.Double4.IsNormalized">
+  IsNormalized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicting whether this instance is normalized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsNormalized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Item_" data-uid="Stride.Core.Mathematics.Double4.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Item_System_Int32_" data-uid="Stride.Core.Mathematics.Double4.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z component, and 3 for the W component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The value of the X, Y, Z, or W component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 3].</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Double4_Add_" data-uid="Stride.Core.Mathematics.Double4.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Add_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Add(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Add(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Add(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Add_" data-uid="Stride.Core.Mathematics.Double4.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Add_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Add(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Add(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Barycentric_" data-uid="Stride.Core.Mathematics.Double4.Barycentric*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Barycentric_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Barycentric(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,System.Double,System.Double)">
+  Barycentric(Double4, Double4, Double4, double, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Barycentric(Double4 value1, Double4 value2, Double4 value3, double amount1, double amount2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</dd>
+    <dt><code>amount1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code class="paramref">value2</code>).</p>
+</dd>
+    <dt><code>amount2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code class="paramref">value3</code>).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A new <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of the specified point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Barycentric_" data-uid="Stride.Core.Mathematics.Double4.Barycentric*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Barycentric_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Barycentric(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double,System.Double,Stride.Core.Mathematics.Double4@)">
+  Barycentric(ref readonly Double4, ref readonly Double4, ref readonly Double4, double, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L456"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 4D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Barycentric(ref readonly Double4 value1, ref readonly Double4 value2, ref readonly Double4 value3, double amount1, double amount2, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</dd>
+    <dt><code>amount1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code class="paramref">value2</code>).</p>
+</dd>
+    <dt><code>amount2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code class="paramref">value3</code>).</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the 4D Cartesian coordinates of the specified point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_CatmullRom_" data-uid="Stride.Core.Mathematics.Double4.CatmullRom*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_CatmullRom_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.CatmullRom(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,System.Double)">
+  CatmullRom(Double4, Double4, Double4, Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L792"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a Catmull-Rom interpolation using the specified positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 CatmullRom(Double4 value1, Double4 value2, Double4 value3, Double4 value4, double amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first position in the interpolation.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second position in the interpolation.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The third position in the interpolation.</p>
+</dd>
+    <dt><code>value4</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The fourth position in the interpolation.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Weighting factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A vector that is the result of the Catmull-Rom interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_CatmullRom_" data-uid="Stride.Core.Mathematics.Double4.CatmullRom*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_CatmullRom_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.CatmullRom(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  CatmullRom(ref readonly Double4, ref readonly Double4, ref readonly Double4, ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L772"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a Catmull-Rom interpolation using the specified positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CatmullRom(ref readonly Double4 value1, ref readonly Double4 value2, ref readonly Double4 value3, ref readonly Double4 value4, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first position in the interpolation.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second position in the interpolation.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The third position in the interpolation.</p>
+</dd>
+    <dt><code>value4</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The fourth position in the interpolation.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Weighting factor.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the result of the Catmull-Rom interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Clamp_" data-uid="Stride.Core.Mathematics.Double4.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Clamp_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Clamp(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Clamp(Double4, Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L514"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Clamp(Double4 value, Double4 min, Double4 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Clamp_" data-uid="Stride.Core.Mathematics.Double4.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Clamp_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Clamp(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Clamp(ref readonly Double4, ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L486"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clamp(ref readonly Double4 value, ref readonly Double4 min, ref readonly Double4 max, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Deconstruct_" data-uid="Stride.Core.Mathematics.Double4.Deconstruct*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Deconstruct_System_Double__System_Double__System_Double__System_Double__" data-uid="Stride.Core.Mathematics.Double4.Deconstruct(System.Double@,System.Double@,System.Double@,System.Double@)">
+  Deconstruct(out double, out double, out double, out double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deconstructs the vector's components into named variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Deconstruct(out double x, out double y, out double z, out double w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The X component</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Y component</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The Z component</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The W component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Demodulate_" data-uid="Stride.Core.Mathematics.Double4.Demodulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Demodulate_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Demodulate(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Demodulate(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Demodulates a vector with another by performing component-wise division.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Demodulate(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to demodulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to demodulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The demodulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Demodulate_" data-uid="Stride.Core.Mathematics.Double4.Demodulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Demodulate_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Demodulate(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Demodulate(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Demodulates a vector with another by performing component-wise division.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Demodulate(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to demodulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to demodulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the demodulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Distance_" data-uid="Stride.Core.Mathematics.Double4.Distance*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Distance_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Distance(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Distance(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L550"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Distance(Double4 value1, Double4 value2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The distance between the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Distance_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="Stride.Core.Mathematics.Double4.html#Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_">DistanceSquared(Double4, Double4)</a> may be preferred when only the relative distance is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Distance_" data-uid="Stride.Core.Mathematics.Double4.Distance*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Distance_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double__" data-uid="Stride.Core.Mathematics.Double4.Distance(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double@)">
+  Distance(ref readonly Double4, ref readonly Double4, out double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L530"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Distance(ref readonly Double4 value1, ref readonly Double4 value2, out double result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>When the method completes, contains the distance between the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Distance_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="Stride.Core.Mathematics.Double4.html#Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double__">DistanceSquared(ref readonly Double4, ref readonly Double4, out double)</a> may be preferred when only the relative distance is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_DistanceSquared_" data-uid="Stride.Core.Mathematics.Double4.DistanceSquared*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.DistanceSquared(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  DistanceSquared(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L596"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the squared distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DistanceSquared(Double4 value1, Double4 value2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The squared distance between the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Distance squared is the value before taking the square root.
+Distance squared can often be used in place of distance if relative comparisons are being made.
+For example, consider three points A, B, and C. To determine whether B or C is further from A,
+compare the distance between A and B to the distance between A and C. Calculating the two distances
+involves two square roots, which are computationally expensive. However, using distance squared
+provides the same information and avoids calculating two square roots.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_DistanceSquared_" data-uid="Stride.Core.Mathematics.Double4.DistanceSquared*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double__" data-uid="Stride.Core.Mathematics.Double4.DistanceSquared(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double@)">
+  DistanceSquared(ref readonly Double4, ref readonly Double4, out double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L573"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the squared distance between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DistanceSquared(ref readonly Double4 value1, ref readonly Double4 value2, out double result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>When the method completes, contains the squared distance between the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_DistanceSquared_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Distance squared is the value before taking the square root.
+Distance squared can often be used in place of distance if relative comparisons are being made.
+For example, consider three points A, B, and C. To determine whether B or C is further from A,
+compare the distance between A and B to the distance between A and C. Calculating the two distances
+involves two square roots, which are computationally expensive. However, using distance squared
+provides the same information and avoids calculating two square roots.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Divide_" data-uid="Stride.Core.Mathematics.Double4.Divide*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Divide_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Divide(Stride.Core.Mathematics.Double4,System.Double)">
+  Divide(Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Divide(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Divide_" data-uid="Stride.Core.Mathematics.Double4.Divide*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Divide_Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Divide(Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  Divide(ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Divide(ref readonly Double4 value, double scale, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Dot_" data-uid="Stride.Core.Mathematics.Double4.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Dot_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Dot(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Dot(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L624"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double Dot(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The dot product of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Dot_" data-uid="Stride.Core.Mathematics.Double4.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Dot_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double__" data-uid="Stride.Core.Mathematics.Double4.Dot(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double@)">
+  Dot(ref readonly Double4, ref readonly Double4, out double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L612"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dot(ref readonly Double4 left, ref readonly Double4 right, out double result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source vector</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>When the method completes, contains the dot product of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Equals_" data-uid="Stride.Core.Mathematics.Double4.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Equals_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Equals(Stride.Core.Mathematics.Double4)">
+  Equals(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Double4 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Equals_" data-uid="Stride.Core.Mathematics.Double4.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Double4.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1359"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_GetHashCode_" data-uid="Stride.Core.Mathematics.Double4.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_GetHashCode" data-uid="Stride.Core.Mathematics.Double4.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Hermite_" data-uid="Stride.Core.Mathematics.Double4.Hermite*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Hermite_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Hermite(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,System.Double)">
+  Hermite(Double4, Double4, Double4, Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L757"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a Hermite spline interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Hermite(Double4 value1, Double4 tangent1, Double4 value2, Double4 tangent2, double amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source position vector.</p>
+</dd>
+    <dt><code>tangent1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source tangent vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source position vector.</p>
+</dd>
+    <dt><code>tangent2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source tangent vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Weighting factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The result of the Hermite spline interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Hermite_" data-uid="Stride.Core.Mathematics.Double4.Hermite*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Hermite_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Hermite(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  Hermite(ref readonly Double4, ref readonly Double4, ref readonly Double4, ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L733"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a Hermite spline interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Hermite(ref readonly Double4 value1, ref readonly Double4 tangent1, ref readonly Double4 value2, ref readonly Double4 tangent2, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source position vector.</p>
+</dd>
+    <dt><code>tangent1</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>First source tangent vector.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source position vector.</p>
+</dd>
+    <dt><code>tangent2</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Second source tangent vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Weighting factor.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the result of the Hermite spline interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Length_" data-uid="Stride.Core.Mathematics.Double4.Length*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Length" data-uid="Stride.Core.Mathematics.Double4.Length">
+  Length()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double Length()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The length of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Length_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="Stride.Core.Mathematics.Double4.html#Stride_Core_Mathematics_Double4_LengthSquared">LengthSquared()</a> may be preferred when only the relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_LengthSquared_" data-uid="Stride.Core.Mathematics.Double4.LengthSquared*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_LengthSquared" data-uid="Stride.Core.Mathematics.Double4.LengthSquared">
+  LengthSquared()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the squared length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double LengthSquared()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The squared length of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_LengthSquared_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="Stride.Core.Mathematics.Double4.html#Stride_Core_Mathematics_Double4_Length">Length()</a> when only a relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Lerp_" data-uid="Stride.Core.Mathematics.Double4.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Lerp_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Lerp(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,System.Double)">
+  Lerp(Double4, Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L687"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Lerp(Double4 start, Double4 end, double amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The linear interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Lerp_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Lerp_" data-uid="Stride.Core.Mathematics.Double4.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Lerp_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Lerp(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  Lerp(ref readonly Double4, ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L667"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref readonly Double4 start, ref readonly Double4 end, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the linear interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Lerp_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Max_" data-uid="Stride.Core.Mathematics.Double4.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Max_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Max(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Max(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L819"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the largest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Max(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A vector containing the largest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Max_" data-uid="Stride.Core.Mathematics.Double4.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Max_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Max(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Max(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L804"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Max(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains an new vector composed of the largest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Min_" data-uid="Stride.Core.Mathematics.Double4.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Min_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Min(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Min(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L847"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Min(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A vector containing the smallest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Min_" data-uid="Stride.Core.Mathematics.Double4.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Min_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Min(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Min(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L832"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Min(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains an new vector composed of the smallest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Modulate_" data-uid="Stride.Core.Mathematics.Double4.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Modulate_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Modulate(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Modulate(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Modulate(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The modulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Modulate_" data-uid="Stride.Core.Mathematics.Double4.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Modulate_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Modulate(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Modulate(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L359"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Modulate(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to modulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the modulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Multiply_" data-uid="Stride.Core.Mathematics.Double4.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Multiply_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Multiply(Stride.Core.Mathematics.Double4,System.Double)">
+  Multiply(Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Multiply(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Multiply_" data-uid="Stride.Core.Mathematics.Double4.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Multiply_Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Multiply(Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  Multiply(ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L335"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref readonly Double4 value, double scale, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Negate_" data-uid="Stride.Core.Mathematics.Double4.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Negate_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Negate(Stride.Core.Mathematics.Double4)">
+  Negate(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Negate(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Negate_" data-uid="Stride.Core.Mathematics.Double4.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Negate_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Negate(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Negate(ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L430"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly Double4 value, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains a vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Normalize_" data-uid="Stride.Core.Mathematics.Double4.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Normalize" data-uid="Stride.Core.Mathematics.Double4.Normalize">
+  Normalize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Normalize_" data-uid="Stride.Core.Mathematics.Double4.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Normalize_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Normalize(Stride.Core.Mathematics.Double4)">
+  Normalize(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L648"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Normalize(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to normalize.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The normalized vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Normalize_" data-uid="Stride.Core.Mathematics.Double4.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Normalize_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Normalize(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Normalize(ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L635"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the vector into a unit vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(ref readonly Double4 value, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to normalize.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the normalized vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Orthogonalize_" data-uid="Stride.Core.Mathematics.Double4.Orthogonalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Orthogonalize_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Double4___" data-uid="Stride.Core.Mathematics.Double4.Orthogonalize(Stride.Core.Mathematics.Double4[],Stride.Core.Mathematics.Double4[])">
+  Orthogonalize(Double4[], params Double4[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L870"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Orthogonalizes a list of vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Orthogonalize(Double4[] destination, params Double4[] source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The list of orthogonalized vectors.</p>
+</dd>
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The list of vectors to orthogonalize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Orthogonalize_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Double4____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Orthogonalization is the process of making all vectors orthogonal to each other. This
+means that any given vector in the list will be orthogonal to any other given vector in the
+list.</p>
+<p>Because this method uses the modified Gram-Schmidt process, the resulting vectors
+tend to be numerically unstable. The numeric stability decreases according to the vectors
+position in the list so that the first vector is the most stable and the last vector is the
+least stable.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">source</code> or <code class="paramref">destination</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">destination</code> is shorter in length than <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Orthonormalize_" data-uid="Stride.Core.Mathematics.Double4.Orthonormalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Orthonormalize_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Double4___" data-uid="Stride.Core.Mathematics.Double4.Orthonormalize(Stride.Core.Mathematics.Double4[],Stride.Core.Mathematics.Double4[])">
+  Orthonormalize(Double4[], params Double4[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L913"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Orthonormalizes a list of vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Orthonormalize(Double4[] destination, params Double4[] source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>destination</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The list of orthonormalized vectors.</p>
+</dd>
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The list of vectors to orthonormalize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Double4_Orthonormalize_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Double4____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Orthonormalization is the process of making all vectors orthogonal to each
+other and making all vectors of unit length. This means that any given vector will
+be orthogonal to any other given vector in the list.</p>
+<p>Because this method uses the modified Gram-Schmidt process, the resulting vectors
+tend to be numerically unstable. The numeric stability decreases according to the vectors
+position in the list so that the first vector is the most stable and the last vector is the
+least stable.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">source</code> or <code class="paramref">destination</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">destination</code> is shorter in length than <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Pow_" data-uid="Stride.Core.Mathematics.Double4.Pow*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Pow_System_Double_" data-uid="Stride.Core.Mathematics.Double4.Pow(System.Double)">
+  Pow(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises the exponent for each components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pow(double exponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exponent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The exponent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_SmoothStep_" data-uid="Stride.Core.Mathematics.Double4.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_SmoothStep_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.SmoothStep(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4,System.Double)">
+  SmoothStep(Double4, Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L718"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 SmoothStep(Double4 start, Double4 end, double amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The cubic interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_SmoothStep_" data-uid="Stride.Core.Mathematics.Double4.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_SmoothStep_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__System_Double_Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.SmoothStep(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,System.Double,Stride.Core.Mathematics.Double4@)">
+  SmoothStep(ref readonly Double4, ref readonly Double4, double, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L700"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SmoothStep(ref readonly Double4 start, ref readonly Double4 end, double amount, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the cubic interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Subtract_" data-uid="Stride.Core.Mathematics.Double4.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Subtract_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.Subtract(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  Subtract(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Subtract(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Subtract_" data-uid="Stride.Core.Mathematics.Double4.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Subtract_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Subtract(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Double4@)">
+  Subtract(ref readonly Double4, ref readonly Double4, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref readonly Double4 left, ref readonly Double4 right, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_ToArray_" data-uid="Stride.Core.Mathematics.Double4.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_ToArray" data-uid="Stride.Core.Mathematics.Double4.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly double[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</dt>
+    <dd><p>A four-element array containing the components of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_ToString_" data-uid="Stride.Core.Mathematics.Double4.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_ToString" data-uid="Stride.Core.Mathematics.Double4.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_ToString_" data-uid="Stride.Core.Mathematics.Double4.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Double4.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Matrix_" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Matrix)">
+  Transform(Double4, Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1053"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Transform(Double4 vector, Matrix transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>transform</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The transformed <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Quaternion)">
+  Transform(Double4, Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L977"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 Transform(Double4 vector, Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to rotate.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation to apply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The transformed <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Double4@)">
+  Transform(ref readonly Double4, ref readonly Matrix, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1038"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref readonly Double4 vector, ref readonly Matrix transform, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>transform</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the transformed <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Double4__" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Double4@)">
+  Transform(ref readonly Double4, ref readonly Quaternion, out Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L949"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a 4D vector by the given <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref readonly Double4 vector, ref readonly Quaternion rotation, out Double4 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to rotate.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation to apply.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>When the method completes, contains the transformed <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Double4___" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4[],Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Double4[])">
+  Transform(Double4[], ref readonly Matrix, Double4[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1068"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms an array of 4D vectors by the given <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(Double4[] source, ref readonly Matrix transform, Double4[] destination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The array of vectors to transform.</p>
+</dd>
+    <dt><code>transform</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a>.</p>
+</dd>
+    <dt><code>destination</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The array for which the transformed vectors are stored.
+This array may be the same array as <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">source</code> or <code class="paramref">destination</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">destination</code> is shorter in length than <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_Transform_" data-uid="Stride.Core.Mathematics.Double4.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_Transform_Stride_Core_Mathematics_Double4___Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Double4___" data-uid="Stride.Core.Mathematics.Double4.Transform(Stride.Core.Mathematics.Double4[],Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Double4[])">
+  Transform(Double4[], ref readonly Quaternion, Double4[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L992"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms an array of vectors by the given <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(Double4[] source, ref readonly Quaternion rotation, Double4[] destination)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The array of vectors to transform.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> rotation to apply.</p>
+</dd>
+    <dt><code>destination</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>[]</dt>
+    <dd><p>The array for which the transformed vectors are stored.
+This array may be the same array as <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">source</code> or <code class="paramref">destination</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">destination</code> is shorter in length than <code class="paramref">source</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Addition_" data-uid="Stride.Core.Mathematics.Double4.op_Addition*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Addition_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Addition(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator +(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1087"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Division_" data-uid="Stride.Core.Mathematics.Double4.op_Division*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Division_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Division(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator /(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides a vector by the given vector, component-wise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(Double4 value, Double4 by)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>by</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The by.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Division_" data-uid="Stride.Core.Mathematics.Double4.op_Division*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Division_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.op_Division(Stride.Core.Mathematics.Double4,System.Double)">
+  operator /(Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Division_" data-uid="Stride.Core.Mathematics.Double4.op_Division*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Division_System_Double_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Division(System.Double,Stride.Core.Mathematics.Double4)">
+  operator /(double, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides a numerator by a vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator /(double numerator, Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numerator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The numerator.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Equality_" data-uid="Stride.Core.Mathematics.Double4.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Equality_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Equality(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator ==(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double2" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Double4)~Stride.Core.Mathematics.Double2">
+  explicit operator Double2(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> to <a class="xref" href="Stride.Core.Mathematics.Double2.html">Double2</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Double2(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double2.html">Double2</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Double3" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Double4)~Stride.Core.Mathematics.Double3">
+  explicit operator Double3(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> to <a class="xref" href="Stride.Core.Mathematics.Double3.html">Double3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Double3(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double3.html">Double3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Half4" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Double4)~Stride.Core.Mathematics.Half4">
+  explicit operator Half4(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> to <a class="xref" href="Stride.Core.Mathematics.Half4.html">Half4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Half4(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Half4.html">Half4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Double4__Stride_Core_Mathematics_Vector4" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Double4)~Stride.Core.Mathematics.Vector4">
+  explicit operator Vector4(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a> to <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector4(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Double4__System_Numerics_Vector4" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Double4)~System.Numerics.Vector4">
+  explicit operator Vector4(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from Stride.Maths to System.Numerics vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector4(Double4 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Explicit_" data-uid="Stride.Core.Mathematics.Double4.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Explicit_Stride_Core_Mathematics_Half4__Stride_Core_Mathematics_Double4" data-uid="Stride.Core.Mathematics.Double4.op_Explicit(Stride.Core.Mathematics.Half4)~Stride.Core.Mathematics.Double4">
+  explicit operator Double4(Half4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Half4.html">Half4</a> to <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Double4(Half4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Half4.html">Half4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Implicit_" data-uid="Stride.Core.Mathematics.Double4.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Implicit_Stride_Core_Mathematics_Vector4__Stride_Core_Mathematics_Double4" data-uid="Stride.Core.Mathematics.Double4.op_Implicit(Stride.Core.Mathematics.Vector4)~Stride.Core.Mathematics.Double4">
+  implicit operator Double4(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an implicit conversion from <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> to <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Double4(Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Implicit_" data-uid="Stride.Core.Mathematics.Double4.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Implicit_System_Numerics_Vector4__Stride_Core_Mathematics_Double4" data-uid="Stride.Core.Mathematics.Double4.op_Implicit(System.Numerics.Vector4)~Stride.Core.Mathematics.Double4">
+  implicit operator Double4(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from System.Numerics to Stride.Maths vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Double4(Vector4 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector4">Vector4</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Inequality_" data-uid="Stride.Core.Mathematics.Double4.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Inequality_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Inequality(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator !=(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Multiply_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Multiply_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator *(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to multiply.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to multiply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The multiplication of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Multiply_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Multiply_Stride_Core_Mathematics_Double4_System_Double_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply(Stride.Core.Mathematics.Double4,System.Double)">
+  operator *(Double4, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(Double4 value, double scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Multiply_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Multiply_System_Double_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Multiply(System.Double,Stride.Core.Mathematics.Double4)">
+  operator *(double, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator *(double scale, Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_Subtraction_" data-uid="Stride.Core.Mathematics.Double4.op_Subtraction*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_Subtraction_Stride_Core_Mathematics_Double4_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_Subtraction(Stride.Core.Mathematics.Double4,Stride.Core.Mathematics.Double4)">
+  operator -(Double4, Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(Double4 left, Double4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.Double4.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_UnaryNegation_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_UnaryNegation(Stride.Core.Mathematics.Double4)">
+  operator -(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator -(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>A vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Double4_op_UnaryPlus_" data-uid="Stride.Core.Mathematics.Double4.op_UnaryPlus*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Double4_op_UnaryPlus_Stride_Core_Mathematics_Double4_" data-uid="Stride.Core.Mathematics.Double4.op_UnaryPlus(Stride.Core.Mathematics.Double4)">
+  operator +(Double4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L1098"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assert a vector (return it unchanged).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Double4 operator +(Double4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The vector to assert (unchange).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Double4.html">Double4</a></dt>
+    <dd><p>The asserted (unchanged) vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Double4.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Set the graphics platform | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Set the graphics platform | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/platforms/set-the-graphics-platform.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="set-the-graphics-platform">Set the graphics platform</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span></p>
+<p>The <strong>graphics platform</strong> controls the graphics hardware in the device you run your project on. Different devices support different graphics platforms; for example, iOS supports the OpenGL ES graphics platform. You can select which graphics platform your game uses, and add overrides for different platforms (eg Windows, Android, etc).</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Moving from Direct3D to an earlier Direct3D version can create problems. For example, if your game contains HDR textures, it will crash, as Direct3D 9 doesn't support them.</p>
+</div>
+<p>You set the graphics platform in the <a href="../game-studio/game-settings.html">game settings</a> asset.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure you have the latest drivers for the graphics platforms you want to use.</p>
+</div>
+<ol>
+<li><p>In the <strong>Asset View</strong>, select the <strong>Game Settings</strong> asset.</p>
+<p><img src="media/games-settings-asset.png" alt="Game settings asset"></p>
+</li>
+<li><p>In the Property Grid, under <strong>Rendering Settings &gt; Target graphics platform</strong>, select the graphics platform you want to use.</p>
+<p><img src="media/change-graphics-platform.png" alt="Select graphics platform"></p>
+<p>If you select <strong>Default</strong>, Stride uses the graphics platform appropriate for your platform (eg Windows, Android) when you build.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default graphics platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows, UWP</td>
+<td>Direct3D11</td>
+</tr>
+<tr>
+<td>Linux, Mac OS</td>
+<td>OpenGL</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>OpenGL ES</td>
+</tr>
+</tbody>
+</table>
+<h2 id="override-the-graphics-platform">Override the graphics platform</h2>
+<p>You can override the graphics platform Stride uses for specific platforms. For example, you can have Linux use Vulkan while other platforms use the default.</p>
+<ol>
+<li><p>With the <strong>GameSettings</strong> asset selected, in the Property Grid, under <strong>Overrides</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="media/add-override.png" alt="Select graphics platform"></p>
+<p>Game Studio adds an override.</p>
+</li>
+<li><p>In the new override, next to <strong>Platforms</strong>, select the platforms you want this override to apply to.</p>
+<p><img src="media/select-override-platform.png" alt="Select graphics platform override"></p>
+</li>
+<li><p>In the <strong>Configuration</strong> drop-down menu, select <strong>Rendering Settings</strong>.</p>
+<p><img src="media/select-override-configuration.png" alt="Select graphics platform override"></p>
+</li>
+<li><p>Under <strong>Rendering Settings</strong>, in the <strong>Preferred Graphics Platform</strong> drop-down menu, select the graphics platform you want to use.</p>
+<p><img src="media/select-override-graphics-platform.png" alt="Select graphics platform override"></p>
+</li>
+</ol>
+<p>Stride overrides the graphics platform for the platforms you selected.</p>
+<h2 id="check-which-graphics-platform-your-project-uses">Check which graphics platform your project uses</h2>
+<ol>
+<li><p>Add a break point to your game code (eg in a script).</p>
+</li>
+<li><p>Run the project.</p>
+</li>
+<li><p>Check the value of the <a class="xref" href="../../api/Stride.Graphics.GraphicsDevice.html#Stride_Graphics_GraphicsDevice_Platform">GraphicsDevice.Platform</a> variable.</p>
+<p>For example, this project is using Vulkan:</p>
+<p><img src="media/check-platform-at-runtime.png" alt="Select graphics platform"></p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Platforms index</a></li>
+<li><a href="../game-studio/game-settings.html">Game settings</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/platforms/set-the-graphics-platform.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

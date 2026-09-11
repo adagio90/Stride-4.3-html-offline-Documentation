@@ -1,0 +1,3899 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UIElement | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UIElement | Stride API ">
+      
+      <meta name="description" content="Provides a base class for all the User Interface elements in Stride applications.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_UI_UIElement.md&amp;value=---%0Auid%3A%20Stride.UI.UIElement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.UI.UIElement">
+
+
+
+  <h1 id="Stride_UI_UIElement" data-uid="Stride.UI.UIElement" class="text-break">
+Class UIElement  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.UI.html">UI</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.UI.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides a base class for all the User Interface elements in Stride applications.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(Inherited = true)]
+[CategoryOrder(10, &quot;Appearance&quot;, Expand = ExpandRule.Auto)]
+[CategoryOrder(20, &quot;Behavior&quot;, Expand = ExpandRule.Auto)]
+[CategoryOrder(30, &quot;Layout&quot;, Expand = ExpandRule.Auto)]
+[CategoryOrder(100, &quot;Misc&quot;, Expand = ExpandRule.Auto)]
+public abstract class UIElement : IUIElementUpdate, IUIElementChildren, IIdentifiable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">UIElement</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.UI.IUIElementUpdate.html">IUIElementUpdate</a></div>
+      <div><a class="xref" href="Stride.UI.IUIElementChildren.html">IUIElementChildren</a></div>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.UI.Controls.ContentPresenter.html">ContentPresenter</a></div>
+      <div><a class="xref" href="Stride.UI.Controls.Control.html">Control</a></div>
+      <div><a class="xref" href="Stride.UI.Controls.ImageElement.html">ImageElement</a></div>
+      <div><a class="xref" href="Stride.UI.Controls.ScrollBar.html">ScrollBar</a></div>
+      <div><a class="xref" href="Stride.UI.Controls.Slider.html">Slider</a></div>
+      <div><a class="xref" href="Stride.UI.Controls.TextBlock.html">TextBlock</a></div>
+      <div><a class="xref" href="Stride.UI.Panels.Panel.html">Panel</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetCanvasAbsolutePosition_Stride_UI_UIElement_">UIElementExtensions.GetCanvasAbsolutePosition(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetCanvasPinOrigin_Stride_UI_UIElement_">UIElementExtensions.GetCanvasPinOrigin(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetCanvasRelativePosition_Stride_UI_UIElement_">UIElementExtensions.GetCanvasRelativePosition(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetCanvasRelativeSize_Stride_UI_UIElement_">UIElementExtensions.GetCanvasRelativeSize(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridColumn_Stride_UI_UIElement_">UIElementExtensions.GetGridColumn(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridColumnSpan_Stride_UI_UIElement_">UIElementExtensions.GetGridColumnSpan(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridLayer_Stride_UI_UIElement_">UIElementExtensions.GetGridLayer(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridLayerSpan_Stride_UI_UIElement_">UIElementExtensions.GetGridLayerSpan(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridRow_Stride_UI_UIElement_">UIElementExtensions.GetGridRow(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetGridRowSpan_Stride_UI_UIElement_">UIElementExtensions.GetGridRowSpan(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_GetPanelZIndex_Stride_UI_UIElement_">UIElementExtensions.GetPanelZIndex(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetCanvasAbsolutePosition_Stride_UI_UIElement_Stride_Core_Mathematics_Vector3_">UIElementExtensions.SetCanvasAbsolutePosition(UIElement, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetCanvasPinOrigin_Stride_UI_UIElement_Stride_Core_Mathematics_Vector3_">UIElementExtensions.SetCanvasPinOrigin(UIElement, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetCanvasRelativePosition_Stride_UI_UIElement_Stride_Core_Mathematics_Vector3_">UIElementExtensions.SetCanvasRelativePosition(UIElement, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetCanvasRelativeSize_Stride_UI_UIElement_Stride_Core_Mathematics_Vector3_">UIElementExtensions.SetCanvasRelativeSize(UIElement, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridColumn_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridColumn(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridColumnSpan_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridColumnSpan(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridLayer_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridLayer(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridLayerSpan_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridLayerSpan(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridRow_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridRow(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetGridRowSpan_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetGridRowSpan(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.UIElementExtensions.html#Stride_UI_UIElementExtensions_SetPanelZIndex_Stride_UI_UIElement_System_Int32_">UIElementExtensions.SetPanelZIndex(UIElement, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.VisualTreeHelper.html#Stride_UI_VisualTreeHelper_FindVisualChildOfType__1_Stride_UI_UIElement_System_String_">VisualTreeHelper.FindVisualChildOfType&lt;T&gt;(UIElement, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.VisualTreeHelper.html#Stride_UI_VisualTreeHelper_FindVisualChildrenOfType__1_Stride_UI_UIElement_">VisualTreeHelper.FindVisualChildrenOfType&lt;T&gt;(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.VisualTreeHelper.html#Stride_UI_VisualTreeHelper_FindVisualParentOfType__1_Stride_UI_UIElement_">VisualTreeHelper.FindVisualParentOfType&lt;T&gt;(UIElement)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.UI.VisualTreeHelper.html#Stride_UI_VisualTreeHelper_FindVisualRoot_Stride_UI_UIElement_">VisualTreeHelper.FindVisualRoot(UIElement)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_UI_UIElement__ctor_" data-uid="Stride.UI.UIElement.#ctor*"></a>
+
+  <h3 id="Stride_UI_UIElement__ctor" data-uid="Stride.UI.UIElement.#ctor">
+  UIElement()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UIElement()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_UI_UIElement_AppearanceCategory" data-uid="Stride.UI.UIElement.AppearanceCategory">
+  AppearanceCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string AppearanceCategory = &quot;Appearance&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_ArrangeChanged" data-uid="Stride.UI.UIElement.ArrangeChanged">
+  ArrangeChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool ArrangeChanged</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_BehaviorCategory" data-uid="Stride.UI.UIElement.BehaviorCategory">
+  BehaviorCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string BehaviorCategory = &quot;Behavior&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_InputCategory" data-uid="Stride.UI.UIElement.InputCategory">
+  InputCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string InputCategory = &quot;Input&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_LayoutCategory" data-uid="Stride.UI.UIElement.LayoutCategory">
+  LayoutCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string LayoutCategory = &quot;Layout&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_LocalMatrixChanged" data-uid="Stride.UI.UIElement.LocalMatrixChanged">
+  LocalMatrixChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool LocalMatrixChanged</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_MarginInternal" data-uid="Stride.UI.UIElement.MarginInternal">
+  MarginInternal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Thickness MarginInternal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.Thickness.html">Thickness</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_MiscCategory" data-uid="Stride.UI.UIElement.MiscCategory">
+  MiscCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string MiscCategory = &quot;Misc&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_PanelCategory" data-uid="Stride.UI.UIElement.PanelCategory">
+  PanelCategory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string PanelCategory = &quot;Panel&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_UI_UIElement_ActualDepth_" data-uid="Stride.UI.UIElement.ActualDepth*"></a>
+
+  <h3 id="Stride_UI_UIElement_ActualDepth" data-uid="Stride.UI.UIElement.ActualDepth">
+  ActualDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L837"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rendered depth of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ActualDepth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_ActualHeight_" data-uid="Stride.UI.UIElement.ActualHeight*"></a>
+
+  <h3 id="Stride_UI_UIElement_ActualHeight" data-uid="Stride.UI.UIElement.ActualHeight">
+  ActualHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L832"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rendered height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ActualHeight { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_ActualWidth_" data-uid="Stride.UI.UIElement.ActualWidth*"></a>
+
+  <h3 id="Stride_UI_UIElement_ActualWidth" data-uid="Stride.UI.UIElement.ActualWidth">
+  ActualWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L827"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rendered width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ActualWidth { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_BackgroundColor_" data-uid="Stride.UI.UIElement.BackgroundColor*"></a>
+
+  <h3 id="Stride_UI_UIElement_BackgroundColor" data-uid="Stride.UI.UIElement.BackgroundColor">
+  BackgroundColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The background color of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Appearance&quot;)]
+public Color BackgroundColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_CanBeHitByUser_" data-uid="Stride.UI.UIElement.CanBeHitByUser*"></a>
+
+  <h3 id="Stride_UI_UIElement_CanBeHitByUser" data-uid="Stride.UI.UIElement.CanBeHitByUser">
+  CanBeHitByUser
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicate if the UIElement can be hit by the user.
+If this property is true, the UI system performs hit test on the UIElement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Behavior&quot;)]
+public bool CanBeHitByUser { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_ClipToBounds_" data-uid="Stride.UI.UIElement.ClipToBounds*"></a>
+
+  <h3 id="Stride_UI_UIElement_ClipToBounds" data-uid="Stride.UI.UIElement.ClipToBounds">
+  ClipToBounds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to clip the content of this element (or content coming from the child elements of this element)
+to fit into the size of the containing element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Appearance&quot;)]
+public bool ClipToBounds { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The value has to be positive and finite.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_UI_UIElement_DefaultDepth_" data-uid="Stride.UI.UIElement.DefaultDepth*"></a>
+
+  <h3 id="Stride_UI_UIElement_DefaultDepth" data-uid="Stride.UI.UIElement.DefaultDepth">
+  DefaultDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float DefaultDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_DefaultDepth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DefaultHeight_" data-uid="Stride.UI.UIElement.DefaultHeight*"></a>
+
+  <h3 id="Stride_UI_UIElement_DefaultHeight" data-uid="Stride.UI.UIElement.DefaultHeight">
+  DefaultHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float DefaultHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_DefaultHeight_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DefaultWidth_" data-uid="Stride.UI.UIElement.DefaultWidth*"></a>
+
+  <h3 id="Stride_UI_UIElement_DefaultWidth" data-uid="Stride.UI.UIElement.DefaultWidth">
+  DefaultWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L490"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the default width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float DefaultWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_DefaultWidth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DependencyProperties_" data-uid="Stride.UI.UIElement.DependencyProperties*"></a>
+
+  <h3 id="Stride_UI_UIElement_DependencyProperties" data-uid="Stride.UI.UIElement.DependencyProperties">
+  DependencyProperties
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of the dependency properties attached to the UI element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public PropertyContainerClass DependencyProperties { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyContainerClass.html">PropertyContainerClass</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Depth_" data-uid="Stride.UI.UIElement.Depth*"></a>
+
+  <h3 id="Stride_UI_UIElement_Depth" data-uid="Stride.UI.UIElement.Depth">
+  Depth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the user suggested depth of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float Depth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_Depth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DepthAlignment_" data-uid="Stride.UI.UIElement.DepthAlignment*"></a>
+
+  <h3 id="Stride_UI_UIElement_DepthAlignment" data-uid="Stride.UI.UIElement.DepthAlignment">
+  DepthAlignment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the depth alignment of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Layout&quot;)]
+public DepthAlignment DepthAlignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.DepthAlignment.html">DepthAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_DepthBias_" data-uid="Stride.UI.UIElement.DepthBias*"></a>
+
+  <h3 id="Stride_UI_UIElement_DepthBias" data-uid="Stride.UI.UIElement.DepthBias">
+  DepthBias
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L608"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The final depth bias value of the element resulting from the parent/children z order update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DepthBias { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_DesiredSize_" data-uid="Stride.UI.UIElement.DesiredSize*"></a>
+
+  <h3 id="Stride_UI_UIElement_DesiredSize" data-uid="Stride.UI.UIElement.DesiredSize">
+  DesiredSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L572"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size that this element computed during the measure pass of the layout process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 DesiredSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_DesiredSize_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value does not contain possible <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Margin">Margin</a></p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DesiredSizeWithMargins_" data-uid="Stride.UI.UIElement.DesiredSizeWithMargins*"></a>
+
+  <h3 id="Stride_UI_UIElement_DesiredSizeWithMargins" data-uid="Stride.UI.UIElement.DesiredSizeWithMargins">
+  DesiredSizeWithMargins
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size that this element computed during the measure pass of the layout process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 DesiredSizeWithMargins { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_DesiredSizeWithMargins_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value contains possible <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Margin">Margin</a></p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_DrawLayerNumber_" data-uid="Stride.UI.UIElement.DrawLayerNumber*"></a>
+
+  <h3 id="Stride_UI_UIElement_DrawLayerNumber" data-uid="Stride.UI.UIElement.DrawLayerNumber">
+  DrawLayerNumber
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of layers used to draw this element.
+This value has to be modified by the user when he redefines the default element renderer,
+so that <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_DepthBias">DepthBias</a> values of the relatives keeps enough spaces to draw the different layers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Appearance&quot;)]
+public int DrawLayerNumber { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Height_" data-uid="Stride.UI.UIElement.Height*"></a>
+
+  <h3 id="Stride_UI_UIElement_Height" data-uid="Stride.UI.UIElement.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the user suggested height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float Height { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_Height_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_HitableChildren_" data-uid="Stride.UI.UIElement.HitableChildren*"></a>
+
+  <h3 id="Stride_UI_UIElement_HitableChildren" data-uid="Stride.UI.UIElement.HitableChildren">
+  HitableChildren
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L800"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The list of the children of the element that can be hit by the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual FastCollection&lt;UIElement&gt; HitableChildren { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastCollection-1.html">FastCollection</a>&lt;<a class="xref" href="Stride.UI.UIElement.html">UIElement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_HorizontalAlignment_" data-uid="Stride.UI.UIElement.HorizontalAlignment*"></a>
+
+  <h3 id="Stride_UI_UIElement_HorizontalAlignment" data-uid="Stride.UI.UIElement.HorizontalAlignment">
+  HorizontalAlignment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the horizontal alignment of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Layout&quot;)]
+public HorizontalAlignment HorizontalAlignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.HorizontalAlignment.html">HorizontalAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Id_" data-uid="Stride.UI.UIElement.Id*"></a>
+
+  <h3 id="Stride_UI_UIElement_Id" data-uid="Stride.UI.UIElement.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A unique ID defining the UI element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, null, Browsable = false)]
+public Guid Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsArrangeValid_" data-uid="Stride.UI.UIElement.IsArrangeValid*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsArrangeValid" data-uid="Stride.UI.UIElement.IsArrangeValid">
+  IsArrangeValid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L585"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the computed size and position of child elements in this element's layout are valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsArrangeValid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsCollapsed_" data-uid="Stride.UI.UIElement.IsCollapsed*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsCollapsed" data-uid="Stride.UI.UIElement.IsCollapsed">
+  IsCollapsed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L758"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this element takes some place in the user interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCollapsed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsEnabled_" data-uid="Stride.UI.UIElement.IsEnabled*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsEnabled" data-uid="Stride.UI.UIElement.IsEnabled">
+  IsEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this element is enabled in the user interface (UI).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Behavior&quot;)]
+public virtual bool IsEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsHierarchyEnabled_" data-uid="Stride.UI.UIElement.IsHierarchyEnabled*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsHierarchyEnabled" data-uid="Stride.UI.UIElement.IsHierarchyEnabled">
+  IsHierarchyEnabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L748"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value indicating whether this element and all its upper hierarchy are enabled or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsHierarchyEnabled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsMeasureValid_" data-uid="Stride.UI.UIElement.IsMeasureValid*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsMeasureValid" data-uid="Stride.UI.UIElement.IsMeasureValid">
+  IsMeasureValid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L591"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the current size returned by layout measure is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMeasureValid { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsTouched_" data-uid="Stride.UI.UIElement.IsTouched*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsTouched" data-uid="Stride.UI.UIElement.IsTouched">
+  IsTouched
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a> is currently touched by the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTouched { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_IsVisible_" data-uid="Stride.UI.UIElement.IsVisible*"></a>
+
+  <h3 id="Stride_UI_UIElement_IsVisible" data-uid="Stride.UI.UIElement.IsVisible">
+  IsVisible
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L753"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this element is visible in the user interface (UI).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVisible { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_LayoutingContext_" data-uid="Stride.UI.UIElement.LayoutingContext*"></a>
+
+  <h3 id="Stride_UI_UIElement_LayoutingContext" data-uid="Stride.UI.UIElement.LayoutingContext">
+  LayoutingContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L622"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ratio between the element real size on the screen and the element virtual size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LayoutingContext LayoutingContext { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.LayoutingContext.html">LayoutingContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_LocalMatrix_" data-uid="Stride.UI.UIElement.LocalMatrix*"></a>
+
+  <h3 id="Stride_UI_UIElement_LocalMatrix" data-uid="Stride.UI.UIElement.LocalMatrix">
+  LocalMatrix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the LocalMatrix of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix LocalMatrix { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_LocalMatrix_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The local transform is not taken is account during the layering. The transformation is purely for rendering effects.</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_Margin_" data-uid="Stride.UI.UIElement.Margin*"></a>
+
+  <h3 id="Stride_UI_UIElement_Margin" data-uid="Stride.UI.UIElement.Margin">
+  Margin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L347"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the margins of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Layout&quot;)]
+public Thickness Margin { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.Thickness.html">Thickness</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_MaximumDepth_" data-uid="Stride.UI.UIElement.MaximumDepth*"></a>
+
+  <h3 id="Stride_UI_UIElement_MaximumDepth" data-uid="Stride.UI.UIElement.MaximumDepth">
+  MaximumDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MaximumDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MaximumDepth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.positiveinfinity">PositiveInfinity</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MaximumHeight_" data-uid="Stride.UI.UIElement.MaximumHeight*"></a>
+
+  <h3 id="Stride_UI_UIElement_MaximumHeight" data-uid="Stride.UI.UIElement.MaximumHeight">
+  MaximumHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L448"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MaximumHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MaximumHeight_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.positiveinfinity">PositiveInfinity</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MaximumWidth_" data-uid="Stride.UI.UIElement.MaximumWidth*"></a>
+
+  <h3 id="Stride_UI_UIElement_MaximumWidth" data-uid="Stride.UI.UIElement.MaximumWidth">
+  MaximumWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the maximum width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MaximumWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MaximumWidth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.positiveinfinity">PositiveInfinity</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MinimumDepth_" data-uid="Stride.UI.UIElement.MinimumDepth*"></a>
+
+  <h3 id="Stride_UI_UIElement_MinimumDepth" data-uid="Stride.UI.UIElement.MinimumDepth">
+  MinimumDepth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the minimum height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MinimumDepth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MinimumDepth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MinimumHeight_" data-uid="Stride.UI.UIElement.MinimumHeight*"></a>
+
+  <h3 id="Stride_UI_UIElement_MinimumHeight" data-uid="Stride.UI.UIElement.MinimumHeight">
+  MinimumHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the minimum height of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MinimumHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MinimumHeight_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MinimumWidth_" data-uid="Stride.UI.UIElement.MinimumWidth*"></a>
+
+  <h3 id="Stride_UI_UIElement_MinimumWidth" data-uid="Stride.UI.UIElement.MinimumWidth">
+  MinimumWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L364"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the minimum width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float MinimumWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MinimumWidth_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_MouseOverState_" data-uid="Stride.UI.UIElement.MouseOverState*"></a>
+
+  <h3 id="Stride_UI_UIElement_MouseOverState" data-uid="Stride.UI.UIElement.MouseOverState">
+  MouseOverState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current state of the mouse over the UI element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MouseOverState MouseOverState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.MouseOverState.html">MouseOverState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MouseOverState_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only elements that can be clicked by user can have the <cref>MouseOverState.MouseOverElement</cref> value.
+That is element that have <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_CanBeHitByUser">CanBeHitByUser</a> set to <returns>true</returns></p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_Name_" data-uid="Stride.UI.UIElement.Name*"></a>
+
+  <h3 id="Stride_UI_UIElement_Name" data-uid="Stride.UI.UIElement.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L552"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the name of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Misc&quot;)]
+public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Opacity_" data-uid="Stride.UI.UIElement.Opacity*"></a>
+
+  <h3 id="Stride_UI_UIElement_Opacity" data-uid="Stride.UI.UIElement.Opacity">
+  Opacity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the opacity factor applied to the entire UIElement when it is rendered in the user interface (UI).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 1, 0.009999999776482582, 0.10000000149011612, 2)]
+[Display(null, &quot;Appearance&quot;)]
+public float Opacity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_Opacity_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, 1].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_Parent_" data-uid="Stride.UI.UIElement.Parent*"></a>
+
+  <h3 id="Stride_UI_UIElement_Parent" data-uid="Stride.UI.UIElement.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L778"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the logical parent of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UIElement Parent { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_RenderOffsets_" data-uid="Stride.UI.UIElement.RenderOffsets*"></a>
+
+  <h3 id="Stride_UI_UIElement_RenderOffsets" data-uid="Stride.UI.UIElement.RenderOffsets">
+  RenderOffsets
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L821"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The rendering offsets caused by the UIElement margins and alignments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 RenderOffsets { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_RenderOpacity_" data-uid="Stride.UI.UIElement.RenderOpacity*"></a>
+
+  <h3 id="Stride_UI_UIElement_RenderOpacity" data-uid="Stride.UI.UIElement.RenderOpacity">
+  RenderOpacity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L805"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The opacity used to render element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float RenderOpacity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_RenderSize_" data-uid="Stride.UI.UIElement.RenderSize*"></a>
+
+  <h3 id="Stride_UI_UIElement_RenderSize" data-uid="Stride.UI.UIElement.RenderSize">
+  RenderSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L811"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets (or sets, but see Remarks) the final render size of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 RenderSize { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_RequiresMouseOverUpdate_" data-uid="Stride.UI.UIElement.RequiresMouseOverUpdate*"></a>
+
+  <h3 id="Stride_UI_UIElement_RequiresMouseOverUpdate" data-uid="Stride.UI.UIElement.RequiresMouseOverUpdate">
+  RequiresMouseOverUpdate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether this element requires a mouse over check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequiresMouseOverUpdate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_RequiresMouseOverUpdate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>By default, the engine does not check whether <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_MouseOverState">MouseOverState</a>
+of the element is changed while the cursor is still. This behavior is
+overriden when this parameter is set to true, which forces the engine to
+check for changes of <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_MouseOverState">MouseOverState</a>.
+The engine sets this to true when the layout of the element changes.</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_Size_" data-uid="Stride.UI.UIElement.Size*"></a>
+
+  <h3 id="Stride_UI_UIElement_Size" data-uid="Stride.UI.UIElement.Size">
+  Size
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size of the element. Same as setting separately <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Width">Width</a>, <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Height">Height</a>, and <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Depth">Depth</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Size { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_VerticalAlignment_" data-uid="Stride.UI.UIElement.VerticalAlignment*"></a>
+
+  <h3 id="Stride_UI_UIElement_VerticalAlignment" data-uid="Stride.UI.UIElement.VerticalAlignment">
+  VerticalAlignment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the vertical alignment of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Layout&quot;)]
+public VerticalAlignment VerticalAlignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.VerticalAlignment.html">VerticalAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Visibility_" data-uid="Stride.UI.UIElement.Visibility*"></a>
+
+  <h3 id="Stride_UI_UIElement_Visibility" data-uid="Stride.UI.UIElement.Visibility">
+  Visibility
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the user interface (UI) visibility of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[Display(null, &quot;Appearance&quot;)]
+public Visibility Visibility { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.Visibility.html">Visibility</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_VisualChildren_" data-uid="Stride.UI.UIElement.VisualChildren*"></a>
+
+  <h3 id="Stride_UI_UIElement_VisualChildren" data-uid="Stride.UI.UIElement.VisualChildren">
+  VisualChildren
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L794"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get a enumerable to the visual children of the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;UIElement&gt; VisualChildren { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.UI.UIElement.html">UIElement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_VisualChildren_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Inherited classes are in charge of overriding this method to return their children.</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_VisualChildrenCollection_" data-uid="Stride.UI.UIElement.VisualChildrenCollection*"></a>
+
+  <h3 id="Stride_UI_UIElement_VisualChildrenCollection" data-uid="Stride.UI.UIElement.VisualChildrenCollection">
+  VisualChildrenCollection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L664"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The visual children of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UIElementCollection VisualChildrenCollection { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.UIElementCollection.html">UIElementCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_VisualChildrenCollection_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the class is inherited it is the responsibility of the descendant class to correctly update this collection</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_VisualParent_" data-uid="Stride.UI.UIElement.VisualParent*"></a>
+
+  <h3 id="Stride_UI_UIElement_VisualParent" data-uid="Stride.UI.UIElement.VisualParent">
+  VisualParent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L785"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the visual parent of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UIElement VisualParent { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Width_" data-uid="Stride.UI.UIElement.Width*"></a>
+
+  <h3 id="Stride_UI_UIElement_Width" data-uid="Stride.UI.UIElement.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the user suggested width of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+[DataMemberRange(0, 3)]
+[Display(null, &quot;Layout&quot;)]
+public float Width { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_Width_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The value is coerced in the range [0, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single.maxvalue">MaxValue</a>].</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_WorldMatrix_" data-uid="Stride.UI.UIElement.WorldMatrix*"></a>
+
+  <h3 id="Stride_UI_UIElement_WorldMatrix" data-uid="Stride.UI.UIElement.WorldMatrix">
+  WorldMatrix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L598"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The world matrix of the UIElement.
+The origin of the element is the center of the object's bounding box defined by <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_RenderSize">RenderSize</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix WorldMatrix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_UI_UIElement_AddHandler_" data-uid="Stride.UI.UIElement.AddHandler*"></a>
+
+  <h3 id="Stride_UI_UIElement_AddHandler__1_Stride_UI_Events_RoutedEvent___0__System_EventHandler___0__System_Boolean_" data-uid="Stride.UI.UIElement.AddHandler``1(Stride.UI.Events.RoutedEvent{``0},System.EventHandler{``0},System.Boolean)">
+  AddHandler&lt;T&gt;(RoutedEvent&lt;T&gt;, EventHandler&lt;T&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a routed event handler for a specified routed event, adding the handler to the handler collection on the current element.
+Specify handledEventsToo as true to have the provided handler be invoked for routed event that had already been marked as handled by another element along the event route.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddHandler&lt;T&gt;(RoutedEvent&lt;T&gt; routedEvent, EventHandler&lt;T&gt; handler, bool handledEventsToo = false) where T : RoutedEventArgs</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>routedEvent</code> <a class="xref" href="Stride.UI.Events.RoutedEvent-1.html">RoutedEvent</a>&lt;T&gt;</dt>
+    <dd><p>An identifier for the routed event to be handled.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;T&gt;</dt>
+    <dd><p>A reference to the handler implementation.</p>
+</dd>
+    <dt><code>handledEventsToo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true to register the handler such that it is invoked even when the routed event is marked handled in its event data;
+false to register the handler with the default condition that it will not be invoked if the routed event is already marked handled.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Provided handler or routed event is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_UI_UIElement_Arrange_" data-uid="Stride.UI.UIElement.Arrange*"></a>
+
+  <h3 id="Stride_UI_UIElement_Arrange_Stride_Core_Mathematics_Vector3_System_Boolean_" data-uid="Stride.UI.UIElement.Arrange(Stride.Core.Mathematics.Vector3,System.Boolean)">
+  Arrange(Vector3, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L993"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Positions child elements and determines the size of the UIElement.
+This method constitutes the second pass of a layout update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Arrange(Vector3 finalSizeWithMargins, bool isParentCollapsed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>finalSizeWithMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The final size that the parent computes for the child element with the margins.</p>
+</dd>
+    <dt><code>isParentCollapsed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Boolean indicating if one of the parents of the element is currently collapsed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_ArrangeOverride_" data-uid="Stride.UI.UIElement.ArrangeOverride*"></a>
+
+  <h3 id="Stride_UI_UIElement_ArrangeOverride_Stride_Core_Mathematics_Vector3_" data-uid="Stride.UI.UIElement.ArrangeOverride(Stride.Core.Mathematics.Vector3)">
+  ArrangeOverride(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1070"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When overridden in a derived class, positions possible child elements and determines a size for a <a class="xref" href="Stride.UI.UIElement.html">UIElement</a> derived class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Vector3 ArrangeOverride(Vector3 finalSizeWithoutMargins)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>finalSizeWithoutMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The final area within the parent that this element should use to arrange itself and its children.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The actual size used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_CalculateAdjustmentOffsets_" data-uid="Stride.UI.UIElement.CalculateAdjustmentOffsets*"></a>
+
+  <h3 id="Stride_UI_UIElement_CalculateAdjustmentOffsets_Stride_UI_Thickness__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.UI.UIElement.CalculateAdjustmentOffsets(Stride.UI.Thickness@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  CalculateAdjustmentOffsets(ref Thickness, ref Vector3, ref Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1304"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the (X,Y,Z) offsets to position correctly the UI element given the total provided space to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Vector3 CalculateAdjustmentOffsets(ref Thickness thickness, ref Vector3 providedSpace, ref Vector3 usedSpaceWithoutThickness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>thickness</code> <a class="xref" href="Stride.UI.Thickness.html">Thickness</a></dt>
+    <dd><p>The thickness around the element to position.</p>
+</dd>
+    <dt><code>providedSpace</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The total space given to the child element by the parent</p>
+</dd>
+    <dt><code>usedSpaceWithoutThickness</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The space used by the child element without the thickness included in it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The offsets</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_CalculateSizeWithThickness_" data-uid="Stride.UI.UIElement.CalculateSizeWithThickness*"></a>
+
+  <h3 id="Stride_UI_UIElement_CalculateSizeWithThickness_Stride_Core_Mathematics_Vector3__Stride_UI_Thickness__" data-uid="Stride.UI.UIElement.CalculateSizeWithThickness(Stride.Core.Mathematics.Vector3@,Stride.UI.Thickness@)">
+  CalculateSizeWithThickness(ref Vector3, ref Thickness)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add the thickness values into the size calculation of a UI element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Vector3 CalculateSizeWithThickness(ref Vector3 sizeWithoutMargins, ref Thickness thickness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeWithoutMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size without the thickness included</p>
+</dd>
+    <dt><code>thickness</code> <a class="xref" href="Stride.UI.Thickness.html">Thickness</a></dt>
+    <dd><p>The thickness to add to the space</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size with the margins included</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_CalculateSizeWithoutThickness_" data-uid="Stride.UI.UIElement.CalculateSizeWithoutThickness*"></a>
+
+  <h3 id="Stride_UI_UIElement_CalculateSizeWithoutThickness_Stride_Core_Mathematics_Vector3__Stride_UI_Thickness__" data-uid="Stride.UI.UIElement.CalculateSizeWithoutThickness(Stride.Core.Mathematics.Vector3@,Stride.UI.Thickness@)">
+  CalculateSizeWithoutThickness(ref Vector3, ref Thickness)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove the thickness values into the size calculation of a UI element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static Vector3 CalculateSizeWithoutThickness(ref Vector3 sizeWithMargins, ref Thickness thickness)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sizeWithMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size with the thickness included</p>
+</dd>
+    <dt><code>thickness</code> <a class="xref" href="Stride.UI.Thickness.html">Thickness</a></dt>
+    <dd><p>The thickness to remove in the space</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size with the margins not included</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_CollapseOverride_" data-uid="Stride.UI.UIElement.CollapseOverride*"></a>
+
+  <h3 id="Stride_UI_UIElement_CollapseOverride" data-uid="Stride.UI.UIElement.CollapseOverride">
+  CollapseOverride()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1078"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When overridden in a derived class, collapse possible child elements and derived class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CollapseOverride()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_EnumerateChildren_" data-uid="Stride.UI.UIElement.EnumerateChildren*"></a>
+
+  <h3 id="Stride_UI_UIElement_EnumerateChildren" data-uid="Stride.UI.UIElement.EnumerateChildren">
+  EnumerateChildren()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L847"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates the children of this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual IEnumerable&lt;IUIElementChildren&gt; EnumerateChildren()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.UI.IUIElementChildren.html">IUIElementChildren</a>&gt;</dt>
+    <dd><p>A sequence containing all the children of this element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_EnumerateChildren_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is used by the implementation of the <a class="xref" href="Stride.UI.IUIElementChildren.html">IUIElementChildren</a> interface.</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_FindName_" data-uid="Stride.UI.UIElement.FindName*"></a>
+
+  <h3 id="Stride_UI_UIElement_FindName_System_String_" data-uid="Stride.UI.UIElement.FindName(System.String)">
+  FindName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds an element that has the provided identifier name in the element children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UIElement FindName(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the requested element.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>The requested element. This can be null if no matching element was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_FindName_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If several elements with the same name exist return the first found</p>
+</div>
+
+
+
+
+  <a id="Stride_UI_UIElement_Intersects_" data-uid="Stride.UI.UIElement.Intersects*"></a>
+
+  <h3 id="Stride_UI_UIElement_Intersects_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.UI.UIElement.Intersects(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref Ray, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculate the intersection of the UI element and the ray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool Intersects(ref Ray ray, out Vector3 intersectionPoint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray in world space coordinate</p>
+</dd>
+    <dt><code>intersectionPoint</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The intersection point in world space coordinate</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><returns>true</returns> if the two elements intersects, <returns>false</returns> otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_InvalidateArrange_" data-uid="Stride.UI.UIElement.InvalidateArrange*"></a>
+
+  <h3 id="Stride_UI_UIElement_InvalidateArrange" data-uid="Stride.UI.UIElement.InvalidateArrange">
+  InvalidateArrange()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L670"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invalidates the arrange state (layout) for the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InvalidateArrange()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_InvalidateMeasure_" data-uid="Stride.UI.UIElement.InvalidateMeasure*"></a>
+
+  <h3 id="Stride_UI_UIElement_InvalidateMeasure" data-uid="Stride.UI.UIElement.InvalidateMeasure">
+  InvalidateMeasure()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L703"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invalidates the measurement state (layout) for the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InvalidateMeasure()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Measure_" data-uid="Stride.UI.UIElement.Measure*"></a>
+
+  <h3 id="Stride_UI_UIElement_Measure_Stride_Core_Mathematics_Vector3_" data-uid="Stride.UI.UIElement.Measure(Stride.Core.Mathematics.Vector3)">
+  Measure(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L872"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_DesiredSize">DesiredSize</a> of a <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.
+Parent elements call this method from their own implementations to form a recursive layout update.
+Calling this method constitutes the first pass (the &quot;Measure&quot; pass) of a layout update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Measure(Vector3 availableSizeWithMargins)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>availableSizeWithMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The available space that a parent element can allocate a child element with its margins.
+A child element can request a larger space than what is available;  the provided size might be accommodated if scrolling is possible in the content model for the current element.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_MeasureOverride_" data-uid="Stride.UI.UIElement.MeasureOverride*"></a>
+
+  <h3 id="Stride_UI_UIElement_MeasureOverride_Stride_Core_Mathematics_Vector3_" data-uid="Stride.UI.UIElement.MeasureOverride(Stride.Core.Mathematics.Vector3)">
+  MeasureOverride(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L982"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When overridden in a derived class, measures the size in layout required for possible child elements and determines a size for the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>-derived class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Vector3 MeasureOverride(Vector3 availableSizeWithoutMargins)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>availableSizeWithoutMargins</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The available size that this element can give to child elements.
+Infinity can be specified as a value to indicate that the element will size to whatever content is available.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The size desired by the children</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnNameChanged_" data-uid="Stride.UI.UIElement.OnNameChanged*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnNameChanged" data-uid="Stride.UI.UIElement.OnNameChanged">
+  OnNameChanged()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L741"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This method is call when the name of the UIElement changes.
+This method can be overridden in inherited classes to perform class specific actions on <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_Name">Name</a> changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNameChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnPreviewTouchDown_" data-uid="Stride.UI.UIElement.OnPreviewTouchDown*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnPreviewTouchDown_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnPreviewTouchDown(Stride.UI.TouchEventArgs)">
+  OnPreviewTouchDown(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_PreviewTouchDown">PreviewTouchDown</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPreviewTouchDown(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnPreviewTouchMove_" data-uid="Stride.UI.UIElement.OnPreviewTouchMove*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnPreviewTouchMove_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnPreviewTouchMove(Stride.UI.TouchEventArgs)">
+  OnPreviewTouchMove(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L458"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_PreviewTouchMove">PreviewTouchMove</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPreviewTouchMove(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnPreviewTouchUp_" data-uid="Stride.UI.UIElement.OnPreviewTouchUp*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnPreviewTouchUp_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnPreviewTouchUp(Stride.UI.TouchEventArgs)">
+  OnPreviewTouchUp(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_PreviewTouchUp">PreviewTouchUp</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnPreviewTouchUp(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnTouchDown_" data-uid="Stride.UI.UIElement.OnTouchDown*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnTouchDown_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnTouchDown(Stride.UI.TouchEventArgs)">
+  OnTouchDown(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_TouchDown">TouchDown</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnTouchDown(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnTouchEnter_" data-uid="Stride.UI.UIElement.OnTouchEnter*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnTouchEnter_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnTouchEnter(Stride.UI.TouchEventArgs)">
+  OnTouchEnter(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_TouchEnter">TouchEnter</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnTouchEnter(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnTouchLeave_" data-uid="Stride.UI.UIElement.OnTouchLeave*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnTouchLeave_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnTouchLeave(Stride.UI.TouchEventArgs)">
+  OnTouchLeave(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_TouchLeave">TouchLeave</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnTouchLeave(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnTouchMove_" data-uid="Stride.UI.UIElement.OnTouchMove*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnTouchMove_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnTouchMove(Stride.UI.TouchEventArgs)">
+  OnTouchMove(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L541"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_TouchMove">TouchMove</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnTouchMove(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_OnTouchUp_" data-uid="Stride.UI.UIElement.OnTouchUp*"></a>
+
+  <h3 id="Stride_UI_UIElement_OnTouchUp_Stride_UI_TouchEventArgs_" data-uid="Stride.UI.UIElement.OnTouchUp(Stride.UI.TouchEventArgs)">
+  OnTouchUp(TouchEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L557"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The class handler of the event <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_TouchUp">TouchUp</a>.
+This method can be overridden in inherited classes to perform actions common to all instances of a class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnTouchUp(TouchEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a></dt>
+    <dd><p>The arguments of the event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_PropagateCollapseToChild_" data-uid="Stride.UI.UIElement.PropagateCollapseToChild*"></a>
+
+  <h3 id="Stride_UI_UIElement_PropagateCollapseToChild_Stride_UI_UIElement_" data-uid="Stride.UI.UIElement.PropagateCollapseToChild(Stride.UI.UIElement)">
+  PropagateCollapseToChild(UIElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1094"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Propagate the collapsing to a child element <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void PropagateCollapseToChild(UIElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>A child element to which propagate the collapse.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><code class="paramref">element</code> is not a child of this element.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_UI_UIElement_RaiseEvent_" data-uid="Stride.UI.UIElement.RaiseEvent*"></a>
+
+  <h3 id="Stride_UI_UIElement_RaiseEvent_Stride_UI_Events_RoutedEventArgs_" data-uid="Stride.UI.UIElement.RaiseEvent(Stride.UI.Events.RoutedEventArgs)">
+  RaiseEvent(RoutedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises a specific routed event. The <a class="xref" href="Stride.UI.Events.RoutedEvent.html">RoutedEvent</a> to be raised is identified within the <a class="xref" href="Stride.UI.Events.RoutedEventArgs.html">RoutedEventArgs</a> instance
+that is provided (as the <a class="xref" href="Stride.UI.Events.RoutedEvent.html">RoutedEvent</a> property of that event data).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RaiseEvent(RoutedEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="Stride.UI.Events.RoutedEventArgs.html">RoutedEventArgs</a></dt>
+    <dd><p>A <a class="xref" href="Stride.UI.Events.RoutedEventArgs.html">RoutedEventArgs</a> that contains the event data and also identifies the event to raise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">e</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The type of the routed event argument <code class="paramref">e</code> does not match the event handler second argument type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_UI_UIElement_RemoveHandler_" data-uid="Stride.UI.UIElement.RemoveHandler*"></a>
+
+  <h3 id="Stride_UI_UIElement_RemoveHandler__1_Stride_UI_Events_RoutedEvent___0__System_EventHandler___0__" data-uid="Stride.UI.UIElement.RemoveHandler``1(Stride.UI.Events.RoutedEvent{``0},System.EventHandler{``0})">
+  RemoveHandler&lt;T&gt;(RoutedEvent&lt;T&gt;, EventHandler&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified routed event handler from this element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveHandler&lt;T&gt;(RoutedEvent&lt;T&gt; routedEvent, EventHandler&lt;T&gt; handler) where T : RoutedEventArgs</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>routedEvent</code> <a class="xref" href="Stride.UI.Events.RoutedEvent-1.html">RoutedEvent</a>&lt;T&gt;</dt>
+    <dd><p>The identifier of the routed event for which the handler is attached.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;T&gt;</dt>
+    <dd><p>The specific handler implementation to remove from the event handler collection on this element.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Provided handler or routed event is null.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_UI_UIElement_SetParent_" data-uid="Stride.UI.UIElement.SetParent*"></a>
+
+  <h3 id="Stride_UI_UIElement_SetParent_Stride_UI_UIElement_Stride_UI_UIElement_" data-uid="Stride.UI.UIElement.SetParent(Stride.UI.UIElement,Stride.UI.UIElement)">
+  SetParent(UIElement, UIElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the parent to a child.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void SetParent(UIElement child, UIElement parent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>child</code> <a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>The child to which set the parent.</p>
+</dd>
+    <dt><code>parent</code> <a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>The parent of the child.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_SetVisualParent_" data-uid="Stride.UI.UIElement.SetVisualParent*"></a>
+
+  <h3 id="Stride_UI_UIElement_SetVisualParent_Stride_UI_UIElement_Stride_UI_UIElement_" data-uid="Stride.UI.UIElement.SetVisualParent(Stride.UI.UIElement,Stride.UI.UIElement)">
+  SetVisualParent(UIElement, UIElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set the visual parent to a child.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void SetVisualParent(UIElement child, UIElement parent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>child</code> <a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>The child to which set the visual parent.</p>
+</dd>
+    <dt><code>parent</code> <a class="xref" href="Stride.UI.UIElement.html">UIElement</a></dt>
+    <dd><p>The parent of the child.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_Update_" data-uid="Stride.UI.UIElement.Update*"></a>
+
+  <h3 id="Stride_UI_UIElement_Update_Stride_Games_GameTime_" data-uid="Stride.UI.UIElement.Update(Stride.Games.GameTime)">
+  Update(GameTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Method called by <a class="xref" href="Stride.UI.IUIElementUpdate.html#Stride_UI_IUIElementUpdate_Update_Stride_Games_GameTime_">Update(GameTime)</a>.
+This method can be overridden by inherited classes to perform time-based actions.
+This method is not in charge to recursively call the update on child elements, this is automatically done.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Update(GameTime time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>time</code> <a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd><p>The current time of the game</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_UI_UIElement_UpdateWorldMatrix_" data-uid="Stride.UI.UIElement.UpdateWorldMatrix*"></a>
+
+  <h3 id="Stride_UI_UIElement_UpdateWorldMatrix_Stride_Core_Mathematics_Matrix__System_Boolean_" data-uid="Stride.UI.UIElement.UpdateWorldMatrix(Stride.Core.Mathematics.Matrix@,System.Boolean)">
+  UpdateWorldMatrix(ref Matrix, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.cs/#L1243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Method called by <a class="xref" href="Stride.UI.IUIElementUpdate.html#Stride_UI_IUIElementUpdate_UpdateWorldMatrix_Stride_Core_Mathematics_Matrix__System_Boolean_">UpdateWorldMatrix(ref Matrix, bool)</a>.
+Parents are in charge of recursively calling this function on their children.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void UpdateWorldMatrix(ref Matrix parentWorldMatrix, bool parentWorldChanged)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentWorldMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The world matrix of the parent.</p>
+</dd>
+    <dt><code>parentWorldChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Boolean indicating if the world matrix provided by the parent changed</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_UI_UIElement_KeyDown" data-uid="Stride.UI.UIElement.KeyDown">
+  KeyDown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the element has the focus and the user maintains a key pressed on the keyboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyEventArgs&gt; KeyDown</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.KeyEventArgs.html">KeyEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_KeyDown_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A key down event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_KeyPressed" data-uid="Stride.UI.UIElement.KeyPressed">
+  KeyPressed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the element has the focus and the user press a key on the keyboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyEventArgs&gt; KeyPressed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.KeyEventArgs.html">KeyEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_KeyPressed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A key pressed event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_KeyReleased" data-uid="Stride.UI.UIElement.KeyReleased">
+  KeyReleased
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the element has the focus and the user release a key on the keyboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyEventArgs&gt; KeyReleased</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.KeyEventArgs.html">KeyEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_KeyReleased_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A key released event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_MouseOverStateChanged" data-uid="Stride.UI.UIElement.MouseOverStateChanged">
+  MouseOverStateChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the value of the <a class="xref" href="Stride.UI.UIElement.html#Stride_UI_UIElement_MouseOverState">MouseOverState</a> property changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event PropertyChangedHandler&lt;MouseOverState&gt; MouseOverStateChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.UI.PropertyChangedHandler-1.html">PropertyChangedHandler</a>&lt;<a class="xref" href="Stride.UI.MouseOverState.html">MouseOverState</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_MouseOverStateChanged_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This event is not a routed event</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_PreviewTouchDown" data-uid="Stride.UI.UIElement.PreviewTouchDown">
+  PreviewTouchDown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user starts touching the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>. That is when he moves its finger down from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; PreviewTouchDown</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_PreviewTouchDown_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is tunneling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_PreviewTouchMove" data-uid="Stride.UI.UIElement.PreviewTouchMove">
+  PreviewTouchMove
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user moves its finger on the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.
+That is when his finger was already on the element and moved from its previous position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; PreviewTouchMove</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_PreviewTouchMove_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is tunneling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_PreviewTouchUp" data-uid="Stride.UI.UIElement.PreviewTouchUp">
+  PreviewTouchUp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user stops touching the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>. That is when he moves its finger up from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; PreviewTouchUp</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_PreviewTouchUp_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is tunneling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_TouchDown" data-uid="Stride.UI.UIElement.TouchDown">
+  TouchDown
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user starts touching the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>. That is when he moves its finger down from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; TouchDown</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_TouchDown_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_TouchEnter" data-uid="Stride.UI.UIElement.TouchEnter">
+  TouchEnter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user enters its finger into <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.
+That is when his finger was on the screen outside of the element and moved inside the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; TouchEnter</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_TouchEnter_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_TouchLeave" data-uid="Stride.UI.UIElement.TouchLeave">
+  TouchLeave
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user leaves its finger from the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.
+That is when his finger was inside of the element and moved on the screen outside of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; TouchLeave</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_TouchLeave_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_TouchMove" data-uid="Stride.UI.UIElement.TouchMove">
+  TouchMove
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user move its finger inside the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>.
+That is when his finger was already on the element and moved from its previous position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; TouchMove</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_TouchMove_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is bubbling</p>
+</div>
+
+
+
+
+
+  <h3 id="Stride_UI_UIElement_TouchUp" data-uid="Stride.UI.UIElement.TouchUp">
+  TouchUp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when the user stops touching the <a class="xref" href="Stride.UI.UIElement.html">UIElement</a>. That is when he moves its finger up from the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TouchEventArgs&gt; TouchUp</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.UI.TouchEventArgs.html">TouchEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Stride_UI_UIElement_TouchUp_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A click event is bubbling</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.UI/UIElement.Events.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

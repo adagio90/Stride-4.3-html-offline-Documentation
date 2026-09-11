@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Removing entities | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Removing entities | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/removing-entities.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="removing-entities">Removing entities</h1>
+
+<p>You can find this sample in the tutorial project: <strong>Menu</strong> → <strong>Removing entities</strong></p>
+<h2 id="explanation">Explanation</h2>
+<p>This C# Beginner tutorial covers how to remove existing entities from the scene and how to remove an entity that is a child of another entity.</p>
+<p>When we add entities to the Scene root we can remove that entity again by accessing the scene.Entities property. Entities that are added as children of other entities can be removed by accessing the children of an entity.</p>
+<p><img src="media/removing-entity.webp" alt="Cloning entities"></p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/TzwGe4RzAb4?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="code">Code</h2>
+<pre><code class="lang-csharp" name="Entity">using Stride.Core.Mathematics;
+using Stride.Engine;
+
+namespace CSharpBeginner.Code
+{
+    /// &lt;summary&gt;
+    /// This script demonstrates how to remove an existing entity from the scene hierarchy.
+    /// &lt;para&gt;
+    /// https://doc.stride3d.net/latest/en/tutorials/csharpbeginner/removing-entities.html
+    /// &lt;/para&gt;
+    /// &lt;/summary&gt;
+    public class RemoveEntitiesDemo : SyncScript
+    {
+        public Entity EntityToClone;
+
+        private Entity clonedEntity1;
+        private Entity clonedEntity2;
+        private float timer = 0;
+
+        private float currentTimer = 0;
+        private float existTime = 4;
+        private float goneTime = 2;
+
+        private bool entitiesExist = false;
+
+        public override void Start()
+        {
+            CloneEntityAndAddToScene();
+            CloneEntityAndAddAsChild();
+            entitiesExist = true;
+        }
+
+        /// This method clones an entity, adds it as a child of the current entity
+        private void CloneEntityAndAddAsChild()
+        {
+            clonedEntity1 = EntityToClone.Clone();
+            clonedEntity1.Transform.Position = new Vector3(0);
+            Entity.AddChild(clonedEntity1);
+        }
+
+        /// This method clones an entity, adds it to the scene root
+        private void CloneEntityAndAddToScene()
+        {
+            clonedEntity2 = EntityToClone.Clone();
+            clonedEntity2.Transform.Position += new Vector3(0, 0, -0.5f);
+            Entity.Scene.Entities.Add(clonedEntity2);
+        }
+
+        public override void Update()
+        {
+            // We use a simple timer
+            timer += (float)Game.UpdateTime.Elapsed.TotalSeconds;
+            if (timer &gt; currentTimer)
+            {
+                // If the entities exist, we remove them from the scene
+                if (entitiesExist)
+                {
+                    // We remove the cloned entity that is a child of the current entity
+                    Entity.RemoveChild(clonedEntity1); // Alternative: clonedEntity1.Transform.Parent = null;
+
+                    // We remove the cloned entity from the scene root
+                    Entity.Scene.Entities.Remove(clonedEntity2);
+                    
+                    // We also need to set the clones to null, otherwise the clones still exist
+                    clonedEntity1 = null;
+                    clonedEntity2 = null;
+
+                    entitiesExist = false;
+                    currentTimer = goneTime;
+                }
+                else // If the entities don't exist, we create new clones
+                {
+                    CloneEntityAndAddToScene();
+                    CloneEntityAndAddAsChild();
+                    entitiesExist = true;
+
+                    currentTimer = existTime;
+                }
+
+                // Reset timer
+                timer = 0;
+            }
+
+            DebugText.Print(&quot;For &quot; + existTime.ToString() + &quot; seconds: &quot;, new Int2(860, 240));
+            DebugText.Print(&quot;- Clone 1 is a child of the script entity&quot;, new Int2(860, 260));
+            DebugText.Print(&quot;- Clone 2 is a child of the scene root&quot;, new Int2(860, 280));
+            DebugText.Print(&quot;For &quot; + goneTime.ToString() + &quot; seconds, the cloned entities are gone&quot;, new Int2(860, 300));
+
+            if (entitiesExist)
+            {
+                DebugText.Print(&quot;Cloned entity 1 is a child of the Script entity&quot;, new Int2(450, 350));
+                DebugText.Print(&quot;Cloned entity 2 is in the scene root&quot;, new Int2(450, 600));
+            }
+            else
+            {
+                DebugText.Print(&quot;Cloned entity 1 and 2 have been removed&quot;, new Int2(450, 600));
+            }
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/removing-entities.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

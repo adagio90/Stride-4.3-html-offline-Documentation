@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Light shafts | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Light shafts | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/light-shafts.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="light-shafts">Light shafts</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Artist</span></p>
+<p><strong>Light shafts</strong>, also called <strong>god rays</strong>, are visible rays of light.</p>
+<video autoplay loop class="responsive-video" poster="media/lightshaft_CoS_640.jpg">
+   <source src="media/lightshaft_CoS_640.mp4" type="video/mp4">
+</video>
+<p>Stride light shafts are based on <a href="shadows.html">shadow maps</a> and use raymarching rather than post effects, so they're visible even when the light source isn't. Any light source that casts shadows (ie <a href="point-lights.html">point lights</a>, <a href="directional-lights.html">directional lights</a> and <a href="spot-lights.html">spot lights</a>) can cast light shafts.</p>
+<p>To create light shafts, use three components together: <strong>lights</strong>, <strong>light shafts</strong>, and <strong>light shaft bounding volumes</strong>.</p>
+<h2 id="1-enable-light-shafts-in-the-graphics-compositor">1. Enable light shafts in the graphics compositor</h2>
+<p>By default, Stride disables light shafts in new projects. To enable them:</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-asset.png" alt="Graphics Compositor asset"></p>
+<p>The graphics compositor editor opens.</p>
+</li>
+<li><p>Select the <strong>forward renderer</strong> node.</p>
+<p><img src="../../virtual-reality/media/select-forward-renderer.png" alt="Select forward renderer"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), next to <strong>Light shafts</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>LightShafts</strong>.</p>
+<p><img src="media/select-light-shafts.png" alt="Select light shafts"></p>
+</li>
+<li><p>Make sure the <strong>light shafts</strong> checkbox is selected.</p>
+<p><img src="media/enable-light-shafts.png" alt="Enable light shafts"></p>
+<p>For more information about the graphics compositor, see the <a href="../graphics-compositor/index.html">Graphics compositor</a> page.</p>
+</li>
+</ol>
+<h2 id="2-add-a-light-shaft-component">2. Add a light shaft component</h2>
+<ol>
+<li><p>In your scene, select the entity with the <strong>light</strong> you want to create light shafts. This must be a light that casts shadows (ie a <a href="point-lights.html">point light</a>, <a href="directional-lights.html">directional light</a>, or <a href="spot-lights.html">spot light</a>).</p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, in the <strong>Light</strong> component properties, make sure the <strong>Shadow</strong> checkbox is selected.</p>
+<p><img src="media/light-shafts-enable-shadows.png" alt="Enable light shafts"></p>
+</li>
+<li><p>Click <strong>Add component</strong> and select <strong>Light shaft</strong>.</p>
+<p><img src="media/add-light-shaft-component.png" alt="Add light shaft component"></p>
+<p>Game Studio adds a light shaft component to the entity.</p>
+</li>
+</ol>
+<h2 id="3-add-a-bounding-volume">3. Add a bounding volume</h2>
+<p>The <strong>light shaft bounding volume</strong> defines the area in which light shafts are created. You can add the bounding volume to the same entity that has the directional light, but it's usually simpler to add it to a separate entity.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong>, click <strong>Add asset</strong>.</p>
+</li>
+<li><p>Under <strong>Models</strong>, select a model in the shape you want the volume to be. For example, if you use a cube, light shafts will be created in a cube-shaped area.</p>
+<p><img src="media/add-cube-model.png" alt="Cube model"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="media/asset-picker.png" alt="Select an asset"></p>
+</li>
+<li><p>You don't need a material for the model, so click <strong>Cancel</strong> to create a model without a material.</p>
+</li>
+<li><p>In the scene, create an empty <strong>entity</strong>. For now, it doesn't matter where you put it; you can reposition it later.</p>
+</li>
+<li><p>With the entity selected, in the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>light shaft bounding volume</strong>.</p>
+<p><img src="media/add-light-shaft-bounding-volume.png" alt="Add light shaft bounding volume component"></p>
+</li>
+<li><p>In the <strong>light shaft bounding volume</strong> component properties, next to <strong>light shaft</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+</li>
+<li><p>In the <strong>entity picker</strong>, select the entity with the directional light you want to create light shafts and click <strong>OK</strong>.</p>
+</li>
+<li><p>In the <strong>light shaft bounding volume</strong> component properties, next to <strong>Model</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+</li>
+<li><p>In the <strong>Select an asset</strong> window, select the model you created and click <strong>OK</strong>.</p>
+<p><img src="media/select-procedural-model.png" alt="Select model"></p>
+<p>This model defines the shape of the light shaft bounding volume.</p>
+</li>
+<li><p>Using the <strong>transform</strong> component, position and scale the entity to cover the area where you want to create light shafts.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To show or hide navigation light shaft bounding volumes in the Scene Editor, in the <strong>Scene Editor toolbar</strong>, open the <strong>gizmo options</strong> menu and use the <strong>Light shaft bounding volumes</strong> checkbox.</p>
+</div>
+<p><img src="media/show-or-hide-light-shaft-bounding-volume.png" alt="Show light shaft bounding volumes"></p>
+</li>
+</ol>
+<h2 id="light-shaft-properties">Light shaft properties</h2>
+<p><img src="media/light-shaft-properties.png" alt="Light shaft properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Density</td>
+<td>Higher values produce brighter light shafts</td>
+</tr>
+<tr>
+<td>Sample count</td>
+<td>Higher values produce better light shafts but use more GPU</td>
+</tr>
+<tr>
+<td>Process bounding volumes separately</td>
+<td>Preserves light shaft quality when seen through separate bounding boxes, but uses more GPU</td>
+</tr>
+</tbody>
+</table>
+<h3 id="light-shaft-graphics-compositor-properties">Light shaft graphics compositor properties</h3>
+<p>To access these properties, in the <strong>graphics compositor editor</strong>, select the <strong>forward renderer</strong> node and expand <strong>Light Shafts</strong>.</p>
+<p>These properties apply globally to all the light shafts in the scene.</p>
+<p><img src="media/light-shaft-graphics-compositor-properties.png" alt="Light shaft graphics compositor properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bounding volume buffer downsample level</td>
+<td>Lower values produce more precise volume buffer areas, but use more GPU</td>
+</tr>
+<tr>
+<td>Light buffer downsample level</td>
+<td>Lower values produce sharper light shafts, but use more GPU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="optimize-light-shafts">Optimize light shafts</h2>
+<p>Light shafts work best in dark environments. You can adjust the light and light shaft component properties to achieve different results — for example, by changing the light color (in the <strong>light component properties</strong>) or the light shaft density (in the <strong>light shaft component properties</strong>).</p>
+<p>Multiple light shafts viewed through one another can become visually noisy, as in the screenshot below:</p>
+<p><img src="media/noisy-light-shafts.jpg" alt="Noisy light shafts"></p>
+<p>To reduce this effect, in the <strong>light shaft component properties</strong>, reduce the <strong>density</strong> and increase the <strong>sample count</strong>.</p>
+<p><img src="media/density-factor.png" alt="Density factor"></p>
+<p>Alternatively, add additional bounding volumes and process them separately. To do this:</p>
+<ol>
+<li><p>Create additional bounding volumes and position them to cover the areas where you want to create light shafts. Make sure the bounding volumes don't overlap, as this makes light shafts extra-bright.</p>
+</li>
+<li><p>In the <strong>light shaft component properties</strong>, make sure <strong>Process bounding volumes separately</strong> is selected.</p>
+</li>
+</ol>
+<p><img src="media/separate-bounding-volumes.png" alt="Separate bounding volume"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Processing bounding volumes separately uses more GPU.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="directional-lights.html">Directional lights</a></li>
+<li><a href="shadows.html">Shadows</a></li>
+<li><a href="../graphics-compositor/index.html">Graphics compositor</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/light-shafts.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

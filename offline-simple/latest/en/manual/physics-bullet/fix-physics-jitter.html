@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fix physics jitter | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fix physics jitter | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/fix-physics-jitter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fix-physics-jitter">Fix physics jitter</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Bullet Physics is being phased out. We no longer plan to support or expand its features as our focus shifts to <a href="../physics/index.html">Bepu Physics</a>. We recommend transitioning to Bepu Physics for access to the latest updates and ongoing improvements.</p>
+</div>
+
+<p>In Stride, there is no default smoothing applied to entities that are attached to physics entities. This can cause noticeable jitter, especially if the camera is attached to a character component.</p>
+<p>In this tutorial, we will explore how to add smoothing to an entity using a SyncScript.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can also decrease the <code>FixedTimeStep</code> in the physics settings configuration to achieve more accurate physics simulations. For example, changing it from <code>0.016667</code> to <code>0.008</code> will increase accuracy but at the cost of higher CPU usage.</p>
+</div>
+<h2 id="code-to-handle-smoothing-between-two-entities">Code to handle smoothing between two entities</h2>
+<p>The following code is all that's needed to smoothly attach two entities. Ensure that you unparent the entity you are trying to smooth, otherwise the transform processor will override this script.</p>
+<pre><code class="lang-cs">[ComponentCategory(&quot;Utils&quot;)]
+[DataContract(&quot;SmoothFollowAndRotate&quot;)]
+public class SmoothFollowAndRotate : SyncScript
+{
+    public Entity EntityToFollow { get; set; }
+    public float Speed { get; set; } = 1;
+
+    public override void Update()
+    {
+        var deltaTime = (float)Game.UpdateTime.Elapsed.TotalSeconds;
+        var currentPosition = Entity.Transform.Position;
+        var currentRotation = Entity.Transform.Rotation;
+
+        var lerpSpeed = 1f - MathF.Exp(-Speed * deltaTime);
+
+        EntityToFollow.Transform.GetWorldTransformation(out var otherPosition, out var otherRotation, out var _);
+
+        var newPosition = Vector3.Lerp(currentPosition, otherPosition, lerpSpeed);
+        Entity.Transform.Position = newPosition;
+
+        Quaternion.Slerp(ref currentRotation, ref otherRotation, lerpSpeed, out var newRotation);
+        Entity.Transform.Rotation = newRotation;
+    }
+}
+</code></pre>
+<h2 id="example-usage">Example Usage</h2>
+<p>This example demonstrates modifications to the <strong>First Person Shooter</strong> template to integrate smooth camera movement.</p>
+<ol>
+<li>Detach the camera from the physics entity.</li>
+<li>Remove the FPS camera script from the camera.</li>
+<li>Create a new entity as a child of the character body.</li>
+<li>Add the FPS script to the new entity.</li>
+<li>Adjust any code that directly references the <code>CameraComponent</code> to reflect these changes.</li>
+</ol>
+<h3 id="playerinputcs">PlayerInput.cs</h3>
+<p>Change</p>
+<pre><code class="lang-cs">public CameraComponent Camera { get; set; }
+</code></pre>
+<p>to</p>
+<pre><code class="lang-cs">public Entity Camera { get; set; }
+</code></pre>
+<h3 id="utilscs">Utils.cs</h3>
+<p>Change</p>
+<pre><code class="lang-cs">CameraComponent camera
+</code></pre>
+<p>to</p>
+<pre><code class="lang-cs">Entity camera,
+</code></pre>
+<p>and change</p>
+<pre><code class="lang-cs">camera.Update();
+var inverseView = Matrix.Invert(camera.ViewMatrix);
+</code></pre>
+<p>to</p>
+<pre><code class="lang-cs">var inverseView = camera.Transform.WorldMatrix;
+</code></pre>
+<h3 id="fpscameracs">FpsCamera.cs</h3>
+<p>Remove</p>
+<pre><code class="lang-cs">/// &lt;summary&gt;
+/// Gets the camera component used to visualized the scene.
+/// &lt;/summary&gt;
+private Entity Component;
+</code></pre>
+<p>and change</p>
+<pre><code class="lang-cs">private void UpdateViewMatrix()
+{
+    var camera = Component;
+    if (camera == null) return;
+    var rotation = Quaternion.RotationYawPitchRoll(Yaw, Pitch0);
+
+    Entity.Transform.Rotation = rotation;
+}
+</code></pre>
+<p>to</p>
+<pre><code class="lang-cs">private void UpdateViewMatrix()
+{
+    var rotation = Quaternion.RotationYawPitchRoll(Yaw, Pitch, 0);
+
+    Entity.Transform.Rotation = rotation;
+}
+</code></pre>
+<p>That should be all that is needed to see the smoothing in action as a before and after. You can see the original issue in the Stride GitHub <a href="https://github.com/stride3d/stride/issues/2216">here</a> if you need to find more info on the problem.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics-bullet/fix-physics-jitter.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

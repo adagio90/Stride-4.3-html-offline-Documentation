@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Sensors | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Sensors | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/sensors.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sensors">Sensors</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>You can use various <strong>sensors</strong>, such as gyroscopes and accelerometers, as input devices in your project. Sensors are often used in mobile games.</p>
+<p>Use <a class="xref" href="../../api/Stride.Input.InputManager.html">InputManager</a> to access sensors and:</p>
+<ul>
+<li>check if a sensor is supported by Stride</li>
+<li>disable a sensor</li>
+<li>retrieve sensor data</li>
+</ul>
+<p>Stride can receive data from six types of sensor:</p>
+<ul>
+<li>Orientation</li>
+<li>Accelerometer</li>
+<li>UserAcceleration</li>
+<li>Gravity</li>
+<li>Compass</li>
+<li>Gyroscope</li>
+</ul>
+<p>They inherit from <a class="xref" href="../../api/Stride.Input.ISensorDevice.html">ISensorDevice</a>.</p>
+<p>Stride creates a default instance for each sensor type. You can access each instance from the <a class="xref" href="../../api/Stride.Input.InputManager.html">InputManager</a>.</p>
+<p>Sensors are state-based. Each sensor instance is automatically updated every frame, and contains the value of the sensor just before the update.</p>
+<p>For example, to access the accelerometer, use:</p>
+<pre><code class="lang-cs">var accelerometer = Input.Accelerometer;
+</code></pre>
+<h2 id="check-if-a-sensor-is-available">Check if a sensor is available</h2>
+<p>Before you get the value of a sensor, check that the sensor is available in the device (ie not null). For example, to check if the compass is available:</p>
+<pre><code class="lang-cs">var hasCompass = Input.Compass != null;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If a sensor isn't natively supported by the device, Stride tries to emulate it using the device's other sensors.</p>
+</div>
+<h2 id="enable-a-sensor">Enable a sensor</h2>
+<p>By default, Stride disables all available sensors, as retrieving and updating sensor data takes significant CPU time.</p>
+<p>To enable a sensor, set <a class="xref" href="../../api/Stride.Input.ISensorDevice.html#Stride_Input_ISensorDevice_IsEnabled">IsEnabled</a> to <code>true</code>. When you don't need the sensor, disable it by setting the property to <code>false</code>.</p>
+<h2 id="use-the-orientation-sensor">Use the orientation sensor</h2>
+<p>The <strong>orientation sensor</strong> indicates the <strong>orientation of the device</strong> with respect to gravity and the Earth's north pole. The orientation is null when the device's Y-axis is aligned with the magnetic north pole and the Z-axis with the gravity. You can use orientation data to control various actions in a game.</p>
+<p><img src="media/sensor-overview-orientation-sensor.png" alt="Orientation sensor"></p>
+<p>Use <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_Orientation">Input.Orientation</a> to get the current orientation of the device.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.IOrientationSensor.html#Stride_Input_IOrientationSensor_Roll">Roll</a></td>
+<td>The rotation around the X-axis</td>
+<td><code>public float Roll { get; }</code></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.IOrientationSensor.html#Stride_Input_IOrientationSensor_Pitch">Pitch</a></td>
+<td>The rotation around the Y-axis</td>
+<td><code>public float Pitch { get; }</code></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.IOrientationSensor.html#Stride_Input_IOrientationSensor_Yaw">Yaw</a></td>
+<td>The rotation around the Z-axis</td>
+<td><code>public float Yaw { get; }</code></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.IOrientationSensor.html#Stride_Input_IOrientationSensor_RotationMatrix">Rotation Matrix</a></td>
+<td>The device rotation</td>
+<td><code>public Matrix RotationMatrix { get; }</code></td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.IOrientationSensor.html#Stride_Input_IOrientationSensor_Quaternion">Quaternion</a></td>
+<td>The device orientation and rotation</td>
+<td><code>public Quaternion Quaternion { get; }</code></td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre><code class="lang-cs">  var orientation = Input.Orientation.Quaternion;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Stride provides the orientation under the pitch/yaw/roll, rotation matrix, or quaternion forms. We recommend the quaternion form as it doesn't suffer from <a href="https://en.wikipedia.org/wiki/Gimbal_lock">gimbal lock</a>.</p>
+</div>
+<h2 id="motion-sensors">Motion sensors</h2>
+<p><strong>Motion sensors</strong> measure <strong>acceleration forces</strong> such as tilts, shakes, and swing. Stride supports three types of motion sensor:</p>
+<ul>
+<li><strong>Accelerometer</strong>: measures the <strong>raw acceleration</strong></li>
+<li><strong>Gravity</strong>: measures gravity only</li>
+<li><strong>UserAcceleration</strong>: measures only the acceleration applied by the user</li>
+</ul>
+<p>The sensors use the physic relation <code>Accelerometer = Gravity + UserAcceleration</code>.</p>
+<p><img src="media/sensor-overview-accelerometer-acceleration-gravity.png" alt="Motion sensors"></p>
+<p>Motion sensors have a single field that specifies the current <strong>acceleration vector</strong> on the device. Stride measures the acceleration in <strong>meters per second squared</strong>.</p>
+<p>This image shows the <strong>coordinate basis</strong> Stride uses to measure acceleration on smartphones and tablets:</p>
+<p><img src="media/sensor-overview-accelerometer-sensor.png" alt="Accelerometer"></p>
+<h3 id="use-the-accelerometer">Use the accelerometer</h3>
+<p>The <strong>accelerometer</strong> measures the raw acceleration applied to the device. This includes <strong>gravity</strong> and <strong>user acceleration</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When the user isn't applying force, the <strong>device acceleration</strong> is equal to its <strong>gravity</strong>.</p>
+</div>
+<p>To get the raw acceleration, use <a class="xref" href="../../api/Stride.Input.IAccelerometerSensor.html#Stride_Input_IAccelerometerSensor_Acceleration">Accelerometer.Acceleration</a>. For example:</p>
+<pre><code>var acceleration = Input.Accelerometer.Acceleration;
+</code></pre>
+<h3 id="use-the-user-acceleration-sensor">Use the user acceleration sensor</h3>
+<p>The <strong>user acceleration sensor</strong> is similar to the accelerometer, but measures the acceleration applied <strong>only</strong> by a user (without gravitational acceleration).</p>
+<p>To get the user acceleration, use <a class="xref" href="../../api/Stride.Input.IUserAccelerationSensor.html#Stride_Input_IUserAccelerationSensor_Acceleration">UserAcceleration.Acceleration</a>. For example:</p>
+<pre><code class="lang-cs">var userAcceleration = Input.UserAcceleration.Acceleration;
+</code></pre>
+<h3 id="use-the-gravity-sensor">Use the gravity sensor</h3>
+<p>The gravity sensor gives a 3D vector indicating the direction and magnitude of gravity (meters per second squared) acting on the device.</p>
+<p>To get the gravity vector, use <a class="xref" href="../../api/Stride.Input.IGravitySensor.html">GravitySensor</a>. For example:</p>
+<pre><code class="lang-cs"> var gravityVector = Input.Gravity.Vector;
+</code></pre>
+<h3 id="use-the-compass-sensor">Use the compass sensor</h3>
+<p>The <strong>compass</strong> indicates measures the angle between the top of the device and the <strong>North Pole</strong>. This is useful, for example, to rotate and align digital maps.</p>
+<p><img src="media/sensor-overview-compasss.png" alt="Compass"></p>
+<p>To get this angle, use <a class="xref" href="../../api/Stride.Input.ICompassSensor.html#Stride_Input_ICompassSensor_Heading">CompassSensor.Heading</a>. For example:</p>
+<pre><code class="lang-cs">var heading = Input.Compass.Heading;
+</code></pre>
+<h3 id="use-the-gyroscope">Use the gyroscope</h3>
+<p>The gyroscope measures the <strong>rotation speed</strong> of the device (<strong>radians per second</strong>).</p>
+<p><img src="media/sensor-overview-gyroscope-sensor.png" alt="Gyroscope"></p>
+<p>To get the rotation speed, use <a class="xref" href="../../api/Stride.Input.IGyroscopeSensor.html#Stride_Input_IGyroscopeSensor_RotationRate">GyroscopeSensor.RotationRate</a>. For example:</p>
+<pre><code class="lang-cs">  var rotationRate = Input.Gyroscope.RotationRate; 
+  var rotationSpeedX =  rotationRate.X;
+  var rotationSpeedY =  rotationRate.Y;
+  var rotationSpeedZ =  rotationRate.Z;
+</code></pre>
+<h2 id="example-code">Example code</h2>
+<pre><code class="lang-cs">public class SensorScript : AsyncScript
+{
+	public override async Task Execute()
+	{
+		// Check availability of the sensor
+		if(Input.Accelerometer != null)
+			return;
+			
+		// Activate the sensor
+		Input.Accelerometer.IsEnabled = true;
+				
+		while (Game.IsRunning)
+		{
+			// read current acceleration
+			var accel = Input.Accelerometer.Acceleration;
+			
+			// perform require works...
+			await Script.NextFrame();
+		}		
+		// Disable the sensor after use
+		Input.Accelerometer.IsEnabled = false;
+	}
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="gestures.html">Gestures</a></li>
+<li><a href="pointers.html">Pointers</a></li>
+<li><a href="index.html">Input overview</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/sensors.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

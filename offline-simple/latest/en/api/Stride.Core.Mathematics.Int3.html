@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Int3 | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Int3 | Stride API ">
+      
+      <meta name="description" content="Represents a three dimensional mathematical vector.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Int3.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Int3%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Int3">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Int3" data-uid="Stride.Core.Mathematics.Int3" class="text-break">
+Struct Int3  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a three dimensional mathematical vector.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;Int3&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct Int3 : IEquatable&lt;Int3&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Int3__ctor_" data-uid="Stride.Core.Mathematics.Int3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3__ctor_Stride_Core_Mathematics_Vector2_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.#ctor(Stride.Core.Mathematics.Vector2,System.Int32)">
+  Int3(Vector2, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Int3(Vector2 value, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>A vector containing the values with which to initialize the X and Y components.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial value for the Z component of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3__ctor_" data-uid="Stride.Core.Mathematics.Int3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3__ctor_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.#ctor(System.Int32)">
+  Int3(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Int3(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3__ctor_" data-uid="Stride.Core.Mathematics.Int3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3__ctor_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.#ctor(System.Int32,System.Int32,System.Int32)">
+  Int3(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Int3(int x, int y, int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial value for the X component of the vector.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial value for the Y component of the vector.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Initial value for the Z component of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3__ctor_" data-uid="Stride.Core.Mathematics.Int3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3__ctor_System_Int32___" data-uid="Stride.Core.Mathematics.Int3.#ctor(System.Int32[])">
+  Int3(int[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Int3(int[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd><p>The values to assign to the X, Y, and Z components of the vector. This must be an array with three elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than three elements.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_One" data-uid="Stride.Core.Mathematics.Int3.One">
+  One
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> with all of its components set to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Int3 One</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_SizeInBytes" data-uid="Stride.Core.Mathematics.Int3.SizeInBytes">
+  SizeInBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> type, in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SizeInBytes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_UnitX" data-uid="Stride.Core.Mathematics.Int3.UnitX">
+  UnitX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The X unit <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> (1, 0, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Int3 UnitX</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_UnitY" data-uid="Stride.Core.Mathematics.Int3.UnitY">
+  UnitY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Y unit <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> (0, 1, 0).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Int3 UnitY</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_UnitZ" data-uid="Stride.Core.Mathematics.Int3.UnitZ">
+  UnitZ
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Z unit <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> (0, 0, 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Int3 UnitZ</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_X" data-uid="Stride.Core.Mathematics.Int3.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The X component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public int X</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_Y" data-uid="Stride.Core.Mathematics.Int3.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Y component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+public int Y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_Z" data-uid="Stride.Core.Mathematics.Int3.Z">
+  Z
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Z component of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(2)]
+public int Z</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Int3_Zero" data-uid="Stride.Core.Mathematics.Int3.Zero">
+  Zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> with all of its components set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Int3 Zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Int3_Item_" data-uid="Stride.Core.Mathematics.Int3.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Item_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, and 2 for the Z component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of the X, Y, or Z component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 2].</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Int3_Add_" data-uid="Stride.Core.Mathematics.Int3.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Add_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Add(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Add(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Add(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Add_" data-uid="Stride.Core.Mathematics.Int3.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Add_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Add(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Add(ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref readonly Int3 left, ref readonly Int3 right, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Clamp_" data-uid="Stride.Core.Mathematics.Int3.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Clamp_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Clamp(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Clamp(Int3, Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Clamp(Int3 value, Int3 min, Int3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Clamp_" data-uid="Stride.Core.Mathematics.Int3.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Clamp_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Clamp(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Clamp(ref readonly Int3, ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clamp(ref readonly Int3 value, ref readonly Int3 min, ref readonly Int3 max, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Deconstruct_" data-uid="Stride.Core.Mathematics.Int3.Deconstruct*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Deconstruct_System_Int32__System_Int32__System_Int32__" data-uid="Stride.Core.Mathematics.Int3.Deconstruct(System.Int32@,System.Int32@,System.Int32@)">
+  Deconstruct(out int, out int, out int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L784"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deconstructs the vector's components into named variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Deconstruct(out int x, out int y, out int z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The X component</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Y component</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The Z component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Divide_" data-uid="Stride.Core.Mathematics.Int3.Divide*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Divide_Stride_Core_Mathematics_Int3_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.Divide(Stride.Core.Mathematics.Int3,System.Int32)">
+  Divide(Int3, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Divide(Int3 value, int scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Divide_" data-uid="Stride.Core.Mathematics.Int3.Divide*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Divide_Stride_Core_Mathematics_Int3__System_Int32_Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Divide(Stride.Core.Mathematics.Int3@,System.Int32,Stride.Core.Mathematics.Int3@)">
+  Divide(ref readonly Int3, int, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Divide(ref readonly Int3 value, int scale, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Dot_" data-uid="Stride.Core.Mathematics.Int3.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Dot_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Dot(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Dot(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L428"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Dot(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>First source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The dot product of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Dot_" data-uid="Stride.Core.Mathematics.Int3.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Dot_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__System_Int32__" data-uid="Stride.Core.Mathematics.Int3.Dot(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,System.Int32@)">
+  Dot(ref readonly Int3, ref readonly Int3, out int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dot(ref readonly Int3 left, ref readonly Int3 right, out int result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>First source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>When the method completes, contains the dot product of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Equals_" data-uid="Stride.Core.Mathematics.Int3.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Equals_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Equals(Stride.Core.Mathematics.Int3)">
+  Equals(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L761"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Int3 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Equals_" data-uid="Stride.Core.Mathematics.Int3.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Int3.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L773"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_GetHashCode_" data-uid="Stride.Core.Mathematics.Int3.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_GetHashCode" data-uid="Stride.Core.Mathematics.Int3.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L749"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Length_" data-uid="Stride.Core.Mathematics.Int3.Length*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Length" data-uid="Stride.Core.Mathematics.Int3.Length">
+  Length()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Length()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The length of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Int3_Length_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="Stride.Core.Mathematics.Int3.html#Stride_Core_Mathematics_Int3_LengthSquared">LengthSquared()</a> may be preferred when only the relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_LengthSquared_" data-uid="Stride.Core.Mathematics.Int3.LengthSquared*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_LengthSquared" data-uid="Stride.Core.Mathematics.Int3.LengthSquared">
+  LengthSquared()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the squared length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int LengthSquared()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The squared length of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Int3_LengthSquared_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="Stride.Core.Mathematics.Int3.html#Stride_Core_Mathematics_Int3_Length">Length()</a> when only a relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_LengthUntruncated_" data-uid="Stride.Core.Mathematics.Int3.LengthUntruncated*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_LengthUntruncated" data-uid="Stride.Core.Mathematics.Int3.LengthUntruncated">
+  LengthUntruncated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the untruncated length of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float LengthUntruncated()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The length of the vector untruncated.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Lerp_" data-uid="Stride.Core.Mathematics.Int3.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Lerp_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_System_Single_" data-uid="Stride.Core.Mathematics.Int3.Lerp(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3,System.Single)">
+  Lerp(Int3, Int3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L464"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Lerp(Int3 start, Int3 end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The linear interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Int3_Lerp_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Lerp_" data-uid="Stride.Core.Mathematics.Int3.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Lerp_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__System_Single_Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Lerp(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,System.Single,Stride.Core.Mathematics.Int3@)">
+  Lerp(ref readonly Int3, ref readonly Int3, float, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L445"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref readonly Int3 start, ref readonly Int3 end, float amount, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the linear interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Int3_Lerp_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__System_Single_Stride_Core_Mathematics_Int3___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Max_" data-uid="Stride.Core.Mathematics.Int3.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Max_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Max(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Max(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L519"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the largest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Max(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>A vector containing the largest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Max_" data-uid="Stride.Core.Mathematics.Int3.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Max_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Max(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Max(ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L506"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Max(ref readonly Int3 left, ref readonly Int3 right, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains an new vector composed of the largest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Min_" data-uid="Stride.Core.Mathematics.Int3.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Min_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Min(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Min(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Min(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>A vector containing the smallest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Min_" data-uid="Stride.Core.Mathematics.Int3.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Min_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Min(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Min(ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L531"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the smallest components of the specified vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Min(ref readonly Int3 left, ref readonly Int3 right, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first source vector.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains an new vector composed of the smallest components of the source vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Modulate_" data-uid="Stride.Core.Mathematics.Int3.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Modulate_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Modulate(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Modulate(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L327"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Modulate(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The modulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Modulate_" data-uid="Stride.Core.Mathematics.Int3.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Modulate_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Modulate(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Modulate(ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a vector with another by performing component-wise multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Modulate(ref readonly Int3 left, ref readonly Int3 right, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to modulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the modulated vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Multiply_" data-uid="Stride.Core.Mathematics.Int3.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Multiply_Stride_Core_Mathematics_Int3_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.Multiply(Stride.Core.Mathematics.Int3,System.Int32)">
+  Multiply(Int3, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Multiply(Int3 value, int scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Multiply_" data-uid="Stride.Core.Mathematics.Int3.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Multiply_Stride_Core_Mathematics_Int3__System_Int32_Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Multiply(Stride.Core.Mathematics.Int3@,System.Int32,Stride.Core.Mathematics.Int3@)">
+  Multiply(ref readonly Int3, int, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref readonly Int3 value, int scale, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Negate_" data-uid="Stride.Core.Mathematics.Int3.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Negate_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Negate(Stride.Core.Mathematics.Int3)">
+  Negate(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L369"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Negate(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>A vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Negate_" data-uid="Stride.Core.Mathematics.Int3.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Negate_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Negate(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Negate(ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L359"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly Int3 value, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains a vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Pow_" data-uid="Stride.Core.Mathematics.Int3.Pow*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Pow_System_Int32_" data-uid="Stride.Core.Mathematics.Int3.Pow(System.Int32)">
+  Pow(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises the exponent for each components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pow(int exponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exponent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The exponent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Round_" data-uid="Stride.Core.Mathematics.Int3.Round*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Round_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Int3__System_MidpointRounding_" data-uid="Stride.Core.Mathematics.Int3.Round(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Int3@,System.MidpointRounding)">
+  Round(in Vector3, out Int3, MidpointRounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L556"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the rounded values of the specified vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Round(in Vector3 value, out Int3 result, MidpointRounding rounding = MidpointRounding.ToEven)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains an new vector composed of the rounded values of the specified vector.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
+    <dd><p>The rounding strategy to use.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Round_" data-uid="Stride.Core.Mathematics.Int3.Round*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Round_Stride_Core_Mathematics_Vector3__System_MidpointRounding_" data-uid="Stride.Core.Mathematics.Int3.Round(Stride.Core.Mathematics.Vector3@,System.MidpointRounding)">
+  Round(in Vector3, MidpointRounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a vector containing the rounded values of the specified vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Round(in Vector3 value, MidpointRounding rounding = MidpointRounding.ToEven)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.midpointrounding">MidpointRounding</a></dt>
+    <dd><p>The rounding strategy to use.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>A vector containing the rounded values of the source vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_SmoothStep_" data-uid="Stride.Core.Mathematics.Int3.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_SmoothStep_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_System_Single_" data-uid="Stride.Core.Mathematics.Int3.SmoothStep(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3,System.Single)">
+  SmoothStep(Int3, Int3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L494"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 SmoothStep(Int3 start, Int3 end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The cubic interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_SmoothStep_" data-uid="Stride.Core.Mathematics.Int3.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_SmoothStep_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__System_Single_Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.SmoothStep(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,System.Single,Stride.Core.Mathematics.Int3@)">
+  SmoothStep(ref readonly Int3, ref readonly Int3, float, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SmoothStep(ref readonly Int3 start, ref readonly Int3 end, float amount, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Start vector.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>End vector.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the cubic interpolation of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Subtract_" data-uid="Stride.Core.Mathematics.Int3.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Subtract_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.Subtract(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  Subtract(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 Subtract(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_Subtract_" data-uid="Stride.Core.Mathematics.Int3.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_Subtract_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Int3__" data-uid="Stride.Core.Mathematics.Int3.Subtract(Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@,Stride.Core.Mathematics.Int3@)">
+  Subtract(ref readonly Int3, ref readonly Int3, out Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref readonly Int3 left, ref readonly Int3 right, out Int3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>When the method completes, contains the difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_ToArray_" data-uid="Stride.Core.Mathematics.Int3.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_ToArray" data-uid="Stride.Core.Mathematics.Int3.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd><p>A three-element array containing the components of the vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_ToString_" data-uid="Stride.Core.Mathematics.Int3.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_ToString" data-uid="Stride.Core.Mathematics.Int3.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L708"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_ToString_" data-uid="Stride.Core.Mathematics.Int3.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Int3.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L718"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Addition_" data-uid="Stride.Core.Mathematics.Int3.op_Addition*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Addition_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_Addition(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  operator +(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L581"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator +(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The sum of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Division_" data-uid="Stride.Core.Mathematics.Int3.op_Division*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Division_Stride_Core_Mathematics_Int3_System_Single_" data-uid="Stride.Core.Mathematics.Int3.op_Division(Stride.Core.Mathematics.Int3,System.Single)">
+  operator /(Int3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L645"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator /(Int3 value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Equality_" data-uid="Stride.Core.Mathematics.Int3.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Equality_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_Equality(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  operator ==(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L656"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Explicit_" data-uid="Stride.Core.Mathematics.Int3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Explicit_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Vector2" data-uid="Stride.Core.Mathematics.Int3.op_Explicit(Stride.Core.Mathematics.Int3)~Stride.Core.Mathematics.Vector2">
+  explicit operator Vector2(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L677"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> to <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector2(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Explicit_" data-uid="Stride.Core.Mathematics.Int3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Explicit_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Vector3" data-uid="Stride.Core.Mathematics.Int3.op_Explicit(Stride.Core.Mathematics.Int3)~Stride.Core.Mathematics.Vector3">
+  explicit operator Vector3(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L687"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> to <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector3(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Explicit_" data-uid="Stride.Core.Mathematics.Int3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Explicit_Stride_Core_Mathematics_Int3__Stride_Core_Mathematics_Vector4" data-uid="Stride.Core.Mathematics.Int3.op_Explicit(Stride.Core.Mathematics.Int3)~Stride.Core.Mathematics.Vector4">
+  explicit operator Vector4(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L697"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a> to <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector4(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Explicit_" data-uid="Stride.Core.Mathematics.Int3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Explicit_Stride_Core_Mathematics_Int3__System_Numerics_Vector3" data-uid="Stride.Core.Mathematics.Int3.op_Explicit(Stride.Core.Mathematics.Int3)~System.Numerics.Vector3">
+  explicit operator Vector3(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from Stride.Maths to System.Numerics vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector3(Int3 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Explicit_" data-uid="Stride.Core.Mathematics.Int3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Explicit_System_Numerics_Vector3__Stride_Core_Mathematics_Int3" data-uid="Stride.Core.Mathematics.Int3.op_Explicit(System.Numerics.Vector3)~Stride.Core.Mathematics.Int3">
+  explicit operator Int3(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from System.Numerics to Stride.Maths vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Int3(Vector3 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Inequality_" data-uid="Stride.Core.Mathematics.Int3.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Inequality_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_Inequality(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  operator !=(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L667"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Multiply_" data-uid="Stride.Core.Mathematics.Int3.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Multiply_Stride_Core_Mathematics_Int3_System_Single_" data-uid="Stride.Core.Mathematics.Int3.op_Multiply(Stride.Core.Mathematics.Int3,System.Single)">
+  operator *(Int3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L634"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator *(Int3 value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Multiply_" data-uid="Stride.Core.Mathematics.Int3.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Multiply_System_Single_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_Multiply(System.Single,Stride.Core.Mathematics.Int3)">
+  operator *(float, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L623"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a vector by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator *(float scale, Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the vector.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The scaled vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_Subtraction_" data-uid="Stride.Core.Mathematics.Int3.op_Subtraction*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_Subtraction_Stride_Core_Mathematics_Int3_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_Subtraction(Stride.Core.Mathematics.Int3,Stride.Core.Mathematics.Int3)">
+  operator -(Int3, Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L602"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two vectors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator -(Int3 left, Int3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The first vector to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The second vector to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The difference of the two vectors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.Int3.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_UnaryNegation_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_UnaryNegation(Stride.Core.Mathematics.Int3)">
+  operator -(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L612"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator -(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>A vector facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Int3_op_UnaryPlus_" data-uid="Stride.Core.Mathematics.Int3.op_UnaryPlus*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Int3_op_UnaryPlus_Stride_Core_Mathematics_Int3_" data-uid="Stride.Core.Mathematics.Int3.op_UnaryPlus(Stride.Core.Mathematics.Int3)">
+  operator +(Int3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L591"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assert a vector (return it unchanged).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Int3 operator +(Int3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The vector to assert (unchange).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Int3.html">Int3</a></dt>
+    <dd><p>The asserted (unchanged) vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Int3.cs/#L39" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

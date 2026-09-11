@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Custom blend trees | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Custom blend trees | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/custom-blend-trees.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="custom-blend-trees">Custom blend trees</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>The <a class="xref" href="../../api/Stride.Engine.AnimationComponent.html">AnimationComponent</a> has the property <a class="xref" href="../../api/Stride.Engine.AnimationComponent.html#Stride_Engine_AnimationComponent_BlendTreeBuilder">AnimationComponent.BlendTreeBuilder</a>. If you want absolute control over which animations are played, how are they blended and what weights they have, you can create a script which implements from <code>IBlendTreeBuilder</code> and assign it to the BlendTreeBuilder under your animation component.</p>
+<p>When the animation component is updated, it calls <code>void BuildBlendTree(FastList&lt;AnimationOperation&gt; animationList)</code> on your script instead of updating the animations itself. This allows you to choose any combination of animation clips, speeds and blends, but is also more difficult, as all the heavy lifting is now on the script side.</p>
+<p>The templates <em>First-person shooter</em>, <em>Third-person platformer</em> and <em>Top-down RPG</em>, included with Stride, are examples of how to use custom blend trees.</p>
+<h2 id="code-sample">Code sample</h2>
+<pre><code class="lang-cs">public class AnimationBlendTree : SyncScript, IBlendTreeBuilder
+{
+    /// &lt;summary&gt;
+    /// The animation component is required
+    /// &lt;/summary&gt;
+    [Display(&quot;Animation Component&quot;)]
+    public AnimationComponent AnimationComponent { get; set; }
+
+    [Display(&quot;Walk&quot;)]
+    public AnimationClip AnimationWalk { get; set; }
+
+    [Display(&quot;Run&quot;)]
+    public AnimationClip AnimationRun { get; set; }
+
+    [Display(&quot;Lerp Factor&quot;)]
+    public float LerpFactor = 0.5f;
+
+    private AnimationClipEvaluator animEvaluatorWalk;
+    private AnimationClipEvaluator animEvaluatorRun;
+    private double currentTime = 0;
+
+    public override void Start()
+    {
+        base.Start();
+
+        // IMPORTANT STEP
+        // By setting a custom blend tree builder we can override the default behavior of the animation system.
+        // Instead, BuildBlendTree(FastList&lt;AnimationOperation&gt; blendStack) will be called each frame.
+        // We need to update the animation state in Update() and then
+        // pass the new animation state (stack = blend tree) to the animation system.
+        AnimationComponent.BlendTreeBuilder = this;
+
+        // As we override the animation system, we need to create an AnimationClipEvaluator for each clip we want to use.
+        animEvaluatorWalk = AnimationComponent.Blender.CreateEvaluator(AnimationWalk);
+        animEvaluatorRun = AnimationComponent.Blender.CreateEvaluator(AnimationRun);
+    }
+
+    public override void Cancel()
+    {
+        // When the script is cancelled, don't forget to release all animation resources created in Start() - AnimationClipEvaluators
+        AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorWalk);
+        AnimationComponent.Blender.ReleaseEvaluator(animEvaluatorRun);
+    }
+        
+    public override void Update()
+    {
+        // Use DrawTime rather than UpdateTime because the animations are updated only when they are drawn.
+        var time = Game.DrawTime;
+
+        // This update function accounts for animation with different durations,
+        // keeping a current time relative to the blended maximum duration.
+        long blendedMaxDuration = (long)MathUtil.Lerp(AnimationWalk.Duration.Ticks, AnimationRun.Duration.Ticks, LerpFactor);
+
+        var currentTicks = TimeSpan.FromTicks((long)(currentTime * blendedMaxDuration));
+
+        currentTicks = blendedMaxDuration == 0
+            ? TimeSpan.Zero
+            : TimeSpan.FromTicks((currentTicks.Ticks + (long)(time.Elapsed.Ticks)) % blendedMaxDuration);
+
+        currentTime = ((double)currentTicks.Ticks / (double)blendedMaxDuration);
+    }
+
+    /// BuildBlendTree is called every frame from the animation system when the AnimationComponent needs to be evaluated.
+    /// It overrides the default behavior of the AnimationComponent by setting a custom blend tree.
+    public void BuildBlendTree(FastList&lt;AnimationOperation&gt; blendStack)
+    {
+        var timeWalk = TimeSpan.FromTicks((long) (currentTime * AnimationWalk.Duration.Ticks));
+        var timeRun  = TimeSpan.FromTicks((long) (currentTime * AnimationRun.Duration.Ticks));
+
+        // Build the animation blend tree (stack)
+        blendStack.Add(AnimationOperation.NewPush(animEvaluatorWalk, timeWalk));    // Will PUSH animation state to be evaluated at the specified Time.
+        blendStack.Add(AnimationOperation.NewPush(animEvaluatorRun, timeRun));      // Will PUSH another animation state to be evaluated at the specified Time.
+        blendStack.Add(AnimationOperation.NewBlend(CoreAnimationOperation.Blend, LerpFactor));   // Will POP the last two states, blend them with the factor and PUSH back the result.
+
+        // NOTE
+        // Because the blending operations are laid out in a stack you have to pack the operations in this manner.
+        // In general, traversing a binary tree depth-first and adding operations as you *leave* precessed nodes should be sufficient.
+        // For non-binary trees, you have to properly weight the blending factors as well
+
+        // DONE
+        // The top of the stack now contains the final state used for the animated model
+    }
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Animation index</a></li>
+<li><a href="import-animations.html">Import animations</a></li>
+<li><a href="animation-properties.html">Animation properties</a></li>
+<li><a href="set-up-animations.html">Set up animations</a></li>
+<li><a href="preview-animations.html">Preview animations</a></li>
+<li><a href="animation-scripts.html">Animation scripts</a></li>
+<li><a href="additive-animation.html">Additive animation</a></li>
+<li><a href="procedural-animation.html">Procedural animation</a></li>
+<li><a href="model-node-links.html">Model node links</a></li>
+<li><a href="custom-attributes.html">Custom attributes</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/custom-blend-trees.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

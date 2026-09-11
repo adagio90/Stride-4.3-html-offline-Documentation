@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Loading content | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Loading content | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/loading-content.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="loading-content">Loading content</h1>
+
+<p>You can find this sample in the tutorial project: <strong>Menu</strong> → <strong>Loading content from code</strong></p>
+<h2 id="explanation">Explanation</h2>
+<p>This C# Beginner tutorial covers how to load content from code.</p>
+<p>Assets like models, textures, sound etc can be loaded from during runtime. At that point we no longer speak of assets but of 'content'.</p>
+<p>This tutorial specifically loads content of the <code>Model</code> type. Loaded content that is no longer required in your scene, should be unloaded again so save up memory. For more information on assets see <a href="../../manual/game-studio/manage-assets.html">Manage assets</a>.</p>
+<p><img src="media/loading-content.webp" alt="Loading content"></p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/_c4Cv4k3YyI?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="code">Code</h2>
+<p>With the <strong>L</strong> and <strong>U</strong> key you can either Load or Unload the model of a mannequin. If there is a model loaded, you can use the <strong>S</strong> key to spawn a new entity with the loaded mannequin model.</p>
+<p>The <strong>C</strong> clears all of the spawned entities in the scene. This demo demonstrates that when models are unloaded, any entities that reference the model are still existing in the scene.</p>
+<pre><code class="lang-csharp" name="Loading content">using System;
+using System.Collections.Generic;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Input;
+using Stride.Rendering;
+
+namespace CSharpBeginner.Code
+{
+    /// &lt;summary&gt;
+    /// This script demonstrates how we can load contect from code, and attach it to an entity
+    /// &lt;para&gt;
+    /// https://doc.stride3d.net/latest/en/tutorials/csharpbeginner/loading-content.html
+    /// &lt;/para&gt;
+    /// &lt;/summary&gt;
+    public class LoadingContentDemo : SyncScript
+    {
+        private Model loadedMannequinModel = null;
+        private Stack&lt;Entity&gt; spawnedEntities = new Stack&lt;Entity&gt;();
+        private Random random = new Random();
+
+        public override void Start() { }
+
+        public override void Update()
+        {
+            // To load any content we use the Load method. First we need to specify the type between the '&lt; &gt;'. The we provide the URL 
+            if (Input.IsKeyPressed(Keys.L))
+            {
+                loadedMannequinModel = Content.Load&lt;Model&gt;(&quot;Models/mannequinModel&quot;);
+            }
+
+            // To remove loaded content we use the unload method to remove all existing models from the scene. 
+            // Note: when we remove content, we can no longer see the model, but the entity still exists in the scene 
+            if (Input.IsKeyPressed(Keys.U))
+            {
+                Content.Unload(loadedMannequinModel);
+                loadedMannequinModel = null;
+            }
+
+            // If the model has been loaded, create a new entity and randomly place it in the scene
+            if (Input.IsKeyPressed(Keys.S))
+            {
+                CreateEntityWithModelAndRandomlyPositionInScene();
+            }
+
+            // Clear all entities from the tutorial scene. This does not unload the model
+            if (Input.IsKeyPressed(Keys.C))
+            {
+                while (spawnedEntities.Count &gt; 0)
+                {
+                    Entity.Scene.Entities.Remove(spawnedEntities.Pop());
+                }
+            }
+
+            DebugText.Print(&quot;Model is &quot; + (loadedMannequinModel == null ? &quot;not loaded&quot; : &quot;loaded&quot;), new Int2(340, 580));
+            DebugText.Print(&quot;Press L to load the manequin model&quot;, new Int2(340, 600));
+            DebugText.Print(&quot;Press U to unload the mannequin model&quot;, new Int2(340, 620));
+            DebugText.Print(&quot;Press S to spawn an entity if the model has been loaded&quot;, new Int2(340, 660));
+            DebugText.Print(&quot;Press C to clear all spawned entities&quot;, new Int2(340, 680));
+            DebugText.Print(&quot;Spawned entities count: &quot; + spawnedEntities.Count, new Int2(340, 700));
+        }
+
+        private void CreateEntityWithModelAndRandomlyPositionInScene()
+        {
+            if (loadedMannequinModel != null)
+            {
+                // Create a new model component that references the loaded mannequin model
+                var modelComponent = new ModelComponent(loadedMannequinModel);
+
+                // Get a random position near the center of the scene
+                var randomPosition = new Vector3(random.Next(-2, 4), 0, random.Next(-2, 2));
+
+                // Create a new entity and attach a model component 
+                var entity = new Entity(&quot;My new entity with a model component&quot;, randomPosition);
+                entity.Add(modelComponent);
+
+                // Add the new entity to the current tutorial scene
+                Entity.Scene.Entities.Add(entity);
+
+                // We add the spawned entities to a stack to keep track of them
+                spawnedEntities.Push(entity);
+            }
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpbeginner/loading-content.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

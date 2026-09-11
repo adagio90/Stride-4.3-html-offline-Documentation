@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ForwardRenderer | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ForwardRenderer | Stride API ">
+      
+      <meta name="description" content="Renders your game. It should use current  and .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Compositing_ForwardRenderer.md&amp;value=---%0Auid%3A%20Stride.Rendering.Compositing.ForwardRenderer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Compositing.ForwardRenderer">
+
+
+
+  <h1 id="Stride_Rendering_Compositing_ForwardRenderer" data-uid="Stride.Rendering.Compositing.ForwardRenderer" class="text-break">
+Class ForwardRenderer  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.VRUtils.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Compositing.html">Compositing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Engine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Renders your game. It should use current <a class="xref" href="Stride.Rendering.RenderContext.html#Stride_Rendering_RenderContext_RenderView">RenderView</a> and <a class="xref" href="Stride.Rendering.CameraComponentRendererExtensions.html#Stride_Rendering_CameraComponentRendererExtensions_GetCurrentCamera_Stride_Rendering_RenderContext_">GetCurrentCamera(RenderContext)</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Forward renderer&quot;, null)]
+public class ForwardRenderer : SceneRendererBase, IComponent, IReferencable, ICollectorHolder, ISceneRenderer, IRenderCollector, IGraphicsRenderer, IGraphicsRendererCore, IDisposable, ISharedRenderer, IIdentifiable, IGraphicsRendererBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererCoreBase.html">RendererCoreBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.Compositing.SceneRendererBase.html">SceneRendererBase</a></div>
+      <div><span class="xref">ForwardRenderer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.Compositing.ISceneRenderer.html">ISceneRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IRenderCollector.html">IRenderCollector</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRenderer.html">IGraphicsRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Rendering.Compositing.ISharedRenderer.html">ISharedRenderer</a></div>
+      <div><a class="xref" href="Stride.Core.IIdentifiable.html">IIdentifiable</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererBase.html">IGraphicsRendererBase</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Compositing.SceneRendererBase.html#Stride_Rendering_Compositing_SceneRendererBase_Id">SceneRendererBase.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Compositing.SceneRendererBase.html#Stride_Rendering_Compositing_SceneRendererBase_Collect_Stride_Rendering_RenderContext_">SceneRendererBase.Collect(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Compositing.SceneRendererBase.html#Stride_Rendering_Compositing_SceneRendererBase_Draw_Stride_Rendering_RenderDrawContext_">SceneRendererBase.Draw(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Enabled">RendererCoreBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Profiling">RendererCoreBase.Profiling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GPUProfilingKey">RendererCoreBase.GPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CPUProfilingKey">RendererCoreBase.CPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Context">RendererCoreBase.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Services">RendererCoreBase.Services</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Content">RendererCoreBase.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GraphicsDevice">RendererCoreBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EffectSystem">RendererCoreBase.EffectSystem</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialized">RendererCoreBase.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialize_Stride_Rendering_RenderContext_">RendererCoreBase.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Unload">RendererCoreBase.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PreDrawCore_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PreDrawCore(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PostDrawCore_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PostDrawCore(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedBuffer_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_">RendererCoreBase.NewScopedBuffer(BufferDescription, PixelFormat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_NewScopedTypedBuffer_System_Int32_Stride_Graphics_PixelFormat_System_Boolean_Stride_Graphics_GraphicsResourceUsage_">RendererCoreBase.NewScopedTypedBuffer(int, PixelFormat, bool, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PushScopedResource__1___0_">RendererCoreBase.PushScopedResource&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CheckIsInDrawCore">RendererCoreBase.CheckIsInDrawCore()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_ToLoadAndUnload__1___0_">RendererCoreBase.ToLoadAndUnload&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PreDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PreDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_EnsureContext_Stride_Rendering_RenderContext_">RendererCoreBase.EnsureContext(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_PostDrawCoreInternal_Stride_Rendering_RenderDrawContext_">RendererCoreBase.PostDrawCoreInternal(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_DepthBufferFormat" data-uid="Stride.Rendering.Compositing.ForwardRenderer.DepthBufferFormat">
+  DepthBufferFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const PixelFormat DepthBufferFormat = D24_UNorm_S8_UInt</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_viewDepthStencil" data-uid="Stride.Rendering.Compositing.ForwardRenderer.viewDepthStencil">
+  viewDepthStencil
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture viewDepthStencil</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_viewOutputTarget" data-uid="Stride.Rendering.Compositing.ForwardRenderer.viewOutputTarget">
+  viewOutputTarget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Texture viewOutputTarget</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_BindDepthAsResourceDuringTransparentRendering_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.BindDepthAsResourceDuringTransparentRendering*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_BindDepthAsResourceDuringTransparentRendering" data-uid="Stride.Rendering.Compositing.ForwardRenderer.BindDepthAsResourceDuringTransparentRendering">
+  BindDepthAsResourceDuringTransparentRendering
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, depth buffer generated during <a class="xref" href="Stride.Rendering.Compositing.ForwardRenderer.html#Stride_Rendering_Compositing_ForwardRenderer_OpaqueRenderStage">OpaqueRenderStage</a> will be available as a shader resource named DepthBase.DepthStencil during <a class="xref" href="Stride.Rendering.Compositing.ForwardRenderer.html#Stride_Rendering_Compositing_ForwardRenderer_TransparentRenderStage">TransparentRenderStage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BindDepthAsResourceDuringTransparentRendering { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Rendering_Compositing_ForwardRenderer_BindDepthAsResourceDuringTransparentRendering_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is needed by some effects such as particles soft edges.</p>
+<p>On recent platforms that can bind depth buffer as read-only (<a class="xref" href="Stride.Graphics.GraphicsDeviceFeatures.html#Stride_Graphics_GraphicsDeviceFeatures_HasDepthAsReadOnlyRT">HasDepthAsReadOnlyRT</a>), depth buffer will be used as is. Otherwise, a copy will be generated.</p>
+</div>
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_BindOpaqueAsResourceDuringTransparentRendering_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.BindOpaqueAsResourceDuringTransparentRendering*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_BindOpaqueAsResourceDuringTransparentRendering" data-uid="Stride.Rendering.Compositing.ForwardRenderer.BindOpaqueAsResourceDuringTransparentRendering">
+  BindOpaqueAsResourceDuringTransparentRendering
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, render target generated during <a class="xref" href="Stride.Rendering.Compositing.ForwardRenderer.html#Stride_Rendering_Compositing_ForwardRenderer_OpaqueRenderStage">OpaqueRenderStage</a> will be available as a shader resource named OpaqueBase.OpaqueRenderTarget during <a class="xref" href="Stride.Rendering.Compositing.ForwardRenderer.html#Stride_Rendering_Compositing_ForwardRenderer_TransparentRenderStage">TransparentRenderStage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BindOpaqueAsResourceDuringTransparentRendering { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_Clear_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.Clear*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_Clear" data-uid="Stride.Rendering.Compositing.ForwardRenderer.Clear">
+  Clear
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClearRenderer Clear { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.ClearRenderer.html">ClearRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_GBufferRenderStage_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.GBufferRenderStage*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_GBufferRenderStage" data-uid="Stride.Rendering.Compositing.ForwardRenderer.GBufferRenderStage">
+  GBufferRenderStage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The G-Buffer render stage to render depth buffer and possibly some other extra info to buffers (i.e. normals)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderStage GBufferRenderStage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_LightProbes_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.LightProbes*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_LightProbes" data-uid="Stride.Rendering.Compositing.ForwardRenderer.LightProbes">
+  LightProbes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enable Light Probe.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LightProbes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_LightShafts_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.LightShafts*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_LightShafts" data-uid="Stride.Rendering.Compositing.ForwardRenderer.LightShafts">
+  LightShafts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Light shafts effect</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LightShafts LightShafts { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.LightShafts.html">LightShafts</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_MSAALevel_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.MSAALevel*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_MSAALevel" data-uid="Stride.Rendering.Compositing.ForwardRenderer.MSAALevel">
+  MSAALevel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The level of multi-sampling</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultisampleCount MSAALevel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MultisampleCount.html">MultisampleCount</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_MSAAResolver_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.MSAAResolver*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_MSAAResolver" data-uid="Stride.Rendering.Compositing.ForwardRenderer.MSAAResolver">
+  MSAAResolver
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>MSAA Resolver is used to resolve multi-sampled render targets into normal render targets</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MSAAResolver MSAAResolver { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.MSAAResolver.html">MSAAResolver</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_OpaqueRenderStage_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.OpaqueRenderStage*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_OpaqueRenderStage" data-uid="Stride.Rendering.Compositing.ForwardRenderer.OpaqueRenderStage">
+  OpaqueRenderStage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The main render stage for opaque geometry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderStage OpaqueRenderStage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_PostEffects_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.PostEffects*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_PostEffects" data-uid="Stride.Rendering.Compositing.ForwardRenderer.PostEffects">
+  PostEffects
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The post effects renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPostProcessingEffects PostEffects { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.IPostProcessingEffects.html">IPostProcessingEffects</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_ShadowMapRenderStages_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ShadowMapRenderStages*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_ShadowMapRenderStages" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ShadowMapRenderStages">
+  ShadowMapRenderStages
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shadow map render stages for shadow casters. No shadow rendering will happen if null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RenderStage&gt; ShadowMapRenderStages { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_SubsurfaceScatteringBlurEffect_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.SubsurfaceScatteringBlurEffect*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_SubsurfaceScatteringBlurEffect" data-uid="Stride.Rendering.Compositing.ForwardRenderer.SubsurfaceScatteringBlurEffect">
+  SubsurfaceScatteringBlurEffect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Separable subsurface scattering effect</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SubsurfaceScatteringBlur SubsurfaceScatteringBlurEffect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.SubsurfaceScattering.SubsurfaceScatteringBlur.html">SubsurfaceScatteringBlur</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_TransparentRenderStage_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.TransparentRenderStage*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_TransparentRenderStage" data-uid="Stride.Rendering.Compositing.ForwardRenderer.TransparentRenderStage">
+  TransparentRenderStage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The transparent render stage for transparent geometry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderStage TransparentRenderStage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.RenderStage.html">RenderStage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_VRSettings_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.VRSettings*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_VRSettings" data-uid="Stride.Rendering.Compositing.ForwardRenderer.VRSettings">
+  VRSettings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Virtual Reality related settings</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VRRendererSettings VRSettings { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Compositing.VRRendererSettings.html">VRRendererSettings</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_ViewCount_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ViewCount*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_ViewCount" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ViewCount">
+  ViewCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int ViewCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_ViewIndex_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ViewIndex*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_ViewIndex" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ViewIndex">
+  ViewIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int ViewIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_CollectCore_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectCore*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_CollectCore_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectCore(Stride.Rendering.RenderContext)">
+  CollectCore(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Main collect method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void CollectCore(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_CollectStages_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectStages*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_CollectStages_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectStages(Stride.Rendering.RenderContext)">
+  CollectStages(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CollectStages(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_CollectView_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectView*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_CollectView_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.CollectView(Stride.Rendering.RenderContext)">
+  CollectView(RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CollectView(RenderContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_ComputeNonMSAADepthFormat_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ComputeNonMSAADepthFormat*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_ComputeNonMSAADepthFormat_Stride_Graphics_PixelFormat_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ComputeNonMSAADepthFormat(Stride.Graphics.PixelFormat)">
+  ComputeNonMSAADepthFormat(PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L431"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static PixelFormat ComputeNonMSAADepthFormat(PixelFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_Destroy_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.Destroy*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_Destroy" data-uid="Stride.Rendering.Compositing.ForwardRenderer.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L906"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_DrawCore_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.DrawCore*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_DrawCore_Stride_Rendering_RenderContext_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.DrawCore(Stride.Rendering.RenderContext,Stride.Rendering.RenderDrawContext)">
+  DrawCore(RenderContext, RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L621"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Main drawing method for this renderer that must be implemented.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DrawCore(RenderContext context, RenderDrawContext drawContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+    <dt><code>drawContext</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_DrawView_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.DrawView*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_DrawView_Stride_Rendering_RenderContext_Stride_Rendering_RenderDrawContext_System_Int32_System_Int32_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.DrawView(Stride.Rendering.RenderContext,Stride.Rendering.RenderDrawContext,System.Int32,System.Int32)">
+  DrawView(RenderContext, RenderDrawContext, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void DrawView(RenderContext context, RenderDrawContext drawContext, int eyeIndex, int eyeCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+    <dt><code>drawContext</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+    <dt><code>eyeIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>eyeCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_InitializeCore_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.InitializeCore*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_InitializeCore" data-uid="Stride.Rendering.Compositing.ForwardRenderer.InitializeCore">
+  InitializeCore()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeCore()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_PrepareRenderTargets_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.PrepareRenderTargets*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_PrepareRenderTargets_Stride_Rendering_RenderDrawContext_Stride_Core_Mathematics_Size2_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.PrepareRenderTargets(Stride.Rendering.RenderDrawContext,Stride.Core.Mathematics.Size2)">
+  PrepareRenderTargets(RenderDrawContext, Size2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L880"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prepares targets per frame, caching and handling MSAA etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PrepareRenderTargets(RenderDrawContext drawContext, Size2 renderTargetsSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>drawContext</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd><p>The current draw context</p>
+</dd>
+    <dt><code>renderTargetsSize</code> <a class="xref" href="Stride.Core.Mathematics.Size2.html">Size2</a></dt>
+    <dd><p>The render target size</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Compositing_ForwardRenderer_ValidateOpaqueStageOutput_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ValidateOpaqueStageOutput*"></a>
+
+  <h3 id="Stride_Rendering_Compositing_ForwardRenderer_ValidateOpaqueStageOutput_Stride_Rendering_Compositing_RenderOutputValidator_Stride_Rendering_RenderContext_" data-uid="Stride.Rendering.Compositing.ForwardRenderer.ValidateOpaqueStageOutput(Stride.Rendering.Compositing.RenderOutputValidator,Stride.Rendering.RenderContext)">
+  ValidateOpaqueStageOutput(RenderOutputValidator, RenderContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void ValidateOpaqueStageOutput(RenderOutputValidator renderOutputValidator, RenderContext renderContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderOutputValidator</code> <a class="xref" href="Stride.Rendering.Compositing.RenderOutputValidator.html">RenderOutputValidator</a></dt>
+    <dd></dd>
+    <dt><code>renderContext</code> <a class="xref" href="Stride.Rendering.RenderContext.html">RenderContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Engine/Rendering/Compositing/ForwardRenderer.VRUtils.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

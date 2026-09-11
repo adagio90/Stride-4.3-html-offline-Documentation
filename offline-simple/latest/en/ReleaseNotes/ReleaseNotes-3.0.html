@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 3.0 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 3.0 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-3.0.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-30-release-notes">Xenko 3.0 release notes</h1>
+
+<p>August 2, 2018</p>
+<h2 id="highlights">Highlights</h2>
+<h3 id="xenko-is-now-a-mit-community-based-opensource-project">Xenko is now a MIT community-based opensource project!</h3>
+<p>You read that right. <strong>Xenko 3.0</strong> is out now, released under the permissive <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<p>From now on, you can use and modify Xenko completely <strong>free</strong> — whether you're a professional, a student, or just looking for a new hobby. This includes the runtime and editor.</p>
+<p><img src="media/ReleaseNotes-3.0/xenko-oss.png" alt="Xenko GitHub"></p>
+<p>Silicon Studio no longer supports Xenko, but members of the Xenko team will continue to work on it as part of the community.</p>
+<p>We encourage people to help us and contribute to the project. If interested, join us on <a href="https://github.com/xenko3d/xenko/">GitHub</a>.</p>
+<p>We are really excited to see what people will come up with!</p>
+<p>Thanks for supporting Xenko!</p>
+<h3 id="new-project-system">New project system</h3>
+<p>Both Xenko itself and users project are now built on top of the new project system.</p>
+<p>It means your game csproj are now simpler as ever, with only a <code>PackageReference</code> to Xenko.</p>
+<p>This makes package restore, upgrade and selection much more convenient. Opening a project with a non-installed version of Xenko should work out of the box too, as long as Xenko launcher is installed.</p>
+<p>Longer down the road, the plan is to split Xenko further into separate packages such as <code>Xenko.Graphics</code>, <code>Xenko.Physics</code> and <code>Xenko.Editor</code> (and possibly host them directly on nuget.org).</p>
+<h3 id="video">Video</h3>
+<p>It is now possible to add video to your games.</p>
+<p>Note that this feature is not completely tested and supported on all platforms, but we decided to include it anyway and tune it later to not delay the MIT release further.</p>
+<h3 id="skin-and-hair-rendering">Skin and Hair rendering</h3>
+<p>Skin and hair rendering are now possible with Xenko.</p>
+<p>Skin rendering is based on subsurface scattering, and hair rendering is based on Kajiya-Kay and Scheuermann models.</p>
+<p>Same as video, this feature might still need some improvements and tuning, but we decided to not delay the MIT release further.</p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<h3 id="xenko-namespace-changes">Xenko namespace changes</h3>
+<p>Lot of namespace changes to decouple the namespace from <code>SiliconStudio</code>:</p>
+<ul>
+<li><code>SiliconStudio.Xenko</code> renamed <code>Xenko</code></li>
+<li><code>SiliconStudio.Core</code> and <code>SiliconStudio.*</code> renamed <code>Xenko.Core</code></li>
+</ul>
+<p>Projects should automatically be updated, but we recommend you making a backup of your project before, and double check everything is good after the upgrade.</p>
+<h3 id="new-project-system-1">New project system</h3>
+<p>Game project will be recreated with the new project system.</p>
+<p>This should happen automatically but you might need a few tweaks afterwise (i.e. readjust Build Action on certain csproj items).</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="android">Android</h3>
+<ul>
+<li>Fix calls to OnPause and OnResume when the application is put on background/foreground.</li>
+<li>Fix regex used to check version of android ndk.</li>
+</ul>
+<h3 id="androidtests">Android.Tests</h3>
+<ul>
+<li>Fix crash when launching test activity from test launcher.</li>
+</ul>
+<h3 id="animation">Animation</h3>
+<ul>
+<li>Add the possibility to import animation curves of custom attributes present in FBXs.</li>
+</ul>
+<h3 id="assemblyprocessor">AssemblyProcessor</h3>
+<ul>
+<li>Generate serialization code directly with Cecil</li>
+<li>Look into interfaces contained in base classes when generating ListUpdateRevolver registration code.</li>
+<li>Removed iOS workarounds (calli generics and unbox)</li>
+<li>Support PinnedType</li>
+<li>Use ILRepack from NuGet</li>
+</ul>
+<h3 id="assetcompiler">AssetCompiler</h3>
+<ul>
+<li>Install target redirect on first build, and improve path detection</li>
+<li>Show URL of asset in case of exceptions in Command</li>
+</ul>
+<h3 id="assets">Assets</h3>
+<ul>
+<li>Add the possibility to not to merge meshes of a model without skeleton to benefit of culling.</li>
+<li>Add the possibility to use a model without animation as reference of a diff animation clip.</li>
+<li>Automatically track source code changes (DefaultItems)</li>
+<li>Factorize SoundAssetCompiler for future use (video)</li>
+<li>Fixed Assets.Tests nuget packages/app.config</li>
+<li>Introduce `IAssetWithSource` interface to unify `AssetWithSource` with other kind of assets having a source (e.g. `ModelAsset`).</li>
+<li>Move Sound asset classes into `Media` namespace</li>
+<li>Package upgrader for BackgroundComponent.Is2D</li>
+<li>Sound: Use ShellHelper to call ffmpeg</li>
+</ul>
+<h3 id="assetscompiler">Assets.Compiler</h3>
+<ul>
+<li>Reorganized remote builder in Assets.CompilerApp rather than BuildEngine.Common</li>
+</ul>
+<h3 id="assetseditor">Assets.Editor</h3>
+<ul>
+<li>Remove deleted resx from csproj</li>
+</ul>
+<h3 id="assetsmodel">Assets.Model</h3>
+<ul>
+<li>Added mechanism to customize models during asset compilation.</li>
+</ul>
+<h3 id="audio">Audio</h3>
+<ul>
+<li>Various improvements (courtesy of Pierre and Jonathan)</li>
+</ul>
+<h3 id="audiotests">Audio.Tests</h3>
+<ul>
+<li>Temporarily remove 4 channels sounds (fails with ffmpeg)</li>
+<li>Test not compiling since SoundPlayState =&gt; PlayState renaming</li>
+</ul>
+<h3 id="audiovideo">Audio/Video</h3>
+<ul>
+<li>Detect FFMpeg errors</li>
+</ul>
+<h3 id="build">Build</h3>
+<ul>
+<li>Add explicit TargetFramework to project files</li>
+<li>Added DataMemberIgnore on LocalReflections.DebugModes to avoid serialization mismatch</li>
+<li>Added props/targets redirection for NuGet consumption</li>
+<li>Added System.ValueTuple (temporary fix until we switch to PackageReference for Xenko itself)</li>
+<li>Bumped Windows 10 SDK to 10.0.16299.0</li>
+<li>Change explicit TargetFrameworkVersions to TargetFramework</li>
+<li>Convert to PackageReference</li>
+<li>Define the TargetFramework for tooling assemblies</li>
+<li>Delete all packages.config and includes</li>
+<li>Disable native build during design-time build</li>
+<li>Explicitly include Microsoft.NET.Sdk props/targets for a few more projects that were not compiling correctly</li>
+<li>Explicitly include Microsoft.NET.Sdk props/targets to be able to override some values</li>
+<li>Fill list of files to cleanup only when running the clean target</li>
+<li>Fix compilation of shader related projects</li>
+<li>Fix CoreCLR build</li>
+<li>Fix language targets for WPF projects</li>
+<li>Fix OutputPath</li>
+<li>Fix package build</li>
+<li>Fix skybox not working with compressed cubemaps.</li>
+<li>Fix some project builds</li>
+<li>Fixed incremental build (still not perfect, waiting for more info on <a href="https://github.com/dotnet/project-system/issues/3157">https://github.com/dotnet/project-system/issues/3157</a>)</li>
+<li>Fixed unit test and package builds</li>
+<li>If SiliconStudioCompilerTargetsEnable is set to false, override LanguageTargets to an empty one</li>
+<li>Include *.cs files that are not in the project directory</li>
+<li>List resource folders explicitly in .xkpkg</li>
+<li>Make Xenko Native .cpp/.h file globbing faster by ignoring obj/bin folders</li>
+<li>More cleanup</li>
+<li>Moved sources from sources/common subdirectory to sources so that everything is at the same level</li>
+<li>Override SiliconStudioXenkoOutputPath even if set</li>
+<li>Remove *.CSharp.targets imports</li>
+<li>Remove default comments</li>
+<li>Remove many unnecesssary properties</li>
+<li>Remove Microsoft.Common.props imports</li>
+<li>Remove most attributes from AssemblyInfo.cs</li>
+<li>Remove obsolete files</li>
+<li>Remove references to default framework assemblies</li>
+<li>Remove some redundant Compile item updates</li>
+<li>Remove ToolsVersions</li>
+<li>Remove unnecessary *.cs file includes</li>
+<li>Remove unnecessary xml directives</li>
+<li>Removed CoreFX</li>
+<li>Removed LZMA compression (better to be directly supported at NuGet level?)</li>
+<li>Removed SiliconStudio.Presentation.SampleApp (not used)</li>
+<li>Removed unused SharpDiff</li>
+<li>Removed unused SharpDX.Mathematics from deps (using NuGet version already)</li>
+<li>Removed unused SQLite</li>
+<li>Revert samples to not use new csproj system for now</li>
+<li>Revert unit tests to old system for now</li>
+<li>Run AssemblyProcessor right before assembly is copied rather than during CoreCompile (which happens during Visual Studio loading)</li>
+<li>Setup proper AssemblyName for packageinstall assemblies</li>
+<li>Setup target for cpp (respecting SiliconStudioCompilerTargetsEnable)</li>
+<li>SiliconStudioXenkoReplaceVersionInfo target was not working properly with new build system</li>
+<li>Simplify ProjectReferences</li>
+<li>Switch to new csproj system for games</li>
+<li>Switch to nuget version for Mono.Options</li>
+<li>Switch to nuget version for Mono.TextTemplating</li>
+<li>Tests projects now have a Service in csproj with latest VS update</li>
+<li>Update *.cs files with additional properties, instead of including</li>
+<li>Update .gitignore for launchSettings.json</li>
+<li>Update build instructions</li>
+<li>Update embedded resources instead of including</li>
+<li>Update project file headers</li>
+<li>Updated LLVM to 5.0.1 (avoid some issues with &quot;terminate&quot; missing symbol on UWP, which should resolve to std::terminate)</li>
+<li>Updated THIRD PARTY.md to reflect usage of DocFX rather than SharpDoc</li>
+<li>Upgrade to new csproj format</li>
+<li>Use MSBuild 15.5 from MyGet</li>
+<li>Use Windows SDK v10.0 instead of v8.1 for d3dcompiler_47.dll</li>
+<li>Various improvements/fixes for the new project system</li>
+<li>Workaround for <a href="https://github.com/xamarin/xamarin-android/issues/1235">https://github.com/xamarin/xamarin-android/issues/1235</a> (Android resources not being properly merged in incremental build)</li>
+<li>Workaround for solution dependencies with incomptable frameworks: <a href="https://github.com/Microsoft/msbuild/issues/2661#issuecomment-338808156">https://github.com/Microsoft/msbuild/issues/2661#issuecomment-338808156</a></li>
+</ul>
+<h3 id="buildengine">BuildEngine</h3>
+<ul>
+<li>Tests: fix build since SlaveBuilderPath has been removed</li>
+</ul>
+<h3 id="cecil">Cecil</h3>
+<ul>
+<li>Protect against null reference exception when there is no yields in async method</li>
+<li>Update to latest Cecil + ILRepack</li>
+</ul>
+<h3 id="core">Core</h3>
+<ul>
+<li>Remove unnecessary constraint on generic parameters of extension methods `DisposeBy` and `RemoveDisposeBy`.</li>
+</ul>
+<h3 id="coretests">Core.Tests</h3>
+<ul>
+<li>Disable when building with CoreCLR or if SiliconStudioSkipUnitTests is set</li>
+<li>Fixed csproj so that it properly builds</li>
+</ul>
+<h3 id="crashreport">CrashReport</h3>
+<ul>
+<li>Turned into a shared project</li>
+</ul>
+<h3 id="deps">Deps</h3>
+<ul>
+<li>Removed unused lzma.exe</li>
+<li>Removed unused NuGet libraries (using PackageReference instead)</li>
+<li>Update checkout scripts.</li>
+<li>Update version of ffmpeg to from 3.3 to 3.4.</li>
+</ul>
+<h3 id="editor">Editor</h3>
+<ul>
+<li>Change editor build directory to project Cache directory even in Dev mode. Remove fallback folder property from the settings (misleading).</li>
+<li>correct lens flare display attribute</li>
+<li>FindTemplates according to current session (or default package if no session loaded)</li>
+<li>Fix NullReference crash when asset is mising the DisplayAttribute.</li>
+<li>Update localization files.</li>
+<li>Update localization files. Also updated some comments.</li>
+<li>Updated to CodeAnalysis 2.4.0 and RoslynPad 1.0.4 (from NuGet)</li>
+</ul>
+<h3 id="engine">Engine</h3>
+<ul>
+<li>Add a flag to be able to force the engine to update the animation evaluator cache (useful when updating clip channel values at runtime).</li>
+<li>Add getter to AnimationProcessor in order to be able to access AnimationClipResult.</li>
+<li>Added texture projection to light spots (courtesy of Mirsad)</li>
+<li>AnimationBlender: Implement blending for type Float1.</li>
+<li>Change log level of ffmpeg to `fatal`. `error` level can display recoverable errors.</li>
+<li>Clamping the normal.z value to (0, 1) to prevent NaN result from sqrt().</li>
+<li>Code cleanup.</li>
+<li>Delay the initialization of the shader parsers to first usage instead of first shader loaded (significantly reduce the load time in case no shader need to be compiled).</li>
+<li>Fix LightShafts with shadowmap transmittance</li>
+<li>Fix several crashes and multi-threading issues happening when modelNodeLinkComponents is targeting a model not in its parent hierarchy.</li>
+<li>Implement interface ICollectorHolder in ScriptComponent to be able to automatically dispose objects during the script Cancel method.</li>
+<li>Minor cleanup</li>
+<li>Move ModelNodeLinkProcessor before TransformProcessor to avoid to have the first frame where the transformation is not updated.</li>
+<li>NotNull and cosmetic improvements</li>
+<li>Removed some unused code/files</li>
+<li>Return the created PlayingAnimations when adding a new AnimationClip for convenience and consistency with other play functions.</li>
+<li>Streaming: Added a new DoNotStream option</li>
+<li>Support moving entity inside scene</li>
+<li>UpdateEngine: look for member updater coming from base classes before falling back on custom resolver.</li>
+</ul>
+<h3 id="execserver">ExecServer</h3>
+<ul>
+<li>Remove LoaderOptimization.MultiDomain</li>
+</ul>
+<h3 id="fbx">FBX</h3>
+<ul>
+<li>Switch to FBX SDK 2018.1.1</li>
+</ul>
+<h3 id="fbximporter">FBX.Importer</h3>
+<ul>
+<li>Optimize calculation of Quaternion from XYZ rotation keyframe.</li>
+</ul>
+<h3 id="game">Game</h3>
+<ul>
+<li>Add the possibility to render the splash screen as a double view for VR games.</li>
+</ul>
+<h3 id="gamestudio">GameStudio</h3>
+<ul>
+<li>Remove expiration</li>
+</ul>
+<h3 id="general">General</h3>
+<ul>
+<li>Removed bunch of unused files and fixed some license headers</li>
+</ul>
+<h3 id="graphics">Graphics</h3>
+<ul>
+<li>Add support for panorama 2D textures to skybox asset.</li>
+<li>Add ViewDimension property on Texture. Adjust code accordingly so that the engine behaves properly on View textures.</li>
+<li>Added a cast in SubsurfaceScatteringBlur.cs.</li>
+<li>Added a check to see if the MaterialIndices buffer is used before overwriting &quot;allTargets[1]&quot;.</li>
+<li>Added a comment in MaterialHairLightAttenuationFunctionDirectional.xksl.</li>
+<li>Added a comment.</li>
+<li>Added a first version of the MeshHairRenderStageSelector class.</li>
+<li>Added an exception.</li>
+<li>Added comments.</li>
+<li>Added NotNull</li>
+<li>Added PCF for SSS thickness. Refactored the PCF code. Renamed &quot;CalculateThickness()&quot; to &quot;FilterThickness()&quot;.</li>
+<li>Added some casts to fix shader errors.</li>
+<li>Added support for cavity &amp; occlusion maps in the hair shading model.</li>
+<li>Added support for choosing which normals to use for the directional light attenuation for hair. Moved a computation from the GPU to the CPU.</li>
+<li>Added support for configuring the scattering kernel parameters. Refactored the scattering kernel generation.</li>
+<li>Added support for fake shadowing.</li>
+<li>Added support for per-material scattering kernels and scattering profiles.</li>
+<li>Added support for resizing the material array for the SSSS post process. Refactored the code.</li>
+<li>Added support for up to 256 scattering kernels in the SSS post-process by storing the kernels in a buffer.</li>
+<li>Added the missing multiplication by the diffuse color for the scattering.</li>
+<li>Added two editor-tunable (not yet integrated) parameters for the SSS transmittance.</li>
+<li>Baked a calculation into the SSS scattering kernel so it doesn't have to be executed in the post-process.</li>
+<li>Based the SSS shading model on the diffuse lambert one instead of the CelShading one. Removed redundant files.</li>
+<li>Cleaned up some spotlight code.</li>
+<li>Cleaned up the &quot;SubsurfaceScatteringBlur&quot; class.</li>
+<li>Cleaned up the SSS transmittance profile and scattering kernel generation code.</li>
+<li>Cleaned up the SSSS post-process shader.</li>
+<li>Correctly integrated the depth-stencil resolve for hair and transparent objects.</li>
+<li>Defined default values for properties and simplified the code.</li>
+<li>Fed the proper NdotL term into certain functions. Little refactoring. Applied shadows to the specular reflections.</li>
+<li>Finalized the indirect specular hair lighting for now.</li>
+<li>Fix 2D texture skybox shader compilation crash with graphics API level &lt; 10</li>
+<li>Fix D3D12 build</li>
+<li>Fixed a bug causing the shadow map offset to be calculated incorrectly for certain light directions.</li>
+<li>Fixed a bug causing the shadow map pixel thickness streams variable not to be set.</li>
+<li>Fixed a bug in the SSS post-process which caused the scattering kernel to become distorted in non-square viewports.</li>
+<li>Fixed a bug inside of ShadowMapReceiverSpot.xksl.</li>
+<li>Fixed a bug which caused NaN with the Scheuermann approximation shading mode. Cleaned up and commented the hair shaders.</li>
+<li>Fixed a copy-paste error.</li>
+<li>Fixed a Mizuchi bug in the indirect hair lighting.</li>
+<li>Fixed back face rendering for opaque hair geometry. Removed debug code. Refactored the hair-specific code in MeshPipelineProcessor.</li>
+<li>Fixed new, minor shader compilation errors.</li>
+<li>Fixed some SSS thickness calculation artifacts by supply the correct, world space normals instead of object space normals.</li>
+<li>Fixed some stuff in the hair rendering code and cleaned it up.</li>
+<li>Fixed SSS thickness calculation for spotlights.</li>
+<li>Fixed the bug which causes the thickness to fade to 1.0 and not 0.0 at the border of shadow maps.</li>
+<li>Fixed the cavity map integration for the hair shading and removed the obsolete cavity parameter.</li>
+<li>Fixed the incorrect force to renderbuffer for all FBO attachments. Refactored the code.</li>
+<li>Fixed the issue with the constant buffers + mixins that are included multiple times per hair shader. Refactored the hair rendering code.</li>
+<li>Further cleaned up the SSSS shaders.</li>
+<li>Got rid of the circular dependency between SubsurfaceScatteringBlur and SubsurfaceScatteringRenderFeature.</li>
+<li>Hid the &quot;Enabled&quot; property of the MSAAResolver in a safer way.</li>
+<li>Implemented &quot;FilterThickness()&quot; for lights without PCF shadows.</li>
+<li>Implemented a debug mode for the hair shading.</li>
+<li>Implemented a list to choose different types of scattering profiles from for SSS (WIP).</li>
+<li>Implemented a more accurate offset for the SSS thickness filtering to greatly reduce the artifacts around object edges.</li>
+<li>Implemented a new extension point in &quot;MaterialSurfaceLightingAndShading&quot; and &quot;IMaterialSurfaceShading&quot;.</li>
+<li>Implemented a PipelineProcessor for hair and disabled the hair-specific code in MeshPipelineProcessor.</li>
+<li>Implemented cascade blending for the thickness calculation using directional shadow maps.</li>
+<li>Implemented deduplication for the scattering parameter array in the SubsurfaceScatteringRenderFeature to save space in the array. Refactored the code.</li>
+<li>Implemented force-disable of MSAA on iOS, so it compiles.</li>
+<li>Implemented MSAA for Desktop OpenGL. Fixed the MSAAResolver serialization.</li>
+<li>Implemented MSAA for OpenGL ES. Simplified and optimized some OpenGL code.</li>
+<li>Implemented new diffuse and specular shading models for the hair based on the default shading model implementations.</li>
+<li>Implemented preliminary in-shader scattering profile generation and precomputed scattering profile support.</li>
+<li>Implemented proper support for fake shadowing, shadowing and scattering. Some refactoring. Combined duplicate code. Added more parameters. Moved some range checks to CPU.</li>
+<li>Implemented scattering strength writing to alpha channel, so the post-process can sample it.</li>
+<li>Implemented scattering support for point lights and improved other thickness calculation things.</li>
+<li>Implemented support for changing the hair shading model. Refactored the shaders. Temporarily disabled support for noise textures. Replaced &quot;Texture&quot; properties with &quot;IComputeColor&quot;. Updated userdocs and summaries.</li>
+<li>Implemented support for changing the render mode of the SSS post-process from within the editor.</li>
+<li>Implemented support for orthographic and perspective projections for SSS. Got rid of the &quot;DepthFalloffStrength&quot; parameter.</li>
+<li>Implemented support for SSS strength maps.</li>
+<li>Implemented the &quot;SubsurfaceScatteringSettings&quot; class and hardcoded the sample count for now. Integrated it into the dependent classes.</li>
+<li>Implemented the first version of the SSS transmittance lighting as a new shading model.</li>
+<li>Implemented the new streams variable &quot;meshNormalWS&quot; and integrated it in the hair shading and SSS.</li>
+<li>Implemented the Separable Subsurface Scattering post process as a new ImageEffect.</li>
+<li>Implemented the SSSS strength map using ComputeColor for more artistic freedom and proper mip map selection.</li>
+<li>Implemented two new parameters for controlling the specular noise textures for hair shading. Commented out unused code.</li>
+<li>Improved the jittering in the SSSS post-process shader and refactored it a little.</li>
+<li>Improved the SSS material array and index generation for the post-process.</li>
+<li>Improved the SSS thickness filtering artifacts by calculating a better normal offset.</li>
+<li>Included the MeshHairRenderStageSelector class in the project.</li>
+<li>Increased the allowed number of digits for the hair specular strength to three.</li>
+<li>Integrated correct, world space normals for the SSS transmittance calculation.</li>
+<li>Integrated optional kernel size jittering to break the banding artifacts. Improved the rotation randomization. Removed some obsolete code.</li>
+<li>Integrated screen space scattering kernel generation. Replaced the &quot;Quality&quot; parameter with &quot;SampleCount&quot;.</li>
+<li>Integrated support for generating a subsurface scattering material index buffer that is consumed by the SSSS post process.</li>
+<li>Integrated the editor-tunable parameters for the shading model. Implemented transmittance support for PCF shadows.</li>
+<li>Little code simplification.</li>
+<li>Little refactoring in the specular hair model feature.</li>
+<li>Made &quot;SpriteBase.xksl&quot; always write zero to all render targets in order to prevent uninitialized framebuffer regions (to prevent having an SSS material index in the sky).</li>
+<li>Made all the materials write to the SSS material index buffer.</li>
+<li>Made it possible to enable/disable the SSS material deduplication. Cleaned up and commented code.</li>
+<li>Made multisampling get disabled when OpenGL ES 2 is being used. Added logging for adjustments of the multisampling level.</li>
+<li>Made the opaque hair geometry render using the &quot;Opaque&quot; RenderStage and removed the &quot;HairOpaque&quot; RenderStage from ForwardRenderer.</li>
+<li>Made the specular hair lighting get attenuated by alpha, so transparent regions don't exhibit specular reflections.</li>
+<li>Made the SSS post-process get skipped if no scattering materials are visible.</li>
+<li>Made the SSSS post-process work accurately for non-square viewports too. Refactored the code. Disabled the debug shader code. Fixed the inverted clip space coordinates.</li>
+<li>Made the Transparency material feature get ignored if hair shading is on to prevent issues.</li>
+<li>Minor refactoring in the hair code.</li>
+<li>Moved SSS mixins to a subfolder.</li>
+<li>Moved the &quot;MaterialHairSurfaceData&quot; structure to the specular hair shader because it's only needed there now. Renamed &quot;MaterialHairSurfaceData.xksl&quot; to &quot;MaterialHairShared.xksl&quot;.</li>
+<li>Moved the angle conversion to the CPU side.</li>
+<li>Moved the definition of the screen space scattering kernel (for SSSS) out of the shader.</li>
+<li>Moved the hair shader mixin code files to the correct subfolders. Renamed some shaders and classes.</li>
+<li>Moved the hair shader mixin code into subfolders for better overview.</li>
+<li>Moved the SSSS post processing code to the correct folder within the project.</li>
+<li>OpenGL: Fix regression where depth textures used as SRV were created as render buffers rather than textures.</li>
+<li>Ported and integrated most of the Mizuchi diffuse and specular hair shading functions. Implemented editor parameters.</li>
+<li>Readded missing SpriteBatch.bytecodeSRgb.Vulkan.Level_9_1.cs</li>
+<li>Refactored fake shadowing into a drop down option with accompanying parameters. Removed obsolete code.</li>
+<li>Refactored hair direction (tangent/bitangent) and shadowing/scattering options into drop down options with accompanying parameters. Removed obsolete code.</li>
+<li>Refactored the code.</li>
+<li>Refactored the hair rendering code. Adjusted properties. Implemented &quot;GetHashCode()&quot; for all hair classes. Removed obsolete code. Replaced float4 with float3 in shaders.</li>
+<li>Refactored the hair shaders. Implemented overrides for PrepareForLightingAndShading and integrated support for noise maps using ComputeColor.</li>
+<li>Refactored the HairRenderFeature class. Multithreaded some code.</li>
+<li>Refactored the simplified the MSAAResolver class. Made the MSAAResolver stay always on to get rid of redundant code and to make the editor settings more obvious.</li>
+<li>Refactored the SSS thickness calculation shader code.</li>
+<li>Refactored the SSSS material array generation, so the material array gets allocated only once at startup and from then on gets modified only.</li>
+<li>Refactoring and cleanup. Removed duplicate and redundant code.</li>
+<li>Refactoring. Got rid of duplicate code. Slightly changed the environmental lighting. Implemented the option for the shading model using an enum.</li>
+<li>Reimplemented the hair &quot;tag&quot; as a ParameterKey so hair meshes can get filtered out correctly. Updated the RenderStageSelectors.</li>
+<li>Reimplemented the hair rendering using the new multipass feature. Fixed some hair shading issues. Reimplemented the specular environmental lighting using IMaterialSpecularMicrofacetEnvironmentFunction.</li>
+<li>Reimplemented the SSS as a separate material feature. Removed obsolete material parameters.</li>
+<li>Remove unused built-in shader bytecode</li>
+<li>Removed a commented out line of debug code.</li>
+<li>Removed a project include.</li>
+<li>Removed an obsolete line of code.</li>
+<li>Removed dead code.</li>
+<li>Removed obsolete code from &quot;MaterialSurfaceShadingDiffuseHair.xksl&quot;.</li>
+<li>Removed obsolete hair render stages from &quot;ForwardRenderer&quot;.</li>
+<li>Removed obsolete hair rendering code.</li>
+<li>Removed obsolete shader code. Updated comments. Moved the &quot;AfterLightingAndShading()&quot; shader extension point.</li>
+<li>Removed redundant hair shading code.</li>
+<li>Removed some obsolete code from &quot;MaterialSurfaceShadingSpecularHair.xksl&quot;.</li>
+<li>Removed the &quot;MaterialSurfaceShadingSharedHairKeys&quot; class and replaced its &quot;IsHair&quot; parameter with &quot;PassID&quot;.</li>
+<li>Removed the &quot;override&quot; keyword from &quot;FilterThickness()&quot;.</li>
+<li>Removed the manual PCF thickness filtering code after confirming that there's no visual difference compared to taking one interpolated sample.</li>
+<li>Removed the obsolete Fresnel, Visibility and Distribution mixins &amp; properties from the hair model feature.</li>
+<li>Removed the scattering kernel parameters from Material.cs and stored them using material parameters instead. Some refactoring &amp; bugfixing.</li>
+<li>Removed unused includes from the cel shading shaders and removed duplicate code.</li>
+<li>Removed unused parameters from &quot;LightDirectionalShadowMapRenderer.cs&quot;.</li>
+<li>Removed unused parameters from &quot;LightSpotShadowMapRenderer.cs&quot;.</li>
+<li>Renamed &quot;MaterialHairLightAttenuationFunctionDefault&quot; to &quot;MaterialHairLightAttenuationFunctionDirectional&quot;.</li>
+<li>Renamed a parameter of the SSSS post process.</li>
+<li>Renamed some SSS classes and shaders. Changed the way the scattering strength map is handled.</li>
+<li>Renamed the property &quot;Fake shadowing function&quot; to &quot;Light attenuation function&quot; and added comments.</li>
+<li>Replaced IComputeColor with IComputeScalar for the hair noise maps.</li>
+<li>Separated out the scattering kernel as an additional setting, independent of of the scattering profile.</li>
+<li>Simplified the code using existing streams variables. Implemented the &quot;UseTangent&quot; setting. Added explanations and numerical ranges for properties.</li>
+<li>Simplified the PCF shadow and thickness code.</li>
+<li>Simplified the shadow map thickness filtering code.</li>
+<li>Specified correct numerical ranges for the SSS shading model parameters and added userdocs and summaries. Made it possible to change SSS parameters without waiting for a shader recompilation.</li>
+<li>Temporarily disabled the &quot;scatteringWidths&quot; array for the SSSS post process. Implemented a discard for materials with a material index of zero.</li>
+<li>Temporary integration of hair rendering using three render passes (opaque, transparent back, transparent front), which exhibits flickering.</li>
+<li>Update source to match new material pass API</li>
+<li>Updated an outdated comment about MSAA support.</li>
+<li>Updated comments in SSS code.</li>
+<li>Updated the SSS &quot;Translucency&quot; default value so it matches the one of the SSSS demo &amp; Mizuchi.</li>
+</ul>
+<h3 id="graphicstests">Graphics.Tests</h3>
+<ul>
+<li>Bump gold image version (skybox compression changes)</li>
+</ul>
+<h3 id="importerfbx">Importer.FBX</h3>
+<ul>
+<li>Add support for partial animation of a vectors (use default value instead of 0 for component missing animation curves).</li>
+</ul>
+<h3 id="input">Input</h3>
+<ul>
+<li>Add missing keyboard key mapping for Android.</li>
+<li>Android: Fix issue with PointerPressed/Released list being constantly empty (update was performed twice).</li>
+<li>Various fixes for orientation sensor on Android (courtesy of Pierre)</li>
+<li>VirtualButton: add IsDown/Pressed/Released methods. Create VirtualButton.Pointer classes. Make constructors protected so that types can be inherited. Improve code.</li>
+</ul>
+<h3 id="inputtests">Input.Tests</h3>
+<ul>
+<li>Fix compilation issues.</li>
+</ul>
+<h3 id="install">Install</h3>
+<ul>
+<li>Removed Portable Library from prerequisites</li>
+<li>Removed unused BuildTools_MSBuildNuget.msi</li>
+</ul>
+<h3 id="launcher">Launcher</h3>
+<ul>
+<li>Adapted to support new nuget packages</li>
+<li>Fix self-upgrading since switch to NuGet 4.0</li>
+<li>Fixed with new build system</li>
+<li>Reorganize settings (no more store.config, because we might have Xenko from package install rather than Launcher) and better detection of dev packages on server side</li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul>
+<li>Cherry-pick manu/nuget3 branch</li>
+<li>Fixed the Engine project file.</li>
+<li>Resolved the merge conflict on the file &quot;SiliconStudio.Xenko.Engine.csproj&quot;.</li>
+<li>Revert &quot;[Build] Override SiliconStudioXenkoOutputPath even if set&quot;</li>
+<li>Revert &quot;[Skin/Hair] Hide Hair/Skin parameters until working properly&quot;</li>
+<li>Updated the year in the copyright notice.</li>
+</ul>
+<h3 id="msbuild">MSBuild</h3>
+<ul>
+<li>Improved MSBuild detection to use installed version rather than local nuget copy</li>
+<li>MSBuildLocator: Run it only if MSBuild assemblies not detected (they might be loaded if ran as part of MSBuild)</li>
+<li>Updated from 15.5.180 to 15.6.82</li>
+</ul>
+<h3 id="native">Native</h3>
+<ul>
+<li>Compute XenkoNativeOutput.Link only when OutputPath is properly computed (inside a target)</li>
+</ul>
+<h3 id="opengl">OpenGL</h3>
+<ul>
+<li>Fix for &quot;Requested renderbuffer is neither a render target nor a depth/stencil attachment.&quot; issue when using post effects of openGL.</li>
+</ul>
+<h3 id="package">Package</h3>
+<ul>
+<li>Readded tools folder (needed for packageinstall.exe)</li>
+</ul>
+<h3 id="packages">Packages</h3>
+<ul>
+<li>Download report and package installer fixed with NuGet 4.0</li>
+<li>Removed potential future namespace collision</li>
+<li>Various improvements to make new nuget system works better</li>
+</ul>
+<h3 id="physics">Physics</h3>
+<ul>
+<li>Fix crash in physics engine when collider shapes are removed from the scene and unloaded during the same frame.</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Readd Microsoft.Net.Component.4.6.1.TargetingPack to MSBuild prerequisites</li>
+</ul>
+<h3 id="presentation">Presentation</h3>
+<ul>
+<li>Remove an InvalidCastException in AssetFromFileTemplateGenerator</li>
+</ul>
+<h3 id="preview">Preview</h3>
+<ul>
+<li>Fix the texture preview in the case the texture has no alpha channel.</li>
+</ul>
+<h3 id="rendering">Rendering</h3>
+<ul>
+<li>Add EyeIndex and EyeCount shader variable information via new GlobalVR shader.</li>
+<li>Add support for panoramic 2D texture as 3D input of BackgroundComponent.</li>
+<li>Add the possibility to select sprite blending mode from the Game Studio.</li>
+<li>Fix black screen rendering issue when post effects are used without VR texture mirroring.</li>
+<li>Improve FastTextRenderer robustness. Reallocate buffer when maximum number of character is exceeded.</li>
+<li>Resource ranges were mixed up with data ones when computing satrt offsets</li>
+<li>Skin: remove declaration of SV_Target* when unused, and use another mechanism to detect if material index MRT is needed</li>
+<li>Temporal AA (Velocity Buffer courtesy of Guus)</li>
+</ul>
+<h3 id="samples">Samples</h3>
+<ul>
+<li>Fix compilation of the VR sample.</li>
+</ul>
+<h3 id="sceneeditor">SceneEditor</h3>
+<ul>
+<li>Add debug physic shape for infinite planes.</li>
+<li>Do not ignore depth while writing the physics gyzmo.</li>
+</ul>
+<h3 id="scripts">Scripts</h3>
+<ul>
+<li>Removed deadlock between ScriptSourceFileAssetViewModel.DocumentId and UpdateAssetFromSource (can't seem to reproduce XK-5104)</li>
+<li>When creating a script, &quot;do you want to save&quot; dialog didn't do what it was supposed to do</li>
+</ul>
+<h3 id="serialization">Serialization</h3>
+<ul>
+<li>Fixed missing generic info when initializing parent serializer</li>
+</ul>
+<h3 id="shaders">Shaders</h3>
+<ul>
+<li>Explicitly qualify Annotations namespace to avoid future conflicts with Xenko.Core.Annotations namespace.</li>
+<li>Removed glsl-optimizer (causing some issues on Android)</li>
+<li>Removed potential future namespace collision</li>
+</ul>
+<h3 id="sharpdx">SharpDX</h3>
+<ul>
+<li>Updated to NuGet version 4.0.1</li>
+</ul>
+<h3 id="skin">Skin</h3>
+<ul>
+<li>Additional changes to work with new MRT system</li>
+</ul>
+<h3 id="skinhair">Skin/Hair</h3>
+<ul>
+<li>Added package upgrader for effect log (new generic parameter for directional light shadow caster)</li>
+<li>Compute transmittance is now set in the light shadow parameters</li>
+<li>Hide Hair/Skin parameters until working properly</li>
+<li>Improve package upgrader to work on any xkeffectlog file (instead of just the default one)</li>
+</ul>
+<h3 id="skybox">Skybox</h3>
+<ul>
+<li>Upgrader for SkyboxShaderCubemap renaming in effectlog</li>
+</ul>
+<h3 id="store">Store</h3>
+<ul>
+<li>Changed how package paths are detected</li>
+</ul>
+<h3 id="streaming">Streaming</h3>
+<ul>
+<li>Fix crash happening when a texture was simultaneously used as background and video target.</li>
+</ul>
+<h3 id="templates">Templates</h3>
+<ul>
+<li>Moved ProjectTemplateGeneratorHelper.cs to Xenko.Assets</li>
+</ul>
+<h3 id="tests">Tests</h3>
+<ul>
+<li>Bumped packages</li>
+<li>Bumped packages &amp; adjusted package upgrader version check</li>
+</ul>
+<h3 id="textool">TexTool</h3>
+<ul>
+<li>Fix Rescaling of 16bits pixel single channel textures.</li>
+</ul>
+<h3 id="updateengine">UpdateEngine</h3>
+<ul>
+<li>Added path resolve for ParameterCollection/ParameterKey</li>
+</ul>
+<h3 id="userdocs">Userdocs</h3>
+<ul>
+<li>rename glossiness -&gt; gloss, more natural English</li>
+<li>update skybox asset and background component labels and userdocs</li>
+</ul>
+<h3 id="video-1">Video</h3>
+<ul>
+<li>Added SharpDX.MediaFoundation to UWP projects</li>
+<li>Added support for video rendering (Windows and Android only for now)</li>
+<li>Added Video assembly to unit tests</li>
+<li>Ensure that the video file format is mp4 on windows.</li>
+<li>Fix #ifdef preprocessing instructions in ffmpeg files and make assembly graphics API dependant.</li>
+<li>Keep in sync with feature branch</li>
+<li>Strip away STEREO3D side_data information when present during video compilation on window.</li>
+</ul>
+<h3 id="videoaudio">Video/Audio</h3>
+<ul>
+<li>Keep in sync with feature branch</li>
+</ul>
+<h3 id="visualstudio">VisualStudio</h3>
+<ul>
+<li>Fix project references</li>
+</ul>
+<h3 id="vr">VR</h3>
+<ul>
+<li>Add implementation of Recenter for DummyDevice and OpenVR.</li>
+<li>Follow orientation sensor (courtesy of Pierre)</li>
+</ul>
+<h3 id="vspackage">VSPackage</h3>
+<ul>
+<li>Fix vsix build with new csproj system</li>
+</ul>
+<h3 id="yamltests">Yaml.Tests</h3>
+<ul>
+<li>Fix unit tests using EmbeddedResources</li>
+</ul>
+<h2 id="changelog-1">Changelog</h2>
+<h3 id="version-3004--25-august-2018">Version 3.0.0.4 — 25 August 2018</h3>
+<ul>
+<li>Reactivate Linux platform support <a href="https://github.com/xenko3d/xenko/issues/17">#17</a></li>
+<li>SourceLink support: Visual Studio downloads Xenko debug source code on demand <a href="https://github.com/xenko3d/xenko/issues/79">#79</a></li>
+<li>Windows Mixed Reality support for UWP <a href="https://github.com/xenko3d/xenko/pull/85">#85</a></li>
+<li>Fix GameStudio crashing when editing files with the simple code editor <a href="https://github.com/xenko3d/xenko/issues/110">#110</a></li>
+<li>GameStudio: New dark Theme and glyph icons <a href="https://github.com/xenko3d/xenko/issues/4">#4</a> <a href="https://github.com/xenko3d/xenko/issues/50">#50</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-3.0.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

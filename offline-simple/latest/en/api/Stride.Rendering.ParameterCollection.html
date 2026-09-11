@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParameterCollection | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParameterCollection | Stride API ">
+      
+      <meta name="description" content="Manage several effect parameters (resources and data). A specific data and resource layout can be forced (usually by the consuming effect).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_ParameterCollection.md&amp;value=---%0Auid%3A%20Stride.Rendering.ParameterCollection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.ParameterCollection">
+
+
+
+  <h1 id="Stride_Rendering_ParameterCollection" data-uid="Stride.Rendering.ParameterCollection" class="text-break">
+Class ParameterCollection  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manage several effect parameters (resources and data). A specific data and resource layout can be forced (usually by the consuming effect).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataSerializer(typeof(ParameterCollection.Serializer))]
+[DataSerializerGlobal(null, typeof(List&lt;ParameterKeyInfo&gt;), DataSerializerGenericMode.None, false, false)]
+public class ParameterCollection</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ParameterCollection</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Shaders.Compiler.CompilerParameters.html">CompilerParameters</a></div>
+      <div><a class="xref" href="Stride.Shaders.ShaderMixinParameters.html">ShaderMixinParameters</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Rendering.ParameterCollectionExtensions.html#Stride_Rendering_ParameterCollectionExtensions_ToStringPermutationsDetailed_Stride_Rendering_ParameterCollection_">ParameterCollectionExtensions.ToStringPermutationsDetailed(ParameterCollection)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_ParameterCollection__ctor_" data-uid="Stride.Rendering.ParameterCollection.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection__ctor" data-uid="Stride.Rendering.ParameterCollection.#ctor">
+  ParameterCollection()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParameterCollection()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection__ctor_" data-uid="Stride.Rendering.ParameterCollection.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection__ctor_Stride_Rendering_ParameterCollection_" data-uid="Stride.Rendering.ParameterCollection.#ctor(Stride.Rendering.ParameterCollection)">
+  ParameterCollection(ParameterCollection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParameterCollection(ParameterCollection parameterCollection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterCollection</code> <a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_ParameterCollection_DataValues" data-uid="Stride.Rendering.ParameterCollection.DataValues">
+  DataValues
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] DataValues</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_ParameterCollection_LayoutCounter" data-uid="Stride.Rendering.ParameterCollection.LayoutCounter">
+  LayoutCounter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LayoutCounter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_ParameterCollection_ObjectValues" data-uid="Stride.Rendering.ParameterCollection.ObjectValues">
+  ObjectValues
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object[] ObjectValues</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Rendering_ParameterCollection_PermutationCounter" data-uid="Stride.Rendering.ParameterCollection.PermutationCounter">
+  PermutationCounter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PermutationCounter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_ParameterCollection_HasLayout_" data-uid="Stride.Rendering.ParameterCollection.HasLayout*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_HasLayout" data-uid="Stride.Rendering.ParameterCollection.HasLayout">
+  HasLayout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasLayout { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Layout_" data-uid="Stride.Rendering.ParameterCollection.Layout*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Layout" data-uid="Stride.Rendering.ParameterCollection.Layout">
+  Layout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParameterCollectionLayout Layout { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ParameterCollectionLayout.html">ParameterCollectionLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_ParameterKeyInfos_" data-uid="Stride.Rendering.ParameterCollection.ParameterKeyInfos*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_ParameterKeyInfos" data-uid="Stride.Rendering.ParameterCollection.ParameterKeyInfos">
+  ParameterKeyInfos
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ParameterKeyInfo&gt; ParameterKeyInfos { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Stride.Rendering.ParameterKeyInfo.html">ParameterKeyInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_ParameterCollection_Clear_" data-uid="Stride.Rendering.ParameterCollection.Clear*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Clear" data-uid="Stride.Rendering.ParameterCollection.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L540"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the collection, including the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_ContainsKey_" data-uid="Stride.Rendering.ParameterCollection.ContainsKey*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_ContainsKey_Stride_Rendering_ParameterKey_" data-uid="Stride.Rendering.ParameterCollection.ContainsKey(Stride.Rendering.ParameterKey)">
+  ContainsKey(ParameterKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L553"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether current collection contains a value for this key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsKey(ParameterKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_CopyTo_" data-uid="Stride.Rendering.ParameterCollection.CopyTo*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_CopyTo__1_Stride_Rendering_ValueParameterKey___0__Stride_Rendering_ParameterCollection_Stride_Rendering_ValueParameterKey___0__" data-uid="Stride.Rendering.ParameterCollection.CopyTo``1(Stride.Rendering.ValueParameterKey{``0},Stride.Rendering.ParameterCollection,Stride.Rendering.ValueParameterKey{``0})">
+  CopyTo&lt;T&gt;(ValueParameterKey&lt;T&gt;, ParameterCollection, ValueParameterKey&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies all blittable values of a given key to the specified <a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo&lt;T&gt;(ValueParameterKey&lt;T&gt; key, ParameterCollection destination, ValueParameterKey&lt;T&gt; destinationKey) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd><p>The key for the values to copy.</p>
+</dd>
+    <dt><code>destination</code> <a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a></dt>
+    <dd><p>The collection to copy the values to.</p>
+</dd>
+    <dt><code>destinationKey</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd><p>The key for the values of the destination collection.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetAccessor_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetAccessor__1_Stride_Rendering_ObjectParameterKey___0__System_Boolean_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.ObjectParameterKey{``0},System.Boolean)">
+  GetAccessor&lt;T&gt;(ObjectParameterKey&lt;T&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an accessor to get and set objects more quickly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObjectParameterAccessor&lt;T&gt; GetAccessor&lt;T&gt;(ObjectParameterKey&lt;T&gt; parameterKey, bool createIfNew = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterKey</code> <a class="xref" href="Stride.Rendering.ObjectParameterKey-1.html">ObjectParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>createIfNew</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ObjectParameterAccessor-1.html">ObjectParameterAccessor</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetAccessor_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetAccessor__1_Stride_Rendering_PermutationParameterKey___0__System_Boolean_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.PermutationParameterKey{``0},System.Boolean)">
+  GetAccessor&lt;T&gt;(PermutationParameterKey&lt;T&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an accessor to get and set permutations more quickly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PermutationParameter&lt;T&gt; GetAccessor&lt;T&gt;(PermutationParameterKey&lt;T&gt; parameterKey, bool createIfNew = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterKey</code> <a class="xref" href="Stride.Rendering.PermutationParameterKey-1.html">PermutationParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>createIfNew</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.PermutationParameter-1.html">PermutationParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetAccessor_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetAccessor__1_Stride_Rendering_ValueParameterKey___0__System_Int32_" data-uid="Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.ValueParameterKey{``0},System.Int32)">
+  GetAccessor&lt;T&gt;(ValueParameterKey&lt;T&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an accessor to get and set blittable values more quickly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueParameter&lt;T&gt; GetAccessor&lt;T&gt;(ValueParameterKey&lt;T&gt; parameterKey, int elementCount = 1) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterKey</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>elementCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ValueParameter-1.html">ValueParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetObject_" data-uid="Stride.Rendering.ParameterCollection.GetObject*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetObject_Stride_Rendering_ParameterKey_" data-uid="Stride.Rendering.ParameterCollection.GetObject(Stride.Rendering.ParameterKey)">
+  GetObject(ParameterKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L510"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object GetObject(ParameterKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetObjectParameterHelper_" data-uid="Stride.Rendering.ParameterCollection.GetObjectParameterHelper*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetObjectParameterHelper_Stride_Rendering_ParameterKey_System_Boolean_" data-uid="Stride.Rendering.ParameterCollection.GetObjectParameterHelper(Stride.Rendering.ParameterKey,System.Boolean)">
+  GetObjectParameterHelper(ParameterKey, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L710"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ParameterCollection.Accessor GetObjectParameterHelper(ParameterKey parameterKey, bool createIfNew = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterKey</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+    <dt><code>createIfNew</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a>.<a class="xref" href="Stride.Rendering.ParameterCollection.Accessor.html">Accessor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_GetValues_" data-uid="Stride.Rendering.ParameterCollection.GetValues*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_GetValues__1_Stride_Rendering_ValueParameterKey___0__" data-uid="Stride.Rendering.ParameterCollection.GetValues``1(Stride.Rendering.ValueParameterKey{``0})">
+  GetValues&lt;T&gt;(ValueParameterKey&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets blittable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T[] GetValues&lt;T&gt;(ValueParameterKey&lt;T&gt; key) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_ObjectParameterAccessor___0__" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ObjectParameterAccessor{``0})">
+  Get&lt;T&gt;(ObjectParameterAccessor&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L488"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(ObjectParameterAccessor&lt;T&gt; parameterAccessor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterAccessor</code> <a class="xref" href="Stride.Rendering.ObjectParameterAccessor-1.html">ObjectParameterAccessor</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_ObjectParameterKey___0__System_Boolean_" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ObjectParameterKey{``0},System.Boolean)">
+  Get&lt;T&gt;(ObjectParameterKey&lt;T&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(ObjectParameterKey&lt;T&gt; parameter, bool createIfNew = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ObjectParameterKey-1.html">ObjectParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>createIfNew</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_PermutationParameterKey___0__System_Boolean_" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.PermutationParameterKey{``0},System.Boolean)">
+  Get&lt;T&gt;(PermutationParameterKey&lt;T&gt;, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a permutation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(PermutationParameterKey&lt;T&gt; parameter, bool createIfNew = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.PermutationParameterKey-1.html">PermutationParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>createIfNew</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_PermutationParameter___0__" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.PermutationParameter{``0})">
+  Get&lt;T&gt;(PermutationParameter&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a permutation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(PermutationParameter&lt;T&gt; parameter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.PermutationParameter-1.html">PermutationParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_ValueParameterKey___0__" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ValueParameterKey{``0})">
+  Get&lt;T&gt;(ValueParameterKey&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a blittable value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(ValueParameterKey&lt;T&gt; parameter) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Get_" data-uid="Stride.Rendering.ParameterCollection.Get*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Get__1_Stride_Rendering_ValueParameter___0__" data-uid="Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ValueParameter{``0})">
+  Get&lt;T&gt;(ValueParameter&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L465"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(ValueParameter&lt;T&gt; parameter) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameter-1.html">ValueParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Remove_" data-uid="Stride.Rendering.ParameterCollection.Remove*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Remove_Stride_Rendering_ParameterKey_" data-uid="Stride.Rendering.ParameterCollection.Remove(Stride.Rendering.ParameterKey)">
+  Remove(ParameterKey)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L522"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(ParameterKey key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_SetObject_" data-uid="Stride.Rendering.ParameterCollection.SetObject*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_SetObject_Stride_Rendering_ParameterKey_System_Object_" data-uid="Stride.Rendering.ParameterCollection.SetObject(Stride.Rendering.ParameterKey,System.Object)">
+  SetObject(ParameterKey, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetObject(ParameterKey key, object value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Rendering.ParameterKey.html">ParameterKey</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ObjectParameterAccessor___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ObjectParameterAccessor{``0},``0)">
+  Set&lt;T&gt;(ObjectParameterAccessor&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L454"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ObjectParameterAccessor&lt;T&gt; parameterAccessor, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameterAccessor</code> <a class="xref" href="Stride.Rendering.ObjectParameterAccessor-1.html">ObjectParameterAccessor</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ObjectParameterKey___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ObjectParameterKey{``0},``0)">
+  Set&lt;T&gt;(ObjectParameterKey&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ObjectParameterKey&lt;T&gt; parameter, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ObjectParameterKey-1.html">ObjectParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_PermutationParameterKey___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.PermutationParameterKey{``0},``0)">
+  Set&lt;T&gt;(PermutationParameterKey&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a permutation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(PermutationParameterKey&lt;T&gt; parameter, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.PermutationParameterKey-1.html">PermutationParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_PermutationParameter___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.PermutationParameter{``0},``0)">
+  Set&lt;T&gt;(PermutationParameter&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a permutation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(PermutationParameter&lt;T&gt; parameter, T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.PermutationParameter-1.html">PermutationParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameterKey___0__System_Int32___0__" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},System.Int32,``0@)">
+  Set&lt;T&gt;(ValueParameterKey&lt;T&gt;, int, ref T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets blittable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameterKey&lt;T&gt; parameter, int count, ref T firstValue) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>firstValue</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameterKey___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0)">
+  Set&lt;T&gt;(ValueParameterKey&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a blittable value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameterKey&lt;T&gt; parameter, T value) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameterKey___0____0__" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0@)">
+  Set&lt;T&gt;(ValueParameterKey&lt;T&gt;, ref T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a blittable value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameterKey&lt;T&gt; parameter, ref T value) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameterKey___0____0___" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0[])">
+  Set&lt;T&gt;(ValueParameterKey&lt;T&gt;, T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets blittable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameterKey&lt;T&gt; parameter, T[] values) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameterKey-1.html">ValueParameterKey</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>values</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameter___0__System_Int32___0__" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},System.Int32,``0@)">
+  Set&lt;T&gt;(ValueParameter&lt;T&gt;, int, ref T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets blittable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameter&lt;T&gt; parameter, int count, ref T firstValue) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameter-1.html">ValueParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>firstValue</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameter___0____0_" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},``0)">
+  Set&lt;T&gt;(ValueParameter&lt;T&gt;, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a blittable value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameter&lt;T&gt; parameter, T value) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameter-1.html">ValueParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_Set_" data-uid="Stride.Rendering.ParameterCollection.Set*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_Set__1_Stride_Rendering_ValueParameter___0____0__" data-uid="Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},``0@)">
+  Set&lt;T&gt;(ValueParameter&lt;T&gt;, ref T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L392"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets a blittable value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Set&lt;T&gt;(ValueParameter&lt;T&gt; parameter, ref T value) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="Stride.Rendering.ValueParameter-1.html">ValueParameter</a>&lt;T&gt;</dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_ToString_" data-uid="Stride.Rendering.ParameterCollection.ToString*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_ToString" data-uid="Stride.Rendering.ParameterCollection.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_ParameterCollection_UpdateLayout_" data-uid="Stride.Rendering.ParameterCollection.UpdateLayout*"></a>
+
+  <h3 id="Stride_Rendering_ParameterCollection_UpdateLayout_Stride_Rendering_ParameterCollectionLayout_" data-uid="Stride.Rendering.ParameterCollection.UpdateLayout(Stride.Rendering.ParameterCollectionLayout)">
+  UpdateLayout(ParameterCollectionLayout)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L570"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reorganizes internal data and resources to match the given objects, and append extra values at the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateLayout(ParameterCollectionLayout collectionLayout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collectionLayout</code> <a class="xref" href="Stride.Rendering.ParameterCollectionLayout.html">ParameterCollectionLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Rendering/ParameterCollection.cs/#L19" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

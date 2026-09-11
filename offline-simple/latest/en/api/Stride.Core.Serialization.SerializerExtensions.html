@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SerializerExtensions | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SerializerExtensions | Stride API ">
+      
+      <meta name="description" content="Various useful extension methods on top of SerializationStream for serialization/deserialization of common types.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Serialization_SerializerExtensions.md&amp;value=---%0Auid%3A%20Stride.Core.Serialization.SerializerExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Serialization.SerializerExtensions">
+
+
+
+  <h1 id="Stride_Core_Serialization_SerializerExtensions" data-uid="Stride.Core.Serialization.SerializerExtensions" class="text-break">
+Class SerializerExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Serialization.html">Serialization</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Various useful extension methods on top of SerializationStream for serialization/deserialization of common types.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SerializerExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">SerializerExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Clone_" data-uid="Stride.Core.Serialization.SerializerExtensions.Clone*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Clone__1___0_" data-uid="Stride.Core.Serialization.SerializerExtensions.Clone``1(``0)">
+  Clone&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Clone&lt;T&gt;(T obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadBoolean_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadBoolean*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadBoolean_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadBoolean(Stride.Core.Serialization.SerializationStream)">
+  ReadBoolean(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a boolean value from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReadBoolean(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>A boolean value read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadByte_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadByte*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadByte_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadByte(Stride.Core.Serialization.SerializationStream)">
+  ReadByte(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a unsigned byte integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte ReadByte(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>An unsigned byte read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadBytes_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadBytes*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadBytes_Stride_Core_Serialization_SerializationStream_System_Int32_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadBytes(Stride.Core.Serialization.SerializationStream,System.Int32)">
+  ReadBytes(SerializationStream, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the specified number of bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Allocates. Read into the destination.&quot;)]
+public static byte[] ReadBytes(this SerializationStream stream, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>A byte array containing the data read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadChar_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadChar*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadChar_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadChar(Stride.Core.Serialization.SerializationStream)">
+  ReadChar(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a unicode character from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static char ReadChar(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>A unicode character read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadDouble_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadDouble*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadDouble_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadDouble(Stride.Core.Serialization.SerializationStream)">
+  ReadDouble(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 8-byte floating point value from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ReadDouble(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>A 8-byte floating point value read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadInt16_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt16*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadInt16_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt16(Stride.Core.Serialization.SerializationStream)">
+  ReadInt16(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 2-byte signed integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static short ReadInt16(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd><p>A 2-byte signed integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadInt32_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt32*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadInt32_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt32(Stride.Core.Serialization.SerializationStream)">
+  ReadInt32(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 4-byte signed integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int ReadInt32(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A 4-byte signed integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadInt64_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt64*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadInt64_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadInt64(Stride.Core.Serialization.SerializationStream)">
+  ReadInt64(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 8-byte signed integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long ReadInt64(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>A 8-byte signed integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadSByte_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadSByte*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadSByte_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadSByte(Stride.Core.Serialization.SerializationStream)">
+  ReadSByte(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a signed byte from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static sbyte ReadSByte(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a></dt>
+    <dd><p>A signed byte read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadSingle_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadSingle*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadSingle_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadSingle(Stride.Core.Serialization.SerializationStream)">
+  ReadSingle(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 4-byte floating point value from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ReadSingle(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>A 4-byte floating point value read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadString_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadString*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadString_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadString(Stride.Core.Serialization.SerializationStream)">
+  ReadString(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReadString(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadUInt16_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt16*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadUInt16_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt16(Stride.Core.Serialization.SerializationStream)">
+  ReadUInt16(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 2-byte unsigned integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ushort ReadUInt16(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd><p>A 2-byte unsigned integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadUInt32_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt32*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadUInt32_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt32(Stride.Core.Serialization.SerializationStream)">
+  ReadUInt32(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 4-byte unsigned integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint ReadUInt32(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A 4-byte unsigned integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_ReadUInt64_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt64*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_ReadUInt64_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.ReadUInt64(Stride.Core.Serialization.SerializationStream)">
+  ReadUInt64(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a 8-byte unsigned integer from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong ReadUInt64(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>A 8-byte unsigned integer read from the stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Read_" data-uid="Stride.Core.Serialization.SerializerExtensions.Read*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Read__1_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.SerializerExtensions.Read``1(Stride.Core.Serialization.SerializationStream)">
+  Read&lt;T&gt;(SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the specified object from the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Read&lt;T&gt;(this SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to read the object from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The object that has just been read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the object to read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_SerializeExtended_" data-uid="Stride.Core.Serialization.SerializerExtensions.SerializeExtended*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_SerializeExtended__1_Stride_Core_Serialization_SerializationStream___0_Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_DataSerializer___0__" data-uid="Stride.Core.Serialization.SerializerExtensions.SerializeExtended``1(Stride.Core.Serialization.SerializationStream,``0,Stride.Core.Serialization.ArchiveMode,Stride.Core.Serialization.DataSerializer{``0})">
+  SerializeExtended&lt;T&gt;(SerializationStream, T, ArchiveMode, DataSerializer&lt;T&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeExtended&lt;T&gt;(this SerializationStream stream, T obj, ArchiveMode mode, DataSerializer&lt;T&gt;? dataSerializer = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to serialize to.</p>
+</dd>
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd><p>The object to serialize.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.Serialization.ArchiveMode.html">ArchiveMode</a></dt>
+    <dd><p>The serialization mode.</p>
+</dd>
+    <dt><code>dataSerializer</code> <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html">DataSerializer</a>&lt;T&gt;</dt>
+    <dd><p>The data serializer (can be null).</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The object type to serialize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_SerializeExtended_" data-uid="Stride.Core.Serialization.SerializerExtensions.SerializeExtended*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_SerializeExtended__1_Stride_Core_Serialization_SerializationStream___0__Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_DataSerializer___0__" data-uid="Stride.Core.Serialization.SerializerExtensions.SerializeExtended``1(Stride.Core.Serialization.SerializationStream,``0@,Stride.Core.Serialization.ArchiveMode,Stride.Core.Serialization.DataSerializer{``0})">
+  SerializeExtended&lt;T&gt;(SerializationStream, ref T, ArchiveMode, DataSerializer&lt;T&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeExtended&lt;T&gt;(this SerializationStream stream, ref T obj, ArchiveMode mode, DataSerializer&lt;T&gt;? dataSerializer = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to serialize to.</p>
+</dd>
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd><p>The object to serialize.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.Serialization.ArchiveMode.html">ArchiveMode</a></dt>
+    <dd><p>The serialization mode.</p>
+</dd>
+    <dt><code>dataSerializer</code> <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html">DataSerializer</a>&lt;T&gt;</dt>
+    <dd><p>The data serializer (can be null).</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The object type to serialize.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Serialize_" data-uid="Stride.Core.Serialization.SerializerExtensions.Serialize*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Serialize__1_Stride_Core_Serialization_SerializationStream___0__" data-uid="Stride.Core.Serialization.SerializerExtensions.Serialize``1(Stride.Core.Serialization.SerializationStream,``0@)">
+  Serialize&lt;T&gt;(SerializationStream, ref T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes or deserializes the value using <a class="xref" href="Stride.Core.Serialization.SerializationStream.html#Stride_Core_Serialization_SerializationStream_Serialize_System_Span_System_Byte__">Serialize(Span&lt;byte&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Serialize&lt;T&gt;(this SerializationStream serializer, ref T value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serializer</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Serialize_" data-uid="Stride.Core.Serialization.SerializerExtensions.Serialize*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Serialize__1_Stride_Core_Serialization_SerializationStream___0__Stride_Core_Serialization_ArchiveMode_" data-uid="Stride.Core.Serialization.SerializerExtensions.Serialize``1(Stride.Core.Serialization.SerializationStream,``0@,Stride.Core.Serialization.ArchiveMode)">
+  Serialize&lt;T&gt;(SerializationStream, ref T, ArchiveMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Serialize&lt;T&gt;(this SerializationStream stream, ref T obj, ArchiveMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to serialize to.</p>
+</dd>
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd><p>The object to serialize.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.Serialization.ArchiveMode.html">ArchiveMode</a></dt>
+    <dd><p>The serialization mode.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Boolean_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Boolean)">
+  Write(SerializationStream, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a boolean value to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The boolean value to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Byte_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Byte)">
+  Write(SerializationStream, byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L440"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes an unsigned byte to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, byte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The unsigned byte to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Byte___System_Int32_System_Int32_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Byte[],System.Int32,System.Int32)">
+  Write(SerializationStream, byte[], int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L470"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a byte array region to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, byte[] values, int offset, int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The byte array to write.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The starting offset in values to write.</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of bytes to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Char_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Char)">
+  Write(SerializationStream, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L427"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a unicode character to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, char value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>The unicode character to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Double_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Double)">
+  Write(SerializationStream, double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 8-byte floating point value to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The 8-byte floating point value to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Int16_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Int16)">
+  Write(SerializationStream, short)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 2-byte signed integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, short value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd><p>The 2-byte signed integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Int32_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Int32)">
+  Write(SerializationStream, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 4-byte signed integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The 4-byte signed integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Int64_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Int64)">
+  Write(SerializationStream, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 8-byte signed integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, long value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The 8-byte signed integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_SByte_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.SByte)">
+  Write(SerializationStream, sbyte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a signed byte to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, sbyte value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.sbyte">sbyte</a></dt>
+    <dd><p>The signed byte to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_Single_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.Single)">
+  Write(SerializationStream, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 4-byte floating point value to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The 4-byte floating point value to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_String_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.String)">
+  Write(SerializationStream, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a string to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_UInt16_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.UInt16)">
+  Write(SerializationStream, ushort)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L375"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 2-byte unsigned integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, ushort value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
+    <dd><p>The 2-byte unsigned integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_UInt32_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.UInt32)">
+  Write(SerializationStream, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 4-byte unsigned integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The 4-byte unsigned integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write_Stride_Core_Serialization_SerializationStream_System_UInt64_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write(Stride.Core.Serialization.SerializationStream,System.UInt64)">
+  Write(SerializationStream, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes a 8-byte unsigned integer to the specified stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SerializationStream Write(this SerializationStream stream, ulong value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The 8-byte unsigned integer to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Serialization_SerializerExtensions_Write_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write*"></a>
+
+  <h3 id="Stride_Core_Serialization_SerializerExtensions_Write__1_Stride_Core_Serialization_SerializationStream___0_" data-uid="Stride.Core.Serialization.SerializerExtensions.Write``1(Stride.Core.Serialization.SerializationStream,``0)">
+  Write&lt;T&gt;(SerializationStream, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the specified object to the stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write&lt;T&gt;(this SerializationStream stream, T obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to write the object to.</p>
+</dd>
+    <dt><code>obj</code> <span class="xref">T</span></dt>
+    <dd><p>The object to write.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the object to write.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/SerializerExtensions.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

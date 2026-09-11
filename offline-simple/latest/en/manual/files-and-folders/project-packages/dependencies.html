@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dependencies | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dependencies | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/project-packages/dependencies.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dependencies">Dependencies</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span></p>
+<p>Project packages can depend on other packages in order to use their code and/or assets.</p>
+<p><strong>For .NET developers:</strong> a Stride project package is a standard C# project.</p>
+<p><img src="media/project-package-dependencies.webp" alt=""></p>
+<p>Packages <strong>cannot be co-dependent</strong>: if <strong>packageA</strong> has a dependency on <strong>packageB</strong>, <strong>packageB</strong> cannot have a dependency on <strong>packageA</strong>.</p>
+<p><img src="media/project-package-codependency.webp" alt=""></p>
+<h2 id="add-a-dependency">Add a dependency</h2>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_game-studio" role="tab" aria-controls="tabpanel_1_game-studio" data-tab="game-studio" tabindex="0" aria-selected="true">Game Studio</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_visual-studio" role="tab" aria-controls="tabpanel_1_visual-studio" data-tab="visual-studio" tabindex="-1">Visual Studio</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_command-line" role="tab" aria-controls="tabpanel_1_command-line" data-tab="command-line" tabindex="-1">Command line</a>
+</li>
+</ul>
+<section id="tabpanel_1_game-studio" role="tabpanel" data-tab="game-studio">
+
+<p>You can add <strong>PackageA</strong> as a dependency of <strong>PackageB</strong> (<strong>PackageA</strong> will be used by <strong>PackageB</strong>) by right clicking <strong>PackageB</strong> in the <strong>Solution explorer</strong> panel and selecting <strong>Add dependency...</strong></p>
+<p><img src="media/game-studio-add-dependency.webp" alt=""></p>
+</section>
+<section id="tabpanel_1_visual-studio" role="tabpanel" data-tab="visual-studio" aria-hidden="true" hidden="hidden">
+
+<p>You can add <strong>PackageA</strong> as a dependency of <strong>PackageB</strong> (<strong>PackageA</strong> will be used by <strong>PackageB</strong>) by right clicking <strong>PackageB</strong> in the <strong>Solution Explorer</strong> panel and selecting <strong>Add &gt; Project Reference...</strong></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure to save!</p>
+</div>
+<p><img src="media/visual-studio-add-dependency.webp" alt=""></p>
+</section>
+<section id="tabpanel_1_command-line" role="tabpanel" data-tab="command-line" aria-hidden="true" hidden="hidden">
+
+<p>If your IDE of choice isn't listed here, you can do this from the terminal instead via the <code>dotnet</code> command.</p>
+<p>The command below will add <strong>PackageA</strong> as a dependency of <strong>PackageB</strong> (<strong>PackageA</strong> will be used by <strong>PackageB</strong>).</p>
+<pre><code class="lang-bash">dotnet add PackageB reference PackageA
+</code></pre>
+</section>
+</div>
+<h2 id="unreferenced-packages">Unreferenced packages</h2>
+<p>It is possible to have project packages that aren't referenced by any of the platform packages nor their dependencies.</p>
+<p><img src="media/project-package-unreferenced.webp" alt=""></p>
+<p>These packages will be ignored by the compiler and <strong>won't be included in the build</strong>. This is useful for creating special versions of your project that include additional content, or only include a portion of the game (like a demo).</p>
+<p><img src="media/project-package-special-builds.webp" alt=""></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>If at least one of the project packages that are included in the build are using assets from an unreferenced package, <strong>Game Studio will fail to open and the game will fail to build</strong>.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="create-a-package.html">Create a package</a></li>
+<li><a href="package-properties.html">Package properties</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/project-packages/dependencies.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

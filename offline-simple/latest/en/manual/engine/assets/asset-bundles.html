@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Asset bundles | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Asset bundles | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/assets/asset-bundles.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="asset-bundles">Asset bundles</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This section is out of date. For now, you should only use it for reference.</p>
+</div>
+<p>A bundle of assets allows to package assets into a single archive that can be downloaded into the game at a specific time.</p>
+<p>It allows creation of <strong>Downloadable Content (DLC)</strong>.</p>
+<p>Basic rules:</p>
+<ul>
+<li>A project can generate several bundle.</li>
+<li>A bundle is created from several <strong>assets selectors</strong>  (Currently, only the <code>PathSelector</code> and <code>TagSelector</code> are supported)</li>
+<li>A bundle can have dependencies to others bundles</li>
+<li>Every bundle implicitly references <code>default</code> bundle, where every asset which shouldn't go in a specific bundle will be packaged</li>
+<li>Once a bundle is deployed into the game, all assets from this bundle and all its dependencies are accessible</li>
+<li>Bundle resolution is done through an asynchronous callback that allows you to download bundle, and will be called once per dependency (similar to AssemblyResolve event).</li>
+</ul>
+<h1 id="create-a-bundle">Create a bundle</h1>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Creating currently requires some manual steps (i.e. editing <code>sdpkg</code> by hand).</p>
+</div>
+<p>Open the <code>sdprj</code> file of the game executable and add the following configuration:</p>
+<p>Example:</p>
+<ul>
+<li>A bundle named <code>MyBundleName</code> will embed assets with tags <code>MyTag1</code> and <code>MyTag2</code></li>
+<li>A bundle named <code>MyBundleName2</code> will embed assets with tags <code>MyTag3</code> and <code>MyTag4</code>. This bundle has a dependency to <code>MyBundleName</code></li>
+<li>There is also a <code>PathSelector</code> which follow the <code>.gitignore</code> filtering convention.</li>
+</ul>
+<pre><code class="lang-cs">Bundles:
+ - Name: MyBundleName
+   Selectors:
+    - !TagSelector
+      Tags: 
+        - MyTag1
+        - MyTag2
+ - Name: MyBundleName2
+   Dependencies:
+    - MyBundleName
+   Selectors:
+    - !TagSelector
+      Tags: 
+        - MyTag3
+        - MyTag4
+    - !PathSelector
+      Paths:
+        - folder1/
+        - /folder2/
+        - *.bin
+        - folder3/*.xml
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Asset dependencies are automatically placed in the most appropriate bundle.</p>
+<p>Current process works that way:</p>
+<ul>
+<li>Find assets that matches specific Tag Selectors (&quot;roots&quot; of bundle assets).</li>
+<li>Enumerate assets that are dependent on those &quot;roots&quot; bundle assets and put them in the same bundle than their &quot;roots&quot; asset.
+<ul>
+<li>Except if already accessible through one of package dependencies (i.e. a shared dependent package or default package).</li>
+</ul>
+</li>
+<li>Place everything else in default bundle.</li>
+</ul>
+<p>Note that:</p>
+<ul>
+<li>Shared assets might be duplicated if not specifically placed in common or default package, but that is intended (i.e. if user wishes to distribute 2 separate DLC that need common assets but need to be self-contained).</li>
+<li>Every bundle implicitly depends on default bundle.</li>
+</ul>
+</div>
+<h1 id="load-a-bundle-at-runtime">Load a bundle at runtime</h1>
+<p>Loading bundle is done through <code>ObjectDatabase.LoadBundle(string bundleName) (ref:{Stride.Core.Storage.ObjectDatabase.LoadBundle})</code>:</p>
+<pre><code class="lang-cs">// Load bundle
+Assets.DatabaseFileProvider.ObjectDatabase.LoadBundle(&quot;MyBundleName2&quot;);
+ 
+// Load specified asset
+var texture = Assets.Load&lt;Texture2D&gt;(&quot;AssetContainedInMyBundleName2&quot;);
+</code></pre>
+<h1 id="selectors">Selectors</h1>
+<p>Selectors help deciding which assets are stored in a specific bundle.</p>
+<h2 id="tag-selector">Tag selector</h2>
+<p>Select assets based on a list of tag attached on each asset.</p>
+<p>Properties:</p>
+<ul>
+<li>Tags: List of Tags. Any asset that contains at least one of the tag will be included.</li>
+</ul>
+<h2 id="path-selector">Path selector</h2>
+<p>Select assets based on their path.</p>
+<p>Standard .gitignore patterns are supported (except ! (negate), # (comments) and [0-9] (groups)).</p>
+<p>Properties:</p>
+<ul>
+<li>Paths: List of filters. Any asset whose URL matches one of the filter will be included.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/assets/asset-bundles.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

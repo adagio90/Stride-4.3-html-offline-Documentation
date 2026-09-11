@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AssetDependencyManager | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AssetDependencyManager | Stride API ">
+      
+      <meta name="description" content="A class responsible for providing asset dependencies for a  and file tracking dependency.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Assets_Analysis_AssetDependencyManager.md&amp;value=---%0Auid%3A%20Stride.Core.Assets.Analysis.AssetDependencyManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager">
+
+
+
+  <h1 id="Stride_Core_Assets_Analysis_AssetDependencyManager" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager" class="text-break">
+Class AssetDependencyManager  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Assets.html">Assets</a>.<a class="xref" href="Stride.Core.Assets.Analysis.html">Analysis</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Assets.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A class responsible for providing asset dependencies for a <a class="xref" href="Stride.Core.Assets.PackageSession.html">PackageSession</a> and file tracking dependency.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class AssetDependencyManager : IAssetDependencyManager, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AssetDependencyManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.Assets.Analysis.IAssetDependencyManager.html">IAssetDependencyManager</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Core_Assets_Analysis_AssetDependencyManager_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class provides methods to:</p>
+<ul>
+<li>Find assets referencing a particular asset (recursively or not)</li>
+<li>Find assets referenced by a particular asset (recursively or not)</li>
+<li>Find missing references</li>
+<li>Find missing references for a particular asset</li>
+<li>Find assets file changed events that have changed on the disk</li>
+</ul>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencyManager_IsInitialized_" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.IsInitialized*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_IsInitialized" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.IsInitialized">
+  IsInitialized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is initialized. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInitialized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is initialized; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Core_Assets_Analysis_AssetDependencyManager_IsInitialized_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this instance is not initialized, all public methods may block until the full initialization of this instance.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencyManager_BeginSavingSession_" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.BeginSavingSession*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_BeginSavingSession" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.BeginSavingSession">
+  BeginSavingSession()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This methods is called when a session is about to being saved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginSavingSession()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencyManager_ComputeDependencies_" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.ComputeDependencies*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_ComputeDependencies_Stride_Core_Assets_AssetId_Stride_Core_Assets_Analysis_AssetDependencySearchOptions_Stride_Core_Assets_Analysis_ContentLinkType_System_Collections_Generic_HashSet_Stride_Core_Assets_AssetId__" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.ComputeDependencies(Stride.Core.Assets.AssetId,Stride.Core.Assets.Analysis.AssetDependencySearchOptions,Stride.Core.Assets.Analysis.ContentLinkType,System.Collections.Generic.HashSet{Stride.Core.Assets.AssetId})">
+  ComputeDependencies(AssetId, AssetDependencySearchOptions, ContentLinkType, HashSet&lt;AssetId&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the dependencies for the specified asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetDependencies? ComputeDependencies(AssetId assetId, AssetDependencySearchOptions dependenciesOptions = AssetDependencySearchOptions.All, ContentLinkType linkTypes = ContentLinkType.All, HashSet&lt;AssetId&gt;? visited = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assetId</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The asset id.</p>
+</dd>
+    <dt><code>dependenciesOptions</code> <a class="xref" href="Stride.Core.Assets.Analysis.AssetDependencySearchOptions.html">AssetDependencySearchOptions</a></dt>
+    <dd><p>The dependencies options.</p>
+</dd>
+    <dt><code>linkTypes</code> <a class="xref" href="Stride.Core.Assets.Analysis.ContentLinkType.html">ContentLinkType</a></dt>
+    <dd><p>The type of links to visit while computing the dependencies</p>
+</dd>
+    <dt><code>visited</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a>&gt;</dt>
+    <dd><p>The list of element already visited.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetDependencies.html">AssetDependencies</a></dt>
+    <dd><p>The dependencies, or <code>null</code> if the object is not tracked.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencyManager_Dispose_" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.Dispose*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_Dispose" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencyManager_EndSavingSession_" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.EndSavingSession*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_EndSavingSession" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.EndSavingSession">
+  EndSavingSession()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This methods is called when a session has been saved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EndSavingSession()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencyManager_AssetChanged" data-uid="Stride.Core.Assets.Analysis.AssetDependencyManager.AssetChanged">
+  AssetChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when a asset changed. This event is called in the critical section of the dependency manager,
+meaning that dependencies can be safely computed via <a class="xref" href="Stride.Core.Assets.Analysis.AssetDependencyManager.html#Stride_Core_Assets_Analysis_AssetDependencyManager_ComputeDependencies_Stride_Core_Assets_AssetId_Stride_Core_Assets_Analysis_AssetDependencySearchOptions_Stride_Core_Assets_Analysis_ContentLinkType_System_Collections_Generic_HashSet_Stride_Core_Assets_AssetId__">ComputeDependencies(AssetId, AssetDependencySearchOptions, ContentLinkType, HashSet&lt;AssetId&gt;?)</a> method from this callback.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DirtyFlagChangedDelegate&lt;AssetItem&gt;? AssetChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.DirtyFlagChangedDelegate-1.html">DirtyFlagChangedDelegate</a>&lt;<a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencyManager.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

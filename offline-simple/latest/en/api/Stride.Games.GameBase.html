@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GameBase | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GameBase | Stride API ">
+      
+      <meta name="description" content="The game.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Games_GameBase.md&amp;value=---%0Auid%3A%20Stride.Games.GameBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Games.GameBase">
+
+
+
+  <h1 id="Stride_Games_GameBase" data-uid="Stride.Games.GameBase" class="text-break">
+Class GameBase  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Games.html">Games</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Games.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The game.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class GameBase : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder, IGame</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">GameBase</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Games.IGame.html">IGame</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Engine.Game.html">Game</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Games_GameBase__ctor_" data-uid="Stride.Games.GameBase.#ctor*"></a>
+
+  <h3 id="Stride_Games_GameBase__ctor" data-uid="Stride.Games.GameBase.#ctor">
+  GameBase()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Games.GameBase.html">GameBase</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GameBase()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Games_GameBase_Log" data-uid="Stride.Games.GameBase.Log">
+  Log
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly ILogger Log</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Diagnostics.ILogger.html">ILogger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GameBase_graphicsDeviceManager" data-uid="Stride.Games.GameBase.graphicsDeviceManager">
+  graphicsDeviceManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IGraphicsDeviceManager graphicsDeviceManager</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.IGraphicsDeviceManager.html">IGraphicsDeviceManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Games_GameBase_Content_" data-uid="Stride.Games.GameBase.Content*"></a>
+
+  <h3 id="Stride_Games_GameBase_Content" data-uid="Stride.Games.GameBase.Content">
+  Content
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Stride.Core.Serialization.Contents.ContentManager.html">ContentManager</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContentManager Content { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Serialization.Contents.ContentManager.html">ContentManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Context_" data-uid="Stride.Games.GameBase.Context*"></a>
+
+  <h3 id="Stride_Games_GameBase_Context" data-uid="Stride.Games.GameBase.Context">
+  Context
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the game context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameContext Context { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GameContext.html">GameContext</a></dt>
+    <dd><p>The game context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_DrawInterpolationFactor_" data-uid="Stride.Games.GameBase.DrawInterpolationFactor*"></a>
+
+  <h3 id="Stride_Games_GameBase_DrawInterpolationFactor" data-uid="Stride.Games.GameBase.DrawInterpolationFactor">
+  DrawInterpolationFactor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Is used when we draw without running an update beforehand, so when both <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsFixedTimeStep">IsFixedTimeStep</a>
+and <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsDrawDesynchronized">IsDrawDesynchronized</a> are set.<br>
+It returns a number between 0 and 1 which represents the current position our DrawTime is in relation
+to the previous and next step.<br>
+0.5 would mean that we are rendering at a time halfway between the previous and next fixed-step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float DrawInterpolationFactor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The draw interpolation factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_DrawTime_" data-uid="Stride.Games.GameBase.DrawTime*"></a>
+
+  <h3 id="Stride_Games_GameBase_DrawTime" data-uid="Stride.Games.GameBase.DrawTime">
+  DrawTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The total and delta time to be used for logic running in the draw loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameTime DrawTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_DrawWhileMinimized_" data-uid="Stride.Games.GameBase.DrawWhileMinimized*"></a>
+
+  <h3 id="Stride_Games_GameBase_DrawWhileMinimized" data-uid="Stride.Games.GameBase.DrawWhileMinimized">
+  DrawWhileMinimized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Should this instance still render/draw when the window is minimized. Updates are still going to run regardless of the value set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DrawWhileMinimized { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_ForceOneUpdatePerDraw_" data-uid="Stride.Games.GameBase.ForceOneUpdatePerDraw*"></a>
+
+  <h3 id="Stride_Games_GameBase_ForceOneUpdatePerDraw" data-uid="Stride.Games.GameBase.ForceOneUpdatePerDraw">
+  ForceOneUpdatePerDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this instance should force exactly one update step per one draw step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool ForceOneUpdatePerDraw { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance forces one update step per one draw step; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_FullPlatformName_" data-uid="Stride.Games.GameBase.FullPlatformName*"></a>
+
+  <h3 id="Stride_Games_GameBase_FullPlatformName" data-uid="Stride.Games.GameBase.FullPlatformName">
+  FullPlatformName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the full name of the device this game is running if available</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullPlatformName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_GameSystems_" data-uid="Stride.Games.GameBase.GameSystems*"></a>
+
+  <h3 id="Stride_Games_GameBase_GameSystems" data-uid="Stride.Games.GameBase.GameSystems">
+  GameSystems
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the game components registered by this game.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameSystemCollection GameSystems { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GameSystemCollection.html">GameSystemCollection</a></dt>
+    <dd><p>The game components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_GraphicsContext_" data-uid="Stride.Games.GameBase.GraphicsContext*"></a>
+
+  <h3 id="Stride_Games_GameBase_GraphicsContext" data-uid="Stride.Games.GameBase.GraphicsContext">
+  GraphicsContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the graphics context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsContext GraphicsContext { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_GraphicsDevice_" data-uid="Stride.Games.GameBase.GraphicsDevice*"></a>
+
+  <h3 id="Stride_Games_GameBase_GraphicsDevice" data-uid="Stride.Games.GameBase.GraphicsDevice">
+  GraphicsDevice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the graphics device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsDevice GraphicsDevice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The graphics device.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_InactiveSleepTime_" data-uid="Stride.Games.GameBase.InactiveSleepTime*"></a>
+
+  <h3 id="Stride_Games_GameBase_InactiveSleepTime" data-uid="Stride.Games.GameBase.InactiveSleepTime">
+  InactiveSleepTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the time between each <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Tick">Tick()</a> when <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsActive">IsActive</a> is false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan InactiveSleepTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The inactive sleep time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsActive_" data-uid="Stride.Games.GameBase.IsActive*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsActive" data-uid="Stride.Games.GameBase.IsActive">
+  IsActive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsActive { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is active; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsDrawDesynchronized_" data-uid="Stride.Games.GameBase.IsDrawDesynchronized*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsDrawDesynchronized" data-uid="Stride.Games.GameBase.IsDrawDesynchronized">
+  IsDrawDesynchronized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsFixedTimeStep">IsFixedTimeStep</a> is set, is it allowed to render frames between two steps when we have time to do so.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDrawDesynchronized { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance's drawing is desychronized ; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsExiting_" data-uid="Stride.Games.GameBase.IsExiting*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsExiting" data-uid="Stride.Games.GameBase.IsExiting">
+  IsExiting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is exiting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsExiting { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is exiting; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsFixedTimeStep_" data-uid="Stride.Games.GameBase.IsFixedTimeStep*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsFixedTimeStep" data-uid="Stride.Games.GameBase.IsFixedTimeStep">
+  IsFixedTimeStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the elapsed time between each update should be constant,
+see <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_TargetElapsedTime">TargetElapsedTime</a> to configure the duration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFixedTimeStep { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is fixed time step; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsMouseVisible_" data-uid="Stride.Games.GameBase.IsMouseVisible*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsMouseVisible" data-uid="Stride.Games.GameBase.IsMouseVisible">
+  IsMouseVisible
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the mouse should be visible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMouseVisible { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the mouse should be visible; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_IsRunning_" data-uid="Stride.Games.GameBase.IsRunning*"></a>
+
+  <h3 id="Stride_Games_GameBase_IsRunning" data-uid="Stride.Games.GameBase.IsRunning">
+  IsRunning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is running.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsRunning { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_LaunchParameters_" data-uid="Stride.Games.GameBase.LaunchParameters*"></a>
+
+  <h3 id="Stride_Games_GameBase_LaunchParameters" data-uid="Stride.Games.GameBase.LaunchParameters">
+  LaunchParameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the launch parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LaunchParameters LaunchParameters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.LaunchParameters.html">LaunchParameters</a></dt>
+    <dd><p>The launch parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_MinimizedMinimumUpdateRate_" data-uid="Stride.Games.GameBase.MinimizedMinimumUpdateRate*"></a>
+
+  <h3 id="Stride_Games_GameBase_MinimizedMinimumUpdateRate" data-uid="Stride.Games.GameBase.MinimizedMinimumUpdateRate">
+  MinimizedMinimumUpdateRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Access to the throttler used to set the minimum time allowed between each updates while the window is minimized and,
+depending on <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_TreatNotFocusedLikeMinimized">TreatNotFocusedLikeMinimized</a>, while unfocused.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler MinimizedMinimumUpdateRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.ThreadThrottler.html">ThreadThrottler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Services_" data-uid="Stride.Games.GameBase.Services*"></a>
+
+  <h3 id="Stride_Games_GameBase_Services" data-uid="Stride.Games.GameBase.Services">
+  Services
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the service container.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceRegistry Services { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.ServiceRegistry.html">ServiceRegistry</a></dt>
+    <dd><p>The service container.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_TargetElapsedTime_" data-uid="Stride.Games.GameBase.TargetElapsedTime*"></a>
+
+  <h3 id="Stride_Games_GameBase_TargetElapsedTime" data-uid="Stride.Games.GameBase.TargetElapsedTime">
+  TargetElapsedTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L271"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the target elapsed time, this is the duration of each tick/update
+when <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsFixedTimeStep">IsFixedTimeStep</a> is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan TargetElapsedTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The target elapsed time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_TreatNotFocusedLikeMinimized_" data-uid="Stride.Games.GameBase.TreatNotFocusedLikeMinimized*"></a>
+
+  <h3 id="Stride_Games_GameBase_TreatNotFocusedLikeMinimized" data-uid="Stride.Games.GameBase.TreatNotFocusedLikeMinimized">
+  TreatNotFocusedLikeMinimized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Considers windows without user focus like a minimized window for <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_MinimizedMinimumUpdateRate">MinimizedMinimumUpdateRate</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TreatNotFocusedLikeMinimized { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_UpdateTime_" data-uid="Stride.Games.GameBase.UpdateTime*"></a>
+
+  <h3 id="Stride_Games_GameBase_UpdateTime" data-uid="Stride.Games.GameBase.UpdateTime">
+  UpdateTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The total and delta time to be used for logic running in the update loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameTime UpdateTime { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Window_" data-uid="Stride.Games.GameBase.Window*"></a>
+
+  <h3 id="Stride_Games_GameBase_Window" data-uid="Stride.Games.GameBase.Window">
+  Window
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the abstract window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameWindow Window { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Games.GameWindow.html">GameWindow</a></dt>
+    <dd><p>The window.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_WindowMinimumUpdateRate_" data-uid="Stride.Games.GameBase.WindowMinimumUpdateRate*"></a>
+
+  <h3 id="Stride_Games_GameBase_WindowMinimumUpdateRate" data-uid="Stride.Games.GameBase.WindowMinimumUpdateRate">
+  WindowMinimumUpdateRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Access to the throttler used to set the minimum time allowed between each updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler WindowMinimumUpdateRate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.ThreadThrottler.html">ThreadThrottler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Games_GameBase_BeginDraw_" data-uid="Stride.Games.GameBase.BeginDraw*"></a>
+
+  <h3 id="Stride_Games_GameBase_BeginDraw" data-uid="Stride.Games.GameBase.BeginDraw">
+  BeginDraw()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L748"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts the drawing of a frame. This method is followed by calls to <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Update_Stride_Games_GameTime_">Update(GameTime)</a>, <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Draw_Stride_Games_GameTime_">Draw(GameTime)</a> and <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_EndDraw_System_Boolean_">EndDraw(bool)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool BeginDraw()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> to continue drawing, false to not call <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Draw_Stride_Games_GameTime_">Draw(GameTime)</a> and <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_EndDraw_System_Boolean_">EndDraw(bool)</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_BeginRun_" data-uid="Stride.Games.GameBase.BeginRun*"></a>
+
+  <h3 id="Stride_Games_GameBase_BeginRun" data-uid="Stride.Games.GameBase.BeginRun">
+  BeginRun()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L695"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after all components are initialized, before the game loop starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void BeginRun()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_ConfirmRenderingSettings_" data-uid="Stride.Games.GameBase.ConfirmRenderingSettings*"></a>
+
+  <h3 id="Stride_Games_GameBase_ConfirmRenderingSettings_System_Boolean_" data-uid="Stride.Games.GameBase.ConfirmRenderingSettings(System.Boolean)">
+  ConfirmRenderingSettings(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ConfirmRenderingSettings(bool gameCreation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameCreation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Destroy_" data-uid="Stride.Games.GameBase.Destroy*"></a>
+
+  <h3 id="Stride_Games_GameBase_Destroy" data-uid="Stride.Games.GameBase.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L704"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Draw_" data-uid="Stride.Games.GameBase.Draw*"></a>
+
+  <h3 id="Stride_Games_GameBase_Draw_Stride_Games_GameTime_" data-uid="Stride.Games.GameBase.Draw(Stride.Games.GameTime)">
+  Draw(GameTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L793"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reference page contains code sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Draw(GameTime gameTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameTime</code> <a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd><p>Time passed since the last call to Draw.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_EndDraw_" data-uid="Stride.Games.GameBase.EndDraw*"></a>
+
+  <h3 id="Stride_Games_GameBase_EndDraw_System_Boolean_" data-uid="Stride.Games.GameBase.EndDraw(System.Boolean)">
+  EndDraw(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L810"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ends the drawing of a frame. This method will always be preceeded by calls to <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_BeginDraw">BeginDraw()</a> and perhaps <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Draw_Stride_Games_GameTime_">Draw(GameTime)</a> depending on if we had to do so.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void EndDraw(bool present)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>present</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_EndRun_" data-uid="Stride.Games.GameBase.EndRun*"></a>
+
+  <h3 id="Stride_Games_GameBase_EndRun" data-uid="Stride.Games.GameBase.EndRun">
+  EndRun()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L700"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after the game loop has stopped running before exiting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void EndRun()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Exit_" data-uid="Stride.Games.GameBase.Exit*"></a>
+
+  <h3 id="Stride_Games_GameBase_Exit" data-uid="Stride.Games.GameBase.Exit">
+  Exit()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exits the game.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Exit()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Initialize_" data-uid="Stride.Games.GameBase.Initialize*"></a>
+
+  <h3 id="Stride_Games_GameBase_Initialize" data-uid="Stride.Games.GameBase.Initialize">
+  Initialize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L846"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after the Game is created, but before <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_GraphicsDevice">GraphicsDevice</a> is available and before LoadContent(). Reference page contains code sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Initialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_OnActivated_" data-uid="Stride.Games.GameBase.OnActivated*"></a>
+
+  <h3 id="Stride_Games_GameBase_OnActivated_System_Object_System_EventArgs_" data-uid="Stride.Games.GameBase.OnActivated(System.Object,System.EventArgs)">
+  OnActivated(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L861"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises the Activated event. Override this method to add code to handle when the game gains focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnActivated(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd><p>The Game.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd><p>Arguments for the Activated event.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_OnDeactivated_" data-uid="Stride.Games.GameBase.OnDeactivated*"></a>
+
+  <h3 id="Stride_Games_GameBase_OnDeactivated_System_Object_System_EventArgs_" data-uid="Stride.Games.GameBase.OnDeactivated(System.Object,System.EventArgs)">
+  OnDeactivated(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L871"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises the Deactivated event. Override this method to add code to handle when the game loses focus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnDeactivated(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd><p>The Game.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd><p>Arguments for the Deactivated event.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_OnExiting_" data-uid="Stride.Games.GameBase.OnExiting*"></a>
+
+  <h3 id="Stride_Games_GameBase_OnExiting_System_Object_System_EventArgs_" data-uid="Stride.Games.GameBase.OnExiting(System.Object,System.EventArgs)">
+  OnExiting(object, EventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L881"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises an Exiting event. Override this method to add code to handle when the game is exiting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnExiting(object sender, EventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">object</span></dt>
+    <dd><p>The Game.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></dt>
+    <dd><p>Arguments for the Exiting event.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_OnWindowCreated_" data-uid="Stride.Games.GameBase.OnWindowCreated*"></a>
+
+  <h3 id="Stride_Games_GameBase_OnWindowCreated" data-uid="Stride.Games.GameBase.OnWindowCreated">
+  OnWindowCreated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L886"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnWindowCreated()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_PrepareContext_" data-uid="Stride.Games.GameBase.PrepareContext*"></a>
+
+  <h3 id="Stride_Games_GameBase_PrepareContext" data-uid="Stride.Games.GameBase.PrepareContext">
+  PrepareContext()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L474"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates or updates <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_Context">Context</a> before window and device are created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PrepareContext()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_RawTick_" data-uid="Stride.Games.GameBase.RawTick*"></a>
+
+  <h3 id="Stride_Games_GameBase_RawTick_System_TimeSpan_System_Int32_System_Single_System_Boolean_" data-uid="Stride.Games.GameBase.RawTick(System.TimeSpan,System.Int32,System.Single,System.Boolean)">
+  RawTick(TimeSpan, int, float, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L628"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Call this method within your overriden <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_RawTickProducer">RawTickProducer()</a> to update and draw the game yourself. <br>
+As this version is manual, there are a lot of functionality purposefully skipped: <br>
+clamping elapsed time to a maximum, skipping drawing when the window is minimized, <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_ResetElapsedTime">ResetElapsedTime()</a>, <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_SuppressDraw">SuppressDraw()</a>, <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsFixedTimeStep">IsFixedTimeStep</a>, <br>
+<a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_IsDrawDesynchronized">IsDrawDesynchronized</a>, <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_MinimizedMinimumUpdateRate">MinimizedMinimumUpdateRate</a> / <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_WindowMinimumUpdateRate">WindowMinimumUpdateRate</a> / <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_TreatNotFocusedLikeMinimized">TreatNotFocusedLikeMinimized</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void RawTick(TimeSpan elapsedTimePerUpdate, int updateCount = 1, float drawInterpolationFactor = 0, bool drawFrame = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elapsedTimePerUpdate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The amount of time passed between each update of the game's system,
+the total time passed would be <code class="paramref">elapsedTimePerUpdate</code> * <code class="paramref">updateCount</code>.</p>
+</dd>
+    <dt><code>updateCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The amount of updates that will be executed on the game's systems.</p>
+</dd>
+    <dt><code>drawInterpolationFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>See <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_DrawInterpolationFactor">DrawInterpolationFactor</a></p>
+</dd>
+    <dt><code>drawFrame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Draw a frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_RawTickProducer_" data-uid="Stride.Games.GameBase.RawTickProducer*"></a>
+
+  <h3 id="Stride_Games_GameBase_RawTickProducer" data-uid="Stride.Games.GameBase.RawTickProducer">
+  RawTickProducer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L518"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls <a class="xref" href="Stride.Games.GameBase.html#Stride_Games_GameBase_RawTick_System_TimeSpan_System_Int32_System_Single_System_Boolean_">RawTick(TimeSpan, int, float, bool)</a> automatically based on this game's setup, override it to implement your own system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void RawTickProducer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_ResetElapsedTime_" data-uid="Stride.Games.GameBase.ResetElapsedTime*"></a>
+
+  <h3 id="Stride_Games_GameBase_ResetElapsedTime" data-uid="Stride.Games.GameBase.ResetElapsedTime">
+  ResetElapsedTime()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the elapsed time counter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetElapsedTime()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Run_" data-uid="Stride.Games.GameBase.Run*"></a>
+
+  <h3 id="Stride_Games_GameBase_Run_Stride_Games_GameContext_" data-uid="Stride.Games.GameBase.Run(Stride.Games.GameContext)">
+  Run(GameContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Call this method to initialize the game, begin running the game loop, and start processing events for the game.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run(GameContext gameContext = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameContext</code> <a class="xref" href="Stride.Games.GameContext.html">GameContext</a></dt>
+    <dd><p>The window Context for this game.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Cannot run this instance while it is already running</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Games_GameBase_ShowMissingRequirementMessage_" data-uid="Stride.Games.GameBase.ShowMissingRequirementMessage*"></a>
+
+  <h3 id="Stride_Games_GameBase_ShowMissingRequirementMessage_System_Exception_" data-uid="Stride.Games.GameBase.ShowMissingRequirementMessage(System.Exception)">
+  ShowMissingRequirementMessage(Exception)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L902"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This is used to display an error message if there is no suitable graphics device or sound card.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool ShowMissingRequirementMessage(Exception exception)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exception</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd><p>The exception to display.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_SuppressDraw_" data-uid="Stride.Games.GameBase.SuppressDraw*"></a>
+
+  <h3 id="Stride_Games_GameBase_SuppressDraw" data-uid="Stride.Games.GameBase.SuppressDraw">
+  SuppressDraw()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L485"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prevents calls to Draw until the next Update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SuppressDraw()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Tick_" data-uid="Stride.Games.GameBase.Tick*"></a>
+
+  <h3 id="Stride_Games_GameBase_Tick" data-uid="Stride.Games.GameBase.Tick">
+  Tick()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the game's clock and calls Update and Draw.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Tick()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_UnloadContent_" data-uid="Stride.Games.GameBase.UnloadContent*"></a>
+
+  <h3 id="Stride_Games_GameBase_UnloadContent" data-uid="Stride.Games.GameBase.UnloadContent">
+  UnloadContent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L910"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when graphics resources need to be unloaded. Override this method to unload any game-specific graphics resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void UnloadContent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Games_GameBase_Update_" data-uid="Stride.Games.GameBase.Update*"></a>
+
+  <h3 id="Stride_Games_GameBase_Update_Stride_Games_GameTime_" data-uid="Stride.Games.GameBase.Update(Stride.Games.GameTime)">
+  Update(GameTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L840"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reference page contains links to related conceptual articles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Update(GameTime gameTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameTime</code> <a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd><p>Time passed since the last call to Update.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Games_GameBase_Activated" data-uid="Stride.Games.GameBase.Activated">
+  Activated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when [activated].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; Activated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GameBase_Deactivated" data-uid="Stride.Games.GameBase.Deactivated">
+  Deactivated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when [deactivated].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; Deactivated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GameBase_Exiting" data-uid="Stride.Games.GameBase.Exiting">
+  Exiting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when [exiting].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; Exiting</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GameBase_UnhandledException" data-uid="Stride.Games.GameBase.UnhandledException">
+  UnhandledException
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;GameUnhandledExceptionEventArgs&gt; UnhandledException</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Games.GameUnhandledExceptionEventArgs.html">GameUnhandledExceptionEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Games_GameBase_WindowCreated" data-uid="Stride.Games.GameBase.WindowCreated">
+  WindowCreated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs when [window created].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; WindowCreated</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Games/GameBase.cs/#L40" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

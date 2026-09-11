@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>GitHub Pull Request Guidelines | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="GitHub Pull Request Guidelines | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/contribution-workflow/github-pull-request-guidelines.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="github-pull-request-guidelines">GitHub Pull Request Guidelines</h1>
+
+<p>This guide assumes familiarity with the basics of Git and GitHub, focusing on providing instructions for creating pull requests (PRs) that are straightforward for the Stride team to review and merge.</p>
+<p>For a suggested workflow on contributing to Stride, please check our <a href="index.html">Contribution Workflow</a>.</p>
+<p>When submitting a pull request, you'll use a <a href="https://github.com/stride3d/stride/blob/master/.github/pull_request_template.md">template</a> that guides you through providing all the necessary details for a smooth review process. The template includes sections for a concise summary of your changes, a detailed description, any related issues, the motivation behind the changes, and the types of changes being proposed.</p>
+<p>A crucial part of this template is the checklist, which includes verifying documentation needs, adding tests for new features, ensuring all tests pass, and notably, confirming that you have <strong>built and run the editor</strong> to test your changes personally. This step is especially important as it demonstrates due diligence in testing your contribution, significantly aiding the review process by ensuring functionality and reducing potential integration issues.</p>
+<p>The template is structured to cover:</p>
+<ul>
+<li><strong>Summary</strong>: A brief overview of the changes.</li>
+<li><strong>Description</strong>: An in-depth explanation of what has been changed or added.</li>
+<li><strong>Related Issue</strong>: Linking to discussions or bug reports related to the PR.</li>
+<li><strong>Motivation and Context</strong>: The reasoning behind the changes.</li>
+<li><strong>Types of Changes</strong>: Categorizing the nature of the changes.</li>
+<li><strong>Checklist</strong>: A series of verification steps to ensure the PR is comprehensive and tested.</li>
+</ul>
+<p>This systematic approach helps streamline the review process, making it easier for the Stride team to understand, review, and merge your contributions efficiently.</p>
+<h2 id="merging-pull-requests">Merging Pull Requests</h2>
+<h3 id="title-prefixing">Title Prefixing</h3>
+<p>When merging a pull request, the title should be prefixed based on the label:</p>
+<ul>
+<li>For generic labels, use square brackets to state the Stride category the PR belongs to, e.g., <code>[Assets]</code>, <code>[OpenXR]</code>, <code>[Tests]</code>, <code>[Graphics]</code>, <code>[Physics]</code>, <code>[UI]</code>, <code>[Audio]</code>, <code>[Input]</code>, <code>[Launcher]</code>, <code>[GameStudio]</code>, <code>[Build]</code>, <code>[Doc]</code>, <code>[Samples]</code>, <code>[Shaders]</code>, <code>[Performance]</code>, <code>[Engineering]</code>, or any category the maintainer sees fit.</li>
+<li>For Stride-specific labels, the prefix should follow the commit convention, e.g., <code>feat:</code>, <code>fix:</code>, <code>perf:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code>, <code>test:</code>, <code>chore:</code>, or any designation the maintainer sees fit.</li>
+</ul>
+<h3 id="labelling">Labelling</h3>
+<p>Once the PR is merged, the Stride team will apply a label <strong>(only one per PR)</strong> to categorize the PR based on the type of changes it introduces. These labels are utilized by GitHub Releases automation to sort changes in the changelog.</p>
+<p>The categorization is set in the <a href="https://github.com/stride3d/stride/blob/master/.github/release.yml">release.yml</a>.</p>
+<p>The community has agreed to use a hybrid categorization based on generic categories and Stride-specific categories.</p>
+<p>Labels should be applied based on the following rules and order of priority:</p>
+<p><strong>Generic categories:</strong></p>
+<ul>
+<li><code>breaking-change</code> label: If the PR introduces a breaking change, it should be labelled as such.</li>
+<li><code>enhancement</code> label: If the PR introduces a new feature or improvement, it should be labelled accordingly.</li>
+<li><code>bug-fix</code> label: If the PR fixes a bug, it should be labelled as such.</li>
+</ul>
+<p><strong>Stride-specific categories:</strong></p>
+<ul>
+<li><code>performance</code></li>
+<li><code>engineering</code></li>
+<li><code>area-Asset</code></li>
+<li><code>area-Audio</code></li>
+<li><code>area-Build</code></li>
+<li><code>area-Doc</code></li>
+<li><code>area-GameStudio</code></li>
+<li><code>area-Graphics</code></li>
+<li><code>area-Input</code></li>
+<li><code>area-Launcher</code></li>
+<li><code>area-Physics</code></li>
+<li><code>area-Samples</code></li>
+<li><code>area-Shaders</code></li>
+<li><code>area-UI</code></li>
+<li><code>area-Rendering</code></li>
+</ul>
+<p>PRs with other labels or those that are unlabelled will automatically fall under the <strong>Other Changes</strong> category.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If multiple labels are applied, the release automation will prioritize the generic category first, followed by the Stride-specific category. This means that only one label will be automatically applied to the release notes.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<p>Example of a generated PR titles. Note the different prefixes for generic and Stride-specific categories:</p>
+<h3 id="-breaking-changes">💥 Breaking Changes</h3>
+<ul>
+<li>[Physics] Bepu codebase refactoring and clean-up</li>
+</ul>
+<h3 id="-new-features">🎉 New Features</h3>
+<ul>
+<li>[Input] Add haptic support to OpenVR and Oculus runtimes</li>
+</ul>
+<h3 id="-bug-fixes">🐞 Bug Fixes</h3>
+<ul>
+<li>[Audio] fix: Audio emitter multiple references to same asset bugfix</li>
+</ul>
+<h3 id="-engineering">🔧 Engineering</h3>
+<ul>
+<li>feat: Add editor settings for the camera speed increase/decrease hotkeys</li>
+</ul>
+<h3 id="-input">⌨️ Input</h3>
+<ul>
+<li>fix: Fixes mouse release for Winforms</li>
+<li>fix: Fixes detecting WinForms right shift key (fixes #754, fixes #929)</li>
+</ul>
+<h3 id="-physics">⚙️ Physics</h3>
+<ul>
+<li>fix: Fixes inconsistent box2D collision, see #1707 and #2019</li>
+<li>feat: Add ray test flags</li>
+</ul>
+<h2 id="squashing">Squashing</h2>
+<p>When merging a pull request, the Stride team might squash the commits into a single commit. This is to keep the git history clean and to make it easier to understand the changes that were made in the future.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/contribution-workflow/github-pull-request-guidelines.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

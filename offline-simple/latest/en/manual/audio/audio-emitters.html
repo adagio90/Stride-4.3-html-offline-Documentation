@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Audio emitters | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Audio emitters | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/audio/audio-emitters.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="audio-emitters">Audio emitters</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p><a class="xref" href="../../api/Stride.Audio.AudioEmitter.html">Audio emitter components</a> emit audio used to create <a href="spatialized-audio.html">spatialized audio</a>. You can add them to any entity.</p>
+<p>The pitch and volume of the sound changes as the <a href="audio-listeners.html">audio listener</a> moves closer to and away from the audio emitter.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You need at least one <a class="xref" href="../../api/Stride.Audio.AudioListener.html">AudioListenerComponent</a> in the scene to hear audio from audio emitters.</p>
+</div>
+<h2 id="1-set-up-an-audio-emitter-asset">1. Set up an audio emitter asset</h2>
+<ol>
+<li><p>In the <strong>Scene view</strong>, select an entity you want to be an audio emitter.</p>
+<p><img src="media/audio-add-audiolistener-component-select-entity.png" alt="Select an entity"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Audio Emitter</strong>.</p>
+<p><img src="media/audio-add-audioemitter-component-select-entity.png" alt="Add AudioEmitter Component"></p>
+<p>Now we need to add audio to the emitter.</p>
+</li>
+<li><p>Under <strong>Audio Emitter</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and specify a name for the audio.</p>
+<p><img src="media/audio-play-audioemitter-component-add-new-entry.png" alt="Add new sound entry"></p>
+</li>
+<li><p>From the <strong>Asset View</strong>, drag and drop an audio asset to the audio you just added:</p>
+<p><img src="media/audio-play-drag-and-drop-audio-asset.gif" alt="Drag and drop an audio asset"></p>
+<p>Alternatively, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/audio-play-audioemitter-component-pick-an-asset.png" alt="Pick up an asset"></p>
+<p>Then choose an audio asset:</p>
+<p><img src="media/audio-play-audioemitter-component-add-select-audio-asset.png" alt="Select audio  asset"></p>
+</li>
+<li><p>Repeat steps 3 and 4 to add as many audio assets as you need.</p>
+</li>
+<li><p>Configure the properties for this audio emitter.</p>
+<p><img src="media/audio-emitter-properties.png" alt="Audio emitter properties"></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use HRTF</td>
+<td>Enable head-related transfer function (HRTF). With this enabled, sounds appear to come from a specific point in 3D space, synthesizing binaural audio. For more information, see <a href="hrtf.html">HRTF</a>.</td>
+</tr>
+<tr>
+<td>Directional factor</td>
+<td>How directional the audio is, from 0 (min) to 1 (max). If set to 0, the audio is emitted from all directions. You can control this with a slider or number value.</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>The reverb type for the audio, simulating reverberation of real environments (small, medium, large, or outdoors).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-create-a-script-to-play-the-audio">2. Create a script to play the audio</h2>
+<p>Now we need to create a script to play and configure the audio asset.</p>
+<ol>
+<li><p>In your script, instantiate <a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a> for each sound you want to use in the script.</p>
+<p>For example, say we have two sounds, <strong>MySound1</strong> and <strong>MySound2</strong>:</p>
+<pre><code class="lang-cs"> AudioEmitterComponent audioEmitterComponent = Entity.Get&lt;AudioEmitterComponent&gt;();
+ AudioEmitterSoundController mySound1Controller = audioEmitterComponent[&quot;MySound1&quot;];
+ AudioEmitterSoundController mySound2Controller = audioEmitterComponent[&quot;MySound2&quot;];
+</code></pre>
+</li>
+<li><p>Use the following <a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController</a> properties and methods to play and configure the audio:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Property / method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_IsLooping">IsLooping</a></td>
+<td>Loops audio. Has no effect if <a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_PlayAndForget">PlayAndForget()</a> is set to true.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_Pitch">Pitch</a></td>
+<td>Gets or sets sound pitch (frequency). Use with caution for spatialized audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_PlayState">PlayState</a></td>
+<td>Gets the current state of the audio emitter sound controller.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_Volume">Volume</a></td>
+<td>Volume of the audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_Pause">Pause()</a></td>
+<td>Pauses audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_Play">Play()</a></td>
+<td>Plays audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_PlayAndForget">PlayAndForget()</a></td>
+<td>Plays audio once, then clears the memory. Useful for short sounds such as gunshots. Overrides <a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_IsLooping">IsLooping</a>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html#Stride_Audio_AudioEmitterSoundController_Stop">Stop()</a></td>
+<td>Stops audio.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre><code class="lang-cs">mySound1Controller.IsLooping = true;
+mySound1Controller.Pitch = 2.0f;
+mySound1Controller.Volume = 0.5f;
+mySound1Controller.Play();
+</code></pre>
+<p>This sound will loop at double the original pitch and half the original volume. For more information, see the <a class="xref" href="../../api/Stride.Audio.AudioEmitterSoundController.html">AudioEmitterSoundController Stride API documentation</a>.</p>
+<h2 id="3-add-the-script-to-the-audio-emitter-entity">3. Add the script to the audio emitter entity</h2>
+<p>Game Studio lists the script as a component under <strong>Add component</strong>. Add the script to the audio emitter entity.</p>
+<ol>
+<li><p>In the <strong>Scene view</strong>, select an entity you want to be an audio emitter.</p>
+<p><img src="media/audio-add-audiolistener-component-select-entity.png" alt="Select an entity"></p>
+</li>
+<li><p>Click <strong>Add component</strong> and select the script.</p>
+<p><img src="media/add-sound-script.png" alt="Add audio script"></p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="spatialized-audio.html">Spatialized audio</a></li>
+<li><a href="audio-listeners.html">Audio listeners</a></li>
+<li><a href="global-audio-settings.html">Global audio settings</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/audio/audio-emitters.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

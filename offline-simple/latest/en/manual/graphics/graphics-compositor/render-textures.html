@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Render textures | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Render textures | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/render-textures.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="render-textures">Render textures</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>With <strong>render textures</strong>, you can send a camera's view to a texture and use the texture on objects in your scene. For example, you can use this to display part of your scene on a TV screen in the same scene, such as security camera footage.</p>
+<p>For API details, see <a href="../low-level-api/textures-and-render-textures.html">Textures and render textures</a>.</p>
+<h2 id="1-create-an-extra-camera-slot">1. Create an extra camera slot</h2>
+<p>Camera slots link the graphics compositor to the cameras in your scene. You need to add a camera slot for a new camera to use. For more information about camera slots, see <a href="../cameras/camera-slots.html">Camera slots</a>.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="media/graphics-compositor-asset.png" alt="Graphics Compositor asset"></p>
+<p>The graphics compositor editor opens.</p>
+<p><img src="media/graphics-compositor-editor.png" alt="Graphics Compositor editor"></p>
+</li>
+<li><p>On the left, under <strong>Camera slots</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="media/graphics-compositor-camera-slots.png" alt="Camera slots"></p>
+<p>Game Studio adds a new camera slot.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To rename a camera slot, double-click it in the list and type a new name.
+<img src="media/name-camera-slot.png" alt="Name a camera slot"></p>
+</div>
+</li>
+</ol>
+<h2 id="2-create-a-camera-and-bind-it-to-the-slot">2. Create a camera and bind it to the slot</h2>
+<ol>
+<li><p>In your scene, add a <strong>camera component</strong> to the entity you want to be your camera.</p>
+<p><img src="media/add-camera-component.png" alt="Add camera component"></p>
+</li>
+<li><p>Position the entity so the camera captures the area of the scene you want to render to a texture.</p>
+</li>
+<li><p>In the entity <strong>Property Grid</strong>, enable the <strong>Camera</strong> component using the checkbox.</p>
+<p><img src="media/enable-camera-component.png" alt="Enable camera component"></p>
+</li>
+<li><p>in the <strong>Camera</strong> component properties, under <strong>Slot</strong>, select the slot you created in the previous step.</p>
+<p><img src="media/graphics-compositor-overview-2.png" alt="Select camera slot"></p>
+</li>
+</ol>
+<h2 id="3-create-a-render-target-texture">3. Create a render target texture</h2>
+<p>In the <strong>Asset View</strong>, click <strong>Add asset</strong> and select <strong>Texture</strong> &gt; <strong>Render target</strong>.</p>
+<p><img src="media/add-render-target.png" alt="Add render target"></p>
+<p>Game Studio adds a <strong>render target</strong> texture to your project assets.</p>
+<p><img src="media/render-target-texture-in-asset-view.png" alt="Render texture"></p>
+<h2 id="4-place-the-render-target-texture-in-the-scene">4. Place the render target texture in the scene</h2>
+<p>There are various ways you can use the render target texture.</p>
+<h3 id="example-1-use-the-render-target-texture-in-a-material">Example 1: Use the render target texture in a material</h3>
+<ol>
+<li><p>In the material properties, under <strong>Shading</strong>, next to <strong>Diffuse map</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>Texture</strong>.</p>
+<p><img src="media/select-texture.png" alt="Select texture"></p>
+</li>
+<li><p>Click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+</li>
+<li><p>Select the <strong>Render texture</strong> asset and click <strong>OK</strong>.</p>
+<p><img src="media/select-render-frame.png" alt="Select render frame"></p>
+</li>
+</ol>
+<h3 id="example-2-use-the-render-target-texture-in-a-sprite-component">Example 2: Use the render target texture in a sprite component</h3>
+<ol>
+<li><p>Create an entity and position it where you want to display the texture.</p>
+</li>
+<li><p>With the entity selected, in the <strong>Property Grid</strong>, click <strong>Add component</strong> and add a <strong>sprite</strong> component.</p>
+<p><img src="media/add-sprite-component.png" alt="Add sprite component"></p>
+</li>
+<li><p>In the sprite component properties, next to <strong>Source</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>Texture</strong>.</p>
+<p><img src="media/sprite-source-texture.png" alt="Select sprite source"></p>
+</li>
+<li><p>Click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the <strong>Render texture</strong> asset and click <strong>OK</strong>.</p>
+<p><img src="media/select-render-frame.png" alt="Select render frame"></p>
+</li>
+<li><p>If you don't want the texture to be semi-transparent, under the <strong>Source</strong> properties, clear the <strong>Is transparent</strong> checkbox.</p>
+<p><img src="media/clear-is-transparent.png" alt="Clear-is-transparent"></p>
+</li>
+</ol>
+<h2 id="5-set-up-the-graphics-compositor">5. Set up the graphics compositor</h2>
+<p>To display a render texture in your scene, you need at least two renderers:</p>
+<ul>
+<li>one to render your main camera</li>
+<li>one to render the second camera to the render texture</li>
+</ul>
+<p>This page describes the simplest way to do this from scratch, using two cameras and two renderers. Depending on your pipeline, you might need to create a different setup.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>These instructions involve deleting your existing renderers for the game entry point. You might want to make a backup of your project in case you want to restore your pipeline afterwards.</p>
+</div>
+<ol>
+<li><p>In the graphics compositor editor, select the <strong>Entry points</strong> node.</p>
+<p><img src="media/entry-points-node.png" alt="Entry points node"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> on the right, next to <strong>Game renderer</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>None</strong> to delete your existing renderers.</p>
+<p><img src="media/game-renderers-cleared.png" alt="Cleared game renderers"></p>
+</li>
+<li><p>Click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>Scene renderer collection</strong>.</p>
+<p><img src="media/select-scene-renderer-collection.png" alt="Select scene renderer collection"></p>
+<p>This lets you set multiple renderers for the game entry point.</p>
+</li>
+</ol>
+<h3 id="1-render-the-main-camera">1. Render the main camera</h3>
+<ol>
+<li><p>Under <strong>Game renderer</strong>, next to <strong>Children</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Camera renderer</strong>.</p>
+<p><img src="media/select-render-camera.png" alt="Select camera renderer"></p>
+</li>
+<li><p>Next to <strong>Camera</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select your main game camera.</p>
+<p><img src="media/select-main-camera.png" alt="Select main camera"></p>
+</li>
+<li><p>Next to <strong>Child</strong>, select the renderer for your main game camera (eg the <strong>forward renderer</strong>).</p>
+<p><img src="media/select-main-camera-forward-renderer.png" alt="Select forward render"></p>
+</li>
+</ol>
+<h3 id="2-render-the-texture">2. Render the texture</h3>
+<ol>
+<li><p>Under <strong>Game renderer</strong>, next to <strong>Add to Children</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Camera renderer</strong>.</p>
+<p><img src="media/select-render-camera2.png" alt="Select camera renderer"></p>
+<p>Game Studio adds a camera renderer to the list of children.</p>
+<p><img src="media/added-camera-renderer.png" alt="Second camera renderer"></p>
+</li>
+<li><p>Expand the second <strong>camera renderer</strong>.</p>
+<p><img src="media/expand-second-camera-renderer.png" alt="Expand second renderer"></p>
+</li>
+<li><p>Next to <strong>Camera</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select the camera you want to render to a texture.</p>
+<p><img src="media/select-texture-camera.png" alt="Select texture camera"></p>
+</li>
+<li><p>Next to <strong>Child</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>RenderTextureSceneRenderer</strong>.</p>
+<p><img src="media/render-texture-scene-renderer.png" alt="Select render texture scene renderer"></p>
+</li>
+<li><p>Under the <strong>RenderTextureSceneRenderer</strong>, next to <strong>Child</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select the renderer for your main game camera (eg the <strong>forward renderer</strong>).</p>
+<p><img src="media/select-forward-renderer2.png" alt="Select forward renderer"></p>
+</li>
+<li><p>Next to <strong>Render texture</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the <strong>render texture</strong> and click <strong>OK</strong>.</p>
+<p><img src="media/select-render-frame.png" alt="Select render texture"></p>
+<p>Game Studio adds the render texture to the renderer.</p>
+<p><img src="media/render-texture-added.png" alt="Render texture added"></p>
+</li>
+</ol>
+<p>Your game is now ready to render the camera to the texture in the scene.</p>
+<h2 id="set-a-render-mask">Set a render mask</h2>
+<p>You can use the <strong>render mask</strong> to filter which groups are rendered in the render texture.</p>
+<p>Next to <strong>Render mask</strong>, click <strong>Change values</strong> and select the render groups you want the camera to render.</p>
+<p><img src="media/change-render-mask.png" alt="Render mask"></p>
+<p>For more information, see <a href="render-groups-and-masks.html">Render groups and masks</a>.</p>
+<h2 id="sample">Sample</h2>
+<p>For an example of rendering to a texture in a project, see the <strong>Animation</strong> sample included with Stride.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../cameras/index.html">Cameras</a></li>
+<li><a href="../cameras/camera-slots.html">Camera slots</a></li>
+<li><a href="../low-level-api/textures-and-render-textures.html">Low-level API – Textures and render textures</a></li>
+<li><a href="render-groups-and-masks.html">Render groups and masks</a></li>
+<li><a href="index.html">Graphics compositor</a></li>
+<li><a href="scene-renderers.html">Scene renderers</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/graphics-compositor/render-textures.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

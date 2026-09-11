@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ThreadThrottler | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ThreadThrottler | Stride API ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_ThreadThrottler.md&amp;value=---%0Auid%3A%20Stride.Core.ThreadThrottler%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.ThreadThrottler">
+
+
+
+  <h1 id="Stride_Core_ThreadThrottler" data-uid="Stride.Core.ThreadThrottler" class="text-break">
+Class ThreadThrottler  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ThreadThrottler : IThreadThrottler</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ThreadThrottler</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IThreadThrottler.html">IThreadThrottler</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_ThreadThrottler__ctor_" data-uid="Stride.Core.ThreadThrottler.#ctor*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler__ctor" data-uid="Stride.Core.ThreadThrottler.#ctor">
+  ThreadThrottler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create an instance of this class without throttling and defaulting to <a class="xref" href="Stride.Core.ThreadThrottler.ThrottlerType.html#Stride_Core_ThreadThrottler_ThrottlerType_Standard">Standard</a> mode.
+See <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseAuto">SetToPreciseAuto()</a> and <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseManual_System_Int64_">SetToPreciseManual(long)</a> to set it to other modes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler__ctor_" data-uid="Stride.Core.ThreadThrottler.#ctor*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler__ctor_System_Int32_" data-uid="Stride.Core.ThreadThrottler.#ctor(System.Int32)">
+  ThreadThrottler(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create an instance of this class set to <a class="xref" href="Stride.Core.ThreadThrottler.ThrottlerType.html#Stride_Core_ThreadThrottler_ThrottlerType_Standard">Standard</a> mode.
+See <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseAuto">SetToPreciseAuto()</a> and <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseManual_System_Int64_">SetToPreciseManual(long)</a> to set it to other modes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler(int frequencyMax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frequencyMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum frequency this object allows</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler__ctor_" data-uid="Stride.Core.ThreadThrottler.#ctor*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler__ctor_System_TimeSpan_" data-uid="Stride.Core.ThreadThrottler.#ctor(System.TimeSpan)">
+  ThreadThrottler(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create an instance of this class set to <a class="xref" href="Stride.Core.ThreadThrottler.ThrottlerType.html#Stride_Core_ThreadThrottler_ThrottlerType_Standard">Standard</a> mode.
+See <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseAuto">SetToPreciseAuto()</a> and <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToPreciseManual_System_Int64_">SetToPreciseManual(long)</a> to set it to other modes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler(TimeSpan minimumElapsedTimeParam)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minimumElapsedTimeParam</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>Minimum time allowed between each call</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_ThreadThrottler_MinimumElapsedTime_" data-uid="Stride.Core.ThreadThrottler.MinimumElapsedTime*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_MinimumElapsedTime" data-uid="Stride.Core.ThreadThrottler.MinimumElapsedTime">
+  MinimumElapsedTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set this to zero to disable throttling.
+Minimum amount of time allowed between each 'update'.
+Conversion is lossy, getting this value back might not return the same value you set it to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan MinimumElapsedTime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Core_ThreadThrottler_MinimumElapsedTime_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_Throttle_System_Int64__">Throttle(out long)</a>'s summary for an idea of how this property is used.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_Type_" data-uid="Stride.Core.ThreadThrottler.Type*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_Type" data-uid="Stride.Core.ThreadThrottler.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The type of throttler used</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ThreadThrottler.ThrottlerType Type { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.ThreadThrottler.html">ThreadThrottler</a>.<a class="xref" href="Stride.Core.ThreadThrottler.ThrottlerType.html">ThrottlerType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_ThreadThrottler_SetMaxFrequency_" data-uid="Stride.Core.ThreadThrottler.SetMaxFrequency*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_SetMaxFrequency_System_Int32_" data-uid="Stride.Core.ThreadThrottler.SetMaxFrequency(System.Int32)">
+  SetMaxFrequency(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Thread will be blocked to stay within the given amount of 'updates' per second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMaxFrequency(int frequencyMax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frequencyMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_ThreadThrottler_SetMaxFrequency_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>It effectively transforms the given parameter from frame per second
+to the internal closest second per frame equivalent for it.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_SetToPreciseAuto_" data-uid="Stride.Core.ThreadThrottler.SetToPreciseAuto*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_SetToPreciseAuto" data-uid="Stride.Core.ThreadThrottler.SetToPreciseAuto">
+  SetToPreciseAuto()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Most of the timings will be perfectly precise to the system timer at the cost of higher CPU usage.</p>
+<p></p>
+<p>If you aren't sure, use <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToStandard">SetToStandard()</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetToPreciseAuto()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_ThreadThrottler_SetToPreciseAuto_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This mode uses and automatically scales a spinwait window based on system responsiveness to find the right balance
+between Thread.Sleep calls and spinwaiting.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_SetToPreciseManual_" data-uid="Stride.Core.ThreadThrottler.SetToPreciseManual*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_SetToPreciseManual_System_Int64_" data-uid="Stride.Core.ThreadThrottler.SetToPreciseManual(System.Int64)">
+  SetToPreciseManual(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Depending on the provided value, timings will be perfectly precise to the system timer at the cost of higher CPU usage.</p>
+<p></p>
+<p>If you aren't sure, use <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_SetToStandard">SetToStandard()</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetToPreciseManual(long spinwaitWindowParam)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>spinwaitWindowParam</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_ThreadThrottler_SetToPreciseManual_System_Int64__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This mode uses the given value as the duration of the spinwait window.
+The format of this value is based on <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch">Stopwatch</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch.frequency">Frequency</a></p>
+</div>
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_SetToStandard_" data-uid="Stride.Core.ThreadThrottler.SetToStandard*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_SetToStandard" data-uid="Stride.Core.ThreadThrottler.SetToStandard">
+  SetToStandard()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves CPU cycles while waiting, this one is the least precise mode but the lightest.</p>
+<p></p>
+<p>If you aren't sure, use this one !</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetToStandard()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_Throttle_" data-uid="Stride.Core.ThreadThrottler.Throttle*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_Throttle_System_Double__" data-uid="Stride.Core.ThreadThrottler.Throttle(System.Double@)">
+  Throttle(out double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Forces the thread to sleep when the time elapsed since last call is lower than <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>,
+it will sleep for the time remaining to reach <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>.</p>
+<p></p>
+<p>Use this function inside a loop when you want to lock it to a specific rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Throttle(out double elapsedInSeconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elapsedInSeconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The time since the last call in seconds,
+returns a value close to <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>,
+use this value as your delta time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>True</code> if this class had to throttle, <code>false</code> otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_Throttle_" data-uid="Stride.Core.ThreadThrottler.Throttle*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_Throttle_System_Int64__" data-uid="Stride.Core.ThreadThrottler.Throttle(System.Int64@)">
+  Throttle(out long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Forces the thread to sleep when the time elapsed since last call is lower than
+<a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>, it will sleep for the time remaining to reach that value.</p>
+<p></p>
+<p>Use this function inside a loop when you want to lock it to a specific rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Throttle(out long elapsedInSwFreq)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elapsedInSwFreq</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The time since the last call in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch">Stopwatch</a>.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.diagnostics.stopwatch.frequency">Frequency</a>
+returns a value close to <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>,
+use this value as your delta time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>True</code> if this class had to throttle, <code>false</code> otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_ThreadThrottler_Throttle_" data-uid="Stride.Core.ThreadThrottler.Throttle*"></a>
+
+  <h3 id="Stride_Core_ThreadThrottler_Throttle_System_TimeSpan__" data-uid="Stride.Core.ThreadThrottler.Throttle(System.TimeSpan@)">
+  Throttle(out TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Forces the thread to sleep when the time elapsed since last call is lower than <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>,
+it will sleep for the time remaining to reach <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>.</p>
+<p></p>
+<p>Use this function inside a loop when you want to lock it to a specific rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Throttle(out TimeSpan elapsedTimeSpan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elapsedTimeSpan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The time since the last call,
+returns a value close to <a class="xref" href="Stride.Core.ThreadThrottler.html#Stride_Core_ThreadThrottler_MinimumElapsedTime">MinimumElapsedTime</a>,
+use this value as your delta time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>True</code> if this class had to throttle, <code>false</code> otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/ThreadThrottler.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

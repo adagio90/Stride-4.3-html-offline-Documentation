@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MaterialSpecularHairModelFeature | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MaterialSpecularHairModelFeature | Stride API ">
+      
+      <meta name="description" content="The microfacet specular shading model.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Materials_MaterialSpecularHairModelFeature.md&amp;value=---%0Auid%3A%20Stride.Rendering.Materials.MaterialSpecularHairModelFeature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature">
+
+
+
+  <h1 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature" class="text-break">
+Class MaterialSpecularHairModelFeature  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Materials.html">Materials</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The microfacet specular shading model.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;MaterialSpecularHairModelFeature&quot;)]
+[Display(&quot;Hair&quot;, null)]
+public class MaterialSpecularHairModelFeature : MaterialFeature, IMaterialSpecularModelFeature, IMaterialShadingModelFeature, IMaterialFeature, IMaterialShaderGenerator, IEquatable&lt;IMaterialShadingModelFeature&gt;, IEquatable&lt;MaterialSpecularHairModelFeature&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.MaterialFeature.html">MaterialFeature</a></div>
+      <div><span class="xref">MaterialSpecularHairModelFeature</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Rendering.Materials.IMaterialSpecularModelFeature.html">IMaterialSpecularModelFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.IMaterialShadingModelFeature.html">IMaterialShadingModelFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.IMaterialFeature.html">IMaterialFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.Materials.IMaterialShaderGenerator.html">IMaterialShaderGenerator</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Rendering.Materials.IMaterialShadingModelFeature.html">IMaterialShadingModelFeature</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.html">MaterialSpecularHairModelFeature</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.MaterialFeature.html#Stride_Rendering_Materials_MaterialFeature_Enabled">MaterialFeature.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Materials.MaterialFeature.html#Stride_Rendering_Materials_MaterialFeature_Visit_Stride_Rendering_Materials_MaterialGeneratorContext_">MaterialFeature.Visit(MaterialGeneratorContext)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_AlphaThreshold_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.AlphaThreshold*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_AlphaThreshold" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.AlphaThreshold">
+  AlphaThreshold
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines the value used in the alpha test.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(135)]
+[DataMemberRange(0, 1, 1, 2, 2)]
+[Display(&quot;Alpha threshold&quot;, null)]
+public float AlphaThreshold { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_DebugRenderPasses_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.DebugRenderPasses*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_DebugRenderPasses" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.DebugRenderPasses">
+  DebugRenderPasses
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables/disables color coding of each render pass.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(30)]
+[Display(&quot;Debug render passes&quot;, null)]
+public bool DebugRenderPasses { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Environment_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Environment*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Environment" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Environment">
+  Environment
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(220)]
+[Display(&quot;Environment (DFG)&quot;, null)]
+public IMaterialSpecularMicrofacetEnvironmentFunction Environment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialSpecularMicrofacetEnvironmentFunction.html">IMaterialSpecularMicrofacetEnvironmentFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GlintsNoiseStrength_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GlintsNoiseStrength*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GlintsNoiseStrength" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GlintsNoiseStrength">
+  GlintsNoiseStrength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(132)]
+[DataMemberRange(0, 1, 1, 2, 2)]
+[Display(&quot;Glints noise strength&quot;, null)]
+public float GlintsNoiseStrength { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairDirectionFunction_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairDirectionFunction*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairDirectionFunction" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairDirectionFunction">
+  HairDirectionFunction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines whether the tangent or bitangent vectors represent the hair strands direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(180)]
+[Display(&quot;Hair direction&quot;, null)]
+public IMaterialHairDirectionFunction HairDirectionFunction { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialHairDirectionFunction.html">IMaterialHairDirectionFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairSecondarySpecularGlintsNoise_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairSecondarySpecularGlintsNoise*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairSecondarySpecularGlintsNoise" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairSecondarySpecularGlintsNoise">
+  HairSecondarySpecularGlintsNoise
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The texure that is multiplied with the secondary specular reflections to give them a sparkling look.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(150)]
+[Display(&quot;Secondary specular noise&quot;, null)]
+public IComputeScalar HairSecondarySpecularGlintsNoise { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IComputeScalar.html">IComputeScalar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairShadowingFunction_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairShadowingFunction*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairShadowingFunction" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairShadowingFunction">
+  HairShadowingFunction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines whether to use traditional shadow mapping or subsurface scattering for shadowing the hair.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(181)]
+[Display(&quot;Shadowing type&quot;, null)]
+public IMaterialHairShadowingFunction HairShadowingFunction { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialHairShadowingFunction.html">IMaterialHairShadowingFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairSpecularHighlightsShiftNoise_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairSpecularHighlightsShiftNoise*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_HairSpecularHighlightsShiftNoise" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.HairSpecularHighlightsShiftNoise">
+  HairSpecularHighlightsShiftNoise
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This texture is used to shift the two specular highlights to break the uniform look of the hair.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(140)]
+[Display(&quot;Specular shift texture&quot;, null)]
+public IComputeScalar HairSpecularHighlightsShiftNoise { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IComputeScalar.html">IComputeScalar</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_IsLightDependent_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.IsLightDependent*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_IsLightDependent" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.IsLightDependent">
+  IsLightDependent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLightDependent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_LightAttenuationFunction_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.LightAttenuationFunction*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_LightAttenuationFunction" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.LightAttenuationFunction">
+  LightAttenuationFunction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Additional light attenuation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(210)]
+[Display(&quot;Light attenuation&quot;, null)]
+public IMaterialHairLightAttenuationFunction LightAttenuationFunction { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.IMaterialHairLightAttenuationFunction.html">IMaterialHairLightAttenuationFunction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ScalesAngle_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ScalesAngle*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ScalesAngle" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ScalesAngle">
+  ScalesAngle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls the shift of the primary and secondary specular reflections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(127)]
+[Display(&quot;Hair scales angle&quot;, null)]
+[DataMemberRange(0, 25, 1, 2, 2)]
+public float ScalesAngle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ShadingModel_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ShadingModel*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ShadingModel" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ShadingModel">
+  ShadingModel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shading model to use for the hair shading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(40)]
+[Display(&quot;Shading model&quot;, null)]
+public HairShared.HairShadingModel ShadingModel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Materials.HairShared.html">HairShared</a>.<a class="xref" href="Stride.Rendering.Materials.HairShared.HairShadingModel.html">HairShadingModel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ShiftNoiseScale_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ShiftNoiseScale*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_ShiftNoiseScale" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.ShiftNoiseScale">
+  ShiftNoiseScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scale that gets multiplied with the noise value produced by HairSpecularHighlightsShiftNoise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(131)]
+[DataMemberRange(0, 10, 1, 2, 2)]
+[Display(&quot;Shift noise strength&quot;, null)]
+public float ShiftNoiseScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularColor1_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularColor1*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularColor1" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularColor1">
+  SpecularColor1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Color of the primary specular reflecton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(80)]
+[Display(&quot;Primary specular reflection color&quot;, null)]
+public Color3 SpecularColor1 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularColor2_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularColor2*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularColor2" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularColor2">
+  SpecularColor2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Color of the secondary specular reflecton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(110)]
+[Display(&quot;Secondary specular reflection color&quot;, null)]
+public Color3 SpecularColor2 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularExponent1_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularExponent1*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularExponent1" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularExponent1">
+  SpecularExponent1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponent of the primary specular highlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(70)]
+[DataMemberRange(1, 1000, 1, 2, 2)]
+[Display(&quot;Primary specular reflection exponent&quot;, null)]
+public float SpecularExponent1 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularExponent2_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularExponent2*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularExponent2" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularExponent2">
+  SpecularExponent2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponent of the secondary specular highlight.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(100)]
+[DataMemberRange(1, 1000, 1, 2, 2)]
+[Display(&quot;Secondary specular reflection exponent&quot;, null)]
+public float SpecularExponent2 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularScale1_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularScale1*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularScale1" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularScale1">
+  SpecularScale1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strength of the primary specular reflection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(90)]
+[DataMemberRange(0, 1, 1, 2, 3)]
+[Display(&quot;Primary specular reflection strength&quot;, null)]
+public float SpecularScale1 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularScale2_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularScale2*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularScale2" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularScale2">
+  SpecularScale2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strength of the secondary specular reflection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(120)]
+[DataMemberRange(0, 1, 1, 2, 3)]
+[Display(&quot;Secondary specular reflection strength&quot;, null)]
+public float SpecularScale2 { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularShiftRatio_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularShiftRatio*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_SpecularShiftRatio" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.SpecularShiftRatio">
+  SpecularShiftRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls the offset between the primary and secondary reflections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(125)]
+[DataMemberRange(0, 3, 1, 2, 2)]
+[Display(&quot;Secondary reflection shift ratio&quot;, null)]
+public float SpecularShiftRatio { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_Stride_Rendering_Materials_IMaterialShadingModelFeature_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals(Stride.Rendering.Materials.IMaterialShadingModelFeature)">
+  Equals(IMaterialShadingModelFeature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L323"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(IMaterialShadingModelFeature other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Rendering.Materials.IMaterialShadingModelFeature.html">IMaterialShadingModelFeature</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_Stride_Rendering_Materials_MaterialSpecularHairModelFeature_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals(Stride.Rendering.Materials.MaterialSpecularHairModelFeature)">
+  Equals(MaterialSpecularHairModelFeature)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MaterialSpecularHairModelFeature other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.html">MaterialSpecularHairModelFeature</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_Equals_System_Object_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GenerateShader_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GenerateShader*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GenerateShader_Stride_Rendering_Materials_MaterialGeneratorContext_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GenerateShader(Stride.Rendering.Materials.MaterialGeneratorContext)">
+  GenerateShader(MaterialGeneratorContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates the shader for the feature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GenerateShader(MaterialGeneratorContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html">MaterialGeneratorContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GetHashCode_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GetHashCode*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_GetHashCode" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_MultipassGeneration_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.MultipassGeneration*"></a>
+
+  <h3 id="Stride_Rendering_Materials_MaterialSpecularHairModelFeature_MultipassGeneration_Stride_Rendering_Materials_MaterialGeneratorContext_" data-uid="Stride.Rendering.Materials.MaterialSpecularHairModelFeature.MultipassGeneration(Stride.Rendering.Materials.MaterialGeneratorContext)">
+  MultipassGeneration(MaterialGeneratorContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called during prepass, used to enumerate extra passes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MultipassGeneration(MaterialGeneratorContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.Materials.MaterialGeneratorContext.html">MaterialGeneratorContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Materials/Hair/MaterialSpecularHairModelFeature.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

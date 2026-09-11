@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Non-spatialized audio | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Non-spatialized audio | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/audio/non-spatialized-audio.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="non-spatialized-audio">Non-spatialized audio</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Non-spatialized audio</strong> sounds the same throughout the scene, regardless of the position of entities (such as the player camera). It's stereo and moves along a single axis (usually the X-axis). Unlike <a href="spatialized-audio.html">spatialized audio</a>, the <em>volume</em>, <em>pitch</em> (<em>frequency</em>), and other parameters of spatialized audio don't change. This is useful, for example, for background music and menu sound effects.</p>
+<p><img src="media/audio-index-non-spatialized-audio.png" alt="Non-spatialized audio"></p>
+<p>Non-spatialized audio requires no <a href="audio-emitters.html">audio emitters</a> or <a href="audio-listeners.html">audio listeners</a>.</p>
+<h2 id="1-import-audio-and-include-it-in-the-build">1. Import audio and include it in the build</h2>
+<ol>
+<li><p><a href="import-audio.html">Import the audio as a audio asset</a>.</p>
+</li>
+<li><p>Make sure the audio asset is a <strong>root asset</strong>. Root assets are assets that Stride includes in the build so they can be used at runtime.</p>
+<p>In the <strong>Asset View</strong>, right-click the asset and select <strong>Include in build as root asset</strong>:</p>
+<p><img src="media/audio-include-in-build-as-root-asset.png" alt="Include in build as root asset"></p>
+<p>If the menu option reads <strong>Do not include in build as root asset</strong>, the option is already selected and you don't need to change it.</p>
+</li>
+</ol>
+<h2 id="2-create-a-script-to-play-audio">2. Create a script to play audio</h2>
+<p>To play non-spatialized audio at runtime, create an instance of it and define its behavior in the code.</p>
+<p>The <a class="xref" href="../../api/Stride.Audio.SoundInstance.html">SoundInstance</a> controls audio at runtime with the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_IsLooping">IsLooping</a></td>
+<td>Gets or sets looping of the audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Pan">Pan</a></td>
+<td>Sets the balance between left and right speakers. By default, each speaker a value of 0.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Pitch">Pitch</a></td>
+<td>Gets or sets the audio pitch (frequency).</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_PlayState">PlayState</a></td>
+<td>Gets the state of the <a class="xref" href="../../api/Stride.Audio.SoundInstance.html">SoundInstance</a>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Position">Position</a></td>
+<td>Gets the current play position of the audio.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Volume">Volume</a></td>
+<td>Sets the audio volume.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details, see the <a class="xref" href="../../api/Stride.Audio.SoundInstance.html">SoundInstance API documentation</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the sound is already playing, Stride ignores all additional calls to <a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Play">SoundInstance.Play</a>. The same goes for <a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Pause">SoundInstance.Pause</a> (when a sound is already paused) and <a class="xref" href="../../api/Stride.Audio.SoundInstance.html#Stride_Audio_SoundInstance_Stop">SoundInstance.Stop</a> (when a sound is already stopped).</p>
+</div>
+<p>For example, the following code:</p>
+<ul>
+<li>instantiates non-spatialized audio</li>
+<li>sets the audio to loop</li>
+<li>sets the volume</li>
+<li>plays the audio</li>
+</ul>
+<pre><code class="lang-cs">public override async Task Execute()
+{
+    // Load the sound
+    Sound musicSound = Content.Load&lt;Sound&gt;(&quot;MySound&quot;);
+            
+    // Create a sound instance
+    SoundInstance music = musicSound.CreateInstance();
+            
+    // Loop
+    music.IsLooping = true;
+
+    // Set the volume
+    music.Volume = 0.25f;
+
+    // Play the music
+    music.Play();
+}
+</code></pre>
+<h3 id="alternative-create-a-script-with-public-variables">Alternative: create a script with public variables</h3>
+<p>Create a public variable for each audio asset you want to use. You can use the same properties listed above.</p>
+<p>For example:</p>
+<pre><code class="lang-cs">public class MySoundScript : SyncScript
+{
+    public Sound MyMusic;
+
+    private SoundInstance musicInstance;
+    public bool PlayMusic;
+
+    public override void Start()
+    {
+        musicInstance = MyMusic.CreateInstance();
+    }
+
+    public override void Update()
+    {
+        // If music isn't playing but should be, play the music.
+        if (PlayMusic &amp; musicInstance.PlayState != PlayState.Playing)
+        {
+            musicInstance.Play();
+        }
+
+        // If music is playing but shouldn't be, stop the music.
+        else if (!PlayMusic)
+        {
+            musicInstance.Stop();
+        }
+    }
+}
+</code></pre>
+<h2 id="add-the-script-to-the-entity">Add the script to the entity</h2>
+<ol>
+<li><p>In the <strong>Scene view</strong>, select the entity you want to add the script to:</p>
+<p><img src="media/audio-add-audiolistener-component-select-entity.png" alt="Select an entity"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select your script:</p>
+<p><img src="media/audio-emitters-add-script-component.png" alt="Click Add component"></p>
+<p>The script is added to the entity.</p>
+</li>
+<li><p>If you added <strong>public variables</strong> to the script, you need to tie them to audio assets.</p>
+<p>Drag and drop an asset from the <strong>Asset View</strong> to each variable:</p>
+<p><img src="media/entity-audio-drag-and-drop-audio-asset-to-script-component.gif" alt="Drag and drop an audio asset"></p>
+<p>Alternatively, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>):</p>
+<p><img src="media/audio-play-script-component-pick-an-asset.png" alt="Pick up an asset"></p>
+<p>Then choose the audio asset you want to use:</p>
+<p><img src="media/audio-play-audioemitter-component-add-select-audio-asset.png" alt="Select an audio asset"></p>
+</li>
+</ol>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="import-audio.html">Import audio</a></li>
+<li><a href="global-audio-settings.html">Global audio settings</a></li>
+<li><a href="spatialized-audio.html">Spatialized audio</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/audio/non-spatialized-audio.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

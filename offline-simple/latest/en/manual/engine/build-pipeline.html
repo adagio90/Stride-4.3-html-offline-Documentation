@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Build pipeline | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Build pipeline | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/build-pipeline.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="build-pipeline">Build pipeline</h1>
+
+<p>This document describes the Build pipeline in Stride, its current implementation (and legacy), and the work that should be done to improve it.</p>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li><p>An <strong>Asset</strong> is a design-time object containing information to generate <strong>Content</strong> that can be loaded at runtime. For example, a <strong>Model asset</strong> contains the path to a source FBX file, and additional information such as an offset for the pivot point of the model, a scale factor, a list of materials to use for this model. A <strong>Sprite font asset</strong>  contains a path to a source font, multiple parameters such as the size, kerning, etc. and information describing in which form it should be compiled (such as pre-rasterized, or using distance field...). <strong>Asset</strong> are serialized on disk using the YAML format, and are part of the data that a team developing a game should be sharing on a source control system.</p>
+</li>
+<li><p><strong>Content</strong> is the name given to compiled data (usually generated from <strong>Asset</strong>s) that can be loaded at runtime. This means that in term of format, <strong>Content</strong> is optimized for performance and size (using binary serialization, and data structured in a way so that the runtime can consume it without re-transforming it). Therefore <strong>Content</strong> is the platform-specific optimized version of your game data.</p>
+</li>
+</ul>
+<h2 id="design">Design</h2>
+<p>Stride uses <em>Content-addressable storage</em> to store the data generated by the compilation. The main concept is that the actual name of each generated file is the hash of the file. So if, after a change, the resulting content built from the asset is different, then the file name will be different. An index map file contains the mapping between the content <em>URL</em> and the actual hash of the corresponding file. Parameters of each compilation commands are also hashed and stored in this database, so if a command is ran again with the same parameters, the build engine can easily recover the hashes of the corresponding generated files.</p>
+<h3 id="build-engine">Build Engine</h3>
+<p>The build engine is the part of the infrastructure that transforms data from the <strong>assets</strong> into actual <strong>content</strong> and save it to the database. It was originally designed to build content from input similar to a makefile. (eg. &quot;compile all files in <code>MyModels/*.fbx</code> into Stride models). It has then been changed to work with individual assets when the asset layer has been implemented. Due to this legacy, this library is still not perfectly suited or optimal to build assets in an efficient way (dependencies of build steps, management of a queue for live-compiling in the Game Studio, etc.).</p>
+<h4 id="builder">Builder</h4>
+<p>The <code>Builder</code> class is the entry point of the build engine. A <code>Builder</code> will spawn a given number of threads, each one running a <code>Microthread</code> scheduler (see <code>RunUntilEnd</code> method).</p>
+<h4 id="build-steps">Build Steps</h4>
+<p>The <code>Builder</code> takes a root <code>BuildStep</code> as input. We currently have two types of <code>BuildStep</code>s:</p>
+<ul>
+<li>A <code>ListBuildStep</code> contains a sequence of <code>BuildStep</code> (Formerly we had an additional parent class called <code>EnumerableBuildStep</code>, but it has been merged into <code>ListBuildStep</code>). A <code>ListBuildStep</code> will schedule all the build steps it contains at the same time, to be run in parallel. Formerly we had a synchronization mechanism using a special <code>WaitBuildStep</code> but it has been removed. We now use <code>PrerequisiteSteps</code> with <code>LinkBuildSteps</code> to manage dependencies.</li>
+<li>A <code>CommandBuildStep</code> contains a single <code>Command</code> to run, which does actual work to compile asset.</li>
+</ul>
+<blockquote>
+<p><strong>TODO:</strong> Currently, when compiling a graph of build steps, we need to have all steps to compile in the root <code>ListBuildStep</code>. More especially, if we have a <code>ListBuildStep</code> container in which we want to put a step A that depends on a step B and C, we need to put A, B, C in the <code>ListBuildStep</code> container. This is cumbersome and error-prone. What we would like to do is to rely only on the <code>PrerequisiteSteps</code> of a given step to find what we have to compile. If we do so, we wouldn't need to return a <code>ListBuildStep</code> in <code>AssetCompilerResult</code>, but just the final build step for the asset, the graph of dependent build steps being described by recursive <code>PrerequisiteSteps</code>. The <code>ListBuildStep</code> container could be removed. We would still need to have lists of build steps when we compile multiple asset (eg. when compiling the full game), but it would be nothing that the build engine should be aware of.</p>
+</blockquote>
+<h4 id="commands">Commands</h4>
+<p>Most command inherits from <code>IndexFileCommand</code>, which automatically register the output of the command into the command context.</p>
+<p>Basically, at the beginning of the command (in the <code>PreCommand</code> method), a <code>BuildTransaction</code> object is created. This transaction contains a subset of the database of objects that have been already compiled, provided by the <code>ICommandContext.GetOutputObjectsGroups()</code>. In term of implementation, this method returns all the objects that where written by prerequisite build steps, and all the objects that are already written in any of the parent <code>ListBuildStep</code>s, recursively. The objects coming from the parent <code>ListBuildStep</code> are a legacy of when we were using <code>WaitBuildStep</code> to synchronize the build steps. This hopefully should be implemented differently, relying only on prerequisite (since no synchronization can happen in the `ListBuildStep itself, everything is run in parallel).</p>
+<blockquote>
+<p><strong>TODO:</strong> Rewrite how OutputObjects are transfered from <code>BuildStep</code>s to other <code>BuildStep</code>s. Only the output from prerequisite <code>BuildStep</code> should be transfered. A lot of legacy makes this code very convoluted and hard to maintain.</p>
+</blockquote>
+<p>The <code>BuildTransaction</code> created during this step is mounted as a <em>Microthread-local database</em>, which is accessible only from the current microthread (which is basically the current command).</p>
+<p>At the end of the command (in the <code>PostCommand</code> method), every object that has been written in the database by the command are extracted from the <code>BuildTransaction</code> and registered to the current <code>ICommandContext</code> (which is how the <code>ICommandContext</code> can &quot;flow&quot; objects from one command to the other.</p>
+<p>It's important to keep in mind that objects accessible in a given command (in the <code>DoCommandOverride</code>) using a <code>ContentManager</code> are those provided during the <code>PreCommand</code> step, and therefore it is important that dependencies between commands (what other commmands a command needs to be completed to start) are properly set.</p>
+<h3 id="compilers">Compilers</h3>
+<p>Compilers are classes that generate a set of <code>BuildStep</code>s to compile a given <code>Asset</code> in a specific context. This list could grow in the future if we have other needs, but the current different contexts are:</p>
+<ul>
+<li>compiling the asset for the game</li>
+<li>compiling the asset for the scene editor</li>
+<li>compiling the asset to display in the preview</li>
+<li>compiling the asset to generate a thumbnail</li>
+</ul>
+<h4 id="iassetcompiler">IAssetCompiler</h4>
+<p>This is the base interface for compiler. The entry point is the <code>Prepare</code> method, which takes an <code>AssetItem</code> and returns a <code>AssetCompilerResult</code>, which is a mix of a <code>LoggerResult</code> and a  <code>ListBuildStep</code>. Usually there are two implementations per asset types, one to compile asset for the game and one to compile asset for its thumbnails. Some asset types such as animations might have an additional implementation for the preview.</p>
+<p>Each implementation of <code>IAssetCompiler</code> must have the <code>AssetCompilerAttribute</code> attached to the class, in order to be registered (compilers are registered via the <code>AssetCompilerRegistry</code>.</p>
+<blockquote>
+<p><strong>TODO:</strong> The <code>AssetCompilerRegistry</code> could be merged into the <code>AssetRegistry</code> to have a single location where asset-related types and meta-information are registered.</p>
+</blockquote>
+<p>Each compiler provides a set of methods to help discover the dependencies between assets and compilers. They will be covered later in this document.</p>
+<h4 id="icompilationcontext">ICompilationContext</h4>
+<blockquote>
+<p>Not to be mistaken with <code>CompilerContext</code> and <code>AssetCompilerContext</code>.</p>
+</blockquote>
+<p>Contexts of compilation are defined by <em>types</em>, which allow to use inheritance mechanism to fallback on a default compiler when there is no specific compiler for a given context. Each compilation context type must implement <code>ICompilationContext</code>. Currently we have:</p>
+<ul>
+<li><code>AssetCompilationContext</code> is the context used when we compile an asset for the runtime (ie. the game).</li>
+<li><code>EditorGameCompilationContext</code> is the context used when we compile an asset for the scene editor, which is a specific runtime. Therefore, it inherits from <code>AssetCompilationContext</code>.</li>
+<li><code>PreviewCompilationContext</code> is the context used when we compile an asset for the preview, which is a specific runtime. Therefore, it inherits from <code>AssetCompilationContext</code>.</li>
+<li><code>ThumbnailCompilationContext</code> is the context used when we compile an asset to generate a thumbnail. Generally, for thumbnails, we compile one or several assets for the runtime, and use additional steps to generate the thumbnail with the <code>ThumbnailCompilationContext</code> (see below).</li>
+</ul>
+<blockquote>
+<p><strong>TODO:</strong> Currently thumbnail compilation is in a poor state. In <code>ThumbnailListCompiler.Compile</code>, we first generate the steps to compile the asset in <code>PreviewCompilationContext</code>, then generate the steps to compile the asset in <code>ThumbnailCompilationContext</code>, and finally we like the first with the latter. Dependencies from thumbnail compilers (which load a scene and take screenshots) to the runtime compiler (which compile the asset) is <strong>not</strong> expressed at all. It just works now because in all current cases, the <code>PreviewCompilationContext</code> does what we need for thumbnails (for example, the <code>AnimationAssetPreviewCompiler</code> adds the preview model to the normal compilation of the animation, which is needed for both preview and thumbnail).</p>
+</blockquote>
+<h3 id="dependency-managers">Dependency managers</h3>
+<p>We currently have two mechanisms that handle dependencies.</p>
+<blockquote>
+<p><strong>TODO:</strong> Merge the <code>AssetDependencyManager</code> and the <code>BuildDependencyManager</code> together into a single dependency manager object. There is a lot of redundancy between both, one rely on the other, some code is duplicated. See <code>XK-4862</code></p>
+</blockquote>
+<h4 id="assetdependencymanager">AssetDependencyManager</h4>
+<p>The <code>AssetDependencyManager</code> was the first implementation of an mechanism to manage dependencies between assets. It works independently of the build, which is one of the main issue it had and the reason why we started to develop a new infrastructure.</p>
+<p>It is based essentially on visiting assets with a <code>DataVisitorBase</code> to find references to other assets. There are two ways of referencing an asset:</p>
+<ul>
+<li>Having a property whose type is an implementation of <code>IReference</code>. More explicitely the only case we have currently is <code>AssetReference</code>. This type contains an <code>AssetId</code> and a <code>Location</code> corresponding to the referenced asset.</li>
+<li>Having a property whose type correspond to a <em>Content</em> type, ie. a type registered as being the compiled version of an asset type (for example, <code>Texture</code> is the Content type of <code>TextureAsset</code>).</li>
+</ul>
+<p>The problem of that design was that once all the references are collected, there is no way to know of the referenced assets are actually consumed, which could be one of the three following way:</p>
+<ul>
+<li>the referenced asset is not needed to compile this asset, but it's needed at runtime to use the compiled content (eg. Models need Materials, who need Textures. But you can compile Models, Materials and Textures independently).</li>
+<li>the referenced asset needs to be compiled before this asset, and the compiler of this asset needs to load the corresponding content generated from the referenced asset (eg. A prefab model, which aggregates multiple models together, needs the compiled version of each model it's referencing to be able to merge them).</li>
+<li>the referenced asset is read when compiling this asset because it depends on some of its parameter, but the referenced asset itself doesn't need to be compiled first (eg. Navigation Meshes need to read the scene asset they are related to in order to gather static colliders it contains, but they don't need to compile the scene itself).</li>
+</ul>
+<h4 id="builddependencymanager">BuildDependencyManager</h4>
+<p>The <code>BuildDependencyManager</code> has been introduced recently to solve the problems of the <code>AssetDependencyManager</code>. It is currently not complete, and the ultimate goal is to merge it totally with the <code>AssetDependencyManager</code>.</p>
+<p>The approach is a bit different. Rather than extracting dependencies from the asset itself, we extract them from the compilers of the assets, which are better suited to know what they exactly need to compile the asset and what will be needed to load the asset at runtime.</p>
+<p>But one asset type can have multiple compilers associated to it (for the game, for the thumbnail, for the preview...). So the <code>BuildDependencyManager</code> works in the context of a specific compiler.</p>
+<p>Currently there is one <code>BuildDependencyManager</code> for each type of compiler.</p>
+<blockquote>
+<p><strong>TODO:</strong> Have a single global instance of <code>BuildDependencyManager</code> that contains all types of dependencies for all context of compilers. For example, we have thumbnail compilers that requires <em>game</em> version of assets, which means that the <code>BuildDependencyManager</code> for thumbnails will also contain a large part of the <code>BuildDependencyManager</code> to build the game. Merging everything into a single graph would reduce redundancy and risk to trigger the same operation multiple times simultaneously.</p>
+</blockquote>
+<h4 id="assetdependenciescompiler">AssetDependenciesCompiler</h4>
+<p>The <code>AssetDependenciesCompiler</code> is the object that computes the dependencies with the <code>BuildDependencyManager</code>, and then generates the build steps for a given asset, including the runtime dependencies. It's the main entry point of compilation for the CompilerApp, the scene editor, and the preview. Thumbnails also use it, via the <code>ThumbnailListCompiler</code> class.</p>
+<blockquote>
+<p><strong>TODO:</strong> This class should be removed, and its content moved into the <code>BuildDependencyManager</code> class. By doing so, it should be possible to make <code>BuildAssetNode</code> and <code>BuildAssetLink</code> internal - those classes are just the data of the dependency graph, they should not be exposed publicly. To do that, a method to retrieve the dependencies in a given context must be implemented in <code>BuildDependencyManager</code> in order to fix the usage of <code>BuildAssetNode</code> in <code>EditorContentLoader</code>.</p>
+</blockquote>
+<h3 id="in-the-game-studio">In the Game Studio</h3>
+<p>The Game Studio compiles assets in various versions all the time. It has some specific way of managing database and content depending on the context.</p>
+<p>Remark: the Game Studio never saves index file on the disk, it keeps the url -&gt; hash mapping in memory, always.</p>
+<h4 id="databases">Databases</h4>
+<p>Before accessing content to load, a Microthread-local database must be mounted. Depending on the context, it can be a database containing a scene and its dependencies (scene editor), the assets needed to create a thumbnail, an asset to display in the preview...</p>
+<p>For the scene editor, this is handled by the <code>GameStudioDatabase</code> class. Thumbnails and preview also handle database mounting internally (in <code>ThumbnailGenerator</code> for example).</p>
+<blockquote>
+<p><strong>TODO:</strong> See if it could be possible/useful to wrap all database-mounting in the Game Studio into the GameStudioDatabase class.</p>
+</blockquote>
+<h4 id="builder-service">Builder service</h4>
+<p>All compilations that occur in the Game Studio is done through the <code>GameStudioBuilderService</code>. This class creates an instance of <code>Builder</code>, a <code>DynamicBuilder</code> which allows to feed the Builder with build steps at any time. Having a single builder for the whole Game Studio allows to control the number of threads and concurrent tasks more easily.</p>
+<p>The <code>DynamicBuilder</code> class simply creates a thread to run the Builder on, and set a special build step, <code>DynamicBuildStep</code>, as root step of this builder. This step is permanently waiting for other child build step to be posted, and execute them.</p>
+<blockquote>
+<p><strong>TODO:</strong> Currently the dynamic build step waits arbitratly with the <code>CompleteOneBuildStep</code> method when more than 8 assets compiling. This is a poor design because if the 8 assets are for example prefabs who contains a lot of models, materials, textures, it will block until all are done, although we could complete the thumbnails of these models/materials/textures individually. Ideally, this <code>await</code> should be removed, and a way to make sure thumbnails of assets which are compiled are created as soon as possible should be implemented.</p>
+</blockquote>
+<p>The builder service uses <code>AssetBuildUnit</code>s as unit of compilation. A build unit corresponds to a single asset, and encapsulates the compiler and the generated build step of this asset.</p>
+<h4 id="editorcontentloader">EditorContentLoader</h4>
+<p>The scene editor needs a special behavior in term of asset loading. The main issue is that any type of asset can be modified by the user (for example a texture), and then need to be reloaded. Stride use the <code>ContentManager</code> to handle reference counting of loaded assets. With a few exception (Materials, maybe Textures), it does not support hot-swapping an asset. Therefore, when an asset needs to be reloaded, we actually need to unload and reload the <em>first-referencer</em> of this asset.</p>
+<p>The <em>first-referencer</em> is the first asset referenced by an entity, that contains a way (in term of reference) to the asset to reload. For example, in case of a texture, we will have to reload all models that use materials that use the texture to reload.</p>
+<p>This is done by the <code>EditorContentLoader</code> class. At initialization, this class collects all <em>first-referencer</em> assets and build them. Each time an asset is built, it is then loaded into the scene editor game, and the references (from the entity to the asset) are updated. This means that this class needs to track all first-referencers on its own and update them. This is done specifically by the <code>LoaderReferenceManager</code> object. The reference are collected from the <code>GameEditorChangePropagator</code>, an object that takes the responsibility to push synchronization of changes between the assets and the game (for all properties, including non-references). There is one instance of it per entity. When a property of an entity that contains a reference to an asset (a <em>first-referencer</em>) is modified, the propagator will trigger the work to compile and update the entity. In case of a referenced asset modified by the user, <code>EditorContentLoader.AssetPropertiesChanged</code> takes the responsibility to gather, build, unload and reload what needs to be reloaded.</p>
+<h2 id="additional-todos">Additional Todos</h2>
+<blockquote>
+<p><strong>TODO:</strong> <code>GetInputFiles</code> exists both in <code>Command</code> and in <code>IAssetCompiler</code>. It has the same signature in both case, so it's returning information using <code>ObjectUrl</code> and <code>UrlType</code> in the compiler, where we are trying to describe dependency. That signature should be changed, so it returns information using <code>BuildDependencyType</code> and <code>AssetCompilationContext</code>, just like the GetInputTypes method. Also, the method is passed to the command via the <code>InputFilesGetter</code> which is not very nice and has to be done manually (super error-prone, we had multiple commands that were missing it!). An automated way should be provided.</p>
+</blockquote>
+<blockquote>
+<p><strong>TODO:</strong> The current design of the build steps and list build steps is a <em>tree</em>. For this reason, same build steps are often generated multiple times and appears in multiple trees. It could be possible to cache and share the build step if the structure was a <em>graph</em> rather than a <em>tree</em>. Do to that, the <code>Parent</code> property of build steps should be removed. The main difficulty is that the way output objects of build steps flow between steps has to be rewritten.</p>
+</blockquote>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/build-pipeline.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

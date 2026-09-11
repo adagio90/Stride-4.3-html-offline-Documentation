@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ForwardLightingRenderFeature | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ForwardLightingRenderFeature | Stride API ">
+      
+      <meta name="description" content="Compute lighting shaders and data.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Lights_ForwardLightingRenderFeature.md&amp;value=---%0Auid%3A%20Stride.Rendering.Lights.ForwardLightingRenderFeature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature">
+
+
+
+  <h1 id="Stride_Rendering_Lights_ForwardLightingRenderFeature" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature" class="text-break">
+Class ForwardLightingRenderFeature  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Lights.html">Lights</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Compute lighting shaders and data.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ForwardLightingRenderFeature : SubRenderFeature, IComponent, IReferencable, ICollectorHolder, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RenderFeature.html">RenderFeature</a></div>
+      <div><a class="xref" href="Stride.Rendering.SubRenderFeature.html">SubRenderFeature</a></div>
+      <div><span class="xref">ForwardLightingRenderFeature</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.SubRenderFeature.html#Stride_Rendering_SubRenderFeature_RootRenderFeature">SubRenderFeature.RootRenderFeature</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.SubRenderFeature.html#Stride_Rendering_SubRenderFeature_ProcessPipelineState_Stride_Rendering_RenderContext_Stride_Rendering_RenderNodeReference_Stride_Rendering_RenderNode__Stride_Rendering_RenderObject_Stride_Graphics_PipelineStateDescription_">SubRenderFeature.ProcessPipelineState(RenderContext, RenderNodeReference, ref RenderNode, RenderObject, PipelineStateDescription)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Context">RenderFeature.Context</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_RenderSystem">RenderFeature.RenderSystem</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Initialized">RenderFeature.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Enabled">RenderFeature.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Initialize_Stride_Rendering_RenderContext_">RenderFeature.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Draw_Stride_Rendering_RenderDrawContext_Stride_Rendering_RenderView_Stride_Rendering_RenderViewStage_System_Int32_System_Int32_">RenderFeature.Draw(RenderDrawContext, RenderView, RenderViewStage, int, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_CurrentLights" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.CurrentLights">
+  CurrentLights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Property key to access the current collection of <code>CameraComponent</code> from <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">Tags</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly PropertyKey&lt;RenderLightCollection&gt; CurrentLights</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.PropertyKey-1.html">PropertyKey</a>&lt;<a class="xref" href="Stride.Rendering.Lights.RenderLightCollection.html">RenderLightCollection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_LightRenderers_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.LightRenderers*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_LightRenderers" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.LightRenderers">
+  LightRenderers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public TrackingCollection&lt;LightGroupRendererBase&gt; LightRenderers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingCollection-1.html">TrackingCollection</a>&lt;<a class="xref" href="Stride.Rendering.Lights.LightGroupRendererBase.html">LightGroupRendererBase</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_ShadowMapRenderer_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.ShadowMapRenderer*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_ShadowMapRenderer" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.ShadowMapRenderer">
+  ShadowMapRenderer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public IShadowMapRenderer ShadowMapRenderer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Shadows.IShadowMapRenderer.html">IShadowMapRenderer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Collect_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Collect*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Collect" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Collect">
+  Collect()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs pipeline initialization, enumerates views and populates visibility groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Collect()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Destroy_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Destroy*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Destroy" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Draw_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Draw*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Draw_Stride_Rendering_RenderDrawContext_Stride_Rendering_RenderView_Stride_Rendering_RenderViewStage_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Draw(Stride.Rendering.RenderDrawContext,Stride.Rendering.RenderView,Stride.Rendering.RenderViewStage)">
+  Draw(RenderDrawContext, RenderView, RenderViewStage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs GPU updates and/or drawing, everytime a render view changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Draw(RenderDrawContext context, RenderView renderView, RenderViewStage renderViewStage)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+    <dt><code>renderView</code> <a class="xref" href="Stride.Rendering.RenderView.html">RenderView</a></dt>
+    <dd></dd>
+    <dt><code>renderViewStage</code> <a class="xref" href="Stride.Rendering.RenderViewStage.html">RenderViewStage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Extract_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Extract*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Extract" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Extract">
+  Extract()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extract data from entities, should be as fast as possible to not block simulation loop. It should be mostly copies, and the actual processing should be part of Prepare().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Extract()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Flush_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Flush*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Flush_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Flush(Stride.Rendering.RenderDrawContext)">
+  Flush(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases temporary resources and cleans the state. Should be called once after all <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Draw_Stride_Rendering_RenderDrawContext_Stride_Rendering_RenderView_Stride_Rendering_RenderViewStage_">Draw(RenderDrawContext, RenderView, RenderViewStage)</a> calls have finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Flush(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_InitializeCore_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.InitializeCore*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_InitializeCore" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.InitializeCore">
+  InitializeCore()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes this instance.
+Query for specific cbuffer (either new one, like PerMaterial, or parts of an existing one, like PerObject=&gt;Skinning)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeCore()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_OnRenderSystemChanged_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.OnRenderSystemChanged*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_OnRenderSystemChanged" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.OnRenderSystemChanged">
+  OnRenderSystemChanged()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L500"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnRenderSystemChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Prepare_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Prepare*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Prepare_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Prepare(Stride.Rendering.RenderDrawContext)">
+  Prepare(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs most of the work (computation and resource preparation). Later game simulation might be running during that step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Prepare(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_PrepareEffectPermutations_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.PrepareEffectPermutations*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_PrepareEffectPermutations_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.PrepareEffectPermutations(Stride.Rendering.RenderDrawContext)">
+  PrepareEffectPermutations(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Perform effect permutations, before <a class="xref" href="Stride.Rendering.RenderFeature.html#Stride_Rendering_RenderFeature_Prepare_Stride_Rendering_RenderDrawContext_">Prepare(RenderDrawContext)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void PrepareEffectPermutations(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Unload_" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Unload*"></a>
+
+  <h3 id="Stride_Rendering_Lights_ForwardLightingRenderFeature_Unload" data-uid="Stride.Rendering.Lights.ForwardLightingRenderFeature.Unload">
+  Unload()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Unload()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Lights/ForwardLightingRenderFeature.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

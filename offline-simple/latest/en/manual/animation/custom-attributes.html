@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Custom attributes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Custom attributes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/custom-attributes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="custom-attributes">Custom attributes</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span></p>
+<p>You can import custom attributes created in modeling tools such as Maya.</p>
+<p>Currently, you can only import custom <strong>animated</strong> attributes. Attributes that aren't animated can't be imported.</p>
+<p><img src="media/custom-attributes-in-maya.png" alt="Maya properties"></p>
+<h2 id="1-import-custom-attributes">1. Import custom attributes</h2>
+<ol>
+<li><p>Import the animation. For instructions, see <a href="import-animations.html">Import animations</a>.</p>
+</li>
+<li><p>In the <strong>Asset View</strong>, select the animation asset.</p>
+<p><img src="media/assets-in-asset-view1.png" alt="Assets in Asset View"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, select <strong>Import custom attributes</strong>.</p>
+<p><img src="media/import-custom-attributes.png" alt="Custom attributes"></p>
+<p>When the assets are built, Stride imports the custom attributes from the FBX file.</p>
+</li>
+</ol>
+<h2 id="2-control-custom-attributes-with-a-script">2. Control custom attributes with a script</h2>
+<p>Add a script to read the custom attributes and copy their value to another property. This can be a separate script, or part of another <a href="animation-scripts.html">animation script</a>.</p>
+<p>To look up an attribute, use <code>NodeName_AttributeName</code>. For example, if you have the node <code>myNode</code> with the custom attribute <code>myAttribute</code>, use <code>myNode_myAttribute</code>.</p>
+<h3 id="example-script">Example script</h3>
+<pre><code class="lang-cs">using Stride.Animations;
+using Stride.Engine;
+using Stride.Rendering;
+using Stride.Audio;
+using Stride.Rendering.Materials;
+using System.Linq;
+
+namespace Sample
+{
+    public class HologramScript : SyncScript
+    {
+        public Material MyMaterial;
+
+        private AnimationComponent animationComponent;
+        private AnimationProcessor animationProcessor;
+
+        public override void Start()
+        {
+            base.Start();
+
+            animationComponent = Entity.GetOrCreate&lt;AnimationComponent&gt;();
+            animationProcessor = SceneSystem.SceneInstance.Processors.OfType&lt;AnimationProcessor&gt;().FirstOrDefault();
+        }
+
+        public override void Update()
+        {
+            if (animationProcessor == null || MyMaterial == null)
+                return;
+
+            // Animation result may be Null if animation hasn't been played yet.
+            var animResult = animationProcessor.GetAnimationClipResult(animationComponent);
+            if (animResult == null)
+                return;
+
+            // Read the value of the animated custom attribute:
+            float emissiveIntensity = 0;
+            unsafe
+            {
+                fixed (byte* structures = animResult.Data)
+                {
+                    foreach (var channel in animResult.Channels)
+                    {
+                        if (!channel.IsUserCustomProperty)
+                            continue;
+
+                        var structureData = (float*)(structures + channel.Offset);
+                        var factor = *structureData++;
+                        if (factor == 0.0f)
+                            continue;
+
+                        var value = *structureData;
+                        if (channel.PropertyName == &quot;myNode_myProperty&quot;)
+                            emissiveIntensity = value;
+                    }
+                }
+            }
+
+            // Bind the material parameter:
+
+            MyMaterial.Passes[0].Parameters.Set(MaterialKeys.EmissiveIntensity, emissiveIntensity);
+        }
+    }
+}
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/animation/custom-attributes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

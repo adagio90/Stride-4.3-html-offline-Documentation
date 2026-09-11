@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Add a UI to a scene | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Add a UI to a scene | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/ui/add-a-ui-to-a-scene.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="add-a-ui-to-a-scene">Add a UI to a scene</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>After you create a <a href="ui-pages.html">UI page</a>, add it to the scene as a component on an entity.</p>
+<ol>
+<li><p>In the <strong>Scene Editor</strong>, create an empty entity. To do this, right-click the scene and select <strong>Empty entity</strong>.</p>
+<p><img src="media/create-empty-entity.png" alt="Create empty entity"></p>
+</li>
+<li><p>In the Property Grid (on the right by default), click <strong>Add component</strong> and select <strong>UI</strong>.</p>
+<p><img src="media/add-UI-component.png" alt="Add UI component"></p>
+<p>Game Studio adds a <strong>UI component</strong> to the entity.</p>
+<p><img src="media/UI-component.png" alt="UI component"></p>
+</li>
+<li><p>Next to <strong>Page</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="media/select-UI-page.png" alt="Select UI page"></p>
+</li>
+<li><p>Select the UI page you want to add and click <strong>OK</strong>.</p>
+<p>For information about how to create and edit UI pages, see the <a href="ui-editor.html">UI editor</a> page.</p>
+</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To stop the UI obscuring the rest of the scene in the editor, disable the <strong>UI component</strong> in the Property Grid.</p>
+</div>
+<blockquote>
+<p><img src="media/disable-UI-component.png" alt="Disable UI component"></p>
+</blockquote>
+<blockquote>
+<p>Remember to enable the component again before you run the game. If you don't, Stride doesn't display the UI.</p>
+</blockquote>
+<h3 id="assign-a-ui-page-to-a-ui-page-component-in-code">Assign a UI page to a UI page component in code</h3>
+<p>You can assign a UI page to the <code>Page</code> property of a UI component.</p>
+<pre><code class="lang-cs">// This property can be assigned from a UI page asset in Game Studio
+public UIPage MyPage { get; set; }
+
+protected override void LoadScene()
+{
+    InitializeUI();
+}
+
+public void InitializeUI()
+{
+    var rootElement = MyPage.RootElement;
+    // to look for a specific element in the UI page, extension methods can be used
+    var button = rootElement.FindVisualChildOfType&lt;Button&gt;(&quot;buttonOk&quot;);
+
+    // if there's no element named &quot;buttonOk&quot; in the UI tree or the type doesn't match,
+    // the previous method returns null
+    if (button != null)
+    {
+        // attach a delegate to the Click event
+        button.Click += delegate
+        {
+            // do something here...
+        };
+    }
+
+    // assign the page to the UI component
+    var uiComponent = Entity.Get&lt;UIComponent&gt;();
+    uiComponent.Page = MyPage;
+}
+</code></pre>
+<h2 id="ui-component-properties">UI component properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page</td>
+<td>The UI page displayed by the component</td>
+</tr>
+<tr>
+<td>Sampler</td>
+<td>Texture sampling method: Point (Nearest), Linear (<strong>Default option</strong> ), or Anisotropic</td>
+</tr>
+<tr>
+<td>Full screen</td>
+<td><strong>Note:</strong> We recommend you use this as other stuff is broken</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>The UI resolution in pixels</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>Gets or sets the actual size of the UI component in world units</td>
+</tr>
+<tr>
+<td>Resolution stretch</td>
+<td>How the virtual resolution value should be used (<code>FixedWithFixedHeight</code>, <code>FixedWithAdaptableHeight</code>, or <code>FixedHeightAdaptableWidth</code>)</td>
+</tr>
+<tr>
+<td>Billboard</td>
+<td>If selected, the UI always faces the camera. <strong>Note:</strong> Disabling billboard mode causes UI text errors in the current version of Stride</td>
+</tr>
+<tr>
+<td>Snap text</td>
+<td>If selected, the UI text is snapped to the closest pixel</td>
+</tr>
+<tr>
+<td>Fixed size</td>
+<td>Gets or sets the value indicating whether the UI should always be a fixed size on screen (eg a component with a height of 1 will use 0.1 of the screen). <strong>Note:</strong> This feature doesn't work in the current version of Stride</td>
+</tr>
+<tr>
+<td>Render group</td>
+<td>The <a href="../graphics/graphics-compositor/render-groups-and-masks.html">render group</a> the UI uses</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ui-scripts">UI scripts</h2>
+<p>To make UIs interactive, you need to add a script. Without scripts, UIs are simply non-interactive images.</p>
+<p>For an example of a UI implemented in Stride, see the <strong>game menu UI</strong> sample included with Stride.</p>
+<p><img src="media/ui-sample-project.png" alt="Sample UI project"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="ui-pages.html">UI pages</a></li>
+<li><a href="ui-libraries.html">UI libraries</a></li>
+<li><a href="ui-editor.html">UI editor</a></li>
+<li><a href="layout-system.html">Layout system</a></li>
+<li><a href="../virtual-reality/display-a-UI-in-an-overlay.html">VR — Display a UI in an overlay</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/ui/add-a-ui-to-a-scene.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

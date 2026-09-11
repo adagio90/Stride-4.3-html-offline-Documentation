@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Geometry attributes | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Geometry attributes | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/geometry-attributes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="geometry-attributes">Geometry attributes</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>The material <strong>geometry</strong> attributes define the shape of a material.</p>
+<p><img src="media/geometry-properties.png" alt="Geometry properties"></p>
+<h2 id="tessellation">Tessellation</h2>
+<p>Real-time tessellation uses a HW feature of the GPU to massively subdivide triangles. This increases the realism and potential of deformations of the surface geometry.</p>
+<p>You can choose <strong>none</strong>, <strong>flat tessellation</strong>, or <strong>point normal tessellation</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>No tessellation</th>
+<th>Flat tessellation</th>
+<th>Point normal tessellation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-2.png" alt="media/material-attributes-2.png"></td>
+<td><img src="media/material-attributes-3.png" alt="media/material-attributes-3.png"></td>
+<td><img src="media/material-attributes-4.png" alt="media/material-attributes-4.png"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="flat-tessellation">Flat tessellation</h3>
+<p>This option tessellates the mesh uniformly.</p>
+<p><img src="media/material-attributes-5.png" alt="media/material-attributes-5.png"></p>
+<p>In the images below, notice how the flat tessellation adds extra triangles, but doesn't take the curve into account:</p>
+<table>
+<thead>
+<tr>
+<th>No tessellation</th>
+<th>Flat tessellation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-6.png" alt="media/material-attributes-6.png"></td>
+<td><img src="media/material-attributes-7.png" alt="media/material-attributes-7.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triangle size</td>
+<td>The size of a tessellated triangle in screen-space units</td>
+</tr>
+<tr>
+<td>Adjacent edges average</td>
+<td>Adjust the triangle size values from the average of adjacent edges values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="point-normal-tessellation">Point normal tessellation</h3>
+<p>This option tessellates the mesh using the curvature provided by the mesh normals.</p>
+<p><img src="media/material-attributes-8.png" alt="media/material-attributes-8.png"></p>
+<p>The images below show how point normal tessellation adds extra triangles while taking the curvature of the mesh into account:</p>
+<table>
+<thead>
+<tr>
+<th>No tessellation</th>
+<th>Point normal tessellation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-6.png" alt="media/material-attributes-6.png"></td>
+<td><img src="media/material-attributes-9.png" alt="media/material-attributes-9.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triangle size</td>
+<td>The size of a tessellated triangle in screen-space units</td>
+</tr>
+<tr>
+<td>Adjacent edge average</td>
+<td>Adjust the <strong>triangle size</strong> and <strong>normal curvature</strong> values from the average of adjacent edge values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="displacement">Displacement</h2>
+<p>Under the <strong>Displacement</strong> properties, you can specify <strong>displacement map</strong>. This displaces the geometry of the mesh.</p>
+<p><img src="media/material-attributes-10.png" alt="media/material-attributes-10.png"></p>
+<p>Depending on the stage at which the displacement is applied, the results can be very different:</p>
+<table>
+<thead>
+<tr>
+<th>Displacement with vertex shader</th>
+<th>Tessellation with displacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-11.png" alt="media/material-attributes-11.png"></td>
+<td><img src="media/material-attributes-12.png" alt="media/material-attributes-12.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Displacement Map</td>
+<td>The displacement texture as a <a href="material-maps.html">material color provider</a></td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td>The amount of displacement</td>
+</tr>
+<tr>
+<td>Scale &amp; Bias</td>
+<td>When enabled, the value coming from the texture is considered a positive value ranging from <code>0.0</code> to <code>1.0</code> and the shader applies a scale to get the range -1.0 to <code>1.0</code></td>
+</tr>
+<tr>
+<td>Shader Stage</td>
+<td>Specify which shader stage the displacement map should be applied to: vertex shader or domain shader (used with tessellation)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="surface">Surface</h2>
+<p><img src="media/material-attributes-14.png" alt="media/material-attributes-14.png"></p>
+<p>Under the <strong>Surface</strong> properties, you can define a <a href="../textures/normal-maps.html">Normal maps</a> to define <strong>macro</strong> surface normals. The <strong>normal map</strong> provides per-pixel normal perturbation of the normal of the mesh. Normal maps create the appearance of bumps and indents in the mesh:</p>
+<table>
+<thead>
+<tr>
+<th>Flat</th>
+<th>Using a normal map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-15.png" alt="media/material-attributes-15.png"></td>
+<td><img src="media/material-attributes-16.png" alt="media/material-attributes-16.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal map</td>
+<td>The normal map color provider</td>
+</tr>
+<tr>
+<td>Scale and offset</td>
+<td>Interpret values from the texture as positive values ranging from <code>0.0</code> to <code>1.0</code>. The shader applies a scale to get the range <code>-1.0</code> to <code>1.0</code>.</td>
+</tr>
+<tr>
+<td>Reconstruct Z</td>
+<td>If there's no Z component in the texture, reconstruct it from the X and Y components. This assumes that X<sup>2</sup> + Y<sup>2</sup> + Z<sup>2</sup> = 1 and that Z is always positive, so no normal vector can point to the back side of the surface. We recommend you enable this option, as Stride might remove the Z component when you compress normal maps.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about normal maps, see the <a href="../textures/normal-maps.html">normal maps</a> page.</p>
+<h2 id="micro-surface">Micro surface</h2>
+<p>Under the <strong>Micro surface</strong> setting, you can provide a <strong>gloss map</strong> to provide per-pixel information for gloss.</p>
+<p><img src="media/material-attributes-17.png" alt="media/material-attributes-17.png"></p>
+<p>If you select <strong>Float</strong>:</p>
+<ul>
+<li>a value of <code>1.0</code> means the surface is highly glossy (the coarse normal isn't perturbed)</li>
+<li>a value of <code>0.0</code> means the surface is very rough (the coarse normal is highly perturbed in several directions)</li>
+</ul>
+<p>The screenshots below show different levels of gloss on a material:</p>
+<ul>
+<li>Diffuse = #848484, Lambert</li>
+<li>Specular Metalness = 1.0, GGX</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Gloss = 0.0</th>
+<th>0.25</th>
+<th>0.5</th>
+<th>0.8</th>
+<th>1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/material-attributes-18.png" alt="media/material-attributes-18.png"></td>
+<td><img src="media/material-attributes-19.png" alt="media/material-attributes-19.png"></td>
+<td><img src="media/material-attributes-20.png" alt="media/material-attributes-20.png"></td>
+<td><img src="media/material-attributes-21.png" alt="media/material-attributes-21.png"></td>
+<td><img src="media/material-attributes-22.png" alt="media/material-attributes-22.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gloss map</td>
+<td>The gloss map color provider</td>
+</tr>
+<tr>
+<td>Invert</td>
+<td>Inverts the gloss value (eg a value of <code>1.0</code> produces zero gloss instead of maximum). This effectively turns the gloss value into a <strong>roughness</strong> value, as used in other game engines</td>
+</tr>
+</tbody>
+</table>
+<p>If you have local reflections enabled, the scene is reflected in materials with a gloss map value higher than the threshold you specify in the local reflections properties. For more information, see <a href="../post-effects/local-reflections.html">Local reflections</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="material-maps.html">Material maps</a></li>
+<li><a href="material-attributes.html">Material attributes</a>
+<ul>
+<li><a href="shading-attributes.html">Shading attributes</a></li>
+<li><a href="misc-attributes.html">Misc attributes</a></li>
+<li><a href="clear-coat-shading.html">Clear-coat shading</a></li>
+</ul>
+</li>
+<li><a href="clear-coat-shading.html">Clear-coating shading</a></li>
+<li><a href="material-layers.html">Material layers</a></li>
+<li><a href="material-slots.html">Material slots</a></li>
+<li><a href="materials-for-developers.html">Materials for developers</a></li>
+<li><a href="../effects-and-shaders/custom-shaders.html">Custom shaders</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/geometry-attributes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

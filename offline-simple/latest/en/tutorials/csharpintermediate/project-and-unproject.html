@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Project and Unproject | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Project and Unproject | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/project-and-unproject.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="project-and-unproject">Project and Unproject</h1>
+
+<p>This C# Intermediate tutorial covers projecting and unprojecting coordinates from 3D to 2D and vice versa.</p>
+<h2 id="explanation">Explanation</h2>
+<p>When we want to 'convert' 3D coordinates to a 2D screen, we speak 'Projecting'. The other way around is called 'Unprojecting'. Both scenarios are fairly common in 3D games.</p>
+<p>The 3D to 2D or projecting happens for instance when you have a 3d quest marker. When the target you need to travel to is somewhere in front of you in the world, then you want to draw a 2D quest marker on screen that gives you an indication of where in the 3D world that target is located.</p>
+<p>From 2D to 3D is often used to convert a mouse coordinate into the looking direction of the camera. This can be used for firing a weapon or setting a target on a map when playing a strategy game.</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/r2sMWGPidis?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="project">Project</h2>
+<pre><code class="lang-csharp" name="project">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Graphics;
+
+namespace CSharpIntermediate.Code
+{
+    public class ProjectDemo : SyncScript
+    {
+        public Entity projectSphere;
+        public Entity projectSphereChild;
+        private CameraComponent camera;
+
+        public override void Start()
+        {
+            camera = Entity.Get&lt;CameraComponent&gt;();
+        }
+
+        public override void Update()
+        {
+            var backBuffer = GraphicsDevice.Presenter.BackBuffer;
+            var sphereProjection = Vector3.Project(projectSphere.Transform.WorldMatrix.TranslationVector, 0, 0, backBuffer.Width, backBuffer.Height,0, 8, camera.ViewProjectionMatrix);
+            var sphereChildProjection = Vector3.Project(projectSphereChild.Transform.WorldMatrix.TranslationVector, 0, 0, backBuffer.Width, backBuffer.Height,0, 8, camera.ViewProjectionMatrix);
+
+            // Similar method using Viewports
+            //var viewport = new Viewport(0, 0, backBuffer.Width, backBuffer.Height);
+            //var sphereProjection = viewport.Project(projectSphere.Transform.WorldMatrix.TranslationVector, camera.ProjectionMatrix, camera.ViewMatrix, Matrix.Identity);
+            //var sphereChildProjection = viewport.Project(projectSphereChild.Transform.WorldMatrix.TranslationVector, camera.ProjectionMatrix, camera.ViewMatrix, Matrix.Identity);
+
+            DebugText.Print($&quot;Parent&quot;, new Int2(sphereProjection.XY()));
+            DebugText.Print($&quot;Child&quot;, new Int2(sphereChildProjection.XY()));
+        }
+    }
+}
+</code></pre><h2 id="unproject">Unproject</h2>
+<pre><code class="lang-csharp" name="unproject">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Graphics;
+using Stride.Input;
+using Stride.Physics;
+
+namespace CSharpIntermediate.Code
+{
+    public class UnprojectDemo : SyncScript
+    {
+        private CameraComponent camera;
+        public Entity sphereToClone;
+
+        public override void Start()
+        {
+            camera = Entity.Get&lt;CameraComponent&gt;();
+        }
+
+        public override void Update()
+        {
+            if (Input.IsMouseButtonPressed(MouseButton.Left))
+            {
+                var backBuffer = GraphicsDevice.Presenter.BackBuffer;
+                var viewport = new Viewport(0, 0, backBuffer.Width, backBuffer.Height);
+
+                var nearPosition = viewport.Unproject(new Vector3(Input.AbsoluteMousePosition, 0.0f), camera.ProjectionMatrix, camera.ViewMatrix, Matrix.Identity);
+                var farPosition = viewport.Unproject(new Vector3(Input.AbsoluteMousePosition, 1.0f), camera.ProjectionMatrix, camera.ViewMatrix, Matrix.Identity);
+
+                var hitResult = this.GetSimulation().Raycast(nearPosition, farPosition);
+
+                // If there is a hitresult, clone the sphere and place it on that position
+                if (hitResult.Succeeded)
+                {
+                    var sphereClone = sphereToClone.Clone();
+                    sphereClone.Transform.Position = hitResult.Point;
+                    Entity.Scene.Entities.Add(sphereClone);
+                }
+            }
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/project-and-unproject.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

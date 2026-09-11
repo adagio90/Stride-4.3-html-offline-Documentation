@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Async script | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Async script | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/types-of-script/async-script.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="async-script">Async script</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>Asynchronous scripts get executed only once asynchronously. They can be used for initializing the scene and it's contents or performing game logic for every frame.</p>
+<pre><code class="lang-csharp">public class Example : AsyncScript
+{
+    public override Task Execute()
+    {
+        // Execute the asynchronous code
+    }
+    
+    public override void Cancel()
+    {
+        // Do stuff for when the script is unloaded
+    }
+}
+</code></pre>
+<h2 id="when-to-use">When to use</h2>
+<p>Asynchronous scripts are meant to be used for doing game logic that needs to await something.</p>
+<p>If you <strong>don't need to await any tasks</strong>, consider <strong>using a <a href="startup-script.html">startup script</a> or a <a href="sync-script.html">synchronous script</a></strong> instead.</p>
+<h2 id="what-is-asynchronous-code">What is asynchronous code?</h2>
+<p>Asynchronous programming in C# means writing code that can <strong>run in parallel</strong>.</p>
+<p>For example: let's say we have a method for saving the game's state that <strong>takes 10 seconds</strong> to execute. Instead of pausing everything until it finishes running, <strong>we can run it asynchronously</strong>, meaning that <strong>the game can continue while we are saving the player's progress</strong>.</p>
+<p>An asynchronous method is a normal method that returns a <code>Task</code>, which can then be awaited. While it's running, other non asynchronous and asynchronous code will be allowed to run.</p>
+<pre><code class="lang-csharp">protected override async Task Execute()
+{
+    // Waits for 1 second without freezing the game
+    await Task.Delay(1000);
+}
+</code></pre>
+<h2 id="performing-code-every-frame">Performing code every frame</h2>
+<p>In order to keep performing logic for every frame (like a synchronous script), you can use <code>Script.NextFrame()</code> in a loop.</p>
+<pre><code class="lang-csharp">public class Example : AsyncScript
+{
+    public override async Task Execute()
+    {
+        // Initialization code goes here
+        
+        // A loop that will keep running as long as the script is active
+        while (Game.IsRunning)
+        {
+            // Code that gets executed every frame goes here
+            
+            await Script.NextFrame();
+        }
+    }
+}
+</code></pre>
+<h2 id="executing-tasks-in-parallel">Executing tasks in parallel</h2>
+<p>Sometimes it's useful to execute two async tasks in the same script. This can be achieved using <a class="xref" href="../../../api/Stride.Engine.Processors.ScriptSystem.html#Stride_Engine_Processors_ScriptSystem_AddTask_"><code>Script.AddTask()</code></a>.</p>
+<pre><code class="lang-csharp">public class Example : AsyncScript
+{
+    public override async Task Execute()
+    {
+        Script.AddTask(ParallelTask);
+        
+        // Execute code at the same time as ParallelTask
+    }
+    
+    private async Task ParallelTask()
+    {        
+        // Execute code at the same time as Execute
+    }
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><strong>Avoid using <a href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.task.run"><code>Task.Run</code></a></strong> for parallel tasks, as it will execute your code <strong>on the thread pool instead of the main thread</strong>. This will make interacting with the engine <strong>unsafe</strong> and could result in <strong>unexpected behaviours</strong>.</p>
+</div>
+<h2 id="overridable-methods">Overridable methods</h2>
+<p>Asynchronous scripts feature 2 methods which can be overridden in order to perform game logic.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These methods <strong>only get called during runtime</strong> - they will never be called in Game Studio.</p>
+</div>
+<h3 id="execute"><code>Execute()</code></h3>
+<p>The <a class="xref" href="../../../api/Stride.Engine.AsyncScript.html#Stride_Engine_AsyncScript_Execute">Execute</a> method gets called when the script is added to the game. For example:</p>
+<ul>
+<li>When a scene the script is in gets loaded</li>
+<li>When a new entity containing the script is added to a scene</li>
+<li>When the script is added to an already existing entity</li>
+</ul>
+<p>The method may be executed more than once if an entity the script is attached to gets removed and then re-added to the scene.</p>
+<h3 id="cancel"><code>Cancel()</code></h3>
+<p>The <a class="xref" href="../../../api/Stride.Engine.ScriptComponent.html#Stride_Engine_ScriptComponent_Cancel">Cancel</a> method gets called when the script is removed from the game. This includes:</p>
+<ul>
+<li>When a scene the script is in gets unloaded</li>
+<li>When an entity the script is attached to gets removed from it's scene</li>
+<li>When the script gets removed from a scene entity</li>
+<li>When the game gets closed</li>
+</ul>
+<p>The method may be executed more than once if an entity the script is attached to gets re-added and then removed from the scene.</p>
+<h2 id="tutorial">Tutorial</h2>
+<p>Check out the <a href="../../../tutorials/csharpintermediate/async-scripts.html">Async scripts tutorial</a> for more examples.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/scripts/types-of-script/async-script.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

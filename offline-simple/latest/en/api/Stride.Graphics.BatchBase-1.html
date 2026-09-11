@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BatchBase&lt;TDrawInfo&gt; | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BatchBase&lt;TDrawInfo&gt; | Stride API ">
+      
+      <meta name="description" content="Base class to batch a group of draw calls into one.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_BatchBase_1.md&amp;value=---%0Auid%3A%20Stride.Graphics.BatchBase%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.BatchBase`1">
+
+
+
+  <h1 id="Stride_Graphics_BatchBase_1" data-uid="Stride.Graphics.BatchBase`1" class="text-break">
+Class BatchBase&lt;TDrawInfo&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class to batch a group of draw calls into one.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BatchBase&lt;TDrawInfo&gt; : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder where TDrawInfo : struct</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TDrawInfo</code></dt>
+    <dd><p>A structure containing all the required information to draw one element of the batch.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">BatchBase&lt;TDrawInfo&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Graphics.Sprite3DBatch.html">Sprite3DBatch</a></div>
+      <div><a class="xref" href="Stride.Graphics.SpriteBatch.html">SpriteBatch</a></div>
+      <div><a class="xref" href="Stride.Graphics.UIBatch.html">UIBatch</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_BatchBase_1__ctor_" data-uid="Stride.Graphics.BatchBase`1.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1__ctor_Stride_Graphics_GraphicsDevice_Stride_Shaders_EffectBytecode_Stride_Shaders_EffectBytecode_Stride_Graphics_BatchBase__0__ResourceBufferInfo_Stride_Graphics_VertexDeclaration_System_Int32_" data-uid="Stride.Graphics.BatchBase`1.#ctor(Stride.Graphics.GraphicsDevice,Stride.Shaders.EffectBytecode,Stride.Shaders.EffectBytecode,Stride.Graphics.BatchBase{`0}.ResourceBufferInfo,Stride.Graphics.VertexDeclaration,System.Int32)">
+  BatchBase(GraphicsDevice, EffectBytecode, EffectBytecode, ResourceBufferInfo, VertexDeclaration, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BatchBase(GraphicsDevice device, EffectBytecode defaultEffectByteCode, EffectBytecode defaultEffectByteCodeSRgb, BatchBase&lt;TDrawInfo&gt;.ResourceBufferInfo resourceBufferInfo, VertexDeclaration vertexDeclaration, int indexSize = 2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd></dd>
+    <dt><code>defaultEffectByteCode</code> <a class="xref" href="Stride.Shaders.EffectBytecode.html">EffectBytecode</a></dt>
+    <dd></dd>
+    <dt><code>defaultEffectByteCodeSRgb</code> <a class="xref" href="Stride.Shaders.EffectBytecode.html">EffectBytecode</a></dt>
+    <dd></dd>
+    <dt><code>resourceBufferInfo</code> <a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ResourceBufferInfo.html">ResourceBufferInfo</a></dt>
+    <dd></dd>
+    <dt><code>vertexDeclaration</code> <a class="xref" href="Stride.Graphics.VertexDeclaration.html">VertexDeclaration</a></dt>
+    <dd></dd>
+    <dt><code>indexSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_DefaultEffect" data-uid="Stride.Graphics.BatchBase`1.DefaultEffect">
+  DefaultEffect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EffectInstance DefaultEffect</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_DefaultEffectSRgb" data-uid="Stride.Graphics.BatchBase`1.DefaultEffectSRgb">
+  DefaultEffectSRgb
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly EffectInstance DefaultEffectSRgb</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_ResourceContext" data-uid="Stride.Graphics.BatchBase`1.ResourceContext">
+  ResourceContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BatchBase&lt;TDrawInfo&gt;.DeviceResourceContext ResourceContext</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.DeviceResourceContext.html">DeviceResourceContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_ResourceContextPool" data-uid="Stride.Graphics.BatchBase`1.ResourceContextPool">
+  ResourceContextPool
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly ThreadLocal&lt;BatchBase&lt;TDrawInfo&gt;.DeviceResourceContext&gt; ResourceContextPool</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.threadlocal-1">ThreadLocal</a>&lt;<a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.DeviceResourceContext.html">DeviceResourceContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_blendState" data-uid="Stride.Graphics.BatchBase`1.blendState">
+  blendState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BlendStateDescription? blendState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BlendStateDescription.html">BlendStateDescription</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_depthStencilState" data-uid="Stride.Graphics.BatchBase`1.depthStencilState">
+  depthStencilState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DepthStencilStateDescription? depthStencilState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.DepthStencilStateDescription.html">DepthStencilStateDescription</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_graphicsDevice" data-uid="Stride.Graphics.BatchBase`1.graphicsDevice">
+  graphicsDevice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GraphicsDevice graphicsDevice</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_mutablePipeline" data-uid="Stride.Graphics.BatchBase`1.mutablePipeline">
+  mutablePipeline
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MutablePipelineState mutablePipeline</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MutablePipelineState.html">MutablePipelineState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_rasterizerState" data-uid="Stride.Graphics.BatchBase`1.rasterizerState">
+  rasterizerState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RasterizerStateDescription? rasterizerState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.RasterizerStateDescription.html">RasterizerStateDescription</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_samplerState" data-uid="Stride.Graphics.BatchBase`1.samplerState">
+  samplerState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SamplerState samplerState</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_sortMode" data-uid="Stride.Graphics.BatchBase`1.sortMode">
+  sortMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SpriteSortMode sortMode</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_BatchBase_1_stencilReferenceValue" data-uid="Stride.Graphics.BatchBase`1.stencilReferenceValue">
+  stencilReferenceValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int stencilReferenceValue</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_BatchBase_1_BackToFrontComparer_" data-uid="Stride.Graphics.BatchBase`1.BackToFrontComparer*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_BackToFrontComparer" data-uid="Stride.Graphics.BatchBase`1.BackToFrontComparer">
+  BackToFrontComparer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BatchBase&lt;TDrawInfo&gt;.QueueComparer&lt;BatchBase&lt;TDrawInfo&gt;.ElementInfo&gt; BackToFrontComparer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.QueueComparer-1.html">QueueComparer</a>&lt;<a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ElementInfo.html">ElementInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_Effect_" data-uid="Stride.Graphics.BatchBase`1.Effect*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_Effect" data-uid="Stride.Graphics.BatchBase`1.Effect">
+  Effect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The effect used for the current Begin/End session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected EffectInstance Effect { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_FrontToBackComparer_" data-uid="Stride.Graphics.BatchBase`1.FrontToBackComparer*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_FrontToBackComparer" data-uid="Stride.Graphics.BatchBase`1.FrontToBackComparer">
+  FrontToBackComparer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BatchBase&lt;TDrawInfo&gt;.QueueComparer&lt;BatchBase&lt;TDrawInfo&gt;.ElementInfo&gt; FrontToBackComparer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.QueueComparer-1.html">QueueComparer</a>&lt;<a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ElementInfo.html">ElementInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_GraphicsContext_" data-uid="Stride.Graphics.BatchBase`1.GraphicsContext*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_GraphicsContext" data-uid="Stride.Graphics.BatchBase`1.GraphicsContext">
+  GraphicsContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GraphicsContext GraphicsContext { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_Parameters_" data-uid="Stride.Graphics.BatchBase`1.Parameters*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_Parameters" data-uid="Stride.Graphics.BatchBase`1.Parameters">
+  Parameters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the parameters applied on the SpriteBatch effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParameterCollection Parameters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.ParameterCollection.html">ParameterCollection</a></dt>
+    <dd><p>The parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_TextureComparer_" data-uid="Stride.Graphics.BatchBase`1.TextureComparer*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_TextureComparer" data-uid="Stride.Graphics.BatchBase`1.TextureComparer">
+  TextureComparer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BatchBase&lt;TDrawInfo&gt;.TextureIdComparer TextureComparer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.TextureIdComparer.html">TextureIdComparer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_BatchBase_1_Begin_" data-uid="Stride.Graphics.BatchBase`1.Begin*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_Begin_Stride_Graphics_GraphicsContext_Stride_Rendering_EffectInstance_Stride_Graphics_SpriteSortMode_System_Nullable_Stride_Graphics_BlendStateDescription__Stride_Graphics_SamplerState_System_Nullable_Stride_Graphics_DepthStencilStateDescription__System_Nullable_Stride_Graphics_RasterizerStateDescription__System_Int32_" data-uid="Stride.Graphics.BatchBase`1.Begin(Stride.Graphics.GraphicsContext,Stride.Rendering.EffectInstance,Stride.Graphics.SpriteSortMode,System.Nullable{Stride.Graphics.BlendStateDescription},Stride.Graphics.SamplerState,System.Nullable{Stride.Graphics.DepthStencilStateDescription},System.Nullable{Stride.Graphics.RasterizerStateDescription},System.Int32)">
+  Begin(GraphicsContext, EffectInstance, SpriteSortMode, BlendStateDescription?, SamplerState, DepthStencilStateDescription?, RasterizerStateDescription?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a sprite batch rendering using the specified sorting mode and blend state, sampler, depth stencil, rasterizer state objects and a custom effect.
+Passing null for any of the state objects selects the default default state objects (BlendState.AlphaBlend, depthStencilState.None, RasterizerState.CullCounterClockwise, SamplerState.LinearClamp).
+Passing a null effect selects the default effect shader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Begin(GraphicsContext graphicsContext, EffectInstance effect, SpriteSortMode sessionSortMode, BlendStateDescription? sessionBlendState, SamplerState sessionSamplerState, DepthStencilStateDescription? sessionDepthStencilState, RasterizerStateDescription? sessionRasterizerState, int stencilValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>graphicsContext</code> <a class="xref" href="Stride.Graphics.GraphicsContext.html">GraphicsContext</a></dt>
+    <dd><p>The graphics context to use.</p>
+</dd>
+    <dt><code>effect</code> <a class="xref" href="Stride.Rendering.EffectInstance.html">EffectInstance</a></dt>
+    <dd><p>The effect to use for this begin/end draw session (default effect if null)</p>
+</dd>
+    <dt><code>sessionSortMode</code> <a class="xref" href="Stride.Graphics.SpriteSortMode.html">SpriteSortMode</a></dt>
+    <dd><p>Sprite drawing order used for the Begin/End session.</p>
+</dd>
+    <dt><code>sessionBlendState</code> <a class="xref" href="Stride.Graphics.BlendStateDescription.html">BlendStateDescription</a>?</dt>
+    <dd><p>Blending state used for the Begin/End session</p>
+</dd>
+    <dt><code>sessionSamplerState</code> <a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd><p>Texture sampling used for the Begin/End session</p>
+</dd>
+    <dt><code>sessionDepthStencilState</code> <a class="xref" href="Stride.Graphics.DepthStencilStateDescription.html">DepthStencilStateDescription</a>?</dt>
+    <dd><p>Depth and stencil state used for the Begin/End session</p>
+</dd>
+    <dt><code>sessionRasterizerState</code> <a class="xref" href="Stride.Graphics.RasterizerStateDescription.html">RasterizerStateDescription</a>?</dt>
+    <dd><p>Rasterization state used for the Begin/End session</p>
+</dd>
+    <dt><code>stencilValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of the stencil buffer to take as reference for the Begin/End session</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Only one SpriteBatch at a time can use SpriteSortMode.Immediate</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_CheckBeginHasBeenCalled_" data-uid="Stride.Graphics.BatchBase`1.CheckBeginHasBeenCalled*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_CheckBeginHasBeenCalled_System_String_" data-uid="Stride.Graphics.BatchBase`1.CheckBeginHasBeenCalled(System.String)">
+  CheckBeginHasBeenCalled(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CheckBeginHasBeenCalled(string functionName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>functionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_CheckEndHasBeenCalled_" data-uid="Stride.Graphics.BatchBase`1.CheckEndHasBeenCalled*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_CheckEndHasBeenCalled_System_String_" data-uid="Stride.Graphics.BatchBase`1.CheckEndHasBeenCalled(System.String)">
+  CheckEndHasBeenCalled(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CheckEndHasBeenCalled(string functionName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>functionName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_Destroy_" data-uid="Stride.Graphics.BatchBase`1.Destroy*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_Destroy" data-uid="Stride.Graphics.BatchBase`1.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_Draw_" data-uid="Stride.Graphics.BatchBase`1.Draw*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_Draw_Stride_Graphics_Texture_Stride_Graphics_BatchBase__0__ElementInfo__" data-uid="Stride.Graphics.BatchBase`1.Draw(Stride.Graphics.Texture,Stride.Graphics.BatchBase{`0}.ElementInfo@)">
+  Draw(Texture, in ElementInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Draw(Texture texture, in BatchBase&lt;TDrawInfo&gt;.ElementInfo elementInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>elementInfo</code> <a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ElementInfo.html">ElementInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_End_" data-uid="Stride.Graphics.BatchBase`1.End*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_End" data-uid="Stride.Graphics.BatchBase`1.End">
+  End()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Flushes the sprite batch and restores the device state to how it was before Begin was called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void End()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_PrepareForRendering_" data-uid="Stride.Graphics.BatchBase`1.PrepareForRendering*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_PrepareForRendering" data-uid="Stride.Graphics.BatchBase`1.PrepareForRendering">
+  PrepareForRendering()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PrepareForRendering()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_BatchBase_1_UpdateBufferValuesFromElementInfo_" data-uid="Stride.Graphics.BatchBase`1.UpdateBufferValuesFromElementInfo*"></a>
+
+  <h3 id="Stride_Graphics_BatchBase_1_UpdateBufferValuesFromElementInfo_Stride_Graphics_BatchBase__0__ElementInfo__System_IntPtr_System_IntPtr_System_Int32_" data-uid="Stride.Graphics.BatchBase`1.UpdateBufferValuesFromElementInfo(Stride.Graphics.BatchBase{`0}.ElementInfo@,System.IntPtr,System.IntPtr,System.Int32)">
+  UpdateBufferValuesFromElementInfo(ref ElementInfo, nint, nint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L532"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update the mapped vertex and index buffer values using the provided element info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void UpdateBufferValuesFromElementInfo(ref BatchBase&lt;TDrawInfo&gt;.ElementInfo elementInfo, nint vertexPointer, nint indexPointer, int vexterStartOffset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elementInfo</code> <a class="xref" href="Stride.Graphics.BatchBase-1.html">BatchBase</a>&lt;TDrawInfo&gt;.<a class="xref" href="Stride.Graphics.BatchBase-1.ElementInfo.html">ElementInfo</a></dt>
+    <dd><p>The structure containing the information about the element to draw.</p>
+</dd>
+    <dt><code>vertexPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The pointer to the vertex array buffer to update.</p>
+</dd>
+    <dt><code>indexPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The pointer to the index array buffer to update. This value is null if the index buffer used is static.</p>
+</dd>
+    <dt><code>vexterStartOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in the vertex buffer where the vertex of the element starts</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/BatchBase.cs/#L38" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

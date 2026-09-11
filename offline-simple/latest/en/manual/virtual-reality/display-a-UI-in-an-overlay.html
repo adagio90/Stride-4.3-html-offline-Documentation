@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Display a UI in an overlay | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Display a UI in an overlay | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/virtual-reality/display-a-UI-in-an-overlay.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="display-a-ui-in-an-overlay">Display a UI in an overlay</h1>
+
+<p>This page explains how to render a UI to a texture, then display it as an overlay.</p>
+<p>These instructions assume you already have a UI that you want to display in the overlay. For information about creating UIs, see the <a href="../ui/index.html">UI</a> section.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can't see overlays when you don't run your game in your VR device. This is because the VR device itself creates the overlay, not other hardware.</p>
+</div>
+<h2 id="1-create-a-render-target-texture">1. Create a render target texture</h2>
+<p>In the <strong>Asset View</strong>, click <strong>Add asset</strong> and select <strong>Texture</strong> &gt; <strong>Render target</strong>.</p>
+<p><img src="../graphics/graphics-compositor/media/add-render-target.png" alt="Add render target"></p>
+<p>Game Studio adds a <strong>render target</strong> texture to your project assets.</p>
+<p><img src="../graphics/graphics-compositor/media/render-target-texture-in-asset-view.png" alt="Render texture"></p>
+<p>In the following steps, we'll render the UI to this texture, then display it in the overlay.</p>
+<h2 id="2-add-a-vr-overlay">2. Add a VR overlay</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="../graphics/graphics-compositor/media/graphics-compositor-asset.png" alt="Graphics compositor asset"></p>
+<p>The graphics compositor editor opens. For more information about the graphics compositor, see the <a href="../graphics/graphics-compositor/index.html">Graphics compositor</a> page.</p>
+</li>
+<li><p>In the graphics compositor editor, select the <strong>forward renderer</strong> node.</p>
+<p><img src="media/select-forward-renderer.png" alt="Select forward renderer"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), expand <strong>VR Settings</strong>.</p>
+<p><img src="media/vr-settings.png" alt="VR settings"></p>
+</li>
+<li><p>Next to <strong>Overlays</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p>Game Studio adds a new overlay to the list.</p>
+<p><img src="media/add-overlay.png" alt="Add VR item"></p>
+</li>
+<li><p>Next to <strong>Texture</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="../graphics/graphics-compositor/media/select-render-frame.png" alt="Select render texture"></p>
+</li>
+<li><p>Select the <strong>render texture</strong> you created and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<h2 id="3-set-up-the-ui-render-feature">3. Set up the UI render feature</h2>
+<ol>
+<li><p>In the graphics compositor editor, on the left, under <strong>Render Features</strong>, select the <strong>UIRenderFeature</strong>.</p>
+<p><img src="media/select-UI-render-feature.png" alt="Select UI render feature"></p>
+</li>
+<li><p>In the Property Grid, make sure <strong>SimpleGroupToRenderStageSelector</strong> is selected.</p>
+<p><img src="media/select-SimpleGroupToRenderStageSelector.png" alt="Select SimpleGroupToRenderStageSelector.png"></p>
+</li>
+<li><p>Under <strong>Render Stage</strong>, make sure <strong>UIRenderStage</strong> is selected.</p>
+<p><img src="media/select-UIRenderStage.png" alt="Select UIRenderStage.png"></p>
+<p>This makes sure the UI is rendered in the UI render stage, which we'll use in the next step.</p>
+</li>
+</ol>
+<h2 id="4-set-up-the-renderers">4. Set up the renderers</h2>
+<p>To display an overlay, you need at least two renderers:</p>
+<ul>
+<li>one to render your main camera</li>
+<li>one to render the UI to the overlay</li>
+</ul>
+<p>This page describes the simplest way to do this from scratch, using two cameras and two renderers. Depending on your pipeline, you might need to create a different setup.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>These instructions involve deleting your existing renderers for the game entry point. You might want to make a backup of your project in case you want to restore your pipeline afterwards.</p>
+</div>
+<ol>
+<li><p>In the graphics compositor editor, select the <strong>Entry points</strong> node.</p>
+<p><img src="../graphics/graphics-compositor/media/entry-points-node.png" alt="Entry points node"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> on the right, next to <strong>Game renderer</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>None</strong> to delete your existing renderers.</p>
+<p><img src="../graphics/graphics-compositor/media/game-renderers-cleared.png" alt="Cleared game renderers"></p>
+</li>
+<li><p>Next to <strong>Game rendererer</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>Camera Renderer</strong>.</p>
+<p><img src="media/select-camera-renderer.png" alt="Select camera renderer.png"></p>
+<p>Currently, <strong>all</strong> renderers must have a camera, or be a child of a renderer that has a camera. This applies even to renderers that don't necessarily use cameras, such as the single stage renderer, which renders the UI.</p>
+<p>For this reason, in these instructions, we'll add a game renderer with a camera, then make the two renderers children of that renderer. This makes sure both renderers have a parent with a camera.</p>
+</li>
+<li><p>Next to <strong>Camera</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select your main game camera.</p>
+<p><img src="media/select-main-camera.png" alt="Select main camera"></p>
+</li>
+<li><p>Next to <strong>Child</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>SceneRendererCollection</strong>.</p>
+<p><img src="media/select-scene-renderer-collection.png" alt="Select scene renderer collection"></p>
+</li>
+<li><p>Next to <strong>Children</strong>, Click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>RenderTextureSceneRenderer</strong>.</p>
+<p><img src="media/select-RenderTextureSceneRenderer.png" alt="Select RenderTextureSceneRenderer"></p>
+</li>
+<li><p>Next to <strong>Child</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>SingleStageRenderer</strong>.</p>
+<p><img src="media/select-single-stage-renderer.png" alt="Select single stage renderer"></p>
+</li>
+<li><p>Next to <strong>Render Stage</strong>, click <img src="../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and select <strong>UIRenderStage</strong>. This is the renderer that renders the UI.</p>
+<p><img src="media/select-UI-render-stage.png" alt="Select UI render stage"></p>
+</li>
+<li><p>Next to <strong>Render Texture</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the <strong>render texture</strong> and click <strong>OK</strong>.</p>
+<p><img src="../graphics/graphics-compositor/media/select-render-frame.png" alt="Select render texture"></p>
+<p>Game Studio adds the render texture to the renderer.</p>
+</li>
+<li><p>Under <strong>Game renderer</strong>, next to <strong>Children</strong>, click <img src="../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and select <strong>Forward renderer</strong>.</p>
+<p><img src="media/overlay-select-forward-renderer.png" alt="Select forward renderer"></p>
+</li>
+</ol>
+<p>Your game is now ready to render the UI to an overlay in your VR device.</p>
+<h2 id="vr-template">VR template</h2>
+<p>For an example of a UI overlay implemented in a VR game, see the VR template included with Stride.</p>
+<p><img src="media/template-virtual-reality.png" alt="VR template"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="overlays.html">Overlays</a></li>
+<li><a href="../ui/index.html">UI</a></li>
+<li><a href="../graphics/graphics-compositor/render-textures.html">Render textures</a></li>
+<li><a href="../graphics/graphics-compositor/index.html">Graphics compositor</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/virtual-reality/display-a-UI-in-an-overlay.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

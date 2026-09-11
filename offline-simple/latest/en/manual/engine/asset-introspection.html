@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Asset, introspection and prefab | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Asset, introspection and prefab | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/asset-introspection.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="asset-introspection-and-prefab">Asset, introspection and prefab</h1>
+
+<p><em>NOTE: Please read the Terminology section of the <a href="build-pipeline.html">Build Pipeline</a> documentation first</em></p>
+<h3 id="design-notes">Design notes</h3>
+<p>Assets contains various properties describing how a given <strong>Content</strong> should be generated. Some constraints are defined by design:</p>
+<ul>
+<li>All types that can be referenced directly or indirectly by an asset must be serializable. This means that it should have the <code>[DataContract]</code> attribute, and the type of all its members must have it too.</li>
+<li>Members that cannot or should not be serialized can have the <code>[DataMemberIgnore]</code> attributes</li>
+<li>Other members can have additional metadata regarding serialization by using the <code>[DataMember]</code> attributes. There is also a large list of other attributes that can be used to customize serialization and presentation of those members.</li>
+<li>Arrays are not properly supported</li>
+<li>Any type of ordered collection is supported, but unordered collection (sets, bags) are not.</li>
+<li>Dictionaries are supported as long as the type of the key is a primitive type (see below for the definition of primitive type)</li>
+<li>When an asset references another asset, the member or item shouldn't use the type of the target asset, but the corresponding <strong>Content</strong>. For example, the <code>MaterialAsset</code> needs to reference a texture, it will have a <code>Texture</code> member and not a <code>TextureAsset</code>.</li>
+<li>It is possible to use the <code>AssetReference</code> type to represent a reference to any type of asset.</li>
+<li>Nullable value types are not properly supported</li>
+<li>An asset can reference multiple times the same objects through various members/items, but one of the member/item must be the &quot;real instance&quot;, and the others must be defined as &quot;object references&quot;, see below for more details.</li>
+</ul>
+<h3 id="yaml-metadata">Yaml metadata</h3>
+<p>When assets are serialized to/deserialized from Yaml files, dictionaries of metadata is created or consumed in the process. There is one dictionary per type of metadata. The dictionary maps a property path (using <code>YamlAssetPath</code>) to a value, and is stored in a instance of <code>YamlAssetMetadata</code>. These dictionary are exchanged between the low-level Yaml serialization layer and the asset-aware layer via the <code>AssetItem.Metadata</code> property. This property is not synchronized all the time, it is just consumed after deserialization, to apply metadata to the asset, and generated just before serialization, to allow the metadata to be consumed during serialization.</p>
+<h3 id="overrides">Overrides</h3>
+<p>The prefab and archetype system introduces the possibility to override properties of an asset. Some nodes of the property tree of an asset might have a <em>base</em>. (usually all of them in case of archetype, and some specific entities that are prefab instances in case of scene). How nodes are connected together is explained later on this documentation, but from a serialization point of view, any property that is overridden will have associated yaml metadata. Then we usa a custom serializer backend, <code>AssetObjectSerializerBackend</code>, that will append a star symbol <code>*</code> at the end of the property name in Yaml.</p>
+<h3 id="collections">Collections</h3>
+<p>Collections need special handling to properly support override. An item of a collection that is inherited from a base can be either modified (have another value) or deleted. Also, new items that are not present in the base can have been added. This is problematic in the case of ordered collection such as <code>List</code> because adding/deleting items changes the indices of item.</p>
+<p>To solve all these issues, we introduce an object called <code>CollectionItemIdentifiers</code>. There is one instance of this object per collection that supports override. This instance is created or retrieved using the <code>CollectionItemIdHelper</code>. They are stored using <code>ShadowObject</code>, which maintain weak references from the collection to the <code>CollectionItemIdentifiers</code>. This means that it is currently not possible to have overridable items in collection that are <code>struct</code>.</p>
+<p>A collection that can't or shouldn't have overridable items should have the <code>NonIdentifiableCollectionItemsAttribute</code>.</p>
+<p>The <code>CollectionItemIdentifiers</code> associates an item of the collection to a unique id. It also keep track of deleted items, to be able to tell, when an item in an instance collection is missing comparing to the base collection, if it's because it has been removed purposely from the instance collection, or if it's because it has been added after the instance collection creation to the base collection.</p>
+<p>Items, in the <code>CollectionItemIdentifiers</code>, are represented by their key (for dictionaries) or index (list). This means that any collection operation (add, remove...) must call the proper method of this class to properly update this collection. This is automatically done as long as the collection is updated through Quantum (see below).</p>
+<p>In term of inheritance and override, the item id is what connect a given item of the base to a given item of the instance. This means that items can be re-ordered, and other items can be inserted, without loosing or messing the connection between base and instances. Also, for dictionary, keys can be renamed in the instance.</p>
+<p>At serialization, the item id is written in front of each item (so collections are transformed to dictionaries of [<code>ItemId</code>, <code>TValue</code>] and dictionary are transformed to dictionaries of [<code>KeyWithId&lt;TKey&gt;</code>,<code> TValue</code>], with <code>KeyWithId</code> being equivalent to a Tuple).
+Here is an example of Yaml for a base collection and an instance collection:</p>
+<p>Base collection, with one id per item:</p>
+<pre><code>Strings:
+    309e0b5643c5a94caa799a5ea1480617: Hello
+    e09ec493d05e0446b75358f0e1c0fbdd: World
+    9550f04dcee1d24fa8a30e41eea71a94: Example
+    1da8adce3f0ce9449a9ed0e48cd32f20: BaseClass
+</code></pre>
+<p>Derived collection. The first item is overridden, the 4th is a new item (added), and the last one express that the <code>BaseClass</code> entry has been deleted in the derived instance.</p>
+<pre><code>Strings:
+    309e0b5643c5a94caa799a5ea1480617*: Hi
+    e09ec493d05e0446b75358f0e1c0fbdd: World
+    9550f04dcee1d24fa8a30e41eea71a94: Example
+    cfce75d38d66e24fae426d1f40aa4f8a*: Override
+    1da8adce3f0ce9449a9ed0e48cd32f20: ~(Deleted)
+</code></pre>
+<p>When two assets that are connected with a base relationship are loaded, it is then possible to reconcile them:</p>
+<ul>
+<li>any item missing in the derived collection is re-added (so the <code>~(Deleted)</code> is need to purposely delete items)</li>
+<li>any item existing in the derived collection that doesn't exist in the base collection and doesn't have the star <code>*</code> is removed</li>
+<li>any item that exists in both collection but have a different value is overwritten with the value of the base collection</li>
+<li>overridden items (with the star <code>*</code>) are untouched</li>
+</ul>
+<h2 id="quantum">Quantum</h2>
+<p>In Stride, we use an introspection framework called <em>Quantum</em>.</p>
+<h3 id="type-descriptors">Type descriptors</h3>
+<p>The first layer used to introspect object is in <code>Stride.Core.Reflection</code>. This assembly contains type descriptors, which are basically objects abstracting the reflection infrastructure. It is currently using .NET reflection (<code>System.Reflection</code>) but could later be implemented in a more efficient way (using <code>Expression</code>, or IL code).</p>
+<p>The <code>TypeDescriptorFactory</code> allows to retrieve introspection information on any type. <code>ObjectDescriptor</code>s contains descriptor for members which allow to access them. Collections, dictionaries and arrays are also handled (NOTE: arrays are not fully supported in Quantum itself).</p>
+<p>This assembly also provides an <code>AttributeRegistry</code> which allows to attach <code>Attribute</code>s to any class or member externally.</p>
+<blockquote>
+<p><strong>TODO:</strong> make sure all locations where we read <code>Attribute</code>s are using the <code>AttributeRegistry</code> and not the default .NET methods, so we properly support externally attached attributes.</p>
+</blockquote>
+<h3 id="node-graphs">Node graphs</h3>
+<p>In order to introspect object, we build graphs on top of each object, representing their members, and referencing the graphs of other objects they reference through members or collection.
+The classes handling theses graphs are in the <code>Stride.Core.Quantum</code> assembly.</p>
+<h4 id="node-containers">Node containers</h4>
+<p>Nodes of the graphs are created into an instance of <code>NodeContainer</code>. Usually a single instance of <code>NodeContainer</code> is enough, but we have some scenarios where we use multiple ones: for example each instance of scene editor contains its own <code>NodeContainer</code> instance to build graphs of game-side objects, which are different from asset-side (ie. UI-side) objects, have a different lifespan, and require different metadata.</p>
+<p>In the GameStudio, the <code>NodeContainer</code> class has two derivations: the <code>AssetNodeContainer</code> class, which expands the primitive types to add Stride-specific types (such as <code>Vector3</code>, <code>Matrix</code>, <code>Guid</code>...). This class is inherited to a <code>SessionNodeContainer</code>, which additionally allows plugin to register their own primitive types and metadata.</p>
+<h4 id="node-builders">Node builders</h4>
+<p>The <code>NodeContainer</code> contains an <code>INodeBuilder</code> member and provides a default implementation for it. So far we didn't had the need to make a custom implementation, since the structure of the graphs themselves is pretty stable.</p>
+<p>However, the <code>INodeBuilder</code> interface presents an <code>INodeFactory</code> member which we override. This factory allows to customize the nodes to be constructed.</p>
+<p>The <code>INodeBuilder</code> also contains a list of types to be considered as <em>primitive types</em>, which means that even if the type contains members or is a reference type, it will be, in term of graph, considered as a primitive value and won't be expanded.</p>
+<h4 id="nodes">Nodes</h4>
+<p>There are 3 types of nodes in Quantum:</p>
+<ul>
+<li><code>ObjectNode</code> are node corresponding to an object that is a reference type. They can contain members (properties, fields...), and items (collection).</li>
+<li><code>BoxedNode</code> are a special case of <code>ObjectNode</code> that handles <code>struct</code>. They are able to write back the value of the struct in other nodes that reference them</li>
+<li><code>MemberNode</code> are node corresponding to the members of an object. If the value of the member is a class or a struct, the member will also contain a reference to the corresponding <code>ObjectNode</code>.</li>
+<li><code>ObjectNode</code> that are representing a collection of class/struct items will also have a collection of reference to target nodes via the <code>ItemReferences</code> property.</li>
+</ul>
+<p>Each node has some methods that allow to manipulate the value it's wrapping. <code>Retrieve</code> returns the current value, <code>Update</code> changes it. Collections can be manipulated with the <code>Add</code> and <code>Remove</code> methods (and a single item can be modified also with <code>Update</code>).</p>
+<h4 id="events">Events</h4>
+<p>Each node presents events that can be registered to:</p>
+<ul>
+<li><code>PrepareChange</code> and <code>FinalizeChange</code> are raised at the very beginning and the very end of a change of the node value. These events are internal to Quantum.</li>
+<li><code>MemberNode</code>s have the <code>ValueChanging</code> and <code>ValueChanged</code> events that are raised when the value is being modified.</li>
+<li><code>ObjectNode</code> have <code>ItemChanging</code> and <code>ItemChanged</code> events that are raised when the wrapped object is a collection, and this collection is modified.</li>
+</ul>
+<p>The arguments of these events all inherits from <code>INodeChangeEventArgs</code>, which allows to share the handlers between collection changes and member changes.</p>
+<p>Finally, Quantum nodes are specialized for assets, where the implementation of the support of override and base is. These specialized classes also present <code>OverrideChanging</code> and <code>OverrideChanged</code> event to handle changes in the override state.</p>
+<h2 id="assetpropertygraph">AssetPropertyGraph</h2>
+<h3 id="concept">Concept</h3>
+<p>We use Quantum nodes mainly to represent and save the properties of an asset. The AssetPropertyGraph is a container of all the nodes related to an asset, and describes certain rules such as which node is an object reference, etc.</p>
+<h3 id="asset-references">Asset references</h3>
+<p>When an asset needs to reference another asset, it should never contains a member that is of the type of the referenced asset. Rather, the type of the member should be the type of the <em>Content</em> corresponding to the referenced asset.</p>
+<h3 id="node-listener">Node listener</h3>
+<p>A node listener is an object that can listen to changes in a graph of node (rather than an individual nodes). The base class is <code>GraphNodeChangeListener</code>, and this class must define a visitor that can visit the graph of nodes to register, and stop at the boundaries of that graph.</p>
+<h3 id="object-references">Object references</h3>
+<p>In many scenarios of serialization (in YAML, but also in the property grid where objects are represented by a tree rather than a graph), we need a way to represent multiple referencers of the same object such a way that the object is actually expanded at one unique location, and shown/serialized as a reference to all other locations. We introduce the concept of <strong>Object references</strong> to solve this issue.</p>
+<p>By design, only objects implementing the <code>IIdentifiable</code> interface can be referenced from multiple locations from the same root object. But right now they can only be referenced from the same unique root object (usually an <code>Asset</code>). Later on we might support <em>cross-asset references</em> but this would require to change how we serialize them.</p>
+<p>There are two methods to implement to define if a node must be considered as an object reference or not:</p>
+<ul>
+<li>one for members of an object: <code>IsMemberTargetObjectReference</code></li>
+<li>one for items of a collection: <code>IsTargetItemObjectReference</code></li>
+</ul>
+<h2 id="node-presenters">Node presenters</h2>
+<p>Node presenters are objects used to present the properties of an object to a view system, such as a property grid.
+They transform a graph of nodes to a tree of nodes, and contains metadata to be consumed by the view.
+The resulting tree is slightly different from the graph. When an object A contains a member that is an object B that contains a property C, the graph will look like this:</p>
+<p><code>ObjectNode A --(members)--&gt; MemberNode B --(target)--&gt; ObjectNode B --(members)--&gt; MemberNode C</code></p>
+<p>the corresponding tree of node presenters will be:</p>
+<p><code>RootNodePresenter A --&gt; MemberNodePresenter B --&gt; MemberNodePresenter C</code></p>
+<p>There is also a <code>ItemNodePresenter</code> for collection. On the example above, if B is instead a collection that contains a single item C, the graph would be:</p>
+<p><code>ObjectNode A --(members)--&gt; MemberNode B --(target)--&gt; ObjectNode B --(items)--&gt; ObjectNode C</code></p>
+<p>the corresponding tree of node presenters will be:</p>
+<p><code>RootNodePresenter A --&gt; ItemNodePresenter B --&gt; MemberNodePresenter C</code></p>
+<p>Node presenter are constructed by a <code>INodePresenterFactory</code> in which <code>INodePresenterUpdater</code> can be registered. A <code>INodePresenterUpdater</code> allows to attach metadata to nodes, and re-organize the hierarchy in case it want to be presented differently from the actual structures (by inserting nodes to create category, bypassing a class object to inline its members, etc.).
+<code>INodePresenterUpdater</code> have two methods to update node:</p>
+<ul>
+<li><code>void UpdateNode(INodePresenter node)</code> is called on <strong>each</strong> node, after its children have been created. But it's not guaranteed that its siblings, or the siblings of its parents, will be constructed.</li>
+<li><code>void FinalizeTree(INodePresenter root)</code> is called once, at the end of the creation of the tree, and only on the root. Here it's guaranteed that every node is constructed, but you have to visit manually the tree to find the node that you want to customize.</li>
+</ul>
+<p>Node presenters listens to changes in the graph node they are wrapping. In case of an update, the children of the modified node are discarded and reconstructed. <code>UpdateNode</code> is called again on all new children, and <code>FinalizeTree</code> is also called again at the end on the root of the tree. Therefore, you have to be aware that an updater can run multiple time on the same nodes/trees.</p>
+<p>Metadata can be attached to node presenters via the <code>NodePresenterBase.AttachedProperties</code> property containers. These metadata are exposed to the view models as described in the section below.</p>
+<p>Commands can also be attached to node presenters. A command does special actions on a node, in order to update it. Node presenter commands implements the <code>INodePresenterCommand</code> interface. A command is divided in three steps, in order to handle multi-selection:</p>
+<ul>
+<li><code>PreExecute</code> and <code>PostExecute</code> are run only once, for a selection of similar node presenters, before and after <code>Execute</code> respectively.</li>
+<li><code>Execute</code> is run once per selected node presenter.</li>
+</ul>
+<h3 id="node-view-models">Node view models</h3>
+<p>The view models are created on top of node presenters. Each node presenter has a corresponding <code>NodeViewModel</code>. In case of multi-selection, a <code>NodeViewModel</code> can actually wrap a collection of node presenters, rather than a single one.</p>
+<p>Metadata (ie. attached properties) are also exposed from the node presenter to the view via the view model, assuming they are common to all wrapped node presenter, if not, it is possible to add a <code>PropertyCombinerMetadata</code> to the property key to define the rule to combine the metadata. The default behavior for combining is to set the value to <code>DifferentValues</code> (a special object representing different values) if the values are not equals.</p>
+<p>Commands are also exposed. They are added to the view model, combined depending on their <code>CombineMode</code> property. They are transformed into WPF commands by being wrapped into a <code>NodePresenterCommandWrapper</code>.</p>
+<p>All members, attached properties, and commands of node view models are exposed as <code>dynamic</code> properties, and can therefore be used in databinding.</p>
+<p>All node view models are contained in an instance of <code>GraphViewModel</code>. A <code>GraphViewModelService</code> is passed in this object that acts as a registry for the node presenter commands and updaters that are available during the construction of the tree.</p>
+<h3 id="template-selector">Template selector</h3>
+<p>In order to be presented to the property grid, a proper template must be selected for each NodeViewModel. The <code>TemplateProviderSelector</code> object picks the proper template by finding the first registered one that accept the given node. Templates are defined in various XAML resource dictionaries, the base one being <code>DefaultPropertyTemplateProviders.xaml</code>. There is a priority mechanism that uses an <code>OverrideRule</code> enum with four values: <code>All</code>, <code>Most</code>, <code>Some</code>, <code>None</code>. One template can also explicitly override the other with the <code>OverriddenProviderNames</code> collection. The algorithm that picks the best match is in the <code>CompareTo</code> method of <code>TemplateProviderBase</code>.</p>
+<p>There is actually 3 levels of templates for each property. <code>PropertyHeader</code> and <code>PropertyFooter</code> represent the section above and the section below the expander that contains the children properties. In the default implementation (<code>DefaultPropertyHeaderTemplate</code> and most of its specializations), the header presents the left part of the property (the name, sometimes a checkbox...), and use the third template category, <code>PropertyEditor</code>, for the right side of the property grid.</p>
+<h2 id="bases">Bases</h2>
+<p>The base-derived concept and the override are stored in specialized Quantum nodes that implements <code>IAssetNode</code>. Properties (as well are items of collections) are automatically overridden when <code>Update</code>/<code>Add</code>/<code>Remove</code> methods are called. Some methods are also provided to manually interact with overrides, but it should not be used directly by users of Quantum.</p>
+<h3 id="node-linker">Node linker</h3>
+<p><code>GraphNodeLinker</code> is an object that link a given node to another node. It has two main usages: it links objects that are game-side in the scene editor to their counterpart asset-side, and they also link a node to its base if it has one.</p>
+<p>The <code>AssetToBaseNodeLinker</code> is used to do that. It is invoked at initialization, as well as each time a property changes. It has a <code>FindTarget</code> method and <code>FindTargetReference</code>, which basically resolve, when visiting the derived graph, which equivalent node of the base graph corresponds to it.</p>
+<p>This linker is run from the <code>AssetPropertyGraph</code> that can then call <code>SetBaseNode</code> to actually link the nodes together.</p>
+<h3 id="reconciliation-with-base">Reconciliation with base</h3>
+<p>Each time a change occurs in an asset, all nodes that have the modified nodes as base will call <code>ReconcileWithBase</code>. This method visits the graph, starting from the modified properties, and &quot;reconcile&quot; the change. The method is a bit long but well commented. The principle is, for each node, to detect first if something should be reconciled, and if yes, find the proper value (either cloning the value from the base, or find a corresponding existing object in the derived) and set it.</p>
+<p><code>ReconcileWithBase</code> is also called at initialization to make sure that any desynchronization that could happen offline is fixed.</p>
+<h2 id="future">Future</h2>
+<h3 id="undoredo">Undo/redo</h3>
+<p>The undo/redo system currently records only the change on the modified object, and rely on <code>ReconcileWithBase</code> to undo/redo the changes on the derived object. This is not an ideal design because there are a lot of consideration to take, and a lot of special cases.</p>
+<p>What we would like to do is:</p>
+<ul>
+<li>record everything that changes, both in derived and in base nodes</li>
+<li>disbranch totally automatic propagation during an undo/redo</li>
+</ul>
+<p>This design was not possible initially, and I'm not sure it is possible to do now - it's possible to hit a blocker when implementing it, or that it requires a lot of refactoring here and there before being doable.</p>
+<h3 id="dynamic-nodes">Dynamic nodes</h3>
+<p>Currently we still expose the real asset object in <code>AssetViewModel</code>, which it should never, in the editor, be modified out of Quantum node. Also, manipulating Quantum node is quite difficult sometimes due to indirection with target nodes, and access to members.</p>
+<pre><code>var partsNode = RootNode[nameof(AssetCompositeHierarchy&lt;TAssetPartDesign, TAssetPart&gt;.Hierarchy)].Target[nameof(AssetCompositeHierarchyData&lt;IAssetPartDesign&lt;IIdentifiable&gt;, IIdentifiable&gt;.Parts)].Target;
+partsNode.Add(newPart);
+</code></pre>
+<p>Ideally, we would like to use the <code>DynamicNode</code> objects (currently broken) to manipulate quantum nodes:</p>
+<pre><code>dynamic root = DynamicNode.Get(RootNode);
+root.Hierarchy.Parts.Add(newPart)
+</code></pre>
+<p>If this is done properly, <code>AssetViewModel.Asset</code> could be turned private, and <code>AssetViewModel</code> could just expose the root dynamic node, which would allow to seemlessly manipulate the asset through a <code>dynamic</code> object.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/engine/asset-introspection.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

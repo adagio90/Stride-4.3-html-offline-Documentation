@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Streaming | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Streaming | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/streaming.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="streaming">Streaming</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>When you <strong>stream</strong> textures, Stride only loads them when they're needed. This significantly decreases the time it takes to load a game or scene, uses less memory, and makes your game easier to scale.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, only textures can be streamed.</p>
+</div>
+<h2 id="how-stride-streams-textures">How Stride streams textures</h2>
+<p>Instead of loading a texture when Stride loads the scene (with all its mipmaps), Stride only loads it when it's used (eg a model using the texture is onscreen).</p>
+<p>When the texture is no longer needed (ie no objects that use the texture are onscreen), Stride unloads it.</p>
+<p>Currently, there's no loading priority for textures. For example, Stride doesn't load textures based on distance; instead, Stride loads them all in sequence.</p>
+<h3 id="using-streaming-with-mipmaps">Using streaming with mipmaps</h3>
+<p>If mipmaps (different-resolution versions of textures displayed at different distances) are enabled in the <a href="index.html">texture properties</a>, the lower-resolution mipmaps load first, as they're smaller in size. The gif below shows this process happening in slow motion.</p>
+<p><img src="media/loading-texture.gif" alt="Texture loading"></p>
+<p>In most situations, the process is very quick. We recommend you enable mipmaps for streaming as it means lower-resolution versions of textures act as placeholders until the higher-quality versions can load, reducing pop-in.</p>
+<h2 id="when-not-to-use-streaming">When <strong>not</strong> to use streaming</h2>
+<p>Streaming is enabled by default for all textures. You might want to disable streaming on important textures you always want to display immediately and in high quality, such as:</p>
+<ul>
+<li><p><a href="../../game-studio/splash-screen.html">splash screens</a></p>
+</li>
+<li><p>textures on player models</p>
+</li>
+<li><p>textures used in <a href="../../particles/index.html">particles</a> (particles often have a short lifespan, so might disappear before the texture loads)</p>
+</li>
+</ul>
+<h2 id="enable-or-disable-streaming-on-a-texture">Enable or disable streaming on a texture</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong>, select the texture.</p>
+<p><img src="media/select-texture.png" alt="Select normal map texture"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under <strong>Format</strong>, use the <strong>Stream</strong> check box.</p>
+<p><img src="media/enable-streaming.png" alt="Enable streaming"></p>
+</li>
+</ol>
+<h2 id="global-streaming-settings">Global streaming settings</h2>
+<p>You can access the global streaming settings in the Game Settings asset. These settings apply to all textures that have streaming enabled.</p>
+<p>For instructions about how to access the global streaming settings, see the <a href="../../game-studio/game-settings.html">Game Settings</a> page.</p>
+<h3 id="properties">Properties</h3>
+<p><img src="../../game-studio/media/streaming-settings.png" alt="Streaming settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Streaming</td>
+<td>Enable streaming</td>
+</tr>
+<tr>
+<td>Update interval</td>
+<td>How frequently Stride updates the streaming. Smaller intervals mean the streaming system reacts faster, but use more CPU and cause more memory fluctuations.</td>
+</tr>
+<tr>
+<td>Max resources per update</td>
+<td>The maximum number of textures loaded or unloaded per streaming update. Higher numbers reduce pop-in but might slow down the framerate.</td>
+</tr>
+<tr>
+<td>Resource timeout (ms)</td>
+<td>How long resources stay loaded after they're no longer used (when the <strong>memory budget</strong> is exceeded)</td>
+</tr>
+<tr>
+<td>Memory budget (in MB)</td>
+<td>When the memory used by streaming exceeds this budget, Stride unloads unused textures. You can increase this to keep more textures loaded when you have memory to spare, and vice versa.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="access-the-streaming-manager-in-code">Access the streaming manager in code</h2>
+<p>Use <a class="xref" href="../../../api/Stride.Streaming.html">Streaming</a>.</p>
+<p>For example, to disable streaming globally, use:</p>
+<pre><code class="lang-cs">Streaming.EnableStreaming = false;
+</code></pre>
+<p>To start streaming a texture:</p>
+<pre><code class="lang-cs">Streaming.StreamResources(myTexture);
+</code></pre>
+<p>To disable streaming at load time:</p>
+<pre><code class="lang-cs">var texture = Content.Load&lt;Texture&gt;(&quot;myTexture&quot;, ContentManagerLoaderSettings.StreamingDisabled);
+</code></pre>
+<h3 id="options">Options</h3>
+<p>There are three <a class="xref" href="../../../api/Stride.Streaming.StreamingOptions.html">StreamingOptions</a>:</p>
+<ul>
+<li><p>The <code>KeepLoaded</code> option keeps the texture in memory even when the memory budget is exceeded.</p>
+</li>
+<li><p>If mipmaps are enabled, the <code>ForceHighestQuality</code> option loads only the highest-quality version of the texture.</p>
+</li>
+<li><p>The <code>KeepLoaded</code> option keeps the texture in memory even when it's not used.</p>
+</li>
+</ul>
+<p>For example:</p>
+<pre><code class="lang-cs">var myOptions = new StreamingOptions() { KeepLoaded = true };
+Streaming.StreamResources(myTexture, myOptions);
+</code></pre>
+<p>To change the <code>StreamingOptions</code> at runtime, use <code>SetResourceStreamingOptions</code>. For example:</p>
+<pre><code class="lang-cs">var myNewOptions = new StreamingOptions() { KeepLoaded = false };
+Streaming.SetResourceStreamingOptions(myTexture, myNewOptions);
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../../api/Stride.Streaming.StreamingManager.html">StreamingManager API</a></li>
+<li><a href="index.html">Textures index</a></li>
+<li><a href="compression.html">Texture compression</a></li>
+<li><a href="../../game-studio/game-settings.html">Game Settings</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/streaming.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Project file structure | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Project file structure | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/project-structure.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="project-file-structure">Project file structure</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span></p>
+<p>This page explains in detail how a Stride project's files are structured.</p>
+<h2 id="overview">Overview</h2>
+<p>A Stride project is a <strong>standard C# solution</strong>, consisting of a single <a href="https://learn.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file">solution file</a> (<code>.sln</code>) and multiple <a href="#project-packages">project package</a> folders, which contain code, assets and resources.</p>
+<p><img src="media/file-structure.webp" alt=""></p>
+<ul>
+<li><strong>Bin</strong> - folder containing build files. For more information visit <a href="#project-bin-folder">this section</a>.</li>
+<li><strong>NameOfGame</strong>, <strong>NameOfGame.PlatformName</strong> - package folders.</li>
+<li><strong><code>.sln</code> file</strong> - the solution file used by C# and Game Studio for opening the project.</li>
+</ul>
+<h2 id="project-packages">Project packages</h2>
+<p>At the root, a Stride project is comprised of multiple <a href="project-packages/index.html">project packages</a>. They are used for separating code, assets and resources.</p>
+<p><strong>For .NET developers:</strong> a Stride project package is a standard C# project.</p>
+<p>By default, there are at least 2 project packages in a Stride project:</p>
+<ul>
+<li><strong>NameOfGame</strong> - contains most code, assets and resources for the game.</li>
+<li><strong>NameOfGame.PlatformName</strong> (e.g. NameOfGame.Windows) - dedicated package for a given platform, contains the <a href="project-packages/index.html#entry-point"><strong>entry point</strong></a> and other files specific to the platform (such as the window icon).</li>
+</ul>
+<p>A project package may contain:</p>
+<ul>
+<li><strong>Assets</strong> - the assets folder. Name of this folder or additional folders can be configured in the <code>.sdpkg</code> file.</li>
+<li><strong>Resources</strong> - the resources folder. Name of this folder or additional folders can be configured in the <code>.sdpkg</code> file.</li>
+<li><strong><code>.sdpkg</code> file</strong> - contains configurable metadata of the package.</li>
+<li><strong><code>.sdpkg.user</code> file</strong> - contains user-specific data about the editor that is not meant to be shared with source control.</li>
+<li><strong><code>.csproj</code> file</strong> - a C# project file containing information about how it's code will be compiled.</li>
+</ul>
+<p><img src="media/project-package-structure.webp" alt=""></p>
+<h2 id="package-bin-and-obj-folders">Package bin and obj folders</h2>
+<p>Every project package has <code>bin</code> and <code>obj</code> folders which are automatically created when opening or running the project. They store cached data used by Stride.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>These folders <strong>can be safely deleted without affecting the rest of the project</strong>. For more information, visit the <a href="cached-files.html">cached files page</a>.</p>
+</div>
+<h2 id="project-bin-folder">Project Bin folder</h2>
+<p>In the root of the project directory, there is a <code>Bin</code> folder that contains game builds for each platform. Every time the game is launched from Game Studio or from an IDE, a debug version is built and placed in that folder.</p>
+<p>The location of this folder can be changed by going to the <code>.csproj</code> file of a platform's package and changing the value of <code>&lt;OutputPath&gt;</code>. For more information, read the <a href="building-the-game/setup.html">building setup page</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To build the <strong>release version</strong> of the game, visit the <a href="building-the-game/index.html">building the game section</a>.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="project-packages/index.html">Packages</a></li>
+<li><a href="version-control.html">Version control</a></li>
+<li><a href="building-the-game/index.html">Building the game section</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/files-and-folders/project-structure.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

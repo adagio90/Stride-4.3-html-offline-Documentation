@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Pointers | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Pointers | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/pointers.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="pointers">Pointers</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Pointers</strong> are points on the device screen corresponding to <strong>finger touches</strong>. Devices with multi-touch functionality support multiple simultaneous pointers.</p>
+<p>On desktop platforms, the left mouse button can be used to simulate pointers. For more information about mouse input, see <a href="mouse.html">Mouse</a>.</p>
+<h2 id="how-stride-processes-pointer-input">How Stride processes pointer input</h2>
+<ol>
+<li><p>The user touches the screen or clicks the left mouse button.</p>
+</li>
+<li><p>Stride creates a pointer.</p>
+</li>
+<li><p>Stride assigns <strong>pointer ID</strong> to that pointer corresponding to a given finger.</p>
+</li>
+<li><p>Every time the pointer is modified, Stride creates a new <strong>pointer event</strong> with that pointer.</p>
+</li>
+<li><p>For each new finger, Stride creates a new pointer with a new pointer ID.</p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Each pointer event contains information about only one pointer. If several pointers are modified simultaneously in the same update, Stride creates a separate event for each pointer.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Each OS handles pointer modifications differently. This means the same finger gesture can generate slightly different pointer event sequences across different platforms. For example, Android doesn't create a new pointer event when a finger touches the screen but doesn't move. For more information, check your OS documentation.</p>
+</div>
+<p>You can enable gesture recognition to detect gestures such as long presses and taps. For more information, see <a href="gestures.html">Gestures</a>.</p>
+<h2 id="the-pointerevent-class">The PointerEvent class</h2>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a> reports pointer events. It contains the current <strong>pointer status</strong> and time information. It is thrown every time the <strong>pointer</strong> is modified.</p>
+<p>You can access the list of <strong>pointer events</strong> since the last update using <a class="xref" href="../../api/Stride.Input.InputManager.html#Stride_Input_InputManager_PointerEvents">InputManager.PointerEvents</a>. Stride lists pointer events in chronological order. The list is cleared at every update, so you don't need to clear it manually.</p>
+<h3 id="get-pointer-information">Get pointer information</h3>
+<p>You can use the following properties to get information about the pointer that triggered the event:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_PointerId">PointerEvent.PointerId</a></td>
+<td>Indicates the ID of the pointer which triggered the event.</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>The ID of a pointer is valid only during a single <em>Pressed-&gt;Moved-&gt;Released</em> sequence of pointer events.
+A finger can have different IDs each time it touches the screen (even if this happens very quickly).</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Each OS has its own way of assigning IDs to pointers.
+There's no relation between the pointer ID values and corresponding fingers.</p>
+</div>
+<p>To check if a pointer event was triggered by a mouse or touch, use:</p>
+<pre><code class="lang-cs">bool isTriggeredByMouse = event.Pointer is IMouseDevice
+</code></pre>
+<h3 id="get-the-pointer-position">Get the pointer position</h3>
+<p>You can get the pointer position in normalized or absolute coordinates.</p>
+<h4 id="normalized-coordinates">Normalized coordinates</h4>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_Position">Position</a> returns the pointer position in <strong>normalized</strong> X and Y coordinates instead of actual screen sizes in pixels. This means the pointer position adjusts to any resolution and you don't have to write separate code for different resolutions.</p>
+<ul>
+<li>(0,0): the pointer is in the top-left corner of the screen</li>
+<li>(1,1): the pointer is in the bottom-right corner of the screen</li>
+</ul>
+<h4 id="absolute-coordinates">Absolute coordinates</h4>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_AbsolutePosition">PointerEvent.AbsolutePosition</a> returns the pointer position in absolute X and Y coordinates (the actual screen size in pixels). For example, if the pointer is in the top-left corner of the screen, the values are (0,0). If the pointer is in the bottom-right corner, the values depends on the screen resolution (eg 1280, 720).</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To get the actual size of the screen, access <a class="xref" href="../../api/Stride.Input.IPointerDevice.html#Stride_Input_IPointerDevice_SurfaceSize">IPointerDevice.SurfaceSize</a>. For example:</p>
+<pre><code class="lang-cs">var surfaceSize = Input.Pointer.SurfaceSize;
+</code></pre>
+</div>
+<h3 id="get-pointer-events">Get pointer events</h3>
+<p>Use the <a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_EventType">PointerEvent.EventType</a> to check the pointer events.</p>
+<p>There are five types of pointer event:</p>
+<ul>
+<li><strong>Pressed</strong>: The finger touched the screen.</li>
+<li><strong>Moved</strong>: The finger moved along the screen.</li>
+<li><strong>Released</strong>: The finger left the screen.</li>
+<li><strong>Canceled</strong>: The pointer sequence was canceled. This can happen when the application is interrupted; for example, a phone app might be interrupted by an incoming phone call.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A sequence of pointer events for one pointer always starts with a <strong>Pressed</strong> event. This might be followed by one or more <strong>Moved</strong> events, and always ends with a <strong>Released</strong> or <strong>Canceled</strong> event.</p>
+</div>
+<h3 id="get-delta-values">Get delta values</h3>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_DeltaTime">PointerEvent.DeltaTime</a> gets the time elapsed from the previous <a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a>.</p>
+<p>You can get the delta position in normalized or absolute coordinates.</p>
+<h3 id="normalized-delta-values">Normalized delta values</h3>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_DeltaPosition">PointerEvent.DeltaPosition</a> gets the change in position since the previous <a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a> in <strong>normalized</strong> X,Y coordinates.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Delta values are always nulls at the beginning of the sequence of pointer events (ie when the <strong>pointer state</strong> is <strong>down</strong>).</p>
+</div>
+<h3 id="absolute-delta-values">Absolute delta values</h3>
+<p><a class="xref" href="../../api/Stride.Input.PointerEvent.html#Stride_Input_PointerEvent_AbsoluteDeltaPosition">PointerEvent.DeltaPosition</a> gets the change in position since the previous <a class="xref" href="../../api/Stride.Input.PointerEvent.html">PointerEvent</a> in <strong>absolute</strong> (X,Y) coordinates.</p>
+<h2 id="example-code">Example code</h2>
+<p>This script tracks the pointer movement and prints its positions:</p>
+<pre><code class="lang-cs">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Stride.Core.Mathematics;
+using Stride.Engine;
+
+namespace Stride.Input.Tests
+{
+    public class PointerTestScript : AsyncScript
+    {
+        public override async Task Execute()
+        {
+            var pointerPositions = new Dictionary&lt;int, Vector2&gt;();
+            while (true)
+            {
+                await Script.NextFrame();
+                foreach (var pointerEvent in Input.PointerEvents)
+                {
+                    switch (pointerEvent.EventType)
+                    {
+                    case PointerEventType.Pressed:
+                        pointerPositions[pointerEvent.PointerId] = pointerEvent.Position;
+                        break;
+                    case PointerEventType.Moved:
+                        pointerPositions[pointerEvent.PointerId] = pointerEvent.Position;
+                        break;
+                    case PointerEventType.Released:
+                    case PointerEventType.Canceled:
+                        pointerPositions.Remove(pointerEvent.PointerId);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                    }
+                }
+                var positionsStr = pointerPositions.Values.Aggregate(&quot;&quot;, (current, pointer) =&gt; current + (pointer.ToString() + &quot;, &quot;));
+                Log.Info(&quot;There are currently {0} pointers on the screen located at {1}&quot;, pointerPositions.Count, positionsStr);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="gestures.html">Gestures</a></li>
+<li><a href="mouse.html">Mouse</a></li>
+<li><a href="virtual-buttons.html">Virtual buttons</a></li>
+<li><a href="index.html">Input overview</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/input/pointers.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

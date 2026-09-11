@@ -1,0 +1,3106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InputManager | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InputManager | Stride API ">
+      
+      <meta name="description" content="Manages collecting input from connected input device in the form of  objects. Also provides some convenience functions for most commonly used devices">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Input_InputManager.md&amp;value=---%0Auid%3A%20Stride.Input.InputManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Input.InputManager">
+
+
+
+  <h1 id="Stride_Input_InputManager" data-uid="Stride.Input.InputManager" class="text-break">
+Class InputManager  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Input.html">Input</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Input.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages collecting input from connected input device in the form of <a class="xref" href="Stride.Input.IInputDevice.html">IInputDevice</a> objects. Also provides some convenience functions for most commonly used devices</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class InputManager : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder, IInputEventListener&lt;KeyEvent&gt;, IInputEventListener&lt;PointerEvent&gt;, IInputEventListener&lt;MouseWheelEvent&gt;, IInputEventListener</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">InputManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Input.IInputEventListener-1.html">IInputEventListener</a>&lt;<a class="xref" href="Stride.Input.KeyEvent.html">KeyEvent</a>&gt;</div>
+      <div><a class="xref" href="Stride.Input.IInputEventListener-1.html">IInputEventListener</a>&lt;<a class="xref" href="Stride.Input.PointerEvent.html">PointerEvent</a>&gt;</div>
+      <div><a class="xref" href="Stride.Input.IInputEventListener-1.html">IInputEventListener</a>&lt;<a class="xref" href="Stride.Input.MouseWheelEvent.html">MouseWheelEvent</a>&gt;</div>
+      <div><a class="xref" href="Stride.Input.IInputEventListener.html">IInputEventListener</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Input_InputManager__ctor_" data-uid="Stride.Input.InputManager.#ctor*"></a>
+
+  <h3 id="Stride_Input_InputManager__ctor" data-uid="Stride.Input.InputManager.#ctor">
+  InputManager()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Input.InputManager.html">InputManager</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InputManager()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Input_InputManager_GameControllerAxisDeadZone" data-uid="Stride.Input.InputManager.GameControllerAxisDeadZone">
+  GameControllerAxisDeadZone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The deadzone amount applied to all game controller axes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GameControllerAxisDeadZone</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Input_InputManager_AbsoluteMouseDelta_" data-uid="Stride.Input.InputManager.AbsoluteMouseDelta*"></a>
+
+  <h3 id="Stride_Input_InputManager_AbsoluteMouseDelta" data-uid="Stride.Input.InputManager.AbsoluteMouseDelta">
+  AbsoluteMouseDelta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mouse movement in device coordinates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 AbsoluteMouseDelta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_AbsoluteMousePosition_" data-uid="Stride.Input.InputManager.AbsoluteMousePosition*"></a>
+
+  <h3 id="Stride_Input_InputManager_AbsoluteMousePosition" data-uid="Stride.Input.InputManager.AbsoluteMousePosition">
+  AbsoluteMousePosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mouse coordinates in device coordinates</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 AbsoluteMousePosition { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Accelerometer_" data-uid="Stride.Input.InputManager.Accelerometer*"></a>
+
+  <h3 id="Stride_Input_InputManager_Accelerometer" data-uid="Stride.Input.InputManager.Accelerometer">
+  Accelerometer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the accelerometer sensor. The accelerometer measures all the acceleration forces applied on the device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAccelerometerSensor Accelerometer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IAccelerometerSensor.html">IAccelerometerSensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Compass_" data-uid="Stride.Input.InputManager.Compass*"></a>
+
+  <h3 id="Stride_Input_InputManager_Compass" data-uid="Stride.Input.InputManager.Compass">
+  Compass
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the compass sensor. The compass measures the angle between the device top and the north.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICompassSensor Compass { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.ICompassSensor.html">ICompassSensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_DefaultGamePad_" data-uid="Stride.Input.InputManager.DefaultGamePad*"></a>
+
+  <h3 id="Stride_Input_InputManager_DefaultGamePad" data-uid="Stride.Input.InputManager.DefaultGamePad">
+  DefaultGamePad
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first gamepad that was added to the device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGamePadDevice DefaultGamePad { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_DownButtons_" data-uid="Stride.Input.InputManager.DownButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_DownButtons" data-uid="Stride.Input.InputManager.DownButtons">
+  DownButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mouse buttons that are down</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;MouseButton&gt; DownButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_DownKeys_" data-uid="Stride.Input.InputManager.DownKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_DownKeys" data-uid="Stride.Input.InputManager.DownKeys">
+  DownKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The keys that are down</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;Keys&gt; DownKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.Keys.html">Keys</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Events_" data-uid="Stride.Input.InputManager.Events*"></a>
+
+  <h3 id="Stride_Input_InputManager_Events" data-uid="Stride.Input.InputManager.Events">
+  Events
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>All input events that happened since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;InputEvent&gt; Events { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.InputEvent.html">InputEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GameControllerCount_" data-uid="Stride.Input.InputManager.GameControllerCount*"></a>
+
+  <h3 id="Stride_Input_InputManager_GameControllerCount" data-uid="Stride.Input.InputManager.GameControllerCount">
+  GameControllerCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of game controllers connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GameControllerCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of game controllers connected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GameControllers_" data-uid="Stride.Input.InputManager.GameControllers*"></a>
+
+  <h3 id="Stride_Input_InputManager_GameControllers" data-uid="Stride.Input.InputManager.GameControllers">
+  GameControllers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of connected game controllers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IGameControllerDevice&gt; GameControllers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.IGameControllerDevice.html">IGameControllerDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GamePadCount_" data-uid="Stride.Input.InputManager.GamePadCount*"></a>
+
+  <h3 id="Stride_Input_InputManager_GamePadCount" data-uid="Stride.Input.InputManager.GamePadCount">
+  GamePadCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of gamepads connected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GamePadCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of gamepads connected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GamePads_" data-uid="Stride.Input.InputManager.GamePads*"></a>
+
+  <h3 id="Stride_Input_InputManager_GamePads" data-uid="Stride.Input.InputManager.GamePads">
+  GamePads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of connected gamepads</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IGamePadDevice&gt; GamePads { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GestureEvents_" data-uid="Stride.Input.InputManager.GestureEvents*"></a>
+
+  <h3 id="Stride_Input_InputManager_GestureEvents" data-uid="Stride.Input.InputManager.GestureEvents">
+  GestureEvents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of gesture events since the previous updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;GestureEvent&gt; GestureEvents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.GestureEvent.html">GestureEvent</a>&gt;</dt>
+    <dd><p>The gesture events.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Gestures_" data-uid="Stride.Input.InputManager.Gestures*"></a>
+
+  <h3 id="Stride_Input_InputManager_Gestures" data-uid="Stride.Input.InputManager.Gestures">
+  Gestures
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of the gestures to recognize.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackingCollection&lt;GestureConfig&gt; Gestures { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingCollection-1.html">TrackingCollection</a>&lt;<a class="xref" href="Stride.Input.GestureConfig.html">GestureConfig</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Gravity_" data-uid="Stride.Input.InputManager.Gravity*"></a>
+
+  <h3 id="Stride_Input_InputManager_Gravity" data-uid="Stride.Input.InputManager.Gravity">
+  Gravity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the gravity sensor. The gravity sensor measures the gravity vector applied to the device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGravitySensor Gravity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IGravitySensor.html">IGravitySensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Gyroscope_" data-uid="Stride.Input.InputManager.Gyroscope*"></a>
+
+  <h3 id="Stride_Input_InputManager_Gyroscope" data-uid="Stride.Input.InputManager.Gyroscope">
+  Gyroscope
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the gyroscope sensor. The gyroscope measures the rotation speed of the device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGyroscopeSensor Gyroscope { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IGyroscopeSensor.html">IGyroscopeSensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasDownKeys_" data-uid="Stride.Input.InputManager.HasDownKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasDownKeys" data-uid="Stride.Input.InputManager.HasDownKeys">
+  HasDownKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more keys are down</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasDownKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more keys are down; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasDownMouseButtons_" data-uid="Stride.Input.InputManager.HasDownMouseButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasDownMouseButtons" data-uid="Stride.Input.InputManager.HasDownMouseButtons">
+  HasDownMouseButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more of the mouse buttons are down</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasDownMouseButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more of the mouse buttons are down; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasGameController_" data-uid="Stride.Input.InputManager.HasGameController*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasGameController" data-uid="Stride.Input.InputManager.HasGameController">
+  HasGameController
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether game controllers are available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasGameController { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if game controllers are available; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasGamePad_" data-uid="Stride.Input.InputManager.HasGamePad*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasGamePad" data-uid="Stride.Input.InputManager.HasGamePad">
+  HasGamePad
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether gamepads are available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasGamePad { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if gamepads are available; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasKeyboard_" data-uid="Stride.Input.InputManager.HasKeyboard*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasKeyboard" data-uid="Stride.Input.InputManager.HasKeyboard">
+  HasKeyboard
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the keyboard is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasKeyboard { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the keyboard is available; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasMouse_" data-uid="Stride.Input.InputManager.HasMouse*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasMouse" data-uid="Stride.Input.InputManager.HasMouse">
+  HasMouse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the mouse is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasMouse { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the mouse is available; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasPointer_" data-uid="Stride.Input.InputManager.HasPointer*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasPointer" data-uid="Stride.Input.InputManager.HasPointer">
+  HasPointer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether pointer device is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasPointer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if pointer devices are available; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasPressedKeys_" data-uid="Stride.Input.InputManager.HasPressedKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasPressedKeys" data-uid="Stride.Input.InputManager.HasPressedKeys">
+  HasPressedKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more keys are pressed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasPressedKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more keys are pressed; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasPressedMouseButtons_" data-uid="Stride.Input.InputManager.HasPressedMouseButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasPressedMouseButtons" data-uid="Stride.Input.InputManager.HasPressedMouseButtons">
+  HasPressedMouseButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more of the mouse buttons are pressed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasPressedMouseButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more of the mouse buttons are pressed; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasReleasedKeys_" data-uid="Stride.Input.InputManager.HasReleasedKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasReleasedKeys" data-uid="Stride.Input.InputManager.HasReleasedKeys">
+  HasReleasedKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more keys are released</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasReleasedKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more keys are released; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_HasReleasedMouseButtons_" data-uid="Stride.Input.InputManager.HasReleasedMouseButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_HasReleasedMouseButtons" data-uid="Stride.Input.InputManager.HasReleasedMouseButtons">
+  HasReleasedMouseButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether one or more of the mouse buttons are released</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasReleasedMouseButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if one or more of the mouse buttons are released; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsMousePositionLocked_" data-uid="Stride.Input.InputManager.IsMousePositionLocked*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsMousePositionLocked" data-uid="Stride.Input.InputManager.IsMousePositionLocked">
+  IsMousePositionLocked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value indicating if the mouse position is currently locked or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMousePositionLocked { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_KeyEvents_" data-uid="Stride.Input.InputManager.KeyEvents*"></a>
+
+  <h3 id="Stride_Input_InputManager_KeyEvents" data-uid="Stride.Input.InputManager.KeyEvents">
+  KeyEvents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Key events that happened since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;KeyEvent&gt; KeyEvents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.KeyEvent.html">KeyEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Keyboard_" data-uid="Stride.Input.InputManager.Keyboard*"></a>
+
+  <h3 id="Stride_Input_InputManager_Keyboard" data-uid="Stride.Input.InputManager.Keyboard">
+  Keyboard
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first keyboard device, or null if there is none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IKeyboardDevice Keyboard { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IKeyboardDevice.html">IKeyboardDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Keyboards_" data-uid="Stride.Input.InputManager.Keyboards*"></a>
+
+  <h3 id="Stride_Input_InputManager_Keyboards" data-uid="Stride.Input.InputManager.Keyboards">
+  Keyboards
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of connected keyboard inputs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IKeyboardDevice&gt; Keyboards { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.IKeyboardDevice.html">IKeyboardDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_LastPointerDevice_" data-uid="Stride.Input.InputManager.LastPointerDevice*"></a>
+
+  <h3 id="Stride_Input_InputManager_LastPointerDevice" data-uid="Stride.Input.InputManager.LastPointerDevice">
+  LastPointerDevice
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Device that is responsible for setting the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_MouseDelta">MouseDelta</a> and <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_MousePosition">MousePosition</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPointerDevice LastPointerDevice { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IPointerDevice.html">IPointerDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Mouse_" data-uid="Stride.Input.InputManager.Mouse*"></a>
+
+  <h3 id="Stride_Input_InputManager_Mouse" data-uid="Stride.Input.InputManager.Mouse">
+  Mouse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first mouse pointer device, or null if there is none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMouseDevice Mouse { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IMouseDevice.html">IMouseDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_MouseDelta_" data-uid="Stride.Input.InputManager.MouseDelta*"></a>
+
+  <h3 id="Stride_Input_InputManager_MouseDelta" data-uid="Stride.Input.InputManager.MouseDelta">
+  MouseDelta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mouse delta in normalized coordinate space</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 MouseDelta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_MousePosition_" data-uid="Stride.Input.InputManager.MousePosition*"></a>
+
+  <h3 id="Stride_Input_InputManager_MousePosition" data-uid="Stride.Input.InputManager.MousePosition">
+  MousePosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mouse position in normalized coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector2 MousePosition { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_MouseWheelDelta_" data-uid="Stride.Input.InputManager.MouseWheelDelta*"></a>
+
+  <h3 id="Stride_Input_InputManager_MouseWheelDelta" data-uid="Stride.Input.InputManager.MouseWheelDelta">
+  MouseWheelDelta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The delta value of the mouse wheel button since last frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float MouseWheelDelta { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Orientation_" data-uid="Stride.Input.InputManager.Orientation*"></a>
+
+  <h3 id="Stride_Input_InputManager_Orientation" data-uid="Stride.Input.InputManager.Orientation">
+  Orientation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the orientation sensor. The orientation sensor measures orientation of device in the world.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IOrientationSensor Orientation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IOrientationSensor.html">IOrientationSensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Pointer_" data-uid="Stride.Input.InputManager.Pointer*"></a>
+
+  <h3 id="Stride_Input_InputManager_Pointer" data-uid="Stride.Input.InputManager.Pointer">
+  Pointer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first pointer device, or null if there is none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPointerDevice Pointer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IPointerDevice.html">IPointerDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_PointerEvents_" data-uid="Stride.Input.InputManager.PointerEvents*"></a>
+
+  <h3 id="Stride_Input_InputManager_PointerEvents" data-uid="Stride.Input.InputManager.PointerEvents">
+  PointerEvents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pointer events that happened since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;PointerEvent&gt; PointerEvents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.PointerEvent.html">PointerEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Pointers_" data-uid="Stride.Input.InputManager.Pointers*"></a>
+
+  <h3 id="Stride_Input_InputManager_Pointers" data-uid="Stride.Input.InputManager.Pointers">
+  Pointers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of connected pointing devices (mouses, touchpads, etc)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;IPointerDevice&gt; Pointers { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.IPointerDevice.html">IPointerDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_PressedButtons_" data-uid="Stride.Input.InputManager.PressedButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_PressedButtons" data-uid="Stride.Input.InputManager.PressedButtons">
+  PressedButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mouse buttons that have been pressed since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;MouseButton&gt; PressedButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_PressedKeys_" data-uid="Stride.Input.InputManager.PressedKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_PressedKeys" data-uid="Stride.Input.InputManager.PressedKeys">
+  PressedKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The keys that have been pressed since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;Keys&gt; PressedKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.Keys.html">Keys</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ReleasedButtons_" data-uid="Stride.Input.InputManager.ReleasedButtons*"></a>
+
+  <h3 id="Stride_Input_InputManager_ReleasedButtons" data-uid="Stride.Input.InputManager.ReleasedButtons">
+  ReleasedButtons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mouse buttons that have been released since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;MouseButton&gt; ReleasedButtons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ReleasedKeys_" data-uid="Stride.Input.InputManager.ReleasedKeys*"></a>
+
+  <h3 id="Stride_Input_InputManager_ReleasedKeys" data-uid="Stride.Input.InputManager.ReleasedKeys">
+  ReleasedKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The keys that have been released since the last frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlySet&lt;Keys&gt; ReleasedKeys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.IReadOnlySet-1.html">IReadOnlySet</a>&lt;<a class="xref" href="Stride.Input.Keys.html">Keys</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Sensors_" data-uid="Stride.Input.InputManager.Sensors*"></a>
+
+  <h3 id="Stride_Input_InputManager_Sensors" data-uid="Stride.Input.InputManager.Sensors">
+  Sensors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of connected sensor devices</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;ISensorDevice&gt; Sensors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="Stride.Input.ISensorDevice.html">ISensorDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Sources_" data-uid="Stride.Input.InputManager.Sources*"></a>
+
+  <h3 id="Stride_Input_InputManager_Sources" data-uid="Stride.Input.InputManager.Sources">
+  Sources
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Input sources</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackingCollection&lt;IInputSource&gt; Sources { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.TrackingCollection-1.html">TrackingCollection</a>&lt;<a class="xref" href="Stride.Input.IInputSource.html">IInputSource</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_TextInput_" data-uid="Stride.Input.InputManager.TextInput*"></a>
+
+  <h3 id="Stride_Input_InputManager_TextInput" data-uid="Stride.Input.InputManager.TextInput">
+  TextInput
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>First device that supports text input, or null if there is none</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITextInputDevice TextInput { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.ITextInputDevice.html">ITextInputDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_UseRawInput_" data-uid="Stride.Input.InputManager.UseRawInput*"></a>
+
+  <h3 id="Stride_Input_InputManager_UseRawInput" data-uid="Stride.Input.InputManager.UseRawInput">
+  UseRawInput
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Should raw input be used on windows</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseRawInput { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_UserAcceleration_" data-uid="Stride.Input.InputManager.UserAcceleration*"></a>
+
+  <h3 id="Stride_Input_InputManager_UserAcceleration" data-uid="Stride.Input.InputManager.UserAcceleration">
+  UserAcceleration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the reference to the user acceleration sensor. The user acceleration sensor measures the acceleration produce by the user on the device (no gravity).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUserAccelerationSensor UserAcceleration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IUserAccelerationSensor.html">IUserAccelerationSensor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_VirtualButtonConfigSet_" data-uid="Stride.Input.InputManager.VirtualButtonConfigSet*"></a>
+
+  <h3 id="Stride_Input_InputManager_VirtualButtonConfigSet" data-uid="Stride.Input.InputManager.VirtualButtonConfigSet">
+  VirtualButtonConfigSet
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the configuration for virtual buttons.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VirtualButtonConfigSet VirtualButtonConfigSet { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.VirtualButtonConfigSet.html">VirtualButtonConfigSet</a></dt>
+    <dd><p>The current binding.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Input_InputManager_AddListener_" data-uid="Stride.Input.InputManager.AddListener*"></a>
+
+  <h3 id="Stride_Input_InputManager_AddListener_Stride_Input_IInputEventListener_" data-uid="Stride.Input.InputManager.AddListener(Stride.Input.IInputEventListener)">
+  AddListener(IInputEventListener)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L465"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers an object that listens for certain types of events using the specialized versions of <a class="xref" href="Stride.Input.IInputEventListener-1.html">IInputEventListener&lt;TEventType&gt;</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddListener(IInputEventListener listener)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>listener</code> <a class="xref" href="Stride.Input.IInputEventListener.html">IInputEventListener</a></dt>
+    <dd><p>The listener to register</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Destroy_" data-uid="Stride.Input.InputManager.Destroy*"></a>
+
+  <h3 id="Stride_Input_InputManager_Destroy" data-uid="Stride.Input.InputManager.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L711"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GetFreeGamePadIndex_" data-uid="Stride.Input.InputManager.GetFreeGamePadIndex*"></a>
+
+  <h3 id="Stride_Input_InputManager_GetFreeGamePadIndex_Stride_Input_IGamePadDevice_" data-uid="Stride.Input.InputManager.GetFreeGamePadIndex(Stride.Input.IGamePadDevice)">
+  GetFreeGamePadIndex(IGamePadDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L644"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Suggests an index that is unused for a given <a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetFreeGamePadIndex(IGamePadDevice gamePad)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gamePad</code> <a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a></dt>
+    <dd><p>The gamepad to find an index for</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unused gamepad index</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GetGamePadByIndex_" data-uid="Stride.Input.InputManager.GetGamePadByIndex*"></a>
+
+  <h3 id="Stride_Input_InputManager_GetGamePadByIndex_System_Int32_" data-uid="Stride.Input.InputManager.GetGamePadByIndex(System.Int32)">
+  GetGamePadByIndex(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the first gamepad with a specific index</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGamePadDevice GetGamePadByIndex(int gamePadIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gamePadIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the gamepad</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a></dt>
+    <dd><p>The gamepad, or null if no gamepad has this index</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></dt>
+    <dd><p>When <code class="paramref">gamePadIndex</code> is less than 0</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Input_InputManager_GetGamePadsByIndex_" data-uid="Stride.Input.InputManager.GetGamePadsByIndex*"></a>
+
+  <h3 id="Stride_Input_InputManager_GetGamePadsByIndex_System_Int32_" data-uid="Stride.Input.InputManager.GetGamePadsByIndex(System.Int32)">
+  GetGamePadsByIndex(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L395"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets all the gamepads with a specific index</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IGamePadDevice&gt; GetGamePadsByIndex(int gamePadIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gamePadIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the gamepad</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Input.IGamePadDevice.html">IGamePadDevice</a>&gt;</dt>
+    <dd><p>The gamepads, or null if no gamepad has this index</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></dt>
+    <dd><p>When <code class="paramref">gamePadIndex</code> is less than 0</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Input_InputManager_GetVirtualButton_" data-uid="Stride.Input.InputManager.GetVirtualButton*"></a>
+
+  <h3 id="Stride_Input_InputManager_GetVirtualButton_System_Int32_System_Object_" data-uid="Stride.Input.InputManager.GetVirtualButton(System.Int32,System.Object)">
+  GetVirtualButton(int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a binding value for the specified name and the specified config extract from the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is obsolete. Call GetVirtualButtonValue instead.&quot;)]
+public virtual float GetVirtualButton(int configIndex, object bindingName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An index to a <a class="xref" href="Stride.Input.VirtualButtonConfig.html">VirtualButtonConfig</a> stored in the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</dd>
+    <dt><code>bindingName</code> <span class="xref">object</span></dt>
+    <dd><p>Name of the binding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value of the binding.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_GetVirtualButtonValue_" data-uid="Stride.Input.InputManager.GetVirtualButtonValue*"></a>
+
+  <h3 id="Stride_Input_InputManager_GetVirtualButtonValue_System_Int32_System_Object_" data-uid="Stride.Input.InputManager.GetVirtualButtonValue(System.Int32,System.Object)">
+  GetVirtualButtonValue(int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L503"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a binding value for the specified name and the specified config extract from the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual float GetVirtualButtonValue(int configIndex, object bindingName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An index to a <a class="xref" href="Stride.Input.VirtualButtonConfig.html">VirtualButtonConfig</a> stored in the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</dd>
+    <dt><code>bindingName</code> <span class="xref">object</span></dt>
+    <dd><p>Name of the binding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value of the binding.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Initialize_" data-uid="Stride.Input.InputManager.Initialize*"></a>
+
+  <h3 id="Stride_Input_InputManager_Initialize_Stride_Games_GameContext_" data-uid="Stride.Input.InputManager.Initialize(Stride.Games.GameContext)">
+  Initialize(GameContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(GameContext gameContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameContext</code> <a class="xref" href="Stride.Games.GameContext.html">GameContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsKeyDown_" data-uid="Stride.Input.InputManager.IsKeyDown*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsKeyDown_Stride_Input_Keys_" data-uid="Stride.Input.InputManager.IsKeyDown(Stride.Input.Keys)">
+  IsKeyDown(Keys)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified key is being pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsKeyDown(Keys key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Input.Keys.html">Keys</a></dt>
+    <dd><p>The key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified key is being pressed down; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsKeyPressed_" data-uid="Stride.Input.InputManager.IsKeyPressed*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsKeyPressed_Stride_Input_Keys_" data-uid="Stride.Input.InputManager.IsKeyPressed(Stride.Input.Keys)">
+  IsKeyPressed(Keys)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified key is pressed since the previous update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsKeyPressed(Keys key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Input.Keys.html">Keys</a></dt>
+    <dd><p>The key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified key is pressed; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsKeyReleased_" data-uid="Stride.Input.InputManager.IsKeyReleased*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsKeyReleased_Stride_Input_Keys_" data-uid="Stride.Input.InputManager.IsKeyReleased(Stride.Input.Keys)">
+  IsKeyReleased(Keys)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified key is released since the previous update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsKeyReleased(Keys key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="Stride.Input.Keys.html">Keys</a></dt>
+    <dd><p>The key.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified key is released; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsMouseButtonDown_" data-uid="Stride.Input.InputManager.IsMouseButtonDown*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsMouseButtonDown_Stride_Input_MouseButton_" data-uid="Stride.Input.InputManager.IsMouseButtonDown(Stride.Input.MouseButton)">
+  IsMouseButtonDown(MouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L313"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified mouse button is being pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMouseButtonDown(MouseButton mouseButton)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mouseButton</code> <a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a></dt>
+    <dd><p>The mouse button.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified mouse button is being pressed down; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsMouseButtonPressed_" data-uid="Stride.Input.InputManager.IsMouseButtonPressed*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsMouseButtonPressed_Stride_Input_MouseButton_" data-uid="Stride.Input.InputManager.IsMouseButtonPressed(Stride.Input.MouseButton)">
+  IsMouseButtonPressed(MouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L293"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified mouse button is pressed since the previous update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMouseButtonPressed(MouseButton mouseButton)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mouseButton</code> <a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a></dt>
+    <dd><p>The mouse button.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified mouse button is pressed since the previous update; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsMouseButtonReleased_" data-uid="Stride.Input.InputManager.IsMouseButtonReleased*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsMouseButtonReleased_Stride_Input_MouseButton_" data-uid="Stride.Input.InputManager.IsMouseButtonReleased(Stride.Input.MouseButton)">
+  IsMouseButtonReleased(MouseButton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified mouse button is released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsMouseButtonReleased(MouseButton mouseButton)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mouseButton</code> <a class="xref" href="Stride.Input.MouseButton.html">MouseButton</a></dt>
+    <dd><p>The mouse button.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified mouse button is released; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsVirtualButtonDown_" data-uid="Stride.Input.InputManager.IsVirtualButtonDown*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsVirtualButtonDown_System_Int32_System_Object_" data-uid="Stride.Input.InputManager.IsVirtualButtonDown(System.Int32,System.Object)">
+  IsVirtualButtonDown(int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L537"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified binding in the specified config in the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a> is currently pressed down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsVirtualButtonDown(int configIndex, object bindingName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An index to a <a class="xref" href="Stride.Input.VirtualButtonConfig.html">VirtualButtonConfig</a> stored in the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</dd>
+    <dt><code>bindingName</code> <span class="xref">object</span></dt>
+    <dd><p>Name of the binding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the binding is currently pressed down; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsVirtualButtonPressed_" data-uid="Stride.Input.InputManager.IsVirtualButtonPressed*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsVirtualButtonPressed_System_Int32_System_Object_" data-uid="Stride.Input.InputManager.IsVirtualButtonPressed(System.Int32,System.Object)">
+  IsVirtualButtonPressed(int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L520"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified binding in the specified config in the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a> was pressed since the previous Update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsVirtualButtonPressed(int configIndex, object bindingName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An index to a <a class="xref" href="Stride.Input.VirtualButtonConfig.html">VirtualButtonConfig</a> stored in the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</dd>
+    <dt><code>bindingName</code> <span class="xref">object</span></dt>
+    <dd><p>Name of the binding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the binding was pressed; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_IsVirtualButtonReleased_" data-uid="Stride.Input.InputManager.IsVirtualButtonReleased*"></a>
+
+  <h3 id="Stride_Input_InputManager_IsVirtualButtonReleased_System_Int32_System_Object_" data-uid="Stride.Input.InputManager.IsVirtualButtonReleased(System.Int32,System.Object)">
+  IsVirtualButtonReleased(int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L554"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified binding in the specified config in the current <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a> was released since the previous Update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsVirtualButtonReleased(int configIndex, object bindingName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An index to a <a class="xref" href="Stride.Input.VirtualButtonConfig.html">VirtualButtonConfig</a> stored in the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_VirtualButtonConfigSet">VirtualButtonConfigSet</a>.</p>
+</dd>
+    <dt><code>bindingName</code> <span class="xref">object</span></dt>
+    <dd><p>Name of the binding.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the binding was released; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_LockMousePosition_" data-uid="Stride.Input.InputManager.LockMousePosition*"></a>
+
+  <h3 id="Stride_Input_InputManager_LockMousePosition_System_Boolean_" data-uid="Stride.Input.InputManager.LockMousePosition(System.Boolean)">
+  LockMousePosition(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Lock the mouse's position and hides it until the next call to <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_UnlockMousePosition">UnlockMousePosition()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LockMousePosition(bool forceCenter = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forceCenter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If true will make sure that the mouse cursor position moves to the center of the client window</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Input_InputManager_LockMousePosition_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This function has no effects on devices that does not have mouse</p>
+</div>
+
+
+
+
+  <a id="Stride_Input_InputManager_Pause_" data-uid="Stride.Input.InputManager.Pause*"></a>
+
+  <h3 id="Stride_Input_InputManager_Pause" data-uid="Stride.Input.InputManager.Pause">
+  Pause()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L568"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pause all input sources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pause()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_PoolInputEvent_" data-uid="Stride.Input.InputManager.PoolInputEvent*"></a>
+
+  <h3 id="Stride_Input_InputManager_PoolInputEvent_Stride_Input_InputEvent_" data-uid="Stride.Input.InputManager.PoolInputEvent(Stride.Input.InputEvent)">
+  PoolInputEvent(InputEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L625"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inserts any registered event back into it's <a class="xref" href="Stride.Input.InputEventPool-1.html">InputEventPool&lt;TEventType&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PoolInputEvent(InputEvent inputEvent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputEvent</code> <a class="xref" href="Stride.Input.InputEvent.html">InputEvent</a></dt>
+    <dd><p>The event to insert into it's event pool</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ProcessEvent_" data-uid="Stride.Input.InputManager.ProcessEvent*"></a>
+
+  <h3 id="Stride_Input_InputManager_ProcessEvent_Stride_Input_KeyEvent_" data-uid="Stride.Input.InputManager.ProcessEvent(Stride.Input.KeyEvent)">
+  ProcessEvent(KeyEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes a new input event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessEvent(KeyEvent inputEvent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputEvent</code> <a class="xref" href="Stride.Input.KeyEvent.html">KeyEvent</a></dt>
+    <dd><p>the input event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ProcessEvent_" data-uid="Stride.Input.InputManager.ProcessEvent*"></a>
+
+  <h3 id="Stride_Input_InputManager_ProcessEvent_Stride_Input_MouseWheelEvent_" data-uid="Stride.Input.InputManager.ProcessEvent(Stride.Input.MouseWheelEvent)">
+  ProcessEvent(MouseWheelEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes a new input event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessEvent(MouseWheelEvent inputEvent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputEvent</code> <a class="xref" href="Stride.Input.MouseWheelEvent.html">MouseWheelEvent</a></dt>
+    <dd><p>the input event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ProcessEvent_" data-uid="Stride.Input.InputManager.ProcessEvent*"></a>
+
+  <h3 id="Stride_Input_InputManager_ProcessEvent_Stride_Input_PointerEvent_" data-uid="Stride.Input.InputManager.ProcessEvent(Stride.Input.PointerEvent)">
+  ProcessEvent(PointerEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes a new input event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ProcessEvent(PointerEvent inputEvent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>inputEvent</code> <a class="xref" href="Stride.Input.PointerEvent.html">PointerEvent</a></dt>
+    <dd><p>the input event</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_RegisterEventType_" data-uid="Stride.Input.InputManager.RegisterEventType*"></a>
+
+  <h3 id="Stride_Input_InputManager_RegisterEventType__1" data-uid="Stride.Input.InputManager.RegisterEventType``1">
+  RegisterEventType&lt;TEventType&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L615"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers an input event type to process</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterEventType&lt;TEventType&gt;() where TEventType : InputEvent, new()</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TEventType</code></dt>
+    <dd><p>The event type to process</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_RemoveListener_" data-uid="Stride.Input.InputManager.RemoveListener*"></a>
+
+  <h3 id="Stride_Input_InputManager_RemoveListener_Stride_Input_IInputEventListener_" data-uid="Stride.Input.InputManager.RemoveListener(Stride.Input.IInputEventListener)">
+  RemoveListener(IInputEventListener)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a previously registered event listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveListener(IInputEventListener listener)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>listener</code> <a class="xref" href="Stride.Input.IInputEventListener.html">IInputEventListener</a></dt>
+    <dd><p>The listener to remove</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_ResetSources_" data-uid="Stride.Input.InputManager.ResetSources*"></a>
+
+  <h3 id="Stride_Input_InputManager_ResetSources" data-uid="Stride.Input.InputManager.ResetSources">
+  ResetSources()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L633"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_Sources">Sources</a> collection back to it's default values</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetSources()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Resume_" data-uid="Stride.Input.InputManager.Resume*"></a>
+
+  <h3 id="Stride_Input_InputManager_Resume" data-uid="Stride.Input.InputManager.Resume">
+  Resume()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resume all input sources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resume()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_Scan_" data-uid="Stride.Input.InputManager.Scan*"></a>
+
+  <h3 id="Stride_Input_InputManager_Scan" data-uid="Stride.Input.InputManager.Scan">
+  Scan()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L409"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rescans all input devices in order to query new device connected. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Scan()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Input_InputManager_Scan_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method could take several milliseconds and should be used at specific time in a game where performance is not crucial (pause, configuration screen...etc.)</p>
+</div>
+
+
+
+
+  <a id="Stride_Input_InputManager_TransformPosition_" data-uid="Stride.Input.InputManager.TransformPosition*"></a>
+
+  <h3 id="Stride_Input_InputManager_TransformPosition_Stride_Core_Mathematics_Size2F_Stride_Core_Mathematics_RectangleF_Stride_Core_Mathematics_Vector2_" data-uid="Stride.Input.InputManager.TransformPosition(Stride.Core.Mathematics.Size2F,Stride.Core.Mathematics.RectangleF,Stride.Core.Mathematics.Vector2)">
+  TransformPosition(Size2F, RectangleF, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Helper method to transform mouse and pointer event positions to sub rectangles</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 TransformPosition(Size2F fromSize, RectangleF destinationRectangle, Vector2 screenCoordinates)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromSize</code> <a class="xref" href="Stride.Core.Mathematics.Size2F.html">Size2F</a></dt>
+    <dd><p>the size of the source rectangle</p>
+</dd>
+    <dt><code>destinationRectangle</code> <a class="xref" href="Stride.Core.Mathematics.RectangleF.html">RectangleF</a></dt>
+    <dd><p>The destination viewport rectangle</p>
+</dd>
+    <dt><code>screenCoordinates</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>The normalized screen coordinates</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Input_InputManager_UnlockMousePosition_" data-uid="Stride.Input.InputManager.UnlockMousePosition*"></a>
+
+  <h3 id="Stride_Input_InputManager_UnlockMousePosition" data-uid="Stride.Input.InputManager.UnlockMousePosition">
+  UnlockMousePosition()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unlock the mouse's position previously locked by calling <a class="xref" href="Stride.Input.InputManager.html#Stride_Input_InputManager_LockMousePosition_System_Boolean_">LockMousePosition(bool)</a> and restore the mouse visibility.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnlockMousePosition()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Input_InputManager_UnlockMousePosition_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This function has no effects on devices that does not have mouse</p>
+</div>
+
+
+
+
+  <a id="Stride_Input_InputManager_Update_" data-uid="Stride.Input.InputManager.Update*"></a>
+
+  <h3 id="Stride_Input_InputManager_Update_Stride_Games_GameTime_" data-uid="Stride.Input.InputManager.Update(Stride.Games.GameTime)">
+  Update(GameTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(GameTime gameTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameTime</code> <a class="xref" href="Stride.Games.GameTime.html">GameTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Input_InputManager_DeviceAdded" data-uid="Stride.Input.InputManager.DeviceAdded">
+  DeviceAdded
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a device was added to the system</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DeviceChangedEventArgs&gt; DeviceAdded</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Input.DeviceChangedEventArgs.html">DeviceChangedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Input_InputManager_DeviceRemoved" data-uid="Stride.Input.InputManager.DeviceRemoved">
+  DeviceRemoved
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a device was removed from the system</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DeviceChangedEventArgs&gt; DeviceRemoved</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Input.DeviceChangedEventArgs.html">DeviceChangedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Input_InputManager_PreUpdateInput" data-uid="Stride.Input.InputManager.PreUpdateInput">
+  PreUpdateInput
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised before new input is sent to their respective event listeners</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;InputPreUpdateEventArgs&gt; PreUpdateInput</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Stride.Input.InputPreUpdateEventArgs.html">InputPreUpdateEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Input/InputManager.State.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

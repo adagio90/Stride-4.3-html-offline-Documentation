@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImageScaler | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImageScaler | Stride API ">
+      
+      <meta name="description" content="Scales an input texture to an output texture (down or up, depending on the relative size between input and output)">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Images_ImageScaler.md&amp;value=---%0Auid%3A%20Stride.Rendering.Images.ImageScaler%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Images.ImageScaler">
+
+
+
+  <h1 id="Stride_Rendering_Images_ImageScaler" data-uid="Stride.Rendering.Images.ImageScaler" class="text-break">
+Class ImageScaler  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Images.html">Images</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Scales an input texture to an output texture (down or up, depending on the relative size between input and output)</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ImageScaler : ImageEffectShader, IComponent, IReferencable, ICollectorHolder, IImageEffect, IGraphicsRenderer, IGraphicsRendererBase, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererCoreBase.html">RendererCoreBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererBase.html">RendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.DrawEffect.html">DrawEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageEffect.html">ImageEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html">ImageEffectShader</a></div>
+      <div><span class="xref">ImageScaler</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.IImageEffect.html">IImageEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRenderer.html">IGraphicsRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererBase.html">IGraphicsRendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html#Stride_Rendering_Images_ImageEffectShader_BlendState">ImageEffectShader.BlendState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html#Stride_Rendering_Images_ImageEffectShader_DepthStencilState">ImageEffectShader.DepthStencilState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html#Stride_Rendering_Images_ImageEffectShader_RasterizerState">ImageEffectShader.RasterizerState</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html#Stride_Rendering_Images_ImageEffectShader_EffectInstance">ImageEffectShader.EffectInstance</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectShader.html#Stride_Rendering_Images_ImageEffectShader_EffectName">ImageEffectShader.EffectName</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetInput_System_Int32_Stride_Graphics_Texture_">ImageEffect.SetInput(int, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_Reset">ImageEffect.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture_">ImageEffect.SetOutput(Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture___">ImageEffect.SetOutput(params Texture[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffect.SetDepthOutput(Texture, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture___">ImageEffect.SetDepthOutput(Texture, params Texture[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetViewport_System_Nullable_Stride_Graphics_Viewport__">ImageEffect.SetViewport(Viewport?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetViewports_System_ReadOnlySpan_Stride_Graphics_Viewport__">ImageEffect.SetViewports(ReadOnlySpan&lt;Viewport&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetScissorRectangle_System_Nullable_Stride_Core_Mathematics_Rectangle__">ImageEffect.SetScissorRectangle(Rectangle?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetScissorRectangles_System_ReadOnlySpan_Stride_Core_Mathematics_Rectangle__">ImageEffect.SetScissorRectangles(ReadOnlySpan&lt;Rectangle&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_InputCount">ImageEffect.InputCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_GetInput_System_Int32_">ImageEffect.GetInput(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_OutputCount">ImageEffect.OutputCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_GetOutput_System_Int32_">ImageEffect.GetOutput(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_SamplingPattern">DrawEffect.SamplingPattern</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Parameters">DrawEffect.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_">DrawEffect.Draw(RenderDrawContext, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_System_Object___">DrawEffect.Draw(RenderDrawContext, string, params object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_ToString">DrawEffect.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_Draw_Stride_Rendering_RenderDrawContext_">RendererBase.Draw(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Enabled">RendererCoreBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Profiling">RendererCoreBase.Profiling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GPUProfilingKey">RendererCoreBase.GPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CPUProfilingKey">RendererCoreBase.CPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialized">RendererCoreBase.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialize_Stride_Rendering_RenderContext_">RendererCoreBase.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Rendering_Images_ImageScaler_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This effect can be used for downscaling or upscaling if the output rendertarget is smaller/larger than
+the input texture</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageScaler__ctor_" data-uid="Stride.Rendering.Images.ImageScaler.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler__ctor" data-uid="Stride.Rendering.Images.ImageScaler.#ctor">
+  ImageScaler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageScaler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageScaler__ctor_" data-uid="Stride.Rendering.Images.ImageScaler.#ctor*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler__ctor_Stride_Rendering_Images_SamplingPattern_System_Boolean_" data-uid="Stride.Rendering.Images.ImageScaler.#ctor(Stride.Rendering.Images.SamplingPattern,System.Boolean)">
+  ImageScaler(SamplingPattern, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Rendering.Images.ImageScaler.html">ImageScaler</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageScaler(SamplingPattern samplingPattern, bool delaySetRenderTargets = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>samplingPattern</code> <a class="xref" href="Stride.Rendering.Images.SamplingPattern.html">SamplingPattern</a></dt>
+    <dd><p>9 taps multi-sampler (Expanded) or 1-tap Point sampling (Linear)</p>
+</dd>
+    <dt><code>delaySetRenderTargets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_Color_" data-uid="Stride.Rendering.Images.ImageScaler.Color*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_Color" data-uid="Stride.Rendering.Images.ImageScaler.Color">
+  Color
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the color multiplier. Default is <a class="xref" href="Stride.Core.Mathematics.Color.html#Stride_Core_Mathematics_Color_White">White</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color4 Color { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The color multiplier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_FilterPattern_" data-uid="Stride.Rendering.Images.ImageScaler.FilterPattern*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_FilterPattern" data-uid="Stride.Rendering.Images.ImageScaler.FilterPattern">
+  FilterPattern
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SamplingPattern FilterPattern { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.SamplingPattern.html">SamplingPattern</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_IsOnlyChannelRed_" data-uid="Stride.Rendering.Images.ImageScaler.IsOnlyChannelRed*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_IsOnlyChannelRed" data-uid="Stride.Rendering.Images.ImageScaler.IsOnlyChannelRed">
+  IsOnlyChannelRed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copy only the red channel. Default is <code>false</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsOnlyChannelRed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is only channel red; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_Sampler_" data-uid="Stride.Rendering.Images.ImageScaler.Sampler*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_Sampler" data-uid="Stride.Rendering.Images.ImageScaler.Sampler">
+  Sampler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the sampler used to sample the input texture. Default is <a class="xref" href="Stride.Graphics.SamplerStateFactory.html#Stride_Graphics_SamplerStateFactory_LinearClamp">LinearClamp</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SamplerState Sampler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.SamplerState.html">SamplerState</a></dt>
+    <dd><p>The sampler.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_SetDefaultParameters_" data-uid="Stride.Rendering.Images.ImageScaler.SetDefaultParameters*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_SetDefaultParameters" data-uid="Stride.Rendering.Images.ImageScaler.SetDefaultParameters">
+  SetDefaultParameters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default parameters (called at constructor time and if <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_Reset">Reset()</a> is called)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void SetDefaultParameters()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_ImageScaler_UpdateParameters_" data-uid="Stride.Rendering.Images.ImageScaler.UpdateParameters*"></a>
+
+  <h3 id="Stride_Rendering_Images_ImageScaler_UpdateParameters" data-uid="Stride.Rendering.Images.ImageScaler.UpdateParameters">
+  UpdateParameters()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the effect <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Parameters">Parameters</a> from properties defined in this instance. See remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void UpdateParameters()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Rendering_Images_ImageScaler_UpdateParameters_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>By default, all the input textures will be remapped to <a class="xref" href="Stride.Rendering.TexturingKeys.html#Stride_Rendering_TexturingKeys_Texture0">Texture0</a>...etc.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Expecting less than 10 textures in input</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/ImageScaler/ImageScaler.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

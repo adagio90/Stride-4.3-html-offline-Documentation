@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ParticleEmitter | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ParticleEmitter | Stride API ">
+      
+      <meta name="description" content="The  is the base manager for any given pool of particles, holding all particles and initializers, updaters, spawners, materials and shape builders associated with the particles.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Particles_ParticleEmitter.md&amp;value=---%0Auid%3A%20Stride.Particles.ParticleEmitter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Particles.ParticleEmitter">
+
+
+
+  <h1 id="Stride_Particles_ParticleEmitter" data-uid="Stride.Particles.ParticleEmitter" class="text-break">
+Class ParticleEmitter  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Particles.html">Particles</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Particles.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a> is the base manager for any given pool of particles, holding all particles and
+initializers, updaters, spawners, materials and shape builders associated with the particles.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;ParticleEmitter&quot;)]
+public class ParticleEmitter : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ParticleEmitter</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Particles_ParticleEmitter__ctor_" data-uid="Stride.Particles.ParticleEmitter.#ctor*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter__ctor" data-uid="Stride.Particles.ParticleEmitter.#ctor">
+  ParticleEmitter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default constructor. Initializes the pool and all collections contained in the <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ParticleEmitter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Particles_ParticleEmitter_Initializers" data-uid="Stride.Particles.ParticleEmitter.Initializers">
+  Initializers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L391"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of <a class="xref" href="Stride.Particles.Initializers.ParticleInitializer.html">ParticleInitializer</a> within this <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a>. Adjusts the required fields automatically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(200)]
+[Display(&quot;Initializers&quot;, null)]
+public readonly FastTrackingCollection&lt;ParticleInitializer&gt; Initializers</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastTrackingCollection-1.html">FastTrackingCollection</a>&lt;<a class="xref" href="Stride.Particles.Initializers.ParticleInitializer.html">ParticleInitializer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Particles_ParticleEmitter_Spawners" data-uid="Stride.Particles.ParticleEmitter.Spawners">
+  Spawners
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of <a class="xref" href="Stride.Particles.Spawners.ParticleSpawner.html">ParticleSpawner</a> to spawn particles in this <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(55)]
+[Display(&quot;Spawners&quot;, null)]
+public readonly FastTrackingCollection&lt;ParticleSpawner&gt; Spawners</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastTrackingCollection-1.html">FastTrackingCollection</a>&lt;<a class="xref" href="Stride.Particles.Spawners.ParticleSpawner.html">ParticleSpawner</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Particles_ParticleEmitter_Updaters" data-uid="Stride.Particles.ParticleEmitter.Updaters">
+  Updaters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of <a class="xref" href="Stride.Particles.Modules.ParticleUpdater.html">ParticleUpdater</a> within this <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a>. Adjusts the required fields automatically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(300)]
+[Display(&quot;Updaters&quot;, null)]
+public readonly FastTrackingCollection&lt;ParticleUpdater&gt; Updaters</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Collections.FastTrackingCollection-1.html">FastTrackingCollection</a>&lt;<a class="xref" href="Stride.Particles.Modules.ParticleUpdater.html">ParticleUpdater</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Particles_ParticleEmitter_CanEmitParticles_" data-uid="Stride.Particles.ParticleEmitter.CanEmitParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_CanEmitParticles" data-uid="Stride.Particles.ParticleEmitter.CanEmitParticles">
+  CanEmitParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates if the emitter is allowed to emit new particles or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanEmitParticles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_DelayParticleDeath_" data-uid="Stride.Particles.ParticleEmitter.DelayParticleDeath*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_DelayParticleDeath" data-uid="Stride.Particles.ParticleEmitter.DelayParticleDeath">
+  DelayParticleDeath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If positive, forces particles to stay one frame more when they are about ot expire</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DelayParticleDeath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_DrawPriority_" data-uid="Stride.Particles.ParticleEmitter.DrawPriority*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_DrawPriority" data-uid="Stride.Particles.ParticleEmitter.DrawPriority">
+  DrawPriority
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>DrawPriority is used to sort emitters at the same position based on a user defined key and determine the order in which they will be drawn</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(33)]
+[Display(&quot;Draw Priority&quot;, null)]
+public byte DrawPriority { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_EmitterName_" data-uid="Stride.Particles.ParticleEmitter.EmitterName*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_EmitterName" data-uid="Stride.Particles.ParticleEmitter.EmitterName">
+  EmitterName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The emitter name is used to uniquely identify this emitter within the same particle system</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+[Display(&quot;Emitter Name&quot;, null)]
+public string EmitterName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_Enabled_" data-uid="Stride.Particles.ParticleEmitter.Enabled*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_Enabled" data-uid="Stride.Particles.ParticleEmitter.Enabled">
+  Enabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a> is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(-10)]
+public bool Enabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if enabled; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_LivingParticles_" data-uid="Stride.Particles.ParticleEmitter.LivingParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_LivingParticles" data-uid="Stride.Particles.ParticleEmitter.LivingParticles">
+  LivingParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current living particles from this emitter's pool</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LivingParticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_Material_" data-uid="Stride.Particles.ParticleEmitter.Material*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_Material" data-uid="Stride.Particles.ParticleEmitter.Material">
+  Material
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L366"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html">ParticleMaterial</a> may update the vertex buffer, and it also applies the <a class="xref" href="Stride.Graphics.Effect.html">Effect</a> required for rendering</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(50)]
+[Display(&quot;Material&quot;, null)]
+public ParticleMaterial Material { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Materials.ParticleMaterial.html">ParticleMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_MaxParticles_" data-uid="Stride.Particles.ParticleEmitter.MaxParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_MaxParticles" data-uid="Stride.Particles.ParticleEmitter.MaxParticles">
+  MaxParticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum number of particles this <a class="xref" href="Stride.Particles.ParticleEmitter.html">ParticleEmitter</a> can have at any given time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MaxParticles { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_MaxParticlesOverride_" data-uid="Stride.Particles.ParticleEmitter.MaxParticlesOverride*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_MaxParticlesOverride" data-uid="Stride.Particles.ParticleEmitter.MaxParticlesOverride">
+  MaxParticlesOverride
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum particles (if positive) overrides the maximum particle count limitation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(5)]
+[Display(&quot;Max particles&quot;, null)]
+public int MaxParticlesOverride { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_ParticleLifetime_" data-uid="Stride.Particles.ParticleEmitter.ParticleLifetime*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_ParticleLifetime" data-uid="Stride.Particles.ParticleEmitter.ParticleLifetime">
+  ParticleLifetime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L258"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(7)]
+[Display(&quot;Lifespan&quot;, null)]
+public Vector2 ParticleLifetime { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_RandomSeedMethod_" data-uid="Stride.Particles.ParticleEmitter.RandomSeedMethod*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_RandomSeedMethod" data-uid="Stride.Particles.ParticleEmitter.RandomSeedMethod">
+  RandomSeedMethod
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Random numbers in the <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a> are generated based on a seed, which in turn can be generated using several methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(12)]
+[Display(&quot;Randomize&quot;, null)]
+public EmitterRandomSeedMethod RandomSeedMethod { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.EmitterRandomSeedMethod.html">EmitterRandomSeedMethod</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_ShapeBuilder_" data-uid="Stride.Particles.ParticleEmitter.ShapeBuilder*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_ShapeBuilder" data-uid="Stride.Particles.ParticleEmitter.ShapeBuilder">
+  ShapeBuilder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Stride.Particles.ShapeBuilders.ShapeBuilder.html">ShapeBuilder</a> expands all living particles to vertex buffers for rendering</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(40)]
+[Display(&quot;Shape&quot;, null)]
+public ShapeBuilder ShapeBuilder { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.ShapeBuilders.ShapeBuilder.html">ShapeBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_SimulationSpace_" data-uid="Stride.Particles.ParticleEmitter.SimulationSpace*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_SimulationSpace" data-uid="Stride.Particles.ParticleEmitter.SimulationSpace">
+  SimulationSpace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simulation space defines if the particles should be born in world space, or local to the emitter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(11)]
+[Display(&quot;Space&quot;, null)]
+public EmitterSimulationSpace SimulationSpace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.EmitterSimulationSpace.html">EmitterSimulationSpace</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_SortingPolicy_" data-uid="Stride.Particles.ParticleEmitter.SortingPolicy*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_SortingPolicy" data-uid="Stride.Particles.ParticleEmitter.SortingPolicy">
+  SortingPolicy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L336"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How and if particles are sorted, and how they are access during rendering</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(35)]
+[Display(&quot;Sorting&quot;, null)]
+public EmitterSortingPolicy SortingPolicy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.EmitterSortingPolicy.html">EmitterSortingPolicy</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Particles_ParticleEmitter_BuildVertexBuffer_" data-uid="Stride.Particles.ParticleEmitter.BuildVertexBuffer*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_BuildVertexBuffer_System_IntPtr_Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Matrix__" data-uid="Stride.Particles.ParticleEmitter.BuildVertexBuffer(System.IntPtr,Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Matrix@)">
+  BuildVertexBuffer(nint, ref Matrix, ref Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L970"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Build the vertex buffer from particle data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BuildVertexBuffer(nint sharedBufferPtr, ref Matrix invViewMatrix, ref Matrix viewProj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sharedBufferPtr</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The shared vertex buffer position where the particle data should be output</p>
+</dd>
+    <dt><code>invViewMatrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The current camera's inverse view matrix</p>
+</dd>
+    <dt><code>viewProj</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_DelayedInitialization_" data-uid="Stride.Particles.ParticleEmitter.DelayedInitialization*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_DelayedInitialization_Stride_Particles_ParticleSystem_" data-uid="Stride.Particles.ParticleEmitter.DelayedInitialization(Stride.Particles.ParticleSystem)">
+  DelayedInitialization(ParticleSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L567"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Some parameters should be initialized when the emitter first runs, rather than in the constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DelayedInitialization(ParticleSystem parentSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentSystem</code> <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_Dispose_" data-uid="Stride.Particles.ParticleEmitter.Dispose*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_Dispose" data-uid="Stride.Particles.ParticleEmitter.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L404"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_EmitParticles_" data-uid="Stride.Particles.ParticleEmitter.EmitParticles*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_EmitParticles_System_Int32_" data-uid="Stride.Particles.ParticleEmitter.EmitParticles(System.Int32)">
+  EmitParticles(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L1016"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Requests the emitter to spawn several new particles.
+The particles are buffered and will be spawned during the <a class="xref" href="Stride.Particles.ParticleEmitter.html#Stride_Particles_ParticleEmitter_Update_System_Single_Stride_Particles_ParticleSystem_">Update(float, ParticleSystem)</a> step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EmitParticles(int count)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_InvalidateRelations_" data-uid="Stride.Particles.ParticleEmitter.InvalidateRelations*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_InvalidateRelations" data-uid="Stride.Particles.ParticleEmitter.InvalidateRelations">
+  InvalidateRelations()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L1182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invalidates relation of this emitter to any other emitters that might be referenced</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InvalidateRelations()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_PreUpdate_" data-uid="Stride.Particles.ParticleEmitter.PreUpdate*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_PreUpdate" data-uid="Stride.Particles.ParticleEmitter.PreUpdate">
+  PreUpdate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L522"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates all data changes before the emitter is updated this frame.
+This method is not thread-safe!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PreUpdate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_PrepareForDraw_" data-uid="Stride.Particles.ParticleEmitter.PrepareForDraw*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_PrepareForDraw_System_Boolean__System_Int32__System_Int32__" data-uid="Stride.Particles.ParticleEmitter.PrepareForDraw(System.Boolean@,System.Int32@,System.Int32@)">
+  PrepareForDraw(out bool, out int, out int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L933"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><a class="xref" href="Stride.Particles.ParticleEmitter.html#Stride_Particles_ParticleEmitter_PrepareForDraw_System_Boolean__System_Int32__System_Int32__">PrepareForDraw(out bool, out int, out int)</a> prepares and updates the Material, ShapeBuilder and VertexBuilder if necessary</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PrepareForDraw(out bool vertexBufferHasChanged, out int vertexSize, out int vertexCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertexBufferHasChanged</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>vertexSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_ResetSimulation_" data-uid="Stride.Particles.ParticleEmitter.ResetSimulation*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_ResetSimulation" data-uid="Stride.Particles.ParticleEmitter.ResetSimulation">
+  ResetSimulation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L610"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the simulation, deleting all particles and starting from Time = 0</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetSimulation()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_Update_" data-uid="Stride.Particles.ParticleEmitter.Update*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_Update_System_Single_Stride_Particles_ParticleSystem_" data-uid="Stride.Particles.ParticleEmitter.Update(System.Single,Stride.Particles.ParticleSystem)">
+  Update(float, ParticleSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L542"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the emitter and all its particles, and applies all updaters and spawners.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(float dt, ParticleSystem parentSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Delta time, elapsed time since the last call, in seconds</p>
+</dd>
+    <dt><code>parentSystem</code> <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a></dt>
+    <dd><p>The parent <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a> containing this emitter</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_ParticleEmitter_UpdatePaused_" data-uid="Stride.Particles.ParticleEmitter.UpdatePaused*"></a>
+
+  <h3 id="Stride_Particles_ParticleEmitter_UpdatePaused_Stride_Particles_ParticleSystem_" data-uid="Stride.Particles.ParticleEmitter.UpdatePaused(Stride.Particles.ParticleSystem)">
+  UpdatePaused(ParticleSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Call this update when the <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a> is paused to only update the renreding information</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdatePaused(ParticleSystem parentSystem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parentSystem</code> <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a></dt>
+    <dd><p>The parent <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a> containing this emitter</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/ParticleEmitter.cs/#L51" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

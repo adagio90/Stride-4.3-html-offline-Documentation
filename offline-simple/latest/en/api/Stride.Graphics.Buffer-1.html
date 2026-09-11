@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Buffer&lt;T&gt; | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Buffer&lt;T&gt; | Stride API ">
+      
+      <meta name="description" content="A buffer with typed information.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_Buffer_1.md&amp;value=---%0Auid%3A%20Stride.Graphics.Buffer%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.Buffer`1">
+
+
+
+  <h1 id="Stride_Graphics_Buffer_1" data-uid="Stride.Graphics.Buffer`1" class="text-break">
+Class Buffer&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L693"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A buffer with typed information.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Buffer&lt;T&gt; : Buffer, IDisposable, IComponent, IReferencable, ICollectorHolder where T : unmanaged</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of an element of this buffer.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResourceBase.html">GraphicsResourceBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a></div>
+      <div><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></div>
+      <div><span class="xref">Buffer&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_elementCount">Buffer.elementCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Description">Buffer.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Usage">Buffer.Usage</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Flags">Buffer.Flags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_SizeInBytes">Buffer.SizeInBytes</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_StructureByteStride">Buffer.StructureByteStride</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_ElementCount">Buffer.ElementCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_ViewFlags">Buffer.ViewFlags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_ViewFormat">Buffer.ViewFormat</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_InitialCounterOffset">Buffer.InitialCounterOffset</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_ToStaging">Buffer.ToStaging()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Clone">Buffer.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_">Buffer.GetData&lt;TData&gt;(CommandList)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0___">Buffer.GetData&lt;TData&gt;(CommandList, TData[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0__">Buffer.GetData&lt;TData&gt;(CommandList, ref TData)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0__">Buffer.GetData&lt;TData&gt;(CommandList, Buffer, ref TData)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0___">Buffer.GetData&lt;TData&gt;(CommandList, Buffer, TData[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0__System_Int32_">Buffer.SetData&lt;TData&gt;(CommandList, ref TData, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0___System_Int32_">Buffer.SetData&lt;TData&gt;(CommandList, TData[], int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData_Stride_Graphics_CommandList_Stride_Graphics_Buffer_Stride_Graphics_DataPointer_">Buffer.GetData(CommandList, Buffer, DataPointer)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer_System_Span___0__">Buffer.GetData&lt;T&gt;(CommandList, Buffer, Span&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_SetData_Stride_Graphics_CommandList_Stride_Graphics_DataPointer_System_Int32_">Buffer.SetData(CommandList, DataPointer, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList_System_ReadOnlySpan___0__System_Int32_">Buffer.SetData&lt;T&gt;(CommandList, ReadOnlySpan&lt;T&gt;, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_">Buffer.New(GraphicsDevice, BufferDescription, PixelFormat)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, int, BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, int, BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, int, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, int, int, BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, int, int, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0__Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, ref T, BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0__Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, ref T, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0___Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, T[], BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0___Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, T[], BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice_System_ReadOnlySpan___0__Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New&lt;T&gt;(GraphicsDevice, ReadOnlySpan&lt;T&gt;, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_ReadOnlySpan_System_Byte__System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, ReadOnlySpan&lt;byte&gt;, int, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_DataPointer_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, DataPointer, int, BufferFlags, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_DataPointer_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_">Buffer.New(GraphicsDevice, DataPointer, int, BufferFlags, PixelFormat, GraphicsResourceUsage)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_RecreateWith__1___0___">Buffer.RecreateWith&lt;T&gt;(T[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_RecreateWith_System_IntPtr_">Buffer.RecreateWith(nint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Recreate__1___0___">Buffer.Recreate&lt;T&gt;(T[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_InitializeFromImpl_Stride_Graphics_BufferDescription_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_System_IntPtr_">Buffer.InitializeFromImpl(BufferDescription, BufferFlags, PixelFormat, nint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_OnDestroyed">Buffer.OnDestroyed()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_OnRecreate">Buffer.OnRecreate()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_Recreate_System_IntPtr_">Buffer.Recreate(nint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.Buffer.html#Stride_Graphics_Buffer_OnNameChanged">Buffer.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_IsDebugMode">GraphicsResource.IsDebugMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_NativeShaderResourceView">GraphicsResource.NativeShaderResourceView</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_NativeUnorderedAccessView">GraphicsResource.NativeUnorderedAccessView</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeResource">GraphicsResourceBase.NativeResource</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeDeviceChild">GraphicsResourceBase.NativeDeviceChild</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeDevice">GraphicsResourceBase.NativeDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Reload">GraphicsResourceBase.Reload</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_GraphicsDevice">GraphicsResourceBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Destroyed">GraphicsResourceBase.Destroyed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_OnPause">GraphicsResourceBase.OnPause()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_OnResume">GraphicsResourceBase.OnResume()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Destroy">GraphicsResourceBase.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_GetSerializationData_Stride_Graphics_Buffer_">GraphicsSerializerExtensions.GetSerializationData(Buffer)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_SetSerializationData_Stride_Graphics_Buffer_Stride_Graphics_Data_BufferData_">GraphicsSerializerExtensions.SetSerializationData(Buffer, BufferData)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_Buffer_1__ctor_" data-uid="Stride.Graphics.Buffer`1.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_1__ctor_Stride_Graphics_GraphicsDevice_Stride_Graphics_BufferDescription_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_System_IntPtr_" data-uid="Stride.Graphics.Buffer`1.#ctor(Stride.Graphics.GraphicsDevice,Stride.Graphics.BufferDescription,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,System.IntPtr)">
+  Buffer(GraphicsDevice, BufferDescription, BufferFlags, PixelFormat, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L695"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Buffer(GraphicsDevice device, BufferDescription description, BufferFlags viewFlags, PixelFormat viewFormat, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd></dd>
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd></dd>
+    <dt><code>viewFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd></dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_Buffer_1_ElementSize" data-uid="Stride.Graphics.Buffer`1.ElementSize">
+  ElementSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L705"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size of element T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int ElementSize</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_Buffer_1_GetData_" data-uid="Stride.Graphics.Buffer`1.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_1_GetData_Stride_Graphics_CommandList_" data-uid="Stride.Graphics.Buffer`1.GetData(Stride.Graphics.CommandList)">
+  GetData(CommandList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L714"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content of this texture to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T[] GetData(CommandList commandList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd><p>An array of data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_1_GetData_Stride_Graphics_CommandList__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource if this texture is not already a stagging resouce, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_1_SetData_" data-uid="Stride.Graphics.Buffer`1.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_1_SetData_Stride_Graphics_CommandList__0__System_Int32_" data-uid="Stride.Graphics.Buffer`1.SetData(Stride.Graphics.CommandList,`0@,System.Int32)">
+  SetData(CommandList, ref T, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L729"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of a single structure data from CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData(CommandList commandList, ref T fromData, int offsetInBytes = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>fromData</code> <span class="xref">T</span></dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_1_SetData_Stride_Graphics_CommandList__0__System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>. See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_1_SetData_" data-uid="Stride.Graphics.Buffer`1.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_1_SetData_Stride_Graphics_CommandList__0___System_Int32_" data-uid="Stride.Graphics.Buffer`1.SetData(Stride.Graphics.CommandList,`0[],System.Int32)">
+  SetData(CommandList, T[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L743"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data from CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData(CommandList commandList, T[] fromData, int offsetInBytes = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>fromData</code> T[]</dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_1_SetData_Stride_Graphics_CommandList__0___System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>. See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L693" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

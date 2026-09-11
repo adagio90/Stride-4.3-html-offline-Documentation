@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Subsurface scattering | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Subsurface scattering | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/subsurface-scattering.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="subsurface-scattering">Subsurface scattering</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span></p>
+<p>When you enable <strong>subsurface scattering</strong> on a material, light is reflected at irregular angles inside the model. You can use this to realistically render translucent materials such as skin, wax, leaves, marble, and porcelain.</p>
+<p>The photo below demonstrates a real-life example of the effect:</p>
+<p><img src="media/skin-subsurface-scattering-photo.jpg" alt="Photo"></p>
+<p><em>(Image courtesy of Davepoo2014, shared under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-Share Alike 4.0 International license</a>)</em></p>
+<p>The screenshots below demonstrate the use of subsurface scattering in Stride to render wax:</p>
+<table>
+<thead>
+<tr>
+<th>Subsurface scattering off</th>
+<th>Subsurface scattering on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/candles-ss-off.jpg" alt="On"></td>
+<td><img src="media/candles-ss-on.jpg" alt="Off"></td>
+</tr>
+</tbody>
+</table>
+<p>The shadows are much softer in the second image, as more light passes through the candles.</p>
+<h2 id="enable-subsurface-scattering">Enable subsurface scattering</h2>
+<ol>
+<li><p>Select the material you want to use subsurface shading.</p>
+</li>
+<li><p>In the Property Grid, under <strong>Shading</strong>, next to <strong>Subsurface scattering</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and choose <strong>Subsurface scattering</strong>.</p>
+<p><img src="media/enable-subsurface-scattering.png" alt="Enable subsurface scattering"></p>
+</li>
+</ol>
+<h2 id="properties">Properties</h2>
+<p><img src="media/subsurface-scattering-properties.png" alt="Properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scattering width</td>
+<td>How far the light scatters in <a href="../../game-studio/world-units.html">world units</a></td>
+</tr>
+<tr>
+<td>Translucency</td>
+<td>How much light pentrates the material. <code>0.0</code> is no translucency; <code>1.0</code> is max.</td>
+</tr>
+<tr>
+<td>Translucency map</td>
+<td>Specify a <a href="material-maps.html">grayscale map</a> to control how translucent different regions of the material are. Brighter values produce more scattering. For example, ears should scatter more light than the top of the head, because they're thinner and therefore light passes through them more easily. The texture is multiplied by the <strong>Translucency</strong> parameter.</td>
+</tr>
+<tr>
+<td>Scattering profile</td>
+<td>The scattering profile to use during the forward render pass. <p><br><strong>Skin:</strong> A preconfigured shader for rendering skin <p><br><strong>Custom (skin-based):</strong> A profile based on the Skin profile you can customize yourself</p></td>
+</tr>
+<tr>
+<td>Scattering kernel</td>
+<td>The scattering kernel to use in the subsurface scattering post process. <p><br><strong>Falloff:</strong> Scattered light is masked to this color. For example, in the screenshot of the candles, the light fades to an orange-yellow. <p><br><strong>Strength:</strong> Fades to this color</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Transluency: <code>0.2</code></th>
+<th>Transluency: <code>0.98</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/candles-translucency-02.jpg" alt="On"></td>
+<td><img src="media/candles-translucency-98.jpg" alt="Off"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="graphics-compositor-options">Graphics compositor options</h2>
+<p>There are additional subsurface scattering options in the <strong><a href="../graphics-compositor/index.html">graphics compositor editor</a></strong>. These options apply globally to <strong>all</strong> materials that use subsurface scattering.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-asset.png" alt="Graphics compositor asset"></p>
+<p>The graphics compositor editor opens.</p>
+</li>
+<li><p>Select the <strong>Subsurface scattering</strong> node.</p>
+<p><img src="media/select-subsurface-scattering-node.png" alt="Select node"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), edit the properties.</p>
+<p><img src="media/subsurface-scattering-blur-properties.png" alt="Subsurface scattering blur"></p>
+</li>
+</ol>
+<h3 id="properties-1">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Follow surface</td>
+<td>Prevent light scattering across large depth differences. Affects GPU performance.</td>
+</tr>
+<tr>
+<td>Passes</td>
+<td>The number of times the blur is executed. More passes produce smoother results (less noise and banding).</td>
+</tr>
+<tr>
+<td>Jitter kernel size</td>
+<td>Use noise to reduce banding artifacts caused by undersampling. Creates a smoother effect, but is technically less accurate (sometimes noticeable at close distances).</td>
+</tr>
+<tr>
+<td>Render mode</td>
+<td>Change the render mode for debugging purposes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="material-maps.html">Material maps</a></li>
+<li><a href="material-attributes.html">Material attributes</a>
+<ul>
+<li><a href="geometry-attributes.html">Geometry attributes</a></li>
+<li><a href="shading-attributes.html">Shading attributes</a></li>
+<li><a href="misc-attributes.html">Misc attributes</a></li>
+</ul>
+</li>
+<li><a href="material-layers.html">Material layers</a></li>
+<li><a href="materials-for-developers.html">Materials for developers</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/materials/subsurface-scattering.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

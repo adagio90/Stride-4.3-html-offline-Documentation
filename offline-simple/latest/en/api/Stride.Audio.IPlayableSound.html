@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IPlayableSound | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IPlayableSound | Stride API ">
+      
+      <meta name="description" content="Interface for a playable sound. A playable sound can loop (ref ), be played (ref ), be paused (ref ), be resumed (ref ), be stopped (ref ) and be attenuated (ref ). To query the current state of a sound use the  property. To stop a sound after its currently loop set IsLooping = false;">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Audio_IPlayableSound.md&amp;value=---%0Auid%3A%20Stride.Audio.IPlayableSound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Audio.IPlayableSound">
+
+
+
+  <h1 id="Stride_Audio_IPlayableSound" data-uid="Stride.Audio.IPlayableSound" class="text-break">
+Interface IPlayableSound  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Audio.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Interface for a playable sound.
+A playable sound can loop (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_IsLooping">IsLooping</a>), be played (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_Play">Play()</a>), be paused (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_Pause">Pause()</a>), be resumed (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_Play">Play()</a>),
+be stopped (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_Stop">Stop()</a>) and be attenuated (ref <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_Volume">Volume</a>).
+To query the current state of a sound use the <a class="xref" href="Stride.Audio.IPlayableSound.html#Stride_Audio_IPlayableSound_PlayState">PlayState</a> property.
+To stop a sound after its currently loop set <code>IsLooping = false;</code></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPlayableSound</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Audio_IPlayableSound_IsLooping_" data-uid="Stride.Audio.IPlayableSound.IsLooping*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_IsLooping" data-uid="Stride.Audio.IPlayableSound.IsLooping">
+  IsLooping
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets whether the sound is automatically looping from beginning when it reaches the end.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsLooping { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Audio_IPlayableSound_PlayState_" data-uid="Stride.Audio.IPlayableSound.PlayState*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_PlayState" data-uid="Stride.Audio.IPlayableSound.PlayState">
+  PlayState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current state of the sound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">PlayState PlayState { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Media.PlayState.html">PlayState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Audio_IPlayableSound_Volume_" data-uid="Stride.Audio.IPlayableSound.Volume*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_Volume" data-uid="Stride.Audio.IPlayableSound.Volume">
+  Volume
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The global volume at which the sound is played.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">float Volume { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Audio_IPlayableSound_Volume_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Volume is ranging from 0.0f (silence) to 1.0f (full volume). Values beyond those limits are clamped.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Audio_IPlayableSound_Pause_" data-uid="Stride.Audio.IPlayableSound.Pause*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_Pause" data-uid="Stride.Audio.IPlayableSound.Pause">
+  Pause()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pause the sounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Pause()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Audio_IPlayableSound_Pause_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A call to Pause when the sound is already paused or stopped has no effects.</p>
+</div>
+
+
+
+
+  <a id="Stride_Audio_IPlayableSound_Play_" data-uid="Stride.Audio.IPlayableSound.Play*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_Play" data-uid="Stride.Audio.IPlayableSound.Play">
+  Play()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Start or resume playing the sound.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Play()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Audio_IPlayableSound_Play_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A call to Play when the sound is already playing has no effects.</p>
+</div>
+
+
+
+
+  <a id="Stride_Audio_IPlayableSound_Stop_" data-uid="Stride.Audio.IPlayableSound.Stop*"></a>
+
+  <h3 id="Stride_Audio_IPlayableSound_Stop" data-uid="Stride.Audio.IPlayableSound.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop playing the sound immediately and reset the sound to the beginning of the track.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Audio_IPlayableSound_Stop_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A call to Stop when the sound is already stopped has no effects</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Audio/IPlayableSound.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

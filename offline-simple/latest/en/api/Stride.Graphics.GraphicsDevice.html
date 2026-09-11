@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GraphicsDevice | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GraphicsDevice | Stride API ">
+      
+      <meta name="description" content="Used for GPU resources creation (buffers, textures, states, shaders), and  manipulations.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_GraphicsDevice.md&amp;value=---%0Auid%3A%20Stride.Graphics.GraphicsDevice%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.GraphicsDevice">
+
+
+
+  <h1 id="Stride_Graphics_GraphicsDevice" data-uid="Stride.Graphics.GraphicsDevice" class="text-break">
+Class GraphicsDevice  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Used for GPU resources creation (buffers, textures, states, shaders), and <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a> manipulations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GraphicsDevice : ComponentBase, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><span class="xref">GraphicsDevice</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_OnNameChanged">ComponentBase.OnNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.GraphicsDeviceExtensions.html#Stride_Graphics_GraphicsDeviceExtensions_GetSharedWhiteTexture_Stride_Graphics_GraphicsDevice_">GraphicsDeviceExtensions.GetSharedWhiteTexture(GraphicsDevice)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsDevice__ctor_" data-uid="Stride.Graphics.GraphicsDevice.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice__ctor_Stride_Graphics_GraphicsAdapter_Stride_Graphics_GraphicsProfile___Stride_Graphics_DeviceCreationFlags_Stride_Graphics_WindowHandle_" data-uid="Stride.Graphics.GraphicsDevice.#ctor(Stride.Graphics.GraphicsAdapter,Stride.Graphics.GraphicsProfile[],Stride.Graphics.DeviceCreationFlags,Stride.Graphics.WindowHandle)">
+  GraphicsDevice(GraphicsAdapter, GraphicsProfile[], DeviceCreationFlags, WindowHandle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GraphicsDevice(GraphicsAdapter adapter, GraphicsProfile[] profile, DeviceCreationFlags deviceCreationFlags, WindowHandle windowHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapter</code> <a class="xref" href="Stride.Graphics.GraphicsAdapter.html">GraphicsAdapter</a></dt>
+    <dd><p>The graphics adapter.</p>
+</dd>
+    <dt><code>profile</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The graphics profile.</p>
+</dd>
+    <dt><code>deviceCreationFlags</code> <a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd><p>The device creation flags.</p>
+</dd>
+    <dt><code>windowHandle</code> <a class="xref" href="Stride.Graphics.WindowHandle.html">WindowHandle</a></dt>
+    <dd><p>The window handle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Features" data-uid="Stride.Graphics.GraphicsDevice.Features">
+  Features
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the features supported by this graphics device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsDeviceFeatures Features</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDeviceFeatures.html">GraphicsDeviceFeatures</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_GraphicsDevice_FrameDrawCalls" data-uid="Stride.Graphics.GraphicsDevice.FrameDrawCalls">
+  FrameDrawCalls
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint FrameDrawCalls</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Graphics_GraphicsDevice_FrameTriangleCount" data-uid="Stride.Graphics.GraphicsDevice.FrameTriangleCount">
+  FrameTriangleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint FrameTriangleCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Adapter_" data-uid="Stride.Graphics.GraphicsDevice.Adapter*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Adapter" data-uid="Stride.Graphics.GraphicsDevice.Adapter">
+  Adapter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the adapter this instance is attached to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsAdapter Adapter { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsAdapter.html">GraphicsAdapter</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_BuffersMemory_" data-uid="Stride.Graphics.GraphicsDevice.BuffersMemory*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_BuffersMemory" data-uid="Stride.Graphics.GraphicsDevice.BuffersMemory">
+  BuffersMemory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GPU memory currently allocated to buffers in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long BuffersMemory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_ColorSpace_" data-uid="Stride.Graphics.GraphicsDevice.ColorSpace*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_ColorSpace" data-uid="Stride.Graphics.GraphicsDevice.ColorSpace">
+  ColorSpace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default color space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColorSpace ColorSpace { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.ColorSpace.html">ColorSpace</a></dt>
+    <dd><p>The default color space.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_GraphicsDeviceStatus_" data-uid="Stride.Graphics.GraphicsDevice.GraphicsDeviceStatus*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_GraphicsDeviceStatus" data-uid="Stride.Graphics.GraphicsDevice.GraphicsDeviceStatus">
+  GraphicsDeviceStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the status of this device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsDeviceStatus GraphicsDeviceStatus { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDeviceStatus.html">GraphicsDeviceStatus</a></dt>
+    <dd><p>The graphics device status.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_IsDebugMode_" data-uid="Stride.Graphics.GraphicsDevice.IsDebugMode*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_IsDebugMode" data-uid="Stride.Graphics.GraphicsDevice.IsDebugMode">
+  IsDebugMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is in debug mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDebugMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is debug; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_IsDeferred_" data-uid="Stride.Graphics.GraphicsDevice.IsDeferred*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_IsDeferred" data-uid="Stride.Graphics.GraphicsDevice.IsDeferred">
+  IsDeferred
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates wether this device allows for concurrent building and deferred submission of CommandLists</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDeferred { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is deferred; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_IsProfilingSupported_" data-uid="Stride.Graphics.GraphicsDevice.IsProfilingSupported*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_IsProfilingSupported" data-uid="Stride.Graphics.GraphicsDevice.IsProfilingSupported">
+  IsProfilingSupported
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance supports GPU markers and profiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsProfilingSupported { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Platform_" data-uid="Stride.Graphics.GraphicsDevice.Platform*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Platform" data-uid="Stride.Graphics.GraphicsDevice.Platform">
+  Platform
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of the platform that graphics device is using.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsPlatform Platform { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsPlatform.html">GraphicsPlatform</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Presenter_" data-uid="Stride.Graphics.GraphicsDevice.Presenter*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Presenter" data-uid="Stride.Graphics.GraphicsDevice.Presenter">
+  Presenter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the current presenter used to display the frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual GraphicsPresenter Presenter { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsPresenter.html">GraphicsPresenter</a></dt>
+    <dd><p>The current presenter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_RendererName_" data-uid="Stride.Graphics.GraphicsDevice.RendererName*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_RendererName" data-uid="Stride.Graphics.GraphicsDevice.RendererName">
+  RendererName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RendererName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_SamplerStates_" data-uid="Stride.Graphics.GraphicsDevice.SamplerStates*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_SamplerStates" data-uid="Stride.Graphics.GraphicsDevice.SamplerStates">
+  SamplerStates
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Stride.Graphics.SamplerStateFactory.html">SamplerStateFactory</a> factory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SamplerStateFactory SamplerStates { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.SamplerStateFactory.html">SamplerStateFactory</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.SamplerStateFactory.html">SamplerStateFactory</a> factory.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_TextureMemory_" data-uid="Stride.Graphics.GraphicsDevice.TextureMemory*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_TextureMemory" data-uid="Stride.Graphics.GraphicsDevice.TextureMemory">
+  TextureMemory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GPU memory currently allocated to texture in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long TextureMemory { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_ThreadIndex_" data-uid="Stride.Graphics.GraphicsDevice.ThreadIndex*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_ThreadIndex" data-uid="Stride.Graphics.GraphicsDevice.ThreadIndex">
+  ThreadIndex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the index of the thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ThreadIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the thread.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_TimestampFrequency_" data-uid="Stride.Graphics.GraphicsDevice.TimestampFrequency*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_TimestampFrequency" data-uid="Stride.Graphics.GraphicsDevice.TimestampFrequency">
+  TimestampFrequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The tick frquency of timestamp queries in Hertz.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long TimestampFrequency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Begin_" data-uid="Stride.Graphics.GraphicsDevice.Begin*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Begin" data-uid="Stride.Graphics.GraphicsDevice.Begin">
+  Begin()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks context as active on the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Destroy_" data-uid="Stride.Graphics.GraphicsDevice.Destroy*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Destroy" data-uid="Stride.Graphics.GraphicsDevice.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_DestroyPlatformDevice_" data-uid="Stride.Graphics.GraphicsDevice.DestroyPlatformDevice*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_DestroyPlatformDevice" data-uid="Stride.Graphics.GraphicsDevice.DestroyPlatformDevice">
+  DestroyPlatformDevice()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void DestroyPlatformDevice()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_EnableProfile_" data-uid="Stride.Graphics.GraphicsDevice.EnableProfile*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_EnableProfile_System_Boolean_" data-uid="Stride.Graphics.GraphicsDevice.EnableProfile(System.Boolean)">
+  EnableProfile(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables profiling.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnableProfile(bool enabledFlag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>enabledFlag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> [enabled flag].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_End_" data-uid="Stride.Graphics.GraphicsDevice.End*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_End" data-uid="Stride.Graphics.GraphicsDevice.End">
+  End()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unmarks context as active on the current thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void End()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_ExecuteCommandList_" data-uid="Stride.Graphics.GraphicsDevice.ExecuteCommandList*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_ExecuteCommandList_Stride_Graphics_CompiledCommandList_" data-uid="Stride.Graphics.GraphicsDevice.ExecuteCommandList(Stride.Graphics.CompiledCommandList)">
+  ExecuteCommandList(CompiledCommandList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a deferred command list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExecuteCommandList(CompiledCommandList commandList)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CompiledCommandList.html">CompiledCommandList</a></dt>
+    <dd><p>The deferred command list.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_ExecuteCommandLists_" data-uid="Stride.Graphics.GraphicsDevice.ExecuteCommandLists*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_ExecuteCommandLists_System_Int32_Stride_Graphics_CompiledCommandList___" data-uid="Stride.Graphics.GraphicsDevice.ExecuteCommandLists(System.Int32,Stride.Graphics.CompiledCommandList[])">
+  ExecuteCommandLists(int, CompiledCommandList[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes multiple deferred command lists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExecuteCommandLists(int count, CompiledCommandList[] commandLists)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>commandLists</code> <a class="xref" href="Stride.Graphics.CompiledCommandList.html">CompiledCommandList</a>[]</dt>
+    <dd><p>The deferred command lists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_GetOrCreateSharedData_" data-uid="Stride.Graphics.GraphicsDevice.GetOrCreateSharedData*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_GetOrCreateSharedData__1_System_Object_Stride_Graphics_GraphicsDevice_CreateSharedData___0__" data-uid="Stride.Graphics.GraphicsDevice.GetOrCreateSharedData``1(System.Object,Stride.Graphics.GraphicsDevice.CreateSharedData{``0})">
+  GetOrCreateSharedData&lt;T&gt;(object, CreateSharedData&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a shared data for this device context with a delegate to create the shared data if it is not present.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetOrCreateSharedData&lt;T&gt;(object key, GraphicsDevice.CreateSharedData&lt;T&gt; sharedDataCreator) where T : class, IDisposable</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <span class="xref">object</span></dt>
+    <dd><p>The key of the shared data.</p>
+</dd>
+    <dt><code>sharedDataCreator</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.<a class="xref" href="Stride.Graphics.GraphicsDevice.CreateSharedData-1.html">CreateSharedData</a>&lt;T&gt;</dt>
+    <dd><p>The shared data creator.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>An instance of the shared data. The shared data will be disposed by this <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the shared data to get/create.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_New_" data-uid="Stride.Graphics.GraphicsDevice.New*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_New_Stride_Graphics_DeviceCreationFlags_Stride_Graphics_GraphicsProfile___" data-uid="Stride.Graphics.GraphicsDevice.New(Stride.Graphics.DeviceCreationFlags,Stride.Graphics.GraphicsProfile[])">
+  New(DeviceCreationFlags, params GraphicsProfile[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsDevice New(DeviceCreationFlags creationFlags = DeviceCreationFlags.None, params GraphicsProfile[] graphicsProfiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>creationFlags</code> <a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd><p>The creation flags.</p>
+</dd>
+    <dt><code>graphicsProfiles</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The graphics profiles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>An instance of <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_New_" data-uid="Stride.Graphics.GraphicsDevice.New*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_New_Stride_Graphics_GraphicsAdapter_Stride_Graphics_DeviceCreationFlags_Stride_Graphics_GraphicsProfile___" data-uid="Stride.Graphics.GraphicsDevice.New(Stride.Graphics.GraphicsAdapter,Stride.Graphics.DeviceCreationFlags,Stride.Graphics.GraphicsProfile[])">
+  New(GraphicsAdapter, DeviceCreationFlags, params GraphicsProfile[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsDevice New(GraphicsAdapter adapter, DeviceCreationFlags creationFlags = DeviceCreationFlags.None, params GraphicsProfile[] graphicsProfiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapter</code> <a class="xref" href="Stride.Graphics.GraphicsAdapter.html">GraphicsAdapter</a></dt>
+    <dd><p>The adapter.</p>
+</dd>
+    <dt><code>creationFlags</code> <a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd><p>The creation flags.</p>
+</dd>
+    <dt><code>graphicsProfiles</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The graphics profiles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>An instance of <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_New_" data-uid="Stride.Graphics.GraphicsDevice.New*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_New_Stride_Graphics_GraphicsAdapter_Stride_Graphics_DeviceCreationFlags_Stride_Graphics_WindowHandle_Stride_Graphics_GraphicsProfile___" data-uid="Stride.Graphics.GraphicsDevice.New(Stride.Graphics.GraphicsAdapter,Stride.Graphics.DeviceCreationFlags,Stride.Graphics.WindowHandle,Stride.Graphics.GraphicsProfile[])">
+  New(GraphicsAdapter, DeviceCreationFlags, WindowHandle, params GraphicsProfile[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GraphicsDevice New(GraphicsAdapter adapter, DeviceCreationFlags creationFlags = DeviceCreationFlags.None, WindowHandle windowHandle = null, params GraphicsProfile[] graphicsProfiles)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapter</code> <a class="xref" href="Stride.Graphics.GraphicsAdapter.html">GraphicsAdapter</a></dt>
+    <dd><p>The adapter.</p>
+</dd>
+    <dt><code>creationFlags</code> <a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd><p>The creation flags.</p>
+</dd>
+    <dt><code>windowHandle</code> <a class="xref" href="Stride.Graphics.WindowHandle.html">WindowHandle</a></dt>
+    <dd><p>The window handle.</p>
+</dd>
+    <dt><code>graphicsProfiles</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd><p>The graphics profiles.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>An instance of <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_Recreate_" data-uid="Stride.Graphics.GraphicsDevice.Recreate*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Recreate_Stride_Graphics_GraphicsAdapter_Stride_Graphics_GraphicsProfile___Stride_Graphics_DeviceCreationFlags_Stride_Graphics_WindowHandle_" data-uid="Stride.Graphics.GraphicsDevice.Recreate(Stride.Graphics.GraphicsAdapter,Stride.Graphics.GraphicsProfile[],Stride.Graphics.DeviceCreationFlags,Stride.Graphics.WindowHandle)">
+  Recreate(GraphicsAdapter, GraphicsProfile[], DeviceCreationFlags, WindowHandle)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recreate(GraphicsAdapter adapter, GraphicsProfile[] graphicsProfiles, DeviceCreationFlags deviceCreationFlags, WindowHandle windowHandle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>adapter</code> <a class="xref" href="Stride.Graphics.GraphicsAdapter.html">GraphicsAdapter</a></dt>
+    <dd></dd>
+    <dt><code>graphicsProfiles</code> <a class="xref" href="Stride.Graphics.GraphicsProfile.html">GraphicsProfile</a>[]</dt>
+    <dd></dd>
+    <dt><code>deviceCreationFlags</code> <a class="xref" href="Stride.Graphics.DeviceCreationFlags.html">DeviceCreationFlags</a></dt>
+    <dd></dd>
+    <dt><code>windowHandle</code> <a class="xref" href="Stride.Graphics.WindowHandle.html">WindowHandle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_GraphicsDevice_SimulateReset_" data-uid="Stride.Graphics.GraphicsDevice.SimulateReset*"></a>
+
+  <h3 id="Stride_Graphics_GraphicsDevice_SimulateReset" data-uid="Stride.Graphics.GraphicsDevice.SimulateReset">
+  SimulateReset()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/GraphicsDevice.Direct3D.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SimulateReset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_GraphicsDevice_Disposing" data-uid="Stride.Graphics.GraphicsDevice.Disposing">
+  Disposing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs while this component is disposing and before it is disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;EventArgs&gt; Disposing</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/GraphicsDevice.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

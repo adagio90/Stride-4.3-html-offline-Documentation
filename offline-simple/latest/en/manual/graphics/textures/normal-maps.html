@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Normal maps | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Normal maps | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/normal-maps.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="normal-maps">Normal maps</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Normal maps</strong> are textures that add the appearance of surface detail, such as cracks and bumps, without changing the actual geometry of a model. They contain information about how meshes should reflect light, creating the illusion of much more complex geometry. This saves lots of processing power.</p>
+<table>
+<thead>
+<tr>
+<th>No normal map</th>
+<th>With a normal map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="../materials/media/material-attributes-15.png" alt="media/material-attributes-15.png"></td>
+<td><img src="../materials/media/material-attributes-16.png" alt="media/material-attributes-16.png"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Original mesh</th>
+<th>Simplified mesh</th>
+<th>Simplified mesh and normal map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/normal_map_example1.jpg" alt="Example 1"></td>
+<td><img src="media/normal_map_example2.jpg" alt="Example 2"></td>
+<td><img src="media/normal_map_example3.jpg" alt="Example 3"></td>
+</tr>
+<tr>
+<td>4m triangles</td>
+<td>500 triangles</td>
+<td>500 triangles</td>
+</tr>
+</tbody>
+</table>
+<p><em>(Images courtesy of Paolo Cignoni, shared under <a href="https://creativecommons.org/licenses/by-sa/1.0/">Attribution-ShareAlike 1.0 Generic (CC BY-SA 1.0)</a></em></p>
+<p>Normal maps usually represent small changes of the normal vector (the vector which points away from the surface). Stride uses the most common convention: the X and Y components follow the tangent and the bitangent of the surface, and the Z component follows the normal vector of the surface. This means that a value of <code>(0, 0, 1)</code> coincides with the normal vector and represents no change, while a value of <code>(-1, 0, 0)</code> tilts to the &quot;left&quot; (ie negative X value in the tangent (local) space).</p>
+<p><img src="../materials/media/material-attributes-13.png" alt="media/material-attributes-13.png"></p>
+<h2 id="use-a-normal-map">Use a normal map</h2>
+<ol>
+<li><p>In the <strong>Asset View</strong>, select the texture you want to use as a normal map.</p>
+<p><img src="media/select-normal-map-texture.png" alt="Select normal map texture"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, make sure the <strong>type</strong> is set to <strong>normal map</strong>.</p>
+<p><img src="media/normal-map-expanded-properties.png" alt="Normal map"></p>
+<p>This means Stride assumes the texture is in linear color space and converts it to a format suited for normal maps.</p>
+</li>
+<li><p>In the <strong>Asset View</strong>, select the material you want to use the normal map.</p>
+<p><img src="media/select-material.png" alt="Select material"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong>, under the material <strong>Geometry</strong> properties, expand <strong>Surface</strong>.</p>
+<p><img src="media/use-normal-map.png" alt="Use normal maps"></p>
+</li>
+<li><p>Next to <strong>Normal map</strong>, click <img src="../../game-studio/media/blue-arrow-icon.png" alt="Blue arrow button"> (<strong>Replace</strong>) and make sure <strong>Texture</strong> is selected.</p>
+</li>
+<li><p>Next to <strong>Normal map</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/select-asset-texture.png" alt="Select asset"></p>
+</li>
+<li><p>Select the normal map texture and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>For more information about materials, see <a href="../materials/index.html">Materials</a>.</p>
+<h2 id="normal-map-properties">Normal map properties</h2>
+<p>Normal map textures have two properties in addition to the <a href="index.html">common texture properties</a>.</p>
+<p><img src="media/normal-map-texture-properties.png" alt="Normal map textures"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Invert Y</td>
+<td>Have positive Y components (green pixels) face up in tangent space. This option depends on the tools you use to create normal maps.</td>
+</tr>
+</tbody>
+</table>
+<p>For information about normal map properties in materials, see <a href="../materials/geometry-attributes.html">Materials — Geometry attributes</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Textures</a></li>
+<li><a href="../materials/index.html">Materials</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Normal_mapping">Normal mapping on Wikipedia</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/textures/normal-maps.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Buffer | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Buffer | Stride API ">
+      
+      <meta name="description" content="All-in-One Buffer class linked .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_Buffer.md&amp;value=---%0Auid%3A%20Stride.Graphics.Buffer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.Buffer">
+
+
+
+  <h1 id="Stride_Graphics_Buffer" data-uid="Stride.Graphics.Buffer" class="text-break">
+Class Buffer  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Graphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>All-in-One Buffer class linked <span class="xref">SharpDX.Direct3D11.Buffer</span>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataSerializer(typeof(BufferSerializer))]
+[DataSerializerGlobal(typeof(ReferenceSerializer&lt;Buffer&gt;), null, DataSerializerGenericMode.None, false, false, Profile = &quot;Content&quot;)]
+[ContentSerializer(typeof(DataContentSerializer&lt;Buffer&gt;))]
+public class Buffer : GraphicsResource, IDisposable, IComponent, IReferencable, ICollectorHolder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResourceBase.html">GraphicsResourceBase</a></div>
+      <div><a class="xref" href="Stride.Graphics.GraphicsResource.html">GraphicsResource</a></div>
+      <div><span class="xref">Buffer</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_IsDebugMode">GraphicsResource.IsDebugMode</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_NativeShaderResourceView">GraphicsResource.NativeShaderResourceView</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResource.html#Stride_Graphics_GraphicsResource_NativeUnorderedAccessView">GraphicsResource.NativeUnorderedAccessView</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeResource">GraphicsResourceBase.NativeResource</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeDeviceChild">GraphicsResourceBase.NativeDeviceChild</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_NativeDevice">GraphicsResourceBase.NativeDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Reload">GraphicsResourceBase.Reload</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_GraphicsDevice">GraphicsResourceBase.GraphicsDevice</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Destroyed">GraphicsResourceBase.Destroyed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_OnPause">GraphicsResourceBase.OnPause()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_OnResume">GraphicsResourceBase.OnResume()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Graphics.GraphicsResourceBase.html#Stride_Graphics_GraphicsResourceBase_Destroy">GraphicsResourceBase.Destroy()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_ToString">ComponentBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnAddReference">DisposeBase.OnAddReference()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_OnReleaseReference">DisposeBase.OnReleaseReference()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_GetSerializationData_Stride_Graphics_Buffer_">GraphicsSerializerExtensions.GetSerializationData(Buffer)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_SetSerializationData_Stride_Graphics_Buffer_Stride_Graphics_Data_BufferData_">GraphicsSerializerExtensions.SetSerializationData(Buffer, BufferData)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="Stride_Graphics_Buffer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is able to create constant buffers, indexelementCountrtex buffers, structured buffer, raw buffers, argument buffers.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Graphics_Buffer__ctor_" data-uid="Stride.Graphics.Buffer.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_Buffer__ctor" data-uid="Stride.Graphics.Buffer.#ctor">
+  Buffer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer__ctor_" data-uid="Stride.Graphics.Buffer.#ctor*"></a>
+
+  <h3 id="Stride_Graphics_Buffer__ctor_Stride_Graphics_GraphicsDevice_" data-uid="Stride.Graphics.Buffer.#ctor(Stride.Graphics.GraphicsDevice)">
+  Buffer(GraphicsDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Buffer(GraphicsDevice device)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_Buffer_elementCount" data-uid="Stride.Graphics.Buffer.elementCount">
+  elementCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int elementCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_Buffer_Description_" data-uid="Stride.Graphics.Buffer.Description*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Description" data-uid="Stride.Graphics.Buffer.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the description of this buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferDescription Description { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_ElementCount_" data-uid="Stride.Graphics.Buffer.ElementCount*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_ElementCount" data-uid="Stride.Graphics.Buffer.ElementCount">
+  ElementCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ElementCount { get; protected set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_ElementCount_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value is valid for structured buffers, raw buffers and index buffers that are used as a SharedResourceView.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_Flags_" data-uid="Stride.Graphics.Buffer.Flags*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Flags" data-uid="Stride.Graphics.Buffer.Flags">
+  Flags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Buffer flags describing the type of buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferFlags Flags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_InitialCounterOffset_" data-uid="Stride.Graphics.Buffer.InitialCounterOffset*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_InitialCounterOffset" data-uid="Stride.Graphics.Buffer.InitialCounterOffset">
+  InitialCounterOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial Append/Consume buffer counter offset. A value of -1 indicates the current offset
+should be kept. Any other values set the hidden counter for that Appendable/Consumable
+Buffer. This value is only relevant for Buffers which have the 'Append' or 'Counter'
+flag, otherwise it is ignored. The value get's initialized to -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InitialCounterOffset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_SizeInBytes_" data-uid="Stride.Graphics.Buffer.SizeInBytes*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_SizeInBytes" data-uid="Stride.Graphics.Buffer.SizeInBytes">
+  SizeInBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the size of the buffer in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SizeInBytes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The size of the buffer in bytes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_StructureByteStride_" data-uid="Stride.Graphics.Buffer.StructureByteStride*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_StructureByteStride" data-uid="Stride.Graphics.Buffer.StructureByteStride">
+  StructureByteStride
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size of the structure (in bytes) when it represents a structured/typed buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int StructureByteStride { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_Usage_" data-uid="Stride.Graphics.Buffer.Usage*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Usage" data-uid="Stride.Graphics.Buffer.Usage">
+  Usage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Value that identifies how the buffer is to be read from and written to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphicsResourceUsage Usage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_ViewFlags_" data-uid="Stride.Graphics.Buffer.ViewFlags*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_ViewFlags" data-uid="Stride.Graphics.Buffer.ViewFlags">
+  ViewFlags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the type of this buffer view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BufferFlags ViewFlags { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_ViewFormat_" data-uid="Stride.Graphics.Buffer.ViewFormat*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_ViewFormat" data-uid="Stride.Graphics.Buffer.ViewFormat">
+  ViewFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the format of this buffer view.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelFormat ViewFormat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_Buffer_Clone_" data-uid="Stride.Graphics.Buffer.Clone*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Clone" data-uid="Stride.Graphics.Buffer.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clones this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>A clone of this instance</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_Clone_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method will not copy the content of the buffer to the clone</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData_Stride_Graphics_CommandList_Stride_Graphics_Buffer_Stride_Graphics_DataPointer_" data-uid="Stride.Graphics.Buffer.GetData(Stride.Graphics.CommandList,Stride.Graphics.Buffer,Stride.Graphics.DataPointer)">
+  GetData(CommandList, Buffer, DataPointer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer from GPU memory to a CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public void GetData(CommandList commandList, Buffer stagingTexture, DataPointer toData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>The staging buffer used to transfer the buffer.</p>
+</dd>
+    <dt><code>toData</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>To data pointer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData_Stride_Graphics_CommandList_Stride_Graphics_Buffer_Stride_Graphics_DataPointer__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList)">
+  GetData&lt;TData&gt;(CommandList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the content of this buffer to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TData[] GetData&lt;TData&gt;(CommandList commandList) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>TData[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource if this texture is not already a stagging resouce, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer_System_Span___0__" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList,Stride.Graphics.Buffer,System.Span{``0})">
+  GetData&lt;T&gt;(CommandList, Buffer, Span&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L314"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer from GPU memory to a CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetData&lt;T&gt;(CommandList commandList, Buffer stagingTexture, Span&lt;T&gt; toData) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>The staging buffer used to transfer the buffer.</p>
+</dd>
+    <dt><code>toData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;T&gt;</dt>
+    <dd><p>To data pointer.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer_System_Span___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0__" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList,Stride.Graphics.Buffer,``0@)">
+  GetData&lt;TData&gt;(CommandList, Buffer, ref TData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer from GPU memory to an array of data on CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetData&lt;TData&gt;(CommandList commandList, Buffer stagingTexture, ref TData toData) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>The staging buffer used to transfer the buffer.</p>
+</dd>
+    <dt><code>toData</code> <span class="xref">TData</span></dt>
+    <dd><p>To data.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0___" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList,Stride.Graphics.Buffer,``0[])">
+  GetData&lt;TData&gt;(CommandList, Buffer, TData[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer from GPU memory to an array of data on CPU memory using a specific staging resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetData&lt;TData&gt;(CommandList commandList, Buffer stagingTexture, TData[] toData) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>stagingTexture</code> <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>The staging buffer used to transfer the buffer.</p>
+</dd>
+    <dt><code>toData</code> TData[]</dt>
+    <dd><p>To data.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList_Stride_Graphics_Buffer___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When strides is different from optimal strides, and TData is not the same size as the pixel format, or Width * Height != toData.Length</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0__" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList,``0@)">
+  GetData&lt;TData&gt;(CommandList, ref TData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetData&lt;TData&gt;(CommandList commandList, ref TData toData) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>toData</code> <span class="xref">TData</span></dt>
+    <dd><p>The destination buffer to receive a copy of the texture datas.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource if this texture is not already a stagging resouce, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_GetData_" data-uid="Stride.Graphics.Buffer.GetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0___" data-uid="Stride.Graphics.Buffer.GetData``1(Stride.Graphics.CommandList,``0[])">
+  GetData&lt;TData&gt;(CommandList, TData[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content of this buffer to an array of data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetData&lt;TData&gt;(CommandList commandList, TData[] toData) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd></dd>
+    <dt><code>toData</code> TData[]</dt>
+    <dd><p>The destination buffer to receive a copy of the texture datas.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_GetData__1_Stride_Graphics_CommandList___0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method is only working when called from the main thread that is accessing the main <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.
+This method creates internally a stagging resource if this texture is not already a stagging resouce, copies to it and map it to memory. Use method with explicit staging resource
+for optimal performances.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Buffer_InitializeFromImpl_" data-uid="Stride.Graphics.Buffer.InitializeFromImpl*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_InitializeFromImpl_Stride_Graphics_BufferDescription_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_System_IntPtr_" data-uid="Stride.Graphics.Buffer.InitializeFromImpl(Stride.Graphics.BufferDescription,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,System.IntPtr)">
+  InitializeFromImpl(BufferDescription, BufferFlags, PixelFormat, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Buffer InitializeFromImpl(BufferDescription description, BufferFlags viewFlags, PixelFormat viewFormat, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd><p>The description.</p>
+</dd>
+    <dt><code>viewFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>Type of the buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The data pointer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_BufferDescription_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.BufferDescription,Stride.Graphics.PixelFormat)">
+  New(GraphicsDevice, BufferDescription, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, BufferDescription description, PixelFormat viewFormat = PixelFormat.None)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.BufferDescription.html">BufferDescription</a></dt>
+    <dd><p>The description of the buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>View format used if the buffer is used as a shared resource view.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_DataPointer_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.DataPointer,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, DataPointer, int, BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L593"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public static Buffer New(GraphicsDevice device, DataPointer dataPointer, int elementSize, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>The data pointer.</p>
+</dd>
+    <dt><code>elementSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the element.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_Stride_Graphics_DataPointer_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,Stride.Graphics.DataPointer,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, DataPointer, int, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L609"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public static Buffer New(GraphicsDevice device, DataPointer dataPointer, int elementSize, BufferFlags bufferFlags, PixelFormat viewFormat, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>The data pointer.</p>
+</dd>
+    <dt><code>elementSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the element.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, int, BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L416"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, int bufferSize, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the buffer in bytes.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, int, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, int bufferSize, BufferFlags bufferFlags, PixelFormat viewFormat, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the buffer in bytes.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, int, int, BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L461"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, int bufferSize, int elementSize, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the buffer in bytes.</p>
+</dd>
+    <dt><code>elementSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of an element in the buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_Int32_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,System.Int32,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, int, int, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L476"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, int bufferSize, int elementSize, BufferFlags bufferFlags, PixelFormat viewFormat, GraphicsResourceUsage usage = GraphicsResourceUsage.Default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>bufferSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the buffer in bytes.</p>
+</dd>
+    <dt><code>elementSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of an element in the buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New_Stride_Graphics_GraphicsDevice_System_ReadOnlySpan_System_Byte__System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New(Stride.Graphics.GraphicsDevice,System.ReadOnlySpan{System.Byte},System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New(GraphicsDevice, ReadOnlySpan&lt;byte&gt;, int, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance from a byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer New(GraphicsDevice device, ReadOnlySpan&lt;byte&gt; initialValue, int elementSize, BufferFlags bufferFlags, PixelFormat viewFormat = PixelFormat.None, GraphicsResourceUsage usage = GraphicsResourceUsage.Immutable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>initialValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd><p>The initial value of this buffer.</p>
+</dd>
+    <dt><code>elementSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of an element. Must be equal to 2 or 4 for an index buffer, or to the size of a struct for a structured/typed buffer. Can be set to 0 for other buffers.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice_System_Int32_Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,System.Int32,Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, int, BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, int elementCount, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>elementCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Number of T elment in this buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice_System_ReadOnlySpan___0__Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,System.ReadOnlySpan{``0},Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, ReadOnlySpan&lt;T&gt;, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, ReadOnlySpan&lt;T&gt; initialValues, BufferFlags bufferFlags, PixelFormat viewFormat = PixelFormat.None, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>initialValues</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
+    <dd><p>The initial data this buffer will contain.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the buffer, to get the sizeof from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0__Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,``0@,Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, ref T, BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, ref T value, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The initial value of this buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the buffer, to get the sizeof from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0__Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,``0@,Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, ref T, BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, ref T value, BufferFlags bufferFlags, PixelFormat viewFormat, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">T</span></dt>
+    <dd><p>The initial value of this buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the buffer, to get the sizeof from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0___Stride_Graphics_BufferFlags_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,``0[],Stride.Graphics.BufferFlags,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, T[], BufferFlags, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L528"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, T[] initialValue, BufferFlags bufferFlags, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>initialValue</code> T[]</dt>
+    <dd><p>The initial value of this buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the buffer, to get the sizeof from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_New_" data-uid="Stride.Graphics.Buffer.New*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_New__1_Stride_Graphics_GraphicsDevice___0___Stride_Graphics_BufferFlags_Stride_Graphics_PixelFormat_Stride_Graphics_GraphicsResourceUsage_" data-uid="Stride.Graphics.Buffer.New``1(Stride.Graphics.GraphicsDevice,``0[],Stride.Graphics.BufferFlags,Stride.Graphics.PixelFormat,Stride.Graphics.GraphicsResourceUsage)">
+  New&lt;T&gt;(GraphicsDevice, T[], BufferFlags, PixelFormat, GraphicsResourceUsage)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L543"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Buffer&lt;T&gt; New&lt;T&gt;(GraphicsDevice device, T[] initialValue, BufferFlags bufferFlags, PixelFormat viewFormat, GraphicsResourceUsage usage = GraphicsResourceUsage.Default) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>device</code> <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a>.</p>
+</dd>
+    <dt><code>initialValue</code> T[]</dt>
+    <dd><p>The initial value of this buffer.</p>
+</dd>
+    <dt><code>bufferFlags</code> <a class="xref" href="Stride.Graphics.BufferFlags.html">BufferFlags</a></dt>
+    <dd><p>The buffer flags to specify the type of buffer.</p>
+</dd>
+    <dt><code>viewFormat</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The view format must be specified if the buffer is declared as a shared resource view.</p>
+</dd>
+    <dt><code>usage</code> <a class="xref" href="Stride.Graphics.GraphicsResourceUsage.html">GraphicsResourceUsage</a></dt>
+    <dd><p>The usage.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer-1.html">Buffer</a>&lt;T&gt;</dt>
+    <dd><p>An instance of a new <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the buffer, to get the sizeof from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_OnDestroyed_" data-uid="Stride.Graphics.Buffer.OnDestroyed*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_OnDestroyed" data-uid="Stride.Graphics.Buffer.OnDestroyed">
+  OnDestroyed()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when graphics device has been detected to be internally destroyed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDestroyed()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_OnNameChanged_" data-uid="Stride.Graphics.Buffer.OnNameChanged*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_OnNameChanged" data-uid="Stride.Graphics.Buffer.OnNameChanged">
+  OnNameChanged()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">Name</a> property was changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnNameChanged()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_OnRecreate_" data-uid="Stride.Graphics.Buffer.OnRecreate*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_OnRecreate" data-uid="Stride.Graphics.Buffer.OnRecreate">
+  OnRecreate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when graphics device has been recreated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool OnRecreate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if item transitioned to a <a class="xref" href="Stride.Graphics.GraphicsResourceLifetimeState.html#Stride_Graphics_GraphicsResourceLifetimeState_Active">Active</a> state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_Recreate_" data-uid="Stride.Graphics.Buffer.Recreate*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Recreate_System_IntPtr_" data-uid="Stride.Graphics.Buffer.Recreate(System.IntPtr)">
+  Recreate(nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Explicitly recreate buffer with given data. Usually called after a <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recreate(nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_RecreateWith_" data-uid="Stride.Graphics.Buffer.RecreateWith*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_RecreateWith_System_IntPtr_" data-uid="Stride.Graphics.Buffer.RecreateWith(System.IntPtr)">
+  RecreateWith(nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L670"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reload <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> from given data if <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> has been reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer RecreateWith(nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The data pointer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>This instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_RecreateWith_" data-uid="Stride.Graphics.Buffer.RecreateWith*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_RecreateWith__1___0___" data-uid="Stride.Graphics.Buffer.RecreateWith``1(``0[])">
+  RecreateWith&lt;T&gt;(T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L657"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reload <a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a> from given data if <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> has been reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer RecreateWith&lt;T&gt;(T[] dataPointer) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataPointer</code> T[]</dt>
+    <dd><p>The data pointer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>This instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_Recreate_" data-uid="Stride.Graphics.Buffer.Recreate*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_Recreate__1___0___" data-uid="Stride.Graphics.Buffer.Recreate``1(``0[])">
+  Recreate&lt;T&gt;(T[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L682"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Explicitly recreate buffer with given data. Usually called after a <a class="xref" href="Stride.Graphics.GraphicsDevice.html">GraphicsDevice</a> reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Recreate&lt;T&gt;(T[] dataPointer) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataPointer</code> T[]</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Buffer_SetData_" data-uid="Stride.Graphics.Buffer.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_SetData_Stride_Graphics_CommandList_Stride_Graphics_DataPointer_System_Int32_" data-uid="Stride.Graphics.Buffer.SetData(Stride.Graphics.CommandList,Stride.Graphics.DataPointer,System.Int32)">
+  SetData(CommandList, DataPointer, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data on CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public void SetData(CommandList commandList, DataPointer fromData, int offsetInBytes = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>A data pointer.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_SetData_Stride_Graphics_CommandList_Stride_Graphics_DataPointer_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_SetData_" data-uid="Stride.Graphics.Buffer.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList_System_ReadOnlySpan___0__System_Int32_" data-uid="Stride.Graphics.Buffer.SetData``1(Stride.Graphics.CommandList,System.ReadOnlySpan{``0},System.Int32)">
+  SetData&lt;T&gt;(CommandList, ReadOnlySpan&lt;T&gt;, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data on CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;T&gt;(CommandList commandList, ReadOnlySpan&lt;T&gt; fromData, int offsetInBytes = 0) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;T&gt;</dt>
+    <dd><p>A data pointer.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList_System_ReadOnlySpan___0__System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_SetData_" data-uid="Stride.Graphics.Buffer.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0__System_Int32_" data-uid="Stride.Graphics.Buffer.SetData``1(Stride.Graphics.CommandList,``0@,System.Int32)">
+  SetData&lt;TData&gt;(CommandList, ref TData, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data on CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;TData&gt;(CommandList commandList, ref TData fromData, int offsetInBytes = 0) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> <span class="xref">TData</span></dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0__System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_SetData_" data-uid="Stride.Graphics.Buffer.SetData*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0___System_Int32_" data-uid="Stride.Graphics.Buffer.SetData``1(Stride.Graphics.CommandList,``0[],System.Int32)">
+  SetData&lt;TData&gt;(CommandList, TData[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies the content an array of data on CPU memory to this buffer into GPU memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetData&lt;TData&gt;(CommandList commandList, TData[] fromData, int offsetInBytes = 0) where TData : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandList</code> <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Graphics.CommandList.html">CommandList</a>.</p>
+</dd>
+    <dt><code>fromData</code> TData[]</dt>
+    <dd><p>The data to copy from.</p>
+</dd>
+    <dt><code>offsetInBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in bytes to write to.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TData</code></dt>
+    <dd><p>The type of the T data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Buffer_SetData__1_Stride_Graphics_CommandList___0___System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>See the unmanaged documentation about Map/UnMap for usage and restrictions.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Buffer_ToStaging_" data-uid="Stride.Graphics.Buffer.ToStaging*"></a>
+
+  <h3 id="Stride_Graphics_Buffer_ToStaging" data-uid="Stride.Graphics.Buffer.ToStaging">
+  ToStaging()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Buffer.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return an equivalent staging texture CPU read-writable from this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Buffer ToStaging()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Buffer.html">Buffer</a></dt>
+    <dd><p>A new instance of this buffer as a staging resource</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Graphics/Direct3D/Buffer.Direct3D.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

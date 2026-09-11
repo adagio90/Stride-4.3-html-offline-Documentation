@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Directional lights | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Directional lights | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/directional-lights.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="directional-lights">Directional lights</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Artist</span></p>
+<p><strong>Directional lights</strong> come uniformly from one direction. They're often used for simulating large, distant light sources such as the sun, and cast shadows. By default, new scenes you create in Stride contain a directional light.</p>
+<p><img src="media/DirectionalLightOverview.png" alt="media/DirectionalLightOverview.png"></p>
+<p>The Scene Editor shows the position of directional lights with the following icon:</p>
+<p><img src="media/DirectionalLight.png" alt="media/DirectionalLight.png"></p>
+<p>When you select a directional light, the gizmo displays the light's main direction:</p>
+<p><img src="media/DirectionalLightSelected.png" alt="media/DirectionalLightSelected.png"></p>
+<h2 id="properties">Properties</h2>
+<p><img src="media/DirectionalLightProperties.png" alt="media/DirectionalLightProperties.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color</td>
+<td>The color of the light (RGB)</td>
+</tr>
+<tr>
+<td>Shadow</td>
+<td>See <strong>Shadow properties</strong> below</td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td>The intensity of the light. The color is multiplied by this value before being sent to the shader. Note: negative values produce darkness and have unpredictable effects</td>
+</tr>
+<tr>
+<td>Culling Mask</td>
+<td>Defines which entity groups are affected by this light. By default, all groups are affected</td>
+</tr>
+</tbody>
+</table>
+<h2 id="shadows-cast-by-directional-lights">Shadows cast by directional lights</h2>
+<p>Like <a href="point-lights.html">point lights</a> and <a href="spot-lights.html">spot lights</a>, directional lights cast shadows. However, shadows cast by directional lights can spawn across a large view range, so they require special treatment to improve their realism.</p>
+<p>Directional lights use an additional technique, <strong>cascaded shadow mapping</strong>. This consists of rendering the depth of occluding objects from the point of view of the light to a texture, then rendering the scene taking the occluder information into account.</p>
+<p>This method slices the depth range from the camera's point of view into different sections or &quot;cascades&quot; of different resolutions. The nearer each cascade is to the camera, the higher resolution it has, and the higher-resolution its shadows are.</p>
+<p><img src="media/ShadowMappingCascades.png" alt="media/ShadowMappingCascades.png"></p>
+<p>Put simply, the closer shadows are to the camera, the better quality they are. This means you can spend more memory on shadows closer to the camera, where you can see them, and less on distant shadows.</p>
+<p>You can have one, two, or four cascades. The more cascades you use, the more memory you save, but the lower resolution your shadows become over distance.</p>
+<p>This an example of a shadow map generated from a directional light, using four cascades:</p>
+<p><img src="media/shadow-atlas-2x.png" alt="FPS scene shadow map"></p>
+<h3 id="see-shadow-cascades-in-the-editor">See shadow cascades in the editor</h3>
+<p>In the <strong>Property Grid</strong>, under the <strong>Shadow</strong> properties, enable the <strong>Debug</strong> option.</p>
+<table>
+<thead>
+<tr>
+<th>Cascades debug off</th>
+<th>Cascades debug on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/directional-lights-8.png" alt="media/directional-lights-8.png"></td>
+<td><img src="media/directional-lights-9.png" alt="media/directional-lights-9.png"></td>
+</tr>
+</tbody>
+</table>
+<p>The different colors indicate the cascade for each distance range (Green: 0, Blue: 1, Purple: 2, Red: 3).</p>
+<h3 id="directional-light-shadow-properties">Directional light shadow properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter</td>
+<td>Filtering produces <strong>soft shadows</strong> instead of <strong>hard shadows</strong>. Currently, the implemented technique is PCF (Percentage Closer Filtering)</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>The size of the shadow map texture. For the directional light, this value is <strong>x1</strong> by default, as a directional light has more visual impact than lights with shorter ranges</td>
+</tr>
+<tr>
+<td>Cascade Count</td>
+<td>The number of cascades used for slicing the range of depth covered by the light. Values are 1, 2 or 4 cascades; a typical scene uses 4 cascades</td>
+</tr>
+<tr>
+<td>Stabilization mode</td>
+<td><p><br>The technique used to reduce shadow map flickering. Flickering is a result of the potential aliasing introduced by the shadow map when a texel from the perspective of the light covers more space than a texel from the camera's perspective.</p><br> <p><br> <strong>Projection snapping</strong> tries to snap the projection matrix of the light to a texel dependent on the resolution of the shadow map texture</p><br> <p><br><strong>View snapping</strong> tries to snap the target of the view matrix of the light (center of the camera view cascade frustum)</p><br> <p><br>Both projection and view snapping force the shadow matrix to cover a larger region, increasing the aliasing of the shadow map texture. Note that when using depth range camera is set to automatic, the stabilization mode is ignored</p><br></td>
+</tr>
+<tr>
+<td>Depth Range</td>
+<td>How the visible depth range from the camera's perspective is calculated. This directly affects how near and how far cascades splits occur</td>
+</tr>
+<tr>
+<td>Blend Cascades</td>
+<td>Smooths the transition between cascades</td>
+</tr>
+<tr>
+<td>Partition mode</td>
+<td><p><br>How the cascade split distance is determined.</p><br> <p><br> <strong>Manual</strong>: the split is defined manually for each cascade, in percentage of the visible depth range. A value of 0.1 for a cascade means that the cascade is rendered on the distance 0.1 * (VisibleDepthMax - VisibleDepthMin)<p><br> <p><br> <strong>Logarithmic</strong>: the split is automatically calculated using a logarithmic scale <p><br> The PSSM factor lets you blend from a pure logarithmic scale (0.0f) to a pure uniform scale (1.0f)<p><br></p></td>
+</tr>
+<tr>
+<td>Depth Bias</td>
+<td>The amount of depth to add to the sampling depth to avoid the phenomenon of shadow acne</td>
+</tr>
+<tr>
+<td>Normal Offset Scale</td>
+<td>A factor multiplied by the depth bias toward the normal</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>Displays the shadow map cascades in the Scene Editor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="add-a-light.html">Add a light</a></li>
+<li><a href="point-lights.html">Point lights</a></li>
+<li><a href="ambient-lights.html">Ambient lights</a></li>
+<li><a href="skybox-lights.html">Skybox lights</a></li>
+<li><a href="spot-lights.html">Spot lights</a></li>
+<li><a href="light-probes.html">Light probes</a></li>
+<li><a href="light-shafts.html">Light shafts</a></li>
+<li><a href="shadows.html">Shadows</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/directional-lights.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

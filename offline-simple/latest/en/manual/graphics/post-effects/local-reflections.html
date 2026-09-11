@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Local reflections | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Local reflections | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/post-effects/local-reflections.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="local-reflections">Local reflections</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Currently, local reflections aren't compatible with mobile platforms and cause crashes.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>As with other depth-aware post effects, enabling local reflections nullifies MSAA (multisample anti-aliasing).</p>
+</div>
+<p>When <strong>local reflections</strong> are enabled, the scene is reflected in glossy <a href="../materials/index.html">materials</a>.</p>
+<p><img src="media/local-reflections.jpg" alt="Local reflections"></p>
+<p>Local reflections dramatically increase the realism of scenes. They're most obvious when they reflect bright spots onto other surfaces. The effect is especially striking in dark scenes, which have high contrast, and in conditions with lots of reflective surfaces and highlights.</p>
+<p><img src="media/night-reflections.jpg" alt="Night reflections"></p>
+<h2 id="where-to-use-local-reflections">Where to use local reflections</h2>
+<p>Local reflections are a <strong>screenspace effect</strong>, which means they only reflect objects that are already on the screen; they don't reflect objects that are offscreen or obscured by other objects. Put simply, if the camera can't see an object at that moment, then that object isn't reflected.</p>
+<p>This means local reflections work well in enclosed areas such as corridors and rooms, but less well in open spaces, where you'd expect more of the world to be reflected. They also work best on bumpy surfaces, which hide imperfections in reflections, and less well on very glossy, mirror-like surfaces. Missing reflections are noticeable in mirrors, for example.</p>
+<h2 id="algorithm">Algorithm</h2>
+<p>Stride processes local reflections in four passes:</p>
+<ol>
+<li><p>The <strong>raycast</strong> pass performs screenspace ray tracing over the depth buffer to find intersections.</p>
+</li>
+<li><p>The <strong>resolve</strong> pass resolves the rays and calculates the reflection color.</p>
+</li>
+<li><p>The <strong>temporal</strong> pass uses the history buffer to blur constantly between the current and previous frames. This reduces noise in the reflection, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. You can adjust or disable this step to create the effect you want.</p>
+</li>
+<li><p>The <strong>combine</strong> pass mixes the results of the effect with the rendered image.</p>
+</li>
+</ol>
+<h2 id="enable-local-reflections">Enable local reflections</h2>
+<p>To use local reflections, enable the effect in the <strong>graphics compositor</strong>.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong> (in the bottom pane by default), double-click the <strong>Graphics Compositor</strong> asset.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-asset.png" alt="Graphics Compositor asset"></p>
+<p>The graphics compositor editor opens.</p>
+<p><img src="../graphics-compositor/media/graphics-compositor-editor.png" alt="Graphics Compositor editor"></p>
+</li>
+<li><p>Select the <strong>post-processing effects</strong> node.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If there's no post-process effects node, right-click and select <strong>Create &gt; post-processing effects</strong> to create one. On the new <strong>forward renderer</strong> node, on the <strong>PostEffects</strong> slot, click and drag a link to the <strong>post-processing effects</strong> node.</p>
+</div>
+<blockquote>
+<p><img src="media/connect-nodes.png" alt="Connect nodes"></p>
+</blockquote>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), enable <strong>Local reflections</strong>.</p>
+<p><img src="media/enable-local-reflections.png" alt="Enable local reflections"></p>
+</li>
+</ol>
+<p>After you enable local reflections, the scene is reflected in glossy materials.
+You can use the <strong>gloss threshold</strong> (see below) to set how glossy materials should be to reflect the scene.</p>
+<h2 id="properties">Properties</h2>
+<p>The local reflections properties affect all reflections in the scene.</p>
+<h3 id="raycast-properties">Raycast properties</h3>
+<p><img src="media/ray-trace-properties.png" alt="Raycast properties"></p>
+<h4 id="brdf-bias">BRDF bias</h4>
+<p>The reflection spread. Higher values provide finer, more mirror-like reflections. This setting has no effect on performance. The default value is <code>0.82</code>.</p>
+<table>
+<thead>
+<tr>
+<th>BRDF: <code>0.6</code></th>
+<th>BRDF: <code>0.8</code></th>
+<th>BRDF: <code>1.0</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/brdf-06.jpg" alt="BRDF: 0.6"></td>
+<td><img src="media/brdf-08.jpg" alt="BRDF: 0.8"></td>
+<td><img src="media/brdf-10.jpg" alt="BRDF: 1.0"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="depth-resolution">Depth resolution</h4>
+<p>Downscales the depth buffer to optimize raycast performance. Full gives better quality, but half improves performance. The default is half.</p>
+<h4 id="gloss-threshold">Gloss threshold</h4>
+<p>The amount of gloss a material must have to reflect the scene. For example, if this value is set to <code>0.4</code>, only materials with a <strong>gloss map</strong> value of <code>0.4</code> or above reflect the scene. The default value is <code>0.55</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the <strong>Invert</strong> check box is selected in the material <strong>micro surface</strong> properties, the opposite is true. For example, if the reflections gloss value is set to <code>0.4</code>, only materials with a <strong>gloss map</strong> value of less than <code>0.4</code> reflect the scene.</p>
+</div>
+<p>For more information about gloss, see <a href="../materials/geometry-attributes.html">Materials — geometry attributes</a>.</p>
+<h4 id="max-steps">Max steps</h4>
+<p>The maximum number of raycast steps allowed per pixel. Higher values produce better results, but worse performance. The default value is <code>60</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is the most important property for controlling performance.</p>
+</div>
+<h4 id="resolution">Resolution</h4>
+<p>The raycast resolution. There are two options: <strong>full</strong> and <strong>half</strong>. Full gives better quality, but half improves performance. The default value is half.</p>
+<h4 id="ray-start-bias">Ray start bias</h4>
+<p>The offset of the raycast origin. Lower values produce more correct reflection placement, but produce more artifacts. We recommend values of <code>0.03</code> or lower. The default value is <code>0.01</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Start bias: <code>0.01</code></th>
+<th>Start bias: <code>0.1</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/low-ray-start-bias.jpg" alt="Start bias: 0.03"></td>
+<td><img src="media/high-ray-start-bias.jpg" alt="Start bias: 0.1"></td>
+</tr>
+<tr>
+<td>Larger gap between reflection and box (more correct)</td>
+<td>Narrower gap between reflection and box (less correct)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resolve-properties">Resolve properties</h3>
+<p><img src="media/resolve-properties.png" alt="Resolve properties"></p>
+<h4 id="resolution-1">Resolution</h4>
+<p>Calculates reflection color using raycast results. There are two options: <strong>full</strong> and <strong>half</strong>. Full gives the best results, but half improves performance. The default value is <strong>full</strong>.</p>
+<h4 id="samples">Samples</h4>
+<p>The number of rays used to resolve the reflection color. Higher values produce less noise, but worse performance. The default value is <code>4</code>.</p>
+<h4 id="reduce-highlights">Reduce highlights</h4>
+<p>Reduces the brightness of particularly bright areas of reflections. This has no effect on performance.</p>
+<table>
+<thead>
+<tr>
+<th>Reduce highlights: on</th>
+<th>Reduce highlights: off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/reduce-highlights-on.jpg" alt="Edge fade factor: 0.5"></td>
+<td><img src="media/reduce-highlights-off.jpg" alt="Edge fade factor: 0"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="edge-fade-factor">Edge fade factor</h4>
+<p>The point at which the far edges of the reflection begin to fade. This has no effect on performance. The default value is <code>0.1</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Edge fade factor: <code>0</code></th>
+<th>Edge fade factor: <code>0.5</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/zero-edgefade.jpg" alt="Edge fade factor: 0"></td>
+<td><img src="media/half-edgefade.jpg" alt="Edge fade factor: 0.5"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="use-color-buffer-mips">Use color buffer mips</h4>
+<p>Downscales the input color buffer and uses blurred mipmaps when resolving the reflection color. This produces more realistic results by blurring distant parts of reflections in rough (low-gloss) materials. It also improves performance on most platforms. However, it uses more memory, so you might want to disable it on (for example) mobile platforms.</p>
+<h3 id="temporal-properties">Temporal properties</h3>
+<p><img src="media/temporal-properties.png" alt="Temporal properties"></p>
+<h4 id="temporal-effect">Temporal effect</h4>
+<p>Enables the temporal pass. This reduces noise, but produces an animated &quot;jittering&quot; effect that is sometimes noticeable. The temporal effect is enabled by default.</p>
+<table>
+<thead>
+<tr>
+<th>Temporal effect: on</th>
+<th>Temporal effect: off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/temporal-effect-enabled.jpg" alt="Temporal effect enabled"></td>
+<td><img src="media/temporal-effect-disabled.jpg" alt="Temporal effect disabled"></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the temporal effect is disabled, the other temporal properties have no effect.</p>
+</div>
+<h4 id="response">Response</h4>
+<p>How quickly reflections blend between the reflection in the current frame and the history buffer. Lower values produce reflections faster, but with more jittering.   Note the jittering in the reflection below:</p>
+<p><img src="media/response-jiterring.gif" alt="Jittering"></p>
+<p>If the camera in your game doesn't move much, we recommend values closer to <code>1</code>. The default value is <code>0.9</code>.</p>
+<h4 id="scale">Scale</h4>
+<p>The intensity of the temporal effect. Lower values produce reflections faster, but with more noise. The default value is <code>4</code>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../materials/index.html">Materials</a></li>
+<li><a href="../materials/geometry-attributes.html">Materials — geometry attributes</a></li>
+<li><a href="index.html">Post effects</a></li>
+<li><a href="../graphics-compositor/index.html">Graphics compositor</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/post-effects/local-reflections.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

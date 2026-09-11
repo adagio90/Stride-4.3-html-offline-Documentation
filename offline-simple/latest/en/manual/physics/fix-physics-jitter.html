@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Physics Jitter | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Physics Jitter | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/fix-physics-jitter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="physics-jitter">Physics Jitter</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>Physics engine operate on a fixed time step; instead of updating physics every frame, physics engine update at a fixed frequency, 60 times per second for example.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is controlled through the <code>FixedTimeStep</code> property in your <a href="simulation.html">Simulation Settings</a></p>
+</div>
+<p>The discrepancy between when your game updates and when physics updates means that you may see physics objects, or things that are attached to physics objects, move in a jittery manner. They jitter because they stay static after every physics update while the whole rest of the world moves every single frame.</p>
+<p>It becomes less noticeable when your frame rate approaches the physics update rate, but it will always occasionally jitter as there is no feasible way to reach exact parity between frame rate and physics.</p>
+<p>There are ways to combat this issue though.</p>
+<h2 id="body-component-interpolation-mode">Body Component Interpolation Mode</h2>
+<p>Bodies have an <code>Interpolation Mode</code> property, this property smooth out the jitter by interpolating the bodies' position and rotation between every physics update.</p>
+<ul>
+<li><code>Interpolated</code> takes the two last position and rotation the physics engine set for this body and smoothly moves the object from the oldest to the youngest position. This means that the object is always 'in the past' compared to its physics representation since it is always between the two last position instead of exactly at the last one.</li>
+<li><code>Extrapolated</code> also takes the two last position and rotation, but instead of being between the two, it starts from the last position and continues moving in the same direction. If the velocity of the object is constant, this works perfectly, but if it suddenly collides along that path, it will 'correct' itself leading to some jerky motion.</li>
+</ul>
+<h2 id="jitter-when-a-physics-object-follows-another">Jitter when a physics object follows another</h2>
+<p>There is a fair amount of jitter issues that may come up when setting up objects to move relative to each other.
+Here's everything that may prevent those objects from moving smoothly:</p>
+<ul>
+<li>The objects are not set to interpolate</li>
+<li>Your logic does not run in <a href="physics-update.html">Physics Update</a>, it overrides interpolation</li>
+<li>You are setting the entity's position/rotation instead of the physics object's <code>LinearVelocity</code>/<code>AngularVelocity</code></li>
+<li>Your objects are not <code>Awake</code></li>
+</ul>
+<p>Lastly, maybe consider using a <a href="constraints.html">Constraint</a> instead.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="simulation.html">Simulation</a></li>
+<li><a href="index.html">Index</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/physics/fix-physics-jitter.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

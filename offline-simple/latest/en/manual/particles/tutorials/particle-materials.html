@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tutorial: Particle materials | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tutorial: Particle materials | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/tutorials/particle-materials.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tutorial-particle-materials">Tutorial: Particle materials</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>This tutorial demonstrates how to create custom shaders and materials for a particle system, providing functionality not available in the core engine. It focuses on shaders and rendering. For simulation, see the <a href="custom-particles.html">custom particles tutorial</a>.</p>
+<p>If you're not familiar with editing particles, see <a href="../create-particles.html">Create particles</a>.</p>
+<p>Start by creating a new <strong>Sample: Particles</strong> project.</p>
+<p><img src="media/select-particles-sample-project.png" alt="Particles sample project"></p>
+<p>This project contains four scenes, each demonstrating a different way to use particles: <strong>AnimatedParticles</strong>, <strong>ChildParticles</strong>, <strong>CustomMaterials</strong>, and <strong>CustomParticles</strong>.</p>
+<p>Open the <strong>CustomMaterials</strong> scene.</p>
+<p>There are three particle entities in the scene: <strong>Rad Particle System</strong>, <strong>Radial Particle System</strong>, and <strong>Two Textures Particle System</strong>.</p>
+<p><img src="media/particles-samples-material-1.png" alt="media/particles-samples-material-1.png"></p>
+<p>Select one of the particle entities and navigate to its source particle system, expanding the emitter in it and its material.</p>
+<h2 id="red-particle-system">Red particle system</h2>
+<p>The <strong>red particle system</strong> has a very simple customization. Since the <a href="../../graphics/materials/material-maps.html">material maps</a> already provide an option to use shaders as a leaf node input, we can create a custom shader and assign it to that node.</p>
+<p>First, create a shader (<code>ComputeColorRed.sdsl</code>) with a derived class for <code>ComputeColor</code>:</p>
+<pre><code class="lang-cs">class ComputeColorRed : ComputeColor
+{
+  override float4 Compute()
+  {
+      return float4(1, 0, 0, 1);
+  }
+};
+</code></pre>
+<p>The only thing this shader does is return the red color for pixel shading every time <code>Compute</code> is called. We'll try something more difficult later, but for now let's keep it simple.</p>
+<p>Save the file and reload the scripts in Game Studio. You should see the new shader in <strong>Asset View</strong>.</p>
+<p><img src="media/particles-samples-material-2.png" alt="media/particles-samples-material-2.png"></p>
+<p>If the shader isn't there, reload the project.</p>
+<p>Once the shader is loaded, you can access it in the <strong>Property Grid</strong> under the <strong>dynamic emissive material</strong> for the particles. Choose a type of shader and, from the drop-down menu, select the shader you just added to the scene.</p>
+<p><img src="media/particles-samples-material-3.png" alt="media/particles-samples-material-3.png"></p>
+<p>The particles are red. With Game Studio running, edit and save <code>ComputeColorRed.sdsl</code> to make them yellow.</p>
+<pre><code class="lang-cs">class ComputeColorRed : ComputeColor
+{
+  override float4 Compute()
+  {
+      return float4(1, 1, 0, 1);
+  }
+};
+</code></pre>
+<p>Because Stride supports dynamic shader compilation, the particles immediately turn yellow.</p>
+<h3 id="radial-particle-system">Radial particle system</h3>
+<p>For the next shader we'll use texture coordinates expose arbitrary values to the editor.</p>
+<p>Check <code>ComputeColorRadial.sdsl</code>.</p>
+<pre><code class="lang-cs">class ComputeColorRadial&lt;float4 ColorCenter, float4 ColorEdge&gt; : ComputeColor, Texturing
+{
+  override float4 Compute()
+  {
+      float radialDistance = length(streams.TexCoord - float2(0.5, 0.5)) * 2;
+
+      float4 unclamped = lerp(ColorCenter, ColorEdge, radialDistance);
+
+      // We want to allow the intensity to grow a lot, but cap the alpha to 1
+      float4 clamped = clamp(unclamped, float4(0, 0, 0, 0), float4(1000, 1000, 1000, 1));
+
+      // Remember that we use a premultiplied alpha pipeline so all color values should be premultiplied
+      clamped.rgb *= clamped.a;
+
+      return clamped;
+  }
+};
+</code></pre>
+<p>This is similar to <code>ComputeColorRed</code> and can be compiled and loaded the same way.</p>
+<p>There are several key differences. The shader now inherits from the <code>Texturing</code> shader base class as well. This allows it to use texture coordinates in from the streams. On the material side in Game Studio, we can force the texture coordinates to be streamed in case we don't use texture animation.</p>
+<p>The input values <code>float4 ColorCenter</code> and <code>float4 ColorEdge</code> in our shader are permutations. When we load the shader the Property Grid displays them under the <strong>Generics</strong> dictionary.</p>
+<p><img src="media/particles-samples-material-4.png" alt="media/particles-samples-material-4.png"></p>
+<p>The values we set here will be used by the <code>ComputeColorRadial</code> shader for the particles. The rest of the shader simply calculates a gradient color based on the distance of the shaded pixel from the center of the billboard.</p>
+<h2 id="two-texture-particle-system">Two-texture particle system</h2>
+<p>This demonstrates how to create custom materials and effects for the particles. The <code>DynamicColor</code> material supports one RGBA channel. For our sample, we'll separate the RGB and A channels, allowing them to use different texture coordinate animations and different textures and binary trees to compute the color.</p>
+<h3 id="parameter-keys">Parameter keys</h3>
+<p>Parameter keys are used to map data and pass it to the shader. Some of them are generated, and we can define our own too.</p>
+<p>If we define more streams in our shader (<code>ParticleCustomShader</code>), they're exported to an automatically generated class. Try adding the following to <code>ParticleCustomShader.sdsl</code>:</p>
+<pre><code class="lang-cs">  // -------------------------------------
+  // streams
+  // -------------------------------------
+  stage float4 SomeRandomKey;
+</code></pre>
+<p>The generated .cs file should now contain:</p>
+<pre><code class="lang-cs">namespace Stride.Rendering
+{
+  public static partial class ParticleCustomShaderKeys
+  {
+      public static readonly ParameterKey&lt;Vector4&gt; SomeRandomKey = ParameterKeys.New&lt;Vector4&gt;();
+  }
+}
+</code></pre>
+<p>We don't need this stream for now, so we can delete it.</p>
+<p>We'll define some extra keys in <code>ParticleCustomMaterialKeys.cs</code> to use in our material and effects.</p>
+<pre><code class="lang-cs">namespace Stride.Rendering
+{
+  public partial class ParticleCustomShaderKeys
+  {
+      static ParticleCustomShaderKeys()
+      {
+
+      }
+
+      public static readonly ParameterKey&lt;ShaderSource&gt; BaseColor     = ParameterKeys.New&lt;ShaderSource&gt;();
+
+      public static readonly ParameterKey&lt;Texture&gt; EmissiveMap = ParameterKeys.New&lt;Texture&gt;();
+      public static readonly ParameterKey&lt;Color4&gt; EmissiveValue = ParameterKeys.New&lt;Color4&gt;();
+
+
+
+      public static readonly ParameterKey&lt;ShaderSource&gt; BaseIntensity = ParameterKeys.New&lt;ShaderSource&gt;();
+
+      public static readonly ParameterKey&lt;Texture&gt; IntensityMap = ParameterKeys.New&lt;Texture&gt;();
+      public static readonly ParameterKey&lt;float&gt; IntensityValue = ParameterKeys.New&lt;float&gt;();
+  }
+}
+</code></pre>
+<p>As we saw above, the generated class has the same name and the namespace is <code>Stride.Rendering</code>, so we have to make our class partial and match the namespace. This has no effect on this specific sample, but will result in compilation error if your shader code auto-generates some keys.</p>
+<p>The rest of the code is self-explanatory. We'll need the map and value keys for shader generation later, and we'll set our generated code to the <code>BaseColor</code> and <code>BaseIntensity</code> keys respectively so the shader can use it.</p>
+<h4 id="custom-shader">Custom Shader</h4>
+<p>Let's look at <code>ParticleCustomShader.sdsl</code>:</p>
+<pre><code class="lang-cs">
+class ParticleCustomShader : ParticleBase
+{
+  // This shader can be set by the user, and it's a binary tree made up from smaller shaders
+  compose ComputeColor  baseColor;
+
+  // This shader can be set by the user, and it's a binary tree made up from smaller shaders
+  compose ComputeColor  baseIntensity;
+
+  // Shading of the sprite — we override the base class's Shading(), which only returns ColorScale
+  stage override float4 Shading()
+  {
+      // -----------------------------------------------
+      // Base particle color RGB
+      // -----------------------------------------------
+      float4 finalColor = base.Shading() * baseColor.Compute();
+
+      // -----------------------------------------------
+      // Base particle alpha
+      // -----------------------------------------------
+      finalColor.a    = baseIntensity.Compute();
+
+      //  Don't forget to premultiply the alpha
+      finalColor.rgb *= finalColor.aaa;
+
+      return finalColor;
+  }
+};
+</code></pre>
+<p>It defines two composed shaders, <code>baseColor</code> and <code>baseIntensity</code>, where we'll plug our generated shaders for RGB and A respectively. It inherits <code>ParticleBase</code> which already defines <code>VSMain</code>, <code>PSMain</code> and texturing, and uses very simple <code>Shading()</code> method.</p>
+<p>By overriding the <code>Shading()</code> method we can define our custom behavior. Because the composed shaders we use are derived from <code>ComputeColor</code>, we can easily evaluate them using <code>Compute()</code>, which gives us the root of the compute tree for color and intensity.</p>
+<h4 id="custom-effect">Custom effect</h4>
+<p>Our effect describes how to mix and compose the shaders. It's in <code>ParticleCustomEffect.sdfx</code>:</p>
+<pre><code class="lang-cs">namespace Stride.Rendering
+{
+  partial shader ParticleCustomEffect
+  {
+      // Use the ParticleBaseKeys for constant attributes, defined in the game engine
+      using params ParticleBaseKeys;
+
+      // Use the ParticleCustomShaderKeys for constant attributes, defined in this project
+      using params ParticleCustomShaderKeys;
+
+      // Inherit from the ParticleBaseEffect.sdfx, defined in the game engine
+      mixin ParticleBaseEffect;
+
+      // Use the ParticleCustomShader.sdsl, defined in this project
+      mixin ParticleCustomShader;
+
+      // If the user-defined shader for the baseColor is not null use it
+      if (ParticleCustomShaderKeys.BaseColor != null)
+      {
+          mixin compose baseColor = ParticleCustomShaderKeys.BaseColor;
+      }
+
+      // If the user-defined shader for the baseIntensity (alpha) is not null use it
+      if (ParticleCustomShaderKeys.BaseIntensity != null)
+      {
+          mixin compose baseIntensity = ParticleCustomShaderKeys.BaseIntensity;
+      }
+
+ };
+
+}
+</code></pre>
+<p><code>ParticleBaseKeys</code> and <code>ParticleBaseEffect</code> are required by the base shader which we inherit.</p>
+<p><code>ParticleCustomShaderKeys</code> provides the keys we defined earlier, where we'll plug our shaders.</p>
+<p>Finally, for both shaders we only need to check if there is user-defined code for it and plug it. The <code>baseColor</code> and <code>baseIntensity</code> parameters are from the shader we created earlier.</p>
+<p>Last, we need a material which sets all the keys and uses the newly created effect.</p>
+<h4 id="custom-particle-material">Custom particle material</h4>
+<p>We'll copy <a class="xref" href="../../../api/Stride.Particles.Materials.ParticleMaterialComputeColor.html">ParticleMaterialComputeColor</a> into <code>ParticleCustomMaterial.cs</code> in our project and customize it to use two shaders for color binary trees.</p>
+<pre><code class="lang-cs">      [DataMemberIgnore]
+      protected override string EffectName { get; set; } = &quot;ParticleCustomEffect&quot;;
+</code></pre>
+<p>The base class automatically tries to load the effect specified with <code>EffectName</code>. We give it the name of the effect we crated earlier.</p>
+<pre><code class="lang-cs">      [DataMember(300)]
+      [Display(&quot;Alpha&quot;)]
+      public IComputeScalar ComputeScalar { get; set; } = new ComputeTextureScalar();
+
+      [DataMember(400)]
+      [Display(&quot;TexCoord1&quot;)]
+      public UVBuilder UVBuilder1;
+      private AttributeDescription texCoord1 = new AttributeDescription(&quot;TEXCOORD1&quot;);
+</code></pre>
+<p>In addition to the already existing <a class="xref" href="../../../api/Stride.Rendering.Materials.IComputeColor.html">IComputeColor</a>, we'll use <a class="xref" href="../../../api/Stride.Rendering.Materials.IComputeScalar.html">IComputeScalar</a> for intensity, which returns a float, rather than a float4. We will also add another  <a class="xref" href="../../../api/Stride.Particles.Materials.UVBuilder.html">UVBuilder</a> for a second texture coordinates animation.</p>
+<pre><code class="lang-cs">  var shaderBaseColor = ComputeColor.GenerateShaderSource(shaderGeneratorContext, new MaterialComputeColorKeys(ParticleCustomShaderKeys.EmissiveMap, ParticleCustomShaderKeys.EmissiveValue, Color.White));
+  shaderGeneratorContext.Parameters.Set(ParticleCustomShaderKeys.BaseColor, shaderBaseColor);
+
+  var shaderBaseScalar = ComputeScalar.GenerateShaderSource(shaderGeneratorContext, new MaterialComputeColorKeys(ParticleCustomShaderKeys.IntensityMap, ParticleCustomShaderKeys.IntensityValue, Color.White));
+  shaderGeneratorContext.Parameters.Set(ParticleCustomShaderKeys.BaseIntensity, shaderBaseScalar);
+</code></pre>
+<p>We load the two shaders: one for the main color and one for the intensity. These are similar to the shaders we wrote manually in the last two examples, except we generate them on the fly directly from the <code>ComputeColor</code> and <code>ComputeScalar</code> properties, which you can edit in the Property Grid. The generated code is similar to the shader code we wrote in the way that it calls <code>Compute()</code> and it returns the final result of our color or scalar compute tree.</p>
+<p>After we generate the shader code, we set it to the respective key we need. Check how <code>ParticleCustomShaderKeys.BaseColor</code> is defined in <code>ParticleCustomShaderKeys.cs</code>. In the effect file we check if this key is set, and if yes, we pass it to the stream defined in our shader code.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="create-a-trail.html">Tutorial: Create a trail</a></li>
+<li><a href="custom-particles.html">Tutorial: Custom particles</a></li>
+<li><a href="inheritance.html">Tutorial: Inheritance</a></li>
+<li><a href="lasers-and-lightning.html">Tutorial: Lasers and lightning</a></li>
+<li><a href="../index.html">Particles</a></li>
+<li><a href="../create-particles.html">Create particles</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/tutorials/particle-materials.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Skybox lights | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Skybox lights | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/skybox-lights.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="skybox-lights">Skybox lights</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Designer</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>A <strong>skybox light</strong> is an <a href="ambient-lights.html">ambient light</a> emitted by a <a href="../textures/skyboxes-and-backgrounds.html">skybox</a>. Stride analyzes the skybox texture and generates lighting using <a href="https://en.wikipedia.org/wiki/Image-based_lighting">image-based lighting (Wikipedia)</a>.</p>
+<p><img src="media/SkyboxLightOverview.png" alt="media/SkyboxLightOverview.png"></p>
+<p>Skybox lights are good for exterior scenes, where the skybox is visible. They're less useful for interior scenes, such as in rooms where the skybox is only visible through windows; as the skybox light nonetheless lights the entire room, this creates an unnatural effect.</p>
+<h2 id="how-skyboxes-light-the-scene">How skyboxes light the scene</h2>
+<p>These images show the difference between ambient and skybox lighting on two pure diffuse <a href="../materials/index.html">materials</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Ambient lighting</th>
+<th>Skybox lighting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/AmbientLight.png" alt="Ambient lighting"></td>
+<td><img src="media/SkyboxLight-MaterialPureDiffuse.png" alt="Skybox lighting.png"></td>
+</tr>
+</tbody>
+</table>
+<p>These images show the effect of skybox lighting on a material with different metal and gloss properties:</p>
+<table>
+<thead>
+<tr>
+<th>Material Plastic</th>
+<th>Metal 100% Gloss 50%</th>
+<th>Metal 100% Gloss 100%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/SkyboxLight-MaterialPlastic.png" alt="Material plastic"></td>
+<td><img src="media/SkyboxLight-MaterialMetal100Gloss50.png" alt="Material 100% Gloss 100%"></td>
+<td><img src="media/SkyboxLight-MaterialMetal100Gloss100.png" alt="Metal 100% Gloss 100%"></td>
+</tr>
+</tbody>
+</table>
+<p>Notice how the skybox texture colors are reflected.</p>
+<h2 id="set-up-a-skybox-light">Set up a skybox light</h2>
+<p>To use a skybox as a light, you need to add a skybox asset, then select it in a <a class="xref" href="../../../api/Stride.Engine.LightComponent.html">Light component</a>.</p>
+<ol>
+<li><p>In the <strong>Asset View</strong>, click <img src="media/engine-skybox-add-new-asset-button.png" alt="Add asset"></p>
+</li>
+<li><p>Select <strong>Miscellaneous</strong> &gt; <strong>Skybox</strong>.</p>
+<p><img src="media/engine-skybox-choose-asset-type.png" alt="Choose asset type"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Choose a skybox texture from the project assets and click <strong>OK</strong>.</p>
+<p><img src="media/engine-skybox-select-skybox-texture.png" alt="Choose texture"></p>
+<p>Game Studio adds the skybox asset with the texture you specified.</p>
+</li>
+<li><p>Select the entity you want to be the skybox light.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select <a class="xref" href="../../../api/Stride.Engine.LightComponent.html">Light</a>.</p>
+<p><img src="media/skybox-add-light-component.png" alt="Background component properties"></p>
+</li>
+<li><p>In the <strong>Light</strong> component properties, under <strong>Light</strong>, select <strong>Skybox</strong>.</p>
+<p><img src="media/light-component-property.png" alt="Light component property"></p>
+</li>
+<li><p>Click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>):</p>
+<p><img src="media/no-skybox-asset-selected.png" alt="No skybox asset selected"></p>
+</li>
+<li><p>Select the skybox asset you want to use as a light source and click <strong>OK</strong>.</p>
+<p><img src="media/select-skybox-asset.png" alt="Select an asset"></p>
+</li>
+</ol>
+<p>The <a class="xref" href="../../../api/Stride.Engine.LightComponent.html">Light component</a> uses the skybox asset to light the scene.</p>
+<h2 id="skybox-asset-properties">Skybox asset properties</h2>
+<p>When you use a skybox as a light, Stride uses it both in compressed form (<a href="https://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonics (Wikipedia)</a>) and as a texture to light different kinds of material. You can control the detail of both in the skybox asset properties.</p>
+<p><img src="media/skybox-asset-properties.png" alt="Skybox lighting properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture</td>
+<td>The texture to use as skybox (eg a cubemap or panoramic texture)</td>
+</tr>
+<tr>
+<td>Specular Only</td>
+<td>Use the skybox only for specular lighting</td>
+</tr>
+<tr>
+<td>Diffuse SH order</td>
+<td>The level of detail of the compressed skybox, used for diffuse lighting (dull materials). <code>Order5</code> is more detailed than <code>Order3</code>.</td>
+</tr>
+<tr>
+<td>Specular Cubemap Size</td>
+<td>The texture size used for specular lighting. Larger textures have more detail.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="skybox-light-properties">Skybox light properties</h2>
+<p><img src="media/SkyboxLightProperties.png" alt="media/SkyboxLightProperties.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intensity</td>
+<td>The light intensity</td>
+</tr>
+<tr>
+<td>Culling Mask</td>
+<td>Which entity groups are affected by the light. By default, all groups are affected</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-code">Example code</h2>
+<p>The following code changes the skybox light and its intensity:</p>
+<pre><code class="lang-cs">public Skybox skybox;
+public void ChangeSkyboxParameters()
+{
+    // Get the light component from an entity
+	var light = Entity.Get&lt;LightComponent&gt;();
+
+	// Get the Skybox Light settings from the light component
+	var skyboxLight = light.Type as LightSkybox;
+
+	// Replace the existing skybox
+	skyboxLight.Skybox = skybox;
+
+	// Change the skybox light intensity
+	light.Intensity = 1.5f;
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../textures/skyboxes-and-backgrounds.html">Skyboxes and backgrounds</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/lights-and-shadows/skybox-lights.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

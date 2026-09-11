@@ -1,0 +1,3759 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Quaternion | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Quaternion | Stride API ">
+      
+      <meta name="description" content="Represents a four dimensional mathematical quaternion.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Quaternion.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Quaternion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Quaternion">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Quaternion" data-uid="Stride.Core.Mathematics.Quaternion" class="text-break">
+Struct Quaternion  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a four dimensional mathematical quaternion.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;quaternion&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct Quaternion : IEquatable&lt;Quaternion&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_Stride_Core_Mathematics_Vector2_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(Stride.Core.Mathematics.Vector2,System.Single,System.Single)">
+  Quaternion(Vector2, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(Vector2 value, float z, float w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector2.html">Vector2</a></dt>
+    <dd><p>A vector containing the values with which to initialize the X and Y components.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the Z component of the quaternion.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the W component of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_Stride_Core_Mathematics_Vector3_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(Stride.Core.Mathematics.Vector3,System.Single)">
+  Quaternion(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(Vector3 value, float w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>A vector containing the values with which to initialize the X, Y, and Z components.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the W component of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_Stride_Core_Mathematics_Vector4_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(Stride.Core.Mathematics.Vector4)">
+  Quaternion(Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>A vector containing the values with which to initialize the components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(System.Single)">
+  Quaternion(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(System.Single,System.Single,System.Single,System.Single)">
+  Quaternion(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(float x, float y, float z, float w)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the X component of the quaternion.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the Y component of the quaternion.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the Z component of the quaternion.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Initial value for the W component of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion__ctor_" data-uid="Stride.Core.Mathematics.Quaternion.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion__ctor_System_Single___" data-uid="Stride.Core.Mathematics.Quaternion.#ctor(System.Single[])">
+  Quaternion(float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion(float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>The values to assign to the X, Y, Z, and W components of the quaternion. This must be an array with four elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Identity" data-uid="Stride.Core.Mathematics.Quaternion.Identity">
+  Identity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The identity <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> (0, 0, 0, 1).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Quaternion Identity</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_One" data-uid="Stride.Core.Mathematics.Quaternion.One">
+  One
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> with all of its components set to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Quaternion One</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_SizeInBytes" data-uid="Stride.Core.Mathematics.Quaternion.SizeInBytes">
+  SizeInBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> type, in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int SizeInBytes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_W" data-uid="Stride.Core.Mathematics.Quaternion.W">
+  W
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The W component of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float W</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_X" data-uid="Stride.Core.Mathematics.Quaternion.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The X component of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float X</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Y" data-uid="Stride.Core.Mathematics.Quaternion.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Y component of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Z" data-uid="Stride.Core.Mathematics.Quaternion.Z">
+  Z
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Z component of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Z</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Zero" data-uid="Stride.Core.Mathematics.Quaternion.Zero">
+  Zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> with all of its components set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Quaternion Zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Angle_" data-uid="Stride.Core.Mathematics.Quaternion.Angle*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Angle" data-uid="Stride.Core.Mathematics.Quaternion.Angle">
+  Angle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the angle of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Angle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The quaternion's angle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Axis_" data-uid="Stride.Core.Mathematics.Quaternion.Axis*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Axis" data-uid="Stride.Core.Mathematics.Quaternion.Axis">
+  Axis
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the axis components of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Axis { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The axis components of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_IsIdentity_" data-uid="Stride.Core.Mathematics.Quaternion.IsIdentity*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_IsIdentity" data-uid="Stride.Core.Mathematics.Quaternion.IsIdentity">
+  IsIdentity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is equivalent to the identity quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsIdentity { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance is an identity quaternion; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_IsNormalized_" data-uid="Stride.Core.Mathematics.Quaternion.IsNormalized*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_IsNormalized" data-uid="Stride.Core.Mathematics.Quaternion.IsNormalized">
+  IsNormalized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicting whether this instance is normalized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsNormalized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Item_" data-uid="Stride.Core.Mathematics.Quaternion.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Item_System_Int32_" data-uid="Stride.Core.Mathematics.Quaternion.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the X component, 1 for the Y component, 2 for the Z component, and 3 for the W component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value of the X, Y, Z, or W component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 3].</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_YawPitchRoll_" data-uid="Stride.Core.Mathematics.Quaternion.YawPitchRoll*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_YawPitchRoll" data-uid="Stride.Core.Mathematics.Quaternion.YawPitchRoll">
+  YawPitchRoll
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets yaw/pitch/roll equivalent of the quaternion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 YawPitchRoll { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Add_" data-uid="Stride.Core.Mathematics.Quaternion.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Add_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Add(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion)">
+  Add(Quaternion, Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Add(Quaternion left, Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The sum of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Add_" data-uid="Stride.Core.Mathematics.Quaternion.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Add_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Add(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Add(ref readonly Quaternion, ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref readonly Quaternion left, ref readonly Quaternion right, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to add.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the sum of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_AngleBetween_" data-uid="Stride.Core.Mathematics.Quaternion.AngleBetween*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_AngleBetween_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.AngleBetween(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  AngleBetween(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L576"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the absolute angle in radians between <code class="paramref">a</code> and <code class="paramref">b</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float AngleBetween(in Quaternion a, in Quaternion b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Barycentric_" data-uid="Stride.Core.Mathematics.Quaternion.Barycentric*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Barycentric_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.Barycentric(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,System.Single,System.Single)">
+  Barycentric(Quaternion, Quaternion, Quaternion, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L522"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 2D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Barycentric(Quaternion value1, Quaternion value2, Quaternion value3, float amount1, float amount2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</dd>
+    <dt><code>amount1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code class="paramref">value2</code>).</p>
+</dd>
+    <dt><code>amount2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code class="paramref">value3</code>).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A new <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of the specified point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Barycentric_" data-uid="Stride.Core.Mathematics.Quaternion.Barycentric*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Barycentric_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Barycentric(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  Barycentric(ref readonly Quaternion, ref readonly Quaternion, ref readonly Quaternion, float, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L506"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of a point specified in Barycentric coordinates relative to a 2D triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Barycentric(ref readonly Quaternion value1, ref readonly Quaternion value2, ref readonly Quaternion value3, float amount1, float amount2, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 1 of the triangle.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 2 of the triangle.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of vertex 3 of the triangle.</p>
+</dd>
+    <dt><code>amount1</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <code class="paramref">value2</code>).</p>
+</dd>
+    <dt><code>amount2</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <code class="paramref">value3</code>).</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains a new <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> containing the 4D Cartesian coordinates of the specified point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_BetweenDirections_" data-uid="Stride.Core.Mathematics.Quaternion.BetweenDirections*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_BetweenDirections_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Quaternion.BetweenDirections(Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3)">
+  BetweenDirections(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1060"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a quaternion corresponding to the rotation transforming the vector <code class="paramref">source</code> to the vector <code class="paramref">target</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion BetweenDirections(Vector3 source, Vector3 target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector of the transformation.</p>
+</dd>
+    <dt><code>target</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The target vector of the transformation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The resulting quaternion corresponding to the transformation of the source vector to the target vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_BetweenDirections_" data-uid="Stride.Core.Mathematics.Quaternion.BetweenDirections*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_BetweenDirections_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.BetweenDirections(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Quaternion@)">
+  BetweenDirections(ref readonly Vector3, ref readonly Vector3, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1072"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a quaternion corresponding to the rotation transforming the vector <code class="paramref">source</code> to the vector <code class="paramref">target</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void BetweenDirections(ref readonly Vector3 source, ref readonly Vector3 target, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector of the transformation.</p>
+</dd>
+    <dt><code>target</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The target vector of the transformation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The resulting quaternion corresponding to the transformation of the source vector to the target vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Conjugate_" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Conjugate" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate">
+  Conjugate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Conjugate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Conjugate_" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Conjugate_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate(Stride.Core.Mathematics.Quaternion@)">
+  Conjugate(in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L546"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates a quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Conjugate(in Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to conjugate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The conjugated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Conjugate_" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Conjugate_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Conjugate(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Conjugate(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L533"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates a quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Conjugate(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to conjugate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the conjugated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Dot_" data-uid="Stride.Core.Mathematics.Quaternion.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Dot_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Dot(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Dot(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L568"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Dot(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>First source quaternion.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Second source quaternion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The dot product of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Dot_" data-uid="Stride.Core.Mathematics.Quaternion.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Dot_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single__" data-uid="Stride.Core.Mathematics.Quaternion.Dot(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single@)">
+  Dot(ref readonly Quaternion, ref readonly Quaternion, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L557"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dot(ref readonly Quaternion left, ref readonly Quaternion right, out float result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>First source quaternion.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Second source quaternion.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the dot product of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Equals_" data-uid="Stride.Core.Mathematics.Quaternion.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Equals_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Equals(Stride.Core.Mathematics.Quaternion)">
+  Equals(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> is within <a class="xref" href="Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_ZeroTolerance">ZeroTolerance</a> for equality to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Quaternion other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> is equal or almost equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Equals_" data-uid="Stride.Core.Mathematics.Quaternion.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Quaternion.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1429"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is within <a class="xref" href="Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_ZeroTolerance">ZeroTolerance</a> for equality to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal or almost equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_EqualsStrict_" data-uid="Stride.Core.Mathematics.Quaternion.EqualsStrict*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_EqualsStrict_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.EqualsStrict(Stride.Core.Mathematics.Quaternion)">
+  EqualsStrict(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1402"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> is exactly equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EqualsStrict(Quaternion other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a> is exactly equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Exponential_" data-uid="Stride.Core.Mathematics.Quaternion.Exponential*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Exponential_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Exponential(Stride.Core.Mathematics.Quaternion)">
+  Exponential(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L611"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponentiates a quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Exponential(Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to exponentiate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The exponentiated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Exponential_" data-uid="Stride.Core.Mathematics.Quaternion.Exponential*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Exponential_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Exponential(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Exponential(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L586"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponentiates a quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Exponential(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to exponentiate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the exponentiated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_GetHashCode_" data-uid="Stride.Core.Mathematics.Quaternion.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_GetHashCode" data-uid="Stride.Core.Mathematics.Quaternion.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Invert_" data-uid="Stride.Core.Mathematics.Quaternion.Invert*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Invert" data-uid="Stride.Core.Mathematics.Quaternion.Invert">
+  Invert()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L283"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates and renormalizes the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Invert()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Invert_" data-uid="Stride.Core.Mathematics.Quaternion.Invert*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Invert_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Invert(Stride.Core.Mathematics.Quaternion)">
+  Invert(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L633"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates and renormalizes the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Invert(Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to conjugate and renormalize.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The conjugated and renormalized quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Invert_" data-uid="Stride.Core.Mathematics.Quaternion.Invert*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Invert_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Invert(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Invert(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L622"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Conjugates and renormalizes the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Invert(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to conjugate and renormalize.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the conjugated and renormalized quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Length_" data-uid="Stride.Core.Mathematics.Quaternion.Length*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Length" data-uid="Stride.Core.Mathematics.Quaternion.Length">
+  Length()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the length of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float Length()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The length of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_Length_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="Stride.Core.Mathematics.Quaternion.html#Stride_Core_Mathematics_Quaternion_LengthSquared">LengthSquared()</a> may be preferred when only the relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_LengthSquared_" data-uid="Stride.Core.Mathematics.Quaternion.LengthSquared*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_LengthSquared" data-uid="Stride.Core.Mathematics.Quaternion.LengthSquared">
+  LengthSquared()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the squared length of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float LengthSquared()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The squared length of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_LengthSquared_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method may be preferred to <a class="xref" href="Stride.Core.Mathematics.Quaternion.html#Stride_Core_Mathematics_Quaternion_Length">Length()</a> when only a relative length is needed
+and speed is of the essence.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Lerp_" data-uid="Stride.Core.Mathematics.Quaternion.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Lerp_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.Lerp(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,System.Single)">
+  Lerp(Quaternion, Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L685"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Lerp(Quaternion start, Quaternion end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Start quaternion.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>End quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The linear interpolation of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_Lerp_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.</p>
+<pre><code class="lang-csharp">start + (end - start) * amount</code></pre>
+<p>Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Lerp_" data-uid="Stride.Core.Mathematics.Quaternion.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Lerp_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Lerp(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  Lerp(ref readonly Quaternion, ref readonly Quaternion, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L651"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref readonly Quaternion start, ref readonly Quaternion end, float amount, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Start quaternion.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>End quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the linear interpolation of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_Lerp_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_Stride_Core_Mathematics_Quaternion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.</p>
+<pre><code class="lang-csharp">start + (end - start) * amount</code></pre>
+<p>Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Logarithm_" data-uid="Stride.Core.Mathematics.Quaternion.Logarithm*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Logarithm_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Logarithm(Stride.Core.Mathematics.Quaternion)">
+  Logarithm(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L746"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the natural logarithm of the specified quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Logarithm(Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion whose logarithm will be calculated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The natural logarithm of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Logarithm_" data-uid="Stride.Core.Mathematics.Quaternion.Logarithm*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Logarithm_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Logarithm(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Logarithm(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L714"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the natural logarithm of the specified quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Logarithm(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion whose logarithm will be calculated.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the natural logarithm of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_LookRotation_" data-uid="Stride.Core.Mathematics.Quaternion.LookRotation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_LookRotation_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Quaternion.LookRotation(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  LookRotation(in Vector3, in Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L695"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a rotation whose facing direction points towards <code class="paramref">forward</code>
+and whose up direction points as close as possible to <code class="paramref">up</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion LookRotation(in Vector3 forward, in Vector3 up)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>up</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Multiply_Stride_Core_Mathematics_Quaternion_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.Multiply(Stride.Core.Mathematics.Quaternion,System.Single)">
+  Multiply(Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a quaternion by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Multiply(Quaternion value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the quaternion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The scaled quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Multiply_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Multiply(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Multiply(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a quaternion by another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Multiply(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The modulated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Multiply_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Multiply(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Multiply(ref readonly Quaternion, ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates a quaternion by another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref readonly Quaternion left, ref readonly Quaternion right, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to modulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the moethod completes, contains the modulated quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Multiply_Stride_Core_Mathematics_Quaternion__System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Multiply(Stride.Core.Mathematics.Quaternion@,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  Multiply(ref readonly Quaternion, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a quaternion by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref readonly Quaternion value, float scale, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the quaternion.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the scaled quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Negate_" data-uid="Stride.Core.Mathematics.Quaternion.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Negate_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Negate(Stride.Core.Mathematics.Quaternion)">
+  Negate(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L491"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Negate(Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A quaternion facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Negate_" data-uid="Stride.Core.Mathematics.Quaternion.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Negate_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Negate(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Negate(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L478"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to negate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains a quaternion facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Normalize_" data-uid="Stride.Core.Mathematics.Quaternion.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Normalize" data-uid="Stride.Core.Mathematics.Quaternion.Normalize">
+  Normalize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L326"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the quaternion into a unit quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Normalize_" data-uid="Stride.Core.Mathematics.Quaternion.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Normalize_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Normalize(Stride.Core.Mathematics.Quaternion)">
+  Normalize(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L769"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the quaternion into a unit quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Normalize(Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to normalize.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The normalized quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Normalize_" data-uid="Stride.Core.Mathematics.Quaternion.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Normalize_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Normalize(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Normalize(ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L757"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the quaternion into a unit quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(ref readonly Quaternion value, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to normalize.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the normalized quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Rotate_" data-uid="Stride.Core.Mathematics.Quaternion.Rotate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Rotate_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Quaternion.Rotate(Stride.Core.Mathematics.Vector3@)">
+  Rotate(ref Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates a Vector3 by the specified quaternion rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Rotate(ref Vector3 vector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The vector to rotate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotateTowards_" data-uid="Stride.Core.Mathematics.Quaternion.RotateTowards*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotateTowards_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotateTowards(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single)">
+  RotateTowards(in Quaternion, in Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotate <code class="paramref">current</code> towards <code class="paramref">target</code> by <code class="paramref">angle</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotateTowards(in Quaternion current, in Quaternion target, float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>current</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_RotateTowards_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When the angle difference between <code class="paramref">current</code> and <code class="paramref">target</code> is less than
+the given <code class="paramref">angle</code>, returns <code class="paramref">target</code> instead of overshooting past it.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationAxis_" data-uid="Stride.Core.Mathematics.Quaternion.RotationAxis*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationAxis_Stride_Core_Mathematics_Vector3_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotationAxis(Stride.Core.Mathematics.Vector3,System.Single)">
+  RotationAxis(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L815"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a rotation and an axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationAxis(Vector3 axis, float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The axis of rotation.</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The angle of rotation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationAxis_" data-uid="Stride.Core.Mathematics.Quaternion.RotationAxis*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationAxis_Stride_Core_Mathematics_Vector3__System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationAxis(Stride.Core.Mathematics.Vector3@,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  RotationAxis(ref readonly Vector3, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L795"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a rotation and an axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationAxis(ref readonly Vector3 axis, float angle, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The axis of rotation.</p>
+</dd>
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The angle of rotation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationMatrix_" data-uid="Stride.Core.Mathematics.Quaternion.RotationMatrix*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationMatrix_Stride_Core_Mathematics_Matrix_" data-uid="Stride.Core.Mathematics.Quaternion.RotationMatrix(Stride.Core.Mathematics.Matrix)">
+  RotationMatrix(Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L879"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a rotation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationMatrix(Matrix matrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The rotation matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationMatrix_" data-uid="Stride.Core.Mathematics.Quaternion.RotationMatrix*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationMatrix_Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationMatrix(Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Quaternion@)">
+  RotationMatrix(ref readonly Matrix, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L826"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a rotation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationMatrix(ref readonly Matrix matrix, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The rotation matrix.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationX_" data-uid="Stride.Core.Mathematics.Quaternion.RotationX*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationX_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotationX(System.Single)">
+  RotationX(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L901"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the x-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationX(float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The created rotation quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationX_" data-uid="Stride.Core.Mathematics.Quaternion.RotationX*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationX_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationX(System.Single,Stride.Core.Mathematics.Quaternion@)">
+  RotationX(float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L890"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the x-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationX(float angle, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationY_" data-uid="Stride.Core.Mathematics.Quaternion.RotationY*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationY_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotationY(System.Single)">
+  RotationY(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L923"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the y-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationY(float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The created rotation quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationY_" data-uid="Stride.Core.Mathematics.Quaternion.RotationY*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationY_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationY(System.Single,Stride.Core.Mathematics.Quaternion@)">
+  RotationY(float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L912"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the y-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationY(float angle, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_Stride_Core_Mathematics_Quaternion__System_Single__System_Single__System_Single__" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll(Stride.Core.Mathematics.Quaternion@,System.Single@,System.Single@,System.Single@)">
+  RotationYawPitchRoll(ref readonly Quaternion, out float, out float, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L958"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculate the yaw/pitch/roll rotation equivalent to the provided quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationYawPitchRoll(ref readonly Quaternion rotation, out float yaw, out float pitch, out float roll)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The input quaternion</p>
+</dd>
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The yaw component in radians.</p>
+</dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch component in radians.</p>
+</dd>
+    <dt><code>roll</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The roll component in radians.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll(System.Single,System.Single,System.Single)">
+  RotationYawPitchRoll(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1048"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value (angles in radians).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationYawPitchRoll(float yaw, float pitch, float roll)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The yaw of rotation in radians.</p>
+</dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch of rotation in radians.</p>
+</dd>
+    <dt><code>roll</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The roll of rotation in radians.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationYawPitchRoll_System_Single_System_Single_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationYawPitchRoll(System.Single,System.Single,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  RotationYawPitchRoll(float, float, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1019"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion given a yaw, pitch, and roll value (angles in radians).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationYawPitchRoll(float yaw, float pitch, float roll, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The yaw of rotation in radians.</p>
+</dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch of rotation in radians.</p>
+</dd>
+    <dt><code>roll</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The roll of rotation in radians.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationZ_" data-uid="Stride.Core.Mathematics.Quaternion.RotationZ*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationZ_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.RotationZ(System.Single)">
+  RotationZ(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L945"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the z-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion RotationZ(float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The created rotation quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_RotationZ_" data-uid="Stride.Core.Mathematics.Quaternion.RotationZ*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_RotationZ_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.RotationZ(System.Single,Stride.Core.Mathematics.Quaternion@)">
+  RotationZ(float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L934"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a quaternion that rotates around the z-axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RotationZ(float angle, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Angle of rotation in radians.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the newly created quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Slerp_" data-uid="Stride.Core.Mathematics.Quaternion.Slerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Slerp_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.Slerp(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single)">
+  Slerp(in Quaternion, in Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Interpolates between two quaternions, using spherical linear interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Slerp(in Quaternion start, in Quaternion end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Start quaternion.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>End quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The spherical linear interpolation of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Slerp_" data-uid="Stride.Core.Mathematics.Quaternion.Slerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Slerp_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Slerp(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  Slerp(ref readonly Quaternion, ref readonly Quaternion, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Interpolates between two quaternions, using spherical linear interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Slerp(ref readonly Quaternion start, ref readonly Quaternion end, float amount, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Start quaternion.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>End quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the spherical linear interpolation of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Squad_" data-uid="Stride.Core.Mathematics.Quaternion.Squad*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Squad_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.Squad(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,System.Single)">
+  Squad(Quaternion, Quaternion, Quaternion, Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Interpolates between quaternions, using spherical quadrangle interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Squad(Quaternion value1, Quaternion value2, Quaternion value3, Quaternion value4, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>First source quaternion.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Second source quaternion.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Thrid source quaternion.</p>
+</dd>
+    <dt><code>value4</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Fourth source quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of interpolation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The spherical quadrangle interpolation of the quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Squad_" data-uid="Stride.Core.Mathematics.Quaternion.Squad*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Squad_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Squad(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,System.Single,Stride.Core.Mathematics.Quaternion@)">
+  Squad(ref readonly Quaternion, ref readonly Quaternion, ref readonly Quaternion, ref readonly Quaternion, float, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Interpolates between quaternions, using spherical quadrangle interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Squad(ref readonly Quaternion value1, ref readonly Quaternion value2, ref readonly Quaternion value3, ref readonly Quaternion value4, float amount, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>First source quaternion.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Second source quaternion.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Thrid source quaternion.</p>
+</dd>
+    <dt><code>value4</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Fourth source quaternion.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of interpolation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the spherical quadrangle interpolation of the quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_SquadSetup_" data-uid="Stride.Core.Mathematics.Quaternion.SquadSetup*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_SquadSetup_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.SquadSetup(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion)">
+  SquadSetup(Quaternion, Quaternion, Quaternion, Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets up control points for spherical quadrangle interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion[] SquadSetup(Quaternion value1, Quaternion value2, Quaternion value3, Quaternion value4)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value1</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>First source quaternion.</p>
+</dd>
+    <dt><code>value2</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Second source quaternion.</p>
+</dd>
+    <dt><code>value3</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Third source quaternion.</p>
+</dd>
+    <dt><code>value4</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Fourth source quaternion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a>[]</dt>
+    <dd><p>An array of three quaternions that represent control points for spherical quadrangle interpolation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Subtract_" data-uid="Stride.Core.Mathematics.Quaternion.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Subtract_Stride_Core_Mathematics_Quaternion_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Quaternion.Subtract(Stride.Core.Mathematics.Quaternion,Stride.Core.Mathematics.Quaternion)">
+  Subtract(Quaternion, Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L394"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Subtract(Quaternion left, Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The difference of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_Subtract_" data-uid="Stride.Core.Mathematics.Quaternion.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_Subtract_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.Subtract(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  Subtract(ref readonly Quaternion, ref readonly Quaternion, out Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref readonly Quaternion left, ref readonly Quaternion right, out Quaternion result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to subtract.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>When the method completes, contains the difference of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_ToArray_" data-uid="Stride.Core.Mathematics.Quaternion.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_ToArray" data-uid="Stride.Core.Mathematics.Quaternion.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>A four-element array containing the components of the quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_ToString_" data-uid="Stride.Core.Mathematics.Quaternion.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_ToString" data-uid="Stride.Core.Mathematics.Quaternion.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1345"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_ToString_" data-uid="Stride.Core.Mathematics.Quaternion.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Quaternion.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Addition_" data-uid="Stride.Core.Mathematics.Quaternion.op_Addition*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Addition_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Addition(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  operator +(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator +(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The sum of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Equality_" data-uid="Stride.Core.Mathematics.Quaternion.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Equality_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Equality(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  operator ==(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_op_Equality_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Comparison is not strict, a difference of <a class="xref" href="Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_ZeroTolerance">ZeroTolerance</a> will return as equal.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Implicit_" data-uid="Stride.Core.Mathematics.Quaternion.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Implicit_Stride_Core_Mathematics_Quaternion__System_Numerics_Quaternion" data-uid="Stride.Core.Mathematics.Quaternion.op_Implicit(Stride.Core.Mathematics.Quaternion)~System.Numerics.Quaternion">
+  implicit operator Quaternion(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1447"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from Stride.Maths to System.Numerics vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Quaternion(Quaternion v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.quaternion">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Implicit_" data-uid="Stride.Core.Mathematics.Quaternion.op_Implicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Implicit_System_Numerics_Quaternion__Stride_Core_Mathematics_Quaternion" data-uid="Stride.Core.Mathematics.Quaternion.op_Implicit(System.Numerics.Quaternion)~Stride.Core.Mathematics.Quaternion">
+  implicit operator Quaternion(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1438"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Casts from System.Numerics to Stride.Maths vectors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Quaternion(Quaternion v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.quaternion">Quaternion</a></dt>
+    <dd><p>Value to cast</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Inequality_" data-uid="Stride.Core.Mathematics.Quaternion.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Inequality_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Inequality(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  operator !=(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_op_Inequality_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Comparison is not strict, a difference of <a class="xref" href="Stride.Core.Mathematics.MathUtil.html#Stride_Core_Mathematics_MathUtil_ZeroTolerance">ZeroTolerance</a> will return as equal.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Multiply_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  operator *(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Multiplies a quaternion by another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator *(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to multiply.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to multiply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The multiplied quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Multiply_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Vector3@)">
+  operator *(in Quaternion, in Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1308"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return the vector rotated by the quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 operator *(in Quaternion left, in Vector3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Quaternion_op_Multiply_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Shorthand for <a class="xref" href="Stride.Core.Mathematics.Quaternion.html#Stride_Core_Mathematics_Quaternion_Rotate_Stride_Core_Mathematics_Vector3__">Rotate(ref Vector3)</a></p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Multiply_Stride_Core_Mathematics_Quaternion__System_Single_" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply(Stride.Core.Mathematics.Quaternion@,System.Single)">
+  operator *(in Quaternion, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a quaternion by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator *(in Quaternion value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the quaternion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The scaled quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Multiply_" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Multiply_System_Single_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Multiply(System.Single,Stride.Core.Mathematics.Quaternion@)">
+  operator *(float, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a quaternion by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator *(float scale, in Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the quaternion.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The scaled quaternion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_Subtraction_" data-uid="Stride.Core.Mathematics.Quaternion.op_Subtraction*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_Subtraction_Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_Subtraction(Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Quaternion@)">
+  operator -(in Quaternion, in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator -(in Quaternion left, in Quaternion right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The first quaternion to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The second quaternion to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The difference of the two quaternions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Quaternion_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.Quaternion.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Quaternion_op_UnaryNegation_Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Quaternion.op_UnaryNegation(Stride.Core.Mathematics.Quaternion@)">
+  operator -(in Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L1260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reverses the direction of a given quaternion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion operator -(in Quaternion value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>A quaternion facing in the opposite direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Quaternion.cs/#L40" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

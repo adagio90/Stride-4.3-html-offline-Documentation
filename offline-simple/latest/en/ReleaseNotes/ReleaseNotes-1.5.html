@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 1.5 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 1.5 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.5.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-15-release-notes">Xenko 1.5 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h4 id="skeleton-asset">Skeleton asset</h4>
+<p>A new Skeleton asset (*.xkskel) has been introduced. Both models and animations now hold a reference to a skeleton. This allows to reuse the same skeleton definition in multiple assets and to retarget models and animations to different skeletons.</p>
+<p>Skeletons can be created alongside other assets, when importing an FBX file or other model format.</p>
+<img src="media/ReleaseNotes-1.5/SkeletonThumbnail.png" align="center">
+<h4 id="root-motion-support-for-models-cameras-lights-etc">Root motion support for models, cameras, lights, etc.</h4>
+<p>Animations now apply root motion if they have no skeleton, or the ‘Root Motion’ property is enabled on the animation asset. The animation will then move the entity itself, instead of the skeleton's root bone.
+This is especially useful to import animations of lights, cameras or unskinned models, without the need to bind them to the bones of a skeleton.</p>
+<p>The FBX importer will now also import animations of various camera parameters (near-plane, far-plane, field of view) and apply them to the CameraComponent of the animated entity. More properties may be supported in the future.</p>
+<img src="media/ReleaseNotes-1.5/RootMotionProperty.png" align="center">
+<h4 id="new-animation-update-system">New animation update system</h4>
+<p>The animation system now internally uses a new UpdateEngine to update objects. This allows us to animate arbitrary properties of entities, while accessing them in a highly efficient way.
+It will be the foundation for a future animation curve editor inside the GameStudio.</p>
+<p>The new ‘Animated Properties’ sample demonstrates how to create animations of any property from a script.</p>
+<h4 id="simple-profiling-system">Simple Profiling system</h4>
+<p>It is now possible to visualize profiling information of all the game systems and custom profilers directly within your running games.
+To get started, use the Game Profiler built-in script, attach it to an entity and when the game is running press LCtrl-LShift-P.</p>
+<img src="media/ReleaseNotes-1.5/profiler.png" align="center">
+<h4 id="physic-debug-shapes-at-runtime">Physic debug shapes at runtime</h4>
+<p>It is now possible to enable the rendering of physics collider shapes during runtime.
+The debug shapes are normal entities and they must be enabled for each physics shape that requires it.
+The best way to start with this feature is to use the Physics Shapes Render built-in script and attach the script to any entity that has a Physics Component and when the game is running press LCtrl-LShift-P.</p>
+<img src="media/ReleaseNotes-1.5/phys-debug.png" align="center">
+<h4 id="asset-view">Asset View</h4>
+<p>The Asset view has been improved to help you better organize and manage your assets.</p>
+<h6 id="new-view-options-menu">New ‘view options’ menu</h6>
+<p>The view options are gathered in a single menu accessible from the asset view toolbar.</p>
+<img src="media/ReleaseNotes-1.5/AssetViewOptions.png" align="center">
+<p>You can display all the assets in the current folder only, in the current folder and its sub-folder. The third option let you display the assets and the sub folders.</p>
+<p>You can also sort your assets by name, order, type or modification date.</p>
+<h6 id="new-asset-filter-bar">New asset filter bar</h6>
+<p>With the new asset filter bar, you can filter your assets by name, tag, type or a combination of those. Each ‘filter tag’ can be disabled by a single click or removed from the active filters.
+<img src="media/ReleaseNotes-1.5/AssetFilterBar.png" align="center"></p>
+<p>To add a filter, type in the filter bar and matching filters will be displayed. Click on the one you want to add it to the list of active filters.
+<img src="media/ReleaseNotes-1.5/AddingAssetFilter.png" align="center"></p>
+<p>Only the assets matching the active filters will be displayed in the asset view. Note that type filters are inclusive, while name and tag filters are exclusive.</p>
+<h6 id="folder-support-in-asset-view">Folder support in asset view</h6>
+<p>If the ‘Assets and folder in selected folder’ options is selected, the first level of sub-folder will be displayed in the asset view. You can drag and drop assets inside them. You can also copy/paste complete folder structure.
+<img src="media/ReleaseNotes-1.5/FolderSupport.png" align="center"></p>
+<h4 id="copy-paste-assets-with-their-dependencies">Copy-paste assets with their dependencies</h4>
+<p>You have now the ability to copy assets with their dependencies. To do that use the new entry ‘Copy with dependencies’ from the asset view context menu, or press Ctrl+Shift+C.
+<img src="media/ReleaseNotes-1.5/CopyAssetWithDependencies.png" align="center">
+For example, if you copy/paste a model with its dependencies, you will get a copy of this model along with a copy of all its dependencies (skeleton, materials, textures)</p>
+<h4 id="border-and-center-support-in-sprite-sheet-editor">Border and Center support in sprite sheet editor</h4>
+<p>For ‘Sprite2D’ sprites, you can move the position of the center by selecting the <img src="media/ReleaseNotes-1.5/SpriteCenterIcon.png" style="display: inline"> icon in the toolbar of the sprite editor. Grab and move the cross to the desired position.</p>
+<p>For ‘UI’ sprites, you can change the borders by selecting the <img src="media/ReleaseNotes-1.5/SpriteBorderIcon.png" style="display: inline"> icon in the toolbar of the sprite editor. You can then resize each border (left, top, right and bottom) separately in the same way as the texture region, by grabbing and moving one of them. Note that the <img src="media/ReleaseNotes-1.5/SpriteBorderLockIcon.png" style="display: inline"> icon lets you ‘lock’or ‘unlock’ the sprite borders while resizing the texture region.</p>
+<h4 id="new-built-in-scripts">New built-in scripts</h4>
+<p>We added a few more built-in scripts with this release such as an FPS camera script and First player controller script. To use them, just click on “New Asset”, “Script source code”, select the desired script and attach it to an adequate entity.</p>
+<img src="media/ReleaseNotes-1.5/built-in_Scripts.png">
+<h4 id="precompiled-sprite-fonts">Precompiled Sprite Fonts</h4>
+<p>Font rights are quite restrictive and it is quite common that only some persons of the project have access to the font files. This was preventing some people to build the game.
+To solve this problem, we created a new type of asset, the precompiled sprite fonts. It is an asset taking as input an image and containing all the glyph information required to render the set of character specified. Inside your games you can used it exactly like a standard sprite font.
+To generate a precompiled sprite font, the owner of the original font file just have to right click on an existing static font and choose “Generate Precompiled Font”.</p>
+<img src="media/ReleaseNotes-1.5/PrecompiledSpriteFont.png">
+<h2 id="version-154-beta">Version 1.5.4-beta</h2>
+<p>Release date: 2016/03/03</p>
+<h4 id="issues-fixed">Issues fixed</h4>
+<ul>
+<li>Fix a certification issue remaining for Windows Universal Apps.</li>
+<li>Fix a problem with the selection of the Graphic Profile on INTEL graphic cards.</li>
+</ul>
+<h2 id="version-153-beta">Version 1.5.3-beta</h2>
+<p>Release date: 2016/02/18</p>
+<h4 id="issues-fixed-1">Issues fixed</h4>
+<ul>
+<li>Fix a problem in the package upgrade erasing the content of shader and effect files.</li>
+<li>Fix a crash in the resolution of invalid relative paths preventing to load the project in the editor.</li>
+<li>Do not add pillar boxes when resizing the window of a landscape game under Windows 10 but readjust the size of the buffer.</li>
+<li>Replace the <code>MS Mincho</code> font by an embedded free font in samples (The font is not available on every systems)</li>
+</ul>
+<h2 id="version-152-beta">Version 1.5.2-beta</h2>
+<p>Release date: 2016/01/15</p>
+<h4 id="issues-fixed-2">Issues fixed</h4>
+<h6 id="assets">Assets</h6>
+<ul>
+<li>Added the missing XenkoDefaultFont required by the profiler system.</li>
+<li>The convex hull generation is now working along with the new Skeleton Asset.</li>
+</ul>
+<h6 id="engine">Engine</h6>
+<ul>
+<li>Fix problem occurring with debugging async functions (local variable gone, namespace ignored, step over broken).</li>
+<li>Fix the issues preventing from passing Windows 10 store certification.</li>
+<li>Add support for proper resizing in Windows Universal Apps.</li>
+</ul>
+<h6 id="game-studio">Game Studio</h6>
+<ul>
+<li>Fix issues with the displayed values of rotations changing after validation.</li>
+</ul>
+<h6 id="ios">iOS</h6>
+<ul>
+<li>The Connection Router script required to compile shaders on iOS devices has been fixed.</li>
+</ul>
+<h4 id="enhancements">Enhancements</h4>
+<h6 id="assets-1">Assets</h6>
+<ul>
+<li>Skybox compilation does not require a DX11 GPU anymore. We added DX10 support to ensure GameStudio works fine with less recent GPUs as well.</li>
+</ul>
+<h6 id="engine-1">Engine</h6>
+<ul>
+<li>Add support for OpenGLES devices that do not support packed depth-stencil-formats.</li>
+</ul>
+<h6 id="game-studio-1">Game Studio</h6>
+<ul>
+<li>Add the possibility to edit the 3 components of a vector simultaneously.</li>
+</ul>
+<h2 id="version-151-beta">Version 1.5.1-beta</h2>
+<p>Release date: 2015/12/22</p>
+<h4 id="issues-fixed-3">Issues fixed</h4>
+<h6 id="engine-2">Engine</h6>
+<ul>
+<li>Fix LLVM AOT compilation in release configuration for iOS</li>
+</ul>
+<h6 id="game-studio-2">Game Studio</h6>
+<ul>
+<li>Fix a possible crash when using types with no base type in scripts (<a href="https://github.com/SiliconStudio/paradox/issues/342">##342</a>)</li>
+<li>Fix double-click on folder in asset picker window</li>
+<li>Fix settings of default IDE reset to null when it shouldn't.</li>
+<li>Fix the problem of the texture thumbnail not updating when modify the content of the source file.</li>
+<li>Creating an asset with a template can be properly undone. (<a href="https://github.com/SiliconStudio/paradox/issues/343">##343</a>)</li>
+</ul>
+<h2 id="version-150-beta">Version 1.5.0-beta</h2>
+<p>Release date: 2015/12/17</p>
+<h4 id="enhancements-1">Enhancements</h4>
+<h6 id="launcher">Launcher</h6>
+<ul>
+<li>Add a ‘reconnect’ button, in case the launcher was started in offline mode.</li>
+</ul>
+<h6 id="game-studio-3">Game Studio</h6>
+<ul>
+<li>The asset creation menu always displays all possible assets to create, and switches to a proper location when the currently selected location is invalid for the chosen asset type.</li>
+<li>Improve animation thumbnail and preview. Automatically detect and use the corresponding model.</li>
+<li>Improve asset filtering in the asset view. Filter tag can be added, disabled or removed at any time.</li>
+<li>Folders are displayed in the asset view.</li>
+<li>Assets can be sorted by last modification date.</li>
+<li>Add ability to copy/paste assets with their dependencies.</li>
+<li>Improve the sprite sheet editor. Resizing borders or moving the texture region behaves correctly, especially when reaching the borders of the image. Background outside of the selected texture region can be darkened.</li>
+<li>Sprite sheet preview can be displayed while the sprite sheet is being edited.</li>
+<li>Change message dialog style. Some confirmation dialogs (e.g. deleting an asset) can be disabled in the settings (under Interface/Ask confirmation…).</li>
+</ul>
+<h6 id="games">Games</h6>
+<ul>
+<li>Use the application icons as window icon on windows</li>
+<li>Use AssamblyProductAttribute.Product as window title on windows</li>
+</ul>
+<h6 id="graphics">Graphics</h6>
+<ul>
+<li>Add support for Gif load and jpeg save for Android</li>
+<li>Add the possibility to load images and textures as sRGB</li>
+<li>Add a static field in GraphicDevice to be able to get the current graphic platform</li>
+<li>Add optimized native code in SpriteBatch</li>
+</ul>
+<h6 id="engine-3">Engine</h6>
+<ul>
+<li>Use Color4 instead of Color in sprite components.</li>
+<li>Add support for toot motion on the TransformComponent</li>
+<li>Expose AnimationComponent.PlayingAnimations to the editor to be able to set entity initial animation easily.</li>
+<li>Make connection to editor for shader compilation fail if there is no connection back within 5 seconds</li>
+</ul>
+<h6 id="ui">UI</h6>
+<ul>
+<li>Add a tint color to the UI ImageElement.</li>
+</ul>
+<h4 id="issues-fixed-4">Issues fixed</h4>
+<h6 id="assets-2">Assets</h6>
+<ul>
+<li>Fix compiler regression that was taking more than 5s to complete compilation of assets</li>
+<li>Fix the log message displaying the name of missing referenced assets during asset compilation</li>
+<li>Fix crash in the asset compilation when Xenko installation path contains a '##' character.</li>
+<li>Fix shadow asset remaining after resolving asset naming collision.</li>
+</ul>
+<h6 id="engine-4">Engine</h6>
+<ul>
+<li>Prevent an exception to be thrown at each frame when the Model property of a ModelComponent is null.</li>
+<li>Use the ShaderProfile from GameSettings instead of the graphic device level as it is likely the profile used to compile shaders at build time.</li>
+</ul>
+<h6 id="game-studio-4">Game Studio</h6>
+<ul>
+<li>Fix a crash when trying to fetch the target asset of a reference that is null.</li>
+<li>Fix a bug in the edition of SpriteFont properties that was preventing to properly use system font</li>
+<li>Fix thumbnails of SpriteFont when using system font.</li>
+<li>Fix a crash when duplicating an entity in the scene editor.</li>
+<li>Fix renaming issue when duplicating an entity in the scene editor.</li>
+<li>Fix the problem dark thumbnails for textures in HDR mode.</li>
+<li>Fix gizmo settings not saved/reloaded properly.</li>
+<li>Fix copy/paste of folders in the solution explorer.</li>
+<li>Fix a crash in the sprite sheet editor when a source image was modified in an external editor.</li>
+<li>Fix a potential crash when the texture region is outside of the image.</li>
+<li>Fix a bug preventing to create a frame in the sprite editor when dropping a file.</li>
+<li>Fix a bug preventing to drop asset in an empty folder.</li>
+<li>Fix error when attempting to import animation from a model that doesn't have any.</li>
+<li>Fix incorrect size of full screen window when screen resolution has changed.</li>
+<li>Fix package dependency issue when removing a dependent package.</li>
+</ul>
+<h6 id="rendering">Rendering</h6>
+<ul>
+<li>Fixed disappearing shadows due to wrong cascade distance calculation</li>
+</ul>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li>iOS has an outstanding crash issue after a few second on ARM64 iPhones. This is currently under investigation.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.5.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

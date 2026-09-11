@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Composition | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Composition | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/shading-language/composition.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../../toc.js"></script>
+<script src="../../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="composition">Composition</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>In addition to the inheritance system, SDSL introduces the concept of <strong>composition</strong>. A composition is a member whose type is another shader class. It's defined the same way as variables.</p>
+<p>You can compose with an instance of the desired shader class or an instance of a shader class that inherits from the desired one.</p>
+<h2 id="example-code">Example code</h2>
+<pre><code class="lang-cs">shader CompositionBase
+{
+	float4 Compute()
+	{
+		return float4(0.0);
+	}
+};
+ 
+shader CompositionShaderA : CompositionBase
+{
+	float4 myColor;
+ 
+	override float4 Compute()
+	{
+		return myColor;
+	}
+};
+ 
+shader CompositionShaderB : CompositionBase
+{
+	float4 myColor;
+
+	override float4 Compute()
+	{
+		return 0.5 * myColor;
+	}
+};
+ 
+shader BaseShader
+{
+	CompositionBase Comp0;
+	CompositionBase Comp1;
+ 
+	float4 GetColor()
+	{
+		return Comp0.Compute() + Comp1.Compute();
+	}
+};
+</code></pre>
+<p>The compositions are compiled in their own context, meaning that the non-stage variables are only accessible within the composition. It's also possible to have compositions inside compositions.</p>
+<h2 id="example-code-access-root-context">Example code: access root context</h2>
+<p>If you want to access the root compilation context, you can use the following format:</p>
+<pre><code class="lang-cs">shader CompositionShaderC : CompositionBase
+{
+	BaseShader rootShader = stage;
+ 
+	float4 GetColor()
+	{
+		return rootShader.GetColor();
+	}
+};
+</code></pre>
+<p>This is error-prone, since <code>CompositionShaderC</code> expects <code>BaseShader</code> to be available in the root context.</p>
+<h2 id="example-code-array-of-compositions">Example code: array of compositions</h2>
+<p>You can also create an array of compositions the same way you use an array of values. Since there's no way to know beforehand how many compositions there are, you should iterate using a <code>foreach</code> statement.</p>
+<pre><code class="lang-cs">shader BaseShaderArray
+{
+	CompositionBase Comps[];
+	
+	float4 GetColor()
+	{
+		float4 resultColor = float4(0.0);
+ 
+		foreach (var comp in Comps)
+		{
+			resultColor += comp.Compute();
+		}
+ 
+		return resultColor;
+	}
+};
+</code></pre>
+<h2 id="example-code-stage-behavior">Example code: stage behavior</h2>
+<p>The behavior of the <code>stage</code> keyword is straightforward: only one instance of the variable or method is produced.</p>
+<pre><code class="lang-cs">shader BaseShader
+{
+	stage float BaseStageValue;
+	float NonStageValue;
+};
+ 
+shader TestShader : BaseShader
+{
+	BaseShader comp0;
+	BaseShader comp1;
+};
+ 
+// resulting shader (representation)
+shader TestShader
+{
+	float BaseStageValue;
+	float NonStageValue;
+	float comp0_NonStageValue;
+	float comp1_NonStageValue;
+};
+</code></pre>
+<h3 id="example-code-stage-member-behavior">Example code: stage member behavior</h3>
+<pre><code class="lang-cs">shader BaseShader
+{
+	stage float BaseStageMethod()
+	{
+		return 1.0;
+	}
+
+	float NonStageMethod()
+	{
+		return 2.0;
+	}
+};
+ 
+shader TestShader : BaseShader
+{
+	BaseShader comp0;
+	BaseShader comp1;
+};
+ 
+// resulting shader (representation)
+shader TestClass
+{
+	float BaseStageMethod()
+	{
+		return 1.0;
+	}
+
+	float NonStageMethod()
+	{
+		return 2.0;
+	}
+	float comp0_NonStageMethod()
+	{
+		return 2.0;
+	}
+	float comp1_NonStageMethod()
+	{
+		return 2.0;
+	}
+};
+</code></pre>
+<p>Keep in mind that even in composition, you can call for base methods, override them, and so on. Overriding happens in the same order as the compositions.</p>
+<p>This behavior is useful when you need a value in multiple composition but you only need to compute it once (eg the normal in view space).</p>
+<h2 id="clone-behavior">Clone behavior</h2>
+<p>The <code>clone</code> keyword has a less trivial behavior. It prevents the <code>stage</code> keyword to produce a unique method.</p>
+<pre><code class="lang-cs">shader BaseShader
+{
+	stage float BaseStageMethod()
+	{
+		return 1.0;
+	}
+ 
+	stage float BaseStageMethodNotCloned()
+	{
+		return 1.0;
+	}
+};
+ 
+shader CompShader : BaseShader
+{
+	override clone float BaseStageMethod()
+	{
+		return 1.0 + base.BaseStageMethod();
+	}
+ 
+	override float BaseStageMethodNotCloned()
+	{
+		return 1.0f + base.BaseStageMethodNotCloned();
+	}
+};
+ 
+shader TestShader : BaseShader
+{
+	CompShader comp0;
+	CompShadercomp1;
+};
+ 
+// resulting shader (representation)
+shader TestShader
+{
+	// cloned method
+	float base_BaseStageMethod()
+	{
+		return 1.0;
+	}
+ 
+	float comp0_BaseStageMethod()
+	{
+		return 1.0 + base_BaseStageMethod();
+	}
+ 
+	float BaseStageMethod() // in fact comp1_BaseStageMethod
+	{
+		return 1.0 + comp0_BaseStageMethod; // 3.0f
+	}
+ 
+	// not cloned method
+	float base_BaseStageMethodNotCloned()
+	{
+		return 1.0f;
+	}
+ 
+	float BaseStageMethodNotCloned()
+	{
+		return 1.0f + base_BaseStageMethodNotCloned(); // 2.0f
+	}
+};
+</code></pre>
+<p>This behavior is useful when you want to repeat a simple function but with different parameters (eg adding color on top of another).</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../effect-language.html">Effect language</a></li>
+<li><a href="index.html">Shading language index</a>
+<ul>
+<li><a href="shader-classes-mixins-and-inheritance.html">Shader classes, mixins, and inheritance</a></li>
+<li><a href="templates.html">Templates</a></li>
+<li><a href="automatic-shader-stage-input-output.html">Shader stage input/output automatic management</a></li>
+<li><a href="shader-stages.html">Shader stages</a></li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/shading-language/composition.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

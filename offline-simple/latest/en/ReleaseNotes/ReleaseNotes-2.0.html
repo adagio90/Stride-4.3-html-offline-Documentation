@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 2.0 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 2.0 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-2.0.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-20-release-notes">Xenko 2.0 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="scene-hierarchy-and-scene-streaming">Scene hierarchy and scene streaming</h3>
+<p>Working with scenes has become more flexible. Instead of a single scene, your game can now use a hierarchy of scenes to organize entities into levels, areas or layers, and let teams collaborate on them more efficiently.</p>
+<p>Game Studio displays child scenes together with their parent. Individual scenes can be loaded, unload, locked and moved around.</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/scene_editor_640.jpg">
+   <source src="media/ReleaseNotes-2.0/scene_editor_640.mp4" type="video/mp4">
+</video>
+<p>When running your game, the <strong>default scene</strong> set in your <strong>game settings</strong> is loaded as the <strong>root scene</strong> and can be used to store persistent entities. More scenes can be dynamically loaded and unloaded from scripts and added as <strong>child scenes</strong>.</p>
+<pre><code class="lang-cs">var childScene = Content.Load&lt;Scene&gt;(&quot;myChildScene&quot;);
+SceneSystem.SceneInstance.RootScene.Children.Add(childScene);
+</code></pre>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/scene_streaming_640.jpg">
+   <source src="media/ReleaseNotes-2.0/scene_streaming_640.mp4" type="video/mp4">
+</video>
+<p>To get started, take a look at the new built-in <code>SceneStreamingScript</code>. It demonstrates background scene loading when passing through trigger volumes.</p>
+<p>You can now use a scene's <code>Offset</code> to move its entities both at design time and runtime.</p>
+<p>The <code>ChildSceneComponent</code> has been removed. We encourage all entities to be managed by a single <strong>entity manager</strong> and rendered by a single <strong>graphics compositor</strong>.</p>
+<h3 id="virtual-reality">Virtual reality</h3>
+<p>Enabling VR is now as simple as a single click!</p>
+<p>Xenko's clustered forward rendering, with its multisample anti-aliasing, makes it ideal for VR. Xenko uses a single API for every device, with native support for Oculus and HTV Vive (more devices coming very soon).</p>
+<p>Xenko comes with a VR game sample that shows you how to implement VR gameplay, including environment interaction and teleportation:</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/vr_template_640.jpg">
+   <source src="media/ReleaseNotes-2.0/vr_template_640.mp4" type="video/mp4">
+</video>
+<p>Save valuable time by visualizing and testing VR directly from the scene editor:</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/vr_editor_640.jpg">
+   <source src="media/ReleaseNotes-2.0/vr_editor_640.mp4" type="video/mp4">
+</video>
+<h3 id="global-illumination-with-light-probes">Global illumination with light probes</h3>
+<p>Light probes capture the lighting at the position you place them. They simulate indirect light, the effect of light bouncing off surfaces and illuminating other surfaces.</p>
+<p>They can make a dramatic difference to the mood and appearance of your scene.</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/light_probes_640.jpg">
+   <source src="media/ReleaseNotes-2.0/light_probes_640.mp4" type="video/mp4">
+</video>
+<p>Light probes can be <strong>placed freely</strong> and are processed <strong>per pixel</strong>. This means you can use them not only on small dynamic objects, but also large or static objects (until we have light maps for those!).</p>
+<p>Last but not least, you can now very easily capture a DDS cubemap from current camera position in editor, for use as a diffuse or specular skybox light.</p>
+<h3 id="light-shafts">Light shafts</h3>
+<p>Xenko now supports shadow map-based light shafts for directional lights.</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/lightshaft_CoS_640.jpg">
+   <source src="media/ReleaseNotes-2.0/lightshaft_CoS_640.mp4" type="video/mp4">
+</video>
+<p>Our implementation uses ray-marching rather than post effects, making the shaft visible and cool-looking even if the light source isn't visible.</p>
+<video autoplay loop class="responsive-video" poster="media/ReleaseNotes-2.0/lightshaft_640.jpg">
+   <source src="media/ReleaseNotes-2.0/lightshaft_640.mp4" type="video/mp4">
+</video>
+<h3 id="graphics-compositor">Graphics compositor</h3>
+<p>The graphics compositor is now a separate asset.</p>
+<p>Rendering parameters (such as VR) and post effect parameters can be tweaked in just a few clicks.</p>
+<p><img src="media/ReleaseNotes-2.0/graphics_compositor.jpg" alt="Graphics compositor"></p>
+<p>This is just the first step towards making the graphics compositor easy to customize and extend. Stay tuned for more changes in future releases!</p>
+<h3 id="improved-visual-studio-experience">Improved Visual Studio experience</h3>
+<p>We now have full support for <strong>Visual Studio 2017</strong>!</p>
+<ul>
+<li>Xenko Visual Studio extension now supports Visual Studio 2017</li>
+<li>Game Studio recognizes Visual Studio 2017</li>
+<li>Games can use C# 7.0, and our script editor can recognize C# 7.0 and offer C# 7.0 refactoring thanks to Roslyn (you need to make your solution VS2017+ for it to work)</li>
+<li>Our internal <code>AssemblyProcessor</code> which perform various operations on generated assemblies can now work with portable PDB (as generated by .NET Standard projects)</li>
+</ul>
+<p>Programmers working with Xenko often go back and forth between Game Studio and Visual Studio. To make their lives easier, we made a few key improvements to the Xenko Visual Studio extension:</p>
+<ul>
+<li>You can now open the current solution in Game Studio directly from Visual Studio.</li>
+<li>Syntax highlighting didn't behave well when switching theme.</li>
+<li>Previously, when assets are compiling, MSBuild didn't report any progress until finished. It now displays information, warnings and errors while it compiles.</li>
+</ul>
+<p>Also, our whole build infrastructure and script editor is now based on the latest version of MSBuild 2017 and Roslyn. Supporting the new VS2017 Project System with .NET Standard is just a few steps away!</p>
+<h3 id="faster-and-lighter">Faster and lighter</h3>
+<p>In order to provide a better experience for users, we've been working hard on various fronts to make the editor smoother and more responsive. This is still a work in progress and expect regular improvements.</p>
+<p>Also, the package size is almost three times smaller, resulting in much faster download and install time.</p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<h3 id="backward-compatibility">Backward compatibility</h3>
+<p>Xenko 2.0 supports project upgrades only for projects created with Xenko 1.10 Beta. If you want to upgrade a project made with an older version, update it to Xenko 1.10 first.</p>
+<h3 id="visual-studio-support">Visual Studio support</h3>
+<p>Xenko 2.0 supports Visual Studio 2015 and Visual Studio 2017 as IDEs. Visual Studio 2013 and earlier versions are no longer supported.</p>
+<p>When upgrading a project from earlier version, in its <code>.csproj</code> file, set <code>ToolsVersion=&quot;14.0&quot;</code> as the minimum required version.</p>
+<h3 id="navigation">Navigation</h3>
+<p>All compontents related to navigation have been moved to their own <code>SiliconStudio.Xenko.Navigation</code> assembly and namespace.</p>
+<h3 id="graphics-compositor-1">Graphics Compositor</h3>
+<p>Previously, rendering pipeline was customized by magic <code>IPipelinePlugin</code> at runtime. This was very hard to control. Now, most of the pipeline configuration happens  at design time in the new Graphics Compositor asset.</p>
+<p><code>RenderFrame</code> is gone. Renderer are typically declaring and allocating render targets.</p>
+<h2 id="known-issues">Known issues</h2>
+<ul>
+<li>On Linux, when switching the underlying Graphics Platform, rendering doesn't occur or fail. To fix the problem, delete the cache, local, and roaming folders on the Linux host and restart the game.</li>
+<li>Performance issues on mobile (being worked on)</li>
+<li>On iOS, if <code>Enable device-specific builds</code> is toggled on (from the project properties), it's not possible to debug game code. To speed up your development manually select the architecture of your device from the Advanced tab.</li>
+<li>Live scripting has been temporarily disabled</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-2002--25-april-2017">Version 2.0.0.2 — 25 April 2017</h3>
+<h4 id="improvements">Improvements</h4>
+<h5 id="general">General</h5>
+<ul>
+<li>Added VR game template</li>
+<li>Game Studio and actual runtime game now share the same build cache. This should speed up build times.</li>
+<li>Build dependencies are managed by a new system that greatly simplify copying and deployment. This should later benefit plugins and user projects when exposed to the user</li>
+</ul>
+<h5 id="game-studio">Game Studio</h5>
+<ul>
+<li>Improved how internal objects of an asset can be referenced</li>
+<li>Improved keyboard navigation in tree views (eg entity hierarchy in scene and prefab editors)</li>
+<li>Improved scrolling in tree views</li>
+<li>Improved drag and drop performance</li>
+<li>Entities can now be dragged and dropped from one scene to another</li>
+<li>Exceptions in the embedded game of a scene editor no longer crash Game Studio and can be recoverable</li>
+<li>Components of vectors can now be edited independently when using multi-selection</li>
+<li>Camera navigation now uses a different key set:
+<ul>
+<li>Alt + left mouse button - orbit</li>
+<li>Mouse wheel - zoom</li>
+<li>Right mouse button - spin camera</li>
+<li>Middle mouse button - pan</li>
+<li>Right + middle mouse buttons - camera hover</li>
+</ul>
+</li>
+<li>Added camera speed slider</li>
+<li>The &quot;New game&quot; template has been touched up</li>
+<li>&quot;Save&quot; and &quot;Save all&quot; have been merged into just &quot;Save&quot;</li>
+<li>Navigation mesh overlay visibility can now be toggled per group</li>
+<li>Scripts can now be closed without saving and opened again later</li>
+<li>Script undo history now persists after closing a script</li>
+<li>Added ability to capture a DDS cubemap from current editor camera position.</li>
+<li>When viewing vertex streams, normals are now in 0..1 range instead of -1..1. Also, it is now possible to view normals in both world and tangent space</li>
+</ul>
+<h5 id="assets">Assets</h5>
+<ul>
+<li>Texture assets are now split into color, normal and grayscale subtypes</li>
+<li>Replaced <code>SkyboxUsage</code> enum on <code>SkyboxAsset</code> with a boolean <code>IsSpecularOnly</code></li>
+<li>Improved robustness and error reporting on invalid Yaml when opening assets</li>
+</ul>
+<h5 id="engine">Engine</h5>
+<ul>
+<li>Added support for splash screens (they show only in release builds)</li>
+</ul>
+<h5 id="audio">Audio</h5>
+<ul>
+<li>Added HRTF binaural audio support for Windows (10+)</li>
+</ul>
+<h5 id="graphics">Graphics</h5>
+<ul>
+<li>Added MSAA support</li>
+<li>Added custom MSAA resolving filters</li>
+<li>Shadow cascade calculation is now more stable</li>
+<li>Multiple render targets now have better support</li>
+<li>Point lights can now cast shadows</li>
+<li><code>SkyboxComponent</code> has been removed and the functionality moved into the <code>LightComponent</code> and <code>BackgroundComponent</code></li>
+<li><code>BackgroundComponent</code> now accepts cubemap textures as an input</li>
+<li>D3D11: Shaders that are compatible shares the same bytecode, avoiding extra state changes.</li>
+<li>OpenGL: Implemented UpdateSubresource for 3D textures</li>
+</ul>
+<h5 id="particles">Particles</h5>
+<ul>
+<li>Additive rotation no longer has a default value of 1 radian; it's now 0</li>
+<li>Initializers and updaters no longer add particle fields when disabled</li>
+</ul>
+<h4 id="physics">Physics</h4>
+<ul>
+<li>Reworked collisions filtering to improve performance</li>
+</ul>
+<h5 id="navigation-1">Navigation</h5>
+<ul>
+<li>Bounding boxes can now be placed in the scene</li>
+<li>Navigation meshes can now be generated/updated at runtime</li>
+<li><code>TryFindPath</code> now returns false instead of crashing if no navigation mesh is loaded</li>
+<li>Navigation mesh layer indexes have been replaced with groups</li>
+</ul>
+<h5 id="vr">VR</h5>
+<ul>
+<li>Unique device-agnostic API</li>
+<li>Oculus Rift support (HMD and controllers)</li>
+<li>Vive support (HMD and controllers)</li>
+</ul>
+<h4 id="bug-fixes">Bug fixes</h4>
+<h5 id="game-studio-1">Game Studio</h5>
+<ul>
+<li>Naming project libraries now avoids collisions</li>
+<li>Invalid characters in the project name are now filtered out correctly and don't prevent the project compiling</li>
+<li>Changing gizmo sizes no longer causes the slider to jump</li>
+<li>Switching between gizmos no longer crashes the scene editor</li>
+<li>Asset copy/paste now works better</li>
+<li>Thumbnail behavior is now more stable</li>
+<li>Fixed leaking of deleted assets or entities when navigating through the selection history</li>
+<li>Fixed renaming assets undo/redo</li>
+<li>Renaming an asset no longer closes its editor</li>
+<li>Fixed reparenting assets with Alt key (maintains world position)</li>
+<li>Fixed many problems related to manipulation of entities from prefabs</li>
+<li>Fixed many problems related to moving entities in the scene hierarchy</li>
+<li>The property grid now properly handles multi-selection</li>
+<li>Fixed many problems related to properties overridden from Prefabs or from Archetypes</li>
+<li>Fixed many problems related to copy/paste in the property grid</li>
+<li>Fixed some cases where <em>Create prefab from selection</em> wasn't properly linking the selected entities to the newly created prefab</li>
+<li>Fixed several problems when manipulating the model or materials in a <code>ModelComponent</code>, especially when the entity is inherited from a prefab</li>
+<li>The material highlighting button now works properly</li>
+<li>Assets that failed to save now prevent Game Studio from closing and losing your changes</li>
+<li>Sprites can be selected again in the scene editor</li>
+<li>Undoing/redoing creation or removal of script assets now works correctly</li>
+<li>Setting a translation snap of 0 now works as expected</li>
+<li>Light gizmos correctly update when changing the light type</li>
+<li>Typing the URL to a reference in an asset picked now works as expected</li>
+<li>Keys were often stuck (especially annoying when moving around), this is fixed</li>
+</ul>
+<h5 id="assets-1">Assets</h5>
+<ul>
+<li>Fixed an issue when asset compilation was failing due to WCF message size between slave asset builder being too big</li>
+</ul>
+<h5 id="engine-1">Engine</h5>
+<ul>
+<li>Fixed right Shift key detection in WinForms</li>
+<li>The <code>Start</code> method of scripts is now always called before the <code>Update</code> method of any <code>SyncScript</code> in the same frame</li>
+<li><code>SyncScripts</code> no longer cause crashes when scheduled from a different thread</li>
+<li>Scripts are no longer started or updated if another script removes them from the scene in the same frame</li>
+<li><code>ImageElements</code> are now properly displayed when using a <code>SpriteFromTexture</code></li>
+</ul>
+<h5 id="graphics-1">Graphics</h5>
+<ul>
+<li>Orthographic views no longer display broken shadows</li>
+<li>Shadows no longer disappear when viewed exactly vertically</li>
+<li>Cascade blending no longer causes holes in shadows</li>
+<li>Tesselated objects now cast shadows</li>
+<li>Normal-mapped object lighting is now correct when non-uniform scaling is applied</li>
+<li>Using unbound vertex streams in shaders no longer causes crashes</li>
+<li>Bright post effects are now more stable</li>
+<li>VR now shares shadows and culling for each eye</li>
+<li>Clustered lighting now works with multiple render views</li>
+<li>Fixed RGB/HSV color conversions</li>
+<li>Fixed engine exit when using RenderDoc profiling</li>
+<li>Fixed Multisample Quality Level for MSAA textures</li>
+<li>Tesselation and displacement mapping no longer cause rendering errors in the editor</li>
+<li>Renamed MSAALevel into MultisampleCount</li>
+</ul>
+<h5 id="physics-1">Physics</h5>
+<ul>
+<li>Removing and re-adding entities no longer causes crashes in certain situations</li>
+</ul>
+<h3 id="version-2011--28-april-2017">Version 2.0.1.1 — 28 April 2017</h3>
+<h4 id="bug-fixes-1">Bug fixes</h4>
+<h5 id="game-studio-2">Game Studio</h5>
+<ul>
+<li>Fixed a potential crash when enabling VR in the editor and opening multiple scenes/prefabs</li>
+<li>Prevents to drag and drop an entity that depends on a prefab into it (or an ancestor prefab) that would have created a cyclic reference and crashed the editor</li>
+<li>Fixed an issue with automatic assembly reload</li>
+</ul>
+<h5 id="engine-2">Engine</h5>
+<ul>
+<li>Fixed a crash when computing light probes</li>
+</ul>
+<h5 id="build">Build</h5>
+<ul>
+<li>Fixed a possible issue when compiling a game that targets iOS and the right Xamarin version cannot be found</li>
+</ul>
+<h3 id="version-2021--8-june-2017">Version 2.0.2.1 — 8 June 2017</h3>
+<h4 id="improvements-1">Improvements</h4>
+<h5 id="game-studio-3">Game Studio</h5>
+<ul>
+<li>Visual Studio version picker now shows the installation nickname to easily differentiate when multiple instances are installed side by side</li>
+<li>Add the concept of <em>active scene</em> in the scene editor. Dropping an asset to the scene view will an entity add to the currently active scene instead of the root scene</li>
+</ul>
+<h5 id="graphics-2">Graphics</h5>
+<ul>
+<li>VR: Added a CopyMirror option to control if VR rendering is copied back to current render target</li>
+<li>Shaders: StructuredBuffer were being declared before their struct type; ordering should now be correct</li>
+</ul>
+<h4 id="bug-fixes-2">Bug fixes</h4>
+<h5 id="game-studio-4">Game Studio</h5>
+<ul>
+<li>Color Picker was behaving strangely due to some RGB to HSV conversion issues</li>
+<li>Global store.config was preventing Game Studio to find Xenko installation <a href="https://github.com/SiliconStudio/xenko/issues/576">#576</a></li>
+<li>Fix a crash that occurs when replacing a sprite in the property grid of a spritesheet</li>
+<li>Fix some string comparison that were using the current locale of the system, causing issues with some language such as Turkish</li>
+<li>Prevent modal windows from being minimized</li>
+<li>Restore some missing sliders in the property grid (that were replaced by a plain text box), review ranges and step values for most of them</li>
+<li>Fix a potential crash at serialization when a script had a null reference to another <code>Entity</code> or <code>EntityComponent</code> (and some other similar scenarios)</li>
+<li>Partial fix of the property grid template for entity component references</li>
+<li>Fix an issue with the property grid template used to edit <code>char</code> properties</li>
+</ul>
+<h5 id="vr-1">VR</h5>
+<ul>
+<li>Fix runtime crash when adding twice the same VR device API in the required API list</li>
+<li>OpenVR: camera was rotating around world center instead of camera center when a rotation was applied on entity</li>
+</ul>
+<h5 id="graphics-3">Graphics</h5>
+<ul>
+<li>Fixed point lights not casting shadows from objects that have tessellation enabled</li>
+<li>Fixed a bug where some lights would not render <a href="https://github.com/SiliconStudio/xenko/issues/586">#586</a></li>
+</ul>
+<h5 id="android">Android</h5>
+<ul>
+<li>Fix a memory allocation that could make a game crash at startup on certain devices.</li>
+</ul>
+<h5 id="others">Others</h5>
+<ul>
+<li>Connection Router was not running properly if the Game Studio of that Xenko version didn't run first</li>
+<li>Add <code>*.lock.json</code> pattern to generated <code>.gitignore</code> file (when creating a project)</li>
+</ul>
+<h3 id="version-2031--24-july-2017">Version 2.0.3.1 — 24 July 2017</h3>
+<ul>
+<li>Extend closure time of the promotion to 11:30am, January 1st, 2018 (UTC+09:00).</li>
+</ul>
+<h3 id="version-2041--23-august-2017">Version 2.0.4.1 — 23 August 2017</h3>
+<ul>
+<li>Fix an issue with latest Visual Studio and MSBuild (15.3) <a href="https://github.com/SiliconStudio/xenko/issues/617">#617</a> related to <a href="https://github.com/Microsoft/msbuild/issues/2369">msbuild #2369</a>.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-2.0.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

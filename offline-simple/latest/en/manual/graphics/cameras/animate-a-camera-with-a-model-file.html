@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Animate a camera with a model file | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Animate a camera with a model file | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/cameras/animate-a-camera-with-a-model-file.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../toc.js"></script>
+<script src="../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="animate-a-camera-with-a-model-file">Animate a camera with a model file</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Artist</span></p>
+<p>Like other entities, you can <a href="../../animation/index.html">animate</a> cameras using animations imported from 3D model files such as <code>.3ds</code>, <code>.fbx</code>, and <code>.obj</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To animate a camera using a model file, you first need to bake the animation using your modeling tool (eg Maya, 3ds Max or Blender).
+Stride doesn't support cameras animated using target cameras.</p>
+</div>
+<p>If the camera moves independently, the simplest method is to export the camera animation as a separate file, enable the <strong>root motion</strong> option on the animation, then add the camera, animation, and animation script to the same entity. If the animations include FOV or near or far plane animations, the Stride camera updates accordingly. With this method, you don't need a model or a skeleton.</p>
+<p>If you want the camera to move in tandem with another animation — for example, if the camera is held by a cameraman character with its own model, skeleton and animation — use a <a href="../../animation/model-node-links.html">model node link</a> component to link the camera entity to the cameraman's movements.</p>
+<h2 id="animate-a-camera-independently">Animate a camera independently</h2>
+<p>To do this, you need the following assets in your project:</p>
+<ul>
+<li>a <a href="../index.html">camera entity</a>, the camera to be animated</li>
+<li>an <a href="../../animation/import-animations.html">animation</a>, to animate the camera (exported separately in your modeling tool)</li>
+<li>an <a href="../../animation/animation-scripts.html">animation script</a>, to play the animation</li>
+</ul>
+<ol>
+<li><p>In the <strong>Asset View</strong>, select the animation asset you want to use to animate the camera.</p>
+<p><img src="media/select-animation1.png" alt="Select animation asset"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For instructions about how import animations, see <a href="../../animation/import-animations.html">Import animations</a>.</p>
+</div>
+</li>
+<li><p>In the <strong>Property Grid</strong>, enable <strong>Root motion</strong>.</p>
+<p><img src="media/enable-root-motion.png" alt="Enable root motion"></p>
+<p>When root motion is enabled, Stride applies the <strong>root node animation</strong> to the <a class="xref" href="../../../api/Stride.Engine.TransformComponent.html">TransformComponent</a> of the entity you add the animation to, instead of applying it to the skeleton.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If there is no skeleton specified in <strong>Skeleton</strong>, Stride always applies the animation to <a class="xref" href="../../../api/Stride.Engine.TransformComponent.html">TransformComponent</a>, even if <strong>root motion</strong> is disabled.</p>
+</div>
+</li>
+<li><p>In the <strong>Scene Editor</strong>, select the entity that contains the camera you want to animate.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For instructions about how add cameras, see <a href="index.html">Cameras</a>.</p>
+</div>
+</li>
+<li><p>In the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Animations</strong>.</p>
+<p><img src="media/add-animations-component-to-camera.png" alt="Select an entity"></p>
+<p>Game Studio adds an animation component to the entity.</p>
+<p><img src="media/animation-component-added-to-camera.png" alt="Animation component"></p>
+</li>
+<li><p>Next to <strong>Animations</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>) and type a name.</p>
+<p><img src="media/animation-name.png" alt="Add animation"></p>
+<p>Game Studio adds an animation to the list.</p>
+<p><img src="media/animation-added.png" alt="Animation added"></p>
+</li>
+<li><p>Next to the animation you added, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="media/select-mycamera-animation.png" alt="Select an asset"></p>
+</li>
+<li><p>Select the animation you want to use to animate the camera and click <strong>OK</strong>.</p>
+</li>
+<li><p>Click <strong>Add component</strong> and select the animation script you want to use to animate the camera.</p>
+<p><img src="media/add-animation-script.png" alt="Add animation script"></p>
+<p>Game Studio adds the script to the entity as a component.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For instructions about how to add animation scripts, see <a href="../../animation/animation-scripts.html">Animation scripts</a>.</p>
+</div>
+</li>
+<li><p>Under the script component, next to <strong>Animations</strong>, click <img src="../../game-studio/media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="../../animation/media/add-animation-to-list.png" alt="Add animation to the list"></p>
+</li>
+<li><p>Next to <strong>Clip</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<p><img src="media/select-mycamera-animation.png" alt="Select an asset"></p>
+</li>
+<li><p>Select the animation asset you want to use to animate the camera and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>At runtime, the camera uses the animation. If the animation includes FOV or near or far plane animations, the Stride camera updates accordingly.</p>
+<h2 id="attach-the-camera-to-a-node-on-another-model">Attach the camera to a node on another model</h2>
+<p>To move a camera in tandem with another model, create a separate entity for the camera, then use a <strong>model node link</strong> component to link the entity to the correct node.</p>
+<p>To do this, you need the following assets in your project:</p>
+<ul>
+<li>a <a href="../index.html">camera entity</a>, the camera you want to animate</li>
+<li>a <a href="../../animation/index.html">model</a>, to attach the camera to</li>
+<li>a <a href="../../animation/index.html">skeleton</a> that matches the model</li>
+<li>an <a href="../../animation/index.html">animation</a>, to animate the model</li>
+<li>an <a href="../../animation/animation-scripts.html">animation script</a>, to play the animation</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>FOV and near or far plane animations are ignored if you use this method.</p>
+</div>
+<ol>
+<li><p>In the <strong>Asset View</strong>, select the model you want to link the camera to. Next to <strong>Skeleton</strong>, make sure a skeleton is specified that matches the model.</p>
+</li>
+<li><p>Make sure the entity you want to attach the camera to has the model, animation clip, and animation script components needed to animate it.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For instructions about how to add these, see <a href="../../animation/index.html">Animation</a>.</p>
+</div>
+</li>
+<li><p>With the camera entity selected, in the <strong>Property Grid</strong>, click <strong>Add component</strong> and select <strong>Model node link</strong>.</p>
+<p><img src="../../particles/tutorials/media/add-model-node-link.png" alt="Add component"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <a class="xref" href="../../../api/Stride.Engine.TransformComponent.html">TransformComponent</a> applies an offset to the model node position. If you don't want to add an offset, make sure the <a class="xref" href="../../../api/Stride.Engine.TransformComponent.html">TransformComponent</a> is set to <code>0,0,0</code>.</p>
+</div>
+<p>Game Studio adds a model link component to the entity.</p>
+<p><img src="../../animation/media/model-node-component.png" alt="Model node link component"></p>
+</li>
+<li><p>Next to <strong>Target</strong>, click <img src="../../game-studio/media/hand-icon.png" alt="Hand icon"> and select the entity that has the model you want to link the camera to.</p>
+<p><img src="../../animation/media/select-an-entity-window.png" alt="Select an entity"></p>
+<p>Alternatively, leave the <strong>Target</strong> field blank. In the <strong>Entity Tree</strong>, drag the <strong>camera entity</strong> you want to animate to the entity that contains the model. Stride links the entity to the model on the parent entity.</p>
+<p><img src="media/parent-and-child.png" alt="Parent and child"></p>
+</li>
+<li><p>In <strong>Node name</strong>, select the node you want to link the camera to.</p>
+<p><img src="media/select-node.png" alt="Node link"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The entity you link to must have a model with a skeleton, even if the model isn't visible at runtime.</p>
+</div>
+</li>
+</ol>
+<p>At runtime, the camera uses the animation.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="index.html">Cameras</a></li>
+<li><a href="../../animation/model-node-links.html">Model node links</a></li>
+<li><a href="../../animation/index.html">Animation</a></li>
+<li><a href="../../animation/animation-scripts.html">Animation scripts</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/cameras/animate-a-camera-with-a-model-file.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

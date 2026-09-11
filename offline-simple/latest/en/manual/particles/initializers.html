@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Particle initializers | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Particle initializers | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/initializers.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="particle-initializers">Particle initializers</h1>
+
+<p><span class="badge text-bg-primary">Intermediate</span>
+<span class="badge text-bg-success">Artist</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p><strong>Initializers</strong> control the states of particles such as position, velocity, size, and so on when the particles are first spawned. They have no effect on particles spawned on previous frames.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Some <a href="updaters.html">updaters</a> act change the particle's value at the <em>end</em> of the frame. They effectively overwrite any initial values set by a similar initializer. Such is the case with all animations. They operate on the particle's lifetime and a color animation updater will overwrite any initial values from a color initializer.</p>
+</div>
+<p>Similarly, initializers which operate on the same field are exclusive and only the bottom one will have any effect, since they are executed in order. For example if you assign two color initializer, only the second one will have any effect.]</p>
+<h2 id="common-properties">Common properties</h2>
+<p>Several properties are common across many initializers.</p>
+<p><img src="media/particles-reference-initializers-1.png" alt="media/particles-reference-initializers-1.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Debug draw</td>
+<td>Draws a debug wireframe in the scene to show the boundaries of the initializer. This is only visible in the Scene Editor, not at runtime.</td>
+</tr>
+<tr>
+<td>Position inheritance</td>
+<td>Inherit the particle system component position, as defined in the particle entity's Transform component</td>
+</tr>
+<tr>
+<td>Position offset</td>
+<td>Additional translation of the module. If it inherits the parent position, this is applied on top of the inherited position.</td>
+</tr>
+<tr>
+<td>Rotation inheritance</td>
+<td>Inherit the particle system component's rotation, as defined in the Transform component</td>
+</tr>
+<tr>
+<td>Rotation offset</td>
+<td>Additional rotation of the module. If it inherits the parent's rotation, this is applied on top of the inherited rotation.</td>
+</tr>
+<tr>
+<td>Scale inheritance</td>
+<td>Inherit the particle system component's uniform scale, as defined in the Transform component</td>
+</tr>
+<tr>
+<td>Scale offset</td>
+<td>Additional scaling of the module. If it inherits the parent's scale, this is applied on top of the inherited scale.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, a velocity initializer can change its direction depending on the parent's rotation or decide to ignore it and always shoot particles in a fixed direction.</p>
+<p>On the other hand, size initializers don't change based on the parent's rotation, so the rotation fields won't appear at all.</p>
+<h2 id="position">Position</h2>
+<p>Particles are spawned in an axis-aligned bounding box, defined by its left lower back corner and its right upper front corner.</p>
+<p><img src="media/particles-reference-initializers-2.png" alt="media/particles-reference-initializers-2.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>Used for random numbers. Set it to the same value to force the position to be coupled with other particle fields which have three properties (X, Y, Z), eg velocity. Make them different to force the position to be unique and independent from other fields</td>
+</tr>
+<tr>
+<td>Position min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Position max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+</tbody>
+</table>
+<p>This image shows the bounding box where particles initially appear for this emitter. In addition to the corners (-1, 0.8, -1) ~ (1, 1, 1), the box is further rotated by 45 degrees as seen from the offset rotation.</p>
+<p><img src="media/particles-reference-initializers-3.png" alt="media/particles-reference-initializers-3.png"></p>
+<h2 id="velocity">Velocity</h2>
+<p>Particles spawn with initial velocity which ranges between the defined values. The velocity is independent in all three directions between X, Y and Z.</p>
+<p><img src="media/particles-reference-initializers-4.png" alt="media/particles-reference-initializers-4.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the velocity to be coupled with other particle fields which have 3 properties (X, Y, Z), like position for example. Make them different to force the velocity to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Velocity min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Velocity max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+</tbody>
+</table>
+<h2 id="size">Size</h2>
+<p>Initial size sets the particle's uniform size when it's spawned for the first time. A size of 1 will result in a 1 meter by 1 meter billboard or quad when rendered.</p>
+<p><img src="media/particles-reference-initializers-5.png" alt="media/particles-reference-initializers-5.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the size to be coupled with other particle fields which have 1 property, like color for example. Make them different to force the size to be unique and independent from other fields</td>
+</tr>
+<tr>
+<td>Random size</td>
+<td>Shows the minimum and maximum size a particle can have at spawn time</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rotation">Rotation</h2>
+<p>Initial rotation sets the particle's angular rotation when facing the camera. Positive values are clockwise rotations. The field only has meaning for camera-facing particles, such as billboards. It has no effect on oriented quads and models.</p>
+<p><img src="media/particles-reference-initializers-6.png" alt="media/particles-reference-initializers-6.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the angle to be coupled with other particle fields which have 1 property, like color for example. Make them different to force the angle to be unique and independent from other fields</td>
+</tr>
+<tr>
+<td>Angle (degrees)</td>
+<td>The minimum and maximum value, in degrees, for the initial rotation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="color">Color</h2>
+<p>Initial color sets the particle's initial color at spawn time. It goes into the vertex buffer when building the particles and can be used by the material, but might not if the option is not set in the material itself. If setting the color has no effect please refer to the <a href="materials.html">Material</a> page for further discussion.</p>
+<p><img src="media/particles-reference-initializers-7.png" alt="media/particles-reference-initializers-7.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the color to be coupled with other particle fields which have 1 property, like size for example. Make them different to force the color to be unique and independent from other fields</td>
+</tr>
+<tr>
+<td>Color A</td>
+<td>The first value, in hexadecimal code. The color will be a random tint between this and the second color.</td>
+</tr>
+<tr>
+<td>Color B</td>
+<td>The second value, in hexadecimal code. The color will be a random tint between this and the first color.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3d-orientation">3D Orientation</h2>
+<p>Initial 3D orientation sets the orientation for 3D-aware particles when they first spawn. The editable fields use euclidean rotation which is packed into a quaternion orientation by the engine. The interpolated value is on the shortest path  between the two orientations, rather than interpolating each value separately.</p>
+<p><img src="media/particles-reference-initializers-8.png" alt="media/particles-reference-initializers-8.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the orientation to be coupled with other particle fields which have 1 property, like size for example. Make them different to force the orientation to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Orientation A</td>
+<td>The first oriented position</td>
+</tr>
+<tr>
+<td>Orientation B</td>
+<td>The second oriented position</td>
+</tr>
+</tbody>
+</table>
+<h2 id="direction">Direction</h2>
+<p>This initializer creates the <strong>Direction</strong> field in the particle properties and sets its initial value. Some shape builders, like the Trail shape or the Direction Aligned Sprite shape use the particle's direction to properly display it.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the direction to be coupled with other particle fields which have 3 properties (X, Y, Z), like position for example. Make them different to force the velocity to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Direction min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Direction max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spawn-order">Spawn Order</h2>
+<p>This initializer has no properties. It simply sets an increasing number to each particle spawned from this emitter, starting from 0. The spawn order can be used for sorting or some custom calculations.</p>
+<h2 id="position-arc">Position (Arc)</h2>
+<p>The arc position initializer positions the particles in an arc (or a straight line if the arc's height is 0) between two point, the emitter's position and a target transform component. With random position offset you can cause the particles to deviate a little from their original location on the arc.</p>
+<p><img src="media/particles-reference-initializers-9.png" alt="media/particles-reference-initializers-5.png"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the position to be coupled with other particle fields which have 3 properties (X, Y, Z), like velocity for example. Make them different to force the position to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Position min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Position max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>Allows you to pick up an Entity for the end of the arc. If no Entity is set, Fallback Target will be used, which is an offset from the emitter's location.</td>
+</tr>
+<tr>
+<td>Fallback Target</td>
+<td>Offset from the emitter's location used as the end point in case Target is not set</td>
+</tr>
+<tr>
+<td>Arc Height</td>
+<td>The height of the arc at its highest point (middle of the distance between the two points). By default it's the Y-up vector, but can be rotated with rotation offset and rotation inheritance</td>
+</tr>
+<tr>
+<td>Ordered</td>
+<td>If checked, new particles will appear in order from the emitter towards the target. If unchecked, new particles will appear randomly on the arc anywhere between the emitter and the target. If you plan to visualize the particles as a ribbon or a trail you should set this box to checked.</td>
+</tr>
+<tr>
+<td>Fixed count</td>
+<td>By default particles will appear on the arc at distances enough for the maximum number of particles to fit exactly on the line. If you want to control spawn rate and distance, you can set how many fixed &quot;positions&quot; are there on the arc. For example, with a fixed count of 10 and Ordered spawning, the first 10 particles will appear in order, then the 11th particle will appear from the beginning, at the same position as the first, and so on.</td>
+</tr>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the position to be coupled with other particle fields which have 3 properties (X, Y, Z), like velocity for example. Make them different to force the position to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Position min</td>
+<td>Left lower back corner for the box. This is an offset in addition to the arc position.</td>
+</tr>
+<tr>
+<td>Position max</td>
+<td>Right upper front corner for the box. This is an offset in addition to the arc position.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="position-parent">Position (parent)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the position to be coupled with other particle fields which have 3 properties (X, Y, Z), like velocity for example. Make them different to force the position to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Position min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Position max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+<tr>
+<td>Parent emitter</td>
+<td>You have to type the name of the parent emitter. Child particles' positions will match the parent emitter's particles' positions.</td>
+</tr>
+<tr>
+<td>Parent Offset</td>
+<td>Random seed used to couple or decouple the way a parent particle is chosen. For example, if you want to pick position <em>and</em> color from seemingly random particles, you can use the same offset. If you want to avoid such connection, you can use different offsets for position and color initializers.</td>
+</tr>
+<tr>
+<td>Spawn Control Group</td>
+<td>When None, parents will be picked randomly. When set to one of the four groups, only particles from a specific parent will be initialized. It should match a control group from the <strong>Spawn from Parent</strong> spawner to work properly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="velocity-parent">Velocity (parent)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the velocity to be coupled with other particle fields which have 3 properties (X, Y, Z), like position for example. Make them different to force the velocity to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Velocity min</td>
+<td>Left lower back corner for the box</td>
+</tr>
+<tr>
+<td>Velocity max</td>
+<td>Right upper front corner for the box</td>
+</tr>
+<tr>
+<td>Parent emitter</td>
+<td>You have to type the name of the parent emitter. Child particles' positions will match the parent emitter's particles' positions.</td>
+</tr>
+<tr>
+<td>Parent Offset</td>
+<td>Random seed used to couple or decouple the way a parent particle is chosen. For example, if you want to pick position <em>and</em> color from seemingly random particles, you can use the same offset. If you want to avoid such connection, you can use different offsets for position and color initializers.</td>
+</tr>
+<tr>
+<td>Spawn Control Group</td>
+<td>When None, parents will be picked randomly. When set to one of the four groups, only particles from a specific parent will be initialized. It should match a control group from the <em>Spawn from Parent</em> spawner to work properly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="size-parent">Size (parent)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the size to be coupled with other particle fields which have 1 property, like color for example. Make them different to force the size to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Random size</td>
+<td>Shows the minimum and maximum size a particle can have at spawn time</td>
+</tr>
+<tr>
+<td>Parent emitter</td>
+<td>You have to type the name of the parent emitter. Child particles' positions will match the parent emitter's particles' positions.</td>
+</tr>
+<tr>
+<td>Parent Offset</td>
+<td>Random seed used to couple or decouple the way a parent particle is chosen. For example, if you want to pick position <em>and</em> color from seemingly random particles, you can use the same offset. If you want to avoid such connection, you can use different offsets for position and color initializers.</td>
+</tr>
+<tr>
+<td>Spawn Control Group</td>
+<td>When None, parents will be picked randomly. When set to one of the four groups, only particles from a specific parent will be initialized. It should match a control group from the <em>Spawn from Parent</em> spawner to work properly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="color-parent">Color (parent)</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed offset</td>
+<td>This is used for random numbers. Set it to the same value to force the color to be coupled with other particle fields which have 1 property, like size for example. Make them different to force the color to be unique and independent from other fields.</td>
+</tr>
+<tr>
+<td>Color A</td>
+<td>The first value, in hexadecimal code. The color will be a random tint between this and the second color.</td>
+</tr>
+<tr>
+<td>Color B</td>
+<td>The second value, in hexadecimal code. The color will be a random tint between this and the first color.</td>
+</tr>
+<tr>
+<td>Parent emitter</td>
+<td>You have to type the name of the parent emitter. Child particles' positions will match the parent emitter's particles' positions.</td>
+</tr>
+<tr>
+<td>Parent Offset</td>
+<td>Random seed used to couple or decouple the way a parent particle is chosen. For example, if you want to pick position <em>and</em> color from seemingly random particles, you can use the same offset. If you want to avoid such connection, you can use different offsets for position and color initializers.</td>
+</tr>
+<tr>
+<td>Spawn Control Group</td>
+<td>When None, parents will be picked randomly. When set to one of the four groups, only particles from a specific parent will be initialized. It should match a control group from the <em>Spawn from Parent</em> spawner to work properly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spawn-order-parent">Spawn Order (parent)</h2>
+<p>This initializer requires the parent emitter to also have a Spawn Order initializer. It combines the parent's spawn number with its own, effectively creating groups of particles among the children. This initializer is required to properly sort and render child ribbon particles.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parent emitter</td>
+<td>You have to type the name of the parent emitter. Child particles' positions will match the parent emitter's particles' positions.</td>
+</tr>
+<tr>
+<td>Parent Offset</td>
+<td>Random seed used to couple or decouple the way a parent particle is chosen. For example, if you want to pick position <em>and</em> color from seemingly random particles, you can use the same offset. If you want to avoid such connection, you can use different offsets for position and color initializers.</td>
+</tr>
+<tr>
+<td>Spawn Control Group</td>
+<td>When None, parents will be picked randomly. When set to one of the four groups, only particles from a specific parent will be initialized. It should match a control group from the <em>Spawn from Parent</em> spawner to work properly.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><p><a href="create-particles.html">Create particles</a></p>
+</li>
+<li><p><a href="emitters.html">Emitters</a></p>
+</li>
+<li><p><a href="shapes.html">Shapes</a></p>
+</li>
+<li><p><a href="materials.html">Materials</a></p>
+</li>
+<li><p><a href="spawners.html">Spawners</a></p>
+</li>
+<li><p><a href="updaters.html">Updaters</a></p>
+</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/particles/initializers.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

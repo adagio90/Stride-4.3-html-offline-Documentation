@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AssetDependencies | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AssetDependencies | Stride API ">
+      
+      <meta name="description" content="Describes dependencies (in/out/broken) for a specific asset.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Assets_Analysis_AssetDependencies.md&amp;value=---%0Auid%3A%20Stride.Core.Assets.Analysis.AssetDependencies%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Assets.Analysis.AssetDependencies">
+
+
+
+  <h1 id="Stride_Core_Assets_Analysis_AssetDependencies" data-uid="Stride.Core.Assets.Analysis.AssetDependencies" class="text-break">
+Class AssetDependencies  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Assets.html">Assets</a>.<a class="xref" href="Stride.Core.Assets.Analysis.html">Analysis</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Assets.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Describes dependencies (in/out/broken) for a specific asset.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AssetDependencies</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AssetDependencies</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="Stride_Core_Assets_Analysis_AssetDependencies_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>There are 3 types of dependencies:</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;in&lt;/code&gt; dependencies: through the &lt;xref href=&quot;Stride.Core.Assets.Analysis.AssetDependencies.LinksIn&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; property, contains assets
+that are referencing this asset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;out&lt;/code&gt; dependencies: through the &lt;xref href=&quot;Stride.Core.Assets.Analysis.AssetDependencies.LinksOut&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; property, contains assets
+that are referenced by this asset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;broken&lt;/code&gt; dependencies: through the &lt;xref href=&quot;Stride.Core.Assets.Analysis.AssetDependencies.BrokenLinksOut&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; property,
+contains output links to assets that are missing.&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies__ctor_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.#ctor*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies__ctor_Stride_Core_Assets_Analysis_AssetDependencies_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.#ctor(Stride.Core.Assets.Analysis.AssetDependencies)">
+  AssetDependencies(AssetDependencies)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetDependencies(AssetDependencies set)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>set</code> <a class="xref" href="Stride.Core.Assets.Analysis.AssetDependencies.html">AssetDependencies</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies__ctor_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.#ctor*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies__ctor_Stride_Core_Assets_AssetItem_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.#ctor(Stride.Core.Assets.AssetItem)">
+  AssetDependencies(AssetItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetDependencies(AssetItem assetItem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assetItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_BrokenLinksOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.BrokenLinksOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_BrokenLinksOut" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.BrokenLinksOut">
+  BrokenLinksOut
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the links out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IContentLink&gt; BrokenLinksOut { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Core.Assets.Analysis.IContentLink.html">IContentLink</a>&gt;</dt>
+    <dd><p>The missing references.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_HasMissingDependencies_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.HasMissingDependencies*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_HasMissingDependencies" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.HasMissingDependencies">
+  HasMissingDependencies
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance has missing references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasMissingDependencies { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if this instance has missing references; otherwise,
+<code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_Id_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Id*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_Id" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetId Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_Item_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Item*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_Item" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Item">
+  Item
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the itemReferenced.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetItem Item { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The itemReferenced.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_LinksIn_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.LinksIn*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_LinksIn" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.LinksIn">
+  LinksIn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the links coming into the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AssetLink&gt; LinksIn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_LinksOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.LinksOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_LinksOut" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.LinksOut">
+  LinksOut
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the links going out of the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AssetLink&gt; LinksOut { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_MissingDependencyCount_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.MissingDependencyCount*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_MissingDependencyCount" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.MissingDependencyCount">
+  MissingDependencyCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of missing dependencies of the asset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int MissingDependencyCount { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddBrokenLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddBrokenLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddBrokenLinkOut_Stride_Core_Assets_Analysis_IContentLink_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddBrokenLinkOut(Stride.Core.Assets.Analysis.IContentLink)">
+  AddBrokenLinkOut(IContentLink)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a broken link out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddBrokenLinkOut(IContentLink contentLink)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentLink</code> <a class="xref" href="Stride.Core.Assets.Analysis.IContentLink.html">IContentLink</a></dt>
+    <dd><p>The broken link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A broken link to this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddBrokenLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddBrokenLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddBrokenLinkOut_Stride_Core_Serialization_Contents_IReference_Stride_Core_Assets_Analysis_ContentLinkType_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddBrokenLinkOut(Stride.Core.Serialization.Contents.IReference,Stride.Core.Assets.Analysis.ContentLinkType)">
+  AddBrokenLinkOut(IReference, ContentLinkType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a broken link out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddBrokenLinkOut(IReference reference, ContentLinkType contentLinkType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reference</code> <a class="xref" href="Stride.Core.Serialization.Contents.IReference.html">IReference</a></dt>
+    <dd><p>the reference to the missing element</p>
+</dd>
+    <dt><code>contentLinkType</code> <a class="xref" href="Stride.Core.Assets.Analysis.ContentLinkType.html">ContentLinkType</a></dt>
+    <dd><p>The type of link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A broken link to this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkIn_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkIn*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkIn_Stride_Core_Assets_Analysis_AssetLink_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkIn(Stride.Core.Assets.Analysis.AssetLink)">
+  AddLinkIn(AssetLink)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a link coming from the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLinkIn(AssetLink contentLink)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentLink</code> <a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The link in</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A link from this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkIn_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkIn*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkIn_Stride_Core_Assets_AssetItem_Stride_Core_Assets_Analysis_ContentLinkType_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkIn(Stride.Core.Assets.AssetItem,Stride.Core.Assets.Analysis.ContentLinkType)">
+  AddLinkIn(AssetItem, ContentLinkType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a link going into the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLinkIn(AssetItem fromItem, ContentLinkType contentLinkType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is coming from</p>
+</dd>
+    <dt><code>contentLinkType</code> <a class="xref" href="Stride.Core.Assets.Analysis.ContentLinkType.html">ContentLinkType</a></dt>
+    <dd><p>The type of link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A link from this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkOut_Stride_Core_Assets_Analysis_AssetLink_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkOut(Stride.Core.Assets.Analysis.AssetLink)">
+  AddLinkOut(AssetLink)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a link going to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLinkOut(AssetLink contentLink)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentLink</code> <a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The link out</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A link to this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_AddLinkOut_Stride_Core_Assets_AssetItem_Stride_Core_Assets_Analysis_ContentLinkType_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.AddLinkOut(Stride.Core.Assets.AssetItem,Stride.Core.Assets.Analysis.ContentLinkType)">
+  AddLinkOut(AssetItem, ContentLinkType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a link going to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddLinkOut(AssetItem toItem, ContentLinkType contentLinkType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is going to</p>
+</dd>
+    <dt><code>contentLinkType</code> <a class="xref" href="Stride.Core.Assets.Analysis.ContentLinkType.html">ContentLinkType</a></dt>
+    <dd><p>The type of link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>A link to this element already exists</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_GetBrokenLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetBrokenLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_GetBrokenLinkOut_Stride_Core_Assets_AssetId_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetBrokenLinkOut(Stride.Core.Assets.AssetId)">
+  GetBrokenLinkOut(AssetId)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the broken link out to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IContentLink GetBrokenLinkOut(AssetId id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The id of the element the link is going to</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.IContentLink.html">IContentLink</a></dt>
+    <dd><p>The link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There is not link to the provided element</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>toItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_GetLinkIn_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetLinkIn*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_GetLinkIn_Stride_Core_Assets_AssetItem_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetLinkIn(Stride.Core.Assets.AssetItem)">
+  GetLinkIn(AssetItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the link coming from the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetLink GetLinkIn(AssetItem fromItem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is coming from</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There is not link to the provided element</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>fromItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_GetLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_GetLinkOut_Stride_Core_Assets_AssetItem_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.GetLinkOut(Stride.Core.Assets.AssetItem)">
+  GetLinkOut(AssetItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the link going to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetLink GetLinkOut(AssetItem toItem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is going to</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>There is not link to the provided element</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>toItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveBrokenLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveBrokenLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveBrokenLinkOut_Stride_Core_Assets_AssetId_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveBrokenLinkOut(Stride.Core.Assets.AssetId)">
+  RemoveBrokenLinkOut(AssetId)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the broken link to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IContentLink RemoveBrokenLinkOut(AssetId id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="Stride.Core.Assets.AssetId.html">AssetId</a></dt>
+    <dd><p>The id to the missing element</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.IContentLink.html">IContentLink</a></dt>
+    <dd><p>The removed link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>toItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveLinkIn_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveLinkIn*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveLinkIn_Stride_Core_Assets_AssetItem_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveLinkIn(Stride.Core.Assets.AssetItem)">
+  RemoveLinkIn(AssetItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the link coming from the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetLink RemoveLinkIn(AssetItem fromItem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is coming from</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The removed link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>fromItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveLinkOut_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveLinkOut*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_RemoveLinkOut_Stride_Core_Assets_AssetItem_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.RemoveLinkOut(Stride.Core.Assets.AssetItem)">
+  RemoveLinkOut(AssetItem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the link going to the provided element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AssetLink RemoveLinkOut(AssetItem toItem)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toItem</code> <a class="xref" href="Stride.Core.Assets.AssetItem.html">AssetItem</a></dt>
+    <dd><p>The element the link is going to</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Assets.Analysis.AssetLink.html">AssetLink</a></dt>
+    <dd><p>The removed link</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>toItem</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Assets_Analysis_AssetDependencies_Reset_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Reset*"></a>
+
+  <h3 id="Stride_Core_Assets_Analysis_AssetDependencies_Reset_System_Boolean_" data-uid="Stride.Core.Assets.Analysis.AssetDependencies.Reset(System.Boolean)">
+  Reset(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets this instance and clear all dependencies (including missing)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset(bool keepParents)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keepParents</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/assets/Stride.Core.Assets/Analysis/AssetDependencies.cs/#L21" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

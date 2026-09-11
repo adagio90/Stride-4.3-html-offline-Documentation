@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Plane | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Plane | Stride API ">
+      
+      <meta name="description" content="Represents a plane in three dimensional space.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Plane.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Plane%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Plane">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Plane" data-uid="Stride.Core.Mathematics.Plane" class="text-break">
+Struct Plane  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a plane in three dimensional space.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public struct Plane : IEquatable&lt;Plane&gt;, ISpanFormattable, IFormattable, IIntersectableWithRay</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+      <div><a class="xref" href="Stride.Core.Mathematics.IIntersectableWithRay.html">IIntersectableWithRay</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Plane.#ctor(Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3)">
+  Plane(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(Vector3 point, Vector3 normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Any point that lies along the plane.</p>
+</dd>
+    <dt><code>normal</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The normal vector to the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Plane.#ctor(Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3,Stride.Core.Mathematics.Vector3)">
+  Plane(Vector3, Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(Vector3 point1, Vector3 point2, Vector3 point3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>First point of a triangle defining the plane.</p>
+</dd>
+    <dt><code>point2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Second point of a triangle defining the plane.</p>
+</dd>
+    <dt><code>point3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Third point of a triangle defining the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_Stride_Core_Mathematics_Vector3_System_Single_" data-uid="Stride.Core.Mathematics.Plane.#ctor(Stride.Core.Mathematics.Vector3,System.Single)">
+  Plane(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(Vector3 value, float d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The normal of the plane.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance of the plane along its normal from the origin</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_System_Single_" data-uid="Stride.Core.Mathematics.Plane.#ctor(System.Single)">
+  Plane(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_System_Single_System_Single_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Plane.#ctor(System.Single,System.Single,System.Single,System.Single)">
+  Plane(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(float a, float b, float c, float d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The X component of the normal.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Y component of the normal.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Z component of the normal.</p>
+</dd>
+    <dt><code>d</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance of the plane along its normal from the origin.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane__ctor_" data-uid="Stride.Core.Mathematics.Plane.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane__ctor_System_Single___" data-uid="Stride.Core.Mathematics.Plane.#ctor(System.Single[])">
+  Plane(float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane(float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>The values to assign to the A, B, C, and D components of the plane. This must be an array with four elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Plane_D" data-uid="Stride.Core.Mathematics.Plane.D">
+  D
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The distance of the plane along its normal from the origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float D</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Plane_Normal" data-uid="Stride.Core.Mathematics.Plane.Normal">
+  Normal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The normal vector of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Normal</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Plane_Item_" data-uid="Stride.Core.Mathematics.Plane.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Item_System_Int32_" data-uid="Stride.Core.Mathematics.Plane.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float this[int index] { get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the A component, 1 for the B component, 2 for the C component, and 3 for the D component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value of the A, B, C, or D component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 3].</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Plane_Dot_" data-uid="Stride.Core.Mathematics.Plane.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Dot_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Vector4_" data-uid="Stride.Core.Mathematics.Plane.Dot(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Vector4)">
+  Dot(Plane, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of the specified vector and plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Dot(Plane left, Vector4 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The dot product of the specified plane and vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Dot_" data-uid="Stride.Core.Mathematics.Plane.Dot*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Dot_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector4__System_Single__" data-uid="Stride.Core.Mathematics.Plane.Dot(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector4@,System.Single@)">
+  Dot(ref readonly Plane, ref readonly Vector4, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L341"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of the specified vector and plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Dot(ref readonly Plane left, ref readonly Vector4 right, out float result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the dot product of the specified plane and vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_DotCoordinate_" data-uid="Stride.Core.Mathematics.Plane.DotCoordinate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_DotCoordinate_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Plane.DotCoordinate(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Vector3)">
+  DotCoordinate(Plane, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L374"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of a specified vector and the normal of the plane plus the distance value of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DotCoordinate(Plane left, Vector3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The dot product of a specified vector and the normal of the Plane plus the distance value of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_DotCoordinate_" data-uid="Stride.Core.Mathematics.Plane.DotCoordinate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_DotCoordinate_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__System_Single__" data-uid="Stride.Core.Mathematics.Plane.DotCoordinate(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@,System.Single@)">
+  DotCoordinate(ref readonly Plane, ref readonly Vector3, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L363"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of a specified vector and the normal of the plane plus the distance value of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DotCoordinate(ref readonly Plane left, ref readonly Vector3 right, out float result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the dot product of a specified vector and the normal of the Plane plus the distance value of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_DotNormal_" data-uid="Stride.Core.Mathematics.Plane.DotNormal*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_DotNormal_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Plane.DotNormal(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Vector3)">
+  DotNormal(Plane, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of the specified vector and the normal of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DotNormal(Plane left, Vector3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The dot product of the specified vector and the normal of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_DotNormal_" data-uid="Stride.Core.Mathematics.Plane.DotNormal*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_DotNormal_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__System_Single__" data-uid="Stride.Core.Mathematics.Plane.DotNormal(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@,System.Single@)">
+  DotNormal(ref readonly Plane, ref readonly Vector3, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the dot product of the specified vector and the normal of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DotNormal(ref readonly Plane left, ref readonly Vector3 right, out float result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The source vector.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the dot product of the specified vector and the normal of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Equals_" data-uid="Stride.Core.Mathematics.Plane.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Equals_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.Equals(Stride.Core.Mathematics.Plane)">
+  Equals(Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L781"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Plane value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Equals_" data-uid="Stride.Core.Mathematics.Plane.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Plane.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L793"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_GetHashCode_" data-uid="Stride.Core.Mathematics.Plane.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_GetHashCode" data-uid="Stride.Core.Mathematics.Plane.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L769"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_BoundingBox__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.BoundingBox@)">
+  Intersects(ref readonly BoundingBox)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref readonly BoundingBox box)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>box</code> <a class="xref" href="Stride.Core.Mathematics.BoundingBox.html">BoundingBox</a></dt>
+    <dd><p>The box to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_BoundingSphere__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.BoundingSphere@)">
+  Intersects(ref readonly BoundingSphere)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref readonly BoundingSphere sphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sphere</code> <a class="xref" href="Stride.Core.Mathematics.BoundingSphere.html">BoundingSphere</a></dt>
+    <dd><p>The sphere to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Plane@)">
+  Intersects(ref readonly Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Ray__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Ray@)">
+  Intersects(ref readonly Plane, out Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Plane plane, out Ray line)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to test.</p>
+</dd>
+    <dt><code>line</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>When the method completes, contains the line of intersection
+as a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>, or a zero ray if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Ray__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Ray@)">
+  Intersects(ref readonly Ray)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Ray__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Ray@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Ray, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray, out Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Stride.Core.Mathematics.Vector3.html#Stride_Core_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Ray__System_Single__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Ray@,System.Single@)">
+  Intersects(ref readonly Ray, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref readonly Ray ray, out float distance)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ray</code> <a class="xref" href="Stride.Core.Mathematics.Ray.html">Ray</a></dt>
+    <dd><p>The ray to test.</p>
+</dd>
+    <dt><code>distance</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref readonly Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Intersects_" data-uid="Stride.Core.Mathematics.Plane.Intersects*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Intersects_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Plane.Intersects(Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Intersects(ref readonly Vector3, ref readonly Vector3, ref readonly Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref readonly Vector3 vertex1, ref readonly Vector3 vertex2, ref readonly Vector3 vertex3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex1</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The first vertex of the triangle to test.</p>
+</dd>
+    <dt><code>vertex2</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The second vertex of the triagnle to test.</p>
+</dd>
+    <dt><code>vertex3</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The third vertex of the triangle to test.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></dt>
+    <dd><p>Whether the two objects intersected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Multiply_" data-uid="Stride.Core.Mathematics.Plane.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Multiply_Stride_Core_Mathematics_Plane_System_Single_" data-uid="Stride.Core.Mathematics.Plane.Multiply(Stride.Core.Mathematics.Plane,System.Single)">
+  Multiply(Plane, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L330"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales the plane by the given scaling factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane Multiply(Plane value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the plane.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The scaled plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Multiply_" data-uid="Stride.Core.Mathematics.Plane.Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Multiply_Stride_Core_Mathematics_Plane__System_Single_Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Multiply(Stride.Core.Mathematics.Plane@,System.Single,Stride.Core.Mathematics.Plane@)">
+  Multiply(ref readonly Plane, float, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales the plane by the given scaling factor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Multiply(ref readonly Plane value, float scale, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the plane.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the scaled plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Negate_" data-uid="Stride.Core.Mathematics.Plane.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Negate" data-uid="Stride.Core.Mathematics.Plane.Negate">
+  Negate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a plane by negating all its coefficients, which result in a plane in opposite direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Negate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Negate_" data-uid="Stride.Core.Mathematics.Plane.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Negate_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.Negate(Stride.Core.Mathematics.Plane)">
+  Negate(Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L490"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a plane by negating all its coefficients, which result in a plane in opposite direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane Negate(Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The flipped plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Negate_" data-uid="Stride.Core.Mathematics.Plane.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Negate_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Negate(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Plane@)">
+  Negate(ref readonly Plane, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a plane by negating all its coefficients, which result in a plane in opposite direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly Plane plane, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the flipped plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Normalize_" data-uid="Stride.Core.Mathematics.Plane.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Normalize" data-uid="Stride.Core.Mathematics.Plane.Normalize">
+  Normalize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the coefficients of the normal vector of the plane to make it of unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Normalize_" data-uid="Stride.Core.Mathematics.Plane.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Normalize_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.Normalize(Stride.Core.Mathematics.Plane)">
+  Normalize(Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L466"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the coefficients of the normal vector of the plane to make it of unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane Normalize(Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The normalized plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Normalize_" data-uid="Stride.Core.Mathematics.Plane.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Normalize_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Normalize(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Plane@)">
+  Normalize(ref readonly Plane, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L451"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes the coefficients of the normal vector of the plane to make it of unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(ref readonly Plane plane, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The source plane.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the normalized plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Normalize_" data-uid="Stride.Core.Mathematics.Plane.Normalize*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Normalize_System_Single_System_Single_System_Single_System_Single_Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Normalize(System.Single,System.Single,System.Single,System.Single,Stride.Core.Mathematics.Plane@)">
+  Normalize(float, float, float, float, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a plane of unit length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(float normalX, float normalY, float normalZ, float planeD, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>normalX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The X component of the normal.</p>
+</dd>
+    <dt><code>normalY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Y component of the normal.</p>
+</dd>
+    <dt><code>normalZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The Z component of the normal.</p>
+</dd>
+    <dt><code>planeD</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The distance of the plane along its normal from the origin.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the normalized plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Project_" data-uid="Stride.Core.Mathematics.Plane.Project*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Project_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Plane.Project(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Vector3)">
+  Project(Plane, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Projects a point onto a plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 Project(Plane plane, Vector3 point)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to project the point to.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to project.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The projected point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Project_" data-uid="Stride.Core.Mathematics.Plane.Project*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Project_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Core.Mathematics.Plane.Project(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Vector3@)">
+  Project(ref readonly Plane, ref readonly Vector3, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L407"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Projects a point onto a plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Project(ref readonly Plane plane, ref readonly Vector3 point, out Vector3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to project the point to.</p>
+</dd>
+    <dt><code>point</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The point to project.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The projected point.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_ToArray_" data-uid="Stride.Core.Mathematics.Plane.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_ToArray" data-uid="Stride.Core.Mathematics.Plane.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>A four-element array containing the components of the plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_ToString_" data-uid="Stride.Core.Mathematics.Plane.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_ToString" data-uid="Stride.Core.Mathematics.Plane.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L724"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_ToString_" data-uid="Stride.Core.Mathematics.Plane.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Plane.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L734"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Matrix_" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Matrix)">
+  Transform(Plane, Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L628"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a normalized plane by a matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane Transform(Plane plane, Matrix transformation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The normalized source plane.</p>
+</dd>
+    <dt><code>transformation</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation matrix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the transformed plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Quaternion_" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Quaternion)">
+  Transform(Plane, Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L533"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a normalized plane by a quaternion rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane Transform(Plane plane, Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The normalized source plane.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion rotation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The transformed plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Matrix__Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Matrix@,Stride.Core.Mathematics.Plane@)">
+  Transform(ref readonly Plane, ref readonly Matrix, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L607"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a normalized plane by a matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref readonly Plane plane, ref readonly Matrix transformation, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The normalized source plane.</p>
+</dd>
+    <dt><code>transformation</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation matrix.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the transformed plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Plane__" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Plane@)">
+  Transform(ref readonly Plane, ref readonly Quaternion, out Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L502"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms a normalized plane by a quaternion rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(ref readonly Plane plane, ref readonly Quaternion rotation, out Plane result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The normalized source plane.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion rotation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>When the method completes, contains the transformed plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane___Stride_Core_Mathematics_Matrix__" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane[],Stride.Core.Mathematics.Matrix@)">
+  Transform(Plane[], ref readonly Matrix)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L651"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms an array of normalized planes by a matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(Plane[] planes, ref readonly Matrix transformation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>planes</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>[]</dt>
+    <dd><p>The array of normalized planes to transform.</p>
+</dd>
+    <dt><code>transformation</code> <a class="xref" href="Stride.Core.Mathematics.Matrix.html">Matrix</a></dt>
+    <dd><p>The transformation matrix.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">planes</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_Transform_" data-uid="Stride.Core.Mathematics.Plane.Transform*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_Transform_Stride_Core_Mathematics_Plane___Stride_Core_Mathematics_Quaternion__" data-uid="Stride.Core.Mathematics.Plane.Transform(Stride.Core.Mathematics.Plane[],Stride.Core.Mathematics.Quaternion@)">
+  Transform(Plane[], ref readonly Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L567"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms an array of normalized planes by a quaternion rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Transform(Plane[] planes, ref readonly Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>planes</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a>[]</dt>
+    <dd><p>The array of normalized planes to transform.</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>The quaternion rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">planes</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Plane_op_Equality_" data-uid="Stride.Core.Mathematics.Plane.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_op_Equality_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.op_Equality(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Plane)">
+  operator ==(Plane, Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L702"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Plane left, Plane right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_op_Inequality_" data-uid="Stride.Core.Mathematics.Plane.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_op_Inequality_Stride_Core_Mathematics_Plane_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.op_Inequality(Stride.Core.Mathematics.Plane,Stride.Core.Mathematics.Plane)">
+  operator !=(Plane, Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L713"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Plane left, Plane right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_op_Multiply_" data-uid="Stride.Core.Mathematics.Plane.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_op_Multiply_Stride_Core_Mathematics_Plane_System_Single_" data-uid="Stride.Core.Mathematics.Plane.op_Multiply(Stride.Core.Mathematics.Plane,System.Single)">
+  operator *(Plane, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L682"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a plane by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane operator *(Plane plane, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the plane.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The scaled plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_op_Multiply_" data-uid="Stride.Core.Mathematics.Plane.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_op_Multiply_System_Single_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.op_Multiply(System.Single,Stride.Core.Mathematics.Plane)">
+  operator *(float, Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L671"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a plane by the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane operator *(float scale, Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale the plane.</p>
+</dd>
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The plane to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The scaled plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Plane_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.Plane.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Plane_op_UnaryNegation_Stride_Core_Mathematics_Plane_" data-uid="Stride.Core.Mathematics.Plane.op_UnaryNegation(Stride.Core.Mathematics.Plane)">
+  operator -(Plane)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L691"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a plane by negating all its coefficients, which result in a plane in opposite direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane operator -(Plane plane)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plane</code> <a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Plane.html">Plane</a></dt>
+    <dd><p>The negated plane.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Plane.cs/#L39" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

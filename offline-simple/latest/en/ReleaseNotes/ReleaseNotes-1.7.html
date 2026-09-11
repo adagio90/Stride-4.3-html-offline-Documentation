@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko release notes 1.7 | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko release notes 1.7 | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.7.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-release-notes-17">Xenko release notes 1.7</h1>
+
+<h2 id="highlights">Highlights</h2>
+<h3 id="rendering">Rendering</h3>
+<h4 id="forward">Forward+</h4>
+<p>Xenko now features <a href="http://www.humus.name/Articles/PracticalClusteredShading.pdf">Practical Clustered Shading</a>, a technique similar to Forward+ rendering.</p>
+<p>It allows you to use many point and spot lights at the same time.
+You will gain more control over the lighting of your scene by adding lights wherever they are needed.
+It also works with transparent objects out of the box, just like ordinary forward rendering does.</p>
+<p><a href="https://www.youtube.com/watch?v=QWZqNT9xD5Q" title="Hundreds of lights"><img src="media/ReleaseNotes-1.7/launcher_lights.jpg" alt="Hundreds of lights"></a></p>
+<p>If your game requires Direct3D10+ (or equivalent OpenGL), this will be the default setting - no changes needed! As a bonus, you'll see a decrease in compilation times and the number of shader permutations.</p>
+<p>We also took this opportunity to rewrite most of our lighting code for improved performance and extensibility.</p>
+<h4 id="vulkan">Vulkan</h4>
+<p><a href="https://www.khronos.org/vulkan/">Vulkan</a> joins our happy family of graphics platforms!
+Experimental support has also been added for Windows and Linux. Android will follow soon.</p>
+<p><img src="media/ReleaseNotes-1.7/Vulkan.png" alt="Vulkan"></p>
+<p>Together with Direct3D12 and the recent overhaul of our rendering pipeline, this is another step toward preparing Xenko for the next generation of graphics. Stay tuned for performance improvements and hard numbers in the near future.</p>
+<p>Try running your project on Vulkan by selecting it as the <strong>Preferred Graphics Platform</strong> in the <strong>Rendering Settings</strong> of your <strong>Game Settings</strong> asset.</p>
+<h3 id="gamestudio-improvements">GameStudio Improvements</h3>
+<h4 id="simplified-asset-creation">Simplified Asset Creation</h4>
+<p>The workflow to create assets has been simplified! The new menu for asset creation contains multiple templates for each type of asset. You can now import assets from files more directly. With Xenko's efficient search function, creating assets should be faster and easier than ever!</p>
+<p><img src="media/ReleaseNotes-1.7/NewAddAsset.png" alt="New add asset menu"></p>
+<h4 id="camera-preview">Camera Preview</h4>
+<p>We've updated GameStudio's camera preview to now display only the camera currently selected. It also now displays the borders and the camera's name making it easier to see the camera and it's settings.</p>
+<p><img src="media/ReleaseNotes-1.7/CameraPreview.png" alt="Camera preview"></p>
+<h4 id="drag--drop-assets-into-the-property-grid">Drag &amp; Drop Assets into the Property Grid</h4>
+<p>So far, you could drag &amp; drop assets into your scene or the tree view.</p>
+<p>New in this release, components can now be added to entities just by dragging &amp; dropping matching assets into the property grid.</p>
+<p><img src="media/ReleaseNotes-1.7/dragdrop_propertyview.gif" alt="Drag &amp; Drop into the Property Grid"></p>
+<h4 id="drag--drop-scripts">Drag &amp; Drop scripts</h4>
+<p>You can also drag &amp; drop scripts directly into the scene, tree view and property view:</p>
+<p><img src="media/ReleaseNotes-1.7/dragdrop_scripts.gif" alt="Drag &amp; Drop into the Property Grid"></p>
+<h3 id="linux">Linux</h3>
+<p>Linux users rejoice! Linux is now a supported platform of Xenko among Windows, Android, iOS, and more! All you need is a PC running Linux Ubuntu 16.04 x64 or equivalent with a video card supporting OpenGL 4.2 or Vulkan 1.0. Mono or .NET Core (which need to be installed separately) will be powering your game.</p>
+<p>In order to use the <strong>Linux</strong> platform, check <strong>Linux</strong> from the list of platforms in the GameStudio then compile.</p>
+<p><img src="media/ReleaseNotes-1.7/linux2.png" alt="Select Platforms Dialog"></p>
+<p>Deployment to a remote Linux box is done via SSH when running your project from GameStudio.</p>
+<p><img src="media/ReleaseNotes-1.7/Platform_selector.png" alt="Platform Selector"></p>
+<p>To know more about our Linux support, read the <a href="../../../manual/platforms/linux/index.md">Linux documentation</a></p>
+<h3 id="audio">Audio</h3>
+<p>We've rewritten our Audio engine!
+While most changes are internal, the public API has improved, and we are still working to make it great!</p>
+<p>The <code>SoundEffect</code> and <code>SoundMusic</code> classes have been consolidated into <code>Sound</code>, also <code>SoundEffectInstance</code> is now <code>SoundInstance</code>. Sound formats are now converted using <a href="https://ffmpeg.org/">FFmpeg</a>. Because of these updates, the range of supported formats has also improved.</p>
+<p>Under the hood, the <a href="http://celt-codec.org/">CELT</a> codec (part of <a href="https://www.opus-codec.org/">Opus</a>) is now being used. We're delighted to say that performance has since skyrocketed! Music can now be mixed and crossfaded while streaming and decompressing directly from disk.</p>
+<p>Xenko's API now builds on OpenAL for Linux/macOS/iOS, on OpenSLES for Android and on XAudio2 for Windows platforms.</p>
+<h2 id="how-to-upgrade">How To Upgrade</h2>
+<p>This section explains how to migrate a project from version 1.6.x to version 1.7.x.</p>
+<h3 id="uicomponent">UIComponent</h3>
+<ul>
+<li><code>VirtualResolution</code> property has been renamed to <code>Resolution</code></li>
+<li><code>VirtualResolutionMode</code> property has been renamed to <code>ResolutionStretch</code></li>
+</ul>
+<h3 id="ispriteprovider">ISpriteProvider</h3>
+<p>The properties of type <code>Sprite</code> have been changed to properties of type <code>ISpriteProvider</code>. Currently two implementations of <code>ISpriteProvider</code> are available:</p>
+<ul>
+<li><code>SpriteFromSheet</code> for use with a <code>SpriteSheet</code> (i.e. a collection of <code>Sprite</code>)</li>
+<li><code>SpriteFromTexture</code> for use with a single <code>Texture</code></li>
+</ul>
+<p>To upgrade where a single Sprite was previously used cast the assignment with the following (<code>SpriteFromTexture</code> provides a convenient explicit converter from <code>Sprite</code>).</p>
+<pre><code>var button = new Button
+{
+  PressedImage = (SpriteFromTexture)new Sprite(Content.Load&lt;Texture&gt;(&quot;ImageButtonPressed&quot;))
+}
+</code></pre>
+<p>To upgrade where a sprite from a SpriteSheet was previously used:
+Create a new <code>SpriteFromSheet</code> and provide a reference to the <code>SpriteSheet</code> instance and the corresponding frame index.</p>
+<pre><code>var button = new Button
+{
+  PressedImage = new SpriteFromSheet
+  {
+    Sheet = sprites,
+    CurrentFrame = sprites.FindImageIndex(&quot;ButtonPressed&quot;)
+  }
+}
+</code></pre>
+<p>For convenience, we provide a helper method which does exactly the same: <code>SpriteFromSheet.Create(sprites, &quot;ButtonPressed&quot;)</code>.</p>
+<p>To change the <code>CurrentFrame</code> (which now only exists in <code>SpriteFromSheet</code>), a cast is required:</p>
+<pre><code>var provider = Entity.Get&lt;SpriteComponent&gt;().SpriteProvider as SpriteFromSheet;
+if (provider != null)
+  provider.CurrentFrame = SomeIndex;
+</code></pre>
+<h3 id="soundeffect-instance-and-soundmusic-to-soundinstance">SoundEffect (Instance) and SoundMusic to Sound(Instance)</h3>
+<p>Kindly note that there is no more <code>SoundMusic</code>. Instead, you should now use <code>Sound</code> and <code>SoundInstance</code> for any kind of sound.</p>
+<p>From the game studio, you can now set compression ratio, spatialization or you have the option to stream the sound directly from disk.
+You now need a <code>SoundInstance</code> to play a sound, the helper methods in <code>Sound</code> were convenient but a bit confusing.
+You can still assign <code>Sound</code> assets to Scripts like before:</p>
+<pre><code>public Sound MySound;
+private SoundInstance mySoundInstance;
+</code></pre>
+<p>Also note, the way you use them has changed.
+Before:</p>
+<pre><code>MySound.Play();
+</code></pre>
+<p>After:</p>
+<pre><code>mySoundInstance = MySound.CreateInstance();
+mySoundInstance.Play();
+</code></pre>
+<p>Lastly, you no longer have to register (<code>AddListener</code>/<code>RemoveListener</code>) <code>AudioListenerComponent</code> from your code anymore.</p>
+<h2 id="breaking-changes">Breaking changes</h2>
+<h3 id="audio-1">Audio</h3>
+<ul>
+<li>Removed <code>DistanceScale</code> and <code>DopplerScale</code> since internally not all the backends were supporting it ( we might add it back in the future as a global factor if needed)</li>
+<li><code>DynamicSoundEffectInstance</code> has been removed, you can now use <code>DynamicSoundSource</code> to stream your custom sound sources. Works on every platform</li>
+<li>Removed <code>SoundEffect</code>, <code>SoundEffectInstance</code>, <code>SoundMusic</code>. Please use <code>Sound</code> and <code>SoundInstance</code> instead of all kind of sounds</li>
+<li>Removed <code>AddListener</code>, <code>RemoveListener</code> from <code>AudioSystem</code></li>
+<li>Many Methods that had <code>SoundEffect</code> or <code>SoundMusic</code> in the signature now have just <code>Sound</code>, e.g. <code>AudioEmitterComponent.AttachSound</code></li>
+</ul>
+<h3 id="ui">UI</h3>
+<ul>
+<li>Font size has been completely changed to pixel height. Existing sprite font assets will be updated automatically</li>
+<li>Properties of type <code>Sprite</code> have been changed to properties of type <code>ISpriteProvider</code></li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-170-beta">Version 1.7.0-Beta</h3>
+<p>Release date: 2016/07/01</p>
+<h4 id="enhancements">Enhancements</h4>
+<h5 id="general">General</h5>
+<ul>
+<li>Debug locals were not displaying properly in some cases due to Mono.Cecil processing. This has been fixed and should now work properly.</li>
+</ul>
+<h5 id="audio-2">Audio</h5>
+<ul>
+<li>You can now change the Pitch/Speed of a <code>SoundInstance</code>!</li>
+<li>Added master volume control in <code>AudioEngine</code> (<code>AudioEngine.MasterVolume</code>)</li>
+</ul>
+<h5 id="particles">Particles</h5>
+<p>This release brings many improvements to the particle engine.</p>
+<ul>
+<li>You can now create lightning and laser effects thanks to the arc position initializers and ability to follow two target points</li>
+<li>Child particles support and attribute inheritance added, allowing one emitter's particles to follow and inherit attributes from another emitter's particles</li>
+<li>Child ribbon particle samples showing how to create wispy particle trails in a single effect</li>
+<li>Soft edge particles allow you to smooth out the billboard edges when rendering particles close to opaque objects</li>
+<li>More spawner types, including Burst, On-Hit and a few other conditional ones</li>
+<li>Color updater now uses a Color4 curve</li>
+</ul>
+<h5 id="game-studio">Game Studio</h5>
+<ul>
+<li>The selection history feature has been rewritten. It is now shared by all editors and the asset view. The buttons to navigate the selection history have been moved to the property grid</li>
+<li>The re-import operation has been replaced by a &quot;Update asset from source&quot; which directly applies the changes from the source to the asset without displaying the import UI. (For skeleton, model, sprite studio assets...)</li>
+<li>Dropping a large number of files to import is now a lot faster</li>
+<li>The notification when the sources of some assets have changed is now a dialog message instead of a notification popup on the corner of the screen</li>
+<li>You can now drag &amp; drop assets directly into the Property Grid to create components</li>
+</ul>
+<h5 id="ui-1">UI</h5>
+<ul>
+<li>Signed Distance Field sprite font asset type added, allowing users to create sharp, scalable fonts which can be easily resized at runtime at no extra cost</li>
+<li>Added support for EditText on Windows 10, Windows Store and Windows Phone platforms</li>
+</ul>
+<h5 id="assets">Assets</h5>
+<ul>
+<li>The internal YAML format of the SceneAsset and PrefabAsset has been updated to be more generic regarding asset composite.</li>
+<li>The tracking of source files for assets, in particular, has been improved and fixed</li>
+</ul>
+<h5 id="graphics">Graphics</h5>
+<ul>
+<li>Added a way to keep a constrained aspect ratio in Render Camera, and automatically have pillarboxes/letterboxes when there are screens with different ratios</li>
+<li>Added the concept of &quot;LogicalGroup&quot; to easily do partial updates of constant buffer and resources</li>
+<li>Improved OpenGL support: texture buffers, more texture formats, debug markers, etc.</li>
+<li>Unified OpenTK: we now compile our own OpenTK for Windows, iOS and Android. This means our OpenGL renderer code is now unified and should have fewer bugs</li>
+<li>Camera is not affected anymore by scaling</li>
+<li>Implemented the required changes to allow rendering to Oculus Rift devices. Also, we have already begun including the native interfaces in the API for the Oculus Rift SDK. See the <a href="../manual/virtual-reality/index.html">VR documentation</a> for more information.</li>
+</ul>
+<h5 id="input">Input</h5>
+<ul>
+<li>Added a helper method <code>InputManager.TransformPosition</code> to allow you to transform input events in the case of multiple viewports.</li>
+</ul>
+<h4 id="issues-fixed">Issues fixed</h4>
+<h5 id="game-studio-1">Game Studio</h5>
+<ul>
+<li>Undo/redo has been fixed in a lot of scenarios</li>
+<li>GameStudio layout issue when creating a new game with the same name as a previous (but deleted) game</li>
+<li>Issue preventing a newly created script to be marked as saved</li>
+<li>Regression introduced in 1.6.5 where the texture region of a sprite was not correctly resized when the source image had been changed</li>
+<li>Compilation errors occurring when creating a project with a dash character in its name. Additional checks have been added to replace illegal characters in script names</li>
+<li>Multiple cases where modifications of a prefab were not propagated to the instances of this prefab</li>
+<li>Preserve Nodes that were working improperly</li>
+<li>Tracking changes in source images in the sprite sheet editor</li>
+<li>Some scenarios where thumbnails never complete to build</li>
+<li>Improved name collision handling when creating/importing assets</li>
+<li>Issues with the selection of entities in the scene editor (some entities remained selected from the property grid point of view even after being unselected from the tree view)</li>
+<li>Some windowing issues when multiple modal dialogs are displayed in the wrong order, preventing to close them</li>
+<li>Several crashes occurring when modifying properties of entities</li>
+<li>Drag'n'drop issues where it was sometimes hard to drag the correct asset or entity</li>
+</ul>
+<h3 id="version-171-beta">Version 1.7.1-Beta</h3>
+<p>Release date: 2016/07/04</p>
+<h4 id="enhancements-1">Enhancements</h4>
+<ul>
+<li>Increase the speed when manipulating entities that comes from prefabs</li>
+</ul>
+<h4 id="issues-fixed-1">Issues fixed</h4>
+<ul>
+<li>Fix scene editor not refreshing when changing properties of a component that was added just before</li>
+<li>Fix audio engine creation on Windows 7 32bits</li>
+<li>zlib1.dll was missing and preventing to use SDF fonts</li>
+<li>Fix the rotation over time updater for particle systems</li>
+<li>Fix the camera preview that wasn't properly handling when adding or removing the camera component</li>
+</ul>
+<h3 id="version-172-beta">Version 1.7.2-Beta</h3>
+<p>Release date: 2016/07/09</p>
+<h4 id="enhancements-2">Enhancements</h4>
+<ul>
+<li>Error messages added when fonts fail to load.</li>
+<li>Add new identification scheme for Linux deployement</li>
+<li>Slightly faster initialization of projects in the Game Studio</li>
+</ul>
+<h4 id="issues-fixed-2">Issues fixed</h4>
+<ul>
+<li>Fix issue making compute curve properties display improperly in the Game Studio.</li>
+<li>Fix upgrade of assets that had SourceKeepSideBySide set to true</li>
+<li>Fix a serialization issue with scenes that are using prefabs</li>
+<li>Fix a potential crash that could occur when navigating through the selection history</li>
+<li>Fix border thickness in UI did not take opacity into account</li>
+<li>Fix copy of glslangValidator</li>
+<li>Fix depth-stencil state of GameProfilingSystem</li>
+</ul>
+<h3 id="version-173-beta">Version 1.7.3-Beta</h3>
+<p>Release date: 2016/07/16</p>
+<h4 id="enhancements-3">Enhancements</h4>
+<ul>
+<li>Prevent unidentified exception to occur when the camera is not set in the graphics compositor</li>
+</ul>
+<h4 id="issues-fixed-3">Issues fixed</h4>
+<ul>
+<li>Fix the property grid that was malfunctioning after certain types of operation</li>
+<li>Fix updates from prefab that were sometimes not propagated to the instances of this prefab</li>
+<li>Fix thumbnails of source code asset that were not properly generated sometimes</li>
+<li>DDS now properly set header flags when saving cubemaps</li>
+</ul>
+<h3 id="version-174-beta">Version 1.7.4-Beta</h3>
+<ul>
+<li>Hotfix release (critical crash in editor)</li>
+</ul>
+<h3 id="version-175-beta">Version 1.7.5-Beta</h3>
+<p>Release date: 2016/07/21</p>
+<h4 id="new-features">New features</h4>
+<ul>
+<li>Effects can now be compiled directly by the runtime without needing an attached developer computer with Connection Router. This is still quite slow (and will be optimized later), but at least it solves many problem caused by the previous workflow. You can still go back to the previous mode in the &quot;package properties&quot; (right-click on the package in solution explorer), and setting the &quot;Remote Compiler&quot;</li>
+</ul>
+<h4 id="enhancements-4">Enhancements</h4>
+<ul>
+<li>Faster startup time (serialization code is initialized and JIT-ed more lazily)</li>
+<li>Compatible with latest Xamarin iOS Alpha (symbols are static-linked, so unused P/Invoke needs to be removed)</li>
+</ul>
+<h4 id="issues-fixed-4">Issues fixed</h4>
+<ul>
+<li>Some fonts were not working properly with the new Signed Distance Field feature (<a href="https://github.com/SiliconStudio/xenko/issues/436">#436</a>)</li>
+<li>Green and blue channels were inverted in the color curve editor</li>
+</ul>
+<h3 id="version-176-beta">Version 1.7.6-Beta</h3>
+<p>Release date: 2016/07/22</p>
+<h4 id="new-fatures">New fatures</h4>
+<ul>
+<li>In the Sprite component, you can now choose the sampler between linear, point (nearest) and anisotropic (<a href="https://github.com/SiliconStudio/xenko/issues/409">#409</a>)</li>
+</ul>
+<h4 id="issues-fixed-5">Issues fixed</h4>
+<ul>
+<li>Default SpriteBatch and others precompiled shaders were missing integer precision, resulting shader links error on iOS</li>
+<li>Particles: Ribbons geometry can now be split, useful to emit multiple separate groups of particles</li>
+<li>D3D11: Check if QueryInterface of DebugDevice actually worked (sometimes it doesn't, i.e. when using RenderDoc)</li>
+<li>Various fixes for additive animation</li>
+<li>Fixed wrong exception text in AudioLayer initialization</li>
+</ul>
+<h3 id="version-177-beta">Version 1.7.7-Beta</h3>
+<p>Release date: 2016/07/29</p>
+<h4 id="new-features-1">New features</h4>
+<ul>
+<li>FBX: Added PivotPosition in ModelAsset (in case it is not properly centered)</li>
+<li>Engine: Added an experimental &quot;DebugConsoleSystem&quot; to easily display text (API might change)</li>
+</ul>
+<h4 id="issues-fixed-6">Issues fixed</h4>
+<ul>
+<li>GameStudio: Undo was not working properly for the first change (due to the undo flag not being properly reset)</li>
+<li>GameStudio: Some asset change notifications were not sent properly in case of undo/redo</li>
+<li>GameStudio: Entity focus was not working in some cases</li>
+<li>GameStudio: Fix EntityComponent reloading after assembly reload</li>
+<li>GameStudio: Picking in GameStudio was not working properly with some AMD cards</li>
+<li>GameStudio: String could not be used on the value side of a dictionary (in property grid)</li>
+<li>Audio: Only create one audio engine, even if multiple game are started</li>
+<li>FBX: Fix some cases where a material was not properly set</li>
+<li>Various bugfixes</li>
+</ul>
+<h3 id="version-178-beta">Version 1.7.8-Beta</h3>
+<p>Release date: 2016/08/05</p>
+<h4 id="new-features-2">New features</h4>
+<ul>
+<li>Greatly improved performance when building assets (esp. when no changes) and loading Visual Studio solution; it was due to wildcard patterns in our build target files, forcing MSBuild to list files recursively</li>
+<li>Serialization code is now lockless for the hot path (faster startup)</li>
+<li>Graphics profile are now cached on D3D, making it faster to open new 3D windows in the GameStudio</li>
+</ul>
+<h4 id="issues-fixed-7">Issues fixed</h4>
+<ul>
+<li>Physics bugfixes &amp; optimizations (don't process bone when disabled, and disabled in editor)</li>
+<li>SDL2.dll was missing when targeting OpenGL</li>
+<li>Vulkan: sometimes texture pixel size was not properly computed, resulting in invalid Texture CPU readback</li>
+<li>Fixed a crash when creating new packages</li>
+<li>D3D12: pipeline state was not properly reset on ClearState &amp; CommandList resets</li>
+<li>D3D12: rewrote texture and buffer initial data upload, which was failing on AMD hardware</li>
+<li>D3D12: optimizations to avoid calling unecessary state changes</li>
+</ul>
+<h3 id="version-179-beta">Version 1.7.9-Beta</h3>
+<p>Release date: 2016/08/05</p>
+<p>Note: emergency bugfix for 1.7.8 release, which was not properly copying native libraries.</p>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li>Sometimes duplicate contacts are detected by the physics engine.</li>
+<li>On Linux, when switching the underlying Graphics Platform, rendering will not occur. Delete the cache, local and roaming folder on the Linux host and restarting the game should fix the issue.</li>
+<li>Linux Mono has some troubles with the new effect compiler (since 1.7.5-Beta). Please use the &quot;remote compiler&quot; in the &quot;package properties&quot; (right-click on the package in solution explorer), or use Linux CoreCLR in the meantime.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.7.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

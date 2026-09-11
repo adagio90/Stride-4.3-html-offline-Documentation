@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class HashSetSerializer&lt;T&gt; | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class HashSetSerializer&lt;T&gt; | Stride API ">
+      
+      <meta name="description" content="Data serializer for HashSet{T}.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Serialization_Serializers_HashSetSerializer_1.md&amp;value=---%0Auid%3A%20Stride.Core.Serialization.Serializers.HashSetSerializer%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1">
+
+
+
+  <h1 id="Stride_Core_Serialization_Serializers_HashSetSerializer_1" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1" class="text-break">
+Class HashSetSerializer&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Serialization.html">Serialization</a>.<a class="xref" href="Stride.Core.Serialization.Serializers.html">Serializers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Data serializer for HashSet{T}.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataSerializerGlobal(typeof(HashSetSerializer&lt;&gt;), typeof(HashSet&lt;&gt;), DataSerializerGenericMode.GenericArguments, false, false)]
+public class HashSetSerializer&lt;T&gt; : DataSerializer&lt;HashSet&lt;T&gt;&gt;, IDataSerializerGenericInstantiation</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Generics type of HashSet{T}.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.Serialization.DataSerializer.html">DataSerializer</a></div>
+      <div><a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html">DataSerializer</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;T&gt;&gt;</div>
+      <div><span class="xref">HashSetSerializer&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.Serialization.IDataSerializerGenericInstantiation.html">IDataSerializerGenericInstantiation</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html#Stride_Core_Serialization_DataSerializer_1_SerializationType">DataSerializer&lt;HashSet&lt;T&gt;&gt;.SerializationType</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html#Stride_Core_Serialization_DataSerializer_1_IsBlittable">DataSerializer&lt;HashSet&lt;T&gt;&gt;.IsBlittable</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html#Stride_Core_Serialization_DataSerializer_1_Serialize_System_Object__Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_SerializationStream_">DataSerializer&lt;HashSet&lt;T&gt;&gt;.Serialize(ref object, ArchiveMode, SerializationStream)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html#Stride_Core_Serialization_DataSerializer_1_Serialize__0_Stride_Core_Serialization_SerializationStream_">DataSerializer&lt;HashSet&lt;T&gt;&gt;.Serialize(HashSet&lt;T&gt;, SerializationStream)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer-1.html#Stride_Core_Serialization_DataSerializer_1_PreSerialize_System_Object__Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_SerializationStream_">DataSerializer&lt;HashSet&lt;T&gt;&gt;.PreSerialize(ref object, ArchiveMode, SerializationStream)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer.html#Stride_Core_Serialization_DataSerializer_BinaryFormatVersion">DataSerializer.BinaryFormatVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.Serialization.DataSerializer.html#Stride_Core_Serialization_DataSerializer_SerializationTypeId">DataSerializer.SerializationTypeId</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_EnumerateGenericInstantiations_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.EnumerateGenericInstantiations*"></a>
+
+  <h3 id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_EnumerateGenericInstantiations_Stride_Core_Serialization_SerializerSelector_System_Collections_Generic_IList_System_Type__" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.EnumerateGenericInstantiations(Stride.Core.Serialization.SerializerSelector,System.Collections.Generic.IList{System.Type})">
+  EnumerateGenericInstantiations(SerializerSelector, IList&lt;Type&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enumerates required <a class="xref" href="Stride.Core.Serialization.DataSerializer.html">DataSerializer</a> required by this instance of DataSerializer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnumerateGenericInstantiations(SerializerSelector serializerSelector, IList&lt;Type&gt; genericInstantiations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serializerSelector</code> <a class="xref" href="Stride.Core.Serialization.SerializerSelector.html">SerializerSelector</a></dt>
+    <dd></dd>
+    <dt><code>genericInstantiations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_EnumerateGenericInstantiations_Stride_Core_Serialization_SerializerSelector_System_Collections_Generic_IList_System_Type___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The code won't be executed, it will only be scanned for typeof() operands by the assembly processor.
+Null is authorized in enumeration (for now).</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_Initialize_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.Initialize*"></a>
+
+  <h3 id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_Initialize_Stride_Core_Serialization_SerializerSelector_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.Initialize(Stride.Core.Serialization.SerializerSelector)">
+  Initialize(SerializerSelector)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the specified serializer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Initialize(SerializerSelector serializerSelector)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>serializerSelector</code> <a class="xref" href="Stride.Core.Serialization.SerializerSelector.html">SerializerSelector</a></dt>
+    <dd><p>The serializer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_Initialize_Stride_Core_Serialization_SerializerSelector__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method should be thread-safe and OK to call multiple times.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_PreSerialize_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.PreSerialize*"></a>
+
+  <h3 id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_PreSerialize_System_Collections_Generic_HashSet__0___Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.PreSerialize(System.Collections.Generic.HashSet{`0}@,Stride.Core.Serialization.ArchiveMode,Stride.Core.Serialization.SerializationStream)">
+  PreSerialize(ref HashSet&lt;T&gt;, ArchiveMode, SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs the first step of serialization or deserialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void PreSerialize(ref HashSet&lt;T&gt; obj, ArchiveMode mode, SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;T&gt;</dt>
+    <dd><p>The object to process.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.Serialization.ArchiveMode.html">ArchiveMode</a></dt>
+    <dd><p>The serialization mode.</p>
+</dd>
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to serialize or deserialize to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_PreSerialize_System_Collections_Generic_HashSet__0___Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_SerializationStream__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Typically, it will instantiate the object if [null], and if it's a collection clear it.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_Serialize_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.Serialize*"></a>
+
+  <h3 id="Stride_Core_Serialization_Serializers_HashSetSerializer_1_Serialize_System_Collections_Generic_HashSet__0___Stride_Core_Serialization_ArchiveMode_Stride_Core_Serialization_SerializationStream_" data-uid="Stride.Core.Serialization.Serializers.HashSetSerializer`1.Serialize(System.Collections.Generic.HashSet{`0}@,Stride.Core.Serialization.ArchiveMode,Stride.Core.Serialization.SerializationStream)">
+  Serialize(ref HashSet&lt;T&gt;, ArchiveMode, SerializationStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes or deserializes the given object <code class="paramref">obj</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Serialize(ref HashSet&lt;T&gt; obj, ArchiveMode mode, SerializationStream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;T&gt;</dt>
+    <dd><p>The object to serialize or deserialize.</p>
+</dd>
+    <dt><code>mode</code> <a class="xref" href="Stride.Core.Serialization.ArchiveMode.html">ArchiveMode</a></dt>
+    <dd><p>The serialization mode.</p>
+</dd>
+    <dt><code>stream</code> <a class="xref" href="Stride.Core.Serialization.SerializationStream.html">SerializationStream</a></dt>
+    <dd><p>The stream to serialize or deserialize to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core/Serialization/Serializers/HashSetSerializer.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

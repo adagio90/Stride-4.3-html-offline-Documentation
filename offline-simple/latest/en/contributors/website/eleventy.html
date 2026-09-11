@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Eleventy site generator | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Eleventy site generator | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/eleventy.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="eleventy-site-generator">Eleventy site generator</h1>
+
+<p><a href="https://www.11ty.dev/">Eleventy</a> is a static site generator that uses JavaScript as its templating language. It is a very powerful tool that allows us to create a website with a lot of flexibility and customization. It is also very easy to use and learn. This section will cover the basics of Eleventy configuration on the Stride website. Creating and updating the content is described in our <a href="content.html">Content</a> section.</p>
+<p>We used to use <strong>Jekyll</strong> as our static site generator, but we decided to switch to Eleventy because of its flexibility and ease of use. We also wanted to use a tool that is more widely used and supported, which is why we decided to switch to Eleventy.</p>
+<h2 id="packages-and-dependencies">Packages and Dependencies</h2>
+<p>Eleventy is a <strong>Node.js</strong> application. Please follow our <a href="installation.html">Installation</a> guide to install Node.js and all the required dependencies.</p>
+<p>Packages we currently use:</p>
+<ul>
+<li>Dev Dependencies
+<ul>
+<li><code>@11ty/eleventy</code> v2.0 - Main package for the static site generator</li>
+<li><code>@11ty/eleventy-plugin-rss</code> - RSS feed plugin</li>
+<li><code>@11ty/eleventy-plugin-syntaxhighlight</code> - Syntax highlighting plugin (dark and light theme in <code>/css/syntax-highlighting.scss</code>)</li>
+</ul>
+</li>
+<li>Dependencies
+<ul>
+<li><code>@11ty/eleventy-fetch</code> - Fetch plugin</li>
+<li><code>@fortawesome/fontawesome-free</code> - Font Awesome with a variety of awesome icons 😃🤩</li>
+<li><code>bootstrap</code> - Bootstrap 5.3</li>
+<li><code>lunr</code> - Lunr search plugin that consumes local <code>search.json (/search.liquid)</code> and remote <code>index.json</code> from the docs website; the script is in <code>/assets/scripts/search.liquid</code></li>
+<li><code>markdown-it-anchor</code> - Anchor plugin for markdown-it</li>
+<li><code>markdown-it-table-of-contents</code> - Table of contents plugin for markdown-it, used mainly in blog posts as <code>[[TOC]]</code></li>
+<li><code>sass</code> - Sass compiler for our <code>/css/*.scss</code> files</li>
+</ul>
+</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>The Eleventy configuration is located in the <code>.eleventy.js</code> file at the root of the project. This file contains all the configuration settings for the Eleventy build process. As it is a JavaScript file, you can utilize all JavaScript features and syntax within it.</p>
+<p><strong>What do you find in this file?</strong></p>
+<ul>
+<li>plugins configuration - All the plugins we use</li>
+<li>pass through files - Files that are copied to the output folder without any processing</li>
+<li>custom collections - Custom collections used in the templates like <code>tagList</code> and <code>yearList</code></li>
+<li>filters - Custom filters used in the templates</li>
+<li>custom shortcodes - Custom <a href="content-shortcodes-and-includes.html">shortcodes</a> used in the templates, pages or blog posts.</li>
+</ul>
+<p>The file is well-commented and should be self-explanatory. If you need to add a new configuration, please follow the existing structure and include a comment to explain the new configuration.</p>
+<h2 id="global-data">Global Data</h2>
+<p>Global data is located in the <code>_data</code> folder. It contains all the global data that is accessible in all the templates. Currently, we have these JSON files:</p>
+<ul>
+<li><code>site.json</code> - Contains all the global data for the website, used in the templates and shortcodes.</li>
+<li><code>features.json</code> - Contains all the data for the features page and its features sections.</li>
+<li><code>sponsors.json</code> - Contains sponsor information used in multiple places on the website.</li>
+</ul>
+<p>Our <code>site.json</code> file contains these main properties, with only some listed below:</p>
+<ul>
+<li><code>dark-mode</code> - Dark mode toggle <code>true|false</code></li>
+<li><code>alert-banner</code> - Global banner below navigation <code>true|false</code></li>
+<li><code>docs-search</code> - Includes docs website content in the search <code>true|false</code></li>
+<li><code>links</code> - Contains all the main links used across the website (social media, docs, GitHub, etc.)</li>
+<li><code>authors</code> - Contains all the authors used in the blog posts</li>
+<li>repeated data - like <code>csharp-version</code>, <code>dotnet-version</code>, <code>download-version</code> which are used in multiple places on the website and are updated with every release</li>
+</ul>
+<h2 id="folder-structure">Folder Structure</h2>
+<p>The folder structure is crucial for Eleventy, as it determines the output of the build process. The folder structure is organized as follows:</p>
+<h3 id="folders">Folders</h3>
+<ul>
+<li><code>_data</code> - Global data</li>
+<li><code>_drafts</code> - Draft blog posts (excluded from the build process)</li>
+<li><code>_includes</code> - Reusable code snippets that can be included in multiple pages</li>
+<li><code>_layouts</code> -  Main layout pages (<code>container</code>, <code>page</code>, <code>post</code>) using the primary layout page <code>default</code></li>
+<li><code>_site</code> - Output build folder (excluded in <code>.gitignore</code> and used for deployment)</li>
+<li><code>assets</code> - Additional assets, such as scripts</li>
+<li><code>blog</code> - Blog content page</li>
+<li><code>css</code> - Website stylesheets</li>
+<li><code>files</code> - Stride installer files</li>
+<li><code>images</code> - Images and MP4 files used on the website</li>
+<li><code>legal</code> - Content page</li>
+<li><code>posts</code> - Blog posts</li>
+<li><code>posts/2014-2021</code> - Old blog posts which are merged to the same output folder as <code>/posts</code>
+<ul>
+<li>this folder is only for convenience to easily access new posts</li>
+</ul>
+</li>
+<li><code>wiki</code> - GitHub wiki content - Excluded from build process, used only for wiki deployment. This will be decommissioned because the content was moved to Stride Docs</li>
+</ul>
+<h3 id="files">Files</h3>
+<ul>
+<li><code>posts/posts.json</code> - Blog post defaults so they don't have to be repeated in the front matter</li>
+<li><code>*.html</code> - HTML content pages</li>
+<li><code>*.liquid</code> - Liquid content pages</li>
+<li><code>*.md</code> - Markdown content pages</li>
+<li><code>*.njk</code> - Nunjucks content pages</li>
+<li><code>.eleventy.js</code> - Eleventy configuration file</li>
+<li><code>.eleventyignore</code> - Lists files and folders not to be processed by Eleventy</li>
+<li><code>package.json</code> - Eleventy project metadata used by <code>npm</code></li>
+</ul>
+<h3 id="non-eleventy-files">Non Eleventy files</h3>
+<ul>
+<li><code>.nojekyll</code> - Special file for GitHub Pages</li>
+<li><code>CNAME</code> - Custom domain for GitHub Pages</li>
+<li><code>appsettings.json</code> - ASP.NET Core configuration file</li>
+<li><code>appsettings.Development.json</code> - ASP.NET Core configuration file</li>
+<li><code>Program.cs</code> - ASP.NET Core startup file</li>
+<li><code>Stride.Web.csproj</code> - ASP.NET Core project file</li>
+<li><code>Stride.Web.sln</code> - ASP.NET Core solution file</li>
+<li><code>Stride.Web.csproj.user</code> - ASP.NET Core project file</li>
+<li><code>web.config</code> - Configuration file for IIS deployment</li>
+<li><code>web.Release.config</code> - Configuration file for Windows ASP.NET Core deployment</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This project includes ASP.NET Core solution and files, as they can be used seamlessly with Eleventy. Read more about this in our <a href="installation.html#aspnet-core">Installation</a> section.</p>
+</div>
+<h2 id="layouts">Layouts</h2>
+<p>All the layouts are located in the <code>_layouts</code> folder. The <code>default</code> layout is the main layout page and is used by all the other layouts.</p>
+<ul>
+<li><code>default</code> - Main layout page</li>
+<li><code>container</code> - Used by some pages</li>
+<li><code>page</code> - Used by most of the pages</li>
+<li><code>post</code> - Used by blog posts</li>
+</ul>
+<h2 id="includes">Includes</h2>
+<p>All the includes are located in the <code>_includes</code> folder. The includes are reusable code snippets that can be included in multiple pages.</p>
+<p>Some includes are used solely by the layouts, while others are used by the content pages.</p>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<h3 id="creating-custom-shortcodes-and-includes">Creating Custom Shortcodes and Includes</h3>
+<p>If you need to create a custom shortcode or include, please follow the existing structure and <a href="content-shortcodes-and-includes.html">include a comment</a> to explain the new shortcode or include.</p>
+<p>The shortcodes are defined in the <code>.eleventy.js</code> file, while the includes are located in the <code>_includes</code> folder.</p>
+<p>You can explore the existing shortcodes and includes to get a better understanding of how they work and how to create new ones.</p>
+<h3 id="performance-optimization">Performance Optimization</h3>
+<p>ToDo: Remove this section if not needed</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/website/eleventy.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

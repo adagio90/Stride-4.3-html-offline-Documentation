@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Third person camera | Stride tutorials </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Third person camera | Stride tutorials ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/third-person-camera.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="third-person-camera">Third person camera</h1>
+
+<p>This C# Intermediate tutorial covers the implementation of a third person camera.</p>
+<h2 id="explanation">Explanation</h2>
+<p>Since it reuses a large portion of the <a href="first-person-camera.html">First person camera</a>, it is recommended that you watch that tutorial first.</p>
+<p>This tutorial teaches about how to use raycasting to position the camera behind the player. If the player is to close any walls, the camera will be moved closer to the player. Too close to the player? We simply switch to first person mode.</p>
+<div class="embeddedvideo"><iframe src="https://www.youtube-nocookie.com/embed/qSFZ4ISFcrE?rel=0" frameborder="0" allowfullscreen="true"></iframe></div>
+<h2 id="third-person-camera-1">Third person camera</h2>
+<pre><code class="lang-csharp" name="firstpersoncamera">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Input;
+using Stride.Physics;
+
+namespace CSharpIntermediate.Code
+{
+    public class ThirdPersonCamera : SyncScript
+    {
+        public bool InvertMouseY = false;
+        public Vector2 MouseSpeed = new Vector2(0.6f, 0.5f);
+        public float MaxLookUpAngle = -40;
+        public float MaxLookDownAngle = 40;
+        public float MinimumCameraDistance = 1.5f;
+        public Vector3 CameraOffset = new Vector3(0, 0, -3);
+
+        private Entity firstPersonPivot;
+        private Entity thirdPersonPivot;
+
+        private Vector2 maxCameraAnglesRadians;
+        private Vector3 camRotation;
+        private bool isActive = false;
+        private Simulation simulation;
+        private CharacterComponent character;
+
+        public override void Start()
+        {
+            Game.IsMouseVisible = false;
+            isActive = true;
+
+            firstPersonPivot = Entity.FindChild(&quot;FirstPersonPivot&quot;);
+            thirdPersonPivot = Entity.FindChild(&quot;ThirdPersonPivot&quot;);
+
+            maxCameraAnglesRadians = new Vector2(MathUtil.DegreesToRadians(MaxLookUpAngle), MathUtil.DegreesToRadians(MaxLookDownAngle));
+            camRotation = Entity.Transform.RotationEulerXYZ;
+            Input.MousePosition = new Vector2(0.5f, 0.5f);
+            simulation = this.GetSimulation();
+            character = Entity.Get&lt;CharacterComponent&gt;();
+        }
+
+        public override void Update()
+        {
+            if (Input.IsKeyPressed(Keys.Escape))
+            {
+                isActive = !isActive;
+                Game.IsMouseVisible = !isActive;
+                Input.UnlockMousePosition();
+            }
+
+            if (isActive)
+            {
+                Input.LockMousePosition();
+                var mouseMovement = -Input.MouseDelta * MouseSpeed;
+
+                // Update rotation values with the mouse movement
+                camRotation.Y += mouseMovement.X;
+                camRotation.X += InvertMouseY ? mouseMovement.Y : -mouseMovement.Y;
+                camRotation.X = MathUtil.Clamp(camRotation.X, maxCameraAnglesRadians.X, maxCameraAnglesRadians.Y);
+
+                // Apply Y rotation to character entity
+                character.Orientation = Quaternion.RotationY(camRotation.Y);
+
+                // Apply X rotation the existing first person pivot
+                firstPersonPivot.Transform.Rotation = Quaternion.RotationX(camRotation.X);
+
+                // The third person pivot gets the same position and rotation as the first person pivot + the camera offset
+                thirdPersonPivot.Transform.Position = new Vector3(0);
+                thirdPersonPivot.Transform.Position += CameraOffset;
+
+                // Make sure that the WorldMatrix of the thirdperson pivot is up to date
+                thirdPersonPivot.Transform.UpdateWorldMatrix();
+
+                // Raycast from first person pivot to third person pivot
+                var raycastStart = firstPersonPivot.Transform.WorldMatrix.TranslationVector;
+                var raycastEnd = thirdPersonPivot.Transform.WorldMatrix.TranslationVector;
+
+                if (simulation.Raycast(raycastStart, raycastEnd, out HitResult hitResult))
+                {
+                    // If we hit something along the way, calculate the distance
+                    var hitDistance = Vector3.Distance(raycastStart, hitResult.Point);
+
+                    if (hitDistance &gt;= MinimumCameraDistance)
+                    {
+                        // If the distance is larger than the minimum distance, place the camera at the hitpoint
+                        thirdPersonPivot.Transform.Position.Z = -(hitDistance - 0.1f);
+                    }
+                    else
+                    {
+                        // If the distance is lower than the minimum distance, place the camera at first person pivot
+                        thirdPersonPivot.Transform.Position = new Vector3(0);
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre><h2 id="character-movement">Character movement</h2>
+<pre><code class="lang-csharp" name="firstpersoncamera">// Copyright (c) .NET Foundation and Contributors (https://dotnetfoundation.org/ &amp; https://stride3d.net)
+// Distributed under the MIT license. See the LICENSE.md file in the project root for more information.
+using Stride.Core.Mathematics;
+using Stride.Engine;
+using Stride.Input;
+using Stride.Physics;
+
+namespace CSharpIntermediate.Code
+{
+    public class CharacterMovement : SyncScript
+    {
+        public Vector3 MovementMultiplier = new Vector3(3, 0, 4);
+        private CharacterComponent character;
+
+        public override void Start()
+        { 
+            character = Entity.Get&lt;CharacterComponent&gt;();
+        }
+
+        public override void Update()
+        {
+            var velocity = new Vector3();
+            if (Input.IsKeyDown(Keys.W))
+            {
+                velocity.Z++;
+            }
+            if (Input.IsKeyDown(Keys.S))
+            {
+                velocity.Z--;
+            }
+
+            if (Input.IsKeyDown(Keys.A))
+            {
+                velocity.X++;
+            }
+            if (Input.IsKeyDown(Keys.D))
+            {
+                velocity.X--;
+            }
+
+            velocity.Normalize();
+            velocity *= MovementMultiplier;
+            velocity = Vector3.Transform(velocity, Entity.Transform.Rotation);
+            character.SetVelocity(velocity);
+        }
+    }
+}
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/tutorials/csharpintermediate/third-person-camera.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

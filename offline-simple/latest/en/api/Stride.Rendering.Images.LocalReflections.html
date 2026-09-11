@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LocalReflections | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LocalReflections | Stride API ">
+      
+      <meta name="description" content="Compute screen space reflections as a post effect.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Rendering_Images_LocalReflections.md&amp;value=---%0Auid%3A%20Stride.Rendering.Images.LocalReflections%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Rendering.Images.LocalReflections">
+
+
+
+  <h1 id="Stride_Rendering_Images_LocalReflections" data-uid="Stride.Rendering.Images.LocalReflections" class="text-break">
+Class LocalReflections  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Rendering.html">Rendering</a>.<a class="xref" href="Stride.Rendering.Images.html">Images</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Rendering.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Compute screen space reflections as a post effect.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;LocalReflections&quot;)]
+public sealed class LocalReflections : ImageEffect, IComponent, IReferencable, ICollectorHolder, IImageEffect, IGraphicsRenderer, IGraphicsRendererBase, IGraphicsRendererCore, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Core.DisposeBase.html">DisposeBase</a></div>
+      <div><a class="xref" href="Stride.Core.ComponentBase.html">ComponentBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererCoreBase.html">RendererCoreBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.RendererBase.html">RendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.DrawEffect.html">DrawEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.ImageEffect.html">ImageEffect</a></div>
+      <div><span class="xref">LocalReflections</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="Stride.Core.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="Stride.Core.IReferencable.html">IReferencable</a></div>
+      <div><a class="xref" href="Stride.Core.ICollectorHolder.html">ICollectorHolder</a></div>
+      <div><a class="xref" href="Stride.Rendering.Images.IImageEffect.html">IImageEffect</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRenderer.html">IGraphicsRenderer</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererBase.html">IGraphicsRendererBase</a></div>
+      <div><a class="xref" href="Stride.Rendering.IGraphicsRendererCore.html">IGraphicsRendererCore</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetInput_System_Int32_Stride_Graphics_Texture_">ImageEffect.SetInput(int, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_Reset">ImageEffect.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture_">ImageEffect.SetOutput(Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetOutput_Stride_Graphics_Texture___">ImageEffect.SetOutput(params Texture[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffect.SetDepthOutput(Texture, Texture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetDepthOutput_Stride_Graphics_Texture_Stride_Graphics_Texture___">ImageEffect.SetDepthOutput(Texture, params Texture[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetViewport_System_Nullable_Stride_Graphics_Viewport__">ImageEffect.SetViewport(Viewport?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetViewports_System_ReadOnlySpan_Stride_Graphics_Viewport__">ImageEffect.SetViewports(ReadOnlySpan&lt;Viewport&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetScissorRectangle_System_Nullable_Stride_Core_Mathematics_Rectangle__">ImageEffect.SetScissorRectangle(Rectangle?)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_SetScissorRectangles_System_ReadOnlySpan_Stride_Core_Mathematics_Rectangle__">ImageEffect.SetScissorRectangles(ReadOnlySpan&lt;Rectangle&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_InputCount">ImageEffect.InputCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_GetInput_System_Int32_">ImageEffect.GetInput(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_OutputCount">ImageEffect.OutputCount</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffect.html#Stride_Rendering_Images_ImageEffect_GetOutput_System_Int32_">ImageEffect.GetOutput(int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_SamplingPattern">DrawEffect.SamplingPattern</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Parameters">DrawEffect.Parameters</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_">DrawEffect.Draw(RenderDrawContext, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_Draw_Stride_Rendering_RenderDrawContext_System_String_System_Object___">DrawEffect.Draw(RenderDrawContext, string, params object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.DrawEffect.html#Stride_Rendering_DrawEffect_ToString">DrawEffect.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererBase.html#Stride_Rendering_RendererBase_Draw_Stride_Rendering_RenderDrawContext_">RendererBase.Draw(RenderDrawContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Enabled">RendererCoreBase.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Profiling">RendererCoreBase.Profiling</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_GPUProfilingKey">RendererCoreBase.GPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_CPUProfilingKey">RendererCoreBase.CPUProfilingKey</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialized">RendererCoreBase.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Rendering.RendererCoreBase.html#Stride_Rendering_RendererCoreBase_Initialize_Stride_Rendering_RenderContext_">RendererCoreBase.Initialize(RenderContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Tags">ComponentBase.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.ComponentBase.html#Stride_Core_ComponentBase_Name">ComponentBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_Dispose">DisposeBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Core.DisposeBase.html#Stride_Core_DisposeBase_IsDisposed">DisposeBase.IsDisposed</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Rendering.Images.ImageEffectExtensions.html#Stride_Rendering_Images_ImageEffectExtensions_SetInput_Stride_Rendering_Images_IImageEffect_Stride_Graphics_Texture_Stride_Graphics_Texture_Stride_Graphics_Texture_">ImageEffectExtensions.SetInput(IImageEffect, Texture, Texture, Texture)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_BRDFBias_" data-uid="Stride.Rendering.Images.LocalReflections.BRDFBias*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_BRDFBias" data-uid="Stride.Rendering.Images.LocalReflections.BRDFBias">
+  BRDFBias
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the BRDF bias. This value controlls source roughness effect on reflections blur.
+Smaller values produce wider reflections spread but also introduce more noise.
+Higher values provide more mirror-like reflections. Default value is 0.8.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;BRDF bias&quot;, &quot;Raycast&quot;)]
+[DataMemberRange(0, 1, 0.05, 0.2, 4)]
+public float BRDFBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The BRDF bias.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_DepthResolution_" data-uid="Stride.Rendering.Images.LocalReflections.DepthResolution*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_DepthResolution" data-uid="Stride.Rendering.Images.LocalReflections.DepthResolution">
+  DepthResolution
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the input depth resolution mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Depth resolution&quot;, &quot;Raycast&quot;)]
+public LocalReflections.ResolutionMode DepthResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.LocalReflections.html">LocalReflections</a>.<a class="xref" href="Stride.Rendering.Images.LocalReflections.ResolutionMode.html">ResolutionMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_EdgeFadeFactor_" data-uid="Stride.Rendering.Images.LocalReflections.EdgeFadeFactor*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_EdgeFadeFactor" data-uid="Stride.Rendering.Images.LocalReflections.EdgeFadeFactor">
+  EdgeFadeFactor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the edge fade factor. It's used to fade off effect on screen edges to provide smoother image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Edge fade factor&quot;, &quot;Resolve&quot;)]
+[DataMember(30)]
+[DataMemberRange(0, 1, 0.05, 0.2, 4)]
+public float EdgeFadeFactor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The edge fade factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_GlossinessThreshold_" data-uid="Stride.Rendering.Images.LocalReflections.GlossinessThreshold*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_GlossinessThreshold" data-uid="Stride.Rendering.Images.LocalReflections.GlossinessThreshold">
+  GlossinessThreshold
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Minimum allowed surface glossiness value to use local reflections.
+Pixels with lower values won't be affected by the effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Gloss threshold&quot;, &quot;Raycast&quot;)]
+[DataMemberRange(0, 1, 0.05, 0.2, 4)]
+public float GlossinessThreshold { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_MaxSteps_" data-uid="Stride.Rendering.Images.LocalReflections.MaxSteps*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_MaxSteps" data-uid="Stride.Rendering.Images.LocalReflections.MaxSteps">
+  MaxSteps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum allowed amount of dynamic iterations in the ray trace pass.
+Higher value provides better ray tracing quality but decreases the performance.
+Default value is 60.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Max steps&quot;, &quot;Raycast&quot;)]
+[DataMemberRange(1, 128, 1, 10, 0)]
+public int MaxSteps { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_RayTracePassResolution_" data-uid="Stride.Rendering.Images.LocalReflections.RayTracePassResolution*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_RayTracePassResolution" data-uid="Stride.Rendering.Images.LocalReflections.RayTracePassResolution">
+  RayTracePassResolution
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the ray trace pass resolution mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Resolution&quot;, &quot;Raycast&quot;)]
+public LocalReflections.ResolutionMode RayTracePassResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.LocalReflections.html">LocalReflections</a>.<a class="xref" href="Stride.Rendering.Images.LocalReflections.ResolutionMode.html">ResolutionMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_ReduceHighlights_" data-uid="Stride.Rendering.Images.LocalReflections.ReduceHighlights*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_ReduceHighlights" data-uid="Stride.Rendering.Images.LocalReflections.ReduceHighlights">
+  ReduceHighlights
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether reduce reflection highlights during resolve pass.
+Performs filtering on sampled pixels to smooth luminance bursts.
+It helps to provide softer image with reduced amount of highlights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Reduce highlights&quot;, &quot;Resolve&quot;)]
+[DataMember(20)]
+public bool ReduceHighlights { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if reduce fireflies; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_ResolvePassResolution_" data-uid="Stride.Rendering.Images.LocalReflections.ResolvePassResolution*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_ResolvePassResolution" data-uid="Stride.Rendering.Images.LocalReflections.ResolvePassResolution">
+  ResolvePassResolution
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the resolve pass resolution mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Resolution&quot;, &quot;Resolve&quot;)]
+[DataMember(0)]
+public LocalReflections.ResolutionMode ResolvePassResolution { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Rendering.Images.LocalReflections.html">LocalReflections</a>.<a class="xref" href="Stride.Rendering.Images.LocalReflections.ResolutionMode.html">ResolutionMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_ResolveSamples_" data-uid="Stride.Rendering.Images.LocalReflections.ResolveSamples*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_ResolveSamples" data-uid="Stride.Rendering.Images.LocalReflections.ResolveSamples">
+  ResolveSamples
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the resolve pass samples amount. Higher values provide better quality but reduce effect performance.
+Default value is 4. Use 1 for the highest speed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Samples&quot;, &quot;Resolve&quot;)]
+[DataMember(10)]
+[DataMemberRange(1, 8, 1, 1, 0)]
+public int ResolveSamples { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The resolve samples amount.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_TemporalEffect_" data-uid="Stride.Rendering.Images.LocalReflections.TemporalEffect*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_TemporalEffect" data-uid="Stride.Rendering.Images.LocalReflections.TemporalEffect">
+  TemporalEffect
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether use temporal effect to smooth reflections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Temporal effect&quot;, &quot;Temporal&quot;)]
+public bool TemporalEffect { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if use temporal effect to smooth reflections; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_TemporalResponse_" data-uid="Stride.Rendering.Images.LocalReflections.TemporalResponse*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_TemporalResponse" data-uid="Stride.Rendering.Images.LocalReflections.TemporalResponse">
+  TemporalResponse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the temporal response. Default is 0.9.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Response&quot;, &quot;Temporal&quot;)]
+[DataMemberRange(0.5, 1, 0.01, 0.1, 2)]
+public float TemporalResponse { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The temporal response.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_TemporalScale_" data-uid="Stride.Rendering.Images.LocalReflections.TemporalScale*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_TemporalScale" data-uid="Stride.Rendering.Images.LocalReflections.TemporalScale">
+  TemporalScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the temporal effect scale. Default is 2.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Scale&quot;, &quot;Temporal&quot;)]
+[DataMemberRange(0, 20, 0.5, 0.5, 2)]
+public float TemporalScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The temporal effect scale.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_UseColorBufferMips_" data-uid="Stride.Rendering.Images.LocalReflections.UseColorBufferMips*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_UseColorBufferMips" data-uid="Stride.Rendering.Images.LocalReflections.UseColorBufferMips">
+  UseColorBufferMips
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether use color buffer mipsmaps chain; otherwise will use raw input color buffer to sample reflections color.
+Using mipmaps improves resolve pass performance and reduces GPU cache misses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Use color buffer mips&quot;, &quot;Resolve&quot;)]
+[DataMember(40)]
+public bool UseColorBufferMips { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if use color buffer mips; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_WorldAntiSelfOcclusionBias_" data-uid="Stride.Rendering.Images.LocalReflections.WorldAntiSelfOcclusionBias*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_WorldAntiSelfOcclusionBias" data-uid="Stride.Rendering.Images.LocalReflections.WorldAntiSelfOcclusionBias">
+  WorldAntiSelfOcclusionBias
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ray tracing starting position is offseted by a percent of the normal in world space to avoid self occlusions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Display(&quot;Ray start bias&quot;, &quot;Raycast&quot;)]
+[DataMemberRange(0, 0.1, 0.005, 0.01, 6)]
+public float WorldAntiSelfOcclusionBias { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_Destroy_" data-uid="Stride.Rendering.Images.LocalReflections.Destroy*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_Destroy" data-uid="Stride.Rendering.Images.LocalReflections.Destroy">
+  Destroy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of object resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Destroy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_DrawCore_" data-uid="Stride.Rendering.Images.LocalReflections.DrawCore*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_DrawCore_Stride_Rendering_RenderDrawContext_" data-uid="Stride.Rendering.Images.LocalReflections.DrawCore(Stride.Rendering.RenderDrawContext)">
+  DrawCore(RenderDrawContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L455"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Main drawing method for this renderer that must be implemented.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DrawCore(RenderDrawContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="Stride.Rendering.RenderDrawContext.html">RenderDrawContext</a></dt>
+    <dd><p>The context.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_InitializeCore_" data-uid="Stride.Rendering.Images.LocalReflections.InitializeCore*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_InitializeCore" data-uid="Stride.Rendering.Images.LocalReflections.InitializeCore">
+  InitializeCore()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeCore()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Rendering_Images_LocalReflections_SetInputSurfaces_" data-uid="Stride.Rendering.Images.LocalReflections.SetInputSurfaces*"></a>
+
+  <h3 id="Stride_Rendering_Images_LocalReflections_SetInputSurfaces_Stride_Graphics_Texture_Stride_Graphics_Texture_Stride_Graphics_Texture_Stride_Graphics_Texture_" data-uid="Stride.Rendering.Images.LocalReflections.SetInputSurfaces(Stride.Graphics.Texture,Stride.Graphics.Texture,Stride.Graphics.Texture,Stride.Graphics.Texture)">
+  SetInputSurfaces(Texture, Texture, Texture, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides a color buffer and a depth buffer to apply the depth-of-field to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetInputSurfaces(Texture colorBuffer, Texture depthBuffer, Texture normalsBuffer, Texture specularRoughnessBuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>colorBuffer</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>Single view of the scene</p>
+</dd>
+    <dt><code>depthBuffer</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The depth buffer corresponding to the color buffer provided.</p>
+</dd>
+    <dt><code>normalsBuffer</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The buffer which contains surface packed world space normal vectors.</p>
+</dd>
+    <dt><code>specularRoughnessBuffer</code> <a class="xref" href="Stride.Graphics.Texture.html">Texture</a></dt>
+    <dd><p>The buffer which contains surface specular color and roughness.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Rendering/Rendering/Images/LocalReflections/LocalReflections.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

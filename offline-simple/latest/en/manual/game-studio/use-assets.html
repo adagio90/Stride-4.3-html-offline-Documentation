@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Use assets | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Use assets | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/use-assets.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="use-assets">Use assets</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span></p>
+<p>There are four ways to use assets:</p>
+<ul>
+<li>reference them in entity components</li>
+<li>reference them in other assets</li>
+<li>load them from code as content</li>
+<li>load them from code as content using <code>UrlReference</code></li>
+</ul>
+<h2 id="reference-assets-in-components">Reference assets in components</h2>
+<p>Many kinds of component use assets. For example, model components use model assets.</p>
+<p>Components that use assets have <strong>asset docks</strong> in the <strong>property grid</strong>.</p>
+<p><img src="media/use-assets-asset-picker-dock.png" alt="Select an asset"></p>
+<p>To add an asset to an entity component, drag the asset to the asset dock in the component properties (in the <strong>property grid</strong>). You can drop assets in the text field or the empty thumbnail.</p>
+<p><img src="media/use-assets-drag-and-drop.png" alt="Drag and drop an asset"></p>
+<p>Alternatively, click <img src="media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/use-assets-asset-picker.png" alt="Select an asset"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <strong>Select an asset</strong> window only displays assets of types expected by the component. For example, if the component is an audio listener, the window only displays audio assets.</p>
+</div>
+<p>After you add an asset to a component, the asset dock displays its name and a thumbnail image.</p>
+<p><img src="media/asset-displayed.png" alt="Asset displayed"></p>
+<h2 id="reference-assets-in-other-assets">Reference assets in other assets</h2>
+<p>Assets can reference other assets. For example, a model asset might use material assets.</p>
+<p>You can add asset references to assets the same way you add them to entity components (see above).</p>
+<h2 id="clear-a-reference">Clear a reference</h2>
+<p>To clear a reference to an asset, in the <strong>asset dock</strong>, click <img src="media/use-assets-eraser.png" alt="eraser"> (<strong>Clear reference</strong>).</p>
+<p><img src="media/use-eraser.png" alt="Use eraser"></p>
+<h2 id="examine-references">Examine references</h2>
+<p>You can see the references in a selected asset in the <strong>References</strong> tab. By default, this is in the bottom right of Game Studio.</p>
+<p><img src="media/use-assets-references-tab.png" alt="References tab"></p>
+<ul>
+<li>The <strong>References</strong> tab displays the assets referenced by the selected asset.</li>
+<li>The <strong>Referenced by</strong> tab displays the assets that reference the selected asset.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you can't see the References tab, make sure it's displayed under <strong>View &gt; References</strong>.</p>
+</div>
+<h2 id="load-assets-from-code">Load assets from code</h2>
+<p>When loading in assets at runtime we speak of &quot;Content&quot; rather than assets. The loaded content refers to the asset and can then be used in your script.</p>
+<pre><code class="lang-cs">// Load a model (replace URL with valid URL)
+var model = Content.Load&lt;Model&gt;(&quot;AssetFolder/MyModel&quot;);
+
+// Create a new entity to add to the scene
+Entity entity = new Entity(position, &quot;Entity Added by Script&quot;) { new ModelComponent { Model = model } };
+
+// Add a new entity to the scene
+SceneSystem.SceneInstance.RootScene.Entities.Add(entity);
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To find the asset URL, in Game Studio, move the mouse over the asset. Game Studio displays the asset URL in a tooltip.  URLs typically have the format <em>AssetFolder/AssetName</em>.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>When loading assets from scripts, make sure you:</p>
+<ul>
+<li>include the asset in the build as described in <a href="manage-assets.html">Manage assets</a></li>
+<li>make sure you add the script as a component to an entity in the scene</li>
+</ul>
+</div>
+<h3 id="unload-unneeded-assets">Unload unneeded assets</h3>
+<p>When loading content from code, you should unload content when you don't need them any more. If you don't, content stays in memory, wasting GPU.</p>
+<p>To unload an asset, use <code>Content.Unload(myAsset)</code>.</p>
+<h2 id="load-assets-from-code-using-urlreference">Load assets from code using UrlReference</h2>
+<p><code>UrlReference</code> allows you to reference assets in your scripts the same way you would with normal assets but they are loaded dynamically in code. Referencing an asset with a <code>UrlReference</code> causes the asset to be included in the build.</p>
+<p>You can reference assets in your scripts using properties/fields of type <code>UrlReference</code> or <code>UrlReference&lt;T&gt;</code>:</p>
+<ul>
+<li><code>UrlReference</code> can be used to reference any asset. This is most useful for the &quot;Raw asset&quot;.</li>
+<li><code>UrlReference&lt;T&gt;</code> can be used to specify the desired type. i.e. <code>UrlReference&lt;Scene&gt;</code>. This gives Game Studio a hint about what type of asset this <code>UrlReference</code> can be used for.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="loading-a-scene">Loading a Scene</h3>
+<p>Using <code>UrlReference&lt;Scene&gt;</code> to load the next scene.</p>
+<pre><code class="lang-cs">using System.Threading.Tasks;
+//Include the Stride.Core.Serialization namespace to use UrlReference
+using Stride.Core.Serialization;
+using Stride.Engine;
+
+namespace Examples
+{
+    public class UrlReferenceExample : AsyncScript
+    {
+        public UrlReference&lt;Scene&gt; NextSceneUrl { get; set; }
+
+        public override async Task Execute()
+        {
+            //...
+        }
+
+        private async Task LoadNextScene()
+        {
+            //Dynamically load next scene asynchronously
+            var nextScene = await Content.LoadAsync(NextSceneUrl);
+            SceneSystem.SceneInstance.RootScene = nextScene;
+        }
+    }
+}
+</code></pre>
+<h3 id="load-data-from-a-raw-asset-json-file">Load data from a Raw asset JSON file</h3>
+<p>Use a Raw asset to store data in a JSON file and load using <a href="https://www.newtonsoft.com/json">Newtonsoft.Json</a>. To use <code>Newtonsoft.Json</code> you also need to add the <code>Newtonsoft.Json</code> NuGet package to the project.</p>
+<pre><code class="lang-cs">//Include the Newtonsoft.Json namespace.
+using Newtonsoft.Json;
+using System.IO;
+using System.Threading.Tasks;
+//Include the Stride.Core.Serialization namespace to use UrlReference
+using Stride.Core.Serialization;
+using Stride.Engine;
+
+namespace Examples
+{
+    public class UrlReferenceExample : AsyncScript
+    {
+        public UrlReference RawAssetUrl { get; set; }
+
+        public override async Task Execute()
+        {
+            //...
+        }
+
+        private async Task&lt;MyDataClass&gt; LoadMyData()
+        {
+            //Open a StreamReader to read the content
+            using (var stream = Content.OpenAsStream(RawAssetUrl))
+            using (var streamReader = new StreamReader(stream))
+            {
+                //read the raw asset content
+                string json = await streamReader.ReadToEndAsync();
+                //Deserialize the JSON to your custom MyDataClass Type.
+                return JsonConvert.DeserializeObject&lt;MyDataClass&gt;(json);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="create-assets.html">Create assets</a></li>
+<li><a href="manage-assets.html">Manage assets</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/use-assets.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

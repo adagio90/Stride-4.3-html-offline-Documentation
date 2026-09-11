@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Game settings | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Game settings | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/game-settings.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="game-settings">Game settings</h1>
+
+<p><span class="badge text-bg-primary">Beginner</span>
+<span class="badge text-bg-success">Programmer</span>
+<span class="badge text-bg-success">Designer</span></p>
+<p>You can configure the global settings of your game in the <strong>Game Settings</strong> asset. By default, the Game Settings asset is stored in your project's <strong>Assets</strong> folder.</p>
+<h2 id="edit-game-settings">Edit game settings</h2>
+<ol>
+<li><p>In the <strong>Solution Explorer</strong> (the bottom-left pane by default), select the <strong>Assets</strong> folder.</p>
+<p><img src="media/select-asset-folder.png" alt="Select Assets folder asset"></p>
+</li>
+<li><p>In the <strong>Asset View</strong> (the bottom pane by default), select the <strong>GameSettings</strong> asset.</p>
+<p><img src="media/select-game-settings-asset.png" alt="Select Game Settings asset"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (the right-hand pane by default), edit the Game Settings properties.</p>
+<p><img src="media/game-settings.png" alt="Game settings"></p>
+</li>
+</ol>
+<h2 id="default-scene">Default scene</h2>
+<p>You can have multiple scenes in your project. The <strong>default scene</strong> is the scene Stride loads at runtime.</p>
+<p>To set the default scene:</p>
+<ol>
+<li><p>In the <strong>GameSettings</strong> properties, next to <strong>Default Scene</strong>, click <img src="media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/game-settings-default-scene.png" alt="Set default scene"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the default scene and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>For more information about scenes, see <a href="manage-scenes.html">Manage scenes</a>.</p>
+<h2 id="graphics-compositor">Graphics compositor</h2>
+<p>You can have multiple graphics compositors in your project, but you can only use one at a time.</p>
+<p>To set the graphics compositor:</p>
+<ol>
+<li><p>In the <strong>GameSettings</strong> properties, next to <strong>Graphics compositor</strong>, click <img src="media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/game-settings-graphics-compositor.png" alt="Set default scene"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the graphics compositor and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>For more information, see <a href="../graphics/graphics-compositor/index.html">Graphics compositor</a>.</p>
+<h2 id="audio">Audio</h2>
+<p><img src="media/audio-settings.png" alt="Audio settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HRTF support</td>
+<td>Enable HRTF audio. Note that only audio emitters with HRTF enabled will produce HRTF audio. For more details, see <a href="../audio/hrtf.html">HRTF</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details about audio, see <a href="../audio/index.html">Audio</a>.</p>
+<h2 id="editor">Editor</h2>
+<p>The <strong>editor</strong> settings control how Game Studio displays entities in the Scene Editor. These settings have no effect on your game.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>How Game Studio displays entities is also affected by the <strong>Color space</strong> setting under <strong>Rendering</strong>.</p>
+</div>
+<p><img src="media/editor-settings.png" alt="Editor settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rendering mode</td>
+<td>How Game Studio renders thumbnails and Asset Previews</td>
+</tr>
+<tr>
+<td>Animation framerate</td>
+<td>The framerate of animations shown in Game Studio. This doesn't affect animation data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="navigation">Navigation</h2>
+<p><img src="../navigation/media/navigation-settings.png" alt="Navigation settings"></p>
+<h3 id="dynamic-navigation-mesh-properties">Dynamic navigation mesh properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enabled</td>
+<td>Enable dynamic navigation on navigation components that have no assigned navigation mesh</td>
+</tr>
+<tr>
+<td>Included collision groups</td>
+<td>Set which collision groups dynamically-generated navigation meshes use. By default, meshes use all collision groups</td>
+</tr>
+<tr>
+<td>Build settings</td>
+<td>Advanced settings for dynamically-generated navigation meshes</td>
+</tr>
+</tbody>
+</table>
+<p>For more details, see <a href="../navigation/dynamic-navigation.html">Dynamic navigation</a>.</p>
+<h3 id="navigation-group-properties">Navigation group properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item</td>
+<td>The name of the group.</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>The height of the entities in this group. Entities can't enter areas with ceilings lower than this value.</td>
+</tr>
+<tr>
+<td>Maximum climb height</td>
+<td>The maximum height that entities in this group can climb.</td>
+</tr>
+<tr>
+<td>Maximum slope</td>
+<td>The maximum incline (in degrees) that entities in this group can climb. Entities can't go up or down slopes higher than this value.</td>
+</tr>
+<tr>
+<td>Radius</td>
+<td>The larger this value, the larger the area of the navigation mesh entities use. Entities can't pass through gaps of less than twice the radius.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details, see <a href="../navigation/index.html">Navigation</a>.</p>
+<h2 id="physics">Physics</h2>
+<p><img src="media/physics-settings.png" alt="Physics settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flags</td>
+<td><strong>CollisionsOnly</strong> disables <a href="../physics/index.html">physics</a> except for collisions. For example, if this is enabled, objects aren't moved by gravity, but will still collide if you move them manually. <strong>ContinuousCollisionDetection</strong> prevents fast-moving entities erroneously moving through other entities. Note: other flags listed here currently aren't enabled in Stride.</td>
+</tr>
+<tr>
+<td>Max sub steps</td>
+<td>The maximum number of simulations the physics engine can run in a frame to compensate for slowdown.</td>
+</tr>
+<tr>
+<td>Fixed time step</td>
+<td>The length in seconds of a physics simulation frame. The default is 0.016667 (one sixtieth of a second).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rendering">Rendering</h2>
+<p><img src="media/rendering-settings.png" alt="Rendering settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default back buffer width</td>
+<td>This might be overridden depending on the ratio and/or resolution of the device. On Windows, this is the window size. On Android/iOS, this is the off-screen target resolution.</td>
+</tr>
+<tr>
+<td>Default back buffer height</td>
+<td>This might be overridden depending on the ratio and/or resolution of the device. On Windows, this is the window size. On Android/iOS, this is the off-screen target resolution.</td>
+</tr>
+<tr>
+<td>Adapt back buffer to screen</td>
+<td>Adapt the ratio of the back buffer to fit the screen ratio</td>
+</tr>
+<tr>
+<td>Default graphics profile</td>
+<td>The graphics feature level required by the project</td>
+</tr>
+<tr>
+<td>Color space</td>
+<td>The color space (gamma or linear) used for rendering. This affects the game at runtime and how elements are displayed in Game Studio.</td>
+</tr>
+<tr>
+<td>Display orientation</td>
+<td>The display orientation of the game (default, portrait, left landscape, or right landscape).</td>
+</tr>
+<tr>
+<td>Target graphics platform</td>
+<td>The target platform Stride builds the project for. If you set this to <strong>Default</strong>, Stride chooses the most appropriate platform. For more information, see <a href="../platforms/set-the-graphics-platform.html">Set the graphics platform</a>.</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To check which default platform your project uses, add a break point to your code (eg in a script), run the project, and check the value of the <a class="xref" href="../../api/Stride.Graphics.GraphicsDevice.html#Stride_Graphics_GraphicsDevice_Platform">GraphicsDevice.Platform</a> variable.</p>
+</div>
+<h2 id="streaming">Streaming</h2>
+<p><img src="media/streaming-settings.png" alt="Streaming settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Streaming</td>
+<td>Enable streaming</td>
+</tr>
+<tr>
+<td>Update interval</td>
+<td>How frequently Stride updates the streaming. Smaller intervals mean the streaming system reacts faster, but use more CPU and cause more memory fluctuations.</td>
+</tr>
+<tr>
+<td>Max resources per update</td>
+<td>The maximum number of textures loaded or unloaded per streaming update. Higher numbers reduce pop-in but might slow down the framerate.</td>
+</tr>
+<tr>
+<td>Resource timeout (ms)</td>
+<td>How long resources stay loaded after they're no longer used (when the <strong>memory budget</strong> is exceeded)</td>
+</tr>
+<tr>
+<td>Memory budget (in MB)</td>
+<td>When the memory used by streaming exceeds this budget, Stride unloads unused textures. You can increase this to keep more textures loaded when you have memory to spare, and vice versa.</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently, only textures can be streamed.</p>
+</div>
+<p>For more details, see <a href="../graphics/textures/streaming.html">Streaming</a>.</p>
+<h2 id="textures">Textures</h2>
+<p><img src="media/texture-settings.png" alt="Texture settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture quality</td>
+<td>The texture quality when encoding textures. <strong>Fast</strong> uses the least CPU, but has the lowest quality. Higher settings might result in slower builds, depending on the target platform.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="overrides">Overrides</h2>
+<p>You can override settings for particular platforms, graphics APIs, and so on. For example, you can set different texture qualities for different platforms.</p>
+<ol>
+<li><p>With the <strong>GameSettings</strong> asset selected, in the <strong>Property Grid</strong>, under <strong>Overrides</strong>, click <img src="media/green-plus-icon.png" alt="Green plus button"> (<strong>Add</strong>).</p>
+<p><img src="../platforms/media/add-override.png" alt="Select graphics platform"></p>
+<p>Game Studio adds an override.</p>
+</li>
+<li><p>In the new override, next to <strong>Platforms</strong>, select the platforms you want the override to apply to. You can select as many as you need.</p>
+<p><img src="../platforms/media/select-override-platform.png" alt="Select graphics platform override"></p>
+</li>
+<li><p><strong>Optional</strong>: If you want this override to apply only to a specific GPU platform, choose it from the <strong>Specific filter</strong> drop-down list.</p>
+<p><img src="media/specific-filter.png" alt="Specific filter"></p>
+<p>You can add GPU platforms to this list under <strong>Platform filters</strong> (see <strong>Add a platform filter</strong> below).</p>
+</li>
+<li><p>In the <strong>Configuration</strong> drop-down menu, select the kind of setting you want to override (<strong>Editor</strong>, <strong>Texture</strong>, <strong>Rendering</strong> or <strong>Physics</strong>).</p>
+<p><img src="../platforms/media/select-override-configuration.png" alt="Select graphics platform override"></p>
+</li>
+<li><p>Set the options you want to override.</p>
+</li>
+</ol>
+<h3 id="add-a-platform-filter">Add a platform filter</h3>
+<p>You can choose items in the <strong>Platform Filters</strong> list as a specific platform filter when you set an override (see above).</p>
+<p><img src="media/specific-filter.png" alt="Specific filter"></p>
+<ol>
+<li><p>With the <strong>GameSettings</strong> asset selected, in the <strong>Property Grid</strong>, expand <strong>Platform Filters</strong>.</p>
+<p>The Property Grid displays a list of platform filters you can use.</p>
+<p><img src="media/list-of-platform-filters.png" alt="List of platform filters"></p>
+</li>
+<li><p>At the bottom of the list, click <strong>Add to Platform Filters</strong>.</p>
+<p>Game Studio adds a new empty item.</p>
+</li>
+<li><p>In the item field, type the GPU filter you want to add.</p>
+<p><img src="media/add-platform-filter-name.png" alt="Type platform filter"></p>
+</li>
+</ol>
+<p>After you add a platform filter, you can select it under <strong>Override &gt; Specific filter</strong>.</p>
+<p><img src="media/new-GPU-in-override-list.png" alt="Override"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the new filter isn't listed, remove the override and re-add it.</p>
+</div>
+<h2 id="splash-screen">Splash screen</h2>
+<p>The <strong>splash screen</strong> is displayed when your game starts. The default is the Stride splash screen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The splash screen is only displayed when the game is built in release mode.</p>
+</div>
+<p><img src="media/splash-screen.png" alt="Settings"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Texture</td>
+<td>The image (eg company logo) displayed as the splash screen. By default, this is <em>StrideDefaultSplashScreen</em>.</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>The color the splash screen fades in on top of. By default, this is black  (<em>#FF000000</em>).</td>
+</tr>
+</tbody>
+</table>
+<p>For more information, see <a href="../../../../splash-screen.md">Splash screen</a>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="assets.html">Assets</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/game-settings.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

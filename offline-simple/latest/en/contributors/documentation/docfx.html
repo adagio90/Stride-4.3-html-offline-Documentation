@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Docfx | Stride contributors </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Docfx | Stride contributors ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/contributors/documentation/docfx.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="docfx">Docfx</h1>
+
+<p><a href="https://dotnet.github.io/docfx/index.html">Docfx</a> is a static site generator that uses C# as its templating language. It is an exceptionally powerful tool, offering immense flexibility and customization options for creating a documentation website. Moreover, Docfx is user-friendly and easy to learn. This section covers the basics of Docfx configuration for the Stride Docs website, while the creation and updating of content are detailed in our <a href="content.html">Content</a> section.</p>
+<p>After reviewing various static site generator options, we decided to continue using Docfx, particularly in light of the release of the new <code>modern</code> Docfx template. This template leverages Bootstrap 5.3 and has recently introduced a dark theme feature.</p>
+<h2 id="packages-and-dependencies">Packages and Dependencies</h2>
+<p>Currently, we are not utilizing any additional packages.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The configuration for Docfx is located in the <code>en\docfx.json</code> file. This file contains all the necessary settings for the Docfx build process.</p>
+<p>Contents of the Configuration File:</p>
+<ul>
+<li><strong>API Sources</strong>: Specifies the Stride path and selected projects for API documentation generation</li>
+<li><strong>Global Metadata</strong>: Contains global configuration settings for the documentation build</li>
+<li><strong>File Metadata</strong>: Defines folder sections to be processed for documentation generation, such as Manuals, Tutorials, etc.</li>
+<li><strong>Resource - Pass Through Files</strong>: Lists files that are copied directly to the output folder without processing</li>
+<li><strong>Other Configuration</strong>: Explore the file for additional configuration options</li>
+</ul>
+<p>For more details on configuration options, visit the <a href="https://dotnet.github.io/docfx/docs/config.html">Docfx Configuration Documentation</a>.</p>
+<h2 id="global-data">Global Data</h2>
+<p>Docfx currently does not support global data like 11ty. At present, <em>Mustache</em> can only be used in templates.</p>
+<h2 id="folder-structure">Folder Structure</h2>
+<p>The folder structure plays a vital role in the documentation generation process, as it determines the output of the build. The structure is organized as follows:</p>
+<h3 id="folders">Folders</h3>
+<ul>
+<li><code>.github</code>: Contains GitHub Action workflows</li>
+<li><code>_site</code>: The output build folder (excluded in <code>.gitignore</code> and used for deployment)</li>
+<li><code>en</code>: Contains the English language documentation</li>
+<li><code>en\api</code>: Automatically generated folder from the Stride API</li>
+<li><code>en\contributors</code>: Documentation for contributors</li>
+<li><code>en\diagnostics</code>: Diagnostic pages referenced by Stride solution warnings in the IDE</li>
+<li><code>en\examples</code>: Additional content for C# XML comments, which are merged into API documentation and linked by <strong>uids</strong></li>
+<li><code>en\includes</code>: Markdown files whose content can be included in multiple <code>.md</code> files across the documentation.</li>
+<li><code>en\manual</code>: Documentation for the manual</li>
+<li><code>en\media</code>: Main media assets</li>
+<li><code>en\ReleaseNotes</code>: Documentation for release notes</li>
+<li><code>en\template</code>: Docfx assets for minor template customization, including CSS and JS files</li>
+<li><code>en\tutorials</code>: Documentation for tutorials</li>
+<li><code>jp</code>: Japanese language documentation, translated from the English version (currently not updated)</li>
+<li><code>wiki</code>: GitHub wiki content - Excluded from the build process and used only for wiki deployment. This section will be decommissioned as the content has been moved to Stride Docs.</li>
+</ul>
+<h3 id="files">Files</h3>
+<ul>
+<li><code>en\*.md</code>: Markdown content pages</li>
+<li><code>en\*.yml</code>: Table of content files</li>
+<li><code>en\.nojekyll</code>: A flag file for GitHub Actions</li>
+<li><code>en\docfx.json</code>: Docfx configuration file</li>
+<li><code>en\filterConfig.yml</code>: Rules for API exclusion</li>
+<li><code>en\languages.json</code>: Configuration file for languages</li>
+</ul>
+<h3 id="non-docfx-files">Non Docfx Files</h3>
+<ul>
+<li><code>appsettings.json</code>: Configuration file for ASP.NET Core.</li>
+<li><code>appsettings.Development.json</code>: Development-specific configuration file for ASP.NET Core.</li>
+<li><code>build-all.bat</code>: Batch file used in GitHub Actions CI/CD to build all documentation using <code>BuildDocs.ps1</code>.</li>
+<li><code>BuildDocs.ps1</code>: PowerShell script responsible for building documentation. Refer to <a href="documentation-generation-pipeline.html">pipeline</a> for details.</li>
+<li><code>OldDocsFix.ps1</code>: Temporary PowerShell script for fixing old documentation.</li>
+<li><code>Program.cs</code>: Startup file for ASP.NET Core.</li>
+<li><code>run.bat</code>: Batch file to run <code>BuildDocs.ps1</code> in interactive mode.</li>
+<li><code>run-fix.bat</code>: Temporary batch file to run <code>OldDocsFix.ps1</code>.</li>
+<li><code>Stride.Docs.csproj</code>: ASP.NET Core project file.</li>
+<li><code>Stride.Docs.sln</code>: ASP.NET Core solution file.</li>
+<li><code>Stride.Docs.csproj.user</code>: User-specific ASP.NET Core project file.</li>
+<li><code>versions.json</code>: Configuration file managing versions of Stride documentation.</li>
+<li><code>web.config</code>: Configuration file for IIS deployment.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This project includes the Visual Studio solution <code>Stride.Docs.sln</code>, allowing you to edit the files using the Visual Studio IDE.</p>
+</div>
+<h2 id="layouts">Layouts</h2>
+<p>We utilize the default layout provided by the <code>modern</code> template, as specified in <code>docfx.json</code>.</p>
+<h2 id="includes">Includes</h2>
+<p>All includes are located in the <code>/_includes</code> folder. These are reusable markdown snippets that can be incorporated into multiple pages.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/contributors/documentation/docfx.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

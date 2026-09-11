@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Image | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Image | Stride API ">
+      
+      <meta name="description" content="Provides method to instantiate an image 1D/2D/3D supporting TextureArray and mipmaps on the CPU or to load/save an image from the disk.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Graphics_Image.md&amp;value=---%0Auid%3A%20Stride.Graphics.Image%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Graphics.Image">
+
+
+
+  <h1 id="Stride_Graphics_Image" data-uid="Stride.Graphics.Image" class="text-break">
+Class Image  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides method to instantiate an image 1D/2D/3D supporting TextureArray and mipmaps on the CPU or to load/save an image from the disk.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ContentSerializer(typeof(ImageSerializer))]
+public sealed class Image : IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Image</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_DisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.DisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Core.ComponentBaseExtensions.html#Stride_Core_ComponentBaseExtensions_RemoveDisposeBy__1___0_Stride_Core_ICollectorHolder_">ComponentBaseExtensions.RemoveDisposeBy&lt;T&gt;(T, ICollectorHolder)</a>
+  </div>
+  <div>
+      <a class="xref" href="Stride.Graphics.Data.GraphicsSerializerExtensions.html#Stride_Graphics_Data_GraphicsSerializerExtensions_ToSerializableVersion_Stride_Graphics_Image_">GraphicsSerializerExtensions.ToSerializableVersion(Image)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Graphics_Image_Description" data-uid="Stride.Graphics.Image.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Description of this image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageDescription Description</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.ImageDescription.html">ImageDescription</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Graphics_Image_DataPointer_" data-uid="Stride.Graphics.Image.DataPointer*"></a>
+
+  <h3 id="Stride_Graphics_Image_DataPointer" data-uid="Stride.Graphics.Image.DataPointer">
+  DataPointer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a pointer to the image buffer in memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public nint DataPointer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>A pointer to the image buffer in memory.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_PixelBuffer_" data-uid="Stride.Graphics.Image.PixelBuffer*"></a>
+
+  <h3 id="Stride_Graphics_Image_PixelBuffer" data-uid="Stride.Graphics.Image.PixelBuffer">
+  PixelBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides access to all pixel buffers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelBufferArray PixelBuffer { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelBufferArray.html">PixelBufferArray</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_PixelBuffer_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>For Texture3D, each z slice of the Texture3D has a pixelBufferArray * by the number of mipmaps.
+For other textures, there is Description.MipLevels * Description.ArraySize pixel buffers.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_TotalSizeInBytes_" data-uid="Stride.Graphics.Image.TotalSizeInBytes*"></a>
+
+  <h3 id="Stride_Graphics_Image_TotalSizeInBytes" data-uid="Stride.Graphics.Image.TotalSizeInBytes">
+  TotalSizeInBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total number of bytes occupied by this image in memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalSizeInBytes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Graphics_Image_CalculateMipLevels_" data-uid="Stride.Graphics.Image.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Image_CalculateMipLevels_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Image.CalculateMipLevels(System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L600"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 1D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CalculateMipLevels_" data-uid="Stride.Graphics.Image.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Image_CalculateMipLevels_System_Int32_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Image.CalculateMipLevels(System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L626"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 2D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, int height, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CalculateMipLevels_" data-uid="Stride.Graphics.Image.CalculateMipLevels*"></a>
+
+  <h3 id="Stride_Graphics_Image_CalculateMipLevels_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_" data-uid="Stride.Graphics.Image.CalculateMipLevels(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+  CalculateMipLevels(int, int, int, MipMapCount)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L653"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of miplevels for a Texture 2D.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipLevels(int width, int height, int depth, MipMapCount mipLevels)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width of the texture.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height of the texture.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth of the texture.</p>
+</dd>
+    <dt><code>mipLevels</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or &gt; 1 to calculate a specific amount of levels.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of miplevels.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CalculateMipSize_" data-uid="Stride.Graphics.Image.CalculateMipSize*"></a>
+
+  <h3 id="Stride_Graphics_Image_CalculateMipSize_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.CalculateMipSize(System.Int32,System.Int32)">
+  CalculateMipSize(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L678"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CalculateMipSize(int width, int mipLevel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>mipLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_Clear_" data-uid="Stride.Graphics.Image.Clear*"></a>
+
+  <h3 id="Stride_Graphics_Image_Clear" data-uid="Stride.Graphics.Image.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reset the buffer (by default it is not cleared)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_ConvertFormatToNonSRgb_" data-uid="Stride.Graphics.Image.ConvertFormatToNonSRgb*"></a>
+
+  <h3 id="Stride_Graphics_Image_ConvertFormatToNonSRgb" data-uid="Stride.Graphics.Image.ConvertFormatToNonSRgb">
+  ConvertFormatToNonSRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the format of the description and the pixel buffers to non sRGB.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertFormatToNonSRgb()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_ConvertFormatToSRgb_" data-uid="Stride.Graphics.Image.ConvertFormatToSRgb*"></a>
+
+  <h3 id="Stride_Graphics_Image_ConvertFormatToSRgb" data-uid="Stride.Graphics.Image.ConvertFormatToSRgb">
+  ConvertFormatToSRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the format of the description and the pixel buffers to sRGB.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConvertFormatToSRgb()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CountMips_" data-uid="Stride.Graphics.Image.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Image_CountMips_System_Int32_" data-uid="Stride.Graphics.Image.CountMips(System.Int32)">
+  CountMips(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L1123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CountMips_" data-uid="Stride.Graphics.Image.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Image_CountMips_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.CountMips(System.Int32,System.Int32)">
+  CountMips(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L1137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_CountMips_" data-uid="Stride.Graphics.Image.CountMips*"></a>
+
+  <h3 id="Stride_Graphics_Image_CountMips_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.CountMips(System.Int32,System.Int32,System.Int32)">
+  CountMips(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L1155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int CountMips(int width, int height, int depth)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_Dispose_" data-uid="Stride.Graphics.Image.Dispose*"></a>
+
+  <h3 id="Stride_Graphics_Image_Dispose" data-uid="Stride.Graphics.Image.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_GetMipMapDescription_" data-uid="Stride.Graphics.Image.GetMipMapDescription*"></a>
+
+  <h3 id="Stride_Graphics_Image_GetMipMapDescription_System_Int32_" data-uid="Stride.Graphics.Image.GetMipMapDescription(System.Int32)">
+  GetMipMapDescription(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the mipmap description of this instance for the specified mipmap level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MipMapDescription GetMipMapDescription(int mipmap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mipmap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.MipMapDescription.html">MipMapDescription</a></dt>
+    <dd><p>A description of a particular mipmap for this texture.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_GetPixelBuffer_" data-uid="Stride.Graphics.Image.GetPixelBuffer*"></a>
+
+  <h3 id="Stride_Graphics_Image_GetPixelBuffer_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.GetPixelBuffer(System.Int32,System.Int32)">
+  GetPixelBuffer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pixel buffer for the specified array/z slice and mipmap level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelBuffer GetPixelBuffer(int arrayOrZSliceIndex, int mipmap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arrayOrZSliceIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>For 3D image, the parameter is the Z slice, otherwise it is an index into the texture array.</p>
+</dd>
+    <dt><code>mipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mipmap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If arrayOrZSliceIndex or mipmap are out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Image_GetPixelBuffer_" data-uid="Stride.Graphics.Image.GetPixelBuffer*"></a>
+
+  <h3 id="Stride_Graphics_Image_GetPixelBuffer_System_Int32_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.GetPixelBuffer(System.Int32,System.Int32,System.Int32)">
+  GetPixelBuffer(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pixel buffer for the specified array/z slice and mipmap level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PixelBuffer GetPixelBuffer(int arrayIndex, int zIndex, int mipmap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>arrayIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index into the texture array. Must be set to 0 for 3D images.</p>
+</dd>
+    <dt><code>zIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Z index for 3D image. Must be set to 0 for all 1D/2D images.</p>
+</dd>
+    <dt><code>mipmap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The mipmap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a></dt>
+    <dd><p>A <a class="xref" href="Stride.Graphics.PixelBuffer.html">PixelBuffer</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If arrayIndex, zIndex or mipmap are out of range.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Image_Load_" data-uid="Stride.Graphics.Image.Load*"></a>
+
+  <h3 id="Stride_Graphics_Image_Load_Stride_Graphics_DataPointer_System_Boolean_System_Boolean_" data-uid="Stride.Graphics.Image.Load(Stride.Graphics.DataPointer,System.Boolean,System.Boolean)">
+  Load(DataPointer, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an image from an unmanaged memory pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use span instead&quot;)]
+public static Image Load(DataPointer dataBuffer, bool makeACopy = false, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataBuffer</code> <a class="xref" href="Stride.Graphics.DataPointer.html">DataPointer</a></dt>
+    <dd><p>Pointer to an unmanaged memory. If <code class="paramref">makeACopy</code> is false, this buffer must be allocated with <a class="xref" href="Stride.Core.Utilities.html#Stride_Core_Utilities_AllocateMemory_System_Int32_System_Int32_">AllocateMemory(int, int)</a>.</p>
+</dd>
+    <dt><code>makeACopy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to copy the content of the buffer to a new allocated buffer, false otherwise.</p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the image should be loaded as an sRGB texture</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>An new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Load_Stride_Graphics_DataPointer_System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">makeACopy</code> is set to false, the returned image is now the holder of the unmanaged pointer and will release it on Dispose.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_Load_" data-uid="Stride.Graphics.Image.Load*"></a>
+
+  <h3 id="Stride_Graphics_Image_Load_System_Byte___System_Boolean_" data-uid="Stride.Graphics.Image.Load(System.Byte[],System.Boolean)">
+  Load(byte[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L550"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an image from a managed buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image Load(byte[] buffer, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>Reference to a managed buffer.</p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the image should be loaded as an sRGB texture</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>An new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Load_System_Byte___System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method support the following format: <code>dds, bmp, jpg, png, gif, tiff, wmp, tga</code>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_Load_" data-uid="Stride.Graphics.Image.Load*"></a>
+
+  <h3 id="Stride_Graphics_Image_Load_System_IO_Stream_System_Boolean_" data-uid="Stride.Graphics.Image.Load(System.IO.Stream,System.Boolean)">
+  Load(Stream, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L575"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the specified image from a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image Load(Stream imageStream, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>imageStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The image stream.</p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the image should be loaded as an sRGB texture. If false, the image is loaded in its default format.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>An new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Load_System_IO_Stream_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method support the following format: <code>dds, bmp, jpg, png, gif, tiff, wmp, tga</code>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_Load_" data-uid="Stride.Graphics.Image.Load*"></a>
+
+  <h3 id="Stride_Graphics_Image_Load_System_IntPtr_System_Int32_System_Boolean_System_Boolean_" data-uid="Stride.Graphics.Image.Load(System.IntPtr,System.Int32,System.Boolean,System.Boolean)">
+  Load(nint, int, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L538"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an image from an unmanaged memory pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image Load(nint dataPointer, int dataSize, bool makeACopy = false, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an unmanaged memory. If <code class="paramref">makeACopy</code> is false, this buffer must be allocated with <a class="xref" href="Stride.Core.Utilities.html#Stride_Core_Utilities_AllocateMemory_System_Int32_System_Int32_">AllocateMemory(int, int)</a>.</p>
+</dd>
+    <dt><code>dataSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the unmanaged buffer.</p>
+</dd>
+    <dt><code>makeACopy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to copy the content of the buffer to a new allocated buffer, false otherwise.</p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the image should be loaded as an sRGB texture</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>An new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Load_System_IntPtr_System_Int32_System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">makeACopy</code> is set to false, the returned image is now the holder of the unmanaged pointer and will release it on Dispose.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_Load_" data-uid="Stride.Graphics.Image.Load*"></a>
+
+  <h3 id="Stride_Graphics_Image_Load_System_Span_System_Byte__System_Boolean_System_Boolean_" data-uid="Stride.Graphics.Image.Load(System.Span{System.Byte},System.Boolean,System.Boolean)">
+  Load(Span&lt;byte&gt;, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L521"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an image from an unmanaged memory pointer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image Load(Span&lt;byte&gt; dataBuffer, bool makeACopy = false, bool loadAsSRGB = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataBuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>&gt;</dt>
+    <dd><p>Pointer to an unmanaged memory. If <code class="paramref">makeACopy</code> is false, this buffer must be allocated with <a class="xref" href="Stride.Core.Utilities.html#Stride_Core_Utilities_AllocateMemory_System_Int32_System_Int32_">AllocateMemory(int, int)</a>.</p>
+</dd>
+    <dt><code>makeACopy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True to copy the content of the buffer to a new allocated buffer, false otherwise.</p>
+</dd>
+    <dt><code>loadAsSRGB</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicate if the image should be loaded as an sRGB texture</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>An new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Load_System_Span_System_Byte__System_Boolean_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code class="paramref">makeACopy</code> is set to false, the returned image is now the holder of the unmanaged pointer and will release it on Dispose.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_New_" data-uid="Stride.Graphics.Image.New*"></a>
+
+  <h3 id="Stride_Graphics_Image_New_Stride_Graphics_ImageDescription_" data-uid="Stride.Graphics.Image.New(Stride.Graphics.ImageDescription)">
+  New(ImageDescription)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Stride.Graphics.Image.html">Image</a> from an image description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New(ImageDescription description)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.ImageDescription.html">ImageDescription</a></dt>
+    <dd><p>The image description.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New_" data-uid="Stride.Graphics.Image.New*"></a>
+
+  <h3 id="Stride_Graphics_Image_New_Stride_Graphics_ImageDescription_System_IntPtr_" data-uid="Stride.Graphics.Image.New(Stride.Graphics.ImageDescription,System.IntPtr)">
+  New(ImageDescription, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Stride.Graphics.Image.html">Image</a> from an image description.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New(ImageDescription description, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.ImageDescription.html">ImageDescription</a></dt>
+    <dd><p>The image description.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an existing buffer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New_" data-uid="Stride.Graphics.Image.New*"></a>
+
+  <h3 id="Stride_Graphics_Image_New_Stride_Graphics_ImageDescription_System_IntPtr_System_Int32_System_Nullable_System_Runtime_InteropServices_GCHandle__System_Boolean_" data-uid="Stride.Graphics.Image.New(Stride.Graphics.ImageDescription,System.IntPtr,System.Int32,System.Nullable{System.Runtime.InteropServices.GCHandle},System.Boolean)">
+  New(ImageDescription, nint, int, GCHandle?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L436"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Graphics.Image.html">Image</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New(ImageDescription description, nint dataPointer, int offset, GCHandle? handle, bool bufferIsDisposable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>description</code> <a class="xref" href="Stride.Graphics.ImageDescription.html">ImageDescription</a></dt>
+    <dd><p>The image description.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The pointer to the data buffer.</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset from the beginning of the data buffer.</p>
+</dd>
+    <dt><code>handle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtime.interopservices.gchandle">GCHandle</a>?</dt>
+    <dd><p>The handle (optionnal).</p>
+</dd>
+    <dt><code>bufferIsDisposable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>if set to <code>true</code> [buffer is disposable].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>If the format is invalid, or width/height/depth/arraysize is invalid with respect to the dimension.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Image_New1D_" data-uid="Stride.Graphics.Image.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New1D_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_Int32_" data-uid="Stride.Graphics.Image.New1D(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32)">
+  New1D(int, MipMapCount, PixelFormat, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 1D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New1D(int width, MipMapCount mipMapCount, PixelFormat format, int arraySize = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New1D_" data-uid="Stride.Graphics.Image.New1D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New1D_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_Int32_System_IntPtr_" data-uid="Stride.Graphics.Image.New1D(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.IntPtr)">
+  New1D(int, MipMapCount, PixelFormat, int, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L450"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 1D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New1D(int width, MipMapCount mipMapCount, PixelFormat format, int arraySize, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the array.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an existing buffer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New2D_" data-uid="Stride.Graphics.Image.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New2D_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_Int32_System_Int32_" data-uid="Stride.Graphics.Image.New2D(System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.Int32)">
+  New2D(int, int, MipMapCount, PixelFormat, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 2D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New2D(int width, int height, MipMapCount mipMapCount, PixelFormat format, int arraySize = 1, int rowStride = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the array.</p>
+</dd>
+    <dt><code>rowStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New2D_" data-uid="Stride.Graphics.Image.New2D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New2D_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_Int32_System_IntPtr_System_Int32_" data-uid="Stride.Graphics.Image.New2D(System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.IntPtr,System.Int32)">
+  New2D(int, int, MipMapCount, PixelFormat, int, nint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L466"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 2D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New2D(int width, int height, MipMapCount mipMapCount, PixelFormat format, int arraySize, nint dataPointer, int rowStride = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>arraySize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Size of the array.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an existing buffer.</p>
+</dd>
+    <dt><code>rowStride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Specify a specific rowStride, only valid when mipMapCount == 1 and pixel format is not compressed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New3D_" data-uid="Stride.Graphics.Image.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New3D_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.Image.New3D(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat)">
+  New3D(int, int, int, MipMapCount, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 3D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New3D(int width, int height, int depth, MipMapCount mipMapCount, PixelFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_New3D_" data-uid="Stride.Graphics.Image.New3D*"></a>
+
+  <h3 id="Stride_Graphics_Image_New3D_System_Int32_System_Int32_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_IntPtr_" data-uid="Stride.Graphics.Image.New3D(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.IntPtr)">
+  New3D(int, int, int, MipMapCount, PixelFormat, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L494"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a 3D <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image New3D(int width, int height, int depth, MipMapCount mipMapCount, PixelFormat format, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an existing buffer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_NewCube_" data-uid="Stride.Graphics.Image.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Image_NewCube_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_" data-uid="Stride.Graphics.Image.NewCube(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat)">
+  NewCube(int, MipMapCount, PixelFormat)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L397"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a Cube <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image NewCube(int width, MipMapCount mipMapCount, PixelFormat format)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_NewCube_" data-uid="Stride.Graphics.Image.NewCube*"></a>
+
+  <h3 id="Stride_Graphics_Image_NewCube_System_Int32_Stride_Graphics_MipMapCount_Stride_Graphics_PixelFormat_System_IntPtr_" data-uid="Stride.Graphics.Image.NewCube(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.IntPtr)">
+  NewCube(int, MipMapCount, PixelFormat, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of a Cube <a class="xref" href="Stride.Graphics.Image.html">Image</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Image NewCube(int width, MipMapCount mipMapCount, PixelFormat format, nint dataPointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width.</p>
+</dd>
+    <dt><code>mipMapCount</code> <a class="xref" href="Stride.Graphics.MipMapCount.html">MipMapCount</a></dt>
+    <dd><p>The mip map count.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="Stride.Graphics.PixelFormat.html">PixelFormat</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>dataPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Pointer to an existing buffer.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.Image.html">Image</a></dt>
+    <dd><p>A new image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Graphics_Image_Register_" data-uid="Stride.Graphics.Image.Register*"></a>
+
+  <h3 id="Stride_Graphics_Image_Register_Stride_Graphics_ImageFileType_Stride_Graphics_Image_ImageLoadDelegate_Stride_Graphics_Image_ImageSaveDelegate_" data-uid="Stride.Graphics.Image.Register(Stride.Graphics.ImageFileType,Stride.Graphics.Image.ImageLoadDelegate,Stride.Graphics.Image.ImageSaveDelegate)">
+  Register(ImageFileType, ImageLoadDelegate, ImageSaveDelegate)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers a loader/saver for a specified image file type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Register(ImageFileType type, Image.ImageLoadDelegate loader, Image.ImageSaveDelegate saver)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a></dt>
+    <dd><p>The file type (use integer and explicit casting to <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a> to register other fileformat.</p>
+</dd>
+    <dt><code>loader</code> <a class="xref" href="Stride.Graphics.Image.html">Image</a>.<a class="xref" href="Stride.Graphics.Image.ImageLoadDelegate.html">ImageLoadDelegate</a></dt>
+    <dd><p>The loader delegate (can be null).</p>
+</dd>
+    <dt><code>saver</code> <a class="xref" href="Stride.Graphics.Image.html">Image</a>.<a class="xref" href="Stride.Graphics.Image.ImageSaveDelegate.html">ImageSaveDelegate</a></dt>
+    <dd><p>The saver delegate (can be null).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="Stride_Graphics_Image_Save_" data-uid="Stride.Graphics.Image.Save*"></a>
+
+  <h3 id="Stride_Graphics_Image_Save_System_IO_Stream_Stride_Graphics_ImageFileType_" data-uid="Stride.Graphics.Image.Save(System.IO.Stream,Stride.Graphics.ImageFileType)">
+  Save(Stream, ImageFileType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L588"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves this instance to a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(Stream imageStream, ImageFileType fileType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>imageStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The destination stream.</p>
+</dd>
+    <dt><code>fileType</code> <a class="xref" href="Stride.Graphics.ImageFileType.html">ImageFileType</a></dt>
+    <dd><p>Specify the output format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Graphics_Image_Save_System_IO_Stream_Stride_Graphics_ImageFileType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method support the following format: <code>dds, bmp, jpg, png, gif, tiff, wmp, tga</code>.</p>
+</div>
+
+
+
+
+  <a id="Stride_Graphics_Image_ToDataBox_" data-uid="Stride.Graphics.Image.ToDataBox*"></a>
+
+  <h3 id="Stride_Graphics_Image_ToDataBox" data-uid="Stride.Graphics.Image.ToDataBox">
+  ToDataBox()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L324"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the databox from this image.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataBox[] ToDataBox()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Graphics.DataBox.html">DataBox</a>[]</dt>
+    <dd><p>The databox of this image.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride/Graphics/Image.cs/#L88" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

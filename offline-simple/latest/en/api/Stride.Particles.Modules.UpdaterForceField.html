@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class UpdaterForceField | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class UpdaterForceField | Stride API ">
+      
+      <meta name="description" content="The  updates the particles&#39; positions and velocity based on proximity and relative position to a bounding force field">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Particles_Modules_UpdaterForceField.md&amp;value=---%0Auid%3A%20Stride.Particles.Modules.UpdaterForceField%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Particles.Modules.UpdaterForceField">
+
+
+
+  <h1 id="Stride_Particles_Modules_UpdaterForceField" data-uid="Stride.Particles.Modules.UpdaterForceField" class="text-break">
+Class UpdaterForceField  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Particles.html">Particles</a>.<a class="xref" href="Stride.Particles.Modules.html">Modules</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Particles.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The <a class="xref" href="Stride.Particles.Modules.UpdaterForceField.html">UpdaterForceField</a> updates the particles' positions and velocity based on proximity and relative position to a bounding force field</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;UpdaterForceField&quot;)]
+[Display(&quot;Force Field&quot;, null)]
+public class UpdaterForceField : ParticleUpdater</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="Stride.Particles.ParticleTransform.html">ParticleTransform</a></div>
+      <div><a class="xref" href="Stride.Particles.ParticleModule.html">ParticleModule</a></div>
+      <div><a class="xref" href="Stride.Particles.Modules.ParticleUpdater.html">ParticleUpdater</a></div>
+      <div><span class="xref">UpdaterForceField</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="Stride.Particles.Modules.ParticleUpdater.html#Stride_Particles_Modules_ParticleUpdater_IsPostUpdater">ParticleUpdater.IsPostUpdater</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleModule.html#Stride_Particles_ParticleModule_Enabled">ParticleModule.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleModule.html#Stride_Particles_ParticleModule_ResetSimulation">ParticleModule.ResetSimulation()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleModule.html#Stride_Particles_ParticleModule_RequiredFields">ParticleModule.RequiredFields</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleModule.html#Stride_Particles_ParticleModule_InvalidateRelations">ParticleModule.InvalidateRelations()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleModule.html#Stride_Particles_ParticleModule_PreUpdate">ParticleModule.PreUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_InheritPosition">ParticleTransform.InheritPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_Position">ParticleTransform.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_InheritRotation">ParticleTransform.InheritRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_Rotation">ParticleTransform.Rotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_InheritScale">ParticleTransform.InheritScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_Scale">ParticleTransform.Scale</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_ScaleUniform">ParticleTransform.ScaleUniform</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_DisplayParticlePosition">ParticleTransform.DisplayParticlePosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_DisplayParticleRotation">ParticleTransform.DisplayParticleRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_DisplayParticleScale">ParticleTransform.DisplayParticleScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_DisplayParticleScaleUniform">ParticleTransform.DisplayParticleScaleUniform</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_WorldPosition">ParticleTransform.WorldPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_WorldRotation">ParticleTransform.WorldRotation</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_WorldScale">ParticleTransform.WorldScale</a>
+    </div>
+    <div>
+      <a class="xref" href="Stride.Particles.ParticleTransform.html#Stride_Particles_ParticleTransform_SetParentTransform_Stride_Particles_ParticleTransform_">ParticleTransform.SetParentTransform(ParticleTransform)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField__ctor_" data-uid="Stride.Particles.Modules.UpdaterForceField.#ctor*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField__ctor" data-uid="Stride.Particles.Modules.UpdaterForceField.#ctor">
+  UpdaterForceField()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default constructor which also registers the fields required by this updater</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UpdaterForceField()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_DebugDraw_" data-uid="Stride.Particles.Modules.UpdaterForceField.DebugDraw*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_DebugDraw" data-uid="Stride.Particles.Modules.UpdaterForceField.DebugDraw">
+  DebugDraw
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Should this Particle Module's bounds be displayed as a debug draw</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(-1)]
+public bool DebugDraw { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_EnergyConservation_" data-uid="Stride.Particles.Modules.UpdaterForceField.EnergyConservation*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_EnergyConservation" data-uid="Stride.Particles.Modules.UpdaterForceField.EnergyConservation">
+  EnergyConservation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much of the force should be applied as conserved energy (acceleration)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(50)]
+[DataMemberRange(0, 1, 0.01, 0.1, 3)]
+[Display(&quot;Energy conservation&quot;, null)]
+public float EnergyConservation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_FieldFalloff_" data-uid="Stride.Particles.Modules.UpdaterForceField.FieldFalloff*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_FieldFalloff" data-uid="Stride.Particles.Modules.UpdaterForceField.FieldFalloff">
+  FieldFalloff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines how and if the total magnitude of the force should change depending of how far away the particle is from the central axis</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(40)]
+[Display(&quot;Falloff&quot;, null)]
+public FieldFalloff FieldFalloff { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Updaters.FieldShapes.FieldFalloff.html">FieldFalloff</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_FieldShape_" data-uid="Stride.Particles.Modules.UpdaterForceField.FieldShape*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_FieldShape" data-uid="Stride.Particles.Modules.UpdaterForceField.FieldShape">
+  FieldShape
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shape defines the force field's bounding shape, which influences the force vectors and magnitude for every given particle</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(10)]
+[Display(&quot;Shape&quot;, null)]
+public FieldShape FieldShape { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Particles.Updaters.FieldShapes.FieldShape.html">FieldShape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_ForceDirected_" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceDirected*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_ForceDirected" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceDirected">
+  ForceDirected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The force ALONG the bounding shape's axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(60)]
+[Display(&quot;Directed force&quot;, null)]
+public float ForceDirected { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_ForceFixed_" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceFixed*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_ForceFixed" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceFixed">
+  ForceFixed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fixed force doesn't scale or rotate with the the bounding shape</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(100)]
+[Display(&quot;Fixed force&quot;, null)]
+public Vector3 ForceFixed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_ForceRepulsive_" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceRepulsive*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_ForceRepulsive" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceRepulsive">
+  ForceRepulsive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The force AWAY from the bounding shape's axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(80)]
+[Display(&quot;Repulsive force&quot;, null)]
+public float ForceRepulsive { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_ForceVortex_" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceVortex*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_ForceVortex" data-uid="Stride.Particles.Modules.UpdaterForceField.ForceVortex">
+  ForceVortex
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The force AROUND the bounding shape's axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(70)]
+[Display(&quot;Vortex force&quot;, null)]
+public float ForceVortex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_SetParentTRS_" data-uid="Stride.Particles.Modules.UpdaterForceField.SetParentTRS*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_SetParentTRS_Stride_Particles_ParticleTransform_Stride_Particles_ParticleSystem_" data-uid="Stride.Particles.Modules.UpdaterForceField.SetParentTRS(Stride.Particles.ParticleTransform,Stride.Particles.ParticleSystem)">
+  SetParentTRS(ParticleTransform, ParticleSystem)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the parent (particle system's) translation, rotation and scale (uniform)
+The module can choose to inherit, use or ignore any of the elements</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetParentTRS(ParticleTransform transform, ParticleSystem parent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="Stride.Particles.ParticleTransform.html">ParticleTransform</a></dt>
+    <dd><p><a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a>'s transform (from the Transform component) or identity if local space is used</p>
+</dd>
+    <dt><code>parent</code> <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a></dt>
+    <dd><p>The parent <a class="xref" href="Stride.Particles.ParticleSystem.html">ParticleSystem</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_TryGetDebugDrawShape_" data-uid="Stride.Particles.Modules.UpdaterForceField.TryGetDebugDrawShape*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_TryGetDebugDrawShape_Stride_Particles_DebugDraw_DebugDrawShape__Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Quaternion__Stride_Core_Mathematics_Vector3__" data-uid="Stride.Particles.Modules.UpdaterForceField.TryGetDebugDrawShape(Stride.Particles.DebugDraw.DebugDrawShape@,Stride.Core.Mathematics.Vector3@,Stride.Core.Mathematics.Quaternion@,Stride.Core.Mathematics.Vector3@)">
+  TryGetDebugDrawShape(out DebugDrawShape, out Vector3, out Quaternion, out Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attepmts to get a debug shape (shape type and location matrix) for the current module in order to display its boundaries better</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool TryGetDebugDrawShape(out DebugDrawShape debugDrawShape, out Vector3 translation, out Quaternion rotation, out Vector3 scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>debugDrawShape</code> <a class="xref" href="Stride.Particles.DebugDraw.DebugDrawShape.html">DebugDrawShape</a></dt>
+    <dd><p>Type of the debug draw shape</p>
+</dd>
+    <dt><code>translation</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Translation of the shape</p>
+</dd>
+    <dt><code>rotation</code> <a class="xref" href="Stride.Core.Mathematics.Quaternion.html">Quaternion</a></dt>
+    <dd><p>Rotation of the shape</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>Scaling of the shape</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Particles_Modules_UpdaterForceField_Update_" data-uid="Stride.Particles.Modules.UpdaterForceField.Update*"></a>
+
+  <h3 id="Stride_Particles_Modules_UpdaterForceField_Update_System_Single_Stride_Particles_ParticlePool_" data-uid="Stride.Particles.Modules.UpdaterForceField.Update(System.Single,Stride.Particles.ParticlePool)">
+  Update(float, ParticlePool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates all particles in the <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a> using this updater</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Update(float dt, ParticlePool pool)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Delta time in seconds which has passed since the last update call</p>
+</dd>
+    <dt><code>pool</code> <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a></dt>
+    <dd><p>The target <a class="xref" href="Stride.Particles.ParticlePool.html">ParticlePool</a> which needs to be updated</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/engine/Stride.Particles/Updaters/UpdaterForceField.cs/#L16" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

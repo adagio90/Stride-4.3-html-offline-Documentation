@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Color3 | Stride API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Color3 | Stride API ">
+      
+      <meta name="description" content="Represents a color in the form of rgb.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/new/master/apiSpec/new?filename=Stride_Core_Mathematics_Color3.md&amp;value=---%0Auid%3A%20Stride.Core.Mathematics.Color3%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Stride.Core.Mathematics.Color3">
+
+
+
+  <h1 id="Stride_Core_Mathematics_Color3" data-uid="Stride.Core.Mathematics.Color3" class="text-break">
+Struct Color3  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Stride.html">Stride</a>.<a class="xref" href="Stride.Core.html">Core</a>.<a class="xref" href="Stride.Core.Mathematics.html">Mathematics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Stride.Core.Mathematics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a color in the form of rgb.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract(&quot;Color3&quot;)]
+[DataStyle(DataStyle.Compact)]
+public struct Color3 : IEquatable&lt;Color3&gt;, ISpanFormattable, IFormattable</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.ispanformattable">ISpanFormattable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformattable">IFormattable</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_Stride_Core_Mathematics_Vector3_" data-uid="Stride.Core.Mathematics.Color3.#ctor(Stride.Core.Mathematics.Vector3)">
+  Color3(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The red, green, and blue components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_System_Int32_" data-uid="Stride.Core.Mathematics.Color3.#ctor(System.Int32)">
+  Color3(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(int rgb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all three color components.
+The alpha component is ignored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_System_Single_" data-uid="Stride.Core.Mathematics.Color3.#ctor(System.Single)">
+  Color3(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value that will be assigned to all components.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_System_Single_System_Single_System_Single_" data-uid="Stride.Core.Mathematics.Color3.#ctor(System.Single,System.Single,System.Single)">
+  Color3(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(float red, float green, float blue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>red</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The red component of the color.</p>
+</dd>
+    <dt><code>green</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The green component of the color.</p>
+</dd>
+    <dt><code>blue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The blue component of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_System_Single___" data-uid="Stride.Core.Mathematics.Color3.#ctor(System.Single[])">
+  Color3(float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(float[] values)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>The values to assign to the red, green, and blue components of the color. This must be an array with three elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> is <code>null</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when <code class="paramref">values</code> contains more or less than four elements.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="Stride_Core_Mathematics_Color3__ctor_" data-uid="Stride.Core.Mathematics.Color3.#ctor*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3__ctor_System_UInt32_" data-uid="Stride.Core.Mathematics.Color3.#ctor(System.UInt32)">
+  Color3(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color3(uint rgb)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rgb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>A packed unsigned integer containing all three color components.
+The alpha component is ignored.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="Stride_Core_Mathematics_Color3_B" data-uid="Stride.Core.Mathematics.Color3.B">
+  B
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The blue component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(2)]
+public float B</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Color3_G" data-uid="Stride.Core.Mathematics.Color3.G">
+  G
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The green component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(1)]
+public float G</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Stride_Core_Mathematics_Color3_R" data-uid="Stride.Core.Mathematics.Color3.R">
+  R
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The red component of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(0)]
+public float R</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Color3_Item_" data-uid="Stride.Core.Mathematics.Color3.Item*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Item_System_Int32_" data-uid="Stride.Core.Mathematics.Color3.Item(System.Int32)">
+  this[int]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the component at the specified index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float this[int index] { readonly get; set; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the component to access. Use 0 for the red component, 1 for the green component, and 2 for the blue component.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The value of the red, green, or blue component, depending on the index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown when the <code class="paramref">index</code> is out of the range [0, 2].</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Color3_Add_" data-uid="Stride.Core.Mathematics.Color3.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Add_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Add(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Add(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Add(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Add_" data-uid="Stride.Core.Mathematics.Color3.Add*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Add_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Add(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Add(ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Add(ref readonly Color3 left, ref readonly Color3 right, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, completes the sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_AdjustContrast_" data-uid="Stride.Core.Mathematics.Color3.AdjustContrast*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_AdjustContrast_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.AdjustContrast(Stride.Core.Mathematics.Color3,System.Single)">
+  AdjustContrast(Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L517"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the contrast of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 AdjustContrast(Color3 value, float contrast)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color whose contrast is to be adjusted.</p>
+</dd>
+    <dt><code>contrast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the contrast.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_AdjustContrast_" data-uid="Stride.Core.Mathematics.Color3.AdjustContrast*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_AdjustContrast_Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.AdjustContrast(Stride.Core.Mathematics.Color3@,System.Single,Stride.Core.Mathematics.Color3@)">
+  AdjustContrast(ref readonly Color3, float, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L504"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the contrast of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AdjustContrast(ref readonly Color3 value, float contrast, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color whose contrast is to be adjusted.</p>
+</dd>
+    <dt><code>contrast</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the contrast.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_AdjustSaturation_" data-uid="Stride.Core.Mathematics.Color3.AdjustSaturation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_AdjustSaturation_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.AdjustSaturation(Stride.Core.Mathematics.Color3,System.Single)">
+  AdjustSaturation(Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L546"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the saturation of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 AdjustSaturation(Color3 value, float saturation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color whose saturation is to be adjusted.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the saturation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_AdjustSaturation_" data-uid="Stride.Core.Mathematics.Color3.AdjustSaturation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_AdjustSaturation_Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.AdjustSaturation(Stride.Core.Mathematics.Color3@,System.Single,Stride.Core.Mathematics.Color3@)">
+  AdjustSaturation(ref readonly Color3, float, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L531"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adjusts the saturation of a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AdjustSaturation(ref readonly Color3 value, float saturation, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color whose saturation is to be adjusted.</p>
+</dd>
+    <dt><code>saturation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to adjust the saturation.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the adjusted color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Clamp_" data-uid="Stride.Core.Mathematics.Color3.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Clamp_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Clamp(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Clamp(Color3, Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Clamp(Color3 value, Color3 min, Color3 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Clamp_" data-uid="Stride.Core.Mathematics.Color3.Clamp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Clamp_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Clamp(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Clamp(ref readonly Color3, ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restricts a value to be within a specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Clamp(ref readonly Color3 value, ref readonly Color3 min, ref readonly Color3 max, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The value to clamp.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The minimum value.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The maximum value.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the clamped value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Deconstruct_" data-uid="Stride.Core.Mathematics.Color3.Deconstruct*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Deconstruct_System_Single__System_Single__System_Single__" data-uid="Stride.Core.Mathematics.Color3.Deconstruct(System.Single@,System.Single@,System.Single@)">
+  Deconstruct(out float, out float, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L802"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deconstructs the vector's components into named variables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly void Deconstruct(out float r, out float g, out float b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The R component</p>
+</dd>
+    <dt><code>g</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The G component</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The B component</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Equals_" data-uid="Stride.Core.Mathematics.Color3.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Equals_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Equals(Stride.Core.Mathematics.Color3)">
+  Equals(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L779"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Color3 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Equals_" data-uid="Stride.Core.Mathematics.Color3.Equals*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Equals_System_Object_" data-uid="Stride.Core.Mathematics.Color3.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L791"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The <span class="xref">object</span> to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the specified <span class="xref">object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_GetHashCode_" data-uid="Stride.Core.Mathematics.Color3.GetHashCode*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_GetHashCode" data-uid="Stride.Core.Mathematics.Color3.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L767"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Lerp_" data-uid="Stride.Core.Mathematics.Color3.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Lerp_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.Lerp(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3,System.Single)">
+  Lerp(Color3, Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L405"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Lerp(Color3 start, Color3 end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The linear interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Color3_Lerp_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Lerp_" data-uid="Stride.Core.Mathematics.Color3.Lerp*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Lerp_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Lerp(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,System.Single,Stride.Core.Mathematics.Color3@)">
+  Lerp(ref readonly Color3, ref readonly Color3, float, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a linear interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Lerp(ref readonly Color3 start, ref readonly Color3 end, float amount, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the linear interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="Stride_Core_Mathematics_Color3_Lerp_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs the linear interpolation based on the following formula.
+<code>start + (end - start) * amount</code>
+Passing <code class="paramref">amount</code> a value of 0 will cause <code class="paramref">start</code> to be returned; a value of 1 will cause <code class="paramref">end</code> to be returned.</p>
+</div>
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Max_" data-uid="Stride.Core.Mathematics.Color3.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Max_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Max(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Max(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L467"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the largest components of the specified colorss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Max(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>A color containing the largest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Max_" data-uid="Stride.Core.Mathematics.Color3.Max*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Max_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Max(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Max(ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L454"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colorss.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Max(ref readonly Color3 left, ref readonly Color3 right, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains an new color composed of the largest components of the source colorss.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Min_" data-uid="Stride.Core.Mathematics.Color3.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Min_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Min(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Min(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L492"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Min(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>A color containing the smallest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Min_" data-uid="Stride.Core.Mathematics.Color3.Min*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Min_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Min(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Min(ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a color containing the smallest components of the specified colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Min(ref readonly Color3 left, ref readonly Color3 right, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first source color.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second source color.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains an new color composed of the smallest components of the source colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Modulate_" data-uid="Stride.Core.Mathematics.Color3.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Modulate_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Modulate(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Modulate(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Modulate(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Modulate_" data-uid="Stride.Core.Mathematics.Color3.Modulate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Modulate_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Modulate(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Modulate(ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Modulate(ref readonly Color3 left, ref readonly Color3 right, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Negate_" data-uid="Stride.Core.Mathematics.Color3.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Negate_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Negate(Stride.Core.Mathematics.Color3)">
+  Negate(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L332"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Negate(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Negate_" data-uid="Stride.Core.Mathematics.Color3.Negate*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Negate_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Negate(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Negate(ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Negate(ref readonly Color3 value, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Pow_" data-uid="Stride.Core.Mathematics.Color3.Pow*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Pow_System_Single_" data-uid="Stride.Core.Mathematics.Color3.Pow(System.Single)">
+  Pow(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raises the exponent for each components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Pow(float exponent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>exponent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The exponent.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Scale_" data-uid="Stride.Core.Mathematics.Color3.Scale*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Scale_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.Scale(Stride.Core.Mathematics.Color3,System.Single)">
+  Scale(Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L310"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Scale(Color3 value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Scale_" data-uid="Stride.Core.Mathematics.Color3.Scale*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Scale_Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Scale(Stride.Core.Mathematics.Color3@,System.Single,Stride.Core.Mathematics.Color3@)">
+  Scale(ref readonly Color3, float, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Scale(ref readonly Color3 value, float scale, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The amount by which to scale.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_SmoothStep_" data-uid="Stride.Core.Mathematics.Color3.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_SmoothStep_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.SmoothStep(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3,System.Single)">
+  SmoothStep(Color3, Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 SmoothStep(Color3 start, Color3 end, float amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The cubic interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_SmoothStep_" data-uid="Stride.Core.Mathematics.Color3.SmoothStep*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_SmoothStep_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__System_Single_Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.SmoothStep(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,System.Single,Stride.Core.Mathematics.Color3@)">
+  SmoothStep(ref readonly Color3, ref readonly Color3, float, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a cubic interpolation between two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SmoothStep(ref readonly Color3 start, ref readonly Color3 end, float amount, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>Start color.</p>
+</dd>
+    <dt><code>end</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>End color.</p>
+</dd>
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Value between 0 and 1 indicating the weight of <code class="paramref">end</code>.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>When the method completes, contains the cubic interpolation of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Subtract_" data-uid="Stride.Core.Mathematics.Color3.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Subtract_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.Subtract(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  Subtract(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 Subtract(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to subtract</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_Subtract_" data-uid="Stride.Core.Mathematics.Color3.Subtract*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_Subtract_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color3__" data-uid="Stride.Core.Mathematics.Color3.Subtract(Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@,Stride.Core.Mathematics.Color3@)">
+  Subtract(ref readonly Color3, ref readonly Color3, out Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Subtract(ref readonly Color3 left, ref readonly Color3 right, out Color3 result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to subtract.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>WHen the method completes, contains the difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToArray_" data-uid="Stride.Core.Mathematics.Color3.ToArray*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToArray" data-uid="Stride.Core.Mathematics.Color3.ToArray">
+  ToArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an array containing the elements of the color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly float[] ToArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>A three-element array containing the components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToColor4_" data-uid="Stride.Core.Mathematics.Color3.ToColor4*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToColor4" data-uid="Stride.Core.Mathematics.Color3.ToColor4">
+  ToColor4()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L715"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Convert this color to an equivalent <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a> with an opaque alpha.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color4 ToColor4()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>An equivalent <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a> with an opaque alpha.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToLinear_" data-uid="Stride.Core.Mathematics.Color3.ToLinear*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToLinear" data-uid="Stride.Core.Mathematics.Color3.ToLinear">
+  ToLinear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this color from sRGB space to linear space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color3 ToLinear()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>Color3.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToRgb_" data-uid="Stride.Core.Mathematics.Color3.ToRgb*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToRgb" data-uid="Stride.Core.Mathematics.Color3.ToRgb">
+  ToRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a packed integer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int ToRgb()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A packed integer containing all three color components.
+The alpha channel is set to 255.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToSRgb_" data-uid="Stride.Core.Mathematics.Color3.ToSRgb*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToSRgb" data-uid="Stride.Core.Mathematics.Color3.ToSRgb">
+  ToSRgb()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L560"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts this color from linear space to sRGB space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Color3 ToSRgb()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>A color3 in sRGB space.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToString_" data-uid="Stride.Core.Mathematics.Color3.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToString" data-uid="Stride.Core.Mathematics.Color3.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L726"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToString_" data-uid="Stride.Core.Mathematics.Color3.ToString*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToString_System_String_System_IFormatProvider_" data-uid="Stride.Core.Mathematics.Color3.ToString(System.String,System.IFormatProvider)">
+  ToString(string?, IFormatProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L736"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>The format provider.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> that represents this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_ToVector3_" data-uid="Stride.Core.Mathematics.Color3.ToVector3*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_ToVector3" data-uid="Stride.Core.Mathematics.Color3.ToVector3">
+  ToVector3()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the color into a three component vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Vector3 ToVector3()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>A three component vector containing the red, green, and blue components of the color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Addition_" data-uid="Stride.Core.Mathematics.Color3.op_Addition*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Addition_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Addition(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  operator +(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L580"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator +(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to add.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The sum of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Equality_" data-uid="Stride.Core.Mathematics.Color3.op_Equality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Equality_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Equality(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  operator ==(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L655"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has the same value as <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Explicit_" data-uid="Stride.Core.Mathematics.Color3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Explicit_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Color4" data-uid="Stride.Core.Mathematics.Color3.op_Explicit(Stride.Core.Mathematics.Color3)~Stride.Core.Mathematics.Color4">
+  explicit operator Color4(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L676"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> to <a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Color4(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color4.html">Color4</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Explicit_" data-uid="Stride.Core.Mathematics.Color3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Explicit_Stride_Core_Mathematics_Color3__Stride_Core_Mathematics_Vector3" data-uid="Stride.Core.Mathematics.Color3.op_Explicit(Stride.Core.Mathematics.Color3)~Stride.Core.Mathematics.Vector3">
+  explicit operator Vector3(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L686"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a> to <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Vector3(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Explicit_" data-uid="Stride.Core.Mathematics.Color3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Explicit_Stride_Core_Mathematics_Vector3__Stride_Core_Mathematics_Color3" data-uid="Stride.Core.Mathematics.Color3.op_Explicit(Stride.Core.Mathematics.Vector3)~Stride.Core.Mathematics.Color3">
+  explicit operator Color3(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L696"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a> to <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Color3(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Vector3.html">Vector3</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Explicit_" data-uid="Stride.Core.Mathematics.Color3.op_Explicit*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Explicit_System_Int32__Stride_Core_Mathematics_Color3" data-uid="Stride.Core.Mathematics.Color3.op_Explicit(System.Int32)~Stride.Core.Mathematics.Color3">
+  explicit operator Color3(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L706"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an explicit conversion from <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> to <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Color3(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The result of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Inequality_" data-uid="Stride.Core.Mathematics.Color3.op_Inequality*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Inequality_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Inequality(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  operator !=(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L666"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first value to compare.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second value to compare.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if <code class="paramref">left</code> has a different value than <code class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Multiply_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Multiply_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  operator *(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L644"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Modulates two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator *(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to modulate.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to modulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The modulated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Multiply_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Multiply_Stride_Core_Mathematics_Color3_System_Single_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply(Stride.Core.Mathematics.Color3,System.Single)">
+  operator *(Color3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L633"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator *(Color3 value, float scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The factor by which to scale the color.</p>
+</dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Multiply_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Multiply_System_Single_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Multiply(System.Single,Stride.Core.Mathematics.Color3)">
+  operator *(float, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L622"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scales a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator *(float scale, Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The factor by which to scale the color.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to scale.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The scaled color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_Subtraction_" data-uid="Stride.Core.Mathematics.Color3.op_Subtraction*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_Subtraction_Stride_Core_Mathematics_Color3_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_Subtraction(Stride.Core.Mathematics.Color3,Stride.Core.Mathematics.Color3)">
+  operator -(Color3, Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L601"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtracts two colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator -(Color3 left, Color3 right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The first color to subtract.</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The second color to subtract.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The difference of the two colors.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_UnaryNegation_" data-uid="Stride.Core.Mathematics.Color3.op_UnaryNegation*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_UnaryNegation_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_UnaryNegation(Stride.Core.Mathematics.Color3)">
+  operator -(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L611"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Negates a color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator -(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to negate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>A negated color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Stride_Core_Mathematics_Color3_op_UnaryPlus_" data-uid="Stride.Core.Mathematics.Color3.op_UnaryPlus*"></a>
+
+  <h3 id="Stride_Core_Mathematics_Color3_op_UnaryPlus_Stride_Core_Mathematics_Color3_" data-uid="Stride.Core.Mathematics.Color3.op_UnaryPlus(Stride.Core.Mathematics.Color3)">
+  operator +(Color3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L590"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Assert a color (return it unchanged).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Color3 operator +(Color3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The color to assert (unchange).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Stride.Core.Mathematics.Color3.html">Color3</a></dt>
+    <dd><p>The asserted (unchanged) color.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride/blob/master-4.3/sources/core/Stride.Core.Mathematics/Color3.cs/#L39" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

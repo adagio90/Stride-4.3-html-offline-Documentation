@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Load and unload scenes at runtime | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Load and unload scenes at runtime | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/load-scenes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="load-and-unload-scenes-at-runtime">Load and unload scenes at runtime</h1>
+
+<h2 id="loading-scenes">Loading scenes</h2>
+<p>You can use <code>UrlReference&lt;Scene&gt;</code> properties on your scripts to assign <strong>Scene</strong> assets then load the via code:</p>
+<pre><code class="lang-cs">public UrlReference&lt;Scene&gt; ChildSceneUrl { get; set; }
+
+//...
+var childScene = Content.Load(ChildSceneUrl);
+
+parentScene.Children.Add(childScene);
+</code></pre>
+<p>Alternatively you can load scenes by name. The following code loads three scenes and adds them as children:</p>
+<pre><code class="lang-cs">var myChildScene0 = Content.Load&lt;Scene&gt;(url0);
+var myChildScene1 = Content.Load&lt;Scene&gt;(url1);
+var myChildScene2 = Content.Load&lt;Scene&gt;(url2);
+
+myParentScene.Children.Add(myChildScene0);
+myParentScene.Children.Add(myChildScene1);
+myChildScene1.Add(myChildScene2);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you are not using <code>UrlReference</code> make sure all the scenes you want to load are included in the build as <strong>root assets</strong> (indicated with blue icons in the <strong>Asset View</strong>).</p>
+</div>
+<blockquote>
+<p><img src="media/scenes-included-in-root.png" alt="Scenes included in root"></p>
+</blockquote>
+<blockquote>
+<p>To include a scene in the build, in the <strong>Asset View</strong>, right-click the scene asset and select <strong>Include in build as root asset</strong>.</p>
+</blockquote>
+<blockquote>
+<p>For more information about including assets in the build, see <a href="manage-assets.html">Manage assets</a>.</p>
+</blockquote>
+<p>For more information about scene hierarchies, see <a href="manage-scenes.html">Manage scenes</a>.</p>
+<h2 id="unloading-scenes">Unloading scenes</h2>
+<p>Before a scene is unloaded remove it from the scene hierarchy:</p>
+<pre><code class="lang-cs">parentScene.Children.Remove(childScene);
+
+//Alternatively
+childScene.Parent = null;
+</code></pre>
+<p>Once the scene asset is no longer required make sure to unload it:</p>
+<pre><code class="lang-cs">Content.Unload(childScene);
+</code></pre>
+<h2 id="scene-streaming-script">Scene streaming script</h2>
+<p>Stride also includes a scene streaming script that uses a <a href="../physics/triggers.html">trigger</a> to load scenes.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The scene streaming script is included as an example. It isn't always the most appropriate way to load scenes. Feel free to modify it as much as you need.</p>
+</div>
+<h3 id="add-a-scene-streaming-script">Add a scene streaming script</h3>
+<p>To add a scene streaming script, in the <strong>Asset View</strong> (bottom pane by default), click <strong>Add asset</strong> and select <strong>Scripts &gt; Scene streaming</strong>.</p>
+<p><img src="media/scene-streaming-script.png" alt="Scene streaming script"></p>
+<p>Game Studio adds a scene streaming script to your project assets.</p>
+<h3 id="use-the-scene-streaming-script">Use the scene streaming script</h3>
+<ol>
+<li><p>Create a trigger entity. When this is triggered at runtime, Stride loads the scene. For more information about creating triggers, see <a href="../physics/triggers.html">Triggers</a>.</p>
+<p>How the entity is triggered is defined in the collider properties. For more information, see <a href="../physics/colliders.html">Colliders</a>.</p>
+</li>
+<li><p>Create an entity and position it where you want the scene to load.</p>
+</li>
+<li><p>With the entity selected, in the <strong>Property Grid</strong> (on the righy by default), click <strong>Add component</strong> and select the <strong>scene streaming</strong> script.</p>
+<p><img src="media/add-scene-streaming-script.png" alt="Add script"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the scene streaming script doesn't appear in the list of components, reload the assemblies.</p>
+</div>
+<p>Game Studio adds the script to the entity as a component.</p>
+<p><img src="media/scene-streaming-script-properties.png" alt="Scene streaming properties"></p>
+</li>
+<li><p>Under <strong>Url</strong>, specify the scene asset you want to load.</p>
+</li>
+<li><p>Under <strong>Trigger</strong>, specify the entity you created in step 1.</p>
+</li>
+</ol>
+<p>At runtime, when the trigger you created in step 1 is triggered, Stride loads the scene you specified in step 4.</p>
+<h3 id="scene-streaming-script-properties">Scene streaming script properties</h3>
+<p><img src="media/scene-streaming-script-properties.png" alt="Scene streaming properties"></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre Load Depth</td>
+<td>The point (in <a href="world-units.html">world units</a>) at which the scene begins to load. For example, if <em>2.5</em>, the scene begins to load when the player is 2.5 units into the trigger area</td>
+</tr>
+<tr>
+<td>Load Depth</td>
+<td>The point (in <a href="world-units.html">world units</a>) at which the game freezes to finish loading the scene if it hasn't loaded already. For example, if <em>5</em>, the game freezes when the player is 5 units into the trigger area</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>The script priority. For more information, see <a href="../scripts/scheduling-and-priorities.html">Scheduling and priorities</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../physics/colliders.html">Colliders</a></li>
+<li><a href="../physics/triggers.html">Triggers</a></li>
+<li><a href="create-a-scene.html">Create and open a scene</a></li>
+<li><a href="navigate-in-the-scene-editor.html">Navigate in the Scene Editor</a></li>
+<li><a href="manage-scenes.html">Manage scenes</a></li>
+<li><a href="add-entities.html">Add entities</a></li>
+<li><a href="manage-entities.html">Manage entities</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/game-studio/load-scenes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

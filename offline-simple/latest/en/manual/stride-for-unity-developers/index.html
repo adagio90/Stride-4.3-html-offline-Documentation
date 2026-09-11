@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Stride for Unity&#174; developers | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Stride for Unity&#174; developers | Stride manual ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/stride-for-unity-developers/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../toc.js"></script>
+<script src="../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="stride-for-unity-developers">Stride for Unity® developers</h1>
+
+<p>Stride and Unity® both use C# and share many concepts, with a few major differences.</p>
+<p><img src="media/stride-vs-unity-opening-image.png" alt="Stride for Unity® developers"></p>
+<h2 id="editor">Editor</h2>
+<p>The Stride editor is <strong>Game Studio</strong>. This is the equivalent of the Unity® Editor.</p>
+<p><img src="media/stride-vs-unity-unitylayout.webp" alt="Unity® Editor layout"></p>
+<p><img src="media/stride-vs-unity-stridelayout.webp" alt="Stride Game Studio layout"></p>
+<p>You can customize the Game Studio layout by dragging tabs, similar to Visual Studio.</p>
+<p>For more information about Game Studio, see the <a href="../game-studio/index.html">Game Studio</a> page.</p>
+<h2 id="terminology">Terminology</h2>
+<p>Unity® and Stride use mostly common terms, with a few differences:</p>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hierarchy Window</td>
+<td>Entity Tree</td>
+</tr>
+<tr>
+<td>Inspector Window</td>
+<td>Property Grid</td>
+</tr>
+<tr>
+<td>Project Window</td>
+<td>Asset View</td>
+</tr>
+<tr>
+<td>Scene View</td>
+<td>Scene Editor</td>
+</tr>
+<tr>
+<td><a href="https://docs.unity3d.com/ScriptReference/GameObject.html"><code>GameObject</code></a></td>
+<td><a class="xref" href="../../api/Stride.Engine.Entity.html"><code>Entity</code></a></td>
+</tr>
+<tr>
+<td><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html"><code>MonoBehaviour</code></a></td>
+<td><a class="xref" href="../../api/Stride.Engine.SyncScript.html"><code>SyncScript</code></a>, <a class="xref" href="../../api/Stride.Engine.AsyncScript.html"><code>AsyncScript</code></a>, <a class="xref" href="../../api/Stride.Engine.StartupScript.html"><code>StartupScript</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="folders-and-files">Folders and files</h2>
+<p>Like Unity®, Stride projects are stored in a directory that contains:</p>
+<ul>
+<li>The project <code>.sln</code> solution file, which you can open with Game Studio or any IDE such as Visual Studio</li>
+<li>A <strong>MyGame.Game</strong> folder with project source files, dependencies, resources, configurations, and binaries</li>
+</ul>
+<p><img src="../files-and-folders/media/file-structure.webp" alt="Package folder structure"></p>
+<ul>
+<li><strong>Assets</strong> contains asset configuration files.</li>
+<li><strong>Bin</strong> contains the compiled binaries and data. Stride creates the folder when you build the project, with a subdirectory for each platform.</li>
+<li><strong>MyPackage.Game</strong> contains your source code.
+<ul>
+<li><strong>MyPackage.Platform</strong> contains additional code for the platforms your project supports. Game Studio creates folders for each platform (e.g. <em>MyPackage.Windows</em>, <em>MyPackage.Linux</em>, etc.). These folders are usually small and only contain the entry point of the program.</li>
+</ul>
+</li>
+<li><strong>obj</strong> contains cached files. Game Studio creates this folder when you build your project. To force a complete asset and code rebuild, delete this folder and build the project again.</li>
+<li><strong>Resources</strong> is the recommended location for storing source files for your project, such as textures, models, and audio files.</li>
+</ul>
+<p>Stride and Unity® differ in the following ways:</p>
+<ul>
+<li>Stride doesn't automatically copy resource files to your project folder when you import them into assets. You have to do this yourself. We recommend you save them in the <strong>Resources</strong> folder.</li>
+<li>Stride doesn't require resource files and asset files to be in the same folder. You can save resource files in the Assets folder if you want, but instead, we recommend you save them in the <strong>Resources</strong> folder. This makes sharing your project via version control easier.</li>
+</ul>
+<p>For more information about project structure in Stride, including advice about how to organize and share your files, see the <a href="../files-and-folders/project-structure.html">Project structure</a> page.</p>
+<h3 id="open-the-project-directory-from-game-studio">Open the project directory from Game Studio</h3>
+<p>You can open the project directory from <strong>Project &gt; Show in explorer</strong> in Game Studio.</p>
+<p><img src="media/stride-vs-unity-open-project-in-windows-explorer.png" alt="Open project directory from Game Studio"></p>
+<h2 id="game-settings">Game settings</h2>
+<p>Unity® saves global settings in separate assets (i.e. Graphics Settings, Quality Settings, Audio Manager, and so on).</p>
+<p>Stride saves global settings in a single asset, the <strong>Game Settings</strong> asset. You can configure:</p>
+<ul>
+<li>The <strong>default scene</strong></li>
+<li><strong>Rendering settings</strong></li>
+<li><strong>Editor settings</strong></li>
+<li><strong>Texture settings</strong></li>
+<li><strong>Physics settings</strong></li>
+<li><strong>Overrides</strong></li>
+</ul>
+<p>To use the Game Settings asset, in the <strong>Asset View</strong>, select <strong>GameSettings</strong> and view its properties in the <strong>Property Grid</strong>.</p>
+<p><img src="media/game-settings.png" alt="Game settings"></p>
+<h2 id="scenes">Scenes</h2>
+<p>Like Unity®, in Stride, you place all objects in a scene. Game Studio stores scenes as separate <code>.sdscene</code> assets in your project directory.</p>
+<h3 id="set-the-default-scene">Set the default scene</h3>
+<p>You can have multiple scenes in your project. The scene that loads up as soon as your game starts is called the <em>Default Scene</em>.</p>
+<p>To set the default scene:</p>
+<ol>
+<li><p>In the <strong>GameSettings</strong> properties, next to <strong>Default Scene</strong>, click <img src="../game-studio/media/hand-icon.png" alt="Hand icon"> (<strong>Select an asset</strong>).</p>
+<p><img src="media/stride-vs-unity-game-settings-default-scene.png" alt="Set default scene"></p>
+<p>The <strong>Select an asset</strong> window opens.</p>
+</li>
+<li><p>Select the default scene and click <strong>OK</strong>.</p>
+</li>
+</ol>
+<p>For more information about scenes, see <a href="../game-studio/scenes.html">Scenes</a>.</p>
+<h2 id="entities-vs-gameobjects">Entities vs GameObjects</h2>
+<p>In Unity®, objects in the scene are called <strong>GameObjects</strong>. In Stride, they're called <strong>entities</strong>.</p>
+<p><img src="media/stride-vs-unity-entities.jpg" alt="Entities in Stride"></p>
+<p>Like GameObjects, entities are carriers for components such as transform components, model components, audio components, and so on. If you're used to working with GameObjects in Unity®, you should have no problem using entities in Game Studio.</p>
+<h2 id="entity-components">Entity components</h2>
+<p>In Stride, you add components to entities just like you add components to GameObjects in Unity®.</p>
+<p>To add a component to an entity in Game Studio:</p>
+<ol>
+<li><p>Select the entity you want to add the component to.</p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select the component from the drop-down list.</p>
+<p><img src="media/stride-vs-unity-add-component-to-entity.png" alt="Add component"></p>
+</li>
+</ol>
+<h3 id="transform-component">Transform component</h3>
+<p>Like GameObjects in Unity®, each entity in Stride has a <a class="xref" href="../../api/Stride.Engine.TransformComponent.html">Transform component</a> which sets its position, rotation, and scale in the world.</p>
+<p><img src="media/stride-vs-unity-entity-transform-component.png" alt="Transform component"></p>
+<p>All entities are created with a Transform component by default.</p>
+<p>In Stride, Transform components contain a LocalMatrix and a WorldMatrix that are updated every Update frame. If you need to force an update sooner than that you can use <code>TransformComponent.UpdateLocalMatrix()</code>, <code>Transform.UpdateWorldMatrix()</code>, or <code>Transform.UpdateLocalFromWorld()</code> to do so, depending on how you need to update the matrix.</p>
+<h4 id="local-positionrotationscale">Local Position/Rotation/Scale</h4>
+<p>Stride uses position, rotation, and scale to refer to the local position, rotation, and scale.</p>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transform.localPosition</code></td>
+<td><code>Transform.Position</code></td>
+</tr>
+<tr>
+<td><code>transform.localRotation</code></td>
+<td><code>Transform.Rotation</code></td>
+</tr>
+<tr>
+<td><code>transform.localScale</code></td>
+<td><code>Transform.Scale</code></td>
+</tr>
+<tr>
+<td><code>transform.localEulerAngles</code></td>
+<td><code>Transform.RotationEulerXYZ</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="world-positionrotationscale">World Position/Rotation/Scale</h4>
+<p>In comparison to Unity, many of the Transform component's properties related to its location in the world have been moved to the <a class="xref" href="../../api/Stride.Engine.TransformComponent.html#Stride_Engine_TransformComponent_WorldMatrix">WorldMatrix</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transform.position</code></td>
+<td><code>Transform.WorldMatrix.TranslationVector</code></td>
+</tr>
+<tr>
+<td><code>transform.rotation</code></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>transform.scale</code></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>transform.eulerAngles</code></td>
+<td><code>Transform.WorldMatrix.DecomposeXYZ(out Vector3 rotation)</code></td>
+</tr>
+<tr>
+<td><code>transform.scale</code> and <code>transform.position</code></td>
+<td><code>Transform.WorldMatrix.Decompose(out Vector3 scale, out Vector3 translation)</code></td>
+</tr>
+<tr>
+<td><code>transform.scale</code>, <code>transform.rotation</code>, and <code>transform.position</code></td>
+<td><code>Transform.WorldMatrix.Decompose(out Vector3 scale, out Quaternion rotation, out Vector3 translation)</code></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>WorldMatrix</code> is only updated after the entire Update loop runs, which means that you may be reading outdated data if that object's or its parent's position changed between the previous frame and now. To ensure you're reading the latest position and rotation, you should force the matrix to update by calling <code>Transform.UpdateWorldMatrix()</code> before reading from it.</p>
+</div>
+<h4 id="transform-directions">Transform Directions</h4>
+<p>Unlike Unity, Stride provides a Backward, Left, and Down property.
+Note that those are matrix properties, so setting one of those is not enough to properly rotate the matrix.</p>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transform.forward</code></td>
+<td><code>Transform.WorldMatrix.Forward</code></td>
+</tr>
+<tr>
+<td><code>transform.forward * -1</code></td>
+<td><code>Transform.WorldMatrix.Backward</code></td>
+</tr>
+<tr>
+<td><code>transform.right</code></td>
+<td><code>Transform.WorldMatrix.Right</code></td>
+</tr>
+<tr>
+<td><code>transform.right * -1</code></td>
+<td><code>Transform.WorldMatrix.Left</code></td>
+</tr>
+<tr>
+<td><code>transform.up</code></td>
+<td><code>Transform.WorldMatrix.Up</code></td>
+</tr>
+<tr>
+<td><code>transform.up * -1</code></td>
+<td><code>Transform.WorldMatrix.Down</code></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>See the note in <a href="#world-positionrotationscale">World Position/Rotation/Scale</a></p>
+</div>
+<h2 id="assets">Assets</h2>
+<p>In Unity®, you select an asset in the <strong>project browser</strong> and edit its properties in the <strong>Inspector</strong> tab.</p>
+<p>Stride is similar. You select an asset in the <strong>Asset View</strong> and edit its properties in the <strong>Property Grid</strong>.</p>
+<p><img src="media/asset-and-properties.png" alt="Asset and properties"></p>
+<p>For certain types of assets, Game Studio also has dedicated editors:</p>
+<ul>
+<li>prefabs</li>
+<li>scenes</li>
+<li>sprite sheets</li>
+<li>UI pages</li>
+<li>UI libraries</li>
+<li>scripts</li>
+</ul>
+<p>To open the dedicated editor for these types of assets:</p>
+<ul>
+<li>double-click the asset, or</li>
+<li>right-click the asset and select Edit asset, or</li>
+<li>select the asset and press Ctrl + Enter</li>
+</ul>
+<p>The editor opens in a new tab. You can arrange the tabs how you like, or float them as separate windows, just like tabs in web browsers.</p>
+<p><img src="media/stride-vs-unity-different-editors.png" alt="Dedicated Stride editors"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you modify resource files outside Game Studio, the corresponding assets update automatically in Game Studio.</p>
+</div>
+<h3 id="scriptable-objects">Scriptable objects</h3>
+<p>See the <a href="../scripts/custom-assets.html">Custom Assets</a> page.</p>
+<h3 id="import-assets">Import assets</h3>
+<p>To import an asset, drag it from Explorer to the <strong>Asset View</strong>. You can also click an <strong>Add asset</strong> button, navigate to the desired file, and specify the type of asset you want to import.</p>
+<p>As soon as you add an asset to your project, you can edit its properties in the <strong>Property Grid</strong>.</p>
+<p><img src="media/stride-vs-unity-add-asset.png" alt="Add asset"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Unlike Unity®, Stride doesn't automatically copy resource files to the project directory when you import them into projects.</p>
+</div>
+<h3 id="supported-file-formats">Supported file formats</h3>
+<p>Like Unity®, Stride supports file formats including:</p>
+<table>
+<thead>
+<tr>
+<th>Asset type</th>
+<th>Supported formats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Models, animations, skeletons</td>
+<td><code>.fbx</code>, <code>.dae</code>, <code>.3ds</code>, <code>.obj</code>, <code>.blend</code>, <code>.x</code>, <code>.md2</code>, <code>.md3</code>, <code>.dxf</code></td>
+</tr>
+<tr>
+<td>Sprites, textures, skyboxes</td>
+<td><code>.dds</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.gif</code>, <code>.bmp</code>, <code>.tga</code>, <code>.psd</code>, <code>.tif</code>, <code>.tiff</code></td>
+</tr>
+<tr>
+<td>Audio</td>
+<td><code>.wav</code>, <code>.mp3</code>, <code>.ogg</code>, <code>.aac</code>, <code>.aiff</code>, <code>.flac</code>, <code>.m4a</code>, <code>.wma</code>, <code>.mpc</code></td>
+</tr>
+<tr>
+<td>Fonts</td>
+<td><code>.ttf</code>, <code>.otf</code></td>
+</tr>
+<tr>
+<td>Video</td>
+<td><code>.mp4</code></td>
+</tr>
+</tbody>
+</table>
+<p>For more information about assets, see <a href="../game-studio/assets.html">Assets</a>.</p>
+<h2 id="prefabs">Prefabs</h2>
+<p>Like Unity®, Stride uses prefabs. Prefabs are &quot;master&quot; versions of objects that you can reuse wherever you need. When you change a prefab, every instance of the prefab changes too.</p>
+<p><img src="media/stride-vs-unity-prefabs.webp" alt="Prefabs in Stride"></p>
+<p>Just like with Unity®, in Stride, you can add prefabs to other prefabs. These are called <strong>nested prefabs</strong>. If you modify a nested prefab, all the dependent prefabs inherit the change automatically.</p>
+<p>For example, imagine you create a <em>Vehicle</em> prefab with acceleration, braking, steering, and so on. Then you nest the <em>Vehicle</em> prefab inside prefabs of different types of vehicles: a taxi, bus, truck, etc. If you adjust a property in the <em>Vehicle</em> prefab, the changes are inherited by all other prefabs. For example, if you increase the Acceleration property in the <em>Vehicle</em> prefab, the acceleration property in the taxi, bus, and truck prefabs also increase.</p>
+<p>For more information about using prefabs in Stride, see <a href="../game-studio/prefabs/index.html">Prefabs</a>.</p>
+<h2 id="archetypes">Archetypes</h2>
+<p><strong>Archetypes</strong> are master assets that control the properties of assets you <strong>derive</strong> from them. Derived assets are useful when you want to create a &quot;remixed&quot; version of an asset. This is similar to prefabs.</p>
+<p>For example, imagine we have three sphere entities that share a material asset named <em>Metal</em>. Now imagine we want to change the color of only <em>one</em> sphere, but keep its other properties the same. We could duplicate the material asset, change its color, and then apply the new asset to only one sphere. But if we later want to change a different property across <em>all</em> the spheres, we have to modify both assets. This is time-consuming and leaves room for mistakes.</p>
+<p>The better approach is to derive a new asset from the archetype. The derived asset inherits properties from the archetype and lets you override individual properties where you need them. For example, we can derive the sphere's material asset and override its color. Then, if we change the gloss of the archetype, the gloss of all three spheres changes.</p>
+<p><img src="../game-studio/media/archetypes-three-spheres.png" alt="Create derived asset"></p>
+<p>You can derive an asset from an archetype, then in turn derive another asset from that derived asset. This way you can create different layers of assets to keep your project organized:</p>
+<pre><code class="lang-cs">Archetype
+    Derived asset
+        Derived asset
+</code></pre>
+<p>For more information about archetypes, see <a href="../game-studio/archetypes.html">Archetypes</a>.</p>
+<h2 id="object-lifetime">Object lifetime</h2>
+<p>Entities and components are not destroyed in Stride, they are removed from the scene they exist in and then freed by the <a href="https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/">Garbage Collector</a>.</p>
+<p>This seemingly small difference significantly changes how objects are managed within the engine.
+For example, entities can be removed from a scene, kept as a reference in a component, and added back into another scene later on.
+Components can be removed from an entity and added onto another without losing its internal state.</p>
+<h2 id="input">Input</h2>
+<p>Stride supports a variety of inputs. The code samples below demonstrate the difference in input code between Stride and Unity®.</p>
+<p>For more information about input in Stride, see <a href="../input/index.html">Input</a>.</p>
+<h4 id="unity">Unity®</h4>
+<pre><code class="lang-cs">void Update()
+{
+    // true for one frame in which the space bar was pressed
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        // Do something.
+    }
+
+    // true while this joystick button is down
+    if (Input.GetButton(&quot;joystick button 0&quot;))
+    {
+        // Do something.
+    }
+
+    float horiz = Input.GetAxis(&quot;Horizontal&quot;);
+    float vert = Input.GetAxis(&quot;Vertical&quot;);
+    // Do something else.
+}
+</code></pre>
+<h4 id="stride">Stride</h4>
+<pre><code class="lang-cs">public override void Update()
+{
+    // true for one frame in which the space bar was pressed
+    if (Input.IsKeyDown(Keys.Space))
+    {
+        // Do something.
+    }
+
+    // true while this joystick button is down
+    if (Input.GameControllers[0].IsButtonDown(0))
+    {
+        // Do something.
+    }
+
+    float horiz = (Input.IsKeyDown(Keys.Left) ? -1f : 0) + (Input.IsKeyDown(Keys.Right) ? 1f : 0);
+    float vert = (Input.IsKeyDown(Keys.Down) ? -1f : 0) + (Input.IsKeyDown(Keys.Up) ? 1f : 0);
+    // Do something else.
+}
+</code></pre>
+<h2 id="time">Time</h2>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Time.deltaTime</code></td>
+<td><code>Game.UpdateTime.WarpElapsed.TotalSeconds</code></td>
+</tr>
+<tr>
+<td><code>Time.unscaledDeltaTime</code></td>
+<td><code>Game.UpdateTime.Elapsed.TotalSeconds</code></td>
+</tr>
+<tr>
+<td><code>Time.realtimeSinceStartup</code></td>
+<td><code>Game.UpdateTime.Total.TotalSeconds</code></td>
+</tr>
+<tr>
+<td><code>Time.timeScale</code></td>
+<td><code>Game.UpdateTime.Factor</code></td>
+</tr>
+<tr>
+<td><code>Time.fixedDeltaTime</code></td>
+<td><code>myRigidbodyComponent.Simulation.FixedTimeStep</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="physics">Physics</h2>
+<p>Just like Unity®, Stride has three types of colliders:</p>
+<ul>
+<li>static colliders</li>
+<li>rigidbodies</li>
+<li>characters</li>
+</ul>
+<p>They're controlled by scripts in slightly different ways.</p>
+<h3 id="kinematic-rigidbodies">Kinematic rigidbodies</h3>
+<h4 id="unity-1">Unity®</h4>
+<pre><code class="lang-cs">public class KinematicX : MonoBehaviour
+{
+    public Rigidbody rigidBody;
+
+    void Start()
+    {
+        // Initialization of the component.
+        rigidBody = GetComponent&lt;Rigidbody&gt;();
+    }
+
+    void EnableRagdoll()
+    {
+        rigidBody.isKinematic = false;
+        rigidBody.detectCollisions = true;
+    }
+
+    void DisableRagdoll()
+    {
+        rigidBody.isKinematic = true;
+        rigidBody.detectCollisions = false;
+    }
+}
+</code></pre>
+<h4 id="stride-1">Stride</h4>
+<pre><code class="lang-cs">public class KinematicX : SyncScript
+{
+    public RigidbodyComponent rigidBody;
+
+    public override void Start()
+    {
+        // Initialization of the component.
+        rigidBody = Entity.Get&lt;RigidbodyComponent&gt;();
+    }
+
+    public override void Update()
+    {
+        // Perform an update every frame.
+    }
+
+    void EnableRagdoll()
+    {
+        rigidBody.IsKinematic = false;
+        rigidBody.ProcessCollisions = true;
+    }
+
+    void DisableRagdoll()
+    {
+        rigidBody.IsKinematic = true;
+        rigidBody.ProcessCollisions = false;
+    }
+}
+</code></pre>
+<p>For more information about rigidbodies in Stride, see <a href="../physics/rigid-bodies.html">Rigidbodies</a>.</p>
+<h3 id="triggers">Triggers</h3>
+<h4 id="unity-2">Unity®</h4>
+<pre><code class="lang-cs">// Occurs when game objects go through this trigger.
+void OnTriggerEnter(Collider Other)
+{
+    Other.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+}
+
+// Occurs when game objects move out of this trigger.
+void OnTriggerExit(Collider Other)
+{
+    Other.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+}
+</code></pre>
+<h4 id="stride-2">Stride</h4>
+<pre><code class="lang-cs">var trigger = Entity.Get&lt;PhysicsComponent&gt;();
+trigger.ProcessCollisions = true;
+
+// Start state machine.
+while (Game.IsRunning)
+{
+    // 1. Wait for an entity to collide with the trigger.
+    Collision firstCollision = await trigger.NewCollision();
+
+    PhysicsComponent otherCollider = trigger == firstCollision.ColliderA
+        ? firstCollision.ColliderB
+        : firstCollision.ColliderA;
+    otherCollider.Entity.Transform.Scale = new Vector3(2.0f, 2.0f, 2.0f);
+
+    // 2. Wait for the entity to exit the trigger.
+    Collision collision;
+
+    do
+    {
+        collision = await trigger.CollisionEnded();
+    }
+    while (collision != firstCollision);
+
+    otherCollider.Entity.Transform.Scale = new Vector3(1.0f, 1.0f, 1.0f);
+}
+</code></pre>
+<p>For more information about triggers in Stride, see <a href="../physics/triggers.html">Triggers</a></p>
+<h3 id="raycasting">Raycasting</h3>
+<h4 id="unity-3">Unity®</h4>
+<pre><code class="lang-cs">public static Collider FindGOCameraIsLookingAt()
+{
+    int distance = 50;
+
+    // Cast a ray and set it to the mouse cursor position in the game
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    RaycastHit hit;
+    if (Physics.Raycast(ray, out hit, distance))
+    {
+        // Draw invisible ray cast/vector
+        Debug.DrawLine(ray.origin, hit.point);
+        // Log hit area to the console
+        Debug.Log(hit.point);
+        return hit.collider;
+    }
+    return null;
+}
+</code></pre>
+<h4 id="stride-3">Stride</h4>
+<pre><code class="lang-cs">public static bool ScreenPositionToWorldPositionRaycast(Vector2 screenPos, CameraComponent camera, Simulation simulation)
+{
+    Matrix invViewProj = Matrix.Invert(camera.ViewProjectionMatrix);
+
+    Vector3 sPos;
+    sPos.X = screenPos.X * 2f - 1f;
+    sPos.Y = 1f - screenPos.Y * 2f;
+
+    sPos.Z = 0f;
+    Vector4 vectorNear = Vector3.Transform(sPos, invViewProj);
+    vectorNear /= vectorNear.W;
+
+    sPos.Z = 1f;
+    Vector4 vectorFar = Vector3.Transform(sPos, invViewProj);
+    vectorFar /= vectorFar.W;
+
+    HitResult result = simulation.Raycast(vectorNear.XYZ(), vectorFar.XYZ());
+    return result.Succeeded;
+}
+</code></pre>
+<p>For more information about Raycasting in Stride, see <a href="../physics/raycasting.html">Raycasting</a>.</p>
+<h2 id="scripts">Scripts</h2>
+<p>Stride saves scripts in a subfolder in the <strong>MyGame.Game</strong> folder in the project directory.</p>
+<p>To open a script in the Game Studio script editor, double-click it in the <strong>Asset View</strong>. The script editor has syntax highlighting, auto-completion, and live diagnostics.</p>
+<p><img src="media/stride-vs-unity-script-editor.png" alt="Stride script editor"></p>
+<p>You can also edit scripts in other IDEs, such as Visual Studio. When you edit a script in an external IDE, Stride reloads it automatically.</p>
+<p>If you install the Visual Studio plug-in during the Stride installation, you can open your project in Visual Studio from Game Studio. To do this, in the Game Studio toolbar, click <strong>Open in IDE</strong>.</p>
+<p><img src="media/stride-vs-unity-open-project-in-visual-studio.png" alt="Open project in Visual Studio"></p>
+<p>Alternatively, right-click the script in the <strong>Asset View</strong> and click <strong>Open asset file</strong>:</p>
+<p><img src="media/stride-vs-unity-open-asset-file.png" alt="Open asset file"></p>
+<h3 id="event-functions-start-update-execute-etc">Event functions (Start, Update, Execute, etc)</h3>
+<p>In Unity®, you work with MonoBehaviours using Start(), Update(), and other methods.</p>
+<p>Instead of MonoBehaviours, Stride has three types of scripts: SyncScript, AsyncScript, and StartupScript. For more information, see <a href="../scripts/types-of-script/index.html">Types of script</a>.</p>
+<h3 id="unity-monobehaviour">Unity® MonoBehaviour</h3>
+<pre><code class="lang-cs">public class BasicMethods : MonoBehaviour
+{
+    void Start() { }
+    void OnDestroy() { }
+    void Update() { }
+}
+</code></pre>
+<h3 id="stride-syncscript">Stride SyncScript</h3>
+<pre><code class="lang-cs">public class BasicMethods : SyncScript
+{
+    public override void Start() { }
+    public override void Cancel() { }        
+    public override void Update() { }
+}
+</code></pre>
+<h3 id="stride-asyncscript">Stride AsyncScript</h3>
+<pre><code class="lang-cs">public class BasicMethods : AsyncScript
+{
+    // Declared public member fields and properties that will appear in the game studio
+    public override async Task Execute()
+    {
+        while (Game.IsRunning)
+        {
+            // Do stuff every new frame
+            await Script.NextFrame();
+        }
+    }
+
+    public override void Cancel()
+    {
+        // Cleanup of the script
+    }     
+}
+</code></pre>
+<h3 id="stride-startupscript">Stride StartupScript</h3>
+<pre><code class="lang-cs">public class BasicMethods : StartupScript
+{
+    // Declared public member fields and properties that will appear in the game studio
+    public override void Start()
+    {
+        // Initialization of the script
+    }
+
+    public override void Cancel()
+    {
+        // Cleanup of the script
+    }     
+}
+</code></pre>
+<h2 id="script-components">Script components</h2>
+<p>Like Unity®, in Stride, you attach scripts to entities by adding them as script components.</p>
+<h3 id="create-a-script">Create a script</h3>
+<p>To create a script, click the <strong>Add asset</strong> button and select <strong>Scripts</strong>.</p>
+<p><img src="media/stride-vs-unity-create-script.png" alt="Create script in Stride"></p>
+<p>In Unity®, when you create a <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html"><code>MonoBehaviour</code></a> script, it has two base functions: <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html"><code>MonoBehaviour.Start()</code></a> and <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html"><code>MonoBehaviour.Update()</code></a>. Stride has a <a class="xref" href="../../api/Stride.Engine.SyncScript.html"><code>SyncScript</code></a> that works similarly. Like <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html"><code>MonoBehaviour</code></a>, <a class="xref" href="../../api/Stride.Engine.SyncScript.html"><code>SyncScript</code></a> has two methods:</p>
+<ul>
+<li><a class="xref" href="../../api/Stride.Engine.StartupScript.html#Stride_Engine_StartupScript_Start"><code>SyncScript.Start()</code></a> is called when the script is loaded.</li>
+<li><a class="xref" href="../../api/Stride.Engine.SyncScript.html#Stride_Engine_SyncScript_Update"><code>SyncScript.Update()</code></a> is called every update.</li>
+</ul>
+<p>Unlike <a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html"><code>MonoBehaviour</code></a>, implementing the <a class="xref" href="../../api/Stride.Engine.SyncScript.html#Stride_Engine_SyncScript_Update"><code>SyncScript.Update()</code></a> method is not optional, and as such, must be implemented in every <a class="xref" href="../../api/Stride.Engine.SyncScript.html"><code>SyncScript</code></a>.</p>
+<p>If you want your script to be a startup or asynchronous, use the corresponding script types:</p>
+<ul>
+<li><a class="xref" href="../../api/Stride.Engine.StartupScript.html"><code>StartupScript</code></a>: this script has a single <a class="xref" href="../../api/Stride.Engine.StartupScript.html#Stride_Engine_StartupScript_Start"><code>StartupScript.Start()</code></a> method. It initializes the scene and its content at startup.</li>
+<li><a class="xref" href="../../api/Stride.Engine.AsyncScript.html"><code>AsyncScript</code></a>: an asynchronous script with a single method <a class="xref" href="../../api/Stride.Engine.AsyncScript.html#Stride_Engine_AsyncScript_Execute"><code>AsyncScript.Execute()</code></a> and you can use async/await inside that method. Asynchronous scripts aren't loaded one by one like synchronous scripts. Instead, they're all loaded in parallel.</li>
+</ul>
+<h3 id="reload-assemblies">Reload assemblies</h3>
+<p>After you create a script, you may have to reload the assemblies manually. To do this, click <strong>Reload assemblies</strong> in the Game Studio toolbar.</p>
+<p><img src="../platforms/media/reload-assemblies.png" alt="Reload assemblies"></p>
+<h3 id="add-scripts-to-entities">Add scripts to entities</h3>
+<ol>
+<li><p>In the <strong>Entity Tree</strong> (on the left by default), or in the scene, select the entity you want to add the script to.</p>
+<p><img src="../scripts/media/select-entity.png" alt="Select an entity"></p>
+</li>
+<li><p>In the <strong>Property Grid</strong> (on the right by default), click <strong>Add component</strong> and select the script you want to add.</p>
+</li>
+</ol>
+<p><img src="../scripts/media/add-script-component.png" alt="Add script component"></p>
+<p>In Unity®, script components are grouped under <strong>Components &gt; Scripts</strong>. In Stride, scripts are not grouped. Instead, Game Studio lists them alphabetically with other components.</p>
+<p>For more information about adding scripts in Stride, see <a href="../scripts/use-a-script.html">Use a script</a>.</p>
+<h2 id="scripting-gameplay">Scripting gameplay</h2>
+<p>Unity® and Stride both use C#. However, scripting gameplay in Stride is a little different from Unity®.</p>
+<h3 id="instantiate-entity--gameobject">Instantiate Entity / GameObject</h3>
+<p>In Unity®, you use <code>Instantiate</code> to create new object instances. This function makes a copy of <code>UnityEngine.Object</code> and spawns it to the scene.</p>
+<h4 id="unity-4">Unity®</h4>
+<pre><code class="lang-cs">public GameObject CarPrefab;
+public Vector3 SpawnPosition;
+public Quaternion SpawnRotation;
+
+void Start()
+{
+    GameObject newGameObject = (GameObject)Instantiate(CarPrefab, SpawnPosition, SpawnRotation);
+    newGameObject.name = &quot;NewGameObject1&quot;;
+}
+</code></pre>
+<h4 id="stride-4">Stride</h4>
+<p>In Stride, you can instantiate <strong>Entities</strong> similarly to Unity® GameObjects:</p>
+<pre><code class="lang-cs">// Declared public member fields and properties displayed in the Game Studio Property Grid.
+public Prefab CarPrefab;
+public Vector3 SpawnPosition;
+public Quaternion SpawnRotation;
+
+public override void Start()
+{
+    // Initialization of the script.
+    List&lt;Entity&gt; car = CarPrefab.Instantiate();
+    SceneSystem.SceneInstance.RootScene.Entities.AddRange(car);
+    car[0].Transform.Position = SpawnPosition;
+    car[0].Transform.Rotation = SpawnRotation;
+    car[0].Name = &quot;MyNewEntity&quot;;
+}
+</code></pre>
+<h3 id="use-default-values">Use default values</h3>
+<p>Each class in Unity® has certain default values. If you don't override these properties in the script, the default values will be used. This works the same in Stride:</p>
+<h4 id="unity-5">Unity®</h4>
+<pre><code class="lang-cs">public int NewProp = 30;
+public Light MyLightComponent = null;
+
+void Start()
+{
+    // Create the light component if we don't already have one.
+    if (MyLightComponent == null)
+    {
+        MyLightComponent = gameObject.AddComponent&lt;Light&gt;();
+        MyLightComponent.intensity = 3;
+    }
+}
+</code></pre>
+<h4 id="stride-5">Stride</h4>
+<pre><code class="lang-cs">// Declared public member fields and properties displayed in the Game Studio Property Grid.
+public int NewProp = 30;
+public LightComponent MyLightComponent = null;
+
+public override void Start()
+{
+    // Create the light component if we don't already have one.
+    if (MyLightComponent == null)
+    {
+        MyLightComponent = new LightComponent();
+        MyLightComponent.Intensity = 3;
+        Entity.Add(MyLightComponent);
+    }
+}
+</code></pre>
+<h3 id="disable-gameobjectentity">Disable GameObject/entity</h3>
+<h4 id="unity-6">Unity®</h4>
+<pre><code class="lang-cs">MyGameObject.SetActive(false);
+</code></pre>
+<h4 id="stride-6">Stride</h4>
+<pre><code class="lang-cs">Entity.EnableAll(false, true);
+</code></pre>
+<h3 id="access-component-from-gameobjectentity">Access component from GameObject/entity</h3>
+<h4 id="unity-7">Unity®</h4>
+<pre><code class="lang-cs">Light lightComponent = GetComponent&lt;Light&gt;();
+</code></pre>
+<h4 id="stride-7">Stride</h4>
+<pre><code class="lang-cs">LightComponent lightComponent = Entity.Get&lt;LightComponent&gt;();
+</code></pre>
+<h3 id="access-gameobjectentity-from-component">Access GameObject/entity from component</h3>
+<h4 id="unity-8">Unity®</h4>
+<pre><code class="lang-cs">GameObject componentGameObject = lightComponent.gameObject;
+</code></pre>
+<h4 id="stride-8">Stride</h4>
+<pre><code class="lang-cs">Entity componentEntity = lightComponent.Entity;
+</code></pre>
+<h2 id="log-output">Log output</h2>
+<p>To view the log output, go to the <strong>Game Studio</strong> toolbar and click <strong>View</strong>, then enable the <strong>Output</strong> option.</p>
+<p><img src="media/enable-output.png" alt="Enable output"></p>
+<p>Once enabled, the <strong>Output</strong> tab will appear, typically located at the bottom of the <strong>Game Studio</strong> interface.</p>
+<p><img src="media/output-tab.png" alt="Output tab"></p>
+<h3 id="print-debug-messages">Print debug messages</h3>
+<p>Logging from a ScriptComponent:</p>
+<pre><code class="lang-cs">public override void Start()
+{
+    // Enables logging. It will also spawn a console window if no debuggers are attached.
+    // The argument dictates the kinds of message that will be filtered out, in this case, anything with less priority than warning won't show up
+    Log.ActivateLog(LogMessageType.Warning);
+    // Log this message to your console or IDE output window
+    Log.Warning(&quot;hello&quot;);
+}
+</code></pre>
+<pre><code class="lang-cs">System.Diagnostics.Debug.WriteLine(&quot;hello&quot;);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To print debug messages, you have to run the game from your IDE, not Game Studio. Running games cannot print to the Game Studio output window.</p>
+</div>
+<h2 id="attributes">Attributes</h2>
+<table>
+<thead>
+<tr>
+<th>Unity®</th>
+<th>Stride</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[Serializable]</code></td>
+<td><code>[DataContract]</code></td>
+</tr>
+<tr>
+<td><code>[SerializeField]</code></td>
+<td><code>[DataMember]</code></td>
+</tr>
+<tr>
+<td><code>[HideInInspector]</code></td>
+<td><code>[DataMemberIgnore]</code></td>
+</tr>
+<tr>
+<td><code>[Range]</code></td>
+<td><code>[DataMemberRange]</code></td>
+</tr>
+<tr>
+<td><code>[Header(&quot;My Header&quot;)]</code></td>
+<td><code>[Display(category: &quot;My Header&quot;)]</code></td>
+</tr>
+<tr>
+<td><code>[Tooltip(&quot;My tooltip&quot;)]</code></td>
+<td><code>/// &lt;userdoc&gt;My tooltip&lt;/userdoc&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You cannot serialize <code>private</code> fields in Stride, if you want to set a field in the editor but prevent other scripts from writing to that field, you should use an <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/init">init property</a></p>
+</div>
+<pre><code class="lang-cs">public float MyProperty { get; init; }
+</code></pre>
+<hr>
+<p>Unity® is a trademark of Unity Technologies.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../scripts/best-practice.html">Best Practice</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/stride-for-unity-developers/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

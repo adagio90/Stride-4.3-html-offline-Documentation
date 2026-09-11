@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Automatic shader stage input/output | Stride manual </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Automatic shader stage input/output | Stride manual ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/shading-language/automatic-shader-stage-input-output.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../../../../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="../../../toc.js"></script>
+<script src="../../../../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="automatic-shader-stage-inputoutput">Automatic shader stage input/output</h1>
+
+<p><span class="badge text-bg-primary">Advanced</span>
+<span class="badge text-bg-success">Programmer</span></p>
+<p>When you write a HLSL shader, you have to precisely define your vertex attributes and carefully pass them across the stage of your final shader.</p>
+<p>Here's an example of a simple HLSL shader that uses the color from the vertex.</p>
+<pre><code class="lang-cs">struct VS_IN
+{
+	float4 pos : POSITION;
+	float4 col : COLOR;
+};
+
+struct PS_IN
+{
+	float4 pos : SV_POSITION;
+	float4 col : COLOR;
+};
+
+PS_IN VS( VS_IN input )
+{
+	PS_IN output = (PS_IN)0;
+
+	output.pos = input.pos;
+	output.col = input.col;
+
+	return output;
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+	return input.col;
+}
+
+technique10 Render
+{
+	pass P0
+	{
+		SetGeometryShader( 0 );
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS() ) );
+	}
+}
+</code></pre>
+<p>Imagine you want to add a normal to your model and modify the resulting color accordingly. You have to modify the code that computes the color and adjust the intermediate structures to pass the attribute from the vertex to the pixel shader. You also have to be careful of the semantics you use.</p>
+<p><strong>Code:</strong> Modified HLSL shader</p>
+<pre><code class="lang-cs">struct VS_IN
+{
+	float4 pos : POSITION;
+	float4 col : COLOR;
+	float3 normal : NORMAL;
+};
+
+struct PS_IN
+{
+	float4 pos : SV_POSITION;
+	float4 col : COLOR;
+	float3 normal : TEXCOORD0;
+};
+
+PS_IN VS( VS_IN input )
+{
+	PS_IN output = (PS_IN)0;
+
+	output.pos = input.pos;
+	output.col = input.col;
+	output.normal = input.normal;
+
+	return output;
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+	return input.col * max(input.normal.z, 0.0);
+}
+
+technique10 Render
+{
+	pass P0
+	{
+		SetGeometryShader( 0 );
+		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, PS() ) );
+	}
+}
+</code></pre>
+<p>This example is simple. Real projects have many more shaders, so a single change might mean rewriting lots of shaders, structures, and so on.</p>
+<p>Schematically, adding a new attribute requires you to update all the stages and intermediate structures from the vertex input to the last stage you want to use the attribute in.</p>
+<p><img src="media/hlsl_add_normal.png" alt="media/hlsl_add_normal.png"></p>
+<h2 id="sdsl">SDSL</h2>
+<p>SDSL has a convenient way to pass parameters across the different stages of your shader. The stream variables are:</p>
+<ul>
+<li>variables</li>
+<li>defined like any shader member, with the stream keyword</li>
+<li>used with the stream prefix (omitting it results in a compilation error). When the stream is ambiguous (same name), you should provide the shader name in front of the variable (ie <code>streams.&lt;my_shader&gt;.&lt;my_variable&gt;</code>)</li>
+</ul>
+<p>Streams regroup the concepts of attributes, varyings and outputs in a single concept.</p>
+<ul>
+<li>An attribute is a stream read in a vertex shader before being written to.</li>
+<li>A varying is a stream present across shader stages.</li>
+<li>An output is a stream assigned before being read.</li>
+</ul>
+<p>Think of streams as global objects that you can access everywhere without specifying as a parameter of your functions.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You don't have to create a semantic for these variables; the compiler creates them automatically. However, keep in mind that <strong>the variables sharing the same semantic will be merged in the final shader</strong>. This behavior can be useful when you want to use a stream variable locally without inheriting from the shader where it was declared.</p>
+</div>
+<p>After you declare a stream, you can access it at any stage of your shader. The shader compiler takes care of everything. The variables just have to be visible from the calling code (ie in the inheritance hierarchy) like any other variable.</p>
+<p><strong>Code:</strong> Stream definition and use:</p>
+<pre><code class="lang-cs">shader BaseShader
+{
+	stream float3 myVar;
+ 
+	float3 Compute()
+	{
+		return streams.myVar;
+	}
+};
+</code></pre>
+<p><strong>Code:</strong> Stream specification</p>
+<pre><code class="lang-cs">shader StreamShader
+{
+	stream float3 myVar;
+};
+
+shader ShaderA : BaseShader, StreamShader
+{
+	float3 Test()
+	{
+		return streams.BaseShader.myVar + streams.StreamShader.myVar;
+	}
+}
+</code></pre>
+<h3 id="example-of-sdsl-shader">Example of SDSL shader</h3>
+<p>Let's look at the same HLSL shader as the first example but in SDSL.</p>
+<p><strong>Code:</strong> Same shader in SDSL</p>
+<pre><code class="lang-cs">shader MyShader : ShaderBase
+{
+	stream float4 pos : POSITION;
+	stream float4 col : COLOR;
+
+	override void VSMain()
+	{
+		streams.ShadingPosition = streams.pos;
+	}
+
+	override void PSMain()
+	{
+		streams.ColorTarget = streams.col;
+	}
+};
+</code></pre>
+<p>Now let's add the normal computation.</p>
+<p><strong>Code:</strong> Modified shader in SDSL</p>
+<pre><code class="lang-cs">shader MyShader : ShaderBase
+{
+	stream float4 pos : POSITION;
+	stream float4 col : COLOR;
+	stream float3 normal : NORMAL;
+
+	override void VSMain()
+	{
+		streams.ShadingPosition = streams.pos;
+	}
+
+	override void PSMain()
+	{
+		streams.ColorTarget = streams.col * max(streams.normal.z, 0.0);
+	}
+};
+</code></pre>
+<p>In SDSL, adding a new attribute is as simple as adding it to the pool of streams and using it where you want.</p>
+<p><img src="media/sdsl_add_normal.png" alt="media/sdsl_add_normal.png"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../effect-language.html">Effect language</a></li>
+<li><a href="index.html">Shading language index</a>
+<ul>
+<li><a href="shader-classes-mixins-and-inheritance.html">Shader classes, mixins and inheritance</a></li>
+<li><a href="composition.html">Composition</a></li>
+<li><a href="templates.html">Templates</a></li>
+<li><a href="shader-stages.html">Shader stages</a></li>
+</ul>
+</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/manual/graphics/effects-and-shaders/shading-language/automatic-shader-stage-input-output.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

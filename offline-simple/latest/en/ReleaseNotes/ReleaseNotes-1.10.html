@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Xenko 1.10 release notes | Stride release notes </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Xenko 1.10 release notes | Stride release notes ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.10.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../media/stride-logo-red.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <a class="nav-link" href="../buscar.html"><i class="bi bi-search"></i> Buscar</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc">
+  <form class="filter" onsubmit="return false">
+    <i class="bi bi-filter"></i>
+    <input id="toc-filter" class="form-control" type="search" placeholder="Filter by title" aria-label="Filter by title">
+  </form>
+  <div class="flex-fill overflow-y-auto" id="toc-tree"></div>
+</nav>
+<script src="toc.js"></script>
+<script src="../public/toc-tree.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="xenko-110-release-notes">Xenko 1.10 release notes</h1>
+
+<h2 id="highlights">Highlights</h2>
+<p>Xenko 1.10β improves stability and performance and introduces changes in the asset serialization.</p>
+<h3 id="tool-performance">Tool performance</h3>
+<p>This release comes packed with several performance improvements, especially in the Game Studio and Asset Compiler.</p>
+<p>We've rewritten how assets are loaded in the scene editor, resulting in a faster and smoother loading in the background, as well as reduced memory usage.</p>
+<p>We've made various improvements to the Asset Compiler startup time (important since we start multiple Asset Compilers to process FBX files). Also various key importers, such as the FBX importers, weren't scaling well with lots of polygons.</p>
+<p>The Content Bundle packing (run at the end of the Asset Compiler) can now work incrementally. Before, if you had several gigabytes of data but only changed a small asset, compilation was fast but saving the new bundle took a long time at the end of the build. This operation should be almost instant now.</p>
+<h3 id="unique-guid-inside-an-asset">Unique GUID inside an asset</h3>
+<p>While not a breaking change, we've introduced a new paradigm in our asset infrastructure, implying that any <em>identifiable</em> object (ie any object that implements <code>IIdentifiable</code> interface) must have a unique identifier in the asset containing it.</p>
+<p>This constraint makes it easier to handle internal references inside an asset. Since it wasn't enforced before, <strong>the first time you open an existing project with version 1.10, you might see warnings stating that the identifiers of some objects have been rewritten</strong> (especially entity components and scripts). This is expected and should be harmless. The warnings shouldn't appear the next time you open the project.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="version-1100-beta">Version 1.10.0-beta</h3>
+<p>Release date 2017/3/9</p>
+<h4 id="enhancements">Enhancements</h4>
+<h5 id="animation">Animation</h5>
+<ul>
+<li>The additive animation asset has been removed. Animation assets now support both regular and additive clips. Check the animation documentation for details</li>
+<li>You can now specify start and end frames for animation clips. The animation framerate can be changed in the Game Settings asset. Actual data is still saved and used in seconds</li>
+<li>PlayingAnimations is no longer visible in design time</li>
+<li>The API for the animation component has changed. See the documentation or create an AnimationStart pre-built script for a quick look</li>
+<li>Various bug fixes</li>
+</ul>
+<h5 id="general">General</h5>
+<ul>
+<li>Content packaging in bundles is now incremental in Debug and Release. It drastically improves iteration time when making small changes then re-running a game with many or large assets. AppStore configuration will do a full rebuild</li>
+<li>Asset compilation should have better startup time and be faster when spawning sub-processes (used by FBX)</li>
+<li>FBX import for meshes with lots of triangles was extremely slow due to unoptimized access to edge data</li>
+<li>FBX asset compilation would sometimes fail because the data limit on WCF was too low</li>
+<li>Removed unecessary hashing of assemblies when building assets</li>
+<li>Assets (YAML) now supports multiline strings properly</li>
+</ul>
+<h5 id="game-studio">Game Studio</h5>
+<ul>
+<li>In the Scene and Prefab editors, asset loading is now async, much faster, and more memory-friendly</li>
+<li>You can now right-click a prefab instance and select &quot;Select prefab in asset view&quot;</li>
+<li>Improved keyboard navigation in tree views (eg solution explorer, scene hierarchy): left arrow goes to parent node, right arrow goes to first child (when on a node)</li>
+<li>Nodes of the entity tree in the scene/prefab editors automatically expand when children are added</li>
+</ul>
+<h5 id="graphics">Graphics</h5>
+<ul>
+<li>Improved SetViewport (which has a separate count from render target count)</li>
+<li>Added SetScissorRectangle (note: viewport and scissors only work well for first viewport) <a href="https://github.com/SiliconStudio/xenko/issues/521">#521</a></li>
+<li>Vulkan: SwapChain clearing wasn't passing validation layer</li>
+<li>Forward+ light culling wasn't working well if projection matrix was off-center (ie VR)</li>
+<li>RenderDocPlugin assembly lets you automatically load RenderDoc and capture inside editor (using /RenderDoc flag) or game</li>
+<li>Cluster lighting wasn't working on OpenGL and OpenGL ES due to unimplemented <code>UpdateSubresource</code> for 3D textures</li>
+</ul>
+<h5 id="navigation">Navigation</h5>
+<ul>
+<li>Debug overlay inside of the Game Studio is now slightly transparent</li>
+</ul>
+<h5 id="particles">Particles</h5>
+<ul>
+<li>ShapeBuilder API has been updated. Custom shape builder implementations have to be upgraded accordingly</li>
+</ul>
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<h5 id="general-1">General</h5>
+<ul>
+<li>C# &quot;fixed&quot; arrays didn't work due to IL changes</li>
+<li>Connection Router sometimes couldn't restart properly due to adb child process keeping the parent process port open</li>
+</ul>
+<h5 id="game-studio-1">Game Studio</h5>
+<ul>
+<li>When importing an effect log, it often ended up in the wrong package. It's now created in the currently active package</li>
+<li>Keyboard input often got stuck in the Game Studio (especially annoying when moving)</li>
+<li>Script editor often crashed on saving or creation. Several related issues fixed</li>
+<li>Mouse cursor could disappear during drag-and-drop operations <a href="https://github.com/SiliconStudio/xenko/issues/385">#385</a> and <a href="https://github.com/SiliconStudio/xenko/issues/546">#546</a></li>
+<li>Changing the layout type in the UI editor could make Game Studio crash <a href="https://github.com/SiliconStudio/xenko/issues/547">#547</a></li>
+<li>Fix several issues related to folders in Scene and Prefab editors (renaming, copy/paste, undo/redo)</li>
+<li>Fix a rare crash with the clipboard when another application is using it</li>
+<li>Fix a crash that could occur when removing an item from certain types of collections</li>
+<li>Fix input of Windows device name (CON, NUL, COM1) as folder names</li>
+</ul>
+<h5 id="assets">Assets</h5>
+<ul>
+<li>Assets that contain multiple identifiable objects with the same <code>Id</code> now go through a fixup pass at load to re-generate unique ids</li>
+<li>Make sure we generate new Ids for such objects after manipulations such as copy/pasting, duplicating, etc</li>
+<li>When a property of an asset was overridden (from the archetype or from a prefab) to a value equivalent to the default value of the property, the override information was lost after reloading</li>
+<li>The deserialization of some types from an asset file could fail due to impropert type and assembly resolving</li>
+<li>Animations wouldn't import when the skeleton used for the animation had missing or extra bones</li>
+<li>Some texture compression pairs which failed before now attempt a two-step conversion to create the target output format</li>
+<li>FBX importer now ignores empty string names during mesh importing</li>
+<li>Several crash issues fixed in the Assimp importer</li>
+<li>SDF fonts and msdfgen have been upgraded to handle overlapping contours</li>
+</ul>
+<h5 id="graphics-1">Graphics</h5>
+<ul>
+<li>Material culling wasn't applied properly</li>
+<li>Multi Render Target info wasn't kept when doing multithread rendering with multiple command lists</li>
+<li>Ambient lighting didn't update after the last Ambient Light had been removed from the scene</li>
+<li>Fix possible shadow map hole between cascades, at specific viewing angles when using blending</li>
+</ul>
+<h5 id="navigation-1">Navigation</h5>
+<ul>
+<li>TryFindPath would return a valid path even if the starting and ending point weren't connected</li>
+</ul>
+<h3 id="version-1101-beta">Version 1.10.1-beta</h3>
+<p>Release date 2017/3/13</p>
+<h4 id="bugs-fixed-1">Bugs fixed</h4>
+<h5 id="game-studio-2">Game Studio</h5>
+<ul>
+<li>Fix a concurrency problem that could make the Game Studio crash while loading or updating assets in the Scene Editor</li>
+</ul>
+<h3 id="version-1102-beta">Version 1.10.2-beta</h3>
+<p>Release date 2017/3/14</p>
+<h4 id="bugs-fixed-2">Bugs fixed</h4>
+<h5 id="game-studio-3">Game Studio</h5>
+<ul>
+<li>Fix additional concurrency problems that could make the Game Studio crash while loading or updating assets in the Scene Editor</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/stride3d/stride-docs/blob/master/en/ReleaseNotes/ReleaseNotes-1.10.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <div class="d-flex flex-column flex-sm-row justify-content-between pt-1 text-center small"><p>Supported by the <a href="https://dotnetfoundation.org/" target="_blank" rel="noopener">.NET Foundation</a></p><p>Made with <a href="https://dotnet.github.io/docfx">docfx</a></p><p>Stride Docs Website v.2.0.0.24</p><p>&copy; .NET Foundation and Contributors</p></div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
